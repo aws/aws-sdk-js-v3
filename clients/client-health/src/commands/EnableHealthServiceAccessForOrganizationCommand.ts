@@ -66,8 +66,7 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * const input = {};
  * const command = new EnableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMetricFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

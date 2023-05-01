@@ -105,57 +105,56 @@ export interface CreateMediaConcatenationPipelineCommandOutput
  * };
  * const command = new CreateMediaConcatenationPipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMediaConcatenationPipelineResponse
- *   MediaConcatenationPipeline: { // MediaConcatenationPipeline
- *     MediaPipelineId: "STRING_VALUE",
- *     MediaPipelineArn: "STRING_VALUE",
- *     Sources: [ // ConcatenationSourceList
- *       { // ConcatenationSource
- *         Type: "MediaCapturePipeline", // required
- *         MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
- *           MediaPipelineArn: "STRING_VALUE", // required
- *           ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
- *             ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
- *               Audio: { // AudioConcatenationConfiguration
- *                 State: "Enabled", // required
- *               },
- *               Video: { // VideoConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *               Content: { // ContentConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *               DataChannel: { // DataChannelConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *               TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *               MeetingEvents: { // MeetingEventsConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *               CompositedVideo: { // CompositedVideoConcatenationConfiguration
- *                 State: "Enabled" || "Disabled", // required
- *               },
- *             },
- *           },
- *         },
- *       },
- *     ],
- *     Sinks: [ // ConcatenationSinkList
- *       { // ConcatenationSink
- *         Type: "S3Bucket", // required
- *         S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
- *           Destination: "STRING_VALUE", // required
- *         },
- *       },
- *     ],
- *     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateMediaConcatenationPipelineResponse
+ * //   MediaConcatenationPipeline: { // MediaConcatenationPipeline
+ * //     MediaPipelineId: "STRING_VALUE",
+ * //     MediaPipelineArn: "STRING_VALUE",
+ * //     Sources: [ // ConcatenationSourceList
+ * //       { // ConcatenationSource
+ * //         Type: "MediaCapturePipeline", // required
+ * //         MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
+ * //           MediaPipelineArn: "STRING_VALUE", // required
+ * //           ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
+ * //             ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
+ * //               Audio: { // AudioConcatenationConfiguration
+ * //                 State: "Enabled", // required
+ * //               },
+ * //               Video: { // VideoConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //               Content: { // ContentConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //               DataChannel: { // DataChannelConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //               TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //               MeetingEvents: { // MeetingEventsConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //               CompositedVideo: { // CompositedVideoConcatenationConfiguration
+ * //                 State: "Enabled" || "Disabled", // required
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     Sinks: [ // ConcatenationSinkList
+ * //       { // ConcatenationSink
+ * //         Type: "S3Bucket", // required
+ * //         S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
+ * //           Destination: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

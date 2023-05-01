@@ -48,21 +48,20 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  * };
  * const command = new ListRotationOverridesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRotationOverridesResult
- *   RotationOverrides: [ // RotationOverrides
- *     { // RotationOverride
- *       RotationOverrideId: "STRING_VALUE", // required
- *       NewContactIds: [ // SsmContactsArnList // required
- *         "STRING_VALUE",
- *       ],
- *       StartTime: new Date("TIMESTAMP"), // required
- *       EndTime: new Date("TIMESTAMP"), // required
- *       CreateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRotationOverridesResult
+ * //   RotationOverrides: [ // RotationOverrides
+ * //     { // RotationOverride
+ * //       RotationOverrideId: "STRING_VALUE", // required
+ * //       NewContactIds: [ // SsmContactsArnList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StartTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"), // required
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

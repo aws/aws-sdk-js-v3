@@ -47,15 +47,14 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * };
  * const command = new ListEntitledApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEntitledApplicationsResult
- *   EntitledApplications: [ // EntitledApplicationList
- *     { // EntitledApplication
- *       ApplicationIdentifier: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEntitledApplicationsResult
+ * //   EntitledApplications: [ // EntitledApplicationList
+ * //     { // EntitledApplication
+ * //       ApplicationIdentifier: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,15 +60,14 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * };
  * const command = new AddListenerCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddListenerCertificatesOutput
- *   Certificates: [ // CertificateList
- *     { // Certificate
- *       CertificateArn: "STRING_VALUE",
- *       IsDefault: true || false,
- *     },
- *   ],
- * };
+ * // { // AddListenerCertificatesOutput
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateArn: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

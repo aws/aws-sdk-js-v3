@@ -47,10 +47,9 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * };
  * const command = new VerifyTrustCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifyTrustResult
- *   TrustId: "STRING_VALUE",
- * };
+ * // { // VerifyTrustResult
+ * //   TrustId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,17 +49,16 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * };
  * const command = new DescribeAppInstanceAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppInstanceAdminResponse
- *   AppInstanceAdmin: { // AppInstanceAdmin
- *     Admin: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     AppInstanceArn: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeAppInstanceAdminResponse
+ * //   AppInstanceAdmin: { // AppInstanceAdmin
+ * //     Admin: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     AppInstanceArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

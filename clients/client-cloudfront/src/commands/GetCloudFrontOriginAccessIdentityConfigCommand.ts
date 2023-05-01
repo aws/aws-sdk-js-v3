@@ -53,14 +53,13 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
  * };
  * const command = new GetCloudFrontOriginAccessIdentityConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCloudFrontOriginAccessIdentityConfigResult
- *   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
- *     CallerReference: "STRING_VALUE", // required
- *     Comment: "STRING_VALUE", // required
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetCloudFrontOriginAccessIdentityConfigResult
+ * //   CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE", // required
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

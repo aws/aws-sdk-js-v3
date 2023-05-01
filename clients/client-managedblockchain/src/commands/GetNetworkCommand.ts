@@ -49,39 +49,38 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  * };
  * const command = new GetNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkOutput
- *   Network: { // Network
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
- *     FrameworkVersion: "STRING_VALUE",
- *     FrameworkAttributes: { // NetworkFrameworkAttributes
- *       Fabric: { // NetworkFabricAttributes
- *         OrderingServiceEndpoint: "STRING_VALUE",
- *         Edition: "STARTER" || "STANDARD",
- *       },
- *       Ethereum: { // NetworkEthereumAttributes
- *         ChainId: "STRING_VALUE",
- *       },
- *     },
- *     VpcEndpointServiceName: "STRING_VALUE",
- *     VotingPolicy: { // VotingPolicy
- *       ApprovalThresholdPolicy: { // ApprovalThresholdPolicy
- *         ThresholdPercentage: Number("int"),
- *         ProposalDurationInHours: Number("int"),
- *         ThresholdComparator: "GREATER_THAN" || "GREATER_THAN_OR_EQUAL_TO",
- *       },
- *     },
- *     Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
- *     CreationDate: new Date("TIMESTAMP"),
- *     Tags: { // OutputTagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     Arn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetNetworkOutput
+ * //   Network: { // Network
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ * //     FrameworkVersion: "STRING_VALUE",
+ * //     FrameworkAttributes: { // NetworkFrameworkAttributes
+ * //       Fabric: { // NetworkFabricAttributes
+ * //         OrderingServiceEndpoint: "STRING_VALUE",
+ * //         Edition: "STARTER" || "STANDARD",
+ * //       },
+ * //       Ethereum: { // NetworkEthereumAttributes
+ * //         ChainId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     VpcEndpointServiceName: "STRING_VALUE",
+ * //     VotingPolicy: { // VotingPolicy
+ * //       ApprovalThresholdPolicy: { // ApprovalThresholdPolicy
+ * //         ThresholdPercentage: Number("int"),
+ * //         ProposalDurationInHours: Number("int"),
+ * //         ThresholdComparator: "GREATER_THAN" || "GREATER_THAN_OR_EQUAL_TO",
+ * //       },
+ * //     },
+ * //     Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

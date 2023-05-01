@@ -115,95 +115,94 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * };
  * const command = new StartStreamTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartStreamTranscriptionResponse
- *   RequestId: "STRING_VALUE",
- *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
- *   MediaSampleRateHertz: Number("int"),
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac",
- *   VocabularyName: "STRING_VALUE",
- *   SessionId: "STRING_VALUE",
- *   TranscriptResultStream: { // TranscriptResultStream Union: only one key present
- *     TranscriptEvent: { // TranscriptEvent
- *       Transcript: { // Transcript
- *         Results: [ // ResultList
- *           { // Result
- *             ResultId: "STRING_VALUE",
- *             StartTime: Number("double"),
- *             EndTime: Number("double"),
- *             IsPartial: true || false,
- *             Alternatives: [ // AlternativeList
- *               { // Alternative
- *                 Transcript: "STRING_VALUE",
- *                 Items: [ // ItemList
- *                   { // Item
- *                     StartTime: Number("double"),
- *                     EndTime: Number("double"),
- *                     Type: "pronunciation" || "punctuation",
- *                     Content: "STRING_VALUE",
- *                     VocabularyFilterMatch: true || false,
- *                     Speaker: "STRING_VALUE",
- *                     Confidence: Number("double"),
- *                     Stable: true || false,
- *                   },
- *                 ],
- *                 Entities: [ // EntityList
- *                   { // Entity
- *                     StartTime: Number("double"),
- *                     EndTime: Number("double"),
- *                     Category: "STRING_VALUE",
- *                     Type: "STRING_VALUE",
- *                     Content: "STRING_VALUE",
- *                     Confidence: Number("double"),
- *                   },
- *                 ],
- *               },
- *             ],
- *             ChannelId: "STRING_VALUE",
- *             LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
- *             LanguageIdentification: [ // LanguageIdentification
- *               { // LanguageWithScore
- *                 LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
- *                 Score: Number("double"),
- *               },
- *             ],
- *           },
- *         ],
- *       },
- *     },
- *     BadRequestException: { // BadRequestException
- *       Message: "STRING_VALUE",
- *     },
- *     LimitExceededException: { // LimitExceededException
- *       Message: "STRING_VALUE",
- *     },
- *     InternalFailureException: { // InternalFailureException
- *       Message: "STRING_VALUE",
- *     },
- *     ConflictException: { // ConflictException
- *       Message: "STRING_VALUE",
- *     },
- *     ServiceUnavailableException: { // ServiceUnavailableException
- *       Message: "STRING_VALUE",
- *     },
- *   },
- *   VocabularyFilterName: "STRING_VALUE",
- *   VocabularyFilterMethod: "remove" || "mask" || "tag",
- *   ShowSpeakerLabel: true || false,
- *   EnableChannelIdentification: true || false,
- *   NumberOfChannels: Number("int"),
- *   EnablePartialResultsStabilization: true || false,
- *   PartialResultsStability: "high" || "medium" || "low",
- *   ContentIdentificationType: "PII",
- *   ContentRedactionType: "PII",
- *   PiiEntityTypes: "STRING_VALUE",
- *   LanguageModelName: "STRING_VALUE",
- *   IdentifyLanguage: true || false,
- *   LanguageOptions: "STRING_VALUE",
- *   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
- *   VocabularyNames: "STRING_VALUE",
- *   VocabularyFilterNames: "STRING_VALUE",
- * };
+ * // { // StartStreamTranscriptionResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //   MediaSampleRateHertz: Number("int"),
+ * //   MediaEncoding: "pcm" || "ogg-opus" || "flac",
+ * //   VocabularyName: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   TranscriptResultStream: { // TranscriptResultStream Union: only one key present
+ * //     TranscriptEvent: { // TranscriptEvent
+ * //       Transcript: { // Transcript
+ * //         Results: [ // ResultList
+ * //           { // Result
+ * //             ResultId: "STRING_VALUE",
+ * //             StartTime: Number("double"),
+ * //             EndTime: Number("double"),
+ * //             IsPartial: true || false,
+ * //             Alternatives: [ // AlternativeList
+ * //               { // Alternative
+ * //                 Transcript: "STRING_VALUE",
+ * //                 Items: [ // ItemList
+ * //                   { // Item
+ * //                     StartTime: Number("double"),
+ * //                     EndTime: Number("double"),
+ * //                     Type: "pronunciation" || "punctuation",
+ * //                     Content: "STRING_VALUE",
+ * //                     VocabularyFilterMatch: true || false,
+ * //                     Speaker: "STRING_VALUE",
+ * //                     Confidence: Number("double"),
+ * //                     Stable: true || false,
+ * //                   },
+ * //                 ],
+ * //                 Entities: [ // EntityList
+ * //                   { // Entity
+ * //                     StartTime: Number("double"),
+ * //                     EndTime: Number("double"),
+ * //                     Category: "STRING_VALUE",
+ * //                     Type: "STRING_VALUE",
+ * //                     Content: "STRING_VALUE",
+ * //                     Confidence: Number("double"),
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             ChannelId: "STRING_VALUE",
+ * //             LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //             LanguageIdentification: [ // LanguageIdentification
+ * //               { // LanguageWithScore
+ * //                 LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //                 Score: Number("double"),
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     BadRequestException: { // BadRequestException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     LimitExceededException: { // LimitExceededException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InternalFailureException: { // InternalFailureException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ConflictException: { // ConflictException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ServiceUnavailableException: { // ServiceUnavailableException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   VocabularyFilterName: "STRING_VALUE",
+ * //   VocabularyFilterMethod: "remove" || "mask" || "tag",
+ * //   ShowSpeakerLabel: true || false,
+ * //   EnableChannelIdentification: true || false,
+ * //   NumberOfChannels: Number("int"),
+ * //   EnablePartialResultsStabilization: true || false,
+ * //   PartialResultsStability: "high" || "medium" || "low",
+ * //   ContentIdentificationType: "PII",
+ * //   ContentRedactionType: "PII",
+ * //   PiiEntityTypes: "STRING_VALUE",
+ * //   LanguageModelName: "STRING_VALUE",
+ * //   IdentifyLanguage: true || false,
+ * //   LanguageOptions: "STRING_VALUE",
+ * //   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //   VocabularyNames: "STRING_VALUE",
+ * //   VocabularyFilterNames: "STRING_VALUE",
+ * // };
  *
  * ```
  *

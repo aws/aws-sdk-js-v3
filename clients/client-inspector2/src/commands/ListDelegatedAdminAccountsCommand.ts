@@ -46,16 +46,15 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * };
  * const command = new ListDelegatedAdminAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDelegatedAdminAccountsResponse
- *   delegatedAdminAccounts: [ // DelegatedAdminAccountList
- *     { // DelegatedAdminAccount
- *       accountId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDelegatedAdminAccountsResponse
+ * //   delegatedAdminAccounts: [ // DelegatedAdminAccountList
+ * //     { // DelegatedAdminAccount
+ * //       accountId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

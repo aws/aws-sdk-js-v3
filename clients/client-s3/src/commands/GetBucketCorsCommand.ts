@@ -64,27 +64,26 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * };
  * const command = new GetBucketCorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketCorsOutput
- *   CORSRules: [ // CORSRules
- *     { // CORSRule
- *       ID: "STRING_VALUE",
- *       AllowedHeaders: [ // AllowedHeaders
- *         "STRING_VALUE",
- *       ],
- *       AllowedMethods: [ // AllowedMethods // required
- *         "STRING_VALUE",
- *       ],
- *       AllowedOrigins: [ // AllowedOrigins // required
- *         "STRING_VALUE",
- *       ],
- *       ExposeHeaders: [ // ExposeHeaders
- *         "STRING_VALUE",
- *       ],
- *       MaxAgeSeconds: Number("int"),
- *     },
- *   ],
- * };
+ * // { // GetBucketCorsOutput
+ * //   CORSRules: [ // CORSRules
+ * //     { // CORSRule
+ * //       ID: "STRING_VALUE",
+ * //       AllowedHeaders: [ // AllowedHeaders
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedMethods: [ // AllowedMethods // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedOrigins: [ // AllowedOrigins // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ExposeHeaders: [ // ExposeHeaders
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MaxAgeSeconds: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -54,14 +54,13 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * };
  * const command = new ListGroupPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupPoliciesResponse
- *   PolicyNames: [ // policyNameListType // required
- *     "STRING_VALUE",
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListGroupPoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

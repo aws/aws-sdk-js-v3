@@ -45,23 +45,22 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * };
  * const command = new DeleteCoipPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCoipPoolResult
- *   CoipPool: { // CoipPool
- *     PoolId: "STRING_VALUE",
- *     PoolCidrs: [ // ValueStringList
- *       "STRING_VALUE",
- *     ],
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     PoolArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteCoipPoolResult
+ * //   CoipPool: { // CoipPool
+ * //     PoolId: "STRING_VALUE",
+ * //     PoolCidrs: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PoolArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

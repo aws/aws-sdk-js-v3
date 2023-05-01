@@ -50,25 +50,24 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNodesResponse
- *   Nodes: [ // NodesList
- *     { // Node
- *       NodeId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       Category: "STRING_VALUE", // required
- *       OwnerAccount: "STRING_VALUE",
- *       PackageName: "STRING_VALUE", // required
- *       PackageId: "STRING_VALUE", // required
- *       PackageArn: "STRING_VALUE",
- *       PackageVersion: "STRING_VALUE", // required
- *       PatchVersion: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNodesResponse
+ * //   Nodes: [ // NodesList
+ * //     { // Node
+ * //       NodeId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Category: "STRING_VALUE", // required
+ * //       OwnerAccount: "STRING_VALUE",
+ * //       PackageName: "STRING_VALUE", // required
+ * //       PackageId: "STRING_VALUE", // required
+ * //       PackageArn: "STRING_VALUE",
+ * //       PackageVersion: "STRING_VALUE", // required
+ * //       PatchVersion: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

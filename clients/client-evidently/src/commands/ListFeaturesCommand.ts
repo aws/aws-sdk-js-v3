@@ -46,31 +46,30 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * };
  * const command = new ListFeaturesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFeaturesResponse
- *   features: [ // FeatureSummariesList
- *     { // FeatureSummary
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       project: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       createdTime: new Date("TIMESTAMP"), // required
- *       lastUpdatedTime: new Date("TIMESTAMP"), // required
- *       evaluationStrategy: "STRING_VALUE", // required
- *       evaluationRules: [ // EvaluationRulesList
- *         { // EvaluationRule
- *           name: "STRING_VALUE",
- *           type: "STRING_VALUE", // required
- *         },
- *       ],
- *       defaultVariation: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFeaturesResponse
+ * //   features: [ // FeatureSummariesList
+ * //     { // FeatureSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       project: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       createdTime: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //       evaluationStrategy: "STRING_VALUE", // required
+ * //       evaluationRules: [ // EvaluationRulesList
+ * //         { // EvaluationRule
+ * //           name: "STRING_VALUE",
+ * //           type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       defaultVariation: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

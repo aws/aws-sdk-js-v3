@@ -53,16 +53,15 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * };
  * const command = new GetSchemaVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaVersionResponse
- *   SchemaVersionId: "STRING_VALUE",
- *   SchemaDefinition: "STRING_VALUE",
- *   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
- *   SchemaArn: "STRING_VALUE",
- *   VersionNumber: Number("long"),
- *   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
- *   CreatedTime: "STRING_VALUE",
- * };
+ * // { // GetSchemaVersionResponse
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   SchemaDefinition: "STRING_VALUE",
+ * //   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ * //   SchemaArn: "STRING_VALUE",
+ * //   VersionNumber: Number("long"),
+ * //   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * //   CreatedTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

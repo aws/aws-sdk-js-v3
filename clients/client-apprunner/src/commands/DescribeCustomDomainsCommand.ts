@@ -46,34 +46,33 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * };
  * const command = new DescribeCustomDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomDomainsResponse
- *   DNSTarget: "STRING_VALUE", // required
- *   ServiceArn: "STRING_VALUE", // required
- *   CustomDomains: [ // CustomDomainList // required
- *     { // CustomDomain
- *       DomainName: "STRING_VALUE", // required
- *       EnableWWWSubdomain: true || false, // required
- *       CertificateValidationRecords: [ // CertificateValidationRecordList
- *         { // CertificateValidationRecord
- *           Name: "STRING_VALUE",
- *           Type: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           Status: "PENDING_VALIDATION" || "SUCCESS" || "FAILED",
- *         },
- *       ],
- *       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETE_FAILED" || "PENDING_CERTIFICATE_DNS_VALIDATION" || "BINDING_CERTIFICATE", // required
- *     },
- *   ],
- *   VpcDNSTargets: [ // VpcDNSTargetList // required
- *     { // VpcDNSTarget
- *       VpcIngressConnectionArn: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeCustomDomainsResponse
+ * //   DNSTarget: "STRING_VALUE", // required
+ * //   ServiceArn: "STRING_VALUE", // required
+ * //   CustomDomains: [ // CustomDomainList // required
+ * //     { // CustomDomain
+ * //       DomainName: "STRING_VALUE", // required
+ * //       EnableWWWSubdomain: true || false, // required
+ * //       CertificateValidationRecords: [ // CertificateValidationRecordList
+ * //         { // CertificateValidationRecord
+ * //           Name: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           Status: "PENDING_VALIDATION" || "SUCCESS" || "FAILED",
+ * //         },
+ * //       ],
+ * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETE_FAILED" || "PENDING_CERTIFICATE_DNS_VALIDATION" || "BINDING_CERTIFICATE", // required
+ * //     },
+ * //   ],
+ * //   VpcDNSTargets: [ // VpcDNSTargetList // required
+ * //     { // VpcDNSTarget
+ * //       VpcIngressConnectionArn: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

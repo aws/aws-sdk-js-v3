@@ -51,16 +51,15 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCollectionsResponse
- *   CollectionIds: [ // CollectionIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   FaceModelVersions: [ // FaceModelVersionList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListCollectionsResponse
+ * //   CollectionIds: [ // CollectionIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   FaceModelVersions: [ // FaceModelVersionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

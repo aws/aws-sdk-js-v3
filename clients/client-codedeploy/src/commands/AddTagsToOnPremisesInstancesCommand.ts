@@ -55,8 +55,7 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * };
  * const command = new AddTagsToOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

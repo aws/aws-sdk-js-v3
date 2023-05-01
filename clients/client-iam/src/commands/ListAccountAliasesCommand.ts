@@ -47,14 +47,13 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * };
  * const command = new ListAccountAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountAliasesResponse
- *   AccountAliases: [ // accountAliasListType // required
- *     "STRING_VALUE",
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListAccountAliasesResponse
+ * //   AccountAliases: [ // accountAliasListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

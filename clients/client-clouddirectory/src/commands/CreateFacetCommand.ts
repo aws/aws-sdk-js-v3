@@ -77,8 +77,7 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * };
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

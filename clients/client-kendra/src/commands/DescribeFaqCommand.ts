@@ -45,24 +45,23 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * };
  * const command = new DescribeFaqCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFaqResponse
- *   Id: "STRING_VALUE",
- *   IndexId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   UpdatedAt: new Date("TIMESTAMP"),
- *   S3Path: { // S3Path
- *     Bucket: "STRING_VALUE", // required
- *     Key: "STRING_VALUE", // required
- *   },
- *   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- *   RoleArn: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- *   FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
- *   LanguageCode: "STRING_VALUE",
- * };
+ * // { // DescribeFaqResponse
+ * //   Id: "STRING_VALUE",
+ * //   IndexId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   S3Path: { // S3Path
+ * //     Bucket: "STRING_VALUE", // required
+ * //     Key: "STRING_VALUE", // required
+ * //   },
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //   RoleArn: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
+ * //   LanguageCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

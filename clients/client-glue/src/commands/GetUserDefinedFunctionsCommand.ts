@@ -48,27 +48,26 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * };
  * const command = new GetUserDefinedFunctionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserDefinedFunctionsResponse
- *   UserDefinedFunctions: [ // UserDefinedFunctionList
- *     { // UserDefinedFunction
- *       FunctionName: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       ClassName: "STRING_VALUE",
- *       OwnerName: "STRING_VALUE",
- *       OwnerType: "USER" || "ROLE" || "GROUP",
- *       CreateTime: new Date("TIMESTAMP"),
- *       ResourceUris: [ // ResourceUriList
- *         { // ResourceUri
- *           ResourceType: "JAR" || "FILE" || "ARCHIVE",
- *           Uri: "STRING_VALUE",
- *         },
- *       ],
- *       CatalogId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetUserDefinedFunctionsResponse
+ * //   UserDefinedFunctions: [ // UserDefinedFunctionList
+ * //     { // UserDefinedFunction
+ * //       FunctionName: "STRING_VALUE",
+ * //       DatabaseName: "STRING_VALUE",
+ * //       ClassName: "STRING_VALUE",
+ * //       OwnerName: "STRING_VALUE",
+ * //       OwnerType: "USER" || "ROLE" || "GROUP",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       ResourceUris: [ // ResourceUriList
+ * //         { // ResourceUri
+ * //           ResourceType: "JAR" || "FILE" || "ARCHIVE",
+ * //           Uri: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CatalogId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

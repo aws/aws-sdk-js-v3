@@ -44,8 +44,7 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * };
  * const command = new DeleteInputSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

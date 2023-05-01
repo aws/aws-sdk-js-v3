@@ -49,10 +49,9 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * };
  * const command = new SetIpAddressTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetIpAddressTypeOutput
- *   IpAddressType: "ipv4" || "dualstack",
- * };
+ * // { // SetIpAddressTypeOutput
+ * //   IpAddressType: "ipv4" || "dualstack",
+ * // };
  *
  * ```
  *

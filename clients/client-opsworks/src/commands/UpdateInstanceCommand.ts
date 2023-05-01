@@ -62,8 +62,7 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,24 +45,23 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * };
  * const command = new ListFunctionDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFunctionDefinitionsResponse
- *   Definitions: [ // __listOfDefinitionInformation
- *     { // DefinitionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       LastUpdatedTimestamp: "STRING_VALUE",
- *       LatestVersion: "STRING_VALUE",
- *       LatestVersionArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFunctionDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

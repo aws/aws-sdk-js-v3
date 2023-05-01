@@ -51,10 +51,9 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * };
  * const command = new UpdateImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateImageResponse
- *   ImageArn: "STRING_VALUE",
- * };
+ * // { // UpdateImageResponse
+ * //   ImageArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

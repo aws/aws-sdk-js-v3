@@ -52,161 +52,160 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * };
  * const command = new DescribePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PoliciesType
- *   ScalingPolicies: [ // ScalingPolicies
- *     { // ScalingPolicy
- *       AutoScalingGroupName: "STRING_VALUE",
- *       PolicyName: "STRING_VALUE",
- *       PolicyARN: "STRING_VALUE",
- *       PolicyType: "STRING_VALUE",
- *       AdjustmentType: "STRING_VALUE",
- *       MinAdjustmentStep: Number("int"),
- *       MinAdjustmentMagnitude: Number("int"),
- *       ScalingAdjustment: Number("int"),
- *       Cooldown: Number("int"),
- *       StepAdjustments: [ // StepAdjustments
- *         { // StepAdjustment
- *           MetricIntervalLowerBound: Number("double"),
- *           MetricIntervalUpperBound: Number("double"),
- *           ScalingAdjustment: Number("int"), // required
- *         },
- *       ],
- *       MetricAggregationType: "STRING_VALUE",
- *       EstimatedInstanceWarmup: Number("int"),
- *       Alarms: [ // Alarms
- *         { // Alarm
- *           AlarmName: "STRING_VALUE",
- *           AlarmARN: "STRING_VALUE",
- *         },
- *       ],
- *       TargetTrackingConfiguration: { // TargetTrackingConfiguration
- *         PredefinedMetricSpecification: { // PredefinedMetricSpecification
- *           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
- *           ResourceLabel: "STRING_VALUE",
- *         },
- *         CustomizedMetricSpecification: { // CustomizedMetricSpecification
- *           MetricName: "STRING_VALUE",
- *           Namespace: "STRING_VALUE",
- *           Dimensions: [ // MetricDimensions
- *             { // MetricDimension
- *               Name: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *           Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
- *           Unit: "STRING_VALUE",
- *           Metrics: [ // TargetTrackingMetricDataQueries
- *             { // TargetTrackingMetricDataQuery
- *               Id: "STRING_VALUE", // required
- *               Expression: "STRING_VALUE",
- *               MetricStat: { // TargetTrackingMetricStat
- *                 Metric: { // Metric
- *                   Namespace: "STRING_VALUE", // required
- *                   MetricName: "STRING_VALUE", // required
- *                   Dimensions: [
- *                     {
- *                       Name: "STRING_VALUE", // required
- *                       Value: "STRING_VALUE", // required
- *                     },
- *                   ],
- *                 },
- *                 Stat: "STRING_VALUE", // required
- *                 Unit: "STRING_VALUE",
- *               },
- *               Label: "STRING_VALUE",
- *               ReturnData: true || false,
- *             },
- *           ],
- *         },
- *         TargetValue: Number("double"), // required
- *         DisableScaleIn: true || false,
- *       },
- *       Enabled: true || false,
- *       PredictiveScalingConfiguration: { // PredictiveScalingConfiguration
- *         MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
- *           { // PredictiveScalingMetricSpecification
- *             TargetValue: Number("double"), // required
- *             PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPair
- *               PredefinedMetricType: "ASGCPUUtilization" || "ASGNetworkIn" || "ASGNetworkOut" || "ALBRequestCount", // required
- *               ResourceLabel: "STRING_VALUE",
- *             },
- *             PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetric
- *               PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
- *               ResourceLabel: "STRING_VALUE",
- *             },
- *             PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetric
- *               PredefinedMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
- *               ResourceLabel: "STRING_VALUE",
- *             },
- *             CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedScalingMetric
- *               MetricDataQueries: [ // MetricDataQueries // required
- *                 { // MetricDataQuery
- *                   Id: "STRING_VALUE", // required
- *                   Expression: "STRING_VALUE",
- *                   MetricStat: { // MetricStat
- *                     Metric: {
- *                       Namespace: "STRING_VALUE", // required
- *                       MetricName: "STRING_VALUE", // required
- *                       Dimensions: "<MetricDimensions>",
- *                     },
- *                     Stat: "STRING_VALUE", // required
- *                     Unit: "STRING_VALUE",
- *                   },
- *                   Label: "STRING_VALUE",
- *                   ReturnData: true || false,
- *                 },
- *               ],
- *             },
- *             CustomizedLoadMetricSpecification: { // PredictiveScalingCustomizedLoadMetric
- *               MetricDataQueries: [ // required
- *                 {
- *                   Id: "STRING_VALUE", // required
- *                   Expression: "STRING_VALUE",
- *                   MetricStat: {
- *                     Metric: {
- *                       Namespace: "STRING_VALUE", // required
- *                       MetricName: "STRING_VALUE", // required
- *                       Dimensions: "<MetricDimensions>",
- *                     },
- *                     Stat: "STRING_VALUE", // required
- *                     Unit: "STRING_VALUE",
- *                   },
- *                   Label: "STRING_VALUE",
- *                   ReturnData: true || false,
- *                 },
- *               ],
- *             },
- *             CustomizedCapacityMetricSpecification: { // PredictiveScalingCustomizedCapacityMetric
- *               MetricDataQueries: [ // required
- *                 {
- *                   Id: "STRING_VALUE", // required
- *                   Expression: "STRING_VALUE",
- *                   MetricStat: {
- *                     Metric: {
- *                       Namespace: "STRING_VALUE", // required
- *                       MetricName: "STRING_VALUE", // required
- *                       Dimensions: "<MetricDimensions>",
- *                     },
- *                     Stat: "STRING_VALUE", // required
- *                     Unit: "STRING_VALUE",
- *                   },
- *                   Label: "STRING_VALUE",
- *                   ReturnData: true || false,
- *                 },
- *               ],
- *             },
- *           },
- *         ],
- *         Mode: "ForecastAndScale" || "ForecastOnly",
- *         SchedulingBufferTime: Number("int"),
- *         MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
- *         MaxCapacityBuffer: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // PoliciesType
+ * //   ScalingPolicies: [ // ScalingPolicies
+ * //     { // ScalingPolicy
+ * //       AutoScalingGroupName: "STRING_VALUE",
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyARN: "STRING_VALUE",
+ * //       PolicyType: "STRING_VALUE",
+ * //       AdjustmentType: "STRING_VALUE",
+ * //       MinAdjustmentStep: Number("int"),
+ * //       MinAdjustmentMagnitude: Number("int"),
+ * //       ScalingAdjustment: Number("int"),
+ * //       Cooldown: Number("int"),
+ * //       StepAdjustments: [ // StepAdjustments
+ * //         { // StepAdjustment
+ * //           MetricIntervalLowerBound: Number("double"),
+ * //           MetricIntervalUpperBound: Number("double"),
+ * //           ScalingAdjustment: Number("int"), // required
+ * //         },
+ * //       ],
+ * //       MetricAggregationType: "STRING_VALUE",
+ * //       EstimatedInstanceWarmup: Number("int"),
+ * //       Alarms: [ // Alarms
+ * //         { // Alarm
+ * //           AlarmName: "STRING_VALUE",
+ * //           AlarmARN: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       TargetTrackingConfiguration: { // TargetTrackingConfiguration
+ * //         PredefinedMetricSpecification: { // PredefinedMetricSpecification
+ * //           PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ * //           ResourceLabel: "STRING_VALUE",
+ * //         },
+ * //         CustomizedMetricSpecification: { // CustomizedMetricSpecification
+ * //           MetricName: "STRING_VALUE",
+ * //           Namespace: "STRING_VALUE",
+ * //           Dimensions: [ // MetricDimensions
+ * //             { // MetricDimension
+ * //               Name: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
+ * //           Unit: "STRING_VALUE",
+ * //           Metrics: [ // TargetTrackingMetricDataQueries
+ * //             { // TargetTrackingMetricDataQuery
+ * //               Id: "STRING_VALUE", // required
+ * //               Expression: "STRING_VALUE",
+ * //               MetricStat: { // TargetTrackingMetricStat
+ * //                 Metric: { // Metric
+ * //                   Namespace: "STRING_VALUE", // required
+ * //                   MetricName: "STRING_VALUE", // required
+ * //                   Dimensions: [
+ * //                     {
+ * //                       Name: "STRING_VALUE", // required
+ * //                       Value: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 Stat: "STRING_VALUE", // required
+ * //                 Unit: "STRING_VALUE",
+ * //               },
+ * //               Label: "STRING_VALUE",
+ * //               ReturnData: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //         TargetValue: Number("double"), // required
+ * //         DisableScaleIn: true || false,
+ * //       },
+ * //       Enabled: true || false,
+ * //       PredictiveScalingConfiguration: { // PredictiveScalingConfiguration
+ * //         MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
+ * //           { // PredictiveScalingMetricSpecification
+ * //             TargetValue: Number("double"), // required
+ * //             PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPair
+ * //               PredefinedMetricType: "ASGCPUUtilization" || "ASGNetworkIn" || "ASGNetworkOut" || "ALBRequestCount", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetric
+ * //               PredefinedMetricType: "ASGAverageCPUUtilization" || "ASGAverageNetworkIn" || "ASGAverageNetworkOut" || "ALBRequestCountPerTarget", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetric
+ * //               PredefinedMetricType: "ASGTotalCPUUtilization" || "ASGTotalNetworkIn" || "ASGTotalNetworkOut" || "ALBTargetGroupRequestCount", // required
+ * //               ResourceLabel: "STRING_VALUE",
+ * //             },
+ * //             CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedScalingMetric
+ * //               MetricDataQueries: [ // MetricDataQueries // required
+ * //                 { // MetricDataQuery
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: { // MetricStat
+ * //                     Metric: {
+ * //                       Namespace: "STRING_VALUE", // required
+ * //                       MetricName: "STRING_VALUE", // required
+ * //                       Dimensions: "<MetricDimensions>",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //             CustomizedLoadMetricSpecification: { // PredictiveScalingCustomizedLoadMetric
+ * //               MetricDataQueries: [ // required
+ * //                 {
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: {
+ * //                     Metric: {
+ * //                       Namespace: "STRING_VALUE", // required
+ * //                       MetricName: "STRING_VALUE", // required
+ * //                       Dimensions: "<MetricDimensions>",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //             CustomizedCapacityMetricSpecification: { // PredictiveScalingCustomizedCapacityMetric
+ * //               MetricDataQueries: [ // required
+ * //                 {
+ * //                   Id: "STRING_VALUE", // required
+ * //                   Expression: "STRING_VALUE",
+ * //                   MetricStat: {
+ * //                     Metric: {
+ * //                       Namespace: "STRING_VALUE", // required
+ * //                       MetricName: "STRING_VALUE", // required
+ * //                       Dimensions: "<MetricDimensions>",
+ * //                     },
+ * //                     Stat: "STRING_VALUE", // required
+ * //                     Unit: "STRING_VALUE",
+ * //                   },
+ * //                   Label: "STRING_VALUE",
+ * //                   ReturnData: true || false,
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         Mode: "ForecastAndScale" || "ForecastOnly",
+ * //         SchedulingBufferTime: Number("int"),
+ * //         MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
+ * //         MaxCapacityBuffer: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,16 +48,15 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * };
  * const command = new ProvisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionPublicIpv4PoolCidrResult
- *   PoolId: "STRING_VALUE",
- *   PoolAddressRange: { // PublicIpv4PoolRange
- *     FirstAddress: "STRING_VALUE",
- *     LastAddress: "STRING_VALUE",
- *     AddressCount: Number("int"),
- *     AvailableAddressCount: Number("int"),
- *   },
- * };
+ * // { // ProvisionPublicIpv4PoolCidrResult
+ * //   PoolId: "STRING_VALUE",
+ * //   PoolAddressRange: { // PublicIpv4PoolRange
+ * //     FirstAddress: "STRING_VALUE",
+ * //     LastAddress: "STRING_VALUE",
+ * //     AddressCount: Number("int"),
+ * //     AvailableAddressCount: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

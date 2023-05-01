@@ -83,12 +83,11 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * };
  * const command = new CreateLicenseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLicenseResponse
- *   LicenseArn: "STRING_VALUE",
- *   Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateLicenseResponse
+ * //   LicenseArn: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

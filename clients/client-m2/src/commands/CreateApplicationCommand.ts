@@ -56,12 +56,11 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationResponse
- *   applicationArn: "STRING_VALUE", // required
- *   applicationId: "STRING_VALUE", // required
- *   applicationVersion: Number("int"), // required
- * };
+ * // { // CreateApplicationResponse
+ * //   applicationArn: "STRING_VALUE", // required
+ * //   applicationId: "STRING_VALUE", // required
+ * //   applicationVersion: Number("int"), // required
+ * // };
  *
  * ```
  *

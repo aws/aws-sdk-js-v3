@@ -58,13 +58,12 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * };
  * const command = new CreateCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCoreDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateCoreDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

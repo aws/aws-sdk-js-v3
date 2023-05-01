@@ -63,8 +63,7 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * };
  * const command = new AssociateProactiveEngagementDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

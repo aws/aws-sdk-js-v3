@@ -45,20 +45,19 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * };
  * const command = new GetLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLinkOutput
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Label: "STRING_VALUE",
- *   LabelTemplate: "STRING_VALUE",
- *   ResourceTypes: [ // ResourceTypesOutput
- *     "STRING_VALUE",
- *   ],
- *   SinkArn: "STRING_VALUE",
- *   Tags: { // TagMapOutput
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetLinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Label: "STRING_VALUE",
+ * //   LabelTemplate: "STRING_VALUE",
+ * //   ResourceTypes: [ // ResourceTypesOutput
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SinkArn: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

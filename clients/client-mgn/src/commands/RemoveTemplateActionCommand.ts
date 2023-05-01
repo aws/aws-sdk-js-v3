@@ -45,8 +45,7 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * };
  * const command = new RemoveTemplateActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

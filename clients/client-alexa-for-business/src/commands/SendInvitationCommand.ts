@@ -45,8 +45,7 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * };
  * const command = new SendInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

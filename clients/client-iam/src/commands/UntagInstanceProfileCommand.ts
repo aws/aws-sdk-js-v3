@@ -48,8 +48,7 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

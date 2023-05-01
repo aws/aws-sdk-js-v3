@@ -56,10 +56,9 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * };
  * const command = new DisableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableVpcClassicLinkDnsSupportResult
- *   Return: true || false,
- * };
+ * // { // DisableVpcClassicLinkDnsSupportResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

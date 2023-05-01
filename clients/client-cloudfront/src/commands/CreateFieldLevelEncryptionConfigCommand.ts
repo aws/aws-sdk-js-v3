@@ -77,44 +77,43 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * };
  * const command = new CreateFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFieldLevelEncryptionConfigResult
- *   FieldLevelEncryption: { // FieldLevelEncryption
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
- *       CallerReference: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *       QueryArgProfileConfig: { // QueryArgProfileConfig
- *         ForwardWhenQueryArgProfileIsUnknown: true || false, // required
- *         QueryArgProfiles: { // QueryArgProfiles
- *           Quantity: Number("int"), // required
- *           Items: [ // QueryArgProfileList
- *             { // QueryArgProfile
- *               QueryArg: "STRING_VALUE", // required
- *               ProfileId: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *       ContentTypeProfileConfig: { // ContentTypeProfileConfig
- *         ForwardWhenContentTypeIsUnknown: true || false, // required
- *         ContentTypeProfiles: { // ContentTypeProfiles
- *           Quantity: Number("int"), // required
- *           Items: [ // ContentTypeProfileList
- *             { // ContentTypeProfile
- *               Format: "URLEncoded", // required
- *               ProfileId: "STRING_VALUE",
- *               ContentType: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   },
- *   Location: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- * };
+ * // { // CreateFieldLevelEncryptionConfigResult
+ * //   FieldLevelEncryption: { // FieldLevelEncryption
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       QueryArgProfileConfig: { // QueryArgProfileConfig
+ * //         ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ * //         QueryArgProfiles: { // QueryArgProfiles
+ * //           Quantity: Number("int"), // required
+ * //           Items: [ // QueryArgProfileList
+ * //             { // QueryArgProfile
+ * //               QueryArg: "STRING_VALUE", // required
+ * //               ProfileId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ * //         ForwardWhenContentTypeIsUnknown: true || false, // required
+ * //         ContentTypeProfiles: { // ContentTypeProfiles
+ * //           Quantity: Number("int"), // required
+ * //           Items: [ // ContentTypeProfileList
+ * //             { // ContentTypeProfile
+ * //               Format: "URLEncoded", // required
+ * //               ProfileId: "STRING_VALUE",
+ * //               ContentType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

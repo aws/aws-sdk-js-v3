@@ -57,19 +57,18 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndpointTypesResponse
- *   Marker: "STRING_VALUE",
- *   SupportedEndpointTypes: [ // SupportedEndpointTypeList
- *     { // SupportedEndpointType
- *       EngineName: "STRING_VALUE",
- *       SupportsCDC: true || false,
- *       EndpointType: "source" || "target",
- *       ReplicationInstanceEngineMinimumVersion: "STRING_VALUE",
- *       EngineDisplayName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeEndpointTypesResponse
+ * //   Marker: "STRING_VALUE",
+ * //   SupportedEndpointTypes: [ // SupportedEndpointTypeList
+ * //     { // SupportedEndpointType
+ * //       EngineName: "STRING_VALUE",
+ * //       SupportsCDC: true || false,
+ * //       EndpointType: "source" || "target",
+ * //       ReplicationInstanceEngineMinimumVersion: "STRING_VALUE",
+ * //       EngineDisplayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

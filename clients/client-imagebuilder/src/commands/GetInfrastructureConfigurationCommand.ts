@@ -49,44 +49,43 @@ export interface GetInfrastructureConfigurationCommandOutput
  * };
  * const command = new GetInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInfrastructureConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   infrastructureConfiguration: { // InfrastructureConfiguration
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     instanceTypes: [ // InstanceTypeList
- *       "STRING_VALUE",
- *     ],
- *     instanceProfileName: "STRING_VALUE",
- *     securityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
- *     ],
- *     subnetId: "STRING_VALUE",
- *     logging: { // Logging
- *       s3Logs: { // S3Logs
- *         s3BucketName: "STRING_VALUE",
- *         s3KeyPrefix: "STRING_VALUE",
- *       },
- *     },
- *     keyPair: "STRING_VALUE",
- *     terminateInstanceOnFailure: true || false,
- *     snsTopicArn: "STRING_VALUE",
- *     dateCreated: "STRING_VALUE",
- *     dateUpdated: "STRING_VALUE",
- *     resourceTags: { // ResourceTagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     instanceMetadataOptions: { // InstanceMetadataOptions
- *       httpTokens: "STRING_VALUE",
- *       httpPutResponseHopLimit: Number("int"),
- *     },
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   infrastructureConfiguration: { // InfrastructureConfiguration
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     instanceTypes: [ // InstanceTypeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     instanceProfileName: "STRING_VALUE",
+ * //     securityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     subnetId: "STRING_VALUE",
+ * //     logging: { // Logging
+ * //       s3Logs: { // S3Logs
+ * //         s3BucketName: "STRING_VALUE",
+ * //         s3KeyPrefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     keyPair: "STRING_VALUE",
+ * //     terminateInstanceOnFailure: true || false,
+ * //     snsTopicArn: "STRING_VALUE",
+ * //     dateCreated: "STRING_VALUE",
+ * //     dateUpdated: "STRING_VALUE",
+ * //     resourceTags: { // ResourceTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     instanceMetadataOptions: { // InstanceMetadataOptions
+ * //       httpTokens: "STRING_VALUE",
+ * //       httpPutResponseHopLimit: Number("int"),
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -42,13 +42,12 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLoggingOptionsResponse
- *   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
- *     logType: "STRING_VALUE", // required
- *     logGroupName: "STRING_VALUE",
- *   },
- * };
+ * // { // GetLoggingOptionsResponse
+ * //   cloudWatchLogDelivery: { // CloudWatchLogDeliveryOptions
+ * //     logType: "STRING_VALUE", // required
+ * //     logGroupName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

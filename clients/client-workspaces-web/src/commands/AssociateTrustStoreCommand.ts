@@ -45,11 +45,10 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * };
  * const command = new AssociateTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTrustStoreResponse
- *   portalArn: "STRING_VALUE", // required
- *   trustStoreArn: "STRING_VALUE", // required
- * };
+ * // { // AssociateTrustStoreResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   trustStoreArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

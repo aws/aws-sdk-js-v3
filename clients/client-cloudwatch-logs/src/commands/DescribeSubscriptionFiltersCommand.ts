@@ -50,21 +50,20 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * };
  * const command = new DescribeSubscriptionFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSubscriptionFiltersResponse
- *   subscriptionFilters: [ // SubscriptionFilters
- *     { // SubscriptionFilter
- *       filterName: "STRING_VALUE",
- *       logGroupName: "STRING_VALUE",
- *       filterPattern: "STRING_VALUE",
- *       destinationArn: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *       distribution: "Random" || "ByLogStream",
- *       creationTime: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSubscriptionFiltersResponse
+ * //   subscriptionFilters: [ // SubscriptionFilters
+ * //     { // SubscriptionFilter
+ * //       filterName: "STRING_VALUE",
+ * //       logGroupName: "STRING_VALUE",
+ * //       filterPattern: "STRING_VALUE",
+ * //       destinationArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       distribution: "Random" || "ByLogStream",
+ * //       creationTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

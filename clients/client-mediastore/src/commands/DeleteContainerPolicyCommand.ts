@@ -44,8 +44,7 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * };
  * const command = new DeleteContainerPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

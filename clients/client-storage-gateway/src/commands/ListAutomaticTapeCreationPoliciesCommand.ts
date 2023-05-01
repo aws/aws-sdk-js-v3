@@ -52,23 +52,22 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * };
  * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAutomaticTapeCreationPoliciesOutput
- *   AutomaticTapeCreationPolicyInfos: [ // AutomaticTapeCreationPolicyInfos
- *     { // AutomaticTapeCreationPolicyInfo
- *       AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules
- *         { // AutomaticTapeCreationRule
- *           TapeBarcodePrefix: "STRING_VALUE", // required
- *           PoolId: "STRING_VALUE", // required
- *           TapeSizeInBytes: Number("long"), // required
- *           MinimumNumTapes: Number("int"), // required
- *           Worm: true || false,
- *         },
- *       ],
- *       GatewayARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAutomaticTapeCreationPoliciesOutput
+ * //   AutomaticTapeCreationPolicyInfos: [ // AutomaticTapeCreationPolicyInfos
+ * //     { // AutomaticTapeCreationPolicyInfo
+ * //       AutomaticTapeCreationRules: [ // AutomaticTapeCreationRules
+ * //         { // AutomaticTapeCreationRule
+ * //           TapeBarcodePrefix: "STRING_VALUE", // required
+ * //           PoolId: "STRING_VALUE", // required
+ * //           TapeSizeInBytes: Number("long"), // required
+ * //           MinimumNumTapes: Number("int"), // required
+ * //           Worm: true || false,
+ * //         },
+ * //       ],
+ * //       GatewayARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

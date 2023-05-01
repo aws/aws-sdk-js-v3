@@ -55,20 +55,19 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSnapshotsResult
- *   Snapshots: [ // Snapshots
- *     { // Snapshot
- *       DirectoryId: "STRING_VALUE",
- *       SnapshotId: "STRING_VALUE",
- *       Type: "Auto" || "Manual",
- *       Name: "STRING_VALUE",
- *       Status: "Creating" || "Completed" || "Failed",
- *       StartTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSnapshotsResult
+ * //   Snapshots: [ // Snapshots
+ * //     { // Snapshot
+ * //       DirectoryId: "STRING_VALUE",
+ * //       SnapshotId: "STRING_VALUE",
+ * //       Type: "Auto" || "Manual",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "Creating" || "Completed" || "Failed",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

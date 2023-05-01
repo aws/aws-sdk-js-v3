@@ -69,8 +69,7 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

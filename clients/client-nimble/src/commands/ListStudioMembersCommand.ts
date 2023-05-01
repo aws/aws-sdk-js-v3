@@ -50,18 +50,17 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * };
  * const command = new ListStudioMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStudioMembersResponse
- *   members: [ // StudioMembershipList
- *     { // StudioMembership
- *       identityStoreId: "STRING_VALUE",
- *       persona: "ADMINISTRATOR",
- *       principalId: "STRING_VALUE",
- *       sid: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStudioMembersResponse
+ * //   members: [ // StudioMembershipList
+ * //     { // StudioMembership
+ * //       identityStoreId: "STRING_VALUE",
+ * //       persona: "ADMINISTRATOR",
+ * //       principalId: "STRING_VALUE",
+ * //       sid: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

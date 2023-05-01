@@ -59,22 +59,21 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * };
  * const command = new UpdateConfigurationProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigurationProfile
- *   ApplicationId: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   RetrievalRoleArn: "STRING_VALUE",
- *   Validators: [ // ValidatorList
- *     { // Validator
- *       Type: "JSON_SCHEMA" || "LAMBDA", // required
- *       Content: "STRING_VALUE", // required
- *     },
- *   ],
- *   Type: "STRING_VALUE",
- * };
+ * // { // ConfigurationProfile
+ * //   ApplicationId: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   RetrievalRoleArn: "STRING_VALUE",
+ * //   Validators: [ // ValidatorList
+ * //     { // Validator
+ * //       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ * //       Content: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   Type: "STRING_VALUE",
+ * // };
  *
  * ```
  *

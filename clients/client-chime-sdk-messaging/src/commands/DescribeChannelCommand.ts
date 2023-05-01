@@ -59,33 +59,32 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelResponse
- *   Channel: { // Channel
- *     Name: "STRING_VALUE",
- *     ChannelArn: "STRING_VALUE",
- *     Mode: "UNRESTRICTED" || "RESTRICTED",
- *     Privacy: "PUBLIC" || "PRIVATE",
- *     Metadata: "STRING_VALUE",
- *     CreatedBy: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastMessageTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     ChannelFlowArn: "STRING_VALUE",
- *     ElasticChannelConfiguration: { // ElasticChannelConfiguration
- *       MaximumSubChannels: Number("int"), // required
- *       TargetMembershipsPerSubChannel: Number("int"), // required
- *       MinimumMembershipPercentage: Number("int"), // required
- *     },
- *     ExpirationSettings: { // ExpirationSettings
- *       ExpirationDays: Number("int"), // required
- *       ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
- *     },
- *   },
- * };
+ * // { // DescribeChannelResponse
+ * //   Channel: { // Channel
+ * //     Name: "STRING_VALUE",
+ * //     ChannelArn: "STRING_VALUE",
+ * //     Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //     Privacy: "PUBLIC" || "PRIVATE",
+ * //     Metadata: "STRING_VALUE",
+ * //     CreatedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     ChannelFlowArn: "STRING_VALUE",
+ * //     ElasticChannelConfiguration: { // ElasticChannelConfiguration
+ * //       MaximumSubChannels: Number("int"), // required
+ * //       TargetMembershipsPerSubChannel: Number("int"), // required
+ * //       MinimumMembershipPercentage: Number("int"), // required
+ * //     },
+ * //     ExpirationSettings: { // ExpirationSettings
+ * //       ExpirationDays: Number("int"), // required
+ * //       ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

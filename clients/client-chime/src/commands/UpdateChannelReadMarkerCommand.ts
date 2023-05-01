@@ -50,10 +50,9 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelReadMarkerResponse
- *   ChannelArn: "STRING_VALUE",
- * };
+ * // { // UpdateChannelReadMarkerResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

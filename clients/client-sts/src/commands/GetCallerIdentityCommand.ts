@@ -52,12 +52,11 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * const input = {};
  * const command = new GetCallerIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCallerIdentityResponse
- *   UserId: "STRING_VALUE",
- *   Account: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // GetCallerIdentityResponse
+ * //   UserId: "STRING_VALUE",
+ * //   Account: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

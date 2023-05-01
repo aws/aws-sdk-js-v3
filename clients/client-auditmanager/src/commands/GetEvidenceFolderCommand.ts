@@ -47,29 +47,28 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * };
  * const command = new GetEvidenceFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEvidenceFolderResponse
- *   evidenceFolder: { // AssessmentEvidenceFolder
- *     name: "STRING_VALUE",
- *     date: new Date("TIMESTAMP"),
- *     assessmentId: "STRING_VALUE",
- *     controlSetId: "STRING_VALUE",
- *     controlId: "STRING_VALUE",
- *     id: "STRING_VALUE",
- *     dataSource: "STRING_VALUE",
- *     author: "STRING_VALUE",
- *     totalEvidence: Number("int"),
- *     assessmentReportSelectionCount: Number("int"),
- *     controlName: "STRING_VALUE",
- *     evidenceResourcesIncludedCount: Number("int"),
- *     evidenceByTypeConfigurationDataCount: Number("int"),
- *     evidenceByTypeManualCount: Number("int"),
- *     evidenceByTypeComplianceCheckCount: Number("int"),
- *     evidenceByTypeComplianceCheckIssuesCount: Number("int"),
- *     evidenceByTypeUserActivityCount: Number("int"),
- *     evidenceAwsServiceSourceCount: Number("int"),
- *   },
- * };
+ * // { // GetEvidenceFolderResponse
+ * //   evidenceFolder: { // AssessmentEvidenceFolder
+ * //     name: "STRING_VALUE",
+ * //     date: new Date("TIMESTAMP"),
+ * //     assessmentId: "STRING_VALUE",
+ * //     controlSetId: "STRING_VALUE",
+ * //     controlId: "STRING_VALUE",
+ * //     id: "STRING_VALUE",
+ * //     dataSource: "STRING_VALUE",
+ * //     author: "STRING_VALUE",
+ * //     totalEvidence: Number("int"),
+ * //     assessmentReportSelectionCount: Number("int"),
+ * //     controlName: "STRING_VALUE",
+ * //     evidenceResourcesIncludedCount: Number("int"),
+ * //     evidenceByTypeConfigurationDataCount: Number("int"),
+ * //     evidenceByTypeManualCount: Number("int"),
+ * //     evidenceByTypeComplianceCheckCount: Number("int"),
+ * //     evidenceByTypeComplianceCheckIssuesCount: Number("int"),
+ * //     evidenceByTypeUserActivityCount: Number("int"),
+ * //     evidenceAwsServiceSourceCount: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

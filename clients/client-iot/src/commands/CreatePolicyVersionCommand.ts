@@ -53,13 +53,12 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * };
  * const command = new CreatePolicyVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePolicyVersionResponse
- *   policyArn: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE",
- *   policyVersionId: "STRING_VALUE",
- *   isDefaultVersion: true || false,
- * };
+ * // { // CreatePolicyVersionResponse
+ * //   policyArn: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * // };
  *
  * ```
  *

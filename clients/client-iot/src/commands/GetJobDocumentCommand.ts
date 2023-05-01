@@ -45,10 +45,9 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * };
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobDocumentResponse
- *   document: "STRING_VALUE",
- * };
+ * // { // GetJobDocumentResponse
+ * //   document: "STRING_VALUE",
+ * // };
  *
  * ```
  *

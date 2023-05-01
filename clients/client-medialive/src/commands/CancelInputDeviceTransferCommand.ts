@@ -44,8 +44,7 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * };
  * const command = new CancelInputDeviceTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

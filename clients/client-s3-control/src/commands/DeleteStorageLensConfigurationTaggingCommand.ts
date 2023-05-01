@@ -64,8 +64,7 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  * };
  * const command = new DeleteStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

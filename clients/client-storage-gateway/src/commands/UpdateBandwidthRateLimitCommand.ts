@@ -57,10 +57,9 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * };
  * const command = new UpdateBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBandwidthRateLimitOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateBandwidthRateLimitOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

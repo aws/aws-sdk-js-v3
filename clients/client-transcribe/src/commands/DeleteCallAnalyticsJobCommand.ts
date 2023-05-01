@@ -46,8 +46,7 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * };
  * const command = new DeleteCallAnalyticsJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

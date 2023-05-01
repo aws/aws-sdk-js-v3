@@ -62,10 +62,9 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * };
  * const command = new DisassociateNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateNodeResponse
- *   NodeAssociationStatusToken: "STRING_VALUE",
- * };
+ * // { // DisassociateNodeResponse
+ * //   NodeAssociationStatusToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

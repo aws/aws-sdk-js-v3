@@ -52,8 +52,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

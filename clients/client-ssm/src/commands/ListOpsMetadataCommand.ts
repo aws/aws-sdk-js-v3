@@ -54,19 +54,18 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * };
  * const command = new ListOpsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOpsMetadataResult
- *   OpsMetadataList: [ // OpsMetadataList
- *     { // OpsMetadata
- *       ResourceId: "STRING_VALUE",
- *       OpsMetadataArn: "STRING_VALUE",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       LastModifiedUser: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOpsMetadataResult
+ * //   OpsMetadataList: [ // OpsMetadataList
+ * //     { // OpsMetadata
+ * //       ResourceId: "STRING_VALUE",
+ * //       OpsMetadataArn: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedUser: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

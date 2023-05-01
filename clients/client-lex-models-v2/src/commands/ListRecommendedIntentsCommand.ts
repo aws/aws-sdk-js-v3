@@ -51,21 +51,20 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
  * };
  * const command = new ListRecommendedIntentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecommendedIntentsResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botRecommendationId: "STRING_VALUE",
- *   summaryList: [ // RecommendedIntentSummaryList
- *     { // RecommendedIntentSummary
- *       intentId: "STRING_VALUE",
- *       intentName: "STRING_VALUE",
- *       sampleUtterancesCount: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRecommendedIntentsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationId: "STRING_VALUE",
+ * //   summaryList: [ // RecommendedIntentSummaryList
+ * //     { // RecommendedIntentSummary
+ * //       intentId: "STRING_VALUE",
+ * //       intentName: "STRING_VALUE",
+ * //       sampleUtterancesCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

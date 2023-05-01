@@ -51,8 +51,7 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

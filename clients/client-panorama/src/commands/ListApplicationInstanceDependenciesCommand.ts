@@ -54,17 +54,16 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * };
  * const command = new ListApplicationInstanceDependenciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationInstanceDependenciesResponse
- *   PackageObjects: [ // PackageObjects
- *     { // PackageObject
- *       Name: "STRING_VALUE", // required
- *       PackageVersion: "STRING_VALUE", // required
- *       PatchVersion: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationInstanceDependenciesResponse
+ * //   PackageObjects: [ // PackageObjects
+ * //     { // PackageObject
+ * //       Name: "STRING_VALUE", // required
+ * //       PackageVersion: "STRING_VALUE", // required
+ * //       PatchVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

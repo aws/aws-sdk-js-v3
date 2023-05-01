@@ -46,21 +46,20 @@ export interface ListRunGroupsCommandOutput extends ListRunGroupsResponse, __Met
  * };
  * const command = new ListRunGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRunGroupsResponse
- *   items: [ // RunGroupList
- *     { // RunGroupListItem
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       maxCpus: Number("int"),
- *       maxRuns: Number("int"),
- *       maxDuration: Number("int"),
- *       creationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRunGroupsResponse
+ * //   items: [ // RunGroupList
+ * //     { // RunGroupListItem
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       maxCpus: Number("int"),
+ * //       maxRuns: Number("int"),
+ * //       maxDuration: Number("int"),
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

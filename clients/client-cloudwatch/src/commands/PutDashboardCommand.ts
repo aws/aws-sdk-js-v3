@@ -58,15 +58,14 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * };
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDashboardOutput
- *   DashboardValidationMessages: [ // DashboardValidationMessages
- *     { // DashboardValidationMessage
- *       DataPath: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutDashboardOutput
+ * //   DashboardValidationMessages: [ // DashboardValidationMessages
+ * //     { // DashboardValidationMessage
+ * //       DataPath: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

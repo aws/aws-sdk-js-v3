@@ -54,20 +54,19 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * };
  * const command = new SearchGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchGroupsResponse
- *   GroupList: [ // GroupList
- *     { // Group
- *       Arn: "STRING_VALUE",
- *       GroupName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // SearchGroupsResponse
+ * //   GroupList: [ // GroupList
+ * //     { // Group
+ * //       Arn: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

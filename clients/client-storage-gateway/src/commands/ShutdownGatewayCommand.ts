@@ -67,10 +67,9 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * };
  * const command = new ShutdownGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ShutdownGatewayOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // ShutdownGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

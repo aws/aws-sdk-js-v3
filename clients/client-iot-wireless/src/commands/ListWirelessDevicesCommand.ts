@@ -52,39 +52,38 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * };
  * const command = new ListWirelessDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWirelessDevicesResponse
- *   NextToken: "STRING_VALUE",
- *   WirelessDeviceList: [ // WirelessDeviceStatisticsList
- *     { // WirelessDeviceStatistics
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Type: "Sidewalk" || "LoRaWAN",
- *       Name: "STRING_VALUE",
- *       DestinationName: "STRING_VALUE",
- *       LastUplinkReceivedAt: "STRING_VALUE",
- *       LoRaWAN: { // LoRaWANListDevice
- *         DevEui: "STRING_VALUE",
- *       },
- *       Sidewalk: { // SidewalkListDevice
- *         AmazonId: "STRING_VALUE",
- *         SidewalkId: "STRING_VALUE",
- *         SidewalkManufacturingSn: "STRING_VALUE",
- *         DeviceCertificates: [ // DeviceCertificateList
- *           { // CertificateList
- *             SigningAlg: "Ed25519" || "P256r1", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *         DeviceProfileId: "STRING_VALUE",
- *         Status: "PROVISIONED" || "REGISTERED" || "ACTIVATED" || "UNKNOWN",
- *       },
- *       FuotaDeviceStatus: "Initial" || "Package_Not_Supported" || "FragAlgo_unsupported" || "Not_enough_memory" || "FragIndex_unsupported" || "Wrong_descriptor" || "SessionCnt_replay" || "MissingFrag" || "MemoryError" || "MICError" || "Successful",
- *       MulticastDeviceStatus: "STRING_VALUE",
- *       McGroupId: Number("int"),
- *     },
- *   ],
- * };
+ * // { // ListWirelessDevicesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   WirelessDeviceList: [ // WirelessDeviceStatisticsList
+ * //     { // WirelessDeviceStatistics
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Type: "Sidewalk" || "LoRaWAN",
+ * //       Name: "STRING_VALUE",
+ * //       DestinationName: "STRING_VALUE",
+ * //       LastUplinkReceivedAt: "STRING_VALUE",
+ * //       LoRaWAN: { // LoRaWANListDevice
+ * //         DevEui: "STRING_VALUE",
+ * //       },
+ * //       Sidewalk: { // SidewalkListDevice
+ * //         AmazonId: "STRING_VALUE",
+ * //         SidewalkId: "STRING_VALUE",
+ * //         SidewalkManufacturingSn: "STRING_VALUE",
+ * //         DeviceCertificates: [ // DeviceCertificateList
+ * //           { // CertificateList
+ * //             SigningAlg: "Ed25519" || "P256r1", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         DeviceProfileId: "STRING_VALUE",
+ * //         Status: "PROVISIONED" || "REGISTERED" || "ACTIVATED" || "UNKNOWN",
+ * //       },
+ * //       FuotaDeviceStatus: "Initial" || "Package_Not_Supported" || "FragAlgo_unsupported" || "Not_enough_memory" || "FragIndex_unsupported" || "Wrong_descriptor" || "SessionCnt_replay" || "MissingFrag" || "MemoryError" || "MICError" || "Successful",
+ * //       MulticastDeviceStatus: "STRING_VALUE",
+ * //       McGroupId: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

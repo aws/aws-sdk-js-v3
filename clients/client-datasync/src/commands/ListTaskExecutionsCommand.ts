@@ -46,16 +46,15 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * };
  * const command = new ListTaskExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTaskExecutionsResponse
- *   TaskExecutions: [ // TaskExecutionList
- *     { // TaskExecutionListEntry
- *       TaskExecutionArn: "STRING_VALUE",
- *       Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTaskExecutionsResponse
+ * //   TaskExecutions: [ // TaskExecutionList
+ * //     { // TaskExecutionListEntry
+ * //       TaskExecutionArn: "STRING_VALUE",
+ * //       Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

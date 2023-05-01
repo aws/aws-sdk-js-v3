@@ -82,12 +82,11 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * };
  * const command = new VerifyDomainDkimCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifyDomainDkimResponse
- *   DkimTokens: [ // VerificationTokenList // required
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // VerifyDomainDkimResponse
+ * //   DkimTokens: [ // VerificationTokenList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

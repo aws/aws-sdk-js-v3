@@ -46,18 +46,17 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDirectoriesResponse
- *   Directories: [ // DirectoryList // required
- *     { // Directory
- *       Name: "STRING_VALUE",
- *       DirectoryArn: "STRING_VALUE",
- *       State: "ENABLED" || "DISABLED" || "DELETED",
- *       CreationDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDirectoriesResponse
+ * //   Directories: [ // DirectoryList // required
+ * //     { // Directory
+ * //       Name: "STRING_VALUE",
+ * //       DirectoryArn: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "DELETED",
+ * //       CreationDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

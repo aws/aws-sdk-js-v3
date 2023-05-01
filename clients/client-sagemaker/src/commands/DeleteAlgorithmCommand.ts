@@ -44,8 +44,7 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAlgorithmCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

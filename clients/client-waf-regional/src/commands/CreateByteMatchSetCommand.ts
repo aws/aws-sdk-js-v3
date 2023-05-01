@@ -76,25 +76,24 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * };
  * const command = new CreateByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateByteMatchSetResponse
- *   ByteMatchSet: { // ByteMatchSet
- *     ByteMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     ByteMatchTuples: [ // ByteMatchTuples // required
- *       { // ByteMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TargetString: "BLOB_VALUE", // required
- *         TextTransformation: "STRING_VALUE", // required
- *         PositionalConstraint: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateByteMatchSetResponse
+ * //   ByteMatchSet: { // ByteMatchSet
+ * //     ByteMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     ByteMatchTuples: [ // ByteMatchTuples // required
+ * //       { // ByteMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TargetString: "BLOB_VALUE", // required
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         PositionalConstraint: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

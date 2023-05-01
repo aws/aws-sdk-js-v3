@@ -49,18 +49,17 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * };
  * const command = new AssociateMacSecKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateMacSecKeyResponse
- *   connectionId: "STRING_VALUE",
- *   macSecKeys: [ // MacSecKeyList
- *     { // MacSecKey
- *       secretARN: "STRING_VALUE",
- *       ckn: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *       startOn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssociateMacSecKeyResponse
+ * //   connectionId: "STRING_VALUE",
+ * //   macSecKeys: [ // MacSecKeyList
+ * //     { // MacSecKey
+ * //       secretARN: "STRING_VALUE",
+ * //       ckn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       startOn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

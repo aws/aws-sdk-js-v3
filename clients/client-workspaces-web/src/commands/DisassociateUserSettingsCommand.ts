@@ -44,8 +44,7 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * };
  * const command = new DisassociateUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

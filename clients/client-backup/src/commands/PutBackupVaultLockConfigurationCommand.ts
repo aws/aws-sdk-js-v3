@@ -62,8 +62,7 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

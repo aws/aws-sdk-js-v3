@@ -73,8 +73,7 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * };
  * const command = new PutScheduledActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

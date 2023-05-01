@@ -49,8 +49,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

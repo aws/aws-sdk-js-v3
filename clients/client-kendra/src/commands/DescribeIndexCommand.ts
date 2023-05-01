@@ -48,76 +48,75 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * };
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIndexResponse
- *   Name: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
- *   RoleArn: "STRING_VALUE",
- *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *     KmsKeyId: "STRING_VALUE",
- *   },
- *   Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING",
- *   Description: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   UpdatedAt: new Date("TIMESTAMP"),
- *   DocumentMetadataConfigurations: [ // DocumentMetadataConfigurationList
- *     { // DocumentMetadataConfiguration
- *       Name: "STRING_VALUE", // required
- *       Type: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE", // required
- *       Relevance: { // Relevance
- *         Freshness: true || false,
- *         Importance: Number("int"),
- *         Duration: "STRING_VALUE",
- *         RankOrder: "ASCENDING" || "DESCENDING",
- *         ValueImportanceMap: { // ValueImportanceMap
- *           "<keys>": Number("int"),
- *         },
- *       },
- *       Search: { // Search
- *         Facetable: true || false,
- *         Searchable: true || false,
- *         Displayable: true || false,
- *         Sortable: true || false,
- *       },
- *     },
- *   ],
- *   IndexStatistics: { // IndexStatistics
- *     FaqStatistics: { // FaqStatistics
- *       IndexedQuestionAnswersCount: Number("int"), // required
- *     },
- *     TextDocumentStatistics: { // TextDocumentStatistics
- *       IndexedTextDocumentsCount: Number("int"), // required
- *       IndexedTextBytes: Number("long"), // required
- *     },
- *   },
- *   ErrorMessage: "STRING_VALUE",
- *   CapacityUnits: { // CapacityUnitsConfiguration
- *     StorageCapacityUnits: Number("int"), // required
- *     QueryCapacityUnits: Number("int"), // required
- *   },
- *   UserTokenConfigurations: [ // UserTokenConfigurationList
- *     { // UserTokenConfiguration
- *       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
- *         KeyLocation: "URL" || "SECRET_MANAGER", // required
- *         URL: "STRING_VALUE",
- *         SecretManagerArn: "STRING_VALUE",
- *         UserNameAttributeField: "STRING_VALUE",
- *         GroupAttributeField: "STRING_VALUE",
- *         Issuer: "STRING_VALUE",
- *         ClaimRegex: "STRING_VALUE",
- *       },
- *       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
- *         UserNameAttributeField: "STRING_VALUE", // required
- *         GroupAttributeField: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
- *   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
- *     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
- *   },
- * };
+ * // { // DescribeIndexResponse
+ * //   Name: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ * //   RoleArn: "STRING_VALUE",
+ * //   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING",
+ * //   Description: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   DocumentMetadataConfigurations: [ // DocumentMetadataConfigurationList
+ * //     { // DocumentMetadataConfiguration
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE", // required
+ * //       Relevance: { // Relevance
+ * //         Freshness: true || false,
+ * //         Importance: Number("int"),
+ * //         Duration: "STRING_VALUE",
+ * //         RankOrder: "ASCENDING" || "DESCENDING",
+ * //         ValueImportanceMap: { // ValueImportanceMap
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //       Search: { // Search
+ * //         Facetable: true || false,
+ * //         Searchable: true || false,
+ * //         Displayable: true || false,
+ * //         Sortable: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   IndexStatistics: { // IndexStatistics
+ * //     FaqStatistics: { // FaqStatistics
+ * //       IndexedQuestionAnswersCount: Number("int"), // required
+ * //     },
+ * //     TextDocumentStatistics: { // TextDocumentStatistics
+ * //       IndexedTextDocumentsCount: Number("int"), // required
+ * //       IndexedTextBytes: Number("long"), // required
+ * //     },
+ * //   },
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   CapacityUnits: { // CapacityUnitsConfiguration
+ * //     StorageCapacityUnits: Number("int"), // required
+ * //     QueryCapacityUnits: Number("int"), // required
+ * //   },
+ * //   UserTokenConfigurations: [ // UserTokenConfigurationList
+ * //     { // UserTokenConfiguration
+ * //       JwtTokenTypeConfiguration: { // JwtTokenTypeConfiguration
+ * //         KeyLocation: "URL" || "SECRET_MANAGER", // required
+ * //         URL: "STRING_VALUE",
+ * //         SecretManagerArn: "STRING_VALUE",
+ * //         UserNameAttributeField: "STRING_VALUE",
+ * //         GroupAttributeField: "STRING_VALUE",
+ * //         Issuer: "STRING_VALUE",
+ * //         ClaimRegex: "STRING_VALUE",
+ * //       },
+ * //       JsonTokenTypeConfiguration: { // JsonTokenTypeConfiguration
+ * //         UserNameAttributeField: "STRING_VALUE", // required
+ * //         GroupAttributeField: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   UserContextPolicy: "ATTRIBUTE_FILTER" || "USER_TOKEN",
+ * //   UserGroupResolutionConfiguration: { // UserGroupResolutionConfiguration
+ * //     UserGroupResolutionMode: "AWS_SSO" || "NONE", // required
+ * //   },
+ * // };
  *
  * ```
  *

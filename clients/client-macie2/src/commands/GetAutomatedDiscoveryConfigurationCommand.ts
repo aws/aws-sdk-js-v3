@@ -50,15 +50,14 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * const input = {};
  * const command = new GetAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAutomatedDiscoveryConfigurationResponse
- *   classificationScopeId: "STRING_VALUE",
- *   disabledAt: new Date("TIMESTAMP"),
- *   firstEnabledAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   sensitivityInspectionTemplateId: "STRING_VALUE",
- *   status: "ENABLED" || "DISABLED",
- * };
+ * // { // GetAutomatedDiscoveryConfigurationResponse
+ * //   classificationScopeId: "STRING_VALUE",
+ * //   disabledAt: new Date("TIMESTAMP"),
+ * //   firstEnabledAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   sensitivityInspectionTemplateId: "STRING_VALUE",
+ * //   status: "ENABLED" || "DISABLED",
+ * // };
  *
  * ```
  *

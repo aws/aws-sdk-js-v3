@@ -78,8 +78,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * };
  * const command = new UpdateTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

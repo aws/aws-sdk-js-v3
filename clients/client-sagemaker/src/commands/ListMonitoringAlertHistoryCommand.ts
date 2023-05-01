@@ -52,18 +52,17 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * };
  * const command = new ListMonitoringAlertHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMonitoringAlertHistoryResponse
- *   MonitoringAlertHistory: [ // MonitoringAlertHistoryList
- *     { // MonitoringAlertHistorySummary
- *       MonitoringScheduleName: "STRING_VALUE", // required
- *       MonitoringAlertName: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       AlertStatus: "InAlert" || "OK", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMonitoringAlertHistoryResponse
+ * //   MonitoringAlertHistory: [ // MonitoringAlertHistoryList
+ * //     { // MonitoringAlertHistorySummary
+ * //       MonitoringScheduleName: "STRING_VALUE", // required
+ * //       MonitoringAlertName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       AlertStatus: "InAlert" || "OK", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

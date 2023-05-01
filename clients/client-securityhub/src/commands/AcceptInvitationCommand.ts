@@ -54,8 +54,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

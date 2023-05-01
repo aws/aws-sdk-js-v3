@@ -46,17 +46,16 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * };
  * const command = new ListResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceTypesResponse
- *   resourceTypes: [ // ServiceNameAndResourceTypeList
- *     { // ServiceNameAndResourceType
- *       resourceType: "STRING_VALUE",
- *       serviceName: "STRING_VALUE",
- *       resourceRegionScope: "REGIONAL" || "GLOBAL",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceTypesResponse
+ * //   resourceTypes: [ // ServiceNameAndResourceTypeList
+ * //     { // ServiceNameAndResourceType
+ * //       resourceType: "STRING_VALUE",
+ * //       serviceName: "STRING_VALUE",
+ * //       resourceRegionScope: "REGIONAL" || "GLOBAL",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

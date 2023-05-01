@@ -45,8 +45,7 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSpeakerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

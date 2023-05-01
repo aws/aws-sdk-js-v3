@@ -53,109 +53,108 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * };
  * const command = new DescribeProjectVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProjectVersionsResponse
- *   ProjectVersionDescriptions: [ // ProjectVersionDescriptions
- *     { // ProjectVersionDescription
- *       ProjectVersionArn: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       MinInferenceUnits: Number("int"),
- *       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
- *       StatusMessage: "STRING_VALUE",
- *       BillableTrainingTimeInSeconds: Number("long"),
- *       TrainingEndTimestamp: new Date("TIMESTAMP"),
- *       OutputConfig: { // OutputConfig
- *         S3Bucket: "STRING_VALUE",
- *         S3KeyPrefix: "STRING_VALUE",
- *       },
- *       TrainingDataResult: { // TrainingDataResult
- *         Input: { // TrainingData
- *           Assets: [ // Assets
- *             { // Asset
- *               GroundTruthManifest: { // GroundTruthManifest
- *                 S3Object: { // S3Object
- *                   Bucket: "STRING_VALUE",
- *                   Name: "STRING_VALUE",
- *                   Version: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *         },
- *         Output: {
- *           Assets: [
- *             {
- *               GroundTruthManifest: {
- *                 S3Object: {
- *                   Bucket: "STRING_VALUE",
- *                   Name: "STRING_VALUE",
- *                   Version: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *         },
- *         Validation: { // ValidationData
- *           Assets: [
- *             {
- *               GroundTruthManifest: {
- *                 S3Object: {
- *                   Bucket: "STRING_VALUE",
- *                   Name: "STRING_VALUE",
- *                   Version: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *         },
- *       },
- *       TestingDataResult: { // TestingDataResult
- *         Input: { // TestingData
- *           Assets: [
- *             {
- *               GroundTruthManifest: {
- *                 S3Object: {
- *                   Bucket: "STRING_VALUE",
- *                   Name: "STRING_VALUE",
- *                   Version: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *           AutoCreate: true || false,
- *         },
- *         Output: {
- *           Assets: [
- *             {
- *               GroundTruthManifest: {
- *                 S3Object: {
- *                   Bucket: "STRING_VALUE",
- *                   Name: "STRING_VALUE",
- *                   Version: "STRING_VALUE",
- *                 },
- *               },
- *             },
- *           ],
- *           AutoCreate: true || false,
- *         },
- *         Validation: {
- *           Assets: "<Assets>",
- *         },
- *       },
- *       EvaluationResult: { // EvaluationResult
- *         F1Score: Number("float"),
- *         Summary: { // Summary
- *           S3Object: "<S3Object>",
- *         },
- *       },
- *       ManifestSummary: "<GroundTruthManifest>",
- *       KmsKeyId: "STRING_VALUE",
- *       MaxInferenceUnits: Number("int"),
- *       SourceProjectVersionArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeProjectVersionsResponse
+ * //   ProjectVersionDescriptions: [ // ProjectVersionDescriptions
+ * //     { // ProjectVersionDescription
+ * //       ProjectVersionArn: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       MinInferenceUnits: Number("int"),
+ * //       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       BillableTrainingTimeInSeconds: Number("long"),
+ * //       TrainingEndTimestamp: new Date("TIMESTAMP"),
+ * //       OutputConfig: { // OutputConfig
+ * //         S3Bucket: "STRING_VALUE",
+ * //         S3KeyPrefix: "STRING_VALUE",
+ * //       },
+ * //       TrainingDataResult: { // TrainingDataResult
+ * //         Input: { // TrainingData
+ * //           Assets: [ // Assets
+ * //             { // Asset
+ * //               GroundTruthManifest: { // GroundTruthManifest
+ * //                 S3Object: { // S3Object
+ * //                   Bucket: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                   Version: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         Output: {
+ * //           Assets: [
+ * //             {
+ * //               GroundTruthManifest: {
+ * //                 S3Object: {
+ * //                   Bucket: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                   Version: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         Validation: { // ValidationData
+ * //           Assets: [
+ * //             {
+ * //               GroundTruthManifest: {
+ * //                 S3Object: {
+ * //                   Bucket: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                   Version: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       TestingDataResult: { // TestingDataResult
+ * //         Input: { // TestingData
+ * //           Assets: [
+ * //             {
+ * //               GroundTruthManifest: {
+ * //                 S3Object: {
+ * //                   Bucket: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                   Version: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //           AutoCreate: true || false,
+ * //         },
+ * //         Output: {
+ * //           Assets: [
+ * //             {
+ * //               GroundTruthManifest: {
+ * //                 S3Object: {
+ * //                   Bucket: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                   Version: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //           AutoCreate: true || false,
+ * //         },
+ * //         Validation: {
+ * //           Assets: "<Assets>",
+ * //         },
+ * //       },
+ * //       EvaluationResult: { // EvaluationResult
+ * //         F1Score: Number("float"),
+ * //         Summary: { // Summary
+ * //           S3Object: "<S3Object>",
+ * //         },
+ * //       },
+ * //       ManifestSummary: "<GroundTruthManifest>",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       MaxInferenceUnits: Number("int"),
+ * //       SourceProjectVersionArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

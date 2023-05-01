@@ -45,10 +45,9 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * };
  * const command = new StartRecommenderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRecommenderResponse
- *   recommenderArn: "STRING_VALUE",
- * };
+ * // { // StartRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

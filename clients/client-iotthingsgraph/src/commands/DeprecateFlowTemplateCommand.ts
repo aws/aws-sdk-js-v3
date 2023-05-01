@@ -46,8 +46,7 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * };
  * const command = new DeprecateFlowTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

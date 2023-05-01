@@ -67,10 +67,9 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * };
  * const command = new AddCommunicationToCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddCommunicationToCaseResponse
- *   result: true || false,
- * };
+ * // { // AddCommunicationToCaseResponse
+ * //   result: true || false,
+ * // };
  *
  * ```
  *

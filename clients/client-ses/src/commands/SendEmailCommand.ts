@@ -128,10 +128,9 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendEmailResponse
- *   MessageId: "STRING_VALUE", // required
- * };
+ * // { // SendEmailResponse
+ * //   MessageId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

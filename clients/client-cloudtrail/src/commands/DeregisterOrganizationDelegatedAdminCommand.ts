@@ -53,8 +53,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * };
  * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

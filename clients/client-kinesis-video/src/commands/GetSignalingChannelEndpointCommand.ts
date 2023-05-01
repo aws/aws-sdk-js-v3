@@ -66,15 +66,14 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * };
  * const command = new GetSignalingChannelEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSignalingChannelEndpointOutput
- *   ResourceEndpointList: [ // ResourceEndpointList
- *     { // ResourceEndpointListItem
- *       Protocol: "WSS" || "HTTPS" || "WEBRTC",
- *       ResourceEndpoint: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetSignalingChannelEndpointOutput
+ * //   ResourceEndpointList: [ // ResourceEndpointList
+ * //     { // ResourceEndpointListItem
+ * //       Protocol: "WSS" || "HTTPS" || "WEBRTC",
+ * //       ResourceEndpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

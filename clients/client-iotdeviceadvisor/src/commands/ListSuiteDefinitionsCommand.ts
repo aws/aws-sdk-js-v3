@@ -46,27 +46,26 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * };
  * const command = new ListSuiteDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSuiteDefinitionsResponse
- *   suiteDefinitionInformationList: [ // SuiteDefinitionInformationList
- *     { // SuiteDefinitionInformation
- *       suiteDefinitionId: "STRING_VALUE",
- *       suiteDefinitionName: "STRING_VALUE",
- *       defaultDevices: [ // DeviceUnderTestList
- *         { // DeviceUnderTest
- *           thingArn: "STRING_VALUE",
- *           certificateArn: "STRING_VALUE",
- *           deviceRoleArn: "STRING_VALUE",
- *         },
- *       ],
- *       intendedForQualification: true || false,
- *       isLongDurationTest: true || false,
- *       protocol: "MqttV3_1_1" || "MqttV5" || "MqttV3_1_1_OverWebSocket" || "MqttV5_OverWebSocket",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSuiteDefinitionsResponse
+ * //   suiteDefinitionInformationList: [ // SuiteDefinitionInformationList
+ * //     { // SuiteDefinitionInformation
+ * //       suiteDefinitionId: "STRING_VALUE",
+ * //       suiteDefinitionName: "STRING_VALUE",
+ * //       defaultDevices: [ // DeviceUnderTestList
+ * //         { // DeviceUnderTest
+ * //           thingArn: "STRING_VALUE",
+ * //           certificateArn: "STRING_VALUE",
+ * //           deviceRoleArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       intendedForQualification: true || false,
+ * //       isLongDurationTest: true || false,
+ * //       protocol: "MqttV3_1_1" || "MqttV5" || "MqttV3_1_1_OverWebSocket" || "MqttV5_OverWebSocket",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

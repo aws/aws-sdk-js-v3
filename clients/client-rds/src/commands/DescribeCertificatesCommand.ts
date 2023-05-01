@@ -59,22 +59,21 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * };
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CertificateMessage
- *   Certificates: [ // CertificateList
- *     { // Certificate
- *       CertificateIdentifier: "STRING_VALUE",
- *       CertificateType: "STRING_VALUE",
- *       Thumbprint: "STRING_VALUE",
- *       ValidFrom: new Date("TIMESTAMP"),
- *       ValidTill: new Date("TIMESTAMP"),
- *       CertificateArn: "STRING_VALUE",
- *       CustomerOverride: true || false,
- *       CustomerOverrideValidTill: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // CertificateMessage
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateIdentifier: "STRING_VALUE",
+ * //       CertificateType: "STRING_VALUE",
+ * //       Thumbprint: "STRING_VALUE",
+ * //       ValidFrom: new Date("TIMESTAMP"),
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CustomerOverride: true || false,
+ * //       CustomerOverrideValidTill: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -43,11 +43,10 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * const input = {};
  * const command = new GetPhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPhoneNumberSettingsResponse
- *   CallingName: "STRING_VALUE",
- *   CallingNameUpdatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetPhoneNumberSettingsResponse
+ * //   CallingName: "STRING_VALUE",
+ * //   CallingNameUpdatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

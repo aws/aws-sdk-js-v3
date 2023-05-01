@@ -53,16 +53,15 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * };
  * const command = new GetWirelessGatewayFirmwareInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayFirmwareInformationResponse
- *   LoRaWAN: { // LoRaWANGatewayCurrentVersion
- *     CurrentVersion: { // LoRaWANGatewayVersion
- *       PackageVersion: "STRING_VALUE",
- *       Model: "STRING_VALUE",
- *       Station: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetWirelessGatewayFirmwareInformationResponse
+ * //   LoRaWAN: { // LoRaWANGatewayCurrentVersion
+ * //     CurrentVersion: { // LoRaWANGatewayVersion
+ * //       PackageVersion: "STRING_VALUE",
+ * //       Model: "STRING_VALUE",
+ * //       Station: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

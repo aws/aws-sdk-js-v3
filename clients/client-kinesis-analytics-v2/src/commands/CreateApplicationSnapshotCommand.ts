@@ -49,8 +49,7 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  * };
  * const command = new CreateApplicationSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

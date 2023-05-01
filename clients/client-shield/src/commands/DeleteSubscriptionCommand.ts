@@ -44,8 +44,7 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * const input = {};
  * const command = new DeleteSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

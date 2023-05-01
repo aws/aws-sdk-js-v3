@@ -59,10 +59,9 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * };
  * const command = new SignalApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SignalApplicationInstanceNodeInstancesResponse
- *   ApplicationInstanceId: "STRING_VALUE", // required
- * };
+ * // { // SignalApplicationInstanceNodeInstancesResponse
+ * //   ApplicationInstanceId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

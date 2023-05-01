@@ -55,18 +55,17 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * };
  * const command = new DescribeServiceActionExecutionParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServiceActionExecutionParametersOutput
- *   ServiceActionParameters: [ // ExecutionParameters
- *     { // ExecutionParameter
- *       Name: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       DefaultValues: [ // ExecutionParameterValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeServiceActionExecutionParametersOutput
+ * //   ServiceActionParameters: [ // ExecutionParameters
+ * //     { // ExecutionParameter
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       DefaultValues: [ // ExecutionParameterValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

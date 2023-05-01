@@ -57,46 +57,45 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * };
  * const command = new StopDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopDBInstanceAutomatedBackupsReplicationResult
- *   DBInstanceAutomatedBackup: { // DBInstanceAutomatedBackup
- *     DBInstanceArn: "STRING_VALUE",
- *     DbiResourceId: "STRING_VALUE",
- *     Region: "STRING_VALUE",
- *     DBInstanceIdentifier: "STRING_VALUE",
- *     RestoreWindow: { // RestoreWindow
- *       EarliestTime: new Date("TIMESTAMP"),
- *       LatestTime: new Date("TIMESTAMP"),
- *     },
- *     AllocatedStorage: Number("int"),
- *     Status: "STRING_VALUE",
- *     Port: Number("int"),
- *     AvailabilityZone: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     InstanceCreateTime: new Date("TIMESTAMP"),
- *     MasterUsername: "STRING_VALUE",
- *     Engine: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     LicenseModel: "STRING_VALUE",
- *     Iops: Number("int"),
- *     OptionGroupName: "STRING_VALUE",
- *     TdeCredentialArn: "STRING_VALUE",
- *     Encrypted: true || false,
- *     StorageType: "STRING_VALUE",
- *     KmsKeyId: "STRING_VALUE",
- *     Timezone: "STRING_VALUE",
- *     IAMDatabaseAuthenticationEnabled: true || false,
- *     BackupRetentionPeriod: Number("int"),
- *     DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- *     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
- *       { // DBInstanceAutomatedBackupsReplication
- *         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
- *       },
- *     ],
- *     BackupTarget: "STRING_VALUE",
- *     StorageThroughput: Number("int"),
- *   },
- * };
+ * // { // StopDBInstanceAutomatedBackupsReplicationResult
+ * //   DBInstanceAutomatedBackup: { // DBInstanceAutomatedBackup
+ * //     DBInstanceArn: "STRING_VALUE",
+ * //     DbiResourceId: "STRING_VALUE",
+ * //     Region: "STRING_VALUE",
+ * //     DBInstanceIdentifier: "STRING_VALUE",
+ * //     RestoreWindow: { // RestoreWindow
+ * //       EarliestTime: new Date("TIMESTAMP"),
+ * //       LatestTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     AllocatedStorage: Number("int"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     InstanceCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     LicenseModel: "STRING_VALUE",
+ * //     Iops: Number("int"),
+ * //     OptionGroupName: "STRING_VALUE",
+ * //     TdeCredentialArn: "STRING_VALUE",
+ * //     Encrypted: true || false,
+ * //     StorageType: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     Timezone: "STRING_VALUE",
+ * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     BackupRetentionPeriod: Number("int"),
+ * //     DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //     DBInstanceAutomatedBackupsReplications: [ // DBInstanceAutomatedBackupsReplicationList
+ * //       { // DBInstanceAutomatedBackupsReplication
+ * //         DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     BackupTarget: "STRING_VALUE",
+ * //     StorageThroughput: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

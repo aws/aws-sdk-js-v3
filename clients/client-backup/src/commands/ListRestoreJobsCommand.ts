@@ -52,27 +52,26 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRestoreJobsOutput
- *   RestoreJobs: [ // RestoreJobsList
- *     { // RestoreJobsListMember
- *       AccountId: "STRING_VALUE",
- *       RestoreJobId: "STRING_VALUE",
- *       RecoveryPointArn: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       CompletionDate: new Date("TIMESTAMP"),
- *       Status: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *       PercentDone: "STRING_VALUE",
- *       BackupSizeInBytes: Number("long"),
- *       IamRoleArn: "STRING_VALUE",
- *       ExpectedCompletionTimeMinutes: Number("long"),
- *       CreatedResourceArn: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRestoreJobsOutput
+ * //   RestoreJobs: [ // RestoreJobsList
+ * //     { // RestoreJobsListMember
+ * //       AccountId: "STRING_VALUE",
+ * //       RestoreJobId: "STRING_VALUE",
+ * //       RecoveryPointArn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CompletionDate: new Date("TIMESTAMP"),
+ * //       Status: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       PercentDone: "STRING_VALUE",
+ * //       BackupSizeInBytes: Number("long"),
+ * //       IamRoleArn: "STRING_VALUE",
+ * //       ExpectedCompletionTimeMinutes: Number("long"),
+ * //       CreatedResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

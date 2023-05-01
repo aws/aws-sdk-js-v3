@@ -103,20 +103,19 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * };
  * const command = new ListIdentityPoolUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityPoolUsageResponse
- *   IdentityPoolUsages: [ // IdentityPoolUsageList
- *     { // IdentityPoolUsage
- *       IdentityPoolId: "STRING_VALUE",
- *       SyncSessionsCount: Number("long"),
- *       DataStorage: Number("long"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   Count: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentityPoolUsageResponse
+ * //   IdentityPoolUsages: [ // IdentityPoolUsageList
+ * //     { // IdentityPoolUsage
+ * //       IdentityPoolId: "STRING_VALUE",
+ * //       SyncSessionsCount: Number("long"),
+ * //       DataStorage: Number("long"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   Count: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

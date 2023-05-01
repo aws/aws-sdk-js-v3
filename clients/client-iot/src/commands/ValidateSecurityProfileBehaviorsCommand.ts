@@ -88,15 +88,14 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * };
  * const command = new ValidateSecurityProfileBehaviorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateSecurityProfileBehaviorsResponse
- *   valid: true || false,
- *   validationErrors: [ // ValidationErrors
- *     { // ValidationError
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ValidateSecurityProfileBehaviorsResponse
+ * //   valid: true || false,
+ * //   validationErrors: [ // ValidationErrors
+ * //     { // ValidationError
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

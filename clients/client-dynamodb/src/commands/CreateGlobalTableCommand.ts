@@ -111,40 +111,39 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * };
  * const command = new CreateGlobalTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGlobalTableOutput
- *   GlobalTableDescription: { // GlobalTableDescription
- *     ReplicationGroup: [ // ReplicaDescriptionList
- *       { // ReplicaDescription
- *         RegionName: "STRING_VALUE",
- *         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
- *         ReplicaStatusDescription: "STRING_VALUE",
- *         ReplicaStatusPercentProgress: "STRING_VALUE",
- *         KMSMasterKeyId: "STRING_VALUE",
- *         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
- *           ReadCapacityUnits: Number("long"),
- *         },
- *         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
- *           { // ReplicaGlobalSecondaryIndexDescription
- *             IndexName: "STRING_VALUE",
- *             ProvisionedThroughputOverride: {
- *               ReadCapacityUnits: Number("long"),
- *             },
- *           },
- *         ],
- *         ReplicaInaccessibleDateTime: new Date("TIMESTAMP"),
- *         ReplicaTableClassSummary: { // TableClassSummary
- *           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
- *           LastUpdateDateTime: new Date("TIMESTAMP"),
- *         },
- *       },
- *     ],
- *     GlobalTableArn: "STRING_VALUE",
- *     CreationDateTime: new Date("TIMESTAMP"),
- *     GlobalTableStatus: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING",
- *     GlobalTableName: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateGlobalTableOutput
+ * //   GlobalTableDescription: { // GlobalTableDescription
+ * //     ReplicationGroup: [ // ReplicaDescriptionList
+ * //       { // ReplicaDescription
+ * //         RegionName: "STRING_VALUE",
+ * //         ReplicaStatus: "CREATING" || "CREATION_FAILED" || "UPDATING" || "DELETING" || "ACTIVE" || "REGION_DISABLED" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+ * //         ReplicaStatusDescription: "STRING_VALUE",
+ * //         ReplicaStatusPercentProgress: "STRING_VALUE",
+ * //         KMSMasterKeyId: "STRING_VALUE",
+ * //         ProvisionedThroughputOverride: { // ProvisionedThroughputOverride
+ * //           ReadCapacityUnits: Number("long"),
+ * //         },
+ * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
+ * //           { // ReplicaGlobalSecondaryIndexDescription
+ * //             IndexName: "STRING_VALUE",
+ * //             ProvisionedThroughputOverride: {
+ * //               ReadCapacityUnits: Number("long"),
+ * //             },
+ * //           },
+ * //         ],
+ * //         ReplicaInaccessibleDateTime: new Date("TIMESTAMP"),
+ * //         ReplicaTableClassSummary: { // TableClassSummary
+ * //           TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ * //           LastUpdateDateTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //     ],
+ * //     GlobalTableArn: "STRING_VALUE",
+ * //     CreationDateTime: new Date("TIMESTAMP"),
+ * //     GlobalTableStatus: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING",
+ * //     GlobalTableName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

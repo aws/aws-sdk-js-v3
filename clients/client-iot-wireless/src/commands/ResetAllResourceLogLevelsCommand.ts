@@ -42,8 +42,7 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * const input = {};
  * const command = new ResetAllResourceLogLevelsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

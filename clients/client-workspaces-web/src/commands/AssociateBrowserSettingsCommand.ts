@@ -45,11 +45,10 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * };
  * const command = new AssociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateBrowserSettingsResponse
- *   portalArn: "STRING_VALUE", // required
- *   browserSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // AssociateBrowserSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   browserSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

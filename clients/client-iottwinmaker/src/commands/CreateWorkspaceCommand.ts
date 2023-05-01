@@ -50,11 +50,10 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkspaceResponse
- *   arn: "STRING_VALUE", // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateWorkspaceResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -79,44 +79,43 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * };
  * const command = new UpdateBrokerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBrokerResponse
- *   AuthenticationStrategy: "STRING_VALUE",
- *   AutoMinorVersionUpgrade: true || false,
- *   BrokerId: "STRING_VALUE",
- *   Configuration: { // ConfigurationId
- *     Id: "STRING_VALUE", // required
- *     Revision: Number("int"),
- *   },
- *   EngineVersion: "STRING_VALUE",
- *   HostInstanceType: "STRING_VALUE",
- *   LdapServerMetadata: { // LdapServerMetadataOutput
- *     Hosts: [ // __listOf__string // required
- *       "STRING_VALUE",
- *     ],
- *     RoleBase: "STRING_VALUE", // required
- *     RoleName: "STRING_VALUE",
- *     RoleSearchMatching: "STRING_VALUE", // required
- *     RoleSearchSubtree: true || false,
- *     ServiceAccountUsername: "STRING_VALUE", // required
- *     UserBase: "STRING_VALUE", // required
- *     UserRoleName: "STRING_VALUE",
- *     UserSearchMatching: "STRING_VALUE", // required
- *     UserSearchSubtree: true || false,
- *   },
- *   Logs: { // Logs
- *     Audit: true || false,
- *     General: true || false,
- *   },
- *   MaintenanceWindowStartTime: { // WeeklyStartTime
- *     DayOfWeek: "STRING_VALUE", // required
- *     TimeOfDay: "STRING_VALUE", // required
- *     TimeZone: "STRING_VALUE",
- *   },
- *   SecurityGroups: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UpdateBrokerResponse
+ * //   AuthenticationStrategy: "STRING_VALUE",
+ * //   AutoMinorVersionUpgrade: true || false,
+ * //   BrokerId: "STRING_VALUE",
+ * //   Configuration: { // ConfigurationId
+ * //     Id: "STRING_VALUE", // required
+ * //     Revision: Number("int"),
+ * //   },
+ * //   EngineVersion: "STRING_VALUE",
+ * //   HostInstanceType: "STRING_VALUE",
+ * //   LdapServerMetadata: { // LdapServerMetadataOutput
+ * //     Hosts: [ // __listOf__string // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RoleBase: "STRING_VALUE", // required
+ * //     RoleName: "STRING_VALUE",
+ * //     RoleSearchMatching: "STRING_VALUE", // required
+ * //     RoleSearchSubtree: true || false,
+ * //     ServiceAccountUsername: "STRING_VALUE", // required
+ * //     UserBase: "STRING_VALUE", // required
+ * //     UserRoleName: "STRING_VALUE",
+ * //     UserSearchMatching: "STRING_VALUE", // required
+ * //     UserSearchSubtree: true || false,
+ * //   },
+ * //   Logs: { // Logs
+ * //     Audit: true || false,
+ * //     General: true || false,
+ * //   },
+ * //   MaintenanceWindowStartTime: { // WeeklyStartTime
+ * //     DayOfWeek: "STRING_VALUE", // required
+ * //     TimeOfDay: "STRING_VALUE", // required
+ * //     TimeZone: "STRING_VALUE",
+ * //   },
+ * //   SecurityGroups: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

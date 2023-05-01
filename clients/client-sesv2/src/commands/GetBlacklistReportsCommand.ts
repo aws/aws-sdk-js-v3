@@ -46,18 +46,17 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * };
  * const command = new GetBlacklistReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBlacklistReportsResponse
- *   BlacklistReport: { // BlacklistReport // required
- *     "<keys>": [ // BlacklistEntries
- *       { // BlacklistEntry
- *         RblName: "STRING_VALUE",
- *         ListingTime: new Date("TIMESTAMP"),
- *         Description: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetBlacklistReportsResponse
+ * //   BlacklistReport: { // BlacklistReport // required
+ * //     "<keys>": [ // BlacklistEntries
+ * //       { // BlacklistEntry
+ * //         RblName: "STRING_VALUE",
+ * //         ListingTime: new Date("TIMESTAMP"),
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

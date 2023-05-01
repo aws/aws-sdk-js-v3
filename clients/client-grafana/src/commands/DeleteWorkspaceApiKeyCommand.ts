@@ -45,11 +45,10 @@ export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKe
  * };
  * const command = new DeleteWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteWorkspaceApiKeyResponse
- *   keyName: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE", // required
- * };
+ * // { // DeleteWorkspaceApiKeyResponse
+ * //   keyName: "STRING_VALUE", // required
+ * //   workspaceId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

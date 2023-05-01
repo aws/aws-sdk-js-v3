@@ -49,8 +49,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * };
  * const command = new UpdateServiceSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

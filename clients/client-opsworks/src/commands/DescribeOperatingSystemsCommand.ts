@@ -42,25 +42,24 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * const input = {};
  * const command = new DescribeOperatingSystemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOperatingSystemsResponse
- *   OperatingSystems: [ // OperatingSystems
- *     { // OperatingSystem
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       ConfigurationManagers: [ // OperatingSystemConfigurationManagers
- *         { // OperatingSystemConfigurationManager
- *           Name: "STRING_VALUE",
- *           Version: "STRING_VALUE",
- *         },
- *       ],
- *       ReportedName: "STRING_VALUE",
- *       ReportedVersion: "STRING_VALUE",
- *       Supported: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeOperatingSystemsResponse
+ * //   OperatingSystems: [ // OperatingSystems
+ * //     { // OperatingSystem
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       ConfigurationManagers: [ // OperatingSystemConfigurationManagers
+ * //         { // OperatingSystemConfigurationManager
+ * //           Name: "STRING_VALUE",
+ * //           Version: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ReportedName: "STRING_VALUE",
+ * //       ReportedVersion: "STRING_VALUE",
+ * //       Supported: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

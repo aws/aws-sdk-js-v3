@@ -55,10 +55,9 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  * };
  * const command = new UpdateHypervisorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateHypervisorOutput
- *   HypervisorArn: "STRING_VALUE",
- * };
+ * // { // UpdateHypervisorOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

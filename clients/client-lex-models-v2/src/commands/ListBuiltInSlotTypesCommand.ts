@@ -51,17 +51,16 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * };
  * const command = new ListBuiltInSlotTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuiltInSlotTypesResponse
- *   builtInSlotTypeSummaries: [ // BuiltInSlotTypeSummaryList
- *     { // BuiltInSlotTypeSummary
- *       slotTypeSignature: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- * };
+ * // { // ListBuiltInSlotTypesResponse
+ * //   builtInSlotTypeSummaries: [ // BuiltInSlotTypeSummaryList
+ * //     { // BuiltInSlotTypeSummary
+ * //       slotTypeSignature: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

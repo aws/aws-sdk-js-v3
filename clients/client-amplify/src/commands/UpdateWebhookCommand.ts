@@ -46,18 +46,17 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWebhookResult
- *   webhook: { // Webhook
- *     webhookArn: "STRING_VALUE", // required
- *     webhookId: "STRING_VALUE", // required
- *     webhookUrl: "STRING_VALUE", // required
- *     branchName: "STRING_VALUE", // required
- *     description: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // UpdateWebhookResult
+ * //   webhook: { // Webhook
+ * //     webhookArn: "STRING_VALUE", // required
+ * //     webhookId: "STRING_VALUE", // required
+ * //     webhookUrl: "STRING_VALUE", // required
+ * //     branchName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

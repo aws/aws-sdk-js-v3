@@ -53,8 +53,7 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * };
  * const command = new EnableMetricsCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

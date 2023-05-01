@@ -55,19 +55,18 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * };
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCustomerGatewayAssociationsResponse
- *   CustomerGatewayAssociations: [ // CustomerGatewayAssociationList
- *     { // CustomerGatewayAssociation
- *       CustomerGatewayArn: "STRING_VALUE",
- *       GlobalNetworkId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       LinkId: "STRING_VALUE",
- *       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCustomerGatewayAssociationsResponse
+ * //   CustomerGatewayAssociations: [ // CustomerGatewayAssociationList
+ * //     { // CustomerGatewayAssociation
+ * //       CustomerGatewayArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       LinkId: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

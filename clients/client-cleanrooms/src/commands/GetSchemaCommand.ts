@@ -45,35 +45,34 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaOutput
- *   schema: { // Schema
- *     columns: [ // ColumnList // required
- *       { // Column
- *         name: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *       },
- *     ],
- *     partitionKeys: [ // required
- *       {
- *         name: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *       },
- *     ],
- *     analysisRuleTypes: [ // AnalysisRuleTypeList // required
- *       "AGGREGATION" || "LIST",
- *     ],
- *     analysisMethod: "STRING_VALUE",
- *     creatorAccountId: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     collaborationId: "STRING_VALUE", // required
- *     collaborationArn: "STRING_VALUE", // required
- *     description: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *     type: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetSchemaOutput
+ * //   schema: { // Schema
+ * //     columns: [ // ColumnList // required
+ * //       { // Column
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     partitionKeys: [ // required
+ * //       {
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     analysisRuleTypes: [ // AnalysisRuleTypeList // required
+ * //       "AGGREGATION" || "LIST",
+ * //     ],
+ * //     analysisMethod: "STRING_VALUE",
+ * //     creatorAccountId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     collaborationArn: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     type: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

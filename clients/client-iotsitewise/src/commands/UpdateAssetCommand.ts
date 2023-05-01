@@ -48,22 +48,21 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * };
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAssetResponse
- *   assetStatus: { // AssetStatus
- *     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
- *     error: { // ErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *       details: [ // DetailedErrors
- *         { // DetailedError
- *           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *           message: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // UpdateAssetResponse
+ * //   assetStatus: { // AssetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * };
  * const command = new DeleteLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

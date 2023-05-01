@@ -51,11 +51,10 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachVolumeOutput
- *   VolumeARN: "STRING_VALUE",
- *   TargetARN: "STRING_VALUE",
- * };
+ * // { // AttachVolumeOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   TargetARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

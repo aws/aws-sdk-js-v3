@@ -53,14 +53,13 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * };
  * const command = new GetLoginProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLoginProfileResponse
- *   LoginProfile: { // LoginProfile
- *     UserName: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     PasswordResetRequired: true || false,
- *   },
- * };
+ * // { // GetLoginProfileResponse
+ * //   LoginProfile: { // LoginProfile
+ * //     UserName: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     PasswordResetRequired: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

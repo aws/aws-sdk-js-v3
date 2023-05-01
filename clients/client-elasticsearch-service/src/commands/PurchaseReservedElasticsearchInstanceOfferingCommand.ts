@@ -59,11 +59,10 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
  * };
  * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseReservedElasticsearchInstanceOfferingResponse
- *   ReservedElasticsearchInstanceId: "STRING_VALUE",
- *   ReservationName: "STRING_VALUE",
- * };
+ * // { // PurchaseReservedElasticsearchInstanceOfferingResponse
+ * //   ReservedElasticsearchInstanceId: "STRING_VALUE",
+ * //   ReservationName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

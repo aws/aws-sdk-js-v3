@@ -44,19 +44,18 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * };
  * const command = new DescribeBackupVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBackupVaultOutput
- *   BackupVaultName: "STRING_VALUE",
- *   BackupVaultArn: "STRING_VALUE",
- *   EncryptionKeyArn: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   CreatorRequestId: "STRING_VALUE",
- *   NumberOfRecoveryPoints: Number("long"),
- *   Locked: true || false,
- *   MinRetentionDays: Number("long"),
- *   MaxRetentionDays: Number("long"),
- *   LockDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeBackupVaultOutput
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   EncryptionKeyArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   CreatorRequestId: "STRING_VALUE",
+ * //   NumberOfRecoveryPoints: Number("long"),
+ * //   Locked: true || false,
+ * //   MinRetentionDays: Number("long"),
+ * //   MaxRetentionDays: Number("long"),
+ * //   LockDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

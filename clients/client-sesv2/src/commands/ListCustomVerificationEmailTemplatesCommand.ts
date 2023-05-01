@@ -58,19 +58,18 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomVerificationEmailTemplatesResponse
- *   CustomVerificationEmailTemplates: [ // CustomVerificationEmailTemplatesList
- *     { // CustomVerificationEmailTemplateMetadata
- *       TemplateName: "STRING_VALUE",
- *       FromEmailAddress: "STRING_VALUE",
- *       TemplateSubject: "STRING_VALUE",
- *       SuccessRedirectionURL: "STRING_VALUE",
- *       FailureRedirectionURL: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomVerificationEmailTemplatesResponse
+ * //   CustomVerificationEmailTemplates: [ // CustomVerificationEmailTemplatesList
+ * //     { // CustomVerificationEmailTemplateMetadata
+ * //       TemplateName: "STRING_VALUE",
+ * //       FromEmailAddress: "STRING_VALUE",
+ * //       TemplateSubject: "STRING_VALUE",
+ * //       SuccessRedirectionURL: "STRING_VALUE",
+ * //       FailureRedirectionURL: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

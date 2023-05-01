@@ -45,8 +45,7 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * };
  * const command = new UpdateFunctionDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

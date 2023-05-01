@@ -46,8 +46,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

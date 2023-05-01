@@ -45,8 +45,7 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * };
  * const command = new AssociateBudgetWithResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

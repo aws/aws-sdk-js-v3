@@ -49,14 +49,13 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConfigurationResponse
- *   configuration: { // AppRegistryConfiguration
- *     tagQueryConfiguration: { // TagQueryConfiguration
- *       tagKey: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetConfigurationResponse
+ * //   configuration: { // AppRegistryConfiguration
+ * //     tagQueryConfiguration: { // TagQueryConfiguration
+ * //       tagKey: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

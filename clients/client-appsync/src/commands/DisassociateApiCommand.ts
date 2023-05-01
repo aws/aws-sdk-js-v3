@@ -44,8 +44,7 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  * };
  * const command = new DisassociateApiCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

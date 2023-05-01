@@ -64,8 +64,7 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

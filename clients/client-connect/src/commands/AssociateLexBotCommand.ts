@@ -50,8 +50,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

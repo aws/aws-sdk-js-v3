@@ -49,8 +49,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * };
  * const command = new SetDefaultPolicyVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

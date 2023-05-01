@@ -68,8 +68,7 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

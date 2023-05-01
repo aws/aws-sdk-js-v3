@@ -44,24 +44,23 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  * };
  * const command = new GetCaseEventConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCaseEventConfigurationResponse
- *   eventBridge: { // EventBridgeConfiguration
- *     enabled: true || false, // required
- *     includedData: { // EventIncludedData
- *       caseData: { // CaseEventIncludedData
- *         fields: [ // FieldIdentifierList // required
- *           { // FieldIdentifier
- *             id: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       relatedItemData: { // RelatedItemEventIncludedData
- *         includeContent: true || false, // required
- *       },
- *     },
- *   },
- * };
+ * // { // GetCaseEventConfigurationResponse
+ * //   eventBridge: { // EventBridgeConfiguration
+ * //     enabled: true || false, // required
+ * //     includedData: { // EventIncludedData
+ * //       caseData: { // CaseEventIncludedData
+ * //         fields: [ // FieldIdentifierList // required
+ * //           { // FieldIdentifier
+ * //             id: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       relatedItemData: { // RelatedItemEventIncludedData
+ * //         includeContent: true || false, // required
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,30 +44,29 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * };
  * const command = new GetTransitGatewayPeeringCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayPeeringResponse
- *   TransitGatewayPeering: { // TransitGatewayPeering
- *     Peering: { // Peering
- *       CoreNetworkId: "STRING_VALUE",
- *       CoreNetworkArn: "STRING_VALUE",
- *       PeeringId: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       PeeringType: "TRANSIT_GATEWAY",
- *       State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
- *       EdgeLocation: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *     TransitGatewayArn: "STRING_VALUE",
- *     TransitGatewayPeeringAttachmentId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTransitGatewayPeeringResponse
+ * //   TransitGatewayPeering: { // TransitGatewayPeering
+ * //     Peering: { // Peering
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       CoreNetworkArn: "STRING_VALUE",
+ * //       PeeringId: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       PeeringType: "TRANSIT_GATEWAY",
+ * //       State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //       EdgeLocation: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     TransitGatewayArn: "STRING_VALUE",
+ * //     TransitGatewayPeeringAttachmentId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

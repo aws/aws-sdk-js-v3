@@ -49,8 +49,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

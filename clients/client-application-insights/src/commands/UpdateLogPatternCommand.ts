@@ -52,16 +52,15 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * };
  * const command = new UpdateLogPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLogPatternResponse
- *   ResourceGroupName: "STRING_VALUE",
- *   LogPattern: { // LogPattern
- *     PatternSetName: "STRING_VALUE",
- *     PatternName: "STRING_VALUE",
- *     Pattern: "STRING_VALUE",
- *     Rank: Number("int"),
- *   },
- * };
+ * // { // UpdateLogPatternResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPattern: { // LogPattern
+ * //     PatternSetName: "STRING_VALUE",
+ * //     PatternName: "STRING_VALUE",
+ * //     Pattern: "STRING_VALUE",
+ * //     Rank: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

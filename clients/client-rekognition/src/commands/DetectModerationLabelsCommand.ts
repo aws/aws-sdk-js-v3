@@ -73,24 +73,23 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectModerationLabelsResponse
- *   ModerationLabels: [ // ModerationLabels
- *     { // ModerationLabel
- *       Confidence: Number("float"),
- *       Name: "STRING_VALUE",
- *       ParentName: "STRING_VALUE",
- *     },
- *   ],
- *   ModerationModelVersion: "STRING_VALUE",
- *   HumanLoopActivationOutput: { // HumanLoopActivationOutput
- *     HumanLoopArn: "STRING_VALUE",
- *     HumanLoopActivationReasons: [ // HumanLoopActivationReasons
- *       "STRING_VALUE",
- *     ],
- *     HumanLoopActivationConditionsEvaluationResults: "STRING_VALUE",
- *   },
- * };
+ * // { // DetectModerationLabelsResponse
+ * //   ModerationLabels: [ // ModerationLabels
+ * //     { // ModerationLabel
+ * //       Confidence: Number("float"),
+ * //       Name: "STRING_VALUE",
+ * //       ParentName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ModerationModelVersion: "STRING_VALUE",
+ * //   HumanLoopActivationOutput: { // HumanLoopActivationOutput
+ * //     HumanLoopArn: "STRING_VALUE",
+ * //     HumanLoopActivationReasons: [ // HumanLoopActivationReasons
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     HumanLoopActivationConditionsEvaluationResults: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

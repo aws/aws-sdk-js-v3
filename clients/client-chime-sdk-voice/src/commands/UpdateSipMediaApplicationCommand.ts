@@ -55,22 +55,21 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * };
  * const command = new UpdateSipMediaApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSipMediaApplicationResponse
- *   SipMediaApplication: { // SipMediaApplication
- *     SipMediaApplicationId: "STRING_VALUE",
- *     AwsRegion: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Endpoints: [ // SipMediaApplicationEndpointList
- *       { // SipMediaApplicationEndpoint
- *         LambdaArn: "STRING_VALUE",
- *       },
- *     ],
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     SipMediaApplicationArn: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateSipMediaApplicationResponse
+ * //   SipMediaApplication: { // SipMediaApplication
+ * //     SipMediaApplicationId: "STRING_VALUE",
+ * //     AwsRegion: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Endpoints: [ // SipMediaApplicationEndpointList
+ * //       { // SipMediaApplicationEndpoint
+ * //         LambdaArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     SipMediaApplicationArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,11 +50,10 @@ export interface GetVerifiedAccessEndpointPolicyCommandOutput
  * };
  * const command = new GetVerifiedAccessEndpointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVerifiedAccessEndpointPolicyResult
- *   PolicyEnabled: true || false,
- *   PolicyDocument: "STRING_VALUE",
- * };
+ * // { // GetVerifiedAccessEndpointPolicyResult
+ * //   PolicyEnabled: true || false,
+ * //   PolicyDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * };
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDirectoryResponse
- *   DirectoryArn: "STRING_VALUE", // required
- * };
+ * // { // DeleteDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

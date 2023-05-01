@@ -48,13 +48,12 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * };
  * const command = new UpdateApiMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApiMappingResponse
- *   ApiId: "STRING_VALUE",
- *   ApiMappingId: "STRING_VALUE",
- *   ApiMappingKey: "STRING_VALUE",
- *   Stage: "STRING_VALUE",
- * };
+ * // { // UpdateApiMappingResponse
+ * //   ApiId: "STRING_VALUE",
+ * //   ApiMappingId: "STRING_VALUE",
+ * //   ApiMappingKey: "STRING_VALUE",
+ * //   Stage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

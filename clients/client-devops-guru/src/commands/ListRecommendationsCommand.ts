@@ -48,51 +48,50 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecommendationsResponse
- *   Recommendations: [ // Recommendations
- *     { // Recommendation
- *       Description: "STRING_VALUE",
- *       Link: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *       RelatedEvents: [ // RecommendationRelatedEvents
- *         { // RecommendationRelatedEvent
- *           Name: "STRING_VALUE",
- *           Resources: [ // RecommendationRelatedEventResources
- *             { // RecommendationRelatedEventResource
- *               Name: "STRING_VALUE",
- *               Type: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *       RelatedAnomalies: [ // RecommendationRelatedAnomalies
- *         { // RecommendationRelatedAnomaly
- *           Resources: [ // RecommendationRelatedAnomalyResources
- *             { // RecommendationRelatedAnomalyResource
- *               Name: "STRING_VALUE",
- *               Type: "STRING_VALUE",
- *             },
- *           ],
- *           SourceDetails: [ // RelatedAnomalySourceDetails
- *             { // RecommendationRelatedAnomalySourceDetail
- *               CloudWatchMetrics: [ // RecommendationRelatedCloudWatchMetricsSourceDetails
- *                 { // RecommendationRelatedCloudWatchMetricsSourceDetail
- *                   MetricName: "STRING_VALUE",
- *                   Namespace: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
- *           AnomalyId: "STRING_VALUE",
- *         },
- *       ],
- *       Category: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRecommendationsResponse
+ * //   Recommendations: [ // Recommendations
+ * //     { // Recommendation
+ * //       Description: "STRING_VALUE",
+ * //       Link: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //       RelatedEvents: [ // RecommendationRelatedEvents
+ * //         { // RecommendationRelatedEvent
+ * //           Name: "STRING_VALUE",
+ * //           Resources: [ // RecommendationRelatedEventResources
+ * //             { // RecommendationRelatedEventResource
+ * //               Name: "STRING_VALUE",
+ * //               Type: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       RelatedAnomalies: [ // RecommendationRelatedAnomalies
+ * //         { // RecommendationRelatedAnomaly
+ * //           Resources: [ // RecommendationRelatedAnomalyResources
+ * //             { // RecommendationRelatedAnomalyResource
+ * //               Name: "STRING_VALUE",
+ * //               Type: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SourceDetails: [ // RelatedAnomalySourceDetails
+ * //             { // RecommendationRelatedAnomalySourceDetail
+ * //               CloudWatchMetrics: [ // RecommendationRelatedCloudWatchMetricsSourceDetails
+ * //                 { // RecommendationRelatedCloudWatchMetricsSourceDetail
+ * //                   MetricName: "STRING_VALUE",
+ * //                   Namespace: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           AnomalyId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

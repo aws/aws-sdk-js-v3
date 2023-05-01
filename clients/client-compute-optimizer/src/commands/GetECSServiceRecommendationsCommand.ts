@@ -73,85 +73,84 @@ export interface GetECSServiceRecommendationsCommandOutput
  * };
  * const command = new GetECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetECSServiceRecommendationsResponse
- *   nextToken: "STRING_VALUE",
- *   ecsServiceRecommendations: [ // ECSServiceRecommendations
- *     { // ECSServiceRecommendation
- *       serviceArn: "STRING_VALUE",
- *       accountId: "STRING_VALUE",
- *       currentServiceConfiguration: { // ServiceConfiguration
- *         memory: Number("int"),
- *         cpu: Number("int"),
- *         containerConfigurations: [ // ContainerConfigurations
- *           { // ContainerConfiguration
- *             containerName: "STRING_VALUE",
- *             memorySizeConfiguration: { // MemorySizeConfiguration
- *               memory: Number("int"),
- *               memoryReservation: Number("int"),
- *             },
- *             cpu: Number("int"),
- *           },
- *         ],
- *         autoScalingConfiguration: "TargetTrackingScalingCpu" || "TargetTrackingScalingMemory",
- *         taskDefinitionArn: "STRING_VALUE",
- *       },
- *       utilizationMetrics: [ // ECSServiceUtilizationMetrics
- *         { // ECSServiceUtilizationMetric
- *           name: "Cpu" || "Memory",
- *           statistic: "Maximum" || "Average",
- *           value: Number("double"),
- *         },
- *       ],
- *       lookbackPeriodInDays: Number("double"),
- *       launchType: "EC2" || "Fargate",
- *       lastRefreshTimestamp: new Date("TIMESTAMP"),
- *       finding: "Optimized" || "Underprovisioned" || "Overprovisioned",
- *       findingReasonCodes: [ // ECSServiceRecommendationFindingReasonCodes
- *         "MemoryOverprovisioned" || "MemoryUnderprovisioned" || "CPUOverprovisioned" || "CPUUnderprovisioned",
- *       ],
- *       serviceRecommendationOptions: [ // ECSServiceRecommendationOptions
- *         { // ECSServiceRecommendationOption
- *           memory: Number("int"),
- *           cpu: Number("int"),
- *           savingsOpportunity: { // SavingsOpportunity
- *             savingsOpportunityPercentage: Number("double"),
- *             estimatedMonthlySavings: { // EstimatedMonthlySavings
- *               currency: "USD" || "CNY",
- *               value: Number("double"),
- *             },
- *           },
- *           projectedUtilizationMetrics: [ // ECSServiceProjectedUtilizationMetrics
- *             { // ECSServiceProjectedUtilizationMetric
- *               name: "Cpu" || "Memory",
- *               statistic: "Maximum" || "Average",
- *               lowerBoundValue: Number("double"),
- *               upperBoundValue: Number("double"),
- *             },
- *           ],
- *           containerRecommendations: [ // ContainerRecommendations
- *             { // ContainerRecommendation
- *               containerName: "STRING_VALUE",
- *               memorySizeConfiguration: {
- *                 memory: Number("int"),
- *                 memoryReservation: Number("int"),
- *               },
- *               cpu: Number("int"),
- *             },
- *           ],
- *         },
- *       ],
- *       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
- *     },
- *   ],
- *   errors: [ // GetRecommendationErrors
- *     { // GetRecommendationError
- *       identifier: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetECSServiceRecommendationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   ecsServiceRecommendations: [ // ECSServiceRecommendations
+ * //     { // ECSServiceRecommendation
+ * //       serviceArn: "STRING_VALUE",
+ * //       accountId: "STRING_VALUE",
+ * //       currentServiceConfiguration: { // ServiceConfiguration
+ * //         memory: Number("int"),
+ * //         cpu: Number("int"),
+ * //         containerConfigurations: [ // ContainerConfigurations
+ * //           { // ContainerConfiguration
+ * //             containerName: "STRING_VALUE",
+ * //             memorySizeConfiguration: { // MemorySizeConfiguration
+ * //               memory: Number("int"),
+ * //               memoryReservation: Number("int"),
+ * //             },
+ * //             cpu: Number("int"),
+ * //           },
+ * //         ],
+ * //         autoScalingConfiguration: "TargetTrackingScalingCpu" || "TargetTrackingScalingMemory",
+ * //         taskDefinitionArn: "STRING_VALUE",
+ * //       },
+ * //       utilizationMetrics: [ // ECSServiceUtilizationMetrics
+ * //         { // ECSServiceUtilizationMetric
+ * //           name: "Cpu" || "Memory",
+ * //           statistic: "Maximum" || "Average",
+ * //           value: Number("double"),
+ * //         },
+ * //       ],
+ * //       lookbackPeriodInDays: Number("double"),
+ * //       launchType: "EC2" || "Fargate",
+ * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
+ * //       finding: "Optimized" || "Underprovisioned" || "Overprovisioned",
+ * //       findingReasonCodes: [ // ECSServiceRecommendationFindingReasonCodes
+ * //         "MemoryOverprovisioned" || "MemoryUnderprovisioned" || "CPUOverprovisioned" || "CPUUnderprovisioned",
+ * //       ],
+ * //       serviceRecommendationOptions: [ // ECSServiceRecommendationOptions
+ * //         { // ECSServiceRecommendationOption
+ * //           memory: Number("int"),
+ * //           cpu: Number("int"),
+ * //           savingsOpportunity: { // SavingsOpportunity
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
+ * //           projectedUtilizationMetrics: [ // ECSServiceProjectedUtilizationMetrics
+ * //             { // ECSServiceProjectedUtilizationMetric
+ * //               name: "Cpu" || "Memory",
+ * //               statistic: "Maximum" || "Average",
+ * //               lowerBoundValue: Number("double"),
+ * //               upperBoundValue: Number("double"),
+ * //             },
+ * //           ],
+ * //           containerRecommendations: [ // ContainerRecommendations
+ * //             { // ContainerRecommendation
+ * //               containerName: "STRING_VALUE",
+ * //               memorySizeConfiguration: {
+ * //                 memory: Number("int"),
+ * //                 memoryReservation: Number("int"),
+ * //               },
+ * //               cpu: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //     },
+ * //   ],
+ * //   errors: [ // GetRecommendationErrors
+ * //     { // GetRecommendationError
+ * //       identifier: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

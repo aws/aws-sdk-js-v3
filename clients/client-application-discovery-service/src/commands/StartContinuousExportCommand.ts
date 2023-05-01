@@ -46,16 +46,15 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * const input = {};
  * const command = new StartContinuousExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartContinuousExportResponse
- *   exportId: "STRING_VALUE",
- *   s3Bucket: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   dataSource: "AGENT",
- *   schemaStorageConfig: { // SchemaStorageConfig
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // StartContinuousExportResponse
+ * //   exportId: "STRING_VALUE",
+ * //   s3Bucket: "STRING_VALUE",
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   dataSource: "AGENT",
+ * //   schemaStorageConfig: { // SchemaStorageConfig
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

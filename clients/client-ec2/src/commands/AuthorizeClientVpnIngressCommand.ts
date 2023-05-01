@@ -52,13 +52,12 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * };
  * const command = new AuthorizeClientVpnIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AuthorizeClientVpnIngressResult
- *   Status: { // ClientVpnAuthorizationRuleStatus
- *     Code: "authorizing" || "active" || "failed" || "revoking",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // AuthorizeClientVpnIngressResult
+ * //   Status: { // ClientVpnAuthorizationRuleStatus
+ * //     Code: "authorizing" || "active" || "failed" || "revoking",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,16 +50,15 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * };
  * const command = new GetFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFeedbackResponse
- *   AnomalyGroupTimeSeriesFeedback: [ // TimeSeriesFeedbackList
- *     { // TimeSeriesFeedback
- *       TimeSeriesId: "STRING_VALUE",
- *       IsAnomaly: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetFeedbackResponse
+ * //   AnomalyGroupTimeSeriesFeedback: [ // TimeSeriesFeedbackList
+ * //     { // TimeSeriesFeedback
+ * //       TimeSeriesId: "STRING_VALUE",
+ * //       IsAnomaly: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

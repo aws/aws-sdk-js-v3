@@ -45,8 +45,7 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * };
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

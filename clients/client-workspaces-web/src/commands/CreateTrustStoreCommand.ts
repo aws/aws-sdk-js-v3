@@ -61,10 +61,9 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * };
  * const command = new CreateTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrustStoreResponse
- *   trustStoreArn: "STRING_VALUE", // required
- * };
+ * // { // CreateTrustStoreResponse
+ * //   trustStoreArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

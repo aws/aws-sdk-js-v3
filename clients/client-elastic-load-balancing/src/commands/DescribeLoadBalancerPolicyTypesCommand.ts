@@ -62,24 +62,23 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * };
  * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancerPolicyTypesOutput
- *   PolicyTypeDescriptions: [ // PolicyTypeDescriptions
- *     { // PolicyTypeDescription
- *       PolicyTypeName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       PolicyAttributeTypeDescriptions: [ // PolicyAttributeTypeDescriptions
- *         { // PolicyAttributeTypeDescription
- *           AttributeName: "STRING_VALUE",
- *           AttributeType: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           DefaultValue: "STRING_VALUE",
- *           Cardinality: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeLoadBalancerPolicyTypesOutput
+ * //   PolicyTypeDescriptions: [ // PolicyTypeDescriptions
+ * //     { // PolicyTypeDescription
+ * //       PolicyTypeName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PolicyAttributeTypeDescriptions: [ // PolicyAttributeTypeDescriptions
+ * //         { // PolicyAttributeTypeDescription
+ * //           AttributeName: "STRING_VALUE",
+ * //           AttributeType: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           DefaultValue: "STRING_VALUE",
+ * //           Cardinality: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

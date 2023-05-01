@@ -71,8 +71,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

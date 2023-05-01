@@ -65,24 +65,23 @@ export interface DescribeNetworkInsightsAccessScopesCommandOutput
  * };
  * const command = new DescribeNetworkInsightsAccessScopesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNetworkInsightsAccessScopesResult
- *   NetworkInsightsAccessScopes: [ // NetworkInsightsAccessScopeList
- *     { // NetworkInsightsAccessScope
- *       NetworkInsightsAccessScopeId: "STRING_VALUE",
- *       NetworkInsightsAccessScopeArn: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       UpdatedDate: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNetworkInsightsAccessScopesResult
+ * //   NetworkInsightsAccessScopes: [ // NetworkInsightsAccessScopeList
+ * //     { // NetworkInsightsAccessScope
+ * //       NetworkInsightsAccessScopeId: "STRING_VALUE",
+ * //       NetworkInsightsAccessScopeArn: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       UpdatedDate: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -111,14 +111,13 @@ export interface CreateInAppTemplateCommandOutput extends CreateInAppTemplateRes
  * };
  * const command = new CreateInAppTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInAppTemplateResponse
- *   TemplateCreateMessageBody: { // TemplateCreateMessageBody
- *     Arn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateInAppTemplateResponse
+ * //   TemplateCreateMessageBody: { // TemplateCreateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -71,49 +71,48 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * };
  * const command = new ListTrialComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrialComponentsResponse
- *   TrialComponentSummaries: [ // TrialComponentSummaries
- *     { // TrialComponentSummary
- *       TrialComponentName: "STRING_VALUE",
- *       TrialComponentArn: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       TrialComponentSource: { // TrialComponentSource
- *         SourceArn: "STRING_VALUE", // required
- *         SourceType: "STRING_VALUE",
- *       },
- *       Status: { // TrialComponentStatus
- *         PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *         Message: "STRING_VALUE",
- *       },
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       CreatedBy: { // UserContext
- *         UserProfileArn: "STRING_VALUE",
- *         UserProfileName: "STRING_VALUE",
- *         DomainId: "STRING_VALUE",
- *         IamIdentity: { // IamIdentity
- *           Arn: "STRING_VALUE",
- *           PrincipalId: "STRING_VALUE",
- *           SourceIdentity: "STRING_VALUE",
- *         },
- *       },
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       LastModifiedBy: {
- *         UserProfileArn: "STRING_VALUE",
- *         UserProfileName: "STRING_VALUE",
- *         DomainId: "STRING_VALUE",
- *         IamIdentity: {
- *           Arn: "STRING_VALUE",
- *           PrincipalId: "STRING_VALUE",
- *           SourceIdentity: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTrialComponentsResponse
+ * //   TrialComponentSummaries: [ // TrialComponentSummaries
+ * //     { // TrialComponentSummary
+ * //       TrialComponentName: "STRING_VALUE",
+ * //       TrialComponentArn: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       TrialComponentSource: { // TrialComponentSource
+ * //         SourceArn: "STRING_VALUE", // required
+ * //         SourceType: "STRING_VALUE",
+ * //       },
+ * //       Status: { // TrialComponentStatus
+ * //         PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       CreatedBy: { // UserContext
+ * //         UserProfileArn: "STRING_VALUE",
+ * //         UserProfileName: "STRING_VALUE",
+ * //         DomainId: "STRING_VALUE",
+ * //         IamIdentity: { // IamIdentity
+ * //           Arn: "STRING_VALUE",
+ * //           PrincipalId: "STRING_VALUE",
+ * //           SourceIdentity: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: {
+ * //         UserProfileArn: "STRING_VALUE",
+ * //         UserProfileName: "STRING_VALUE",
+ * //         DomainId: "STRING_VALUE",
+ * //         IamIdentity: {
+ * //           Arn: "STRING_VALUE",
+ * //           PrincipalId: "STRING_VALUE",
+ * //           SourceIdentity: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

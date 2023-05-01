@@ -54,10 +54,9 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * };
  * const command = new StartMailboxExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMailboxExportJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartMailboxExportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

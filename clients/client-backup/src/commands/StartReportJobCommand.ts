@@ -45,10 +45,9 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * };
  * const command = new StartReportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReportJobOutput
- *   ReportJobId: "STRING_VALUE",
- * };
+ * // { // StartReportJobOutput
+ * //   ReportJobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

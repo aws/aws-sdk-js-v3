@@ -46,10 +46,9 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * };
  * const command = new DeleteEntityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEntityResponse
- *   state: "STRING_VALUE", // required
- * };
+ * // { // DeleteEntityResponse
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

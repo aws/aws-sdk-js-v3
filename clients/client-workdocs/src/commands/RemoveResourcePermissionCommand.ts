@@ -48,8 +48,7 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * };
  * const command = new RemoveResourcePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

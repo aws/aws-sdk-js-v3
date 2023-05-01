@@ -57,34 +57,33 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * };
  * const command = new CreateStandbyWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStandbyWorkspacesResult
- *   FailedStandbyRequests: [ // FailedCreateStandbyWorkspacesRequestList
- *     { // FailedCreateStandbyWorkspacesRequest
- *       StandbyWorkspaceRequest: { // StandbyWorkspace
- *         PrimaryWorkspaceId: "STRING_VALUE", // required
- *         VolumeEncryptionKey: "STRING_VALUE",
- *         DirectoryId: "STRING_VALUE", // required
- *         Tags: [ // TagList
- *           { // Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   PendingStandbyRequests: [ // PendingCreateStandbyWorkspacesRequestList
- *     { // PendingCreateStandbyWorkspacesRequest
- *       UserName: "STRING_VALUE",
- *       DirectoryId: "STRING_VALUE",
- *       State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
- *       WorkspaceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateStandbyWorkspacesResult
+ * //   FailedStandbyRequests: [ // FailedCreateStandbyWorkspacesRequestList
+ * //     { // FailedCreateStandbyWorkspacesRequest
+ * //       StandbyWorkspaceRequest: { // StandbyWorkspace
+ * //         PrimaryWorkspaceId: "STRING_VALUE", // required
+ * //         VolumeEncryptionKey: "STRING_VALUE",
+ * //         DirectoryId: "STRING_VALUE", // required
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PendingStandbyRequests: [ // PendingCreateStandbyWorkspacesRequestList
+ * //     { // PendingCreateStandbyWorkspacesRequest
+ * //       UserName: "STRING_VALUE",
+ * //       DirectoryId: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
+ * //       WorkspaceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

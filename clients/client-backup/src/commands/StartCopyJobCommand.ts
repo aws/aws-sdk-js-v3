@@ -53,12 +53,11 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * };
  * const command = new StartCopyJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartCopyJobOutput
- *   CopyJobId: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   IsParent: true || false,
- * };
+ * // { // StartCopyJobOutput
+ * //   CopyJobId: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   IsParent: true || false,
+ * // };
  *
  * ```
  *

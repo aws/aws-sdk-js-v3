@@ -47,93 +47,92 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * };
  * const command = new ListRevisionAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRevisionAssetsResponse
- *   Assets: [ // ListOfAssetEntry
- *     { // AssetEntry
- *       Arn: "STRING_VALUE", // required
- *       AssetDetails: { // AssetDetails
- *         S3SnapshotAsset: { // S3SnapshotAsset
- *           Size: Number("double"), // required
- *         },
- *         RedshiftDataShareAsset: { // RedshiftDataShareAsset
- *           Arn: "STRING_VALUE", // required
- *         },
- *         ApiGatewayApiAsset: { // ApiGatewayApiAsset
- *           ApiDescription: "STRING_VALUE",
- *           ApiEndpoint: "STRING_VALUE",
- *           ApiId: "STRING_VALUE",
- *           ApiKey: "STRING_VALUE",
- *           ApiName: "STRING_VALUE",
- *           ApiSpecificationDownloadUrl: "STRING_VALUE",
- *           ApiSpecificationDownloadUrlExpiresAt: new Date("TIMESTAMP"),
- *           ProtocolType: "STRING_VALUE",
- *           Stage: "STRING_VALUE",
- *         },
- *         S3DataAccessAsset: { // S3DataAccessAsset
- *           Bucket: "STRING_VALUE", // required
- *           KeyPrefixes: [ // ListOf__string
- *             "STRING_VALUE",
- *           ],
- *           Keys: [
- *             "STRING_VALUE",
- *           ],
- *           S3AccessPointAlias: "STRING_VALUE",
- *           S3AccessPointArn: "STRING_VALUE",
- *           KmsKeysToGrant: [ // ListOfKmsKeysToGrant
- *             { // KmsKeyToGrant
- *               KmsKeyArn: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *         LakeFormationDataPermissionAsset: { // LakeFormationDataPermissionAsset
- *           LakeFormationDataPermissionDetails: { // LakeFormationDataPermissionDetails
- *             LFTagPolicy: { // LFTagPolicyDetails
- *               CatalogId: "STRING_VALUE", // required
- *               ResourceType: "STRING_VALUE", // required
- *               ResourceDetails: { // LFResourceDetails
- *                 Database: { // DatabaseLFTagPolicy
- *                   Expression: [ // ListOfLFTags // required
- *                     { // LFTag
- *                       TagKey: "STRING_VALUE", // required
- *                       TagValues: [ // ListOfLFTagValues // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                   ],
- *                 },
- *                 Table: { // TableLFTagPolicy
- *                   Expression: [ // required
- *                     {
- *                       TagKey: "STRING_VALUE", // required
- *                       TagValues: [ // required
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                   ],
- *                 },
- *               },
- *             },
- *           },
- *           LakeFormationDataPermissionType: "STRING_VALUE", // required
- *           Permissions: [ // ListOfLFPermissions // required
- *             "STRING_VALUE",
- *           ],
- *           RoleArn: "STRING_VALUE",
- *         },
- *       },
- *       AssetType: "STRING_VALUE", // required
- *       CreatedAt: new Date("TIMESTAMP"), // required
- *       DataSetId: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       RevisionId: "STRING_VALUE", // required
- *       SourceId: "STRING_VALUE",
- *       UpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRevisionAssetsResponse
+ * //   Assets: [ // ListOfAssetEntry
+ * //     { // AssetEntry
+ * //       Arn: "STRING_VALUE", // required
+ * //       AssetDetails: { // AssetDetails
+ * //         S3SnapshotAsset: { // S3SnapshotAsset
+ * //           Size: Number("double"), // required
+ * //         },
+ * //         RedshiftDataShareAsset: { // RedshiftDataShareAsset
+ * //           Arn: "STRING_VALUE", // required
+ * //         },
+ * //         ApiGatewayApiAsset: { // ApiGatewayApiAsset
+ * //           ApiDescription: "STRING_VALUE",
+ * //           ApiEndpoint: "STRING_VALUE",
+ * //           ApiId: "STRING_VALUE",
+ * //           ApiKey: "STRING_VALUE",
+ * //           ApiName: "STRING_VALUE",
+ * //           ApiSpecificationDownloadUrl: "STRING_VALUE",
+ * //           ApiSpecificationDownloadUrlExpiresAt: new Date("TIMESTAMP"),
+ * //           ProtocolType: "STRING_VALUE",
+ * //           Stage: "STRING_VALUE",
+ * //         },
+ * //         S3DataAccessAsset: { // S3DataAccessAsset
+ * //           Bucket: "STRING_VALUE", // required
+ * //           KeyPrefixes: [ // ListOf__string
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Keys: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           S3AccessPointAlias: "STRING_VALUE",
+ * //           S3AccessPointArn: "STRING_VALUE",
+ * //           KmsKeysToGrant: [ // ListOfKmsKeysToGrant
+ * //             { // KmsKeyToGrant
+ * //               KmsKeyArn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         LakeFormationDataPermissionAsset: { // LakeFormationDataPermissionAsset
+ * //           LakeFormationDataPermissionDetails: { // LakeFormationDataPermissionDetails
+ * //             LFTagPolicy: { // LFTagPolicyDetails
+ * //               CatalogId: "STRING_VALUE", // required
+ * //               ResourceType: "STRING_VALUE", // required
+ * //               ResourceDetails: { // LFResourceDetails
+ * //                 Database: { // DatabaseLFTagPolicy
+ * //                   Expression: [ // ListOfLFTags // required
+ * //                     { // LFTag
+ * //                       TagKey: "STRING_VALUE", // required
+ * //                       TagValues: [ // ListOfLFTagValues // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 Table: { // TableLFTagPolicy
+ * //                   Expression: [ // required
+ * //                     {
+ * //                       TagKey: "STRING_VALUE", // required
+ * //                       TagValues: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //           LakeFormationDataPermissionType: "STRING_VALUE", // required
+ * //           Permissions: [ // ListOfLFPermissions // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           RoleArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       AssetType: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       DataSetId: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       RevisionId: "STRING_VALUE", // required
+ * //       SourceId: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

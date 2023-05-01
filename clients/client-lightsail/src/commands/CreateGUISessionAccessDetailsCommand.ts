@@ -55,20 +55,19 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * };
  * const command = new CreateGUISessionAccessDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGUISessionAccessDetailsResult
- *   resourceName: "STRING_VALUE",
- *   status: "startExpired" || "notStarted" || "started" || "starting" || "stopped" || "stopping" || "settingUpInstance" || "failedInstanceCreation" || "failedStartingGUISession" || "failedStoppingGUISession",
- *   percentageComplete: Number("int"),
- *   failureReason: "STRING_VALUE",
- *   sessions: [ // Sessions
- *     { // Session
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *       isPrimary: true || false,
- *     },
- *   ],
- * };
+ * // { // CreateGUISessionAccessDetailsResult
+ * //   resourceName: "STRING_VALUE",
+ * //   status: "startExpired" || "notStarted" || "started" || "starting" || "stopped" || "stopping" || "settingUpInstance" || "failedInstanceCreation" || "failedStartingGUISession" || "failedStoppingGUISession",
+ * //   percentageComplete: Number("int"),
+ * //   failureReason: "STRING_VALUE",
+ * //   sessions: [ // Sessions
+ * //     { // Session
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //       isPrimary: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

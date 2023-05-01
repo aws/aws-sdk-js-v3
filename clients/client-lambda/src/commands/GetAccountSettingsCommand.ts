@@ -42,20 +42,19 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsResponse
- *   AccountLimit: { // AccountLimit
- *     TotalCodeSize: Number("long"),
- *     CodeSizeUnzipped: Number("long"),
- *     CodeSizeZipped: Number("long"),
- *     ConcurrentExecutions: Number("int"),
- *     UnreservedConcurrentExecutions: Number("int"),
- *   },
- *   AccountUsage: { // AccountUsage
- *     TotalCodeSize: Number("long"),
- *     FunctionCount: Number("long"),
- *   },
- * };
+ * // { // GetAccountSettingsResponse
+ * //   AccountLimit: { // AccountLimit
+ * //     TotalCodeSize: Number("long"),
+ * //     CodeSizeUnzipped: Number("long"),
+ * //     CodeSizeZipped: Number("long"),
+ * //     ConcurrentExecutions: Number("int"),
+ * //     UnreservedConcurrentExecutions: Number("int"),
+ * //   },
+ * //   AccountUsage: { // AccountUsage
+ * //     TotalCodeSize: Number("long"),
+ * //     FunctionCount: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

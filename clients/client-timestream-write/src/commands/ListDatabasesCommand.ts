@@ -48,20 +48,19 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatabasesResponse
- *   Databases: [ // DatabaseList
- *     { // Database
- *       Arn: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       TableCount: Number("long"),
- *       KmsKeyId: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatabasesResponse
+ * //   Databases: [ // DatabaseList
+ * //     { // Database
+ * //       Arn: "STRING_VALUE",
+ * //       DatabaseName: "STRING_VALUE",
+ * //       TableCount: Number("long"),
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

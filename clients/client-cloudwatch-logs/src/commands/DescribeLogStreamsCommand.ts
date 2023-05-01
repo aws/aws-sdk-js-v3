@@ -59,22 +59,21 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * };
  * const command = new DescribeLogStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLogStreamsResponse
- *   logStreams: [ // LogStreams
- *     { // LogStream
- *       logStreamName: "STRING_VALUE",
- *       creationTime: Number("long"),
- *       firstEventTimestamp: Number("long"),
- *       lastEventTimestamp: Number("long"),
- *       lastIngestionTime: Number("long"),
- *       uploadSequenceToken: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       storedBytes: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLogStreamsResponse
+ * //   logStreams: [ // LogStreams
+ * //     { // LogStream
+ * //       logStreamName: "STRING_VALUE",
+ * //       creationTime: Number("long"),
+ * //       firstEventTimestamp: Number("long"),
+ * //       lastEventTimestamp: Number("long"),
+ * //       lastIngestionTime: Number("long"),
+ * //       uploadSequenceToken: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       storedBytes: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

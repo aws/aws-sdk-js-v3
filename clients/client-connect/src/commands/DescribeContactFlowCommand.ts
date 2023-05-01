@@ -47,21 +47,20 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * };
  * const command = new DescribeContactFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContactFlowResponse
- *   ContactFlow: { // ContactFlow
- *     Arn: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
- *     State: "ACTIVE" || "ARCHIVED",
- *     Description: "STRING_VALUE",
- *     Content: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeContactFlowResponse
+ * //   ContactFlow: { // ContactFlow
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //     State: "ACTIVE" || "ARCHIVED",
+ * //     Description: "STRING_VALUE",
+ * //     Content: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

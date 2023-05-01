@@ -60,15 +60,14 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkflowResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateWorkflowResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -57,17 +57,16 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTagsResponse
- *   Marker: "STRING_VALUE",
- *   Tags: [ // Tags // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeTagsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Tags: [ // Tags // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

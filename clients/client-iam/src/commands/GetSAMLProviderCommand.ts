@@ -48,18 +48,17 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * };
  * const command = new GetSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSAMLProviderResponse
- *   SAMLMetadataDocument: "STRING_VALUE",
- *   CreateDate: new Date("TIMESTAMP"),
- *   ValidUntil: new Date("TIMESTAMP"),
- *   Tags: [ // tagListType
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetSAMLProviderResponse
+ * //   SAMLMetadataDocument: "STRING_VALUE",
+ * //   CreateDate: new Date("TIMESTAMP"),
+ * //   ValidUntil: new Date("TIMESTAMP"),
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

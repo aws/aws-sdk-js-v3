@@ -48,8 +48,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

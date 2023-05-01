@@ -83,21 +83,20 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * };
  * const command = new PollForActivityTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivityTask
- *   taskToken: "STRING_VALUE", // required
- *   activityId: "STRING_VALUE", // required
- *   startedEventId: Number("long"), // required
- *   workflowExecution: { // WorkflowExecution
- *     workflowId: "STRING_VALUE", // required
- *     runId: "STRING_VALUE", // required
- *   },
- *   activityType: { // ActivityType
- *     name: "STRING_VALUE", // required
- *     version: "STRING_VALUE", // required
- *   },
- *   input: "STRING_VALUE",
- * };
+ * // { // ActivityTask
+ * //   taskToken: "STRING_VALUE", // required
+ * //   activityId: "STRING_VALUE", // required
+ * //   startedEventId: Number("long"), // required
+ * //   workflowExecution: { // WorkflowExecution
+ * //     workflowId: "STRING_VALUE", // required
+ * //     runId: "STRING_VALUE", // required
+ * //   },
+ * //   activityType: { // ActivityType
+ * //     name: "STRING_VALUE", // required
+ * //     version: "STRING_VALUE", // required
+ * //   },
+ * //   input: "STRING_VALUE",
+ * // };
  *
  * ```
  *

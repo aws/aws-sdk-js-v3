@@ -57,16 +57,15 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * };
  * const command = new GetNetworkResourceRelationshipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkResourceRelationshipsResponse
- *   Relationships: [ // RelationshipList
- *     { // Relationship
- *       From: "STRING_VALUE",
- *       To: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetNetworkResourceRelationshipsResponse
+ * //   Relationships: [ // RelationshipList
+ * //     { // Relationship
+ * //       From: "STRING_VALUE",
+ * //       To: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

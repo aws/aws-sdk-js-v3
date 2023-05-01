@@ -50,16 +50,15 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * };
  * const command = new AssociateConnectPeerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateConnectPeerResponse
- *   ConnectPeerAssociation: { // ConnectPeerAssociation
- *     ConnectPeerId: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // AssociateConnectPeerResponse
+ * //   ConnectPeerAssociation: { // ConnectPeerAssociation
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

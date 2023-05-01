@@ -53,8 +53,7 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

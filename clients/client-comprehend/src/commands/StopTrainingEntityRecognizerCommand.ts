@@ -54,8 +54,7 @@ export interface StopTrainingEntityRecognizerCommandOutput
  * };
  * const command = new StopTrainingEntityRecognizerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

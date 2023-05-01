@@ -67,10 +67,9 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProjectOutput
- *   ProjectArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateProjectOutput
+ * //   ProjectArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

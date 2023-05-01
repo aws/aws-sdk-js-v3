@@ -69,11 +69,10 @@ export interface TestAvailabilityConfigurationCommandOutput
  * };
  * const command = new TestAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestAvailabilityConfigurationResponse
- *   TestPassed: true || false,
- *   FailureReason: "STRING_VALUE",
- * };
+ * // { // TestAvailabilityConfigurationResponse
+ * //   TestPassed: true || false,
+ * //   FailureReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

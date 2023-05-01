@@ -49,13 +49,12 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * };
  * const command = new AuthorizeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AuthorizeVpcEndpointAccessResponse
- *   AuthorizedPrincipal: { // AuthorizedPrincipal
- *     PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
- *     Principal: "STRING_VALUE",
- *   },
- * };
+ * // { // AuthorizeVpcEndpointAccessResponse
+ * //   AuthorizedPrincipal: { // AuthorizedPrincipal
+ * //     PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ * //     Principal: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

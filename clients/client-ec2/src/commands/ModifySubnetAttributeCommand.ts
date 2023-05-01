@@ -91,8 +91,7 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifySubnetAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

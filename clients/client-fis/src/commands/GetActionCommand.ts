@@ -44,27 +44,26 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * };
  * const command = new GetActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetActionResponse
- *   action: { // Action
- *     id: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     parameters: { // ActionParameterMap
- *       "<keys>": { // ActionParameter
- *         description: "STRING_VALUE",
- *         required: true || false,
- *       },
- *     },
- *     targets: { // ActionTargetMap
- *       "<keys>": { // ActionTarget
- *         resourceType: "STRING_VALUE",
- *       },
- *     },
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetActionResponse
+ * //   action: { // Action
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     parameters: { // ActionParameterMap
+ * //       "<keys>": { // ActionParameter
+ * //         description: "STRING_VALUE",
+ * //         required: true || false,
+ * //       },
+ * //     },
+ * //     targets: { // ActionTargetMap
+ * //       "<keys>": { // ActionTarget
+ * //         resourceType: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -54,10 +54,9 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * };
  * const command = new DeleteArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteArtifactResponse
- *   ArtifactArn: "STRING_VALUE",
- * };
+ * // { // DeleteArtifactResponse
+ * //   ArtifactArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

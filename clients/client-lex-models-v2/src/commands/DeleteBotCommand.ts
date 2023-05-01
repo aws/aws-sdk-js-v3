@@ -54,11 +54,10 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  * };
  * const command = new DeleteBotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBotResponse
- *   botId: "STRING_VALUE",
- *   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- * };
+ * // { // DeleteBotResponse
+ * //   botId: "STRING_VALUE",
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * // };
  *
  * ```
  *

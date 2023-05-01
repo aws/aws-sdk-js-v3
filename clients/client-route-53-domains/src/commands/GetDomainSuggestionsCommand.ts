@@ -46,15 +46,14 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainSuggestionsResponse
- *   SuggestionsList: [ // DomainSuggestionsList
- *     { // DomainSuggestion
- *       DomainName: "STRING_VALUE",
- *       Availability: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetDomainSuggestionsResponse
+ * //   SuggestionsList: [ // DomainSuggestionsList
+ * //     { // DomainSuggestion
+ * //       DomainName: "STRING_VALUE",
+ * //       Availability: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

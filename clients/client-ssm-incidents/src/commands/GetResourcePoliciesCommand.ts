@@ -46,17 +46,16 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePoliciesOutput
- *   resourcePolicies: [ // ResourcePolicyList // required
- *     { // ResourcePolicy
- *       policyDocument: "STRING_VALUE", // required
- *       policyId: "STRING_VALUE", // required
- *       ramResourceShareRegion: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetResourcePoliciesOutput
+ * //   resourcePolicies: [ // ResourcePolicyList // required
+ * //     { // ResourcePolicy
+ * //       policyDocument: "STRING_VALUE", // required
+ * //       policyId: "STRING_VALUE", // required
+ * //       ramResourceShareRegion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

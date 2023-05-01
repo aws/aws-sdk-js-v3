@@ -52,10 +52,9 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * const input = {};
  * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSagemakerServicecatalogPortfolioStatusOutput
- *   Status: "Enabled" || "Disabled",
- * };
+ * // { // GetSagemakerServicecatalogPortfolioStatusOutput
+ * //   Status: "Enabled" || "Disabled",
+ * // };
  *
  * ```
  *

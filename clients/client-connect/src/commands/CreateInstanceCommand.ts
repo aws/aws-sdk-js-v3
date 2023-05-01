@@ -59,11 +59,10 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInstanceResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateInstanceResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

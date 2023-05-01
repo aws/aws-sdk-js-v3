@@ -52,8 +52,7 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEndpointConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

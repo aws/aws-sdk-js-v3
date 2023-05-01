@@ -46,24 +46,23 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkspacesResponse
- *   workspaces: [ // WorkspaceSummaryList // required
- *     { // WorkspaceSummary
- *       workspaceId: "STRING_VALUE", // required
- *       alias: "STRING_VALUE",
- *       arn: "STRING_VALUE", // required
- *       status: { // WorkspaceStatus
- *         statusCode: "STRING_VALUE", // required
- *       },
- *       createdAt: new Date("TIMESTAMP"), // required
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkspacesResponse
+ * //   workspaces: [ // WorkspaceSummaryList // required
+ * //     { // WorkspaceSummary
+ * //       workspaceId: "STRING_VALUE", // required
+ * //       alias: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       status: { // WorkspaceStatus
+ * //         statusCode: "STRING_VALUE", // required
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * };
  * const command = new PutMailboxPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

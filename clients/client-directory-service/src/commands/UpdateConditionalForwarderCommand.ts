@@ -49,8 +49,7 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  * };
  * const command = new UpdateConditionalForwarderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

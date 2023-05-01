@@ -792,10 +792,9 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * };
  * const command = new CheckCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckCapacityResponse
- *   Capacity: Number("long"),
- * };
+ * // { // CheckCapacityResponse
+ * //   Capacity: Number("long"),
+ * // };
  *
  * ```
  *

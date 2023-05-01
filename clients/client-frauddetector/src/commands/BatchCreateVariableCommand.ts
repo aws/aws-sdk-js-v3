@@ -59,16 +59,15 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * };
  * const command = new BatchCreateVariableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateVariableResult
- *   errors: [ // BatchCreateVariableErrorList
- *     { // BatchCreateVariableError
- *       name: "STRING_VALUE",
- *       code: Number("int"),
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateVariableResult
+ * //   errors: [ // BatchCreateVariableErrorList
+ * //     { // BatchCreateVariableError
+ * //       name: "STRING_VALUE",
+ * //       code: Number("int"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeletePlaybackConfigurationCommandOutput
  * };
  * const command = new DeletePlaybackConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

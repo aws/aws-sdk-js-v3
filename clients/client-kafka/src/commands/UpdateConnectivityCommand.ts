@@ -65,11 +65,10 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * };
  * const command = new UpdateConnectivityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectivityResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateConnectivityResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

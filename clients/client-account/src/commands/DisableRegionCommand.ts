@@ -45,8 +45,7 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

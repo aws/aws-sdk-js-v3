@@ -58,10 +58,9 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * };
  * const command = new ExportTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportTransitGatewayRoutesResult
- *   S3Location: "STRING_VALUE",
- * };
+ * // { // ExportTransitGatewayRoutesResult
+ * //   S3Location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

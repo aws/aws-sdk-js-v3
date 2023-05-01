@@ -58,11 +58,10 @@ export interface CreateIntegrationAssociationCommandOutput
  * };
  * const command = new CreateIntegrationAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIntegrationAssociationResponse
- *   IntegrationAssociationId: "STRING_VALUE",
- *   IntegrationAssociationArn: "STRING_VALUE",
- * };
+ * // { // CreateIntegrationAssociationResponse
+ * //   IntegrationAssociationId: "STRING_VALUE",
+ * //   IntegrationAssociationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

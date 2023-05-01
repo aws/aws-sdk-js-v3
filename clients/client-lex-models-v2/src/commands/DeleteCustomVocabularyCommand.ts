@@ -47,13 +47,12 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * };
  * const command = new DeleteCustomVocabularyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCustomVocabularyResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
- * };
+ * // { // DeleteCustomVocabularyResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
+ * // };
  *
  * ```
  *

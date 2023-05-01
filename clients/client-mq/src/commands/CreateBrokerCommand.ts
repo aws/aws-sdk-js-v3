@@ -102,11 +102,10 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * };
  * const command = new CreateBrokerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBrokerResponse
- *   BrokerArn: "STRING_VALUE",
- *   BrokerId: "STRING_VALUE",
- * };
+ * // { // CreateBrokerResponse
+ * //   BrokerArn: "STRING_VALUE",
+ * //   BrokerId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

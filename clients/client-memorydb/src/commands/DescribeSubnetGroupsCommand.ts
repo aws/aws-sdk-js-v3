@@ -46,26 +46,25 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * };
  * const command = new DescribeSubnetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSubnetGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   SubnetGroups: [ // SubnetGroupList
- *     { // SubnetGroup
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       Subnets: [ // SubnetList
- *         { // Subnet
- *           Identifier: "STRING_VALUE",
- *           AvailabilityZone: { // AvailabilityZone
- *             Name: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeSubnetGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   SubnetGroups: [ // SubnetGroupList
+ * //     { // SubnetGroup
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       Subnets: [ // SubnetList
+ * //         { // Subnet
+ * //           Identifier: "STRING_VALUE",
+ * //           AvailabilityZone: { // AvailabilityZone
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

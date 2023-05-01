@@ -45,8 +45,7 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

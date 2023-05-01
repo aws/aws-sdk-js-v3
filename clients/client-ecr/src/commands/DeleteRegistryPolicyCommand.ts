@@ -42,11 +42,10 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * const input = {};
  * const command = new DeleteRegistryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRegistryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // DeleteRegistryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

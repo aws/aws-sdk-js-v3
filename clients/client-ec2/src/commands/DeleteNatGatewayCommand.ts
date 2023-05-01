@@ -47,10 +47,9 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * };
  * const command = new DeleteNatGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNatGatewayResult
- *   NatGatewayId: "STRING_VALUE",
- * };
+ * // { // DeleteNatGatewayResult
+ * //   NatGatewayId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

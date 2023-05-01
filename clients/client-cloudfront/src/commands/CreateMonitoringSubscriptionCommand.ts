@@ -57,14 +57,13 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * };
  * const command = new CreateMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMonitoringSubscriptionResult
- *   MonitoringSubscription: { // MonitoringSubscription
- *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
- *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
- *     },
- *   },
- * };
+ * // { // CreateMonitoringSubscriptionResult
+ * //   MonitoringSubscription: { // MonitoringSubscription
+ * //     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ * //       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

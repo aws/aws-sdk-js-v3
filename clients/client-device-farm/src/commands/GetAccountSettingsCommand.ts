@@ -43,28 +43,27 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsResult
- *   accountSettings: { // AccountSettings
- *     awsAccountNumber: "STRING_VALUE",
- *     unmeteredDevices: { // PurchasedDevicesMap
- *       "<keys>": Number("int"),
- *     },
- *     unmeteredRemoteAccessDevices: {
- *       "<keys>": Number("int"),
- *     },
- *     maxJobTimeoutMinutes: Number("int"),
- *     trialMinutes: { // TrialMinutes
- *       total: Number("double"),
- *       remaining: Number("double"),
- *     },
- *     maxSlots: { // MaxSlotMap
- *       "<keys>": Number("int"),
- *     },
- *     defaultJobTimeoutMinutes: Number("int"),
- *     skipAppResign: true || false,
- *   },
- * };
+ * // { // GetAccountSettingsResult
+ * //   accountSettings: { // AccountSettings
+ * //     awsAccountNumber: "STRING_VALUE",
+ * //     unmeteredDevices: { // PurchasedDevicesMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     unmeteredRemoteAccessDevices: {
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     maxJobTimeoutMinutes: Number("int"),
+ * //     trialMinutes: { // TrialMinutes
+ * //       total: Number("double"),
+ * //       remaining: Number("double"),
+ * //     },
+ * //     maxSlots: { // MaxSlotMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //     defaultJobTimeoutMinutes: Number("int"),
+ * //     skipAppResign: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

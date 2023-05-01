@@ -60,24 +60,23 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * };
  * const command = new DescribeImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeImagesResponse
- *   imageDetails: [ // ImageDetailList
- *     { // ImageDetail
- *       registryId: "STRING_VALUE",
- *       repositoryName: "STRING_VALUE",
- *       imageDigest: "STRING_VALUE",
- *       imageTags: [ // ImageTagList
- *         "STRING_VALUE",
- *       ],
- *       imageSizeInBytes: Number("long"),
- *       imagePushedAt: new Date("TIMESTAMP"),
- *       imageManifestMediaType: "STRING_VALUE",
- *       artifactMediaType: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeImagesResponse
+ * //   imageDetails: [ // ImageDetailList
+ * //     { // ImageDetail
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTags: [ // ImageTagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       imageSizeInBytes: Number("long"),
+ * //       imagePushedAt: new Date("TIMESTAMP"),
+ * //       imageManifestMediaType: "STRING_VALUE",
+ * //       artifactMediaType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

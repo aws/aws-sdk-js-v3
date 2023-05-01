@@ -74,11 +74,10 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * };
  * const command = new CreateWirelessGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWirelessGatewayResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateWirelessGatewayResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,28 +52,27 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * };
  * const command = new UpdateBotLocaleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBotLocaleResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   localeName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   nluIntentConfidenceThreshold: Number("double"),
- *   voiceSettings: { // VoiceSettings
- *     voiceId: "STRING_VALUE", // required
- *     engine: "standard" || "neural",
- *   },
- *   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
- *   failureReasons: [ // FailureReasons
- *     "STRING_VALUE",
- *   ],
- *   creationDateTime: new Date("TIMESTAMP"),
- *   lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   recommendedActions: [ // RecommendedActions
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UpdateBotLocaleResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   localeName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   nluIntentConfidenceThreshold: Number("double"),
+ * //   voiceSettings: { // VoiceSettings
+ * //     voiceId: "STRING_VALUE", // required
+ * //     engine: "standard" || "neural",
+ * //   },
+ * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   recommendedActions: [ // RecommendedActions
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

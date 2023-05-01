@@ -47,8 +47,7 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * };
  * const command = new AssociateApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

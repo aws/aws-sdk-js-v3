@@ -70,25 +70,24 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  * };
  * const command = new GetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssetPropertyValueHistoryResponse
- *   assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
- *     { // AssetPropertyValue
- *       value: { // Variant
- *         stringValue: "STRING_VALUE",
- *         integerValue: Number("int"),
- *         doubleValue: Number("double"),
- *         booleanValue: true || false,
- *       },
- *       timestamp: { // TimeInNanos
- *         timeInSeconds: Number("long"), // required
- *         offsetInNanos: Number("int"),
- *       },
- *       quality: "GOOD" || "BAD" || "UNCERTAIN",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetAssetPropertyValueHistoryResponse
+ * //   assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
+ * //     { // AssetPropertyValue
+ * //       value: { // Variant
+ * //         stringValue: "STRING_VALUE",
+ * //         integerValue: Number("int"),
+ * //         doubleValue: Number("double"),
+ * //         booleanValue: true || false,
+ * //       },
+ * //       timestamp: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

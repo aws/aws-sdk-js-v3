@@ -44,25 +44,24 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * };
  * const command = new GetPortalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPortalResponse
- *   portal: { // Portal
- *     portalArn: "STRING_VALUE",
- *     rendererType: "STRING_VALUE",
- *     browserType: "STRING_VALUE",
- *     portalStatus: "STRING_VALUE",
- *     portalEndpoint: "STRING_VALUE",
- *     displayName: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *     browserSettingsArn: "STRING_VALUE",
- *     userSettingsArn: "STRING_VALUE",
- *     networkSettingsArn: "STRING_VALUE",
- *     trustStoreArn: "STRING_VALUE",
- *     statusReason: "STRING_VALUE",
- *     userAccessLoggingSettingsArn: "STRING_VALUE",
- *     authenticationType: "STRING_VALUE",
- *   },
- * };
+ * // { // GetPortalResponse
+ * //   portal: { // Portal
+ * //     portalArn: "STRING_VALUE",
+ * //     rendererType: "STRING_VALUE",
+ * //     browserType: "STRING_VALUE",
+ * //     portalStatus: "STRING_VALUE",
+ * //     portalEndpoint: "STRING_VALUE",
+ * //     displayName: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     browserSettingsArn: "STRING_VALUE",
+ * //     userSettingsArn: "STRING_VALUE",
+ * //     networkSettingsArn: "STRING_VALUE",
+ * //     trustStoreArn: "STRING_VALUE",
+ * //     statusReason: "STRING_VALUE",
+ * //     userAccessLoggingSettingsArn: "STRING_VALUE",
+ * //     authenticationType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -56,18 +56,17 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFederationTokenResponse
- *   Credentials: { // Credentials
- *     AccessToken: "STRING_VALUE",
- *     AccessTokenExpiration: new Date("TIMESTAMP"),
- *     RefreshToken: "STRING_VALUE",
- *     RefreshTokenExpiration: new Date("TIMESTAMP"),
- *   },
- *   SignInUrl: "STRING_VALUE",
- *   UserArn: "STRING_VALUE",
- *   UserId: "STRING_VALUE",
- * };
+ * // { // GetFederationTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessToken: "STRING_VALUE",
+ * //     AccessTokenExpiration: new Date("TIMESTAMP"),
+ * //     RefreshToken: "STRING_VALUE",
+ * //     RefreshTokenExpiration: new Date("TIMESTAMP"),
+ * //   },
+ * //   SignInUrl: "STRING_VALUE",
+ * //   UserArn: "STRING_VALUE",
+ * //   UserId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,10 +58,9 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * };
  * const command = new StartQueryPlanningCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartQueryPlanningResponse
- *   QueryId: "STRING_VALUE", // required
- * };
+ * // { // StartQueryPlanningResponse
+ * //   QueryId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

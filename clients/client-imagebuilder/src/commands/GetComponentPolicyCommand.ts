@@ -44,11 +44,10 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * };
  * const command = new GetComponentPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComponentPolicyResponse
- *   requestId: "STRING_VALUE",
- *   policy: "STRING_VALUE",
- * };
+ * // { // GetComponentPolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

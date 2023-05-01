@@ -44,8 +44,7 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * };
  * const command = new StopCrawlerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,26 +57,25 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * };
  * const command = new DescribeCoipPoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCoipPoolsResult
- *   CoipPools: [ // CoipPoolSet
- *     { // CoipPool
- *       PoolId: "STRING_VALUE",
- *       PoolCidrs: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       LocalGatewayRouteTableId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       PoolArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeCoipPoolsResult
+ * //   CoipPools: [ // CoipPoolSet
+ * //     { // CoipPool
+ * //       PoolId: "STRING_VALUE",
+ * //       PoolCidrs: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LocalGatewayRouteTableId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PoolArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

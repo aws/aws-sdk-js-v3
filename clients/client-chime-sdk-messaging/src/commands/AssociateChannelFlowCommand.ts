@@ -57,8 +57,7 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

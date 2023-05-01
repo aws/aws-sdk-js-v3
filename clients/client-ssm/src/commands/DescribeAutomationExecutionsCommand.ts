@@ -58,127 +58,126 @@ export interface DescribeAutomationExecutionsCommandOutput
  * };
  * const command = new DescribeAutomationExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAutomationExecutionsResult
- *   AutomationExecutionMetadataList: [ // AutomationExecutionMetadataList
- *     { // AutomationExecutionMetadata
- *       AutomationExecutionId: "STRING_VALUE",
- *       DocumentName: "STRING_VALUE",
- *       DocumentVersion: "STRING_VALUE",
- *       AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
- *       ExecutionStartTime: new Date("TIMESTAMP"),
- *       ExecutionEndTime: new Date("TIMESTAMP"),
- *       ExecutedBy: "STRING_VALUE",
- *       LogFile: "STRING_VALUE",
- *       Outputs: { // AutomationParameterMap
- *         "<keys>": [ // AutomationParameterValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Mode: "Auto" || "Interactive",
- *       ParentAutomationExecutionId: "STRING_VALUE",
- *       CurrentStepName: "STRING_VALUE",
- *       CurrentAction: "STRING_VALUE",
- *       FailureMessage: "STRING_VALUE",
- *       TargetParameterName: "STRING_VALUE",
- *       Targets: [ // Targets
- *         { // Target
- *           Key: "STRING_VALUE",
- *           Values: [ // TargetValues
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       TargetMaps: [ // TargetMaps
- *         { // TargetMap
- *           "<keys>": [ // TargetMapValueList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       ResolvedTargets: { // ResolvedTargets
- *         ParameterValues: [ // TargetParameterList
- *           "STRING_VALUE",
- *         ],
- *         Truncated: true || false,
- *       },
- *       MaxConcurrency: "STRING_VALUE",
- *       MaxErrors: "STRING_VALUE",
- *       Target: "STRING_VALUE",
- *       AutomationType: "CrossAccount" || "Local",
- *       AlarmConfiguration: { // AlarmConfiguration
- *         IgnorePollAlarmFailure: true || false,
- *         Alarms: [ // AlarmList // required
- *           { // Alarm
- *             Name: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       TriggeredAlarms: [ // AlarmStateInformationList
- *         { // AlarmStateInformation
- *           Name: "STRING_VALUE", // required
- *           State: "UNKNOWN" || "ALARM", // required
- *         },
- *       ],
- *       AutomationSubtype: "ChangeRequest",
- *       ScheduledTime: new Date("TIMESTAMP"),
- *       Runbooks: [ // Runbooks
- *         { // Runbook
- *           DocumentName: "STRING_VALUE", // required
- *           DocumentVersion: "STRING_VALUE",
- *           Parameters: {
- *             "<keys>": [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           TargetParameterName: "STRING_VALUE",
- *           Targets: [
- *             {
- *               Key: "STRING_VALUE",
- *               Values: [
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *           TargetMaps: [
- *             {
- *               "<keys>": [
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *           MaxConcurrency: "STRING_VALUE",
- *           MaxErrors: "STRING_VALUE",
- *           TargetLocations: [ // TargetLocations
- *             { // TargetLocation
- *               Accounts: [ // Accounts
- *                 "STRING_VALUE",
- *               ],
- *               Regions: [ // Regions
- *                 "STRING_VALUE",
- *               ],
- *               TargetLocationMaxConcurrency: "STRING_VALUE",
- *               TargetLocationMaxErrors: "STRING_VALUE",
- *               ExecutionRoleName: "STRING_VALUE",
- *               TargetLocationAlarmConfiguration: {
- *                 IgnorePollAlarmFailure: true || false,
- *                 Alarms: [ // required
- *                   {
- *                     Name: "STRING_VALUE", // required
- *                   },
- *                 ],
- *               },
- *             },
- *           ],
- *         },
- *       ],
- *       OpsItemId: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       ChangeRequestName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAutomationExecutionsResult
+ * //   AutomationExecutionMetadataList: [ // AutomationExecutionMetadataList
+ * //     { // AutomationExecutionMetadata
+ * //       AutomationExecutionId: "STRING_VALUE",
+ * //       DocumentName: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       AutomationExecutionStatus: "Pending" || "InProgress" || "Waiting" || "Success" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "PendingApproval" || "Approved" || "Rejected" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "CompletedWithSuccess" || "CompletedWithFailure",
+ * //       ExecutionStartTime: new Date("TIMESTAMP"),
+ * //       ExecutionEndTime: new Date("TIMESTAMP"),
+ * //       ExecutedBy: "STRING_VALUE",
+ * //       LogFile: "STRING_VALUE",
+ * //       Outputs: { // AutomationParameterMap
+ * //         "<keys>": [ // AutomationParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Mode: "Auto" || "Interactive",
+ * //       ParentAutomationExecutionId: "STRING_VALUE",
+ * //       CurrentStepName: "STRING_VALUE",
+ * //       CurrentAction: "STRING_VALUE",
+ * //       FailureMessage: "STRING_VALUE",
+ * //       TargetParameterName: "STRING_VALUE",
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       TargetMaps: [ // TargetMaps
+ * //         { // TargetMap
+ * //           "<keys>": [ // TargetMapValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ResolvedTargets: { // ResolvedTargets
+ * //         ParameterValues: [ // TargetParameterList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Truncated: true || false,
+ * //       },
+ * //       MaxConcurrency: "STRING_VALUE",
+ * //       MaxErrors: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       AutomationType: "CrossAccount" || "Local",
+ * //       AlarmConfiguration: { // AlarmConfiguration
+ * //         IgnorePollAlarmFailure: true || false,
+ * //         Alarms: [ // AlarmList // required
+ * //           { // Alarm
+ * //             Name: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       TriggeredAlarms: [ // AlarmStateInformationList
+ * //         { // AlarmStateInformation
+ * //           Name: "STRING_VALUE", // required
+ * //           State: "UNKNOWN" || "ALARM", // required
+ * //         },
+ * //       ],
+ * //       AutomationSubtype: "ChangeRequest",
+ * //       ScheduledTime: new Date("TIMESTAMP"),
+ * //       Runbooks: [ // Runbooks
+ * //         { // Runbook
+ * //           DocumentName: "STRING_VALUE", // required
+ * //           DocumentVersion: "STRING_VALUE",
+ * //           Parameters: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           TargetParameterName: "STRING_VALUE",
+ * //           Targets: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Values: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //           TargetMaps: [
+ * //             {
+ * //               "<keys>": [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //           MaxConcurrency: "STRING_VALUE",
+ * //           MaxErrors: "STRING_VALUE",
+ * //           TargetLocations: [ // TargetLocations
+ * //             { // TargetLocation
+ * //               Accounts: [ // Accounts
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Regions: [ // Regions
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               TargetLocationMaxConcurrency: "STRING_VALUE",
+ * //               TargetLocationMaxErrors: "STRING_VALUE",
+ * //               ExecutionRoleName: "STRING_VALUE",
+ * //               TargetLocationAlarmConfiguration: {
+ * //                 IgnorePollAlarmFailure: true || false,
+ * //                 Alarms: [ // required
+ * //                   {
+ * //                     Name: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       OpsItemId: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       ChangeRequestName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

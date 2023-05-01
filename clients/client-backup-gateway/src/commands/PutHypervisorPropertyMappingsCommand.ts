@@ -60,10 +60,9 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * };
  * const command = new PutHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutHypervisorPropertyMappingsOutput
- *   HypervisorArn: "STRING_VALUE",
- * };
+ * // { // PutHypervisorPropertyMappingsOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * };
  * const command = new DeleteBatchImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

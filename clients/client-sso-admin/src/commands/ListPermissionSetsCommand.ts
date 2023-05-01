@@ -46,13 +46,12 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * };
  * const command = new ListPermissionSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionSetsResponse
- *   PermissionSets: [ // PermissionSetList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionSetsResponse
+ * //   PermissionSets: [ // PermissionSetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

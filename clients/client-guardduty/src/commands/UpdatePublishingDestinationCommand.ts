@@ -55,8 +55,7 @@ export interface UpdatePublishingDestinationCommandOutput
  * };
  * const command = new UpdatePublishingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

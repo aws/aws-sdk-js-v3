@@ -58,17 +58,16 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  * };
  * const command = new GetDocumentPathCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDocumentPathResponse
- *   Path: { // ResourcePath
- *     Components: [ // ResourcePathComponentList
- *       { // ResourcePathComponent
- *         Id: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetDocumentPathResponse
+ * //   Path: { // ResourcePath
+ * //     Components: [ // ResourcePathComponentList
+ * //       { // ResourcePathComponent
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

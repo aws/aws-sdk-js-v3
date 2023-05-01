@@ -53,8 +53,7 @@ export interface UpdateContactFlowModuleMetadataCommandOutput
  * };
  * const command = new UpdateContactFlowModuleMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,18 +49,17 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * };
  * const command = new GetLinkAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLinkAssociationsResponse
- *   LinkAssociations: [ // LinkAssociationList
- *     { // LinkAssociation
- *       GlobalNetworkId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       LinkId: "STRING_VALUE",
- *       LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetLinkAssociationsResponse
+ * //   LinkAssociations: [ // LinkAssociationList
+ * //     { // LinkAssociation
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       LinkId: "STRING_VALUE",
+ * //       LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

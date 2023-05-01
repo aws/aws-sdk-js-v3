@@ -49,19 +49,18 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
  * };
  * const command = new GetCapacityAssignmentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCapacityAssignmentConfigurationOutput
- *   CapacityAssignmentConfiguration: { // CapacityAssignmentConfiguration
- *     CapacityReservationName: "STRING_VALUE",
- *     CapacityAssignments: [ // CapacityAssignmentsList
- *       { // CapacityAssignment
- *         WorkGroupNames: [ // WorkGroupNamesList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // GetCapacityAssignmentConfigurationOutput
+ * //   CapacityAssignmentConfiguration: { // CapacityAssignmentConfiguration
+ * //     CapacityReservationName: "STRING_VALUE",
+ * //     CapacityAssignments: [ // CapacityAssignmentsList
+ * //       { // CapacityAssignment
+ * //         WorkGroupNames: [ // WorkGroupNamesList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

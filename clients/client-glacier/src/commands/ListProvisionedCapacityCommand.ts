@@ -45,16 +45,15 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * };
  * const command = new ListProvisionedCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisionedCapacityOutput
- *   ProvisionedCapacityList: [ // ProvisionedCapacityList
- *     { // ProvisionedCapacityDescription
- *       CapacityId: "STRING_VALUE",
- *       StartDate: "STRING_VALUE",
- *       ExpirationDate: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListProvisionedCapacityOutput
+ * //   ProvisionedCapacityList: [ // ProvisionedCapacityList
+ * //     { // ProvisionedCapacityDescription
+ * //       CapacityId: "STRING_VALUE",
+ * //       StartDate: "STRING_VALUE",
+ * //       ExpirationDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

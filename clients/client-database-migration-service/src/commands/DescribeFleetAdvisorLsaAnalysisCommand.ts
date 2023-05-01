@@ -55,16 +55,15 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * };
  * const command = new DescribeFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetAdvisorLsaAnalysisResponse
- *   Analysis: [ // FleetAdvisorLsaAnalysisResponseList
- *     { // FleetAdvisorLsaAnalysisResponse
- *       LsaAnalysisId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFleetAdvisorLsaAnalysisResponse
+ * //   Analysis: [ // FleetAdvisorLsaAnalysisResponseList
+ * //     { // FleetAdvisorLsaAnalysisResponse
+ * //       LsaAnalysisId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

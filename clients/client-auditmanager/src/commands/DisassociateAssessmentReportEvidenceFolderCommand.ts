@@ -54,8 +54,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * };
  * const command = new DisassociateAssessmentReportEvidenceFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

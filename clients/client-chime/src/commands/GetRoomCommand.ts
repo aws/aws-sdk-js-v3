@@ -45,17 +45,16 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoomResponse
- *   Room: { // Room
- *     RoomId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
- *     CreatedBy: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetRoomResponse
+ * //   Room: { // Room
+ * //     RoomId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     CreatedBy: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

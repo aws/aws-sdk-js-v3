@@ -68,8 +68,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * };
  * const command = new UpdateLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

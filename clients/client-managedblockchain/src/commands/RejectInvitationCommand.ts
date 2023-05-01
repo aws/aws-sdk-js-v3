@@ -49,8 +49,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * };
  * const command = new RejectInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

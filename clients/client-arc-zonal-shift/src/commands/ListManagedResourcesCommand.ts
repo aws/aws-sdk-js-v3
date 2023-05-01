@@ -47,19 +47,18 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * };
  * const command = new ListManagedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedResourcesResponse
- *   items: [ // ManagedResourceSummaries // required
- *     { // ManagedResourceSummary
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       availabilityZones: [ // AvailabilityZones // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedResourcesResponse
+ * //   items: [ // ManagedResourceSummaries // required
+ * //     { // ManagedResourceSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       availabilityZones: [ // AvailabilityZones // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

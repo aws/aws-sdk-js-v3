@@ -68,16 +68,15 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * };
  * const command = new CreateSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSAMLProviderResponse
- *   SAMLProviderArn: "STRING_VALUE",
- *   Tags: [ // tagListType
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreateSAMLProviderResponse
+ * //   SAMLProviderArn: "STRING_VALUE",
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

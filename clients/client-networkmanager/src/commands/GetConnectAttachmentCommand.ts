@@ -44,45 +44,44 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  * };
  * const command = new GetConnectAttachmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectAttachmentResponse
- *   ConnectAttachment: { // ConnectAttachment
- *     Attachment: { // Attachment
- *       CoreNetworkId: "STRING_VALUE",
- *       CoreNetworkArn: "STRING_VALUE",
- *       AttachmentId: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "TRANSIT_GATEWAY_ROUTE_TABLE",
- *       State: "REJECTED" || "PENDING_ATTACHMENT_ACCEPTANCE" || "CREATING" || "FAILED" || "AVAILABLE" || "UPDATING" || "PENDING_NETWORK_UPDATE" || "PENDING_TAG_ACCEPTANCE" || "DELETING",
- *       EdgeLocation: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       AttachmentPolicyRuleNumber: Number("int"),
- *       SegmentName: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       ProposedSegmentChange: { // ProposedSegmentChange
- *         Tags: [
- *           {
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *         AttachmentPolicyRuleNumber: Number("int"),
- *         SegmentName: "STRING_VALUE",
- *       },
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *     TransportAttachmentId: "STRING_VALUE",
- *     Options: { // ConnectAttachmentOptions
- *       Protocol: "GRE",
- *     },
- *   },
- * };
+ * // { // GetConnectAttachmentResponse
+ * //   ConnectAttachment: { // ConnectAttachment
+ * //     Attachment: { // Attachment
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       CoreNetworkArn: "STRING_VALUE",
+ * //       AttachmentId: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       AttachmentType: "CONNECT" || "SITE_TO_SITE_VPN" || "VPC" || "TRANSIT_GATEWAY_ROUTE_TABLE",
+ * //       State: "REJECTED" || "PENDING_ATTACHMENT_ACCEPTANCE" || "CREATING" || "FAILED" || "AVAILABLE" || "UPDATING" || "PENDING_NETWORK_UPDATE" || "PENDING_TAG_ACCEPTANCE" || "DELETING",
+ * //       EdgeLocation: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       AttachmentPolicyRuleNumber: Number("int"),
+ * //       SegmentName: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ProposedSegmentChange: { // ProposedSegmentChange
+ * //         Tags: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         AttachmentPolicyRuleNumber: Number("int"),
+ * //         SegmentName: "STRING_VALUE",
+ * //       },
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     TransportAttachmentId: "STRING_VALUE",
+ * //     Options: { // ConnectAttachmentOptions
+ * //       Protocol: "GRE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -62,10 +62,9 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportCertificateResponse
- *   CertificateId: "STRING_VALUE", // required
- * };
+ * // { // ImportCertificateResponse
+ * //   CertificateId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

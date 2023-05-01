@@ -53,8 +53,7 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReleasePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

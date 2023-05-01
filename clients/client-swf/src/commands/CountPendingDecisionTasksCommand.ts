@@ -74,11 +74,10 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  * };
  * const command = new CountPendingDecisionTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PendingTaskCount
- *   count: Number("int"), // required
- *   truncated: true || false,
- * };
+ * // { // PendingTaskCount
+ * //   count: Number("int"), // required
+ * //   truncated: true || false,
+ * // };
  *
  * ```
  *

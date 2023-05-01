@@ -52,20 +52,19 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClusterResponse
- *   Cluster: { // Cluster
- *     ClusterArn: "STRING_VALUE",
- *     ClusterEndpoints: [ // __listOfClusterEndpoint
- *       { // ClusterEndpoint
- *         Endpoint: "STRING_VALUE",
- *         Region: "STRING_VALUE",
- *       },
- *     ],
- *     Name: "STRING_VALUE",
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // CreateClusterResponse
+ * //   Cluster: { // Cluster
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ClusterEndpoints: [ // __listOfClusterEndpoint
+ * //       { // ClusterEndpoint
+ * //         Endpoint: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

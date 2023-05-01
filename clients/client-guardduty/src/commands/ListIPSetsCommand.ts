@@ -48,13 +48,12 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIPSetsResponse
- *   IpSetIds: [ // IpSetIds // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIPSetsResponse
+ * //   IpSetIds: [ // IpSetIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,36 +49,35 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  * };
  * const command = new GetMLTaskRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMLTaskRunResponse
- *   TransformId: "STRING_VALUE",
- *   TaskRunId: "STRING_VALUE",
- *   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
- *   LogGroupName: "STRING_VALUE",
- *   Properties: { // TaskRunProperties
- *     TaskType: "EVALUATION" || "LABELING_SET_GENERATION" || "IMPORT_LABELS" || "EXPORT_LABELS" || "FIND_MATCHES",
- *     ImportLabelsTaskRunProperties: { // ImportLabelsTaskRunProperties
- *       InputS3Path: "STRING_VALUE",
- *       Replace: true || false,
- *     },
- *     ExportLabelsTaskRunProperties: { // ExportLabelsTaskRunProperties
- *       OutputS3Path: "STRING_VALUE",
- *     },
- *     LabelingSetGenerationTaskRunProperties: { // LabelingSetGenerationTaskRunProperties
- *       OutputS3Path: "STRING_VALUE",
- *     },
- *     FindMatchesTaskRunProperties: { // FindMatchesTaskRunProperties
- *       JobId: "STRING_VALUE",
- *       JobName: "STRING_VALUE",
- *       JobRunId: "STRING_VALUE",
- *     },
- *   },
- *   ErrorString: "STRING_VALUE",
- *   StartedOn: new Date("TIMESTAMP"),
- *   LastModifiedOn: new Date("TIMESTAMP"),
- *   CompletedOn: new Date("TIMESTAMP"),
- *   ExecutionTime: Number("int"),
- * };
+ * // { // GetMLTaskRunResponse
+ * //   TransformId: "STRING_VALUE",
+ * //   TaskRunId: "STRING_VALUE",
+ * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * //   LogGroupName: "STRING_VALUE",
+ * //   Properties: { // TaskRunProperties
+ * //     TaskType: "EVALUATION" || "LABELING_SET_GENERATION" || "IMPORT_LABELS" || "EXPORT_LABELS" || "FIND_MATCHES",
+ * //     ImportLabelsTaskRunProperties: { // ImportLabelsTaskRunProperties
+ * //       InputS3Path: "STRING_VALUE",
+ * //       Replace: true || false,
+ * //     },
+ * //     ExportLabelsTaskRunProperties: { // ExportLabelsTaskRunProperties
+ * //       OutputS3Path: "STRING_VALUE",
+ * //     },
+ * //     LabelingSetGenerationTaskRunProperties: { // LabelingSetGenerationTaskRunProperties
+ * //       OutputS3Path: "STRING_VALUE",
+ * //     },
+ * //     FindMatchesTaskRunProperties: { // FindMatchesTaskRunProperties
+ * //       JobId: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ErrorString: "STRING_VALUE",
+ * //   StartedOn: new Date("TIMESTAMP"),
+ * //   LastModifiedOn: new Date("TIMESTAMP"),
+ * //   CompletedOn: new Date("TIMESTAMP"),
+ * //   ExecutionTime: Number("int"),
+ * // };
  *
  * ```
  *

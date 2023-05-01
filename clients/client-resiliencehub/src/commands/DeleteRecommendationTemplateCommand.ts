@@ -51,11 +51,10 @@ export interface DeleteRecommendationTemplateCommandOutput
  * };
  * const command = new DeleteRecommendationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRecommendationTemplateResponse
- *   recommendationTemplateArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- * };
+ * // { // DeleteRecommendationTemplateResponse
+ * //   recommendationTemplateArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

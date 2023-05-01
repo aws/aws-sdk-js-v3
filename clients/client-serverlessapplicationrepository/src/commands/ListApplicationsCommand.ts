@@ -49,24 +49,23 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   Applications: [ // __listOfApplicationSummary
- *     { // ApplicationSummary
- *       ApplicationId: "STRING_VALUE", // required
- *       Author: "STRING_VALUE", // required
- *       CreationTime: "STRING_VALUE",
- *       Description: "STRING_VALUE", // required
- *       HomePageUrl: "STRING_VALUE",
- *       Labels: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *       Name: "STRING_VALUE", // required
- *       SpdxLicenseId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   Applications: [ // __listOfApplicationSummary
+ * //     { // ApplicationSummary
+ * //       ApplicationId: "STRING_VALUE", // required
+ * //       Author: "STRING_VALUE", // required
+ * //       CreationTime: "STRING_VALUE",
+ * //       Description: "STRING_VALUE", // required
+ * //       HomePageUrl: "STRING_VALUE",
+ * //       Labels: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Name: "STRING_VALUE", // required
+ * //       SpdxLicenseId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

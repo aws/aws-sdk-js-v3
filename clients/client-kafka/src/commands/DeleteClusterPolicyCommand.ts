@@ -44,8 +44,7 @@ export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyRes
  * };
  * const command = new DeleteClusterPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

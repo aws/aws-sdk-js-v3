@@ -48,26 +48,25 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNamespaceResponse
- *   namespace: { // Namespace
- *     namespaceArn: "STRING_VALUE",
- *     namespaceId: "STRING_VALUE",
- *     namespaceName: "STRING_VALUE",
- *     adminUsername: "STRING_VALUE",
- *     dbName: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     defaultIamRoleArn: "STRING_VALUE",
- *     iamRoles: [ // IamRoleArnList
- *       "STRING_VALUE",
- *     ],
- *     logExports: [ // LogExportList
- *       "STRING_VALUE",
- *     ],
- *     status: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetNamespaceResponse
+ * //   namespace: { // Namespace
+ * //     namespaceArn: "STRING_VALUE",
+ * //     namespaceId: "STRING_VALUE",
+ * //     namespaceName: "STRING_VALUE",
+ * //     adminUsername: "STRING_VALUE",
+ * //     dbName: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     defaultIamRoleArn: "STRING_VALUE",
+ * //     iamRoles: [ // IamRoleArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logExports: [ // LogExportList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

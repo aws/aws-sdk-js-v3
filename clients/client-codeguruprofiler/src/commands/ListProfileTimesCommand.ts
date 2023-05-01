@@ -51,15 +51,14 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * };
  * const command = new ListProfileTimesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfileTimesResponse
- *   profileTimes: [ // ProfileTimes // required
- *     { // ProfileTime
- *       start: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProfileTimesResponse
+ * //   profileTimes: [ // ProfileTimes // required
+ * //     { // ProfileTime
+ * //       start: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

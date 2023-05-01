@@ -70,12 +70,11 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBulkImportJobResponse
- *   jobId: "STRING_VALUE", // required
- *   jobName: "STRING_VALUE", // required
- *   jobStatus: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
- * };
+ * // { // CreateBulkImportJobResponse
+ * //   jobId: "STRING_VALUE", // required
+ * //   jobName: "STRING_VALUE", // required
+ * //   jobStatus: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
+ * // };
  *
  * ```
  *

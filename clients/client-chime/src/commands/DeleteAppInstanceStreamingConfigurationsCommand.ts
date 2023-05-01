@@ -48,8 +48,7 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * };
  * const command = new DeleteAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

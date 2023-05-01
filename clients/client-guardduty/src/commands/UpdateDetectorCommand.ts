@@ -76,8 +76,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * };
  * const command = new UpdateDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

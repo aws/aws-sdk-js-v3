@@ -241,10 +241,9 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHLSStreamingSessionURLOutput
- *   HLSStreamingSessionURL: "STRING_VALUE",
- * };
+ * // { // GetHLSStreamingSessionURLOutput
+ * //   HLSStreamingSessionURL: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,10 +59,9 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * };
  * const command = new ImportModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportModelResponse
- *   ModelArn: "STRING_VALUE",
- * };
+ * // { // ImportModelResponse
+ * //   ModelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

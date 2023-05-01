@@ -74,84 +74,83 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * };
  * const command = new DetectEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectEntitiesResponse
- *   Entities: [ // ListOfEntities
- *     { // Entity
- *       Score: Number("float"),
- *       Type: "PERSON" || "LOCATION" || "ORGANIZATION" || "COMMERCIAL_ITEM" || "EVENT" || "DATE" || "QUANTITY" || "TITLE" || "OTHER",
- *       Text: "STRING_VALUE",
- *       BeginOffset: Number("int"),
- *       EndOffset: Number("int"),
- *       BlockReferences: [ // ListOfBlockReferences
- *         { // BlockReference
- *           BlockId: "STRING_VALUE",
- *           BeginOffset: Number("int"),
- *           EndOffset: Number("int"),
- *           ChildBlocks: [ // ListOfChildBlocks
- *             { // ChildBlock
- *               ChildBlockId: "STRING_VALUE",
- *               BeginOffset: Number("int"),
- *               EndOffset: Number("int"),
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   DocumentMetadata: { // DocumentMetadata
- *     Pages: Number("int"),
- *     ExtractedCharacters: [ // ListOfExtractedCharacters
- *       { // ExtractedCharactersListItem
- *         Page: Number("int"),
- *         Count: Number("int"),
- *       },
- *     ],
- *   },
- *   DocumentType: [ // ListOfDocumentType
- *     { // DocumentTypeListItem
- *       Page: Number("int"),
- *       Type: "NATIVE_PDF" || "SCANNED_PDF" || "MS_WORD" || "IMAGE" || "PLAIN_TEXT" || "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON" || "TEXTRACT_ANALYZE_DOCUMENT_JSON",
- *     },
- *   ],
- *   Blocks: [ // ListOfBlocks
- *     { // Block
- *       Id: "STRING_VALUE",
- *       BlockType: "LINE" || "WORD",
- *       Text: "STRING_VALUE",
- *       Page: Number("int"),
- *       Geometry: { // Geometry
- *         BoundingBox: { // BoundingBox
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *           Width: Number("float"),
- *         },
- *         Polygon: [ // Polygon
- *           { // Point
- *             X: Number("float"),
- *             Y: Number("float"),
- *           },
- *         ],
- *       },
- *       Relationships: [ // ListOfRelationships
- *         { // RelationshipsListItem
- *           Ids: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *           Type: "CHILD",
- *         },
- *       ],
- *     },
- *   ],
- *   Errors: [ // ListOfErrors
- *     { // ErrorsListItem
- *       Page: Number("int"),
- *       ErrorCode: "TEXTRACT_BAD_PAGE" || "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED" || "PAGE_CHARACTERS_EXCEEDED" || "PAGE_SIZE_EXCEEDED" || "INTERNAL_SERVER_ERROR",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DetectEntitiesResponse
+ * //   Entities: [ // ListOfEntities
+ * //     { // Entity
+ * //       Score: Number("float"),
+ * //       Type: "PERSON" || "LOCATION" || "ORGANIZATION" || "COMMERCIAL_ITEM" || "EVENT" || "DATE" || "QUANTITY" || "TITLE" || "OTHER",
+ * //       Text: "STRING_VALUE",
+ * //       BeginOffset: Number("int"),
+ * //       EndOffset: Number("int"),
+ * //       BlockReferences: [ // ListOfBlockReferences
+ * //         { // BlockReference
+ * //           BlockId: "STRING_VALUE",
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //           ChildBlocks: [ // ListOfChildBlocks
+ * //             { // ChildBlock
+ * //               ChildBlockId: "STRING_VALUE",
+ * //               BeginOffset: Number("int"),
+ * //               EndOffset: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   DocumentMetadata: { // DocumentMetadata
+ * //     Pages: Number("int"),
+ * //     ExtractedCharacters: [ // ListOfExtractedCharacters
+ * //       { // ExtractedCharactersListItem
+ * //         Page: Number("int"),
+ * //         Count: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   DocumentType: [ // ListOfDocumentType
+ * //     { // DocumentTypeListItem
+ * //       Page: Number("int"),
+ * //       Type: "NATIVE_PDF" || "SCANNED_PDF" || "MS_WORD" || "IMAGE" || "PLAIN_TEXT" || "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON" || "TEXTRACT_ANALYZE_DOCUMENT_JSON",
+ * //     },
+ * //   ],
+ * //   Blocks: [ // ListOfBlocks
+ * //     { // Block
+ * //       Id: "STRING_VALUE",
+ * //       BlockType: "LINE" || "WORD",
+ * //       Text: "STRING_VALUE",
+ * //       Page: Number("int"),
+ * //       Geometry: { // Geometry
+ * //         BoundingBox: { // BoundingBox
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //           Width: Number("float"),
+ * //         },
+ * //         Polygon: [ // Polygon
+ * //           { // Point
+ * //             X: Number("float"),
+ * //             Y: Number("float"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       Relationships: [ // ListOfRelationships
+ * //         { // RelationshipsListItem
+ * //           Ids: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Type: "CHILD",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Errors: [ // ListOfErrors
+ * //     { // ErrorsListItem
+ * //       Page: Number("int"),
+ * //       ErrorCode: "TEXTRACT_BAD_PAGE" || "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED" || "PAGE_CHARACTERS_EXCEEDED" || "PAGE_SIZE_EXCEEDED" || "INTERNAL_SERVER_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

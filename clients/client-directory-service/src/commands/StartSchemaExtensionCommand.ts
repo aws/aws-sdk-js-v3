@@ -47,10 +47,9 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * };
  * const command = new StartSchemaExtensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSchemaExtensionResult
- *   SchemaExtensionId: "STRING_VALUE",
- * };
+ * // { // StartSchemaExtensionResult
+ * //   SchemaExtensionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,10 +55,9 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * };
  * const command = new UpdateFileSystemAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFileSystemAssociationOutput
- *   FileSystemAssociationARN: "STRING_VALUE",
- * };
+ * // { // UpdateFileSystemAssociationOutput
+ * //   FileSystemAssociationARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

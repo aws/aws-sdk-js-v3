@@ -56,39 +56,38 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * };
  * const command = new GetGroupConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupConfigurationOutput
- *   GroupConfiguration: { // GroupConfiguration
- *     Configuration: [ // GroupConfigurationList
- *       { // GroupConfigurationItem
- *         Type: "STRING_VALUE", // required
- *         Parameters: [ // GroupParameterList
- *           { // GroupConfigurationParameter
- *             Name: "STRING_VALUE", // required
- *             Values: [ // GroupConfigurationParameterValueList
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *     ProposedConfiguration: [
- *       {
- *         Type: "STRING_VALUE", // required
- *         Parameters: [
- *           {
- *             Name: "STRING_VALUE", // required
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *     Status: "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
- *     FailureReason: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGroupConfigurationOutput
+ * //   GroupConfiguration: { // GroupConfiguration
+ * //     Configuration: [ // GroupConfigurationList
+ * //       { // GroupConfigurationItem
+ * //         Type: "STRING_VALUE", // required
+ * //         Parameters: [ // GroupParameterList
+ * //           { // GroupConfigurationParameter
+ * //             Name: "STRING_VALUE", // required
+ * //             Values: [ // GroupConfigurationParameterValueList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ProposedConfiguration: [
+ * //       {
+ * //         Type: "STRING_VALUE", // required
+ * //         Parameters: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Status: "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //     FailureReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

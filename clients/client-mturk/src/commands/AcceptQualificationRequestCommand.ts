@@ -54,8 +54,7 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * };
  * const command = new AcceptQualificationRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

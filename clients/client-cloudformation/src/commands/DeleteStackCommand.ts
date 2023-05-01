@@ -51,8 +51,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

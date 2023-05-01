@@ -44,21 +44,20 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * };
  * const command = new DescribePatchGroupStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePatchGroupStateResult
- *   Instances: Number("int"),
- *   InstancesWithInstalledPatches: Number("int"),
- *   InstancesWithInstalledOtherPatches: Number("int"),
- *   InstancesWithInstalledPendingRebootPatches: Number("int"),
- *   InstancesWithInstalledRejectedPatches: Number("int"),
- *   InstancesWithMissingPatches: Number("int"),
- *   InstancesWithFailedPatches: Number("int"),
- *   InstancesWithNotApplicablePatches: Number("int"),
- *   InstancesWithUnreportedNotApplicablePatches: Number("int"),
- *   InstancesWithCriticalNonCompliantPatches: Number("int"),
- *   InstancesWithSecurityNonCompliantPatches: Number("int"),
- *   InstancesWithOtherNonCompliantPatches: Number("int"),
- * };
+ * // { // DescribePatchGroupStateResult
+ * //   Instances: Number("int"),
+ * //   InstancesWithInstalledPatches: Number("int"),
+ * //   InstancesWithInstalledOtherPatches: Number("int"),
+ * //   InstancesWithInstalledPendingRebootPatches: Number("int"),
+ * //   InstancesWithInstalledRejectedPatches: Number("int"),
+ * //   InstancesWithMissingPatches: Number("int"),
+ * //   InstancesWithFailedPatches: Number("int"),
+ * //   InstancesWithNotApplicablePatches: Number("int"),
+ * //   InstancesWithUnreportedNotApplicablePatches: Number("int"),
+ * //   InstancesWithCriticalNonCompliantPatches: Number("int"),
+ * //   InstancesWithSecurityNonCompliantPatches: Number("int"),
+ * //   InstancesWithOtherNonCompliantPatches: Number("int"),
+ * // };
  *
  * ```
  *

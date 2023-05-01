@@ -42,19 +42,18 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsOutput
- *   accountSettings: { // AccountSettings
- *     pipelineServiceRoleArn: "STRING_VALUE",
- *     pipelineProvisioningRepository: { // RepositoryBranch
- *       arn: "STRING_VALUE", // required
- *       provider: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       branch: "STRING_VALUE", // required
- *     },
- *     pipelineCodebuildRoleArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAccountSettingsOutput
+ * //   accountSettings: { // AccountSettings
+ * //     pipelineServiceRoleArn: "STRING_VALUE",
+ * //     pipelineProvisioningRepository: { // RepositoryBranch
+ * //       arn: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     pipelineCodebuildRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -68,29 +68,28 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * };
  * const command = new CreateAppBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppBlockResult
- *   AppBlock: { // AppBlock
- *     Name: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     SourceS3Location: { // S3Location
- *       S3Bucket: "STRING_VALUE", // required
- *       S3Key: "STRING_VALUE", // required
- *     },
- *     SetupScriptDetails: { // ScriptDetails
- *       ScriptS3Location: {
- *         S3Bucket: "STRING_VALUE", // required
- *         S3Key: "STRING_VALUE", // required
- *       },
- *       ExecutablePath: "STRING_VALUE", // required
- *       ExecutableParameters: "STRING_VALUE",
- *       TimeoutInSeconds: Number("int"), // required
- *     },
- *     CreatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateAppBlockResult
+ * //   AppBlock: { // AppBlock
+ * //     Name: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     SourceS3Location: { // S3Location
+ * //       S3Bucket: "STRING_VALUE", // required
+ * //       S3Key: "STRING_VALUE", // required
+ * //     },
+ * //     SetupScriptDetails: { // ScriptDetails
+ * //       ScriptS3Location: {
+ * //         S3Bucket: "STRING_VALUE", // required
+ * //         S3Key: "STRING_VALUE", // required
+ * //       },
+ * //       ExecutablePath: "STRING_VALUE", // required
+ * //       ExecutableParameters: "STRING_VALUE",
+ * //       TimeoutInSeconds: Number("int"), // required
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

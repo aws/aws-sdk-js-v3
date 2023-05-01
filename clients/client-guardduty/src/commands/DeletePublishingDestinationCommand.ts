@@ -50,8 +50,7 @@ export interface DeletePublishingDestinationCommandOutput
  * };
  * const command = new DeletePublishingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

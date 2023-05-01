@@ -75,26 +75,25 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * };
  * const command = new DescribePlayerSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePlayerSessionsOutput
- *   PlayerSessions: [ // PlayerSessionList
- *     { // PlayerSession
- *       PlayerSessionId: "STRING_VALUE",
- *       PlayerId: "STRING_VALUE",
- *       GameSessionId: "STRING_VALUE",
- *       FleetId: "STRING_VALUE",
- *       FleetArn: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       TerminationTime: new Date("TIMESTAMP"),
- *       Status: "RESERVED" || "ACTIVE" || "COMPLETED" || "TIMEDOUT",
- *       IpAddress: "STRING_VALUE",
- *       DnsName: "STRING_VALUE",
- *       Port: Number("int"),
- *       PlayerData: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePlayerSessionsOutput
+ * //   PlayerSessions: [ // PlayerSessionList
+ * //     { // PlayerSession
+ * //       PlayerSessionId: "STRING_VALUE",
+ * //       PlayerId: "STRING_VALUE",
+ * //       GameSessionId: "STRING_VALUE",
+ * //       FleetId: "STRING_VALUE",
+ * //       FleetArn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       TerminationTime: new Date("TIMESTAMP"),
+ * //       Status: "RESERVED" || "ACTIVE" || "COMPLETED" || "TIMEDOUT",
+ * //       IpAddress: "STRING_VALUE",
+ * //       DnsName: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       PlayerData: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

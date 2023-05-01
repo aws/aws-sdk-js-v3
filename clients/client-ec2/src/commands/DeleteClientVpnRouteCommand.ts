@@ -50,13 +50,12 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * };
  * const command = new DeleteClientVpnRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteClientVpnRouteResult
- *   Status: { // ClientVpnRouteStatus
- *     Code: "creating" || "active" || "failed" || "deleting",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteClientVpnRouteResult
+ * //   Status: { // ClientVpnRouteStatus
+ * //     Code: "creating" || "active" || "failed" || "deleting",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -57,12 +57,11 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * };
  * const command = new ImportComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportComponentResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   componentBuildVersionArn: "STRING_VALUE",
- * };
+ * // { // ImportComponentResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   componentBuildVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * };
  * const command = new DetachThingPrincipalCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -135,10 +135,9 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * };
  * const command = new CreateAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnomalySubscriptionResponse
- *   SubscriptionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAnomalySubscriptionResponse
+ * //   SubscriptionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

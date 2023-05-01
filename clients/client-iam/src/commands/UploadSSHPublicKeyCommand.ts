@@ -49,17 +49,16 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * };
  * const command = new UploadSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadSSHPublicKeyResponse
- *   SSHPublicKey: { // SSHPublicKey
- *     UserName: "STRING_VALUE", // required
- *     SSHPublicKeyId: "STRING_VALUE", // required
- *     Fingerprint: "STRING_VALUE", // required
- *     SSHPublicKeyBody: "STRING_VALUE", // required
- *     Status: "Active" || "Inactive", // required
- *     UploadDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UploadSSHPublicKeyResponse
+ * //   SSHPublicKey: { // SSHPublicKey
+ * //     UserName: "STRING_VALUE", // required
+ * //     SSHPublicKeyId: "STRING_VALUE", // required
+ * //     Fingerprint: "STRING_VALUE", // required
+ * //     SSHPublicKeyBody: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //     UploadDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

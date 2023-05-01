@@ -49,17 +49,16 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * };
  * const command = new DeleteInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInsightRulesOutput
- *   Failures: [ // BatchFailures
- *     { // PartialFailure
- *       FailureResource: "STRING_VALUE",
- *       ExceptionType: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

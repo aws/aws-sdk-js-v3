@@ -49,8 +49,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * const input = {};
  * const command = new DisassociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

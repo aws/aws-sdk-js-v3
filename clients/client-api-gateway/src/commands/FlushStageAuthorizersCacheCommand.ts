@@ -45,8 +45,7 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
  * };
  * const command = new FlushStageAuthorizersCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

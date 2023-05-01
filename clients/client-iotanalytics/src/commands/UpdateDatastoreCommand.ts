@@ -75,8 +75,7 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDatastoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

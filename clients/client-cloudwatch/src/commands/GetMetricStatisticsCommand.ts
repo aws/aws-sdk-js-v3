@@ -107,24 +107,23 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * };
  * const command = new GetMetricStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricStatisticsOutput
- *   Label: "STRING_VALUE",
- *   Datapoints: [ // Datapoints
- *     { // Datapoint
- *       Timestamp: new Date("TIMESTAMP"),
- *       SampleCount: Number("double"),
- *       Average: Number("double"),
- *       Sum: Number("double"),
- *       Minimum: Number("double"),
- *       Maximum: Number("double"),
- *       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *       ExtendedStatistics: { // DatapointValueMap
- *         "<keys>": Number("double"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetMetricStatisticsOutput
+ * //   Label: "STRING_VALUE",
+ * //   Datapoints: [ // Datapoints
+ * //     { // Datapoint
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       SampleCount: Number("double"),
+ * //       Average: Number("double"),
+ * //       Sum: Number("double"),
+ * //       Minimum: Number("double"),
+ * //       Maximum: Number("double"),
+ * //       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //       ExtendedStatistics: { // DatapointValueMap
+ * //         "<keys>": Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

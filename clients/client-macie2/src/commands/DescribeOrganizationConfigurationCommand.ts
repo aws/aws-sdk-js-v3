@@ -50,11 +50,10 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConfigurationResponse
- *   autoEnable: true || false,
- *   maxAccountLimitReached: true || false,
- * };
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   autoEnable: true || false,
+ * //   maxAccountLimitReached: true || false,
+ * // };
  *
  * ```
  *

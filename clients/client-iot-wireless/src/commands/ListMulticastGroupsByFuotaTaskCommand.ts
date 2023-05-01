@@ -51,15 +51,14 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * };
  * const command = new ListMulticastGroupsByFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMulticastGroupsByFuotaTaskResponse
- *   NextToken: "STRING_VALUE",
- *   MulticastGroupList: [ // MulticastGroupListByFuotaTask
- *     { // MulticastGroupByFuotaTask
- *       Id: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListMulticastGroupsByFuotaTaskResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MulticastGroupList: [ // MulticastGroupListByFuotaTask
+ * //     { // MulticastGroupByFuotaTask
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -49,20 +49,19 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataSetsResponse
- *   dataSets: [ // DataSetsSummaryList // required
- *     { // DataSetSummary
- *       dataSetName: "STRING_VALUE", // required
- *       dataSetOrg: "STRING_VALUE",
- *       format: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       lastReferencedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDataSetsResponse
+ * //   dataSets: [ // DataSetsSummaryList // required
+ * //     { // DataSetSummary
+ * //       dataSetName: "STRING_VALUE", // required
+ * //       dataSetOrg: "STRING_VALUE",
+ * //       format: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       lastReferencedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

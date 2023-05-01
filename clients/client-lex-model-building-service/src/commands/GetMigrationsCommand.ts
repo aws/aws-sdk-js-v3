@@ -53,23 +53,22 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * };
  * const command = new GetMigrationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMigrationsResponse
- *   migrationSummaries: [ // MigrationSummaryList
- *     { // MigrationSummary
- *       migrationId: "STRING_VALUE",
- *       v1BotName: "STRING_VALUE",
- *       v1BotVersion: "STRING_VALUE",
- *       v1BotLocale: "STRING_VALUE",
- *       v2BotId: "STRING_VALUE",
- *       v2BotRole: "STRING_VALUE",
- *       migrationStatus: "STRING_VALUE",
- *       migrationStrategy: "STRING_VALUE",
- *       migrationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetMigrationsResponse
+ * //   migrationSummaries: [ // MigrationSummaryList
+ * //     { // MigrationSummary
+ * //       migrationId: "STRING_VALUE",
+ * //       v1BotName: "STRING_VALUE",
+ * //       v1BotVersion: "STRING_VALUE",
+ * //       v1BotLocale: "STRING_VALUE",
+ * //       v2BotId: "STRING_VALUE",
+ * //       v2BotRole: "STRING_VALUE",
+ * //       migrationStatus: "STRING_VALUE",
+ * //       migrationStrategy: "STRING_VALUE",
+ * //       migrationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

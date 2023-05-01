@@ -47,11 +47,10 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFolderMembershipResponse
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DeleteFolderMembershipResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,10 +61,9 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * };
  * const command = new CreateLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationFsxWindowsResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationFsxWindowsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

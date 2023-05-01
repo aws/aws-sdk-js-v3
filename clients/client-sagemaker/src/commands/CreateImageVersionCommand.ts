@@ -57,10 +57,9 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * };
  * const command = new CreateImageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImageVersionResponse
- *   ImageVersionArn: "STRING_VALUE",
- * };
+ * // { // CreateImageVersionResponse
+ * //   ImageVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

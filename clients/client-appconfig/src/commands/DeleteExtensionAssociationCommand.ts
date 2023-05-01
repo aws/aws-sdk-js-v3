@@ -45,8 +45,7 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteExtensionAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

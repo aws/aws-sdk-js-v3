@@ -49,8 +49,7 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * };
  * const command = new PutUserStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

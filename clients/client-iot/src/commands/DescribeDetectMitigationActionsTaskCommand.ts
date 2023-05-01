@@ -55,64 +55,63 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  * };
  * const command = new DescribeDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDetectMitigationActionsTaskResponse
- *   taskSummary: { // DetectMitigationActionsTaskSummary
- *     taskId: "STRING_VALUE",
- *     taskStatus: "IN_PROGRESS" || "SUCCESSFUL" || "FAILED" || "CANCELED",
- *     taskStartTime: new Date("TIMESTAMP"),
- *     taskEndTime: new Date("TIMESTAMP"),
- *     target: { // DetectMitigationActionsTaskTarget
- *       violationIds: [ // TargetViolationIdsForDetectMitigationActions
- *         "STRING_VALUE",
- *       ],
- *       securityProfileName: "STRING_VALUE",
- *       behaviorName: "STRING_VALUE",
- *     },
- *     violationEventOccurrenceRange: { // ViolationEventOccurrenceRange
- *       startTime: new Date("TIMESTAMP"), // required
- *       endTime: new Date("TIMESTAMP"), // required
- *     },
- *     onlyActiveViolationsIncluded: true || false,
- *     suppressedAlertsIncluded: true || false,
- *     actionsDefinition: [ // MitigationActionList
- *       { // MitigationAction
- *         name: "STRING_VALUE",
- *         id: "STRING_VALUE",
- *         roleArn: "STRING_VALUE",
- *         actionParams: { // MitigationActionParams
- *           updateDeviceCertificateParams: { // UpdateDeviceCertificateParams
- *             action: "DEACTIVATE", // required
- *           },
- *           updateCACertificateParams: { // UpdateCACertificateParams
- *             action: "DEACTIVATE", // required
- *           },
- *           addThingsToThingGroupParams: { // AddThingsToThingGroupParams
- *             thingGroupNames: [ // ThingGroupNames // required
- *               "STRING_VALUE",
- *             ],
- *             overrideDynamicGroups: true || false,
- *           },
- *           replaceDefaultPolicyVersionParams: { // ReplaceDefaultPolicyVersionParams
- *             templateName: "BLANK_POLICY", // required
- *           },
- *           enableIoTLoggingParams: { // EnableIoTLoggingParams
- *             roleArnForLogging: "STRING_VALUE", // required
- *             logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
- *           },
- *           publishFindingToSnsParams: { // PublishFindingToSnsParams
- *             topicArn: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *     ],
- *     taskStatistics: { // DetectMitigationActionsTaskStatistics
- *       actionsExecuted: Number("long"),
- *       actionsSkipped: Number("long"),
- *       actionsFailed: Number("long"),
- *     },
- *   },
- * };
+ * // { // DescribeDetectMitigationActionsTaskResponse
+ * //   taskSummary: { // DetectMitigationActionsTaskSummary
+ * //     taskId: "STRING_VALUE",
+ * //     taskStatus: "IN_PROGRESS" || "SUCCESSFUL" || "FAILED" || "CANCELED",
+ * //     taskStartTime: new Date("TIMESTAMP"),
+ * //     taskEndTime: new Date("TIMESTAMP"),
+ * //     target: { // DetectMitigationActionsTaskTarget
+ * //       violationIds: [ // TargetViolationIdsForDetectMitigationActions
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityProfileName: "STRING_VALUE",
+ * //       behaviorName: "STRING_VALUE",
+ * //     },
+ * //     violationEventOccurrenceRange: { // ViolationEventOccurrenceRange
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       endTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //     onlyActiveViolationsIncluded: true || false,
+ * //     suppressedAlertsIncluded: true || false,
+ * //     actionsDefinition: [ // MitigationActionList
+ * //       { // MitigationAction
+ * //         name: "STRING_VALUE",
+ * //         id: "STRING_VALUE",
+ * //         roleArn: "STRING_VALUE",
+ * //         actionParams: { // MitigationActionParams
+ * //           updateDeviceCertificateParams: { // UpdateDeviceCertificateParams
+ * //             action: "DEACTIVATE", // required
+ * //           },
+ * //           updateCACertificateParams: { // UpdateCACertificateParams
+ * //             action: "DEACTIVATE", // required
+ * //           },
+ * //           addThingsToThingGroupParams: { // AddThingsToThingGroupParams
+ * //             thingGroupNames: [ // ThingGroupNames // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             overrideDynamicGroups: true || false,
+ * //           },
+ * //           replaceDefaultPolicyVersionParams: { // ReplaceDefaultPolicyVersionParams
+ * //             templateName: "BLANK_POLICY", // required
+ * //           },
+ * //           enableIoTLoggingParams: { // EnableIoTLoggingParams
+ * //             roleArnForLogging: "STRING_VALUE", // required
+ * //             logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ * //           },
+ * //           publishFindingToSnsParams: { // PublishFindingToSnsParams
+ * //             topicArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     taskStatistics: { // DetectMitigationActionsTaskStatistics
+ * //       actionsExecuted: Number("long"),
+ * //       actionsSkipped: Number("long"),
+ * //       actionsFailed: Number("long"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

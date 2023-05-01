@@ -63,23 +63,22 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
  * };
  * const command = new DescribeClientVpnAuthorizationRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientVpnAuthorizationRulesResult
- *   AuthorizationRules: [ // AuthorizationRuleSet
- *     { // AuthorizationRule
- *       ClientVpnEndpointId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *       AccessAll: true || false,
- *       DestinationCidr: "STRING_VALUE",
- *       Status: { // ClientVpnAuthorizationRuleStatus
- *         Code: "authorizing" || "active" || "failed" || "revoking",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeClientVpnAuthorizationRulesResult
+ * //   AuthorizationRules: [ // AuthorizationRuleSet
+ * //     { // AuthorizationRule
+ * //       ClientVpnEndpointId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       AccessAll: true || false,
+ * //       DestinationCidr: "STRING_VALUE",
+ * //       Status: { // ClientVpnAuthorizationRuleStatus
+ * //         Code: "authorizing" || "active" || "failed" || "revoking",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

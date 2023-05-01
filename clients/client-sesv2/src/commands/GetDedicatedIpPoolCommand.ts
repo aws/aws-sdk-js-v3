@@ -44,13 +44,12 @@ export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolRespo
  * };
  * const command = new GetDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDedicatedIpPoolResponse
- *   DedicatedIpPool: { // DedicatedIpPool
- *     PoolName: "STRING_VALUE", // required
- *     ScalingMode: "STANDARD" || "MANAGED", // required
- *   },
- * };
+ * // { // GetDedicatedIpPoolResponse
+ * //   DedicatedIpPool: { // DedicatedIpPool
+ * //     PoolName: "STRING_VALUE", // required
+ * //     ScalingMode: "STANDARD" || "MANAGED", // required
+ * //   },
+ * // };
  *
  * ```
  *

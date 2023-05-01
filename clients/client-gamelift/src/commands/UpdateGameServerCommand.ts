@@ -84,22 +84,21 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * };
  * const command = new UpdateGameServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGameServerOutput
- *   GameServer: { // GameServer
- *     GameServerGroupName: "STRING_VALUE",
- *     GameServerGroupArn: "STRING_VALUE",
- *     GameServerId: "STRING_VALUE",
- *     InstanceId: "STRING_VALUE",
- *     ConnectionInfo: "STRING_VALUE",
- *     GameServerData: "STRING_VALUE",
- *     ClaimStatus: "CLAIMED",
- *     UtilizationStatus: "AVAILABLE" || "UTILIZED",
- *     RegistrationTime: new Date("TIMESTAMP"),
- *     LastClaimTime: new Date("TIMESTAMP"),
- *     LastHealthCheckTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateGameServerOutput
+ * //   GameServer: { // GameServer
+ * //     GameServerGroupName: "STRING_VALUE",
+ * //     GameServerGroupArn: "STRING_VALUE",
+ * //     GameServerId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     ConnectionInfo: "STRING_VALUE",
+ * //     GameServerData: "STRING_VALUE",
+ * //     ClaimStatus: "CLAIMED",
+ * //     UtilizationStatus: "AVAILABLE" || "UTILIZED",
+ * //     RegistrationTime: new Date("TIMESTAMP"),
+ * //     LastClaimTime: new Date("TIMESTAMP"),
+ * //     LastHealthCheckTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

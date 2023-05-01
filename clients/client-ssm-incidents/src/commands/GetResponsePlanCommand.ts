@@ -44,66 +44,65 @@ export interface GetResponsePlanCommandOutput extends GetResponsePlanOutput, __M
  * };
  * const command = new GetResponsePlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResponsePlanOutput
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   incidentTemplate: { // IncidentTemplate
- *     title: "STRING_VALUE", // required
- *     impact: Number("int"), // required
- *     summary: "STRING_VALUE",
- *     dedupeString: "STRING_VALUE",
- *     notificationTargets: [ // NotificationTargetSet
- *       { // NotificationTargetItem Union: only one key present
- *         snsTopicArn: "STRING_VALUE",
- *       },
- *     ],
- *     incidentTags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   chatChannel: { // ChatChannel Union: only one key present
- *     empty: {},
- *     chatbotSns: [ // ChatbotSnsConfigurationSet
- *       "STRING_VALUE",
- *     ],
- *   },
- *   engagements: [ // EngagementSet
- *     "STRING_VALUE",
- *   ],
- *   actions: [ // ActionsList
- *     { // Action Union: only one key present
- *       ssmAutomation: { // SsmAutomation
- *         roleArn: "STRING_VALUE", // required
- *         documentName: "STRING_VALUE", // required
- *         documentVersion: "STRING_VALUE",
- *         targetAccount: "STRING_VALUE",
- *         parameters: { // SsmParameters
- *           "<keys>": [ // SsmParameterValues
- *             "STRING_VALUE",
- *           ],
- *         },
- *         dynamicParameters: { // DynamicSsmParameters
- *           "<keys>": { // DynamicSsmParameterValue Union: only one key present
- *             variable: "STRING_VALUE",
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   integrations: [ // Integrations
- *     { // Integration Union: only one key present
- *       pagerDutyConfiguration: { // PagerDutyConfiguration
- *         name: "STRING_VALUE", // required
- *         secretId: "STRING_VALUE", // required
- *         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
- *           serviceId: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // GetResponsePlanOutput
+ * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   incidentTemplate: { // IncidentTemplate
+ * //     title: "STRING_VALUE", // required
+ * //     impact: Number("int"), // required
+ * //     summary: "STRING_VALUE",
+ * //     dedupeString: "STRING_VALUE",
+ * //     notificationTargets: [ // NotificationTargetSet
+ * //       { // NotificationTargetItem Union: only one key present
+ * //         snsTopicArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     incidentTags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   chatChannel: { // ChatChannel Union: only one key present
+ * //     empty: {},
+ * //     chatbotSns: [ // ChatbotSnsConfigurationSet
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   engagements: [ // EngagementSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   actions: [ // ActionsList
+ * //     { // Action Union: only one key present
+ * //       ssmAutomation: { // SsmAutomation
+ * //         roleArn: "STRING_VALUE", // required
+ * //         documentName: "STRING_VALUE", // required
+ * //         documentVersion: "STRING_VALUE",
+ * //         targetAccount: "STRING_VALUE",
+ * //         parameters: { // SsmParameters
+ * //           "<keys>": [ // SsmParameterValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         dynamicParameters: { // DynamicSsmParameters
+ * //           "<keys>": { // DynamicSsmParameterValue Union: only one key present
+ * //             variable: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   integrations: [ // Integrations
+ * //     { // Integration Union: only one key present
+ * //       pagerDutyConfiguration: { // PagerDutyConfiguration
+ * //         name: "STRING_VALUE", // required
+ * //         secretId: "STRING_VALUE", // required
+ * //         pagerDutyIncidentConfiguration: { // PagerDutyIncidentConfiguration
+ * //           serviceId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

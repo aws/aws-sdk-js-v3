@@ -47,17 +47,16 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * };
  * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedGroupsResponse
- *   Groups: [ // GroupSummaryList
- *     { // GroupSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedGroupsResponse
+ * //   Groups: [ // GroupSummaryList
+ * //     { // GroupSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

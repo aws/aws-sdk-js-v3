@@ -58,12 +58,11 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
  * };
  * const command = new GetObjectLegalHoldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectLegalHoldOutput
- *   LegalHold: { // ObjectLockLegalHold
- *     Status: "ON" || "OFF",
- *   },
- * };
+ * // { // GetObjectLegalHoldOutput
+ * //   LegalHold: { // ObjectLockLegalHold
+ * //     Status: "ON" || "OFF",
+ * //   },
+ * // };
  *
  * ```
  *

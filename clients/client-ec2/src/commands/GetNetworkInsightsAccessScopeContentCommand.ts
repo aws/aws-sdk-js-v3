@@ -53,111 +53,110 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  * };
  * const command = new GetNetworkInsightsAccessScopeContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkInsightsAccessScopeContentResult
- *   NetworkInsightsAccessScopeContent: { // NetworkInsightsAccessScopeContent
- *     NetworkInsightsAccessScopeId: "STRING_VALUE",
- *     MatchPaths: [ // AccessScopePathList
- *       { // AccessScopePath
- *         Source: { // PathStatement
- *           PacketHeaderStatement: { // PacketHeaderStatement
- *             SourceAddresses: [ // ValueStringList
- *               "STRING_VALUE",
- *             ],
- *             DestinationAddresses: [
- *               "STRING_VALUE",
- *             ],
- *             SourcePorts: [
- *               "STRING_VALUE",
- *             ],
- *             DestinationPorts: [
- *               "STRING_VALUE",
- *             ],
- *             SourcePrefixLists: [
- *               "STRING_VALUE",
- *             ],
- *             DestinationPrefixLists: "<ValueStringList>",
- *             Protocols: [ // ProtocolList
- *               "tcp" || "udp",
- *             ],
- *           },
- *           ResourceStatement: { // ResourceStatement
- *             Resources: "<ValueStringList>",
- *             ResourceTypes: "<ValueStringList>",
- *           },
- *         },
- *         Destination: {
- *           PacketHeaderStatement: {
- *             SourceAddresses: "<ValueStringList>",
- *             DestinationAddresses: "<ValueStringList>",
- *             SourcePorts: "<ValueStringList>",
- *             DestinationPorts: "<ValueStringList>",
- *             SourcePrefixLists: "<ValueStringList>",
- *             DestinationPrefixLists: "<ValueStringList>",
- *             Protocols: [
- *               "tcp" || "udp",
- *             ],
- *           },
- *           ResourceStatement: {
- *             Resources: "<ValueStringList>",
- *             ResourceTypes: "<ValueStringList>",
- *           },
- *         },
- *         ThroughResources: [ // ThroughResourcesStatementList
- *           { // ThroughResourcesStatement
- *             ResourceStatement: {
- *               Resources: "<ValueStringList>",
- *               ResourceTypes: "<ValueStringList>",
- *             },
- *           },
- *         ],
- *       },
- *     ],
- *     ExcludePaths: [
- *       {
- *         Source: {
- *           PacketHeaderStatement: {
- *             SourceAddresses: "<ValueStringList>",
- *             DestinationAddresses: "<ValueStringList>",
- *             SourcePorts: "<ValueStringList>",
- *             DestinationPorts: "<ValueStringList>",
- *             SourcePrefixLists: "<ValueStringList>",
- *             DestinationPrefixLists: "<ValueStringList>",
- *             Protocols: [
- *               "tcp" || "udp",
- *             ],
- *           },
- *           ResourceStatement: {
- *             Resources: "<ValueStringList>",
- *             ResourceTypes: "<ValueStringList>",
- *           },
- *         },
- *         Destination: {
- *           PacketHeaderStatement: {
- *             SourceAddresses: "<ValueStringList>",
- *             DestinationAddresses: "<ValueStringList>",
- *             SourcePorts: "<ValueStringList>",
- *             DestinationPorts: "<ValueStringList>",
- *             SourcePrefixLists: "<ValueStringList>",
- *             DestinationPrefixLists: "<ValueStringList>",
- *             Protocols: [
- *               "tcp" || "udp",
- *             ],
- *           },
- *           ResourceStatement: {
- *             Resources: "<ValueStringList>",
- *             ResourceTypes: "<ValueStringList>",
- *           },
- *         },
- *         ThroughResources: [
- *           {
- *             ResourceStatement: "<ResourceStatement>",
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // GetNetworkInsightsAccessScopeContentResult
+ * //   NetworkInsightsAccessScopeContent: { // NetworkInsightsAccessScopeContent
+ * //     NetworkInsightsAccessScopeId: "STRING_VALUE",
+ * //     MatchPaths: [ // AccessScopePathList
+ * //       { // AccessScopePath
+ * //         Source: { // PathStatement
+ * //           PacketHeaderStatement: { // PacketHeaderStatement
+ * //             SourceAddresses: [ // ValueStringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DestinationAddresses: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SourcePorts: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DestinationPorts: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SourcePrefixLists: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DestinationPrefixLists: "<ValueStringList>",
+ * //             Protocols: [ // ProtocolList
+ * //               "tcp" || "udp",
+ * //             ],
+ * //           },
+ * //           ResourceStatement: { // ResourceStatement
+ * //             Resources: "<ValueStringList>",
+ * //             ResourceTypes: "<ValueStringList>",
+ * //           },
+ * //         },
+ * //         Destination: {
+ * //           PacketHeaderStatement: {
+ * //             SourceAddresses: "<ValueStringList>",
+ * //             DestinationAddresses: "<ValueStringList>",
+ * //             SourcePorts: "<ValueStringList>",
+ * //             DestinationPorts: "<ValueStringList>",
+ * //             SourcePrefixLists: "<ValueStringList>",
+ * //             DestinationPrefixLists: "<ValueStringList>",
+ * //             Protocols: [
+ * //               "tcp" || "udp",
+ * //             ],
+ * //           },
+ * //           ResourceStatement: {
+ * //             Resources: "<ValueStringList>",
+ * //             ResourceTypes: "<ValueStringList>",
+ * //           },
+ * //         },
+ * //         ThroughResources: [ // ThroughResourcesStatementList
+ * //           { // ThroughResourcesStatement
+ * //             ResourceStatement: {
+ * //               Resources: "<ValueStringList>",
+ * //               ResourceTypes: "<ValueStringList>",
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ExcludePaths: [
+ * //       {
+ * //         Source: {
+ * //           PacketHeaderStatement: {
+ * //             SourceAddresses: "<ValueStringList>",
+ * //             DestinationAddresses: "<ValueStringList>",
+ * //             SourcePorts: "<ValueStringList>",
+ * //             DestinationPorts: "<ValueStringList>",
+ * //             SourcePrefixLists: "<ValueStringList>",
+ * //             DestinationPrefixLists: "<ValueStringList>",
+ * //             Protocols: [
+ * //               "tcp" || "udp",
+ * //             ],
+ * //           },
+ * //           ResourceStatement: {
+ * //             Resources: "<ValueStringList>",
+ * //             ResourceTypes: "<ValueStringList>",
+ * //           },
+ * //         },
+ * //         Destination: {
+ * //           PacketHeaderStatement: {
+ * //             SourceAddresses: "<ValueStringList>",
+ * //             DestinationAddresses: "<ValueStringList>",
+ * //             SourcePorts: "<ValueStringList>",
+ * //             DestinationPorts: "<ValueStringList>",
+ * //             SourcePrefixLists: "<ValueStringList>",
+ * //             DestinationPrefixLists: "<ValueStringList>",
+ * //             Protocols: [
+ * //               "tcp" || "udp",
+ * //             ],
+ * //           },
+ * //           ResourceStatement: {
+ * //             Resources: "<ValueStringList>",
+ * //             ResourceTypes: "<ValueStringList>",
+ * //           },
+ * //         },
+ * //         ThroughResources: [
+ * //           {
+ * //             ResourceStatement: "<ResourceStatement>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * };
  * const command = new GetDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataProtectionPolicyResponse
- *   DataProtectionPolicy: "STRING_VALUE",
- * };
+ * // { // GetDataProtectionPolicyResponse
+ * //   DataProtectionPolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  * };
  * const command = new DeleteSkillAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

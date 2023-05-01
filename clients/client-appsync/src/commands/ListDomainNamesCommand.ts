@@ -45,19 +45,18 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainNamesResponse
- *   domainNameConfigs: [ // DomainNameConfigs
- *     { // DomainNameConfig
- *       domainName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       certificateArn: "STRING_VALUE",
- *       appsyncDomainName: "STRING_VALUE",
- *       hostedZoneId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainNamesResponse
+ * //   domainNameConfigs: [ // DomainNameConfigs
+ * //     { // DomainNameConfig
+ * //       domainName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       certificateArn: "STRING_VALUE",
+ * //       appsyncDomainName: "STRING_VALUE",
+ * //       hostedZoneId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

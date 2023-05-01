@@ -49,12 +49,11 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * };
  * const command = new ResumeSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResumeSessionResponse
- *   SessionId: "STRING_VALUE",
- *   TokenValue: "STRING_VALUE",
- *   StreamUrl: "STRING_VALUE",
- * };
+ * // { // ResumeSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   TokenValue: "STRING_VALUE",
+ * //   StreamUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

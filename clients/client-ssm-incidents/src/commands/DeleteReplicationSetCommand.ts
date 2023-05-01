@@ -45,8 +45,7 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * };
  * const command = new DeleteReplicationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

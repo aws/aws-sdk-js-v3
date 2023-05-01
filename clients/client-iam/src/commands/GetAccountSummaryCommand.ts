@@ -45,12 +45,11 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * const input = {};
  * const command = new GetAccountSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSummaryResponse
- *   SummaryMap: { // summaryMapType
- *     "<keys>": Number("int"),
- *   },
- * };
+ * // { // GetAccountSummaryResponse
+ * //   SummaryMap: { // summaryMapType
+ * //     "<keys>": Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

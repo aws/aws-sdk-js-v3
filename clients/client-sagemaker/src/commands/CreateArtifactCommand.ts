@@ -73,10 +73,9 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * };
  * const command = new CreateArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateArtifactResponse
- *   ArtifactArn: "STRING_VALUE",
- * };
+ * // { // CreateArtifactResponse
+ * //   ArtifactArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

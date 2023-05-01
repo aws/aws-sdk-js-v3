@@ -51,12 +51,11 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * };
  * const command = new DeleteOptOutListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteOptOutListResult
- *   OptOutListArn: "STRING_VALUE",
- *   OptOutListName: "STRING_VALUE",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteOptOutListResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

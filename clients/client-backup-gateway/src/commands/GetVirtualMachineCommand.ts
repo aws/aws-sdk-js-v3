@@ -44,24 +44,23 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  * };
  * const command = new GetVirtualMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVirtualMachineOutput
- *   VirtualMachine: { // VirtualMachineDetails
- *     HostName: "STRING_VALUE",
- *     HypervisorId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Path: "STRING_VALUE",
- *     ResourceArn: "STRING_VALUE",
- *     LastBackupDate: new Date("TIMESTAMP"),
- *     VmwareTags: [ // VmwareTags
- *       { // VmwareTag
- *         VmwareCategory: "STRING_VALUE",
- *         VmwareTagName: "STRING_VALUE",
- *         VmwareTagDescription: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetVirtualMachineOutput
+ * //   VirtualMachine: { // VirtualMachineDetails
+ * //     HostName: "STRING_VALUE",
+ * //     HypervisorId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Path: "STRING_VALUE",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     LastBackupDate: new Date("TIMESTAMP"),
+ * //     VmwareTags: [ // VmwareTags
+ * //       { // VmwareTag
+ * //         VmwareCategory: "STRING_VALUE",
+ * //         VmwareTagName: "STRING_VALUE",
+ * //         VmwareTagDescription: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

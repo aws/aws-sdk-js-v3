@@ -46,13 +46,12 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * };
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityPoliciesResponse
- *   NextToken: "STRING_VALUE",
- *   SecurityPolicyNames: [ // SecurityPolicyNames // required
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListSecurityPoliciesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   SecurityPolicyNames: [ // SecurityPolicyNames // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,22 +45,21 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * };
  * const command = new ListBrokersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBrokersResponse
- *   BrokerSummaries: [ // __listOfBrokerSummary
- *     { // BrokerSummary
- *       BrokerArn: "STRING_VALUE",
- *       BrokerId: "STRING_VALUE",
- *       BrokerName: "STRING_VALUE",
- *       BrokerState: "STRING_VALUE",
- *       Created: new Date("TIMESTAMP"),
- *       DeploymentMode: "STRING_VALUE", // required
- *       EngineType: "STRING_VALUE", // required
- *       HostInstanceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBrokersResponse
+ * //   BrokerSummaries: [ // __listOfBrokerSummary
+ * //     { // BrokerSummary
+ * //       BrokerArn: "STRING_VALUE",
+ * //       BrokerId: "STRING_VALUE",
+ * //       BrokerName: "STRING_VALUE",
+ * //       BrokerState: "STRING_VALUE",
+ * //       Created: new Date("TIMESTAMP"),
+ * //       DeploymentMode: "STRING_VALUE", // required
+ * //       EngineType: "STRING_VALUE", // required
+ * //       HostInstanceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -3871,18 +3871,17 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * };
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchImportFindingsResponse
- *   FailedCount: Number("int"), // required
- *   SuccessCount: Number("int"), // required
- *   FailedFindings: [ // ImportFindingsErrorList
- *     { // ImportFindingsError
- *       Id: "STRING_VALUE", // required
- *       ErrorCode: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchImportFindingsResponse
+ * //   FailedCount: Number("int"), // required
+ * //   SuccessCount: Number("int"), // required
+ * //   FailedFindings: [ // ImportFindingsErrorList
+ * //     { // ImportFindingsError
+ * //       Id: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

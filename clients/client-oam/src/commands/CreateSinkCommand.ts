@@ -53,15 +53,14 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * };
  * const command = new CreateSinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSinkOutput
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Tags: { // TagMapOutput
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

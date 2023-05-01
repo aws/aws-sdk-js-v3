@@ -48,8 +48,7 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

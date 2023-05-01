@@ -76,22 +76,21 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * };
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishPackageVersionResult
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   versionRevision: "STRING_VALUE",
- *   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
- *   asset: { // AssetSummary
- *     name: "STRING_VALUE", // required
- *     size: Number("long"),
- *     hashes: { // AssetHashes
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // PublishPackageVersionResult
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //   namespace: "STRING_VALUE",
+ * //   package: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   versionRevision: "STRING_VALUE",
+ * //   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * //   asset: { // AssetSummary
+ * //     name: "STRING_VALUE", // required
+ * //     size: Number("long"),
+ * //     hashes: { // AssetHashes
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

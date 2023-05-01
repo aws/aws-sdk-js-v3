@@ -47,12 +47,11 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * };
  * const command = new DescribeActivityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeActivityOutput
- *   activityArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   creationDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeActivityOutput
+ * //   activityArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

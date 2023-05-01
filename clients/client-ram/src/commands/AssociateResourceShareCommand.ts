@@ -53,23 +53,22 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateResourceShareResponse
- *   resourceShareAssociations: [ // ResourceShareAssociationList
- *     { // ResourceShareAssociation
- *       resourceShareArn: "STRING_VALUE",
- *       resourceShareName: "STRING_VALUE",
- *       associatedEntity: "STRING_VALUE",
- *       associationType: "PRINCIPAL" || "RESOURCE",
- *       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
- *       statusMessage: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       external: true || false,
- *     },
- *   ],
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // AssociateResourceShareResponse
+ * //   resourceShareAssociations: [ // ResourceShareAssociationList
+ * //     { // ResourceShareAssociation
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       resourceShareName: "STRING_VALUE",
+ * //       associatedEntity: "STRING_VALUE",
+ * //       associationType: "PRINCIPAL" || "RESOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       statusMessage: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       external: true || false,
+ * //     },
+ * //   ],
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

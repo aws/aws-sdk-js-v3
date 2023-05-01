@@ -53,16 +53,15 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  * };
  * const command = new ListSizeConstraintSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSizeConstraintSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   SizeConstraintSets: [ // SizeConstraintSetSummaries
- *     { // SizeConstraintSetSummary
- *       SizeConstraintSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListSizeConstraintSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   SizeConstraintSets: [ // SizeConstraintSetSummaries
+ * //     { // SizeConstraintSetSummary
+ * //       SizeConstraintSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

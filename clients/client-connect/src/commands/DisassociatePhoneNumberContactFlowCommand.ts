@@ -58,8 +58,7 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * };
  * const command = new DisassociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

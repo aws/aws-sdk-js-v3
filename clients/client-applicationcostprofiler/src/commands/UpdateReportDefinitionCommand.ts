@@ -55,10 +55,9 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * };
  * const command = new UpdateReportDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateReportDefinitionResult
- *   reportId: "STRING_VALUE",
- * };
+ * // { // UpdateReportDefinitionResult
+ * //   reportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

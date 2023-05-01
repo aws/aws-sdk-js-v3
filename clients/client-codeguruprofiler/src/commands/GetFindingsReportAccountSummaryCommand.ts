@@ -57,19 +57,18 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * };
  * const command = new GetFindingsReportAccountSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingsReportAccountSummaryResponse
- *   reportSummaries: [ // FindingsReportSummaries // required
- *     { // FindingsReportSummary
- *       id: "STRING_VALUE",
- *       profilingGroupName: "STRING_VALUE",
- *       profileStartTime: new Date("TIMESTAMP"),
- *       profileEndTime: new Date("TIMESTAMP"),
- *       totalNumberOfFindings: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetFindingsReportAccountSummaryResponse
+ * //   reportSummaries: [ // FindingsReportSummaries // required
+ * //     { // FindingsReportSummary
+ * //       id: "STRING_VALUE",
+ * //       profilingGroupName: "STRING_VALUE",
+ * //       profileStartTime: new Date("TIMESTAMP"),
+ * //       profileEndTime: new Date("TIMESTAMP"),
+ * //       totalNumberOfFindings: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

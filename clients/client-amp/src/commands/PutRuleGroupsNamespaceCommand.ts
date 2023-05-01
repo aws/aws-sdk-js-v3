@@ -47,18 +47,17 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * };
  * const command = new PutRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRuleGroupsNamespaceResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   status: { // RuleGroupsNamespaceStatus
- *     statusCode: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // PutRuleGroupsNamespaceResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   status: { // RuleGroupsNamespaceStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  * };
  * const command = new EnableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -97,11 +97,10 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobTemplateResponse
- *   jobTemplateArn: "STRING_VALUE",
- *   jobTemplateId: "STRING_VALUE",
- * };
+ * // { // CreateJobTemplateResponse
+ * //   jobTemplateArn: "STRING_VALUE",
+ * //   jobTemplateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

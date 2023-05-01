@@ -46,56 +46,55 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * };
  * const command = new GetBackupSelectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBackupSelectionOutput
- *   BackupSelection: { // BackupSelection
- *     SelectionName: "STRING_VALUE", // required
- *     IamRoleArn: "STRING_VALUE", // required
- *     Resources: [ // ResourceArns
- *       "STRING_VALUE",
- *     ],
- *     ListOfTags: [ // ListOfTags
- *       { // Condition
- *         ConditionType: "STRINGEQUALS", // required
- *         ConditionKey: "STRING_VALUE", // required
- *         ConditionValue: "STRING_VALUE", // required
- *       },
- *     ],
- *     NotResources: [
- *       "STRING_VALUE",
- *     ],
- *     Conditions: { // Conditions
- *       StringEquals: [ // ConditionParameters
- *         { // ConditionParameter
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
- *         },
- *       ],
- *       StringNotEquals: [
- *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
- *         },
- *       ],
- *       StringLike: [
- *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
- *         },
- *       ],
- *       StringNotLike: [
- *         {
- *           ConditionKey: "STRING_VALUE",
- *           ConditionValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- *   SelectionId: "STRING_VALUE",
- *   BackupPlanId: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   CreatorRequestId: "STRING_VALUE",
- * };
+ * // { // GetBackupSelectionOutput
+ * //   BackupSelection: { // BackupSelection
+ * //     SelectionName: "STRING_VALUE", // required
+ * //     IamRoleArn: "STRING_VALUE", // required
+ * //     Resources: [ // ResourceArns
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ListOfTags: [ // ListOfTags
+ * //       { // Condition
+ * //         ConditionType: "STRINGEQUALS", // required
+ * //         ConditionKey: "STRING_VALUE", // required
+ * //         ConditionValue: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     NotResources: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Conditions: { // Conditions
+ * //       StringEquals: [ // ConditionParameters
+ * //         { // ConditionParameter
+ * //           ConditionKey: "STRING_VALUE",
+ * //           ConditionValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       StringNotEquals: [
+ * //         {
+ * //           ConditionKey: "STRING_VALUE",
+ * //           ConditionValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       StringLike: [
+ * //         {
+ * //           ConditionKey: "STRING_VALUE",
+ * //           ConditionValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       StringNotLike: [
+ * //         {
+ * //           ConditionKey: "STRING_VALUE",
+ * //           ConditionValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   SelectionId: "STRING_VALUE",
+ * //   BackupPlanId: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   CreatorRequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

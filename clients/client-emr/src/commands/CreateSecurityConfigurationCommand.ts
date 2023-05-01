@@ -46,11 +46,10 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecurityConfigurationOutput
- *   Name: "STRING_VALUE", // required
- *   CreationDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateSecurityConfigurationOutput
+ * //   Name: "STRING_VALUE", // required
+ * //   CreationDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

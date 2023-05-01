@@ -45,8 +45,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

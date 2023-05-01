@@ -42,14 +42,13 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsOutput
- *   AccountSettings: { // AccountSettings
- *     GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
- *     GroupLifecycleEventsStatus: "ACTIVE" || "INACTIVE" || "IN_PROGRESS" || "ERROR",
- *     GroupLifecycleEventsStatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAccountSettingsOutput
+ * //   AccountSettings: { // AccountSettings
+ * //     GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ * //     GroupLifecycleEventsStatus: "ACTIVE" || "INACTIVE" || "IN_PROGRESS" || "ERROR",
+ * //     GroupLifecycleEventsStatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

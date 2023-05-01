@@ -49,20 +49,19 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   applications: [ // ApplicationSummaries
- *     { // ApplicationSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   applications: [ // ApplicationSummaries
+ * //     { // ApplicationSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

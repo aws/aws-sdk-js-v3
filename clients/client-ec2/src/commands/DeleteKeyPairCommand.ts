@@ -46,8 +46,7 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

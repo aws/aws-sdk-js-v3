@@ -126,20 +126,19 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  * };
  * const command = new GetDimensionValuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDimensionValuesResponse
- *   DimensionValues: [ // DimensionValuesWithAttributesList // required
- *     { // DimensionValuesWithAttributes
- *       Value: "STRING_VALUE",
- *       Attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   ReturnSize: Number("int"), // required
- *   TotalSize: Number("int"), // required
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // GetDimensionValuesResponse
+ * //   DimensionValues: [ // DimensionValuesWithAttributesList // required
+ * //     { // DimensionValuesWithAttributes
+ * //       Value: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ReturnSize: Number("int"), // required
+ * //   TotalSize: Number("int"), // required
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

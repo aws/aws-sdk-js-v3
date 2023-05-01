@@ -45,20 +45,19 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * };
  * const command = new ListRouteCalculatorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRouteCalculatorsResponse
- *   Entries: [ // ListRouteCalculatorsResponseEntryList // required
- *     { // ListRouteCalculatorsResponseEntry
- *       CalculatorName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       DataSource: "STRING_VALUE", // required
- *       PricingPlan: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRouteCalculatorsResponse
+ * //   Entries: [ // ListRouteCalculatorsResponseEntryList // required
+ * //     { // ListRouteCalculatorsResponseEntry
+ * //       CalculatorName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DataSource: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

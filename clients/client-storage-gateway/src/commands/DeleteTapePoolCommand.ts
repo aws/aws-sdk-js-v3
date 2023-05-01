@@ -46,10 +46,9 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * };
  * const command = new DeleteTapePoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTapePoolOutput
- *   PoolARN: "STRING_VALUE",
- * };
+ * // { // DeleteTapePoolOutput
+ * //   PoolARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

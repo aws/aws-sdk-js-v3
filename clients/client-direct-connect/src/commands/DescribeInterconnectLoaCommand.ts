@@ -52,13 +52,12 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * };
  * const command = new DescribeInterconnectLoaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInterconnectLoaResponse
- *   loa: { // Loa
- *     loaContent: "BLOB_VALUE",
- *     loaContentType: "application/pdf",
- *   },
- * };
+ * // { // DescribeInterconnectLoaResponse
+ * //   loa: { // Loa
+ * //     loaContent: "BLOB_VALUE",
+ * //     loaContentType: "application/pdf",
+ * //   },
+ * // };
  *
  * ```
  *

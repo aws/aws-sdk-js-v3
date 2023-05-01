@@ -62,19 +62,18 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * };
  * const command = new DescribeChannelModeratedByAppInstanceUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelModeratedByAppInstanceUserResponse
- *   Channel: { // ChannelModeratedByAppInstanceUserSummary
- *     ChannelSummary: { // ChannelSummary
- *       Name: "STRING_VALUE",
- *       ChannelArn: "STRING_VALUE",
- *       Mode: "UNRESTRICTED" || "RESTRICTED",
- *       Privacy: "PUBLIC" || "PRIVATE",
- *       Metadata: "STRING_VALUE",
- *       LastMessageTimestamp: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // DescribeChannelModeratedByAppInstanceUserResponse
+ * //   Channel: { // ChannelModeratedByAppInstanceUserSummary
+ * //     ChannelSummary: { // ChannelSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //       LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,26 +47,25 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * };
  * const command = new ListCodeSigningConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCodeSigningConfigsResponse
- *   NextMarker: "STRING_VALUE",
- *   CodeSigningConfigs: [ // CodeSigningConfigList
- *     { // CodeSigningConfig
- *       CodeSigningConfigId: "STRING_VALUE", // required
- *       CodeSigningConfigArn: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       AllowedPublishers: { // AllowedPublishers
- *         SigningProfileVersionArns: [ // SigningProfileVersionArns // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       CodeSigningPolicies: { // CodeSigningPolicies
- *         UntrustedArtifactOnDeployment: "Warn" || "Enforce",
- *       },
- *       LastModified: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListCodeSigningConfigsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   CodeSigningConfigs: [ // CodeSigningConfigList
+ * //     { // CodeSigningConfig
+ * //       CodeSigningConfigId: "STRING_VALUE", // required
+ * //       CodeSigningConfigArn: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       AllowedPublishers: { // AllowedPublishers
+ * //         SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CodeSigningPolicies: { // CodeSigningPolicies
+ * //         UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ * //       },
+ * //       LastModified: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

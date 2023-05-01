@@ -49,21 +49,20 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * };
  * const command = new ListExecutorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExecutorsResponse
- *   SessionId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   ExecutorsSummary: [ // ExecutorsSummaryList
- *     { // ExecutorsSummary
- *       ExecutorId: "STRING_VALUE", // required
- *       ExecutorType: "COORDINATOR" || "GATEWAY" || "WORKER",
- *       StartDateTime: Number("long"),
- *       TerminationDateTime: Number("long"),
- *       ExecutorState: "CREATING" || "CREATED" || "REGISTERED" || "TERMINATING" || "TERMINATED" || "FAILED",
- *       ExecutorSize: Number("long"),
- *     },
- *   ],
- * };
+ * // { // ListExecutorsResponse
+ * //   SessionId: "STRING_VALUE", // required
+ * //   NextToken: "STRING_VALUE",
+ * //   ExecutorsSummary: [ // ExecutorsSummaryList
+ * //     { // ExecutorsSummary
+ * //       ExecutorId: "STRING_VALUE", // required
+ * //       ExecutorType: "COORDINATOR" || "GATEWAY" || "WORKER",
+ * //       StartDateTime: Number("long"),
+ * //       TerminationDateTime: Number("long"),
+ * //       ExecutorState: "CREATING" || "CREATED" || "REGISTERED" || "TERMINATING" || "TERMINATED" || "FAILED",
+ * //       ExecutorSize: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

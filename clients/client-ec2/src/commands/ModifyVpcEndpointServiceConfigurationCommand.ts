@@ -78,10 +78,9 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * };
  * const command = new ModifyVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVpcEndpointServiceConfigurationResult
- *   Return: true || false,
- * };
+ * // { // ModifyVpcEndpointServiceConfigurationResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

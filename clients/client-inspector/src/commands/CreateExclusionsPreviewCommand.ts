@@ -46,10 +46,9 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * };
  * const command = new CreateExclusionsPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateExclusionsPreviewResponse
- *   previewToken: "STRING_VALUE", // required
- * };
+ * // { // CreateExclusionsPreviewResponse
+ * //   previewToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

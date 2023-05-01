@@ -62,8 +62,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopTransformJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

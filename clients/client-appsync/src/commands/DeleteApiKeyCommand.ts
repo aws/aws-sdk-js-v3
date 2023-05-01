@@ -45,8 +45,7 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

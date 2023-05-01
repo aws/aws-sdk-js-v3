@@ -90,8 +90,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * };
  * const command = new UpdateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

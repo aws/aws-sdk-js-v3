@@ -60,8 +60,7 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * };
  * const command = new AdminUserGlobalSignOutCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

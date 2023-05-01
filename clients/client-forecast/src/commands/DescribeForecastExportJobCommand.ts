@@ -68,24 +68,23 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * };
  * const command = new DescribeForecastExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeForecastExportJobResponse
- *   ForecastExportJobArn: "STRING_VALUE",
- *   ForecastExportJobName: "STRING_VALUE",
- *   ForecastArn: "STRING_VALUE",
- *   Destination: { // DataDestination
- *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
- *     },
- *   },
- *   Message: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   Format: "STRING_VALUE",
- * };
+ * // { // DescribeForecastExportJobResponse
+ * //   ForecastExportJobArn: "STRING_VALUE",
+ * //   ForecastExportJobName: "STRING_VALUE",
+ * //   ForecastArn: "STRING_VALUE",
+ * //   Destination: { // DataDestination
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Format: "STRING_VALUE",
+ * // };
  *
  * ```
  *

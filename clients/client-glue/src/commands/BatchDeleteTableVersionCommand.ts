@@ -49,19 +49,18 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * };
  * const command = new BatchDeleteTableVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteTableVersionResponse
- *   Errors: [ // TableVersionErrors
- *     { // TableVersionError
- *       TableName: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       ErrorDetail: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDeleteTableVersionResponse
+ * //   Errors: [ // TableVersionErrors
+ * //     { // TableVersionError
+ * //       TableName: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

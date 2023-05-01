@@ -46,10 +46,9 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * };
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIntrospectionSchemaResponse
- *   schema: "BLOB_VALUE",
- * };
+ * // { // GetIntrospectionSchemaResponse
+ * //   schema: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

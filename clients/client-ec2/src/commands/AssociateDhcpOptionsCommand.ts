@@ -49,8 +49,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,28 +47,27 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAddressesResult
- *   Addresses: [ // AddressList
- *     { // Address
- *       AddressId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Company: "STRING_VALUE",
- *       Street1: "STRING_VALUE",
- *       Street2: "STRING_VALUE",
- *       Street3: "STRING_VALUE",
- *       City: "STRING_VALUE",
- *       StateOrProvince: "STRING_VALUE",
- *       PrefectureOrDistrict: "STRING_VALUE",
- *       Landmark: "STRING_VALUE",
- *       Country: "STRING_VALUE",
- *       PostalCode: "STRING_VALUE",
- *       PhoneNumber: "STRING_VALUE",
- *       IsRestricted: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAddressesResult
+ * //   Addresses: [ // AddressList
+ * //     { // Address
+ * //       AddressId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Company: "STRING_VALUE",
+ * //       Street1: "STRING_VALUE",
+ * //       Street2: "STRING_VALUE",
+ * //       Street3: "STRING_VALUE",
+ * //       City: "STRING_VALUE",
+ * //       StateOrProvince: "STRING_VALUE",
+ * //       PrefectureOrDistrict: "STRING_VALUE",
+ * //       Landmark: "STRING_VALUE",
+ * //       Country: "STRING_VALUE",
+ * //       PostalCode: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       IsRestricted: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

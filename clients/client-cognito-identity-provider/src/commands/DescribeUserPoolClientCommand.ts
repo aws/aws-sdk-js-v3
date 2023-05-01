@@ -56,62 +56,61 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * };
  * const command = new DescribeUserPoolClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserPoolClientResponse
- *   UserPoolClient: { // UserPoolClientType
- *     UserPoolId: "STRING_VALUE",
- *     ClientName: "STRING_VALUE",
- *     ClientId: "STRING_VALUE",
- *     ClientSecret: "STRING_VALUE",
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *     RefreshTokenValidity: Number("int"),
- *     AccessTokenValidity: Number("int"),
- *     IdTokenValidity: Number("int"),
- *     TokenValidityUnits: { // TokenValidityUnitsType
- *       AccessToken: "seconds" || "minutes" || "hours" || "days",
- *       IdToken: "seconds" || "minutes" || "hours" || "days",
- *       RefreshToken: "seconds" || "minutes" || "hours" || "days",
- *     },
- *     ReadAttributes: [ // ClientPermissionListType
- *       "STRING_VALUE",
- *     ],
- *     WriteAttributes: [
- *       "STRING_VALUE",
- *     ],
- *     ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
- *       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
- *     ],
- *     SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
- *       "STRING_VALUE",
- *     ],
- *     CallbackURLs: [ // CallbackURLsListType
- *       "STRING_VALUE",
- *     ],
- *     LogoutURLs: [ // LogoutURLsListType
- *       "STRING_VALUE",
- *     ],
- *     DefaultRedirectURI: "STRING_VALUE",
- *     AllowedOAuthFlows: [ // OAuthFlowsType
- *       "code" || "implicit" || "client_credentials",
- *     ],
- *     AllowedOAuthScopes: [ // ScopeListType
- *       "STRING_VALUE",
- *     ],
- *     AllowedOAuthFlowsUserPoolClient: true || false,
- *     AnalyticsConfiguration: { // AnalyticsConfigurationType
- *       ApplicationId: "STRING_VALUE",
- *       ApplicationArn: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       ExternalId: "STRING_VALUE",
- *       UserDataShared: true || false,
- *     },
- *     PreventUserExistenceErrors: "LEGACY" || "ENABLED",
- *     EnableTokenRevocation: true || false,
- *     EnablePropagateAdditionalUserContextData: true || false,
- *     AuthSessionValidity: Number("int"),
- *   },
- * };
+ * // { // DescribeUserPoolClientResponse
+ * //   UserPoolClient: { // UserPoolClientType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     ClientName: "STRING_VALUE",
+ * //     ClientId: "STRING_VALUE",
+ * //     ClientSecret: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     RefreshTokenValidity: Number("int"),
+ * //     AccessTokenValidity: Number("int"),
+ * //     IdTokenValidity: Number("int"),
+ * //     TokenValidityUnits: { // TokenValidityUnitsType
+ * //       AccessToken: "seconds" || "minutes" || "hours" || "days",
+ * //       IdToken: "seconds" || "minutes" || "hours" || "days",
+ * //       RefreshToken: "seconds" || "minutes" || "hours" || "days",
+ * //     },
+ * //     ReadAttributes: [ // ClientPermissionListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     WriteAttributes: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ExplicitAuthFlows: [ // ExplicitAuthFlowsListType
+ * //       "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ * //     ],
+ * //     SupportedIdentityProviders: [ // SupportedIdentityProvidersListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CallbackURLs: [ // CallbackURLsListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LogoutURLs: [ // LogoutURLsListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DefaultRedirectURI: "STRING_VALUE",
+ * //     AllowedOAuthFlows: [ // OAuthFlowsType
+ * //       "code" || "implicit" || "client_credentials",
+ * //     ],
+ * //     AllowedOAuthScopes: [ // ScopeListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowedOAuthFlowsUserPoolClient: true || false,
+ * //     AnalyticsConfiguration: { // AnalyticsConfigurationType
+ * //       ApplicationId: "STRING_VALUE",
+ * //       ApplicationArn: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ExternalId: "STRING_VALUE",
+ * //       UserDataShared: true || false,
+ * //     },
+ * //     PreventUserExistenceErrors: "LEGACY" || "ENABLED",
+ * //     EnableTokenRevocation: true || false,
+ * //     EnablePropagateAdditionalUserContextData: true || false,
+ * //     AuthSessionValidity: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

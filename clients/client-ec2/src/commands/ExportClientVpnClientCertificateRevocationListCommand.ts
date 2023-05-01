@@ -54,14 +54,13 @@ export interface ExportClientVpnClientCertificateRevocationListCommandOutput
  * };
  * const command = new ExportClientVpnClientCertificateRevocationListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportClientVpnClientCertificateRevocationListResult
- *   CertificateRevocationList: "STRING_VALUE",
- *   Status: { // ClientCertificateRevocationListStatus
- *     Code: "pending" || "active",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // ExportClientVpnClientCertificateRevocationListResult
+ * //   CertificateRevocationList: "STRING_VALUE",
+ * //   Status: { // ClientCertificateRevocationListStatus
+ * //     Code: "pending" || "active",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

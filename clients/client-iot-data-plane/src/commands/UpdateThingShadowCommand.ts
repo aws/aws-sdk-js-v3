@@ -49,10 +49,9 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * };
  * const command = new UpdateThingShadowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateThingShadowResponse
- *   payload: "BLOB_VALUE",
- * };
+ * // { // UpdateThingShadowResponse
+ * //   payload: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

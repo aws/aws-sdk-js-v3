@@ -48,23 +48,22 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * };
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEnabledStandardsResponse
- *   StandardsSubscriptions: [ // StandardsSubscriptions
- *     { // StandardsSubscription
- *       StandardsSubscriptionArn: "STRING_VALUE", // required
- *       StandardsArn: "STRING_VALUE", // required
- *       StandardsInput: { // StandardsInputParameterMap // required
- *         "<keys>": "STRING_VALUE",
- *       },
- *       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
- *       StandardsStatusReason: { // StandardsStatusReason
- *         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetEnabledStandardsResponse
+ * //   StandardsSubscriptions: [ // StandardsSubscriptions
+ * //     { // StandardsSubscription
+ * //       StandardsSubscriptionArn: "STRING_VALUE", // required
+ * //       StandardsArn: "STRING_VALUE", // required
+ * //       StandardsInput: { // StandardsInputParameterMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
+ * //       StandardsStatusReason: { // StandardsStatusReason
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

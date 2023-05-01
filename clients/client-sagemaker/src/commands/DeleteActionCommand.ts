@@ -44,10 +44,9 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * };
  * const command = new DeleteActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteActionResponse
- *   ActionArn: "STRING_VALUE",
- * };
+ * // { // DeleteActionResponse
+ * //   ActionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

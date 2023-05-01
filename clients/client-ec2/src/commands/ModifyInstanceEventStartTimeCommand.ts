@@ -49,17 +49,16 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * };
  * const command = new ModifyInstanceEventStartTimeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstanceEventStartTimeResult
- *   Event: { // InstanceStatusEvent
- *     InstanceEventId: "STRING_VALUE",
- *     Code: "instance-reboot" || "system-reboot" || "system-maintenance" || "instance-retirement" || "instance-stop",
- *     Description: "STRING_VALUE",
- *     NotAfter: new Date("TIMESTAMP"),
- *     NotBefore: new Date("TIMESTAMP"),
- *     NotBeforeDeadline: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ModifyInstanceEventStartTimeResult
+ * //   Event: { // InstanceStatusEvent
+ * //     InstanceEventId: "STRING_VALUE",
+ * //     Code: "instance-reboot" || "system-reboot" || "system-maintenance" || "instance-retirement" || "instance-stop",
+ * //     Description: "STRING_VALUE",
+ * //     NotAfter: new Date("TIMESTAMP"),
+ * //     NotBefore: new Date("TIMESTAMP"),
+ * //     NotBeforeDeadline: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

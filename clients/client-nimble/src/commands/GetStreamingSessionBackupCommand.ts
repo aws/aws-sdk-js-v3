@@ -47,23 +47,22 @@ export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSess
  * };
  * const command = new GetStreamingSessionBackupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStreamingSessionBackupResponse
- *   streamingSessionBackup: { // StreamingSessionBackup
- *     arn: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     launchProfileId: "STRING_VALUE",
- *     ownedBy: "STRING_VALUE",
- *     sessionId: "STRING_VALUE",
- *     state: "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "READY" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED" || "STOP_IN_PROGRESS" || "START_IN_PROGRESS" || "STOPPED" || "STOP_FAILED" || "START_FAILED",
- *     statusCode: "STREAMING_SESSION_READY" || "STREAMING_SESSION_DELETED" || "STREAMING_SESSION_CREATE_IN_PROGRESS" || "STREAMING_SESSION_DELETE_IN_PROGRESS" || "INTERNAL_ERROR" || "INSUFFICIENT_CAPACITY" || "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR" || "NETWORK_CONNECTION_ERROR" || "INITIALIZATION_SCRIPT_ERROR" || "DECRYPT_STREAMING_IMAGE_ERROR" || "NETWORK_INTERFACE_ERROR" || "STREAMING_SESSION_STOPPED" || "STREAMING_SESSION_STARTED" || "STREAMING_SESSION_STOP_IN_PROGRESS" || "STREAMING_SESSION_START_IN_PROGRESS" || "AMI_VALIDATION_ERROR",
- *     statusMessage: "STRING_VALUE",
- *     backupId: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetStreamingSessionBackupResponse
+ * //   streamingSessionBackup: { // StreamingSessionBackup
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     launchProfileId: "STRING_VALUE",
+ * //     ownedBy: "STRING_VALUE",
+ * //     sessionId: "STRING_VALUE",
+ * //     state: "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "READY" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED" || "STOP_IN_PROGRESS" || "START_IN_PROGRESS" || "STOPPED" || "STOP_FAILED" || "START_FAILED",
+ * //     statusCode: "STREAMING_SESSION_READY" || "STREAMING_SESSION_DELETED" || "STREAMING_SESSION_CREATE_IN_PROGRESS" || "STREAMING_SESSION_DELETE_IN_PROGRESS" || "INTERNAL_ERROR" || "INSUFFICIENT_CAPACITY" || "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR" || "NETWORK_CONNECTION_ERROR" || "INITIALIZATION_SCRIPT_ERROR" || "DECRYPT_STREAMING_IMAGE_ERROR" || "NETWORK_INTERFACE_ERROR" || "STREAMING_SESSION_STOPPED" || "STREAMING_SESSION_STARTED" || "STREAMING_SESSION_STOP_IN_PROGRESS" || "STREAMING_SESSION_START_IN_PROGRESS" || "AMI_VALIDATION_ERROR",
+ * //     statusMessage: "STRING_VALUE",
+ * //     backupId: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

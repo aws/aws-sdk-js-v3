@@ -52,17 +52,16 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * };
  * const command = new DescribeKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeKinesisStreamingDestinationOutput
- *   TableName: "STRING_VALUE",
- *   KinesisDataStreamDestinations: [ // KinesisDataStreamDestinations
- *     { // KinesisDataStreamDestination
- *       StreamArn: "STRING_VALUE",
- *       DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
- *       DestinationStatusDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeKinesisStreamingDestinationOutput
+ * //   TableName: "STRING_VALUE",
+ * //   KinesisDataStreamDestinations: [ // KinesisDataStreamDestinations
+ * //     { // KinesisDataStreamDestination
+ * //       StreamArn: "STRING_VALUE",
+ * //       DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
+ * //       DestinationStatusDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

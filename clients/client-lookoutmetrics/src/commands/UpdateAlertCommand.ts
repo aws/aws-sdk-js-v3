@@ -70,10 +70,9 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * };
  * const command = new UpdateAlertCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAlertResponse
- *   AlertArn: "STRING_VALUE",
- * };
+ * // { // UpdateAlertResponse
+ * //   AlertArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

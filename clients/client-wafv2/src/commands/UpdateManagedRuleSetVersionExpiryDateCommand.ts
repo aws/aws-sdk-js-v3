@@ -64,12 +64,11 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * };
  * const command = new UpdateManagedRuleSetVersionExpiryDateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateManagedRuleSetVersionExpiryDateResponse
- *   ExpiringVersion: "STRING_VALUE",
- *   ExpiryTimestamp: new Date("TIMESTAMP"),
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // UpdateManagedRuleSetVersionExpiryDateResponse
+ * //   ExpiringVersion: "STRING_VALUE",
+ * //   ExpiryTimestamp: new Date("TIMESTAMP"),
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

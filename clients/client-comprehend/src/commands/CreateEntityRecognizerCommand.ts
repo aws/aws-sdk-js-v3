@@ -99,10 +99,9 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * };
  * const command = new CreateEntityRecognizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEntityRecognizerResponse
- *   EntityRecognizerArn: "STRING_VALUE",
- * };
+ * // { // CreateEntityRecognizerResponse
+ * //   EntityRecognizerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

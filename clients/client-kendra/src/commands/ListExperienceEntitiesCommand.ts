@@ -54,23 +54,22 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  * };
  * const command = new ListExperienceEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExperienceEntitiesResponse
- *   SummaryItems: [ // ExperienceEntitiesSummaryList
- *     { // ExperienceEntitiesSummary
- *       EntityId: "STRING_VALUE",
- *       EntityType: "USER" || "GROUP",
- *       DisplayData: { // EntityDisplayData
- *         UserName: "STRING_VALUE",
- *         GroupName: "STRING_VALUE",
- *         IdentifiedUserName: "STRING_VALUE",
- *         FirstName: "STRING_VALUE",
- *         LastName: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExperienceEntitiesResponse
+ * //   SummaryItems: [ // ExperienceEntitiesSummaryList
+ * //     { // ExperienceEntitiesSummary
+ * //       EntityId: "STRING_VALUE",
+ * //       EntityType: "USER" || "GROUP",
+ * //       DisplayData: { // EntityDisplayData
+ * //         UserName: "STRING_VALUE",
+ * //         GroupName: "STRING_VALUE",
+ * //         IdentifiedUserName: "STRING_VALUE",
+ * //         FirstName: "STRING_VALUE",
+ * //         LastName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

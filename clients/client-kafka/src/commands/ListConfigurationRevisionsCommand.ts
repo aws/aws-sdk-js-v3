@@ -46,17 +46,16 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
  * };
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfigurationRevisionsResponse
- *   NextToken: "STRING_VALUE",
- *   Revisions: [ // __listOfConfigurationRevision
- *     { // ConfigurationRevision
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       Description: "STRING_VALUE",
- *       Revision: Number("long"), // required
- *     },
- *   ],
- * };
+ * // { // ListConfigurationRevisionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Revisions: [ // __listOfConfigurationRevision
+ * //     { // ConfigurationRevision
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE",
+ * //       Revision: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

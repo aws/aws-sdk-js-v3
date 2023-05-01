@@ -126,10 +126,9 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * };
  * const command = new CreateProfileJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProfileJobResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateProfileJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

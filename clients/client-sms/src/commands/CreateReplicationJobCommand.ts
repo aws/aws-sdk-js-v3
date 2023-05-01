@@ -55,10 +55,9 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * };
  * const command = new CreateReplicationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReplicationJobResponse
- *   replicationJobId: "STRING_VALUE",
- * };
+ * // { // CreateReplicationJobResponse
+ * //   replicationJobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

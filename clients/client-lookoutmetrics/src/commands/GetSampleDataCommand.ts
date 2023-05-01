@@ -68,17 +68,16 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * };
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSampleDataResponse
- *   HeaderValues: [ // HeaderValueList
- *     "STRING_VALUE",
- *   ],
- *   SampleRows: [ // SampleRows
- *     [ // SampleRow
- *       "STRING_VALUE",
- *     ],
- *   ],
- * };
+ * // { // GetSampleDataResponse
+ * //   HeaderValues: [ // HeaderValueList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SampleRows: [ // SampleRows
+ * //     [ // SampleRow
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * // };
  *
  * ```
  *

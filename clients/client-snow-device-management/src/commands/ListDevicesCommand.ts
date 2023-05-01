@@ -51,20 +51,19 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicesOutput
- *   devices: [ // DeviceSummaryList
- *     { // DeviceSummary
- *       managedDeviceId: "STRING_VALUE",
- *       managedDeviceArn: "STRING_VALUE",
- *       associatedWithJob: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDevicesOutput
+ * //   devices: [ // DeviceSummaryList
+ * //     { // DeviceSummary
+ * //       managedDeviceId: "STRING_VALUE",
+ * //       managedDeviceArn: "STRING_VALUE",
+ * //       associatedWithJob: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

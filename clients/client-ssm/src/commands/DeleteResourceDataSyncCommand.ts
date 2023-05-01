@@ -47,8 +47,7 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * };
  * const command = new DeleteResourceDataSyncCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

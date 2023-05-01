@@ -55,17 +55,16 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * };
  * const command = new RetrieveEnvironmentInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetrieveEnvironmentInfoResultMessage
- *   EnvironmentInfo: [ // EnvironmentInfoDescriptionList
- *     { // EnvironmentInfoDescription
- *       InfoType: "tail" || "bundle",
- *       Ec2InstanceId: "STRING_VALUE",
- *       SampleTimestamp: new Date("TIMESTAMP"),
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RetrieveEnvironmentInfoResultMessage
+ * //   EnvironmentInfo: [ // EnvironmentInfoDescriptionList
+ * //     { // EnvironmentInfoDescription
+ * //       InfoType: "tail" || "bundle",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       SampleTimestamp: new Date("TIMESTAMP"),
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

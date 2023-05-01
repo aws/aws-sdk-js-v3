@@ -49,34 +49,33 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * };
  * const command = new DescribeChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChangeSetResponse
- *   ChangeSetId: "STRING_VALUE",
- *   ChangeSetArn: "STRING_VALUE",
- *   ChangeSetName: "STRING_VALUE",
- *   StartTime: "STRING_VALUE",
- *   EndTime: "STRING_VALUE",
- *   Status: "PREPARING" || "APPLYING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
- *   FailureCode: "CLIENT_ERROR" || "SERVER_FAULT",
- *   FailureDescription: "STRING_VALUE",
- *   ChangeSet: [ // ChangeSetDescription
- *     { // ChangeSummary
- *       ChangeType: "STRING_VALUE",
- *       Entity: { // Entity
- *         Type: "STRING_VALUE", // required
- *         Identifier: "STRING_VALUE",
- *       },
- *       Details: "STRING_VALUE",
- *       ErrorDetailList: [ // ErrorDetailList
- *         { // ErrorDetail
- *           ErrorCode: "STRING_VALUE",
- *           ErrorMessage: "STRING_VALUE",
- *         },
- *       ],
- *       ChangeName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeChangeSetResponse
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetArn: "STRING_VALUE",
+ * //   ChangeSetName: "STRING_VALUE",
+ * //   StartTime: "STRING_VALUE",
+ * //   EndTime: "STRING_VALUE",
+ * //   Status: "PREPARING" || "APPLYING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
+ * //   FailureCode: "CLIENT_ERROR" || "SERVER_FAULT",
+ * //   FailureDescription: "STRING_VALUE",
+ * //   ChangeSet: [ // ChangeSetDescription
+ * //     { // ChangeSummary
+ * //       ChangeType: "STRING_VALUE",
+ * //       Entity: { // Entity
+ * //         Type: "STRING_VALUE", // required
+ * //         Identifier: "STRING_VALUE",
+ * //       },
+ * //       Details: "STRING_VALUE",
+ * //       ErrorDetailList: [ // ErrorDetailList
+ * //         { // ErrorDetail
+ * //           ErrorCode: "STRING_VALUE",
+ * //           ErrorMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ChangeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

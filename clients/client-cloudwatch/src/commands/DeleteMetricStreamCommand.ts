@@ -44,8 +44,7 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * };
  * const command = new DeleteMetricStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

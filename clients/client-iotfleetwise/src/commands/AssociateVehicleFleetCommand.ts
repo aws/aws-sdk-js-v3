@@ -45,8 +45,7 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * };
  * const command = new AssociateVehicleFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,14 +55,13 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * };
  * const command = new GetReusableDelegationSetLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReusableDelegationSetLimitResponse
- *   Limit: { // ReusableDelegationSetLimit
- *     Type: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET", // required
- *     Value: Number("long"), // required
- *   },
- *   Count: Number("long"), // required
- * };
+ * // { // GetReusableDelegationSetLimitResponse
+ * //   Limit: { // ReusableDelegationSetLimit
+ * //     Type: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET", // required
+ * //     Value: Number("long"), // required
+ * //   },
+ * //   Count: Number("long"), // required
+ * // };
  *
  * ```
  *

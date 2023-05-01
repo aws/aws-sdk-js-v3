@@ -46,10 +46,9 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * };
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBatchPredictionOutput
- *   BatchPredictionId: "STRING_VALUE",
- * };
+ * // { // UpdateBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

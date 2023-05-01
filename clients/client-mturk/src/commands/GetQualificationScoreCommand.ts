@@ -58,20 +58,19 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * };
  * const command = new GetQualificationScoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQualificationScoreResponse
- *   Qualification: { // Qualification
- *     QualificationTypeId: "STRING_VALUE",
- *     WorkerId: "STRING_VALUE",
- *     GrantTime: new Date("TIMESTAMP"),
- *     IntegerValue: Number("int"),
- *     LocaleValue: { // Locale
- *       Country: "STRING_VALUE", // required
- *       Subdivision: "STRING_VALUE",
- *     },
- *     Status: "STRING_VALUE",
- *   },
- * };
+ * // { // GetQualificationScoreResponse
+ * //   Qualification: { // Qualification
+ * //     QualificationTypeId: "STRING_VALUE",
+ * //     WorkerId: "STRING_VALUE",
+ * //     GrantTime: new Date("TIMESTAMP"),
+ * //     IntegerValue: Number("int"),
+ * //     LocaleValue: { // Locale
+ * //       Country: "STRING_VALUE", // required
+ * //       Subdivision: "STRING_VALUE",
+ * //     },
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

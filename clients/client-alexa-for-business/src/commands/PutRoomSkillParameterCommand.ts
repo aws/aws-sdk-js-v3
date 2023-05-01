@@ -50,8 +50,7 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * };
  * const command = new PutRoomSkillParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

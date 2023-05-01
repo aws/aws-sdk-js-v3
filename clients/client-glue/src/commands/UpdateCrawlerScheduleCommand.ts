@@ -45,8 +45,7 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * };
  * const command = new UpdateCrawlerScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

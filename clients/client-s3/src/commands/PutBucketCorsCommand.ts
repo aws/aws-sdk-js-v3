@@ -123,8 +123,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketCorsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

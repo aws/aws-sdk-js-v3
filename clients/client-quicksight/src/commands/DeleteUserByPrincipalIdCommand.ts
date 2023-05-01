@@ -46,11 +46,10 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * };
  * const command = new DeleteUserByPrincipalIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteUserByPrincipalIdResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteUserByPrincipalIdResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

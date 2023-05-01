@@ -64,11 +64,10 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * };
  * const command = new SubmitContactEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubmitContactEvaluationResponse
- *   EvaluationId: "STRING_VALUE", // required
- *   EvaluationArn: "STRING_VALUE", // required
- * };
+ * // { // SubmitContactEvaluationResponse
+ * //   EvaluationId: "STRING_VALUE", // required
+ * //   EvaluationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,20 +46,19 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteJobResult
- *   jobSummary: { // JobSummary
- *     jobArn: "STRING_VALUE", // required
- *     jobId: "STRING_VALUE", // required
- *     commitId: "STRING_VALUE", // required
- *     commitMessage: "STRING_VALUE", // required
- *     commitTime: new Date("TIMESTAMP"), // required
- *     startTime: new Date("TIMESTAMP"), // required
- *     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
- *     endTime: new Date("TIMESTAMP"),
- *     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
- *   },
- * };
+ * // { // DeleteJobResult
+ * //   jobSummary: { // JobSummary
+ * //     jobArn: "STRING_VALUE", // required
+ * //     jobId: "STRING_VALUE", // required
+ * //     commitId: "STRING_VALUE", // required
+ * //     commitMessage: "STRING_VALUE", // required
+ * //     commitTime: new Date("TIMESTAMP"), // required
+ * //     startTime: new Date("TIMESTAMP"), // required
+ * //     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ * //   },
+ * // };
  *
  * ```
  *

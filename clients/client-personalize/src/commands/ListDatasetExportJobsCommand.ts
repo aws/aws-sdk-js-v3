@@ -51,20 +51,19 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * };
  * const command = new ListDatasetExportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetExportJobsResponse
- *   datasetExportJobs: [ // DatasetExportJobs
- *     { // DatasetExportJobSummary
- *       datasetExportJobArn: "STRING_VALUE",
- *       jobName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetExportJobsResponse
+ * //   datasetExportJobs: [ // DatasetExportJobs
+ * //     { // DatasetExportJobSummary
+ * //       datasetExportJobArn: "STRING_VALUE",
+ * //       jobName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

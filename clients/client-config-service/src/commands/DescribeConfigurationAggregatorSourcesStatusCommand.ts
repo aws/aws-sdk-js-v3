@@ -59,21 +59,20 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * };
  * const command = new DescribeConfigurationAggregatorSourcesStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationAggregatorSourcesStatusResponse
- *   AggregatedSourceStatusList: [ // AggregatedSourceStatusList
- *     { // AggregatedSourceStatus
- *       SourceId: "STRING_VALUE",
- *       SourceType: "ACCOUNT" || "ORGANIZATION",
- *       AwsRegion: "STRING_VALUE",
- *       LastUpdateStatus: "FAILED" || "SUCCEEDED" || "OUTDATED",
- *       LastUpdateTime: new Date("TIMESTAMP"),
- *       LastErrorCode: "STRING_VALUE",
- *       LastErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConfigurationAggregatorSourcesStatusResponse
+ * //   AggregatedSourceStatusList: [ // AggregatedSourceStatusList
+ * //     { // AggregatedSourceStatus
+ * //       SourceId: "STRING_VALUE",
+ * //       SourceType: "ACCOUNT" || "ORGANIZATION",
+ * //       AwsRegion: "STRING_VALUE",
+ * //       LastUpdateStatus: "FAILED" || "SUCCEEDED" || "OUTDATED",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       LastErrorCode: "STRING_VALUE",
+ * //       LastErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,15 +49,14 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExecutionOutput
- *   taskId: "STRING_VALUE",
- *   executionId: "STRING_VALUE",
- *   managedDeviceId: "STRING_VALUE",
- *   state: "STRING_VALUE",
- *   startedAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeExecutionOutput
+ * //   taskId: "STRING_VALUE",
+ * //   executionId: "STRING_VALUE",
+ * //   managedDeviceId: "STRING_VALUE",
+ * //   state: "STRING_VALUE",
+ * //   startedAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

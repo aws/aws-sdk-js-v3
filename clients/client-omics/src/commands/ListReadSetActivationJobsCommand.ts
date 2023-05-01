@@ -51,19 +51,18 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  * };
  * const command = new ListReadSetActivationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReadSetActivationJobsResponse
- *   nextToken: "STRING_VALUE",
- *   activationJobs: [ // ActivateReadSetJobList
- *     { // ActivateReadSetJobItem
- *       id: "STRING_VALUE", // required
- *       sequenceStoreId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       completionTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListReadSetActivationJobsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   activationJobs: [ // ActivateReadSetJobList
+ * //     { // ActivateReadSetJobItem
+ * //       id: "STRING_VALUE", // required
+ * //       sequenceStoreId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

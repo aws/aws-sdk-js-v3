@@ -67,28 +67,27 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * };
  * const command = new ImportResourcesToDraftAppVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportResourcesToDraftAppVersionResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   sourceArns: [ // ArnList
- *     "STRING_VALUE",
- *   ],
- *   status: "STRING_VALUE", // required
- *   terraformSources: [ // TerraformSourceList
- *     { // TerraformSource
- *       s3StateFileUrl: "STRING_VALUE", // required
- *     },
- *   ],
- *   eksSources: [ // EksSourceList
- *     { // EksSource
- *       eksClusterArn: "STRING_VALUE", // required
- *       namespaces: [ // EksNamespaceList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ImportResourcesToDraftAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   sourceArns: [ // ArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "STRING_VALUE", // required
+ * //   terraformSources: [ // TerraformSourceList
+ * //     { // TerraformSource
+ * //       s3StateFileUrl: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   eksSources: [ // EksSourceList
+ * //     { // EksSource
+ * //       eksClusterArn: "STRING_VALUE", // required
+ * //       namespaces: [ // EksNamespaceList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

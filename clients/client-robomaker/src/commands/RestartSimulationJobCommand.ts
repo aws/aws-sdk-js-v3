@@ -44,8 +44,7 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * };
  * const command = new RestartSimulationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

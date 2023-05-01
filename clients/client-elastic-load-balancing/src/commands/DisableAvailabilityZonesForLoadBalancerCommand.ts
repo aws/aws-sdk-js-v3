@@ -64,12 +64,11 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * };
  * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveAvailabilityZonesOutput
- *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // RemoveAvailabilityZonesOutput
+ * //   AvailabilityZones: [ // AvailabilityZones
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

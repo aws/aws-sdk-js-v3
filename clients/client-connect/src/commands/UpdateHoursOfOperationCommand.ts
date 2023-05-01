@@ -62,8 +62,7 @@ export interface UpdateHoursOfOperationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateHoursOfOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

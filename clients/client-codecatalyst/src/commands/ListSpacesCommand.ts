@@ -44,18 +44,17 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * };
  * const command = new ListSpacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSpacesResponse
- *   nextToken: "STRING_VALUE",
- *   items: [ // SpaceSummaries
- *     { // SpaceSummary
- *       name: "STRING_VALUE", // required
- *       regionName: "STRING_VALUE", // required
- *       displayName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListSpacesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   items: [ // SpaceSummaries
+ * //     { // SpaceSummary
+ * //       name: "STRING_VALUE", // required
+ * //       regionName: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

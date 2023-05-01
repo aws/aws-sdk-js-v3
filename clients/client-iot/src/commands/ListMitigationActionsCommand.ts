@@ -47,17 +47,16 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * };
  * const command = new ListMitigationActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMitigationActionsResponse
- *   actionIdentifiers: [ // MitigationActionIdentifierList
- *     { // MitigationActionIdentifier
- *       actionName: "STRING_VALUE",
- *       actionArn: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMitigationActionsResponse
+ * //   actionIdentifiers: [ // MitigationActionIdentifierList
+ * //     { // MitigationActionIdentifier
+ * //       actionName: "STRING_VALUE",
+ * //       actionArn: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

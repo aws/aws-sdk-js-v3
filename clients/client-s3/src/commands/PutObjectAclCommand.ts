@@ -253,10 +253,9 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * };
  * const command = new PutObjectAclCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectAclOutput
- *   RequestCharged: "requester",
- * };
+ * // { // PutObjectAclOutput
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

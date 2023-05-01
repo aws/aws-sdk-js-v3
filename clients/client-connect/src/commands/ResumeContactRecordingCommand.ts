@@ -48,8 +48,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

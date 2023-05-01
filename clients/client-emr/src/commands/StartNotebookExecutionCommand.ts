@@ -60,10 +60,9 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * };
  * const command = new StartNotebookExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartNotebookExecutionOutput
- *   NotebookExecutionId: "STRING_VALUE",
- * };
+ * // { // StartNotebookExecutionOutput
+ * //   NotebookExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,10 +54,9 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * };
  * const command = new CreateStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStudioLifecycleConfigResponse
- *   StudioLifecycleConfigArn: "STRING_VALUE",
- * };
+ * // { // CreateStudioLifecycleConfigResponse
+ * //   StudioLifecycleConfigArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

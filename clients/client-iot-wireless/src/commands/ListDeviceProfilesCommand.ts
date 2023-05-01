@@ -46,17 +46,16 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * };
  * const command = new ListDeviceProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceProfilesResponse
- *   NextToken: "STRING_VALUE",
- *   DeviceProfileList: [ // DeviceProfileList
- *     { // DeviceProfile
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListDeviceProfilesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DeviceProfileList: [ // DeviceProfileList
+ * //     { // DeviceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

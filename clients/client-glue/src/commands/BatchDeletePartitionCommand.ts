@@ -53,20 +53,19 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * };
  * const command = new BatchDeletePartitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeletePartitionResponse
- *   Errors: [ // PartitionErrors
- *     { // PartitionError
- *       PartitionValues: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       ErrorDetail: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDeletePartitionResponse
+ * //   Errors: [ // PartitionErrors
+ * //     { // PartitionError
+ * //       PartitionValues: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

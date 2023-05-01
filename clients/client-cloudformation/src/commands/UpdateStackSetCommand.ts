@@ -108,10 +108,9 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * };
  * const command = new UpdateStackSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStackSetOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateStackSetOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

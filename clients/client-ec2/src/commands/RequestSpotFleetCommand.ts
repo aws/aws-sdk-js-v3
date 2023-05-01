@@ -389,10 +389,9 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestSpotFleetResponse
- *   SpotFleetRequestId: "STRING_VALUE",
- * };
+ * // { // RequestSpotFleetResponse
+ * //   SpotFleetRequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

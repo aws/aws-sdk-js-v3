@@ -52,17 +52,16 @@ export interface UpdateTemplateSyncConfigCommandOutput extends UpdateTemplateSyn
  * };
  * const command = new UpdateTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTemplateSyncConfigOutput
- *   templateSyncConfig: { // TemplateSyncConfig
- *     templateName: "STRING_VALUE", // required
- *     templateType: "STRING_VALUE", // required
- *     repositoryProvider: "STRING_VALUE", // required
- *     repositoryName: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
- *     subdirectory: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateTemplateSyncConfigOutput
+ * //   templateSyncConfig: { // TemplateSyncConfig
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateType: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     subdirectory: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

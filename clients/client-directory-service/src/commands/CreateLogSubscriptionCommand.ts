@@ -46,8 +46,7 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * };
  * const command = new CreateLogSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

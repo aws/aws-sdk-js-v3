@@ -47,8 +47,7 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHubCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

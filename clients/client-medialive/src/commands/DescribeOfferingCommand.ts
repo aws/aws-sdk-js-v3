@@ -44,29 +44,28 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * };
  * const command = new DescribeOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOfferingResponse
- *   Arn: "STRING_VALUE",
- *   CurrencyCode: "STRING_VALUE",
- *   Duration: Number("int"),
- *   DurationUnits: "MONTHS",
- *   FixedPrice: Number("double"),
- *   OfferingDescription: "STRING_VALUE",
- *   OfferingId: "STRING_VALUE",
- *   OfferingType: "NO_UPFRONT",
- *   Region: "STRING_VALUE",
- *   ResourceSpecification: { // ReservationResourceSpecification
- *     ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- *     Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
- *     MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
- *     MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
- *     Resolution: "SD" || "HD" || "FHD" || "UHD",
- *     ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",
- *     SpecialFeature: "ADVANCED_AUDIO" || "AUDIO_NORMALIZATION" || "MGHD" || "MGUHD",
- *     VideoQuality: "STANDARD" || "ENHANCED" || "PREMIUM",
- *   },
- *   UsagePrice: Number("double"),
- * };
+ * // { // DescribeOfferingResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CurrencyCode: "STRING_VALUE",
+ * //   Duration: Number("int"),
+ * //   DurationUnits: "MONTHS",
+ * //   FixedPrice: Number("double"),
+ * //   OfferingDescription: "STRING_VALUE",
+ * //   OfferingId: "STRING_VALUE",
+ * //   OfferingType: "NO_UPFRONT",
+ * //   Region: "STRING_VALUE",
+ * //   ResourceSpecification: { // ReservationResourceSpecification
+ * //     ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
+ * //     Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
+ * //     MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
+ * //     MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
+ * //     Resolution: "SD" || "HD" || "FHD" || "UHD",
+ * //     ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",
+ * //     SpecialFeature: "ADVANCED_AUDIO" || "AUDIO_NORMALIZATION" || "MGHD" || "MGUHD",
+ * //     VideoQuality: "STANDARD" || "ENHANCED" || "PREMIUM",
+ * //   },
+ * //   UsagePrice: Number("double"),
+ * // };
  *
  * ```
  *

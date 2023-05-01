@@ -80,10 +80,9 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * };
  * const command = new RollbackStackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RollbackStackOutput
- *   StackId: "STRING_VALUE",
- * };
+ * // { // RollbackStackOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

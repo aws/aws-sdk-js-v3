@@ -82,8 +82,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

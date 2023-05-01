@@ -51,15 +51,14 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * };
  * const command = new PutProvisionedConcurrencyConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutProvisionedConcurrencyConfigResponse
- *   RequestedProvisionedConcurrentExecutions: Number("int"),
- *   AvailableProvisionedConcurrentExecutions: Number("int"),
- *   AllocatedProvisionedConcurrentExecutions: Number("int"),
- *   Status: "IN_PROGRESS" || "READY" || "FAILED",
- *   StatusReason: "STRING_VALUE",
- *   LastModified: "STRING_VALUE",
- * };
+ * // { // PutProvisionedConcurrencyConfigResponse
+ * //   RequestedProvisionedConcurrentExecutions: Number("int"),
+ * //   AvailableProvisionedConcurrentExecutions: Number("int"),
+ * //   AllocatedProvisionedConcurrentExecutions: Number("int"),
+ * //   Status: "IN_PROGRESS" || "READY" || "FAILED",
+ * //   StatusReason: "STRING_VALUE",
+ * //   LastModified: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,21 +49,20 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * };
  * const command = new CreatePublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePublicKeyResult
- *   PublicKey: { // PublicKey
- *     Id: "STRING_VALUE", // required
- *     CreatedTime: new Date("TIMESTAMP"), // required
- *     PublicKeyConfig: { // PublicKeyConfig
- *       CallerReference: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       EncodedKey: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   Location: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- * };
+ * // { // CreatePublicKeyResult
+ * //   PublicKey: { // PublicKey
+ * //     Id: "STRING_VALUE", // required
+ * //     CreatedTime: new Date("TIMESTAMP"), // required
+ * //     PublicKeyConfig: { // PublicKeyConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       EncodedKey: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

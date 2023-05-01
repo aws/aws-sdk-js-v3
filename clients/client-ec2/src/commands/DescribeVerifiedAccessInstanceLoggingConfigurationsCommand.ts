@@ -66,43 +66,42 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
  * };
  * const command = new DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVerifiedAccessInstanceLoggingConfigurationsResult
- *   LoggingConfigurations: [ // VerifiedAccessInstanceLoggingConfigurationList
- *     { // VerifiedAccessInstanceLoggingConfiguration
- *       VerifiedAccessInstanceId: "STRING_VALUE",
- *       AccessLogs: { // VerifiedAccessLogs
- *         S3: { // VerifiedAccessLogS3Destination
- *           Enabled: true || false,
- *           DeliveryStatus: { // VerifiedAccessLogDeliveryStatus
- *             Code: "success" || "failed",
- *             Message: "STRING_VALUE",
- *           },
- *           BucketName: "STRING_VALUE",
- *           Prefix: "STRING_VALUE",
- *           BucketOwner: "STRING_VALUE",
- *         },
- *         CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestination
- *           Enabled: true || false,
- *           DeliveryStatus: {
- *             Code: "success" || "failed",
- *             Message: "STRING_VALUE",
- *           },
- *           LogGroup: "STRING_VALUE",
- *         },
- *         KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestination
- *           Enabled: true || false,
- *           DeliveryStatus: {
- *             Code: "success" || "failed",
- *             Message: "STRING_VALUE",
- *           },
- *           DeliveryStream: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVerifiedAccessInstanceLoggingConfigurationsResult
+ * //   LoggingConfigurations: [ // VerifiedAccessInstanceLoggingConfigurationList
+ * //     { // VerifiedAccessInstanceLoggingConfiguration
+ * //       VerifiedAccessInstanceId: "STRING_VALUE",
+ * //       AccessLogs: { // VerifiedAccessLogs
+ * //         S3: { // VerifiedAccessLogS3Destination
+ * //           Enabled: true || false,
+ * //           DeliveryStatus: { // VerifiedAccessLogDeliveryStatus
+ * //             Code: "success" || "failed",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //           BucketName: "STRING_VALUE",
+ * //           Prefix: "STRING_VALUE",
+ * //           BucketOwner: "STRING_VALUE",
+ * //         },
+ * //         CloudWatchLogs: { // VerifiedAccessLogCloudWatchLogsDestination
+ * //           Enabled: true || false,
+ * //           DeliveryStatus: {
+ * //             Code: "success" || "failed",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //           LogGroup: "STRING_VALUE",
+ * //         },
+ * //         KinesisDataFirehose: { // VerifiedAccessLogKinesisDataFirehoseDestination
+ * //           Enabled: true || false,
+ * //           DeliveryStatus: {
+ * //             Code: "success" || "failed",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //           DeliveryStream: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

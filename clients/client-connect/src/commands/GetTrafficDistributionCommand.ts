@@ -44,19 +44,18 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * };
  * const command = new GetTrafficDistributionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTrafficDistributionResponse
- *   TelephonyConfig: { // TelephonyConfig
- *     Distributions: [ // DistributionList // required
- *       { // Distribution
- *         Region: "STRING_VALUE", // required
- *         Percentage: Number("int"), // required
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // GetTrafficDistributionResponse
+ * //   TelephonyConfig: { // TelephonyConfig
+ * //     Distributions: [ // DistributionList // required
+ * //       { // Distribution
+ * //         Region: "STRING_VALUE", // required
+ * //         Percentage: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

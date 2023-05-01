@@ -47,8 +47,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,40 +50,39 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * };
  * const command = new ListUserPoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserPoolsResponse
- *   UserPools: [ // UserPoolListType
- *     { // UserPoolDescriptionType
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       LambdaConfig: { // LambdaConfigType
- *         PreSignUp: "STRING_VALUE",
- *         CustomMessage: "STRING_VALUE",
- *         PostConfirmation: "STRING_VALUE",
- *         PreAuthentication: "STRING_VALUE",
- *         PostAuthentication: "STRING_VALUE",
- *         DefineAuthChallenge: "STRING_VALUE",
- *         CreateAuthChallenge: "STRING_VALUE",
- *         VerifyAuthChallengeResponse: "STRING_VALUE",
- *         PreTokenGeneration: "STRING_VALUE",
- *         UserMigration: "STRING_VALUE",
- *         CustomSMSSender: { // CustomSMSLambdaVersionConfigType
- *           LambdaVersion: "V1_0", // required
- *           LambdaArn: "STRING_VALUE", // required
- *         },
- *         CustomEmailSender: { // CustomEmailLambdaVersionConfigType
- *           LambdaVersion: "V1_0", // required
- *           LambdaArn: "STRING_VALUE", // required
- *         },
- *         KMSKeyID: "STRING_VALUE",
- *       },
- *       Status: "Enabled" || "Disabled",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       CreationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUserPoolsResponse
+ * //   UserPools: [ // UserPoolListType
+ * //     { // UserPoolDescriptionType
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       LambdaConfig: { // LambdaConfigType
+ * //         PreSignUp: "STRING_VALUE",
+ * //         CustomMessage: "STRING_VALUE",
+ * //         PostConfirmation: "STRING_VALUE",
+ * //         PreAuthentication: "STRING_VALUE",
+ * //         PostAuthentication: "STRING_VALUE",
+ * //         DefineAuthChallenge: "STRING_VALUE",
+ * //         CreateAuthChallenge: "STRING_VALUE",
+ * //         VerifyAuthChallengeResponse: "STRING_VALUE",
+ * //         PreTokenGeneration: "STRING_VALUE",
+ * //         UserMigration: "STRING_VALUE",
+ * //         CustomSMSSender: { // CustomSMSLambdaVersionConfigType
+ * //           LambdaVersion: "V1_0", // required
+ * //           LambdaArn: "STRING_VALUE", // required
+ * //         },
+ * //         CustomEmailSender: { // CustomEmailLambdaVersionConfigType
+ * //           LambdaVersion: "V1_0", // required
+ * //           LambdaArn: "STRING_VALUE", // required
+ * //         },
+ * //         KMSKeyID: "STRING_VALUE",
+ * //       },
+ * //       Status: "Enabled" || "Disabled",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

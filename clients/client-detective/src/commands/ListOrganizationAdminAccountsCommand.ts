@@ -51,17 +51,16 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrganizationAdminAccountsResponse
- *   Administrators: [ // AdministratorList
- *     { // Administrator
- *       AccountId: "STRING_VALUE",
- *       GraphArn: "STRING_VALUE",
- *       DelegationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOrganizationAdminAccountsResponse
+ * //   Administrators: [ // AdministratorList
+ * //     { // Administrator
+ * //       AccountId: "STRING_VALUE",
+ * //       GraphArn: "STRING_VALUE",
+ * //       DelegationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

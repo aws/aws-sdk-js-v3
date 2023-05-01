@@ -48,18 +48,17 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  * };
  * const command = new GetUsageLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUsageLimitResponse
- *   usageLimit: { // UsageLimit
- *     usageLimitId: "STRING_VALUE",
- *     usageLimitArn: "STRING_VALUE",
- *     resourceArn: "STRING_VALUE",
- *     usageType: "STRING_VALUE",
- *     amount: Number("long"),
- *     period: "STRING_VALUE",
- *     breachAction: "STRING_VALUE",
- *   },
- * };
+ * // { // GetUsageLimitResponse
+ * //   usageLimit: { // UsageLimit
+ * //     usageLimitId: "STRING_VALUE",
+ * //     usageLimitArn: "STRING_VALUE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     usageType: "STRING_VALUE",
+ * //     amount: Number("long"),
+ * //     period: "STRING_VALUE",
+ * //     breachAction: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

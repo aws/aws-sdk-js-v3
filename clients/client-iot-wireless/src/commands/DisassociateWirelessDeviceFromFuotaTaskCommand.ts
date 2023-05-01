@@ -54,8 +54,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  * };
  * const command = new DisassociateWirelessDeviceFromFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

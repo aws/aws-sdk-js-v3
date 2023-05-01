@@ -44,10 +44,9 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * };
  * const command = new DeleteAuthenticationProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAuthenticationProfileResult
- *   AuthenticationProfileName: "STRING_VALUE",
- * };
+ * // { // DeleteAuthenticationProfileResult
+ * //   AuthenticationProfileName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * };
  * const command = new ListBundlesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBundlesResult
- *   bundleList: [ // BundleList
- *     { // BundleDetails
- *       bundleId: "STRING_VALUE",
- *       title: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       iconUrl: "STRING_VALUE",
- *       availablePlatforms: [ // Platforms
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBundlesResult
+ * //   bundleList: [ // BundleList
+ * //     { // BundleDetails
+ * //       bundleId: "STRING_VALUE",
+ * //       title: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       iconUrl: "STRING_VALUE",
+ * //       availablePlatforms: [ // Platforms
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

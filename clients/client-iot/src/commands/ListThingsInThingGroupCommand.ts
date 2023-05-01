@@ -48,13 +48,12 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
  * };
  * const command = new ListThingsInThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingsInThingGroupResponse
- *   things: [ // ThingNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingsInThingGroupResponse
+ * //   things: [ // ThingNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

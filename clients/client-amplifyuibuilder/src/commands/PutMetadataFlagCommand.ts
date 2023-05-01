@@ -49,8 +49,7 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetadataFlagCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

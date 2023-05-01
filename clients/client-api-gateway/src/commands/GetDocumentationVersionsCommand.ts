@@ -46,17 +46,16 @@ export interface GetDocumentationVersionsCommandOutput extends DocumentationVers
  * };
  * const command = new GetDocumentationVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DocumentationVersions
- *   items: [ // ListOfDocumentationVersion
- *     { // DocumentationVersion
- *       version: "STRING_VALUE",
- *       createdDate: new Date("TIMESTAMP"),
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // DocumentationVersions
+ * //   items: [ // ListOfDocumentationVersion
+ * //     { // DocumentationVersion
+ * //       version: "STRING_VALUE",
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

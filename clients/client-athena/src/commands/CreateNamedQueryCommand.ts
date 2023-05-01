@@ -53,10 +53,9 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  * };
  * const command = new CreateNamedQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNamedQueryOutput
- *   NamedQueryId: "STRING_VALUE",
- * };
+ * // { // CreateNamedQueryOutput
+ * //   NamedQueryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

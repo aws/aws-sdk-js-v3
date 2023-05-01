@@ -48,8 +48,7 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * };
  * const command = new DeleteHumanTaskUiCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

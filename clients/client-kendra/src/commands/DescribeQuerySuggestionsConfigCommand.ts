@@ -54,18 +54,17 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * };
  * const command = new DescribeQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeQuerySuggestionsConfigResponse
- *   Mode: "ENABLED" || "LEARN_ONLY",
- *   Status: "ACTIVE" || "UPDATING",
- *   QueryLogLookBackWindowInDays: Number("int"),
- *   IncludeQueriesWithoutUserInformation: true || false,
- *   MinimumNumberOfQueryingUsers: Number("int"),
- *   MinimumQueryCount: Number("int"),
- *   LastSuggestionsBuildTime: new Date("TIMESTAMP"),
- *   LastClearTime: new Date("TIMESTAMP"),
- *   TotalSuggestionsCount: Number("int"),
- * };
+ * // { // DescribeQuerySuggestionsConfigResponse
+ * //   Mode: "ENABLED" || "LEARN_ONLY",
+ * //   Status: "ACTIVE" || "UPDATING",
+ * //   QueryLogLookBackWindowInDays: Number("int"),
+ * //   IncludeQueriesWithoutUserInformation: true || false,
+ * //   MinimumNumberOfQueryingUsers: Number("int"),
+ * //   MinimumQueryCount: Number("int"),
+ * //   LastSuggestionsBuildTime: new Date("TIMESTAMP"),
+ * //   LastClearTime: new Date("TIMESTAMP"),
+ * //   TotalSuggestionsCount: Number("int"),
+ * // };
  *
  * ```
  *

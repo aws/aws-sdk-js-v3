@@ -76,8 +76,7 @@ export interface DeleteBucketAnalyticsConfigurationCommandOutput extends __Metad
  * };
  * const command = new DeleteBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,32 +57,31 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportTasksMessage
- *   Marker: "STRING_VALUE",
- *   ExportTasks: [ // ExportTasksList
- *     { // ExportTask
- *       ExportTaskIdentifier: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE",
- *       ExportOnly: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       SnapshotTime: new Date("TIMESTAMP"),
- *       TaskStartTime: new Date("TIMESTAMP"),
- *       TaskEndTime: new Date("TIMESTAMP"),
- *       S3Bucket: "STRING_VALUE",
- *       S3Prefix: "STRING_VALUE",
- *       IamRoleArn: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       PercentProgress: Number("int"),
- *       TotalExtractedDataInGB: Number("int"),
- *       FailureCause: "STRING_VALUE",
- *       WarningMessage: "STRING_VALUE",
- *       SourceType: "SNAPSHOT" || "CLUSTER",
- *     },
- *   ],
- * };
+ * // { // ExportTasksMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ExportTasks: [ // ExportTasksList
+ * //     { // ExportTask
+ * //       ExportTaskIdentifier: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       ExportOnly: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //       TaskStartTime: new Date("TIMESTAMP"),
+ * //       TaskEndTime: new Date("TIMESTAMP"),
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Prefix: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       PercentProgress: Number("int"),
+ * //       TotalExtractedDataInGB: Number("int"),
+ * //       FailureCause: "STRING_VALUE",
+ * //       WarningMessage: "STRING_VALUE",
+ * //       SourceType: "SNAPSHOT" || "CLUSTER",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

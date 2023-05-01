@@ -64,12 +64,11 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * };
  * const command = new CreateVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVehicleResponse
- *   vehicleName: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   thingArn: "STRING_VALUE",
- * };
+ * // { // CreateVehicleResponse
+ * //   vehicleName: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   thingArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,22 +55,21 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * };
  * const command = new ListRobotApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRobotApplicationsResponse
- *   robotApplicationSummaries: [ // RobotApplicationSummaries
- *     { // RobotApplicationSummary
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       robotSoftwareSuite: { // RobotSoftwareSuite
- *         name: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRobotApplicationsResponse
+ * //   robotApplicationSummaries: [ // RobotApplicationSummaries
+ * //     { // RobotApplicationSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       robotSoftwareSuite: { // RobotSoftwareSuite
+ * //         name: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

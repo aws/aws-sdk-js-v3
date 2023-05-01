@@ -60,12 +60,11 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * };
  * const command = new CreateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProvisioningTemplateResponse
- *   templateArn: "STRING_VALUE",
- *   templateName: "STRING_VALUE",
- *   defaultVersionId: Number("int"),
- * };
+ * // { // CreateProvisioningTemplateResponse
+ * //   templateArn: "STRING_VALUE",
+ * //   templateName: "STRING_VALUE",
+ * //   defaultVersionId: Number("int"),
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * };
  * const command = new DisassociateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * };
  * const command = new DeleteTriggerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTriggerResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // DeleteTriggerResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,17 +55,16 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * };
  * const command = new PutPartnerEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutPartnerEventsResponse
- *   FailedEntryCount: Number("int"),
- *   Entries: [ // PutPartnerEventsResultEntryList
- *     { // PutPartnerEventsResultEntry
- *       EventId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutPartnerEventsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   Entries: [ // PutPartnerEventsResultEntryList
+ * //     { // PutPartnerEventsResultEntry
+ * //       EventId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

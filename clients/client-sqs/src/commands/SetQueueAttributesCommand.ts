@@ -63,8 +63,7 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetQueueAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

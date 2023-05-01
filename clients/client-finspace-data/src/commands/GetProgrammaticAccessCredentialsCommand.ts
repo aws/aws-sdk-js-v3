@@ -50,15 +50,14 @@ export interface GetProgrammaticAccessCredentialsCommandOutput
  * };
  * const command = new GetProgrammaticAccessCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProgrammaticAccessCredentialsResponse
- *   credentials: { // Credentials
- *     accessKeyId: "STRING_VALUE",
- *     secretAccessKey: "STRING_VALUE",
- *     sessionToken: "STRING_VALUE",
- *   },
- *   durationInMinutes: Number("long"),
- * };
+ * // { // GetProgrammaticAccessCredentialsResponse
+ * //   credentials: { // Credentials
+ * //     accessKeyId: "STRING_VALUE",
+ * //     secretAccessKey: "STRING_VALUE",
+ * //     sessionToken: "STRING_VALUE",
+ * //   },
+ * //   durationInMinutes: Number("long"),
+ * // };
  *
  * ```
  *

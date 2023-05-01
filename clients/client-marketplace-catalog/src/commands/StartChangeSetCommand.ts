@@ -85,11 +85,10 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * };
  * const command = new StartChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartChangeSetResponse
- *   ChangeSetId: "STRING_VALUE",
- *   ChangeSetArn: "STRING_VALUE",
- * };
+ * // { // StartChangeSetResponse
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

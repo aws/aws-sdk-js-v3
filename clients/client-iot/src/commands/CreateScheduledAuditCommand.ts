@@ -58,10 +58,9 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * };
  * const command = new CreateScheduledAuditCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScheduledAuditResponse
- *   scheduledAuditArn: "STRING_VALUE",
- * };
+ * // { // CreateScheduledAuditResponse
+ * //   scheduledAuditArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

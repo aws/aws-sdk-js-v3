@@ -47,8 +47,7 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  * };
  * const command = new RevokeDomainAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,22 +62,21 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExportTasksResponse
- *   exportsInfo: [ // ExportsInfo
- *     { // ExportInfo
- *       exportId: "STRING_VALUE", // required
- *       exportStatus: "FAILED" || "SUCCEEDED" || "IN_PROGRESS", // required
- *       statusMessage: "STRING_VALUE", // required
- *       configurationsDownloadUrl: "STRING_VALUE",
- *       exportRequestTime: new Date("TIMESTAMP"), // required
- *       isTruncated: true || false,
- *       requestedStartTime: new Date("TIMESTAMP"),
- *       requestedEndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeExportTasksResponse
+ * //   exportsInfo: [ // ExportsInfo
+ * //     { // ExportInfo
+ * //       exportId: "STRING_VALUE", // required
+ * //       exportStatus: "FAILED" || "SUCCEEDED" || "IN_PROGRESS", // required
+ * //       statusMessage: "STRING_VALUE", // required
+ * //       configurationsDownloadUrl: "STRING_VALUE",
+ * //       exportRequestTime: new Date("TIMESTAMP"), // required
+ * //       isTruncated: true || false,
+ * //       requestedStartTime: new Date("TIMESTAMP"),
+ * //       requestedEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

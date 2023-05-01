@@ -47,8 +47,7 @@ export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRule
  * };
  * const command = new UpdateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,10 +50,9 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * };
  * const command = new CreateGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupCertificateAuthorityResponse
- *   GroupCertificateAuthorityArn: "STRING_VALUE",
- * };
+ * // { // CreateGroupCertificateAuthorityResponse
+ * //   GroupCertificateAuthorityArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

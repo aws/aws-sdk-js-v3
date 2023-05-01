@@ -43,8 +43,7 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * const input = {};
  * const command = new DeleteRegistrationCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

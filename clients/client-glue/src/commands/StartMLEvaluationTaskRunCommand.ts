@@ -49,10 +49,9 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * };
  * const command = new StartMLEvaluationTaskRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMLEvaluationTaskRunResponse
- *   TaskRunId: "STRING_VALUE",
- * };
+ * // { // StartMLEvaluationTaskRunResponse
+ * //   TaskRunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

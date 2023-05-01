@@ -65,25 +65,24 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * };
  * const command = new CreateEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEgressOnlyInternetGatewayResult
- *   ClientToken: "STRING_VALUE",
- *   EgressOnlyInternetGateway: { // EgressOnlyInternetGateway
- *     Attachments: [ // InternetGatewayAttachmentList
- *       { // InternetGatewayAttachment
- *         State: "attaching" || "attached" || "detaching" || "detached",
- *         VpcId: "STRING_VALUE",
- *       },
- *     ],
- *     EgressOnlyInternetGatewayId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateEgressOnlyInternetGatewayResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   EgressOnlyInternetGateway: { // EgressOnlyInternetGateway
+ * //     Attachments: [ // InternetGatewayAttachmentList
+ * //       { // InternetGatewayAttachment
+ * //         State: "attaching" || "attached" || "detaching" || "detached",
+ * //         VpcId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

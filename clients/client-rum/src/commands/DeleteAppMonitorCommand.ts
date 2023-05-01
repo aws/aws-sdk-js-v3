@@ -44,8 +44,7 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * };
  * const command = new DeleteAppMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

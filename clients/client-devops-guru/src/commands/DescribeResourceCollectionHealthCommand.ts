@@ -54,43 +54,42 @@ export interface DescribeResourceCollectionHealthCommandOutput
  * };
  * const command = new DescribeResourceCollectionHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourceCollectionHealthResponse
- *   CloudFormation: [ // CloudFormationHealths
- *     { // CloudFormationHealth
- *       StackName: "STRING_VALUE",
- *       Insight: { // InsightHealth
- *         OpenProactiveInsights: Number("int"),
- *         OpenReactiveInsights: Number("int"),
- *         MeanTimeToRecoverInMilliseconds: Number("long"),
- *       },
- *       AnalyzedResourceCount: Number("long"),
- *     },
- *   ],
- *   Service: [ // ServiceHealths
- *     { // ServiceHealth
- *       ServiceName: "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
- *       Insight: { // ServiceInsightHealth
- *         OpenProactiveInsights: Number("int"),
- *         OpenReactiveInsights: Number("int"),
- *       },
- *       AnalyzedResourceCount: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Tags: [ // TagHealths
- *     { // TagHealth
- *       AppBoundaryKey: "STRING_VALUE",
- *       TagValue: "STRING_VALUE",
- *       Insight: {
- *         OpenProactiveInsights: Number("int"),
- *         OpenReactiveInsights: Number("int"),
- *         MeanTimeToRecoverInMilliseconds: Number("long"),
- *       },
- *       AnalyzedResourceCount: Number("long"),
- *     },
- *   ],
- * };
+ * // { // DescribeResourceCollectionHealthResponse
+ * //   CloudFormation: [ // CloudFormationHealths
+ * //     { // CloudFormationHealth
+ * //       StackName: "STRING_VALUE",
+ * //       Insight: { // InsightHealth
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //         MeanTimeToRecoverInMilliseconds: Number("long"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   Service: [ // ServiceHealths
+ * //     { // ServiceHealth
+ * //       ServiceName: "API_GATEWAY" || "APPLICATION_ELB" || "AUTO_SCALING_GROUP" || "CLOUD_FRONT" || "DYNAMO_DB" || "EC2" || "ECS" || "EKS" || "ELASTIC_BEANSTALK" || "ELASTI_CACHE" || "ELB" || "ES" || "KINESIS" || "LAMBDA" || "NAT_GATEWAY" || "NETWORK_ELB" || "RDS" || "REDSHIFT" || "ROUTE_53" || "S3" || "SAGE_MAKER" || "SNS" || "SQS" || "STEP_FUNCTIONS" || "SWF",
+ * //       Insight: { // ServiceInsightHealth
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Tags: [ // TagHealths
+ * //     { // TagHealth
+ * //       AppBoundaryKey: "STRING_VALUE",
+ * //       TagValue: "STRING_VALUE",
+ * //       Insight: {
+ * //         OpenProactiveInsights: Number("int"),
+ * //         OpenReactiveInsights: Number("int"),
+ * //         MeanTimeToRecoverInMilliseconds: Number("long"),
+ * //       },
+ * //       AnalyzedResourceCount: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -55,10 +55,9 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutReportDefinitionResult
- *   reportId: "STRING_VALUE",
- * };
+ * // { // PutReportDefinitionResult
+ * //   reportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

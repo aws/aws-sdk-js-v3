@@ -56,13 +56,12 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTagsOutput
- *   Arn: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetTagsOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

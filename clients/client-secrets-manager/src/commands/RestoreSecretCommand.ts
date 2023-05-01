@@ -52,11 +52,10 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * };
  * const command = new RestoreSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // RestoreSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

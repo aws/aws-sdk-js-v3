@@ -54,24 +54,23 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  * };
  * const command = new DeleteLocalGatewayRouteTableVpcAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLocalGatewayRouteTableVpcAssociationResult
- *   LocalGatewayRouteTableVpcAssociation: { // LocalGatewayRouteTableVpcAssociation
- *     LocalGatewayRouteTableVpcAssociationId: "STRING_VALUE",
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *     LocalGatewayRouteTableArn: "STRING_VALUE",
- *     LocalGatewayId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteLocalGatewayRouteTableVpcAssociationResult
+ * //   LocalGatewayRouteTableVpcAssociation: { // LocalGatewayRouteTableVpcAssociation
+ * //     LocalGatewayRouteTableVpcAssociationId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     LocalGatewayId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

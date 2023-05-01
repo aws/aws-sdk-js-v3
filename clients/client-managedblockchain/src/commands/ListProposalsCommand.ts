@@ -51,22 +51,21 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * };
  * const command = new ListProposalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProposalsOutput
- *   Proposals: [ // ProposalSummaryList
- *     { // ProposalSummary
- *       ProposalId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ProposedByMemberId: "STRING_VALUE",
- *       ProposedByMemberName: "STRING_VALUE",
- *       Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
- *       CreationDate: new Date("TIMESTAMP"),
- *       ExpirationDate: new Date("TIMESTAMP"),
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProposalsOutput
+ * //   Proposals: [ // ProposalSummaryList
+ * //     { // ProposalSummary
+ * //       ProposalId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ProposedByMemberId: "STRING_VALUE",
+ * //       ProposedByMemberName: "STRING_VALUE",
+ * //       Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

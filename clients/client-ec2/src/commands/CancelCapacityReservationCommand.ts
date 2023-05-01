@@ -50,10 +50,9 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * };
  * const command = new CancelCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelCapacityReservationResult
- *   Return: true || false,
- * };
+ * // { // CancelCapacityReservationResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

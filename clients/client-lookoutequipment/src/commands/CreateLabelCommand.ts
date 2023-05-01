@@ -53,10 +53,9 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * };
  * const command = new CreateLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLabelResponse
- *   LabelId: "STRING_VALUE",
- * };
+ * // { // CreateLabelResponse
+ * //   LabelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

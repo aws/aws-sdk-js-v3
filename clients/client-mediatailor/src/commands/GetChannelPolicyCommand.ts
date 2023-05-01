@@ -44,10 +44,9 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * };
  * const command = new GetChannelPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelPolicyResponse
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetChannelPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,13 +46,12 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * };
  * const command = new GenerateChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateChangeSetResponse
- *   s3Location: { // S3Location
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *   },
- * };
+ * // { // GenerateChangeSetResponse
+ * //   s3Location: { // S3Location
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -66,8 +66,7 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * };
  * const command = new UpdateTableObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

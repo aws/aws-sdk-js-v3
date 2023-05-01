@@ -51,10 +51,9 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * };
  * const command = new ReserveContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ContactIdResponse
- *   contactId: "STRING_VALUE",
- * };
+ * // { // ContactIdResponse
+ * //   contactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

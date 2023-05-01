@@ -97,38 +97,37 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFileSystemResponse
- *   FileSystemId: "STRING_VALUE",
- *   Lifecycle: "AVAILABLE" || "CREATING" || "FAILED" || "DELETING" || "MISCONFIGURED" || "UPDATING" || "MISCONFIGURED_UNAVAILABLE",
- *   WindowsResponse: { // DeleteFileSystemWindowsResponse
- *     FinalBackupId: "STRING_VALUE",
- *     FinalBackupTags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   LustreResponse: { // DeleteFileSystemLustreResponse
- *     FinalBackupId: "STRING_VALUE",
- *     FinalBackupTags: [
- *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   OpenZFSResponse: { // DeleteFileSystemOpenZFSResponse
- *     FinalBackupId: "STRING_VALUE",
- *     FinalBackupTags: [
- *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteFileSystemResponse
+ * //   FileSystemId: "STRING_VALUE",
+ * //   Lifecycle: "AVAILABLE" || "CREATING" || "FAILED" || "DELETING" || "MISCONFIGURED" || "UPDATING" || "MISCONFIGURED_UNAVAILABLE",
+ * //   WindowsResponse: { // DeleteFileSystemWindowsResponse
+ * //     FinalBackupId: "STRING_VALUE",
+ * //     FinalBackupTags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   LustreResponse: { // DeleteFileSystemLustreResponse
+ * //     FinalBackupId: "STRING_VALUE",
+ * //     FinalBackupTags: [
+ * //       {
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   OpenZFSResponse: { // DeleteFileSystemOpenZFSResponse
+ * //     FinalBackupId: "STRING_VALUE",
+ * //     FinalBackupTags: [
+ * //       {
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

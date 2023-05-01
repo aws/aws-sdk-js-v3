@@ -49,8 +49,7 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnshareApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -72,28 +72,27 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * };
  * const command = new ListLaunchPathsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLaunchPathsOutput
- *   LaunchPathSummaries: [ // LaunchPathSummaries
- *     { // LaunchPathSummary
- *       Id: "STRING_VALUE",
- *       ConstraintSummaries: [ // ConstraintSummaries
- *         { // ConstraintSummary
- *           Type: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *         },
- *       ],
- *       Tags: [ // Tags
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListLaunchPathsOutput
+ * //   LaunchPathSummaries: [ // LaunchPathSummaries
+ * //     { // LaunchPathSummary
+ * //       Id: "STRING_VALUE",
+ * //       ConstraintSummaries: [ // ConstraintSummaries
+ * //         { // ConstraintSummary
+ * //           Type: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

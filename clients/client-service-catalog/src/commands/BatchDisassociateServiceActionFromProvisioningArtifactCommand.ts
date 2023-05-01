@@ -60,18 +60,17 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * };
  * const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateServiceActionFromProvisioningArtifactOutput
- *   FailedServiceActionAssociations: [ // FailedServiceActionAssociations
- *     { // FailedServiceActionAssociation
- *       ServiceActionId: "STRING_VALUE",
- *       ProductId: "STRING_VALUE",
- *       ProvisioningArtifactId: "STRING_VALUE",
- *       ErrorCode: "DUPLICATE_RESOURCE" || "INTERNAL_FAILURE" || "LIMIT_EXCEEDED" || "RESOURCE_NOT_FOUND" || "THROTTLING" || "INVALID_PARAMETER",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateServiceActionFromProvisioningArtifactOutput
+ * //   FailedServiceActionAssociations: [ // FailedServiceActionAssociations
+ * //     { // FailedServiceActionAssociation
+ * //       ServiceActionId: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //       ErrorCode: "DUPLICATE_RESOURCE" || "INTERNAL_FAILURE" || "LIMIT_EXCEEDED" || "RESOURCE_NOT_FOUND" || "THROTTLING" || "INVALID_PARAMETER",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

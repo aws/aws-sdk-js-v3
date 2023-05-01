@@ -50,12 +50,11 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * const input = {};
  * const command = new DescribeTerminationPolicyTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTerminationPolicyTypesAnswer
- *   TerminationPolicyTypes: [ // TerminationPolicies
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeTerminationPolicyTypesAnswer
+ * //   TerminationPolicyTypes: [ // TerminationPolicies
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

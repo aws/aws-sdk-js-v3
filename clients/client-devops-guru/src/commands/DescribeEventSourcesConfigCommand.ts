@@ -45,14 +45,13 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * const input = {};
  * const command = new DescribeEventSourcesConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventSourcesConfigResponse
- *   EventSources: { // EventSourcesConfig
- *     AmazonCodeGuruProfiler: { // AmazonCodeGuruProfilerIntegration
- *       Status: "ENABLED" || "DISABLED",
- *     },
- *   },
- * };
+ * // { // DescribeEventSourcesConfigResponse
+ * //   EventSources: { // EventSourcesConfig
+ * //     AmazonCodeGuruProfiler: { // AmazonCodeGuruProfilerIntegration
+ * //       Status: "ENABLED" || "DISABLED",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

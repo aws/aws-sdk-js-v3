@@ -44,10 +44,9 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * };
  * const command = new TestWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestWirelessDeviceResponse
- *   Result: "STRING_VALUE",
- * };
+ * // { // TestWirelessDeviceResponse
+ * //   Result: "STRING_VALUE",
+ * // };
  *
  * ```
  *

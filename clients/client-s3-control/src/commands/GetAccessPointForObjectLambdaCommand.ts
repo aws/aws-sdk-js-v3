@@ -69,21 +69,20 @@ export interface GetAccessPointForObjectLambdaCommandOutput
  * };
  * const command = new GetAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointForObjectLambdaResult
- *   Name: "STRING_VALUE",
- *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
- *     BlockPublicAcls: true || false,
- *     IgnorePublicAcls: true || false,
- *     BlockPublicPolicy: true || false,
- *     RestrictPublicBuckets: true || false,
- *   },
- *   CreationDate: new Date("TIMESTAMP"),
- *   Alias: { // ObjectLambdaAccessPointAlias
- *     Value: "STRING_VALUE",
- *     Status: "PROVISIONING" || "READY",
- *   },
- * };
+ * // { // GetAccessPointForObjectLambdaResult
+ * //   Name: "STRING_VALUE",
+ * //   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ * //     BlockPublicAcls: true || false,
+ * //     IgnorePublicAcls: true || false,
+ * //     BlockPublicPolicy: true || false,
+ * //     RestrictPublicBuckets: true || false,
+ * //   },
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   Alias: { // ObjectLambdaAccessPointAlias
+ * //     Value: "STRING_VALUE",
+ * //     Status: "PROVISIONING" || "READY",
+ * //   },
+ * // };
  *
  * ```
  *

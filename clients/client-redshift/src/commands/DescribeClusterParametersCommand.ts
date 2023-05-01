@@ -58,23 +58,22 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * };
  * const command = new DescribeClusterParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterParameterGroupDetails
- *   Parameters: [ // ParametersList
- *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       ApplyType: "static" || "dynamic",
- *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ClusterParameterGroupDetails
+ * //   Parameters: [ // ParametersList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       ApplyType: "static" || "dynamic",
+ * //       IsModifiable: true || false,
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

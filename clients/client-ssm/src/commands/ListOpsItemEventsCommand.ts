@@ -55,23 +55,22 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * };
  * const command = new ListOpsItemEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOpsItemEventsResponse
- *   NextToken: "STRING_VALUE",
- *   Summaries: [ // OpsItemEventSummaries
- *     { // OpsItemEventSummary
- *       OpsItemId: "STRING_VALUE",
- *       EventId: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DetailType: "STRING_VALUE",
- *       Detail: "STRING_VALUE",
- *       CreatedBy: { // OpsItemIdentity
- *         Arn: "STRING_VALUE",
- *       },
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListOpsItemEventsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Summaries: [ // OpsItemEventSummaries
+ * //     { // OpsItemEventSummary
+ * //       OpsItemId: "STRING_VALUE",
+ * //       EventId: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DetailType: "STRING_VALUE",
+ * //       Detail: "STRING_VALUE",
+ * //       CreatedBy: { // OpsItemIdentity
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

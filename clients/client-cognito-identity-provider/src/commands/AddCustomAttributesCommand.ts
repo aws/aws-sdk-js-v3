@@ -66,8 +66,7 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * };
  * const command = new AddCustomAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

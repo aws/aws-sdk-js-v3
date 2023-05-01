@@ -51,8 +51,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * };
  * const command = new CreateCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

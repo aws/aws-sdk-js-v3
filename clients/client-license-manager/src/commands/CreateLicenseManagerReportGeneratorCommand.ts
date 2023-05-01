@@ -72,10 +72,9 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * };
  * const command = new CreateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLicenseManagerReportGeneratorResponse
- *   LicenseManagerReportGeneratorArn: "STRING_VALUE",
- * };
+ * // { // CreateLicenseManagerReportGeneratorResponse
+ * //   LicenseManagerReportGeneratorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

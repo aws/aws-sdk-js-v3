@@ -57,11 +57,10 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEndpointResponse
- *   EndpointArn: "STRING_VALUE",
- *   ModelArn: "STRING_VALUE",
- * };
+ * // { // CreateEndpointResponse
+ * //   EndpointArn: "STRING_VALUE",
+ * //   ModelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

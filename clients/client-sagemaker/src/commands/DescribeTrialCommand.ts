@@ -44,45 +44,44 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * };
  * const command = new DescribeTrialCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrialResponse
- *   TrialName: "STRING_VALUE",
- *   TrialArn: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   ExperimentName: "STRING_VALUE",
- *   Source: { // TrialSource
- *     SourceArn: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeTrialResponse
+ * //   TrialName: "STRING_VALUE",
+ * //   TrialArn: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   ExperimentName: "STRING_VALUE",
+ * //   Source: { // TrialSource
+ * //     SourceArn: "STRING_VALUE", // required
+ * //     SourceType: "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   MetadataProperties: { // MetadataProperties
+ * //     CommitId: "STRING_VALUE",
+ * //     Repository: "STRING_VALUE",
+ * //     GeneratedBy: "STRING_VALUE",
+ * //     ProjectId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

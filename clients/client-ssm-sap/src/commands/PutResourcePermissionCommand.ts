@@ -46,10 +46,9 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * };
  * const command = new PutResourcePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResourcePermissionOutput
- *   Policy: "STRING_VALUE",
- * };
+ * // { // PutResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

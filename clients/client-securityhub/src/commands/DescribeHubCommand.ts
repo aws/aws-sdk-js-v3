@@ -45,13 +45,12 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHubResponse
- *   HubArn: "STRING_VALUE",
- *   SubscribedAt: "STRING_VALUE",
- *   AutoEnableControls: true || false,
- *   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
- * };
+ * // { // DescribeHubResponse
+ * //   HubArn: "STRING_VALUE",
+ * //   SubscribedAt: "STRING_VALUE",
+ * //   AutoEnableControls: true || false,
+ * //   ControlFindingGenerator: "STANDARD_CONTROL" || "SECURITY_CONTROL",
+ * // };
  *
  * ```
  *

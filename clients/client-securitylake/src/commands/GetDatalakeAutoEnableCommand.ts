@@ -44,17 +44,16 @@ export interface GetDatalakeAutoEnableCommandOutput extends GetDatalakeAutoEnabl
  * const input = {};
  * const command = new GetDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatalakeAutoEnableResponse
- *   autoEnableNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
- *     { // AutoEnableNewRegionConfiguration
- *       region: "STRING_VALUE", // required
- *       sources: [ // AwsSourceTypeList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetDatalakeAutoEnableResponse
+ * //   autoEnableNewAccounts: [ // AutoEnableNewRegionConfigurationList // required
+ * //     { // AutoEnableNewRegionConfiguration
+ * //       region: "STRING_VALUE", // required
+ * //       sources: [ // AwsSourceTypeList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

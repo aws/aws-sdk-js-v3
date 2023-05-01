@@ -48,8 +48,7 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

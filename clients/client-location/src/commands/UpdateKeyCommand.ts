@@ -64,12 +64,11 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * };
  * const command = new UpdateKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateKeyResponse
- *   KeyArn: "STRING_VALUE", // required
- *   KeyName: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateKeyResponse
+ * //   KeyArn: "STRING_VALUE", // required
+ * //   KeyName: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

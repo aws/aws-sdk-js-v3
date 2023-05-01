@@ -51,12 +51,11 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * };
  * const command = new DescribeAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAvailabilityMonitorTestOutput
- *   GatewayARN: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeAvailabilityMonitorTestOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * };
  * const command = new UpdateExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateExperimentResponse
- *   ExperimentArn: "STRING_VALUE",
- * };
+ * // { // UpdateExperimentResponse
+ * //   ExperimentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

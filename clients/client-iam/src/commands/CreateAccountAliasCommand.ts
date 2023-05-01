@@ -47,8 +47,7 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAccountAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

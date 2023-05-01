@@ -46,43 +46,42 @@ export interface ListMobileDeviceAccessRulesCommandOutput
  * };
  * const command = new ListMobileDeviceAccessRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMobileDeviceAccessRulesResponse
- *   Rules: [ // MobileDeviceAccessRulesList
- *     { // MobileDeviceAccessRule
- *       MobileDeviceAccessRuleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Effect: "ALLOW" || "DENY",
- *       DeviceTypes: [ // DeviceTypeList
- *         "STRING_VALUE",
- *       ],
- *       NotDeviceTypes: [
- *         "STRING_VALUE",
- *       ],
- *       DeviceModels: [ // DeviceModelList
- *         "STRING_VALUE",
- *       ],
- *       NotDeviceModels: [
- *         "STRING_VALUE",
- *       ],
- *       DeviceOperatingSystems: [ // DeviceOperatingSystemList
- *         "STRING_VALUE",
- *       ],
- *       NotDeviceOperatingSystems: [
- *         "STRING_VALUE",
- *       ],
- *       DeviceUserAgents: [ // DeviceUserAgentList
- *         "STRING_VALUE",
- *       ],
- *       NotDeviceUserAgents: [
- *         "STRING_VALUE",
- *       ],
- *       DateCreated: new Date("TIMESTAMP"),
- *       DateModified: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListMobileDeviceAccessRulesResponse
+ * //   Rules: [ // MobileDeviceAccessRulesList
+ * //     { // MobileDeviceAccessRule
+ * //       MobileDeviceAccessRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Effect: "ALLOW" || "DENY",
+ * //       DeviceTypes: [ // DeviceTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotDeviceTypes: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeviceModels: [ // DeviceModelList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotDeviceModels: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeviceOperatingSystems: [ // DeviceOperatingSystemList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotDeviceOperatingSystems: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DeviceUserAgents: [ // DeviceUserAgentList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NotDeviceUserAgents: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -57,27 +57,26 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * };
  * const command = new BatchGetMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetMetricDataResponse
- *   Results: [ // MetricDataResultList
- *     { // MetricDataResult
- *       Id: "STRING_VALUE",
- *       Timestamps: [ // TimestampList
- *         new Date("TIMESTAMP"),
- *       ],
- *       Values: [ // MetricValueList
- *         Number("long"),
- *       ],
- *     },
- *   ],
- *   Errors: [ // MetricDataErrorList
- *     { // MetricDataError
- *       Id: "STRING_VALUE",
- *       Code: "INTERNAL_FAILURE" || "ACCESS_DENIED",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetMetricDataResponse
+ * //   Results: [ // MetricDataResultList
+ * //     { // MetricDataResult
+ * //       Id: "STRING_VALUE",
+ * //       Timestamps: [ // TimestampList
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       Values: [ // MetricValueList
+ * //         Number("long"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Errors: [ // MetricDataErrorList
+ * //     { // MetricDataError
+ * //       Id: "STRING_VALUE",
+ * //       Code: "INTERNAL_FAILURE" || "ACCESS_DENIED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

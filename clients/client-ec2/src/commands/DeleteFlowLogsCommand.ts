@@ -47,18 +47,17 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * };
  * const command = new DeleteFlowLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFlowLogsResult
- *   Unsuccessful: [ // UnsuccessfulItemSet
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteFlowLogsResult
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

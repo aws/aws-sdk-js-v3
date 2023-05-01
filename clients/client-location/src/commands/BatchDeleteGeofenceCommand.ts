@@ -50,18 +50,17 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * };
  * const command = new BatchDeleteGeofenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteGeofenceResponse
- *   Errors: [ // BatchDeleteGeofenceErrorList // required
- *     { // BatchDeleteGeofenceError
- *       GeofenceId: "STRING_VALUE", // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDeleteGeofenceResponse
+ * //   Errors: [ // BatchDeleteGeofenceErrorList // required
+ * //     { // BatchDeleteGeofenceError
+ * //       GeofenceId: "STRING_VALUE", // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

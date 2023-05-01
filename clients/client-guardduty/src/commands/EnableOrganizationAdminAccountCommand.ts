@@ -50,8 +50,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

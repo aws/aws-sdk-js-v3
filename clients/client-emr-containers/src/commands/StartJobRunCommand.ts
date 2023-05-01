@@ -101,13 +101,12 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartJobRunResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   virtualClusterId: "STRING_VALUE",
- * };
+ * // { // StartJobRunResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

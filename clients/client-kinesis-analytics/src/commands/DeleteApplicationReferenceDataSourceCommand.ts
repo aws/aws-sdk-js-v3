@@ -62,8 +62,7 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new DeleteApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,12 +62,11 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * };
  * const command = new CancelRotateSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelRotateSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // CancelRotateSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

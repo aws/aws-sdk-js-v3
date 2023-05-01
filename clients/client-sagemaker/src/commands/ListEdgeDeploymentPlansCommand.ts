@@ -53,22 +53,21 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * };
  * const command = new ListEdgeDeploymentPlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEdgeDeploymentPlansResponse
- *   EdgeDeploymentPlanSummaries: [ // EdgeDeploymentPlanSummaries // required
- *     { // EdgeDeploymentPlanSummary
- *       EdgeDeploymentPlanArn: "STRING_VALUE", // required
- *       EdgeDeploymentPlanName: "STRING_VALUE", // required
- *       DeviceFleetName: "STRING_VALUE", // required
- *       EdgeDeploymentSuccess: Number("int"), // required
- *       EdgeDeploymentPending: Number("int"), // required
- *       EdgeDeploymentFailed: Number("int"), // required
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEdgeDeploymentPlansResponse
+ * //   EdgeDeploymentPlanSummaries: [ // EdgeDeploymentPlanSummaries // required
+ * //     { // EdgeDeploymentPlanSummary
+ * //       EdgeDeploymentPlanArn: "STRING_VALUE", // required
+ * //       EdgeDeploymentPlanName: "STRING_VALUE", // required
+ * //       DeviceFleetName: "STRING_VALUE", // required
+ * //       EdgeDeploymentSuccess: Number("int"), // required
+ * //       EdgeDeploymentPending: Number("int"), // required
+ * //       EdgeDeploymentFailed: Number("int"), // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

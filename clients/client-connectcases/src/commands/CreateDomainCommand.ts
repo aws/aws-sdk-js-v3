@@ -53,12 +53,11 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDomainResponse
- *   domainId: "STRING_VALUE", // required
- *   domainArn: "STRING_VALUE", // required
- *   domainStatus: "STRING_VALUE", // required
- * };
+ * // { // CreateDomainResponse
+ * //   domainId: "STRING_VALUE", // required
+ * //   domainArn: "STRING_VALUE", // required
+ * //   domainStatus: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

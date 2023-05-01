@@ -57,16 +57,15 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * };
  * const command = new GetAlternateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAlternateContactResponse
- *   AlternateContact: { // AlternateContact
- *     Name: "STRING_VALUE",
- *     Title: "STRING_VALUE",
- *     EmailAddress: "STRING_VALUE",
- *     PhoneNumber: "STRING_VALUE",
- *     AlternateContactType: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAlternateContactResponse
+ * //   AlternateContact: { // AlternateContact
+ * //     Name: "STRING_VALUE",
+ * //     Title: "STRING_VALUE",
+ * //     EmailAddress: "STRING_VALUE",
+ * //     PhoneNumber: "STRING_VALUE",
+ * //     AlternateContactType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

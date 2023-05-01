@@ -159,10 +159,9 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * };
  * const command = new ModifySpotFleetRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifySpotFleetRequestResponse
- *   Return: true || false,
- * };
+ * // { // ModifySpotFleetRequestResponse
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

@@ -53,12 +53,11 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * };
  * const command = new UpdateDocumentationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DocumentationVersion
- *   version: "STRING_VALUE",
- *   createdDate: new Date("TIMESTAMP"),
- *   description: "STRING_VALUE",
- * };
+ * // { // DocumentationVersion
+ * //   version: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

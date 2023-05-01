@@ -55,24 +55,23 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * };
  * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceVersionsResult
- *   ServiceVersions: [ // ServiceVersionList // required
- *     { // ServiceVersion
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- *   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
- *   DependentServices: [ // DependentServiceList
- *     { // DependentService
- *       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
- *       ServiceVersion: {
- *         Version: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListServiceVersionsResult
+ * //   ServiceVersions: [ // ServiceVersionList // required
+ * //     { // ServiceVersion
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
+ * //   DependentServices: [ // DependentServiceList
+ * //     { // DependentService
+ * //       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
+ * //       ServiceVersion: {
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

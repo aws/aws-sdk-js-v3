@@ -51,13 +51,12 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * };
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPhoneNumbersOptedOutResponse
- *   phoneNumbers: [ // PhoneNumberList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPhoneNumbersOptedOutResponse
+ * //   phoneNumbers: [ // PhoneNumberList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

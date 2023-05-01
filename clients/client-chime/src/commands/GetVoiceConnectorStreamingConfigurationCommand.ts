@@ -55,18 +55,17 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorStreamingConfigurationResponse
- *   StreamingConfiguration: { // StreamingConfiguration
- *     DataRetentionInHours: Number("int"), // required
- *     Disabled: true || false,
- *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
- *       { // StreamingNotificationTarget
- *         NotificationTarget: "EventBridge" || "SNS" || "SQS", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetVoiceConnectorStreamingConfigurationResponse
+ * //   StreamingConfiguration: { // StreamingConfiguration
+ * //     DataRetentionInHours: Number("int"), // required
+ * //     Disabled: true || false,
+ * //     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ * //       { // StreamingNotificationTarget
+ * //         NotificationTarget: "EventBridge" || "SNS" || "SQS", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,21 +44,20 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceSetResponse
- *   ResourceSet: { // ResourceSet
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     UpdateToken: "STRING_VALUE",
- *     ResourceTypeList: [ // ResourceTypeList // required
- *       "STRING_VALUE",
- *     ],
- *     LastUpdateTime: new Date("TIMESTAMP"),
- *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
- *   },
- *   ResourceSetArn: "STRING_VALUE", // required
- * };
+ * // { // GetResourceSetResponse
+ * //   ResourceSet: { // ResourceSet
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     UpdateToken: "STRING_VALUE",
+ * //     ResourceTypeList: [ // ResourceTypeList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //   },
+ * //   ResourceSetArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

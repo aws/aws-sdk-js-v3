@@ -56,17 +56,16 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * };
  * const command = new ListStackInstancesForProvisionedProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStackInstancesForProvisionedProductOutput
- *   StackInstances: [ // StackInstances
- *     { // StackInstance
- *       Account: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       StackInstanceStatus: "CURRENT" || "OUTDATED" || "INOPERABLE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListStackInstancesForProvisionedProductOutput
+ * //   StackInstances: [ // StackInstances
+ * //     { // StackInstance
+ * //       Account: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       StackInstanceStatus: "CURRENT" || "OUTDATED" || "INOPERABLE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDefaultBranchCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

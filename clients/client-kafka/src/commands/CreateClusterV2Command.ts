@@ -171,13 +171,12 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * };
  * const command = new CreateClusterV2Command(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClusterV2Response
- *   ClusterArn: "STRING_VALUE",
- *   ClusterName: "STRING_VALUE",
- *   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
- *   ClusterType: "PROVISIONED" || "SERVERLESS",
- * };
+ * // { // CreateClusterV2Response
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterName: "STRING_VALUE",
+ * //   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ * //   ClusterType: "PROVISIONED" || "SERVERLESS",
+ * // };
  *
  * ```
  *

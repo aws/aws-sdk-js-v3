@@ -63,15 +63,14 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  * };
  * const command = new GetStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStorageLensConfigurationTaggingResult
- *   Tags: [ // StorageLensTags
- *     { // StorageLensTag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetStorageLensConfigurationTaggingResult
+ * //   Tags: [ // StorageLensTags
+ * //     { // StorageLensTag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

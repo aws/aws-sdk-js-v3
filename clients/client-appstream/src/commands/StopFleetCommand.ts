@@ -44,8 +44,7 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * };
  * const command = new StopFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

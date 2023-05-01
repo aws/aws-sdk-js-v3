@@ -50,19 +50,18 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * };
  * const command = new ListAccessorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessorsOutput
- *   Accessors: [ // AccessorSummaryList
- *     { // AccessorSummary
- *       Id: "STRING_VALUE",
- *       Type: "BILLING_TOKEN",
- *       Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
- *       CreationDate: new Date("TIMESTAMP"),
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessorsOutput
+ * //   Accessors: [ // AccessorSummaryList
+ * //     { // AccessorSummary
+ * //       Id: "STRING_VALUE",
+ * //       Type: "BILLING_TOKEN",
+ * //       Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

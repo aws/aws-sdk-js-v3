@@ -48,13 +48,12 @@ export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEv
  * };
  * const command = new DeleteInstanceEventWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInstanceEventWindowResult
- *   InstanceEventWindowState: { // InstanceEventWindowStateChange
- *     InstanceEventWindowId: "STRING_VALUE",
- *     State: "creating" || "deleting" || "active" || "deleted",
- *   },
- * };
+ * // { // DeleteInstanceEventWindowResult
+ * //   InstanceEventWindowState: { // InstanceEventWindowStateChange
+ * //     InstanceEventWindowId: "STRING_VALUE",
+ * //     State: "creating" || "deleting" || "active" || "deleted",
+ * //   },
+ * // };
  *
  * ```
  *

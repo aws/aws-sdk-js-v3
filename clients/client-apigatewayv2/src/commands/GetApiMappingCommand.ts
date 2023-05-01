@@ -45,13 +45,12 @@ export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __Met
  * };
  * const command = new GetApiMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApiMappingResponse
- *   ApiId: "STRING_VALUE",
- *   ApiMappingId: "STRING_VALUE",
- *   ApiMappingKey: "STRING_VALUE",
- *   Stage: "STRING_VALUE",
- * };
+ * // { // GetApiMappingResponse
+ * //   ApiId: "STRING_VALUE",
+ * //   ApiMappingId: "STRING_VALUE",
+ * //   ApiMappingKey: "STRING_VALUE",
+ * //   Stage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

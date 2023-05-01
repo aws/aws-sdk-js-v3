@@ -53,30 +53,29 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGatewayResponse
- *   Gateway: { // Gateway
- *     EgressCidrBlocks: [ // __listOf__string // required
- *       "STRING_VALUE",
- *     ],
- *     GatewayArn: "STRING_VALUE", // required
- *     GatewayMessages: [ // __listOfMessageDetail
- *       { // MessageDetail
- *         Code: "STRING_VALUE", // required
- *         Message: "STRING_VALUE", // required
- *         ResourceName: "STRING_VALUE",
- *       },
- *     ],
- *     GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED",
- *     Name: "STRING_VALUE", // required
- *     Networks: [ // __listOfGatewayNetwork // required
- *       { // GatewayNetwork
- *         CidrBlock: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateGatewayResponse
+ * //   Gateway: { // Gateway
+ * //     EgressCidrBlocks: [ // __listOf__string // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     GatewayArn: "STRING_VALUE", // required
+ * //     GatewayMessages: [ // __listOfMessageDetail
+ * //       { // MessageDetail
+ * //         Code: "STRING_VALUE", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED",
+ * //     Name: "STRING_VALUE", // required
+ * //     Networks: [ // __listOfGatewayNetwork // required
+ * //       { // GatewayNetwork
+ * //         CidrBlock: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

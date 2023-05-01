@@ -44,14 +44,13 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  * };
  * const command = new GetGatewayGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGatewayGroupResponse
- *   GatewayGroup: { // GatewayGroup
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGatewayGroupResponse
+ * //   GatewayGroup: { // GatewayGroup
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

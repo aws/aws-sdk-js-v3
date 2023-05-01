@@ -174,10 +174,9 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * };
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainResponse
- *   DomainArn: "STRING_VALUE",
- * };
+ * // { // UpdateDomainResponse
+ * //   DomainArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

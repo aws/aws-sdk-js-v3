@@ -63,23 +63,22 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput
  * };
  * const command = new ListAssessmentControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentControlInsightsByControlDomainResponse
- *   controlInsightsByAssessment: [ // ControlInsightsMetadataByAssessment
- *     { // ControlInsightsMetadataByAssessmentItem
- *       name: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       evidenceInsights: { // EvidenceInsights
- *         noncompliantEvidenceCount: Number("int"),
- *         compliantEvidenceCount: Number("int"),
- *         inconclusiveEvidenceCount: Number("int"),
- *       },
- *       controlSetName: "STRING_VALUE",
- *       lastUpdated: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentControlInsightsByControlDomainResponse
+ * //   controlInsightsByAssessment: [ // ControlInsightsMetadataByAssessment
+ * //     { // ControlInsightsMetadataByAssessmentItem
+ * //       name: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       evidenceInsights: { // EvidenceInsights
+ * //         noncompliantEvidenceCount: Number("int"),
+ * //         compliantEvidenceCount: Number("int"),
+ * //         inconclusiveEvidenceCount: Number("int"),
+ * //       },
+ * //       controlSetName: "STRING_VALUE",
+ * //       lastUpdated: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

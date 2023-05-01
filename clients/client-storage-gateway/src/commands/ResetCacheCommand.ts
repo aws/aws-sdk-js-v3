@@ -56,10 +56,9 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * };
  * const command = new ResetCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetCacheOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // ResetCacheOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

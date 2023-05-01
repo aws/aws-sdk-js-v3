@@ -44,12 +44,11 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * };
  * const command = new DescribeReturnShippingLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReturnShippingLabelResult
- *   Status: "InProgress" || "TimedOut" || "Succeeded" || "Failed",
- *   ExpirationDate: new Date("TIMESTAMP"),
- *   ReturnShippingLabelURI: "STRING_VALUE",
- * };
+ * // { // DescribeReturnShippingLabelResult
+ * //   Status: "InProgress" || "TimedOut" || "Succeeded" || "Failed",
+ * //   ExpirationDate: new Date("TIMESTAMP"),
+ * //   ReturnShippingLabelURI: "STRING_VALUE",
+ * // };
  *
  * ```
  *

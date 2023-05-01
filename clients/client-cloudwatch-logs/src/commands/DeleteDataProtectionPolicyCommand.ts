@@ -45,8 +45,7 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

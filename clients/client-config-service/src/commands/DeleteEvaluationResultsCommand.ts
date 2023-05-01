@@ -47,8 +47,7 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * };
  * const command = new DeleteEvaluationResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

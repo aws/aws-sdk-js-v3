@@ -47,29 +47,28 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * };
  * const command = new GetRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegionsResult
- *   regions: [ // RegionList
- *     { // Region
- *       continentCode: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       displayName: "STRING_VALUE",
- *       name: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
- *       availabilityZones: [ // AvailabilityZoneList
- *         { // AvailabilityZone
- *           zoneName: "STRING_VALUE",
- *           state: "STRING_VALUE",
- *         },
- *       ],
- *       relationalDatabaseAvailabilityZones: [
- *         {
- *           zoneName: "STRING_VALUE",
- *           state: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetRegionsResult
+ * //   regions: [ // RegionList
+ * //     { // Region
+ * //       continentCode: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       name: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //       availabilityZones: [ // AvailabilityZoneList
+ * //         { // AvailabilityZone
+ * //           zoneName: "STRING_VALUE",
+ * //           state: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       relationalDatabaseAvailabilityZones: [
+ * //         {
+ * //           zoneName: "STRING_VALUE",
+ * //           state: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

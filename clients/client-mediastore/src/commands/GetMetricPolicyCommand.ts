@@ -44,18 +44,17 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * };
  * const command = new GetMetricPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricPolicyOutput
- *   MetricPolicy: { // MetricPolicy
- *     ContainerLevelMetrics: "STRING_VALUE", // required
- *     MetricPolicyRules: [ // MetricPolicyRules
- *       { // MetricPolicyRule
- *         ObjectGroup: "STRING_VALUE", // required
- *         ObjectGroupName: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetMetricPolicyOutput
+ * //   MetricPolicy: { // MetricPolicy
+ * //     ContainerLevelMetrics: "STRING_VALUE", // required
+ * //     MetricPolicyRules: [ // MetricPolicyRules
+ * //       { // MetricPolicyRule
+ * //         ObjectGroup: "STRING_VALUE", // required
+ * //         ObjectGroupName: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

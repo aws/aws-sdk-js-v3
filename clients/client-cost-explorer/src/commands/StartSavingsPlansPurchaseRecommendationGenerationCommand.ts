@@ -59,12 +59,11 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * const input = {};
  * const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSavingsPlansPurchaseRecommendationGenerationResponse
- *   RecommendationId: "STRING_VALUE",
- *   GenerationStartedTime: "STRING_VALUE",
- *   EstimatedCompletionTime: "STRING_VALUE",
- * };
+ * // { // StartSavingsPlansPurchaseRecommendationGenerationResponse
+ * //   RecommendationId: "STRING_VALUE",
+ * //   GenerationStartedTime: "STRING_VALUE",
+ * //   EstimatedCompletionTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

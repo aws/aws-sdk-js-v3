@@ -52,22 +52,21 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * };
  * const command = new CreateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFirewallRuleGroupResponse
- *   FirewallRuleGroup: { // FirewallRuleGroup
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RuleCount: Number("int"),
- *     Status: "COMPLETE" || "DELETING" || "UPDATING",
- *     StatusMessage: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateFirewallRuleGroupResponse
+ * //   FirewallRuleGroup: { // FirewallRuleGroup
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RuleCount: Number("int"),
+ * //     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

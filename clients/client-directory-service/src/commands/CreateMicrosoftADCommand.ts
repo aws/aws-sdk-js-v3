@@ -67,10 +67,9 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * };
  * const command = new CreateMicrosoftADCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMicrosoftADResult
- *   DirectoryId: "STRING_VALUE",
- * };
+ * // { // CreateMicrosoftADResult
+ * //   DirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

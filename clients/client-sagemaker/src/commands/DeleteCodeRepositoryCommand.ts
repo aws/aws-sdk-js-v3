@@ -44,8 +44,7 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCodeRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

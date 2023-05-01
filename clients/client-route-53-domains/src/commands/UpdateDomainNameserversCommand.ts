@@ -62,10 +62,9 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * };
  * const command = new UpdateDomainNameserversCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainNameserversResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateDomainNameserversResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,16 +54,15 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  * };
  * const command = new ListLicenseSpecificationsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLicenseSpecificationsForResourceResponse
- *   LicenseSpecifications: [ // LicenseSpecifications
- *     { // LicenseSpecification
- *       LicenseConfigurationArn: "STRING_VALUE", // required
- *       AmiAssociationScope: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLicenseSpecificationsForResourceResponse
+ * //   LicenseSpecifications: [ // LicenseSpecifications
+ * //     { // LicenseSpecification
+ * //       LicenseConfigurationArn: "STRING_VALUE", // required
+ * //       AmiAssociationScope: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

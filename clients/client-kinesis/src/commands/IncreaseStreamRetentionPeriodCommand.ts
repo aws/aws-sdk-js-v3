@@ -61,8 +61,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * };
  * const command = new IncreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

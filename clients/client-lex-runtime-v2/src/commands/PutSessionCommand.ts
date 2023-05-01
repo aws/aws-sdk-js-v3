@@ -169,15 +169,14 @@ export interface PutSessionCommandOutput
  * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSessionResponse
- *   contentType: "STRING_VALUE",
- *   messages: "STRING_VALUE",
- *   sessionState: "STRING_VALUE",
- *   requestAttributes: "STRING_VALUE",
- *   sessionId: "STRING_VALUE",
- *   audioStream: "STREAMING_BLOB_VALUE",
- * };
+ * // { // PutSessionResponse
+ * //   contentType: "STRING_VALUE",
+ * //   messages: "STRING_VALUE",
+ * //   sessionState: "STRING_VALUE",
+ * //   requestAttributes: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * //   audioStream: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

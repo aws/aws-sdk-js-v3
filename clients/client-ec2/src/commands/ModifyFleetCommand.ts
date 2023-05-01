@@ -174,10 +174,9 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  * };
  * const command = new ModifyFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyFleetResult
- *   Return: true || false,
- * };
+ * // { // ModifyFleetResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

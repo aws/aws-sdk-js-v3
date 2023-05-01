@@ -96,11 +96,10 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * };
  * const command = new CreateEventTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEventTrackerResponse
- *   eventTrackerArn: "STRING_VALUE",
- *   trackingId: "STRING_VALUE",
- * };
+ * // { // CreateEventTrackerResponse
+ * //   eventTrackerArn: "STRING_VALUE",
+ * //   trackingId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

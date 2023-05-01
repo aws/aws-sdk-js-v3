@@ -55,8 +55,7 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * };
  * const command = new UpdateDocumentMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

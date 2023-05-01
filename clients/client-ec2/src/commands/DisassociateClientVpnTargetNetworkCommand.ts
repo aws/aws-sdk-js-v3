@@ -70,14 +70,13 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * };
  * const command = new DisassociateClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateClientVpnTargetNetworkResult
- *   AssociationId: "STRING_VALUE",
- *   Status: { // AssociationStatus
- *     Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // DisassociateClientVpnTargetNetworkResult
+ * //   AssociationId: "STRING_VALUE",
+ * //   Status: { // AssociationStatus
+ * //     Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

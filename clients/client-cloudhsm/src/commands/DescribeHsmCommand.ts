@@ -56,32 +56,31 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * };
  * const command = new DescribeHsmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHsmResponse
- *   HsmArn: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   StatusDetails: "STRING_VALUE",
- *   AvailabilityZone: "STRING_VALUE",
- *   EniId: "STRING_VALUE",
- *   EniIp: "STRING_VALUE",
- *   SubscriptionType: "STRING_VALUE",
- *   SubscriptionStartDate: "STRING_VALUE",
- *   SubscriptionEndDate: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- *   SubnetId: "STRING_VALUE",
- *   IamRoleArn: "STRING_VALUE",
- *   SerialNumber: "STRING_VALUE",
- *   VendorName: "STRING_VALUE",
- *   HsmType: "STRING_VALUE",
- *   SoftwareVersion: "STRING_VALUE",
- *   SshPublicKey: "STRING_VALUE",
- *   SshKeyLastUpdated: "STRING_VALUE",
- *   ServerCertUri: "STRING_VALUE",
- *   ServerCertLastUpdated: "STRING_VALUE",
- *   Partitions: [ // PartitionList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeHsmResponse
+ * //   HsmArn: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   StatusDetails: "STRING_VALUE",
+ * //   AvailabilityZone: "STRING_VALUE",
+ * //   EniId: "STRING_VALUE",
+ * //   EniIp: "STRING_VALUE",
+ * //   SubscriptionType: "STRING_VALUE",
+ * //   SubscriptionStartDate: "STRING_VALUE",
+ * //   SubscriptionEndDate: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * //   SubnetId: "STRING_VALUE",
+ * //   IamRoleArn: "STRING_VALUE",
+ * //   SerialNumber: "STRING_VALUE",
+ * //   VendorName: "STRING_VALUE",
+ * //   HsmType: "STRING_VALUE",
+ * //   SoftwareVersion: "STRING_VALUE",
+ * //   SshPublicKey: "STRING_VALUE",
+ * //   SshKeyLastUpdated: "STRING_VALUE",
+ * //   ServerCertUri: "STRING_VALUE",
+ * //   ServerCertLastUpdated: "STRING_VALUE",
+ * //   Partitions: [ // PartitionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

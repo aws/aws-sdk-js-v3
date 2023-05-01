@@ -49,71 +49,70 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * };
  * const command = new ListAssetModelPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetModelPropertiesResponse
- *   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
- *     { // AssetModelPropertySummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE", // required
- *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- *       dataTypeSpec: "STRING_VALUE",
- *       unit: "STRING_VALUE",
- *       type: { // PropertyType
- *         attribute: { // Attribute
- *           defaultValue: "STRING_VALUE",
- *         },
- *         measurement: { // Measurement
- *           processingConfig: { // MeasurementProcessingConfig
- *             forwardingConfig: { // ForwardingConfig
- *               state: "DISABLED" || "ENABLED", // required
- *             },
- *           },
- *         },
- *         transform: { // Transform
- *           expression: "STRING_VALUE", // required
- *           variables: [ // ExpressionVariables // required
- *             { // ExpressionVariable
- *               name: "STRING_VALUE", // required
- *               value: { // VariableValue
- *                 propertyId: "STRING_VALUE", // required
- *                 hierarchyId: "STRING_VALUE",
- *               },
- *             },
- *           ],
- *           processingConfig: { // TransformProcessingConfig
- *             computeLocation: "EDGE" || "CLOUD", // required
- *             forwardingConfig: {
- *               state: "DISABLED" || "ENABLED", // required
- *             },
- *           },
- *         },
- *         metric: { // Metric
- *           expression: "STRING_VALUE", // required
- *           variables: [ // required
- *             {
- *               name: "STRING_VALUE", // required
- *               value: {
- *                 propertyId: "STRING_VALUE", // required
- *                 hierarchyId: "STRING_VALUE",
- *               },
- *             },
- *           ],
- *           window: { // MetricWindow
- *             tumbling: { // TumblingWindow
- *               interval: "STRING_VALUE", // required
- *               offset: "STRING_VALUE",
- *             },
- *           },
- *           processingConfig: { // MetricProcessingConfig
- *             computeLocation: "EDGE" || "CLOUD", // required
- *           },
- *         },
- *       },
- *       assetModelCompositeModelId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetModelPropertiesResponse
+ * //   assetModelPropertySummaries: [ // AssetModelPropertySummaries // required
+ * //     { // AssetModelPropertySummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataTypeSpec: "STRING_VALUE",
+ * //       unit: "STRING_VALUE",
+ * //       type: { // PropertyType
+ * //         attribute: { // Attribute
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //         measurement: { // Measurement
+ * //           processingConfig: { // MeasurementProcessingConfig
+ * //             forwardingConfig: { // ForwardingConfig
+ * //               state: "DISABLED" || "ENABLED", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         transform: { // Transform
+ * //           expression: "STRING_VALUE", // required
+ * //           variables: [ // ExpressionVariables // required
+ * //             { // ExpressionVariable
+ * //               name: "STRING_VALUE", // required
+ * //               value: { // VariableValue
+ * //                 propertyId: "STRING_VALUE", // required
+ * //                 hierarchyId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           processingConfig: { // TransformProcessingConfig
+ * //             computeLocation: "EDGE" || "CLOUD", // required
+ * //             forwardingConfig: {
+ * //               state: "DISABLED" || "ENABLED", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         metric: { // Metric
+ * //           expression: "STRING_VALUE", // required
+ * //           variables: [ // required
+ * //             {
+ * //               name: "STRING_VALUE", // required
+ * //               value: {
+ * //                 propertyId: "STRING_VALUE", // required
+ * //                 hierarchyId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           window: { // MetricWindow
+ * //             tumbling: { // TumblingWindow
+ * //               interval: "STRING_VALUE", // required
+ * //               offset: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           processingConfig: { // MetricProcessingConfig
+ * //             computeLocation: "EDGE" || "CLOUD", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       assetModelCompositeModelId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

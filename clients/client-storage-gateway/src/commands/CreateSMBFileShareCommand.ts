@@ -98,10 +98,9 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * };
  * const command = new CreateSMBFileShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSMBFileShareOutput
- *   FileShareARN: "STRING_VALUE",
- * };
+ * // { // CreateSMBFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

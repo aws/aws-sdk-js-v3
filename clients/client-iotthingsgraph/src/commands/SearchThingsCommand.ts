@@ -52,16 +52,15 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * };
  * const command = new SearchThingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchThingsResponse
- *   things: [ // Things
- *     { // Thing
- *       thingArn: "STRING_VALUE",
- *       thingName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchThingsResponse
+ * //   things: [ // Things
+ * //     { // Thing
+ * //       thingArn: "STRING_VALUE",
+ * //       thingName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

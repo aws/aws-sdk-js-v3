@@ -44,8 +44,7 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAppImageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

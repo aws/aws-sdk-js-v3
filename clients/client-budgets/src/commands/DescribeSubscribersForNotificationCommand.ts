@@ -63,16 +63,15 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * };
  * const command = new DescribeSubscribersForNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSubscribersForNotificationResponse
- *   Subscribers: [ // Subscribers
- *     { // Subscriber
- *       SubscriptionType: "STRING_VALUE", // required
- *       Address: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSubscribersForNotificationResponse
+ * //   Subscribers: [ // Subscribers
+ * //     { // Subscriber
+ * //       SubscriptionType: "STRING_VALUE", // required
+ * //       Address: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

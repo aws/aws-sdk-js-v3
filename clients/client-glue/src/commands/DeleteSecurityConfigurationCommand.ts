@@ -46,8 +46,7 @@ export interface DeleteSecurityConfigurationCommandOutput
  * };
  * const command = new DeleteSecurityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -130,14 +130,13 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * };
  * const command = new WriteRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WriteRecordsResponse
- *   RecordsIngested: { // RecordsIngested
- *     Total: Number("int"),
- *     MemoryStore: Number("int"),
- *     MagneticStore: Number("int"),
- *   },
- * };
+ * // { // WriteRecordsResponse
+ * //   RecordsIngested: { // RecordsIngested
+ * //     Total: Number("int"),
+ * //     MemoryStore: Number("int"),
+ * //     MagneticStore: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

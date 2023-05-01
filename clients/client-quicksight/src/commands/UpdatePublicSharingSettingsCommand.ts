@@ -58,11 +58,10 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * };
  * const command = new UpdatePublicSharingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePublicSharingSettingsResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdatePublicSharingSettingsResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

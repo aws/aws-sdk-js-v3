@@ -44,8 +44,7 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * };
  * const command = new DeleteDirectoryConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

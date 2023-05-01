@@ -71,10 +71,9 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * };
  * const command = new ImportStacksToStackSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportStacksToStackSetOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // ImportStacksToStackSetOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -62,10 +62,9 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * };
  * const command = new UpdateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSnapshotScheduleOutput
- *   VolumeARN: "STRING_VALUE",
- * };
+ * // { // UpdateSnapshotScheduleOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

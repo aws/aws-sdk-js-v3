@@ -55,8 +55,7 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  * };
  * const command = new DeleteUserAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

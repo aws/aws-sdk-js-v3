@@ -49,28 +49,27 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  * };
  * const command = new GetTemplateStepGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemplateStepGroupResponse
- *   templateId: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- *   lastModifiedTime: new Date("TIMESTAMP"),
- *   tools: [ // ToolsList
- *     { // Tool
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   previous: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   next: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetTemplateStepGroupResponse
+ * //   templateId: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastModifiedTime: new Date("TIMESTAMP"),
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   previous: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   next: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

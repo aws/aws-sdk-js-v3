@@ -116,8 +116,7 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  * };
  * const command = new PutBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

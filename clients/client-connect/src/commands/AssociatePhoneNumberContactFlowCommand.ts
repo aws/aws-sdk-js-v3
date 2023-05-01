@@ -60,8 +60,7 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * };
  * const command = new AssociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

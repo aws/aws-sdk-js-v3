@@ -47,55 +47,54 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * };
  * const command = new DescribeSMBFileSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSMBFileSharesOutput
- *   SMBFileShareInfoList: [ // SMBFileShareInfoList
- *     { // SMBFileShareInfo
- *       FileShareARN: "STRING_VALUE",
- *       FileShareId: "STRING_VALUE",
- *       FileShareStatus: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       KMSEncrypted: true || false,
- *       KMSKey: "STRING_VALUE",
- *       Path: "STRING_VALUE",
- *       Role: "STRING_VALUE",
- *       LocationARN: "STRING_VALUE",
- *       DefaultStorageClass: "STRING_VALUE",
- *       ObjectACL: "STRING_VALUE",
- *       ReadOnly: true || false,
- *       GuessMIMETypeEnabled: true || false,
- *       RequesterPays: true || false,
- *       SMBACLEnabled: true || false,
- *       AccessBasedEnumeration: true || false,
- *       AdminUserList: [ // UserList
- *         "STRING_VALUE",
- *       ],
- *       ValidUserList: [
- *         "STRING_VALUE",
- *       ],
- *       InvalidUserList: [
- *         "STRING_VALUE",
- *       ],
- *       AuditDestinationARN: "STRING_VALUE",
- *       Authentication: "STRING_VALUE",
- *       CaseSensitivity: "STRING_VALUE",
- *       Tags: [ // Tags
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       FileShareName: "STRING_VALUE",
- *       CacheAttributes: { // CacheAttributes
- *         CacheStaleTimeoutInSeconds: Number("int"),
- *       },
- *       NotificationPolicy: "STRING_VALUE",
- *       VPCEndpointDNSName: "STRING_VALUE",
- *       BucketRegion: "STRING_VALUE",
- *       OplocksEnabled: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeSMBFileSharesOutput
+ * //   SMBFileShareInfoList: [ // SMBFileShareInfoList
+ * //     { // SMBFileShareInfo
+ * //       FileShareARN: "STRING_VALUE",
+ * //       FileShareId: "STRING_VALUE",
+ * //       FileShareStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       KMSEncrypted: true || false,
+ * //       KMSKey: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
+ * //       Role: "STRING_VALUE",
+ * //       LocationARN: "STRING_VALUE",
+ * //       DefaultStorageClass: "STRING_VALUE",
+ * //       ObjectACL: "STRING_VALUE",
+ * //       ReadOnly: true || false,
+ * //       GuessMIMETypeEnabled: true || false,
+ * //       RequesterPays: true || false,
+ * //       SMBACLEnabled: true || false,
+ * //       AccessBasedEnumeration: true || false,
+ * //       AdminUserList: [ // UserList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ValidUserList: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       InvalidUserList: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AuditDestinationARN: "STRING_VALUE",
+ * //       Authentication: "STRING_VALUE",
+ * //       CaseSensitivity: "STRING_VALUE",
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       FileShareName: "STRING_VALUE",
+ * //       CacheAttributes: { // CacheAttributes
+ * //         CacheStaleTimeoutInSeconds: Number("int"),
+ * //       },
+ * //       NotificationPolicy: "STRING_VALUE",
+ * //       VPCEndpointDNSName: "STRING_VALUE",
+ * //       BucketRegion: "STRING_VALUE",
+ * //       OplocksEnabled: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

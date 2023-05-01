@@ -48,17 +48,16 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationResponse
- *   application: { // ApplicationSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteApplicationResponse
+ * //   application: { // ApplicationSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

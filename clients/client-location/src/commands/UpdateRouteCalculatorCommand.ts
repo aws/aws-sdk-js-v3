@@ -46,12 +46,11 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * };
  * const command = new UpdateRouteCalculatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRouteCalculatorResponse
- *   CalculatorName: "STRING_VALUE", // required
- *   CalculatorArn: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateRouteCalculatorResponse
+ * //   CalculatorName: "STRING_VALUE", // required
+ * //   CalculatorArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

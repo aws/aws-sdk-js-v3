@@ -57,20 +57,19 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * };
  * const command = new ExportEarthObservationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportEarthObservationJobOutput
- *   Arn: "STRING_VALUE", // required
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   ExportStatus: "STRING_VALUE", // required
- *   ExecutionRoleArn: "STRING_VALUE", // required
- *   OutputConfig: { // OutputConfigInput
- *     S3Data: { // ExportS3DataInput
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
- *     },
- *   },
- *   ExportSourceImages: true || false,
- * };
+ * // { // ExportEarthObservationJobOutput
+ * //   Arn: "STRING_VALUE", // required
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   ExportStatus: "STRING_VALUE", // required
+ * //   ExecutionRoleArn: "STRING_VALUE", // required
+ * //   OutputConfig: { // OutputConfigInput
+ * //     S3Data: { // ExportS3DataInput
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ExportSourceImages: true || false,
+ * // };
  *
  * ```
  *

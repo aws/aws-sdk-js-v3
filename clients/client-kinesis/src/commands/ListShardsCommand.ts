@@ -68,25 +68,24 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * };
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListShardsOutput
- *   Shards: [ // ShardList
- *     { // Shard
- *       ShardId: "STRING_VALUE", // required
- *       ParentShardId: "STRING_VALUE",
- *       AdjacentParentShardId: "STRING_VALUE",
- *       HashKeyRange: { // HashKeyRange
- *         StartingHashKey: "STRING_VALUE", // required
- *         EndingHashKey: "STRING_VALUE", // required
- *       },
- *       SequenceNumberRange: { // SequenceNumberRange
- *         StartingSequenceNumber: "STRING_VALUE", // required
- *         EndingSequenceNumber: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListShardsOutput
+ * //   Shards: [ // ShardList
+ * //     { // Shard
+ * //       ShardId: "STRING_VALUE", // required
+ * //       ParentShardId: "STRING_VALUE",
+ * //       AdjacentParentShardId: "STRING_VALUE",
+ * //       HashKeyRange: { // HashKeyRange
+ * //         StartingHashKey: "STRING_VALUE", // required
+ * //         EndingHashKey: "STRING_VALUE", // required
+ * //       },
+ * //       SequenceNumberRange: { // SequenceNumberRange
+ * //         StartingSequenceNumber: "STRING_VALUE", // required
+ * //         EndingSequenceNumber: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

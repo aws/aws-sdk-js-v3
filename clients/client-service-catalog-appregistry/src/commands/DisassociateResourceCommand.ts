@@ -50,11 +50,10 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateResourceResponse
- *   applicationArn: "STRING_VALUE",
- *   resourceArn: "STRING_VALUE",
- * };
+ * // { // DisassociateResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,12 +45,11 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * };
  * const command = new DescribeAddonConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAddonConfigurationResponse
- *   addonName: "STRING_VALUE",
- *   addonVersion: "STRING_VALUE",
- *   configurationSchema: "STRING_VALUE",
- * };
+ * // { // DescribeAddonConfigurationResponse
+ * //   addonName: "STRING_VALUE",
+ * //   addonVersion: "STRING_VALUE",
+ * //   configurationSchema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

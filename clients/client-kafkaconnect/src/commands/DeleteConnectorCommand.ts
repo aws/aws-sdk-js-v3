@@ -45,11 +45,10 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * };
  * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteConnectorResponse
- *   connectorArn: "STRING_VALUE",
- *   connectorState: "STRING_VALUE",
- * };
+ * // { // DeleteConnectorResponse
+ * //   connectorArn: "STRING_VALUE",
+ * //   connectorState: "STRING_VALUE",
+ * // };
  *
  * ```
  *

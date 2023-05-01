@@ -46,23 +46,22 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDashboardsResponse
- *   DashboardSummaryList: [ // DashboardSummaryList
- *     { // DashboardSummary
- *       Arn: "STRING_VALUE",
- *       DashboardId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *       PublishedVersionNumber: Number("long"),
- *       LastPublishedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // ListDashboardsResponse
+ * //   DashboardSummaryList: [ // DashboardSummaryList
+ * //     { // DashboardSummary
+ * //       Arn: "STRING_VALUE",
+ * //       DashboardId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       PublishedVersionNumber: Number("long"),
+ * //       LastPublishedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

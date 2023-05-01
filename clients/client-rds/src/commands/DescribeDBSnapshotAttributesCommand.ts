@@ -53,20 +53,19 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * };
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDBSnapshotAttributesResult
- *   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
- *     DBSnapshotIdentifier: "STRING_VALUE",
- *     DBSnapshotAttributes: [ // DBSnapshotAttributeList
- *       { // DBSnapshotAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeValues: [ // AttributeValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeDBSnapshotAttributesResult
+ * //   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
+ * //     DBSnapshotIdentifier: "STRING_VALUE",
+ * //     DBSnapshotAttributes: [ // DBSnapshotAttributeList
+ * //       { // DBSnapshotAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeValues: [ // AttributeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

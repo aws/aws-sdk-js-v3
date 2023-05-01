@@ -59,11 +59,10 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationInputProcessingConfigurationResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- * };
+ * // { // DeleteApplicationInputProcessingConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
  *
  * ```
  *

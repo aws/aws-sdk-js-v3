@@ -47,22 +47,21 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * };
  * const command = new ListAlarmModelVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAlarmModelVersionsResponse
- *   alarmModelVersionSummaries: [ // AlarmModelVersionSummaries
- *     { // AlarmModelVersionSummary
- *       alarmModelName: "STRING_VALUE",
- *       alarmModelArn: "STRING_VALUE",
- *       alarmModelVersion: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       statusMessage: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAlarmModelVersionsResponse
+ * //   alarmModelVersionSummaries: [ // AlarmModelVersionSummaries
+ * //     { // AlarmModelVersionSummary
+ * //       alarmModelName: "STRING_VALUE",
+ * //       alarmModelArn: "STRING_VALUE",
+ * //       alarmModelVersion: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       statusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

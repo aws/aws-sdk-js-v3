@@ -52,8 +52,7 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateCampaignDialerConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -65,30 +65,29 @@ export interface DescribeVolumesModificationsCommandOutput
  * };
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVolumesModificationsResult
- *   VolumesModifications: [ // VolumeModificationList
- *     { // VolumeModification
- *       VolumeId: "STRING_VALUE",
- *       ModificationState: "modifying" || "optimizing" || "completed" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *       TargetSize: Number("int"),
- *       TargetIops: Number("int"),
- *       TargetVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *       TargetThroughput: Number("int"),
- *       TargetMultiAttachEnabled: true || false,
- *       OriginalSize: Number("int"),
- *       OriginalIops: Number("int"),
- *       OriginalVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *       OriginalThroughput: Number("int"),
- *       OriginalMultiAttachEnabled: true || false,
- *       Progress: Number("long"),
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVolumesModificationsResult
+ * //   VolumesModifications: [ // VolumeModificationList
+ * //     { // VolumeModification
+ * //       VolumeId: "STRING_VALUE",
+ * //       ModificationState: "modifying" || "optimizing" || "completed" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       TargetSize: Number("int"),
+ * //       TargetIops: Number("int"),
+ * //       TargetVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //       TargetThroughput: Number("int"),
+ * //       TargetMultiAttachEnabled: true || false,
+ * //       OriginalSize: Number("int"),
+ * //       OriginalIops: Number("int"),
+ * //       OriginalVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //       OriginalThroughput: Number("int"),
+ * //       OriginalMultiAttachEnabled: true || false,
+ * //       Progress: Number("long"),
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,18 +59,17 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * };
  * const command = new DeleteVpcEndpointServiceConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcEndpointServiceConfigurationsResult
- *   Unsuccessful: [ // UnsuccessfulItemSet
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteVpcEndpointServiceConfigurationsResult
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

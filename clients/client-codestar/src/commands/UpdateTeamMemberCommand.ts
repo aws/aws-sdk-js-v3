@@ -49,12 +49,11 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * };
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTeamMemberResult
- *   userArn: "STRING_VALUE",
- *   projectRole: "STRING_VALUE",
- *   remoteAccessAllowed: true || false,
- * };
+ * // { // UpdateTeamMemberResult
+ * //   userArn: "STRING_VALUE",
+ * //   projectRole: "STRING_VALUE",
+ * //   remoteAccessAllowed: true || false,
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * };
  * const command = new AuthorizeIpRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

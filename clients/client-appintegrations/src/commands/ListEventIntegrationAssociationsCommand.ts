@@ -51,22 +51,21 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * };
  * const command = new ListEventIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEventIntegrationAssociationsResponse
- *   EventIntegrationAssociations: [ // EventIntegrationAssociationsList
- *     { // EventIntegrationAssociation
- *       EventIntegrationAssociationArn: "STRING_VALUE",
- *       EventIntegrationAssociationId: "STRING_VALUE",
- *       EventIntegrationName: "STRING_VALUE",
- *       ClientId: "STRING_VALUE",
- *       EventBridgeRuleName: "STRING_VALUE",
- *       ClientAssociationMetadata: { // ClientAssociationMetadata
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEventIntegrationAssociationsResponse
+ * //   EventIntegrationAssociations: [ // EventIntegrationAssociationsList
+ * //     { // EventIntegrationAssociation
+ * //       EventIntegrationAssociationArn: "STRING_VALUE",
+ * //       EventIntegrationAssociationId: "STRING_VALUE",
+ * //       EventIntegrationName: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       EventBridgeRuleName: "STRING_VALUE",
+ * //       ClientAssociationMetadata: { // ClientAssociationMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

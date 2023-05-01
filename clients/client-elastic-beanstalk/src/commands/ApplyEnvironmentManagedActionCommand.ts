@@ -53,13 +53,12 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * };
  * const command = new ApplyEnvironmentManagedActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplyEnvironmentManagedActionResult
- *   ActionId: "STRING_VALUE",
- *   ActionDescription: "STRING_VALUE",
- *   ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
- *   Status: "STRING_VALUE",
- * };
+ * // { // ApplyEnvironmentManagedActionResult
+ * //   ActionId: "STRING_VALUE",
+ * //   ActionDescription: "STRING_VALUE",
+ * //   ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

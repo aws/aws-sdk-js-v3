@@ -53,31 +53,30 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * };
  * const command = new ListReadSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReadSetsResponse
- *   nextToken: "STRING_VALUE",
- *   readSets: [ // ReadSetList // required
- *     { // ReadSetListItem
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       sequenceStoreId: "STRING_VALUE", // required
- *       subjectId: "STRING_VALUE",
- *       sampleId: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       referenceArn: "STRING_VALUE",
- *       fileType: "STRING_VALUE", // required
- *       sequenceInformation: { // SequenceInformation
- *         totalReadCount: Number("long"),
- *         totalBaseCount: Number("long"),
- *         generatedFrom: "STRING_VALUE",
- *         alignment: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListReadSetsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   readSets: [ // ReadSetList // required
+ * //     { // ReadSetListItem
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       sequenceStoreId: "STRING_VALUE", // required
+ * //       subjectId: "STRING_VALUE",
+ * //       sampleId: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       referenceArn: "STRING_VALUE",
+ * //       fileType: "STRING_VALUE", // required
+ * //       sequenceInformation: { // SequenceInformation
+ * //         totalReadCount: Number("long"),
+ * //         totalBaseCount: Number("long"),
+ * //         generatedFrom: "STRING_VALUE",
+ * //         alignment: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

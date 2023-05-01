@@ -46,8 +46,7 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

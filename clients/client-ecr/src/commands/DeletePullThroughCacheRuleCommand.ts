@@ -45,13 +45,12 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * };
  * const command = new DeletePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePullThroughCacheRuleResponse
- *   ecrRepositoryPrefix: "STRING_VALUE",
- *   upstreamRegistryUrl: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   registryId: "STRING_VALUE",
- * };
+ * // { // DeletePullThroughCacheRuleResponse
+ * //   ecrRepositoryPrefix: "STRING_VALUE",
+ * //   upstreamRegistryUrl: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   registryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

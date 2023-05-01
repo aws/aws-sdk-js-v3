@@ -45,12 +45,11 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // GetRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

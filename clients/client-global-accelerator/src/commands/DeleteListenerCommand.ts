@@ -48,8 +48,7 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

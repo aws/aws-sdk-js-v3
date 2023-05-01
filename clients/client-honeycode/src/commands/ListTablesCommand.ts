@@ -48,17 +48,16 @@ export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBea
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTablesResult
- *   tables: [ // Tables // required
- *     { // Table
- *       tableId: "STRING_VALUE",
- *       tableName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   workbookCursor: Number("long"),
- * };
+ * // { // ListTablesResult
+ * //   tables: [ // Tables // required
+ * //     { // Table
+ * //       tableId: "STRING_VALUE",
+ * //       tableName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   workbookCursor: Number("long"),
+ * // };
  *
  * ```
  *

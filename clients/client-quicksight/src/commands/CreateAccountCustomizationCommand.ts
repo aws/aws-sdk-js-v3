@@ -77,18 +77,17 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * };
  * const command = new CreateAccountCustomizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccountCustomizationResponse
- *   Arn: "STRING_VALUE",
- *   AwsAccountId: "STRING_VALUE",
- *   Namespace: "STRING_VALUE",
- *   AccountCustomization: { // AccountCustomization
- *     DefaultTheme: "STRING_VALUE",
- *     DefaultEmailCustomizationTemplate: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CreateAccountCustomizationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   Namespace: "STRING_VALUE",
+ * //   AccountCustomization: { // AccountCustomization
+ * //     DefaultTheme: "STRING_VALUE",
+ * //     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

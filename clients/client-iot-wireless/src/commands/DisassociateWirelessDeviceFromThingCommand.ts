@@ -52,8 +52,7 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  * };
  * const command = new DisassociateWirelessDeviceFromThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

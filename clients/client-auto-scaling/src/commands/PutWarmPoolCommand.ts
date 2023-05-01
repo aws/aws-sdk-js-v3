@@ -59,8 +59,7 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * };
  * const command = new PutWarmPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

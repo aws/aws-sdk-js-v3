@@ -57,16 +57,15 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * };
  * const command = new ConfigureHealthCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigureHealthCheckOutput
- *   HealthCheck: { // HealthCheck
- *     Target: "STRING_VALUE", // required
- *     Interval: Number("int"), // required
- *     Timeout: Number("int"), // required
- *     UnhealthyThreshold: Number("int"), // required
- *     HealthyThreshold: Number("int"), // required
- *   },
- * };
+ * // { // ConfigureHealthCheckOutput
+ * //   HealthCheck: { // HealthCheck
+ * //     Target: "STRING_VALUE", // required
+ * //     Interval: Number("int"), // required
+ * //     Timeout: Number("int"), // required
+ * //     UnhealthyThreshold: Number("int"), // required
+ * //     HealthyThreshold: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

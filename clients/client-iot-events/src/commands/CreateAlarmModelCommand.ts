@@ -198,14 +198,13 @@ export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse,
  * };
  * const command = new CreateAlarmModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAlarmModelResponse
- *   creationTime: new Date("TIMESTAMP"),
- *   alarmModelArn: "STRING_VALUE",
- *   alarmModelVersion: "STRING_VALUE",
- *   lastUpdateTime: new Date("TIMESTAMP"),
- *   status: "STRING_VALUE",
- * };
+ * // { // CreateAlarmModelResponse
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   alarmModelArn: "STRING_VALUE",
+ * //   alarmModelVersion: "STRING_VALUE",
+ * //   lastUpdateTime: new Date("TIMESTAMP"),
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,26 +46,25 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * };
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicePoolsResult
- *   devicePools: [ // DevicePools
- *     { // DevicePool
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       type: "CURATED" || "PRIVATE",
- *       rules: [ // Rules
- *         { // Rule
- *           attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
- *           operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       maxDevices: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDevicePoolsResult
+ * //   devicePools: [ // DevicePools
+ * //     { // DevicePool
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       type: "CURATED" || "PRIVATE",
+ * //       rules: [ // Rules
+ * //         { // Rule
+ * //           attribute: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ * //           operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       maxDevices: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,13 +58,12 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * };
  * const command = new ListAssociatedRoute53HealthChecksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedRoute53HealthChecksResponse
- *   HealthCheckIds: [ // __listOf__stringMax36PatternS
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedRoute53HealthChecksResponse
+ * //   HealthCheckIds: [ // __listOf__stringMax36PatternS
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

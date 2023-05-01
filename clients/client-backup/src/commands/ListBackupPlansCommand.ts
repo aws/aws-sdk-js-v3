@@ -48,30 +48,29 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * };
  * const command = new ListBackupPlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackupPlansOutput
- *   NextToken: "STRING_VALUE",
- *   BackupPlansList: [ // BackupPlansList
- *     { // BackupPlansListMember
- *       BackupPlanArn: "STRING_VALUE",
- *       BackupPlanId: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       DeletionDate: new Date("TIMESTAMP"),
- *       VersionId: "STRING_VALUE",
- *       BackupPlanName: "STRING_VALUE",
- *       CreatorRequestId: "STRING_VALUE",
- *       LastExecutionDate: new Date("TIMESTAMP"),
- *       AdvancedBackupSettings: [ // AdvancedBackupSettings
- *         { // AdvancedBackupSetting
- *           ResourceType: "STRING_VALUE",
- *           BackupOptions: { // BackupOptions
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListBackupPlansOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   BackupPlansList: [ // BackupPlansList
+ * //     { // BackupPlansListMember
+ * //       BackupPlanArn: "STRING_VALUE",
+ * //       BackupPlanId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       DeletionDate: new Date("TIMESTAMP"),
+ * //       VersionId: "STRING_VALUE",
+ * //       BackupPlanName: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       LastExecutionDate: new Date("TIMESTAMP"),
+ * //       AdvancedBackupSettings: [ // AdvancedBackupSettings
+ * //         { // AdvancedBackupSetting
+ * //           ResourceType: "STRING_VALUE",
+ * //           BackupOptions: { // BackupOptions
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

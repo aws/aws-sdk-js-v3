@@ -78,16 +78,15 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorCheckRefreshStatusesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrustedAdvisorCheckRefreshStatusesResponse
- *   statuses: [ // TrustedAdvisorCheckRefreshStatusList // required
- *     { // TrustedAdvisorCheckRefreshStatus
- *       checkId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       millisUntilNextRefreshable: Number("long"), // required
- *     },
- *   ],
- * };
+ * // { // DescribeTrustedAdvisorCheckRefreshStatusesResponse
+ * //   statuses: [ // TrustedAdvisorCheckRefreshStatusList // required
+ * //     { // TrustedAdvisorCheckRefreshStatus
+ * //       checkId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       millisUntilNextRefreshable: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

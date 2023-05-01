@@ -46,35 +46,34 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFunctionsResponse
- *   functions: [ // Functions
- *     { // FunctionConfiguration
- *       functionId: "STRING_VALUE",
- *       functionArn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       dataSourceName: "STRING_VALUE",
- *       requestMappingTemplate: "STRING_VALUE",
- *       responseMappingTemplate: "STRING_VALUE",
- *       functionVersion: "STRING_VALUE",
- *       syncConfig: { // SyncConfig
- *         conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
- *         conflictDetection: "VERSION" || "NONE",
- *         lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
- *           lambdaConflictHandlerArn: "STRING_VALUE",
- *         },
- *       },
- *       maxBatchSize: Number("int"),
- *       runtime: { // AppSyncRuntime
- *         name: "APPSYNC_JS", // required
- *         runtimeVersion: "STRING_VALUE", // required
- *       },
- *       code: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFunctionsResponse
+ * //   functions: [ // Functions
+ * //     { // FunctionConfiguration
+ * //       functionId: "STRING_VALUE",
+ * //       functionArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       dataSourceName: "STRING_VALUE",
+ * //       requestMappingTemplate: "STRING_VALUE",
+ * //       responseMappingTemplate: "STRING_VALUE",
+ * //       functionVersion: "STRING_VALUE",
+ * //       syncConfig: { // SyncConfig
+ * //         conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ * //         conflictDetection: "VERSION" || "NONE",
+ * //         lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ * //           lambdaConflictHandlerArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       maxBatchSize: Number("int"),
+ * //       runtime: { // AppSyncRuntime
+ * //         name: "APPSYNC_JS", // required
+ * //         runtimeVersion: "STRING_VALUE", // required
+ * //       },
+ * //       code: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

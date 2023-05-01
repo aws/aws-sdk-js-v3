@@ -86,37 +86,36 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * };
  * const command = new CreateVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVerifiedAccessTrustProviderResult
- *   VerifiedAccessTrustProvider: { // VerifiedAccessTrustProvider
- *     VerifiedAccessTrustProviderId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     TrustProviderType: "user" || "device",
- *     UserTrustProviderType: "iam-identity-center" || "oidc",
- *     DeviceTrustProviderType: "jamf" || "crowdstrike",
- *     OidcOptions: { // OidcOptions
- *       Issuer: "STRING_VALUE",
- *       AuthorizationEndpoint: "STRING_VALUE",
- *       TokenEndpoint: "STRING_VALUE",
- *       UserInfoEndpoint: "STRING_VALUE",
- *       ClientId: "STRING_VALUE",
- *       ClientSecret: "STRING_VALUE",
- *       Scope: "STRING_VALUE",
- *     },
- *     DeviceOptions: { // DeviceOptions
- *       TenantId: "STRING_VALUE",
- *     },
- *     PolicyReferenceName: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     LastUpdatedTime: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateVerifiedAccessTrustProviderResult
+ * //   VerifiedAccessTrustProvider: { // VerifiedAccessTrustProvider
+ * //     VerifiedAccessTrustProviderId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     TrustProviderType: "user" || "device",
+ * //     UserTrustProviderType: "iam-identity-center" || "oidc",
+ * //     DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //     OidcOptions: { // OidcOptions
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       ClientSecret: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //     },
+ * //     DeviceOptions: { // DeviceOptions
+ * //       TenantId: "STRING_VALUE",
+ * //     },
+ * //     PolicyReferenceName: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     LastUpdatedTime: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

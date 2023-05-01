@@ -54,8 +54,7 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
  * };
  * const command = new DeleteProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -58,13 +58,12 @@ export interface CreateDeviceDefinitionVersionCommandOutput
  * };
  * const command = new CreateDeviceDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeviceDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateDeviceDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

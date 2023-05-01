@@ -50,23 +50,22 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * };
  * const command = new ListListenersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListListenersResponse
- *   Listeners: [ // Listeners
- *     { // Listener
- *       ListenerArn: "STRING_VALUE",
- *       PortRanges: [ // PortRanges
- *         { // PortRange
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *       ],
- *       Protocol: "TCP" || "UDP",
- *       ClientAffinity: "NONE" || "SOURCE_IP",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListListenersResponse
+ * //   Listeners: [ // Listeners
+ * //     { // Listener
+ * //       ListenerArn: "STRING_VALUE",
+ * //       PortRanges: [ // PortRanges
+ * //         { // PortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //       Protocol: "TCP" || "UDP",
+ * //       ClientAffinity: "NONE" || "SOURCE_IP",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

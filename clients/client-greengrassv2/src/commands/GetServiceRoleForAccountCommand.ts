@@ -45,11 +45,10 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceRoleForAccountResponse
- *   associatedAt: "STRING_VALUE",
- *   roleArn: "STRING_VALUE",
- * };
+ * // { // GetServiceRoleForAccountResponse
+ * //   associatedAt: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

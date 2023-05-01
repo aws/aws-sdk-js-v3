@@ -57,8 +57,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * };
  * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

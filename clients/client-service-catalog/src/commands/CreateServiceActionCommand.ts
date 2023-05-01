@@ -51,20 +51,19 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * };
  * const command = new CreateServiceActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceActionOutput
- *   ServiceActionDetail: { // ServiceActionDetail
- *     ServiceActionSummary: { // ServiceActionSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DefinitionType: "SSM_AUTOMATION",
- *     },
- *     Definition: { // ServiceActionDefinitionMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateServiceActionOutput
+ * //   ServiceActionDetail: { // ServiceActionDetail
+ * //     ServiceActionSummary: { // ServiceActionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefinitionType: "SSM_AUTOMATION",
+ * //     },
+ * //     Definition: { // ServiceActionDefinitionMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * };
  * const command = new DescribeSpendLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSpendLimitsResult
- *   SpendLimits: [ // SpendLimitList
- *     { // SpendLimit
- *       Name: "STRING_VALUE", // required
- *       EnforcedLimit: Number("long"), // required
- *       MaxLimit: Number("long"), // required
- *       Overridden: true || false, // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSpendLimitsResult
+ * //   SpendLimits: [ // SpendLimitList
+ * //     { // SpendLimit
+ * //       Name: "STRING_VALUE", // required
+ * //       EnforcedLimit: Number("long"), // required
+ * //       MaxLimit: Number("long"), // required
+ * //       Overridden: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

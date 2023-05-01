@@ -49,12 +49,11 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * };
  * const command = new CreateSyncJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSyncJobResponse
- *   arn: "STRING_VALUE", // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- * };
+ * // { // CreateSyncJobResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

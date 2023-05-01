@@ -88,8 +88,7 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  * };
  * const command = new AdminUpdateUserAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

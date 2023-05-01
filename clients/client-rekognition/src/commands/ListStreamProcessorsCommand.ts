@@ -45,16 +45,15 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * };
  * const command = new ListStreamProcessorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamProcessorsResponse
- *   NextToken: "STRING_VALUE",
- *   StreamProcessors: [ // StreamProcessorList
- *     { // StreamProcessor
- *       Name: "STRING_VALUE",
- *       Status: "STOPPED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "UPDATING",
- *     },
- *   ],
- * };
+ * // { // ListStreamProcessorsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   StreamProcessors: [ // StreamProcessorList
+ * //     { // StreamProcessor
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STOPPED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "UPDATING",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

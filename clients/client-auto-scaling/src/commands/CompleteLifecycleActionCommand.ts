@@ -85,8 +85,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * };
  * const command = new CompleteLifecycleActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

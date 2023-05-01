@@ -82,10 +82,9 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * };
  * const command = new InitiateVaultLockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InitiateVaultLockOutput
- *   lockId: "STRING_VALUE",
- * };
+ * // { // InitiateVaultLockOutput
+ * //   lockId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

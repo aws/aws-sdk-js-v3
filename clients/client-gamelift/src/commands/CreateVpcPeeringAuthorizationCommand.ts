@@ -76,16 +76,15 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * };
  * const command = new CreateVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVpcPeeringAuthorizationOutput
- *   VpcPeeringAuthorization: { // VpcPeeringAuthorization
- *     GameLiftAwsAccountId: "STRING_VALUE",
- *     PeerVpcAwsAccountId: "STRING_VALUE",
- *     PeerVpcId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     ExpirationTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateVpcPeeringAuthorizationOutput
+ * //   VpcPeeringAuthorization: { // VpcPeeringAuthorization
+ * //     GameLiftAwsAccountId: "STRING_VALUE",
+ * //     PeerVpcAwsAccountId: "STRING_VALUE",
+ * //     PeerVpcId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ExpirationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

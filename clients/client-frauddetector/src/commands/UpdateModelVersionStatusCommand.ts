@@ -59,8 +59,7 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * };
  * const command = new UpdateModelVersionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

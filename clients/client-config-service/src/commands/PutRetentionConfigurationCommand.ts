@@ -54,13 +54,12 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * };
  * const command = new PutRetentionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRetentionConfigurationResponse
- *   RetentionConfiguration: { // RetentionConfiguration
- *     Name: "STRING_VALUE", // required
- *     RetentionPeriodInDays: Number("int"), // required
- *   },
- * };
+ * // { // PutRetentionConfigurationResponse
+ * //   RetentionConfiguration: { // RetentionConfiguration
+ * //     Name: "STRING_VALUE", // required
+ * //     RetentionPeriodInDays: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

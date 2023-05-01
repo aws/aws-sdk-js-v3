@@ -44,11 +44,10 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteComponentResponse
- *   requestId: "STRING_VALUE",
- *   componentBuildVersionArn: "STRING_VALUE",
- * };
+ * // { // DeleteComponentResponse
+ * //   requestId: "STRING_VALUE",
+ * //   componentBuildVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

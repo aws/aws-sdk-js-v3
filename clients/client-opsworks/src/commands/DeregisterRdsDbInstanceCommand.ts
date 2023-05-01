@@ -49,8 +49,7 @@ export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeregisterRdsDbInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

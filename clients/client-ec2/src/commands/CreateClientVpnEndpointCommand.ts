@@ -101,15 +101,14 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * };
  * const command = new CreateClientVpnEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClientVpnEndpointResult
- *   ClientVpnEndpointId: "STRING_VALUE",
- *   Status: { // ClientVpnEndpointStatus
- *     Code: "pending-associate" || "available" || "deleting" || "deleted",
- *     Message: "STRING_VALUE",
- *   },
- *   DnsName: "STRING_VALUE",
- * };
+ * // { // CreateClientVpnEndpointResult
+ * //   ClientVpnEndpointId: "STRING_VALUE",
+ * //   Status: { // ClientVpnEndpointStatus
+ * //     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   DnsName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

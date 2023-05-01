@@ -85,17 +85,16 @@ export interface GetMultiRegionAccessPointRoutesCommandOutput
  * };
  * const command = new GetMultiRegionAccessPointRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMultiRegionAccessPointRoutesResult
- *   Mrap: "STRING_VALUE",
- *   Routes: [ // RouteList
- *     { // MultiRegionAccessPointRoute
- *       Bucket: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       TrafficDialPercentage: Number("int"), // required
- *     },
- *   ],
- * };
+ * // { // GetMultiRegionAccessPointRoutesResult
+ * //   Mrap: "STRING_VALUE",
+ * //   Routes: [ // RouteList
+ * //     { // MultiRegionAccessPointRoute
+ * //       Bucket: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       TrafficDialPercentage: Number("int"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,11 +47,10 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * };
  * const command = new UpdateMonitoringAlertCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMonitoringAlertResponse
- *   MonitoringScheduleArn: "STRING_VALUE", // required
- *   MonitoringAlertName: "STRING_VALUE",
- * };
+ * // { // UpdateMonitoringAlertResponse
+ * //   MonitoringScheduleArn: "STRING_VALUE", // required
+ * //   MonitoringAlertName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

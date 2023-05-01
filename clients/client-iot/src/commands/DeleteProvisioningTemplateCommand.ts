@@ -45,8 +45,7 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  * };
  * const command = new DeleteProvisioningTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

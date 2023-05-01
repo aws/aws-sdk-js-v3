@@ -68,15 +68,14 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * };
  * const command = new GetFindingStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingStatisticsResponse
- *   countsByGroup: [ // __listOfGroupCount
- *     { // GroupCount
- *       count: Number("long"),
- *       groupKey: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetFindingStatisticsResponse
+ * //   countsByGroup: [ // __listOfGroupCount
+ * //     { // GroupCount
+ * //       count: Number("long"),
+ * //       groupKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

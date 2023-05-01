@@ -57,11 +57,10 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * };
  * const command = new CreateTimelineEventCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTimelineEventOutput
- *   incidentRecordArn: "STRING_VALUE", // required
- *   eventId: "STRING_VALUE", // required
- * };
+ * // { // CreateTimelineEventOutput
+ * //   incidentRecordArn: "STRING_VALUE", // required
+ * //   eventId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

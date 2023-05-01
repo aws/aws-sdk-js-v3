@@ -348,22 +348,21 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * };
  * const command = new CreateMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMultipartUploadOutput
- *   AbortDate: new Date("TIMESTAMP"),
- *   AbortRuleId: "STRING_VALUE",
- *   Bucket: "STRING_VALUE",
- *   Key: "STRING_VALUE",
- *   UploadId: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   SSEKMSEncryptionContext: "STRING_VALUE",
- *   BucketKeyEnabled: true || false,
- *   RequestCharged: "requester",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- * };
+ * // { // CreateMultipartUploadOutput
+ * //   AbortDate: new Date("TIMESTAMP"),
+ * //   AbortRuleId: "STRING_VALUE",
+ * //   Bucket: "STRING_VALUE",
+ * //   Key: "STRING_VALUE",
+ * //   UploadId: "STRING_VALUE",
+ * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   SSECustomerAlgorithm: "STRING_VALUE",
+ * //   SSECustomerKeyMD5: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   SSEKMSEncryptionContext: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * //   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * // };
  *
  * ```
  *

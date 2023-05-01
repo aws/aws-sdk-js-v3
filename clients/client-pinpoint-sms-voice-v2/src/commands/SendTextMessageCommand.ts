@@ -67,10 +67,9 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendTextMessageResult
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendTextMessageResult
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

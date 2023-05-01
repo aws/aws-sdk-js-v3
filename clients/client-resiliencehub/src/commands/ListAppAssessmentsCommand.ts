@@ -54,30 +54,29 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * };
  * const command = new ListAppAssessmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppAssessmentsResponse
- *   nextToken: "STRING_VALUE",
- *   assessmentSummaries: [ // AppAssessmentSummaryList // required
- *     { // AppAssessmentSummary
- *       appArn: "STRING_VALUE",
- *       appVersion: "STRING_VALUE",
- *       assessmentStatus: "STRING_VALUE", // required
- *       invoker: "STRING_VALUE",
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *       message: "STRING_VALUE",
- *       assessmentName: "STRING_VALUE",
- *       assessmentArn: "STRING_VALUE", // required
- *       complianceStatus: "STRING_VALUE",
- *       cost: { // Cost
- *         amount: Number("double"), // required
- *         currency: "STRING_VALUE", // required
- *         frequency: "STRING_VALUE", // required
- *       },
- *       resiliencyScore: Number("double"),
- *     },
- *   ],
- * };
+ * // { // ListAppAssessmentsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   assessmentSummaries: [ // AppAssessmentSummaryList // required
+ * //     { // AppAssessmentSummary
+ * //       appArn: "STRING_VALUE",
+ * //       appVersion: "STRING_VALUE",
+ * //       assessmentStatus: "STRING_VALUE", // required
+ * //       invoker: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //       assessmentName: "STRING_VALUE",
+ * //       assessmentArn: "STRING_VALUE", // required
+ * //       complianceStatus: "STRING_VALUE",
+ * //       cost: { // Cost
+ * //         amount: Number("double"), // required
+ * //         currency: "STRING_VALUE", // required
+ * //         frequency: "STRING_VALUE", // required
+ * //       },
+ * //       resiliencyScore: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

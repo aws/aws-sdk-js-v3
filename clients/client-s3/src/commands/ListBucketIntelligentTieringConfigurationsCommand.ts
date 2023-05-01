@@ -76,40 +76,39 @@ export interface ListBucketIntelligentTieringConfigurationsCommandOutput
  * };
  * const command = new ListBucketIntelligentTieringConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBucketIntelligentTieringConfigurationsOutput
- *   IsTruncated: true || false,
- *   ContinuationToken: "STRING_VALUE",
- *   NextContinuationToken: "STRING_VALUE",
- *   IntelligentTieringConfigurationList: [ // IntelligentTieringConfigurationList
- *     { // IntelligentTieringConfiguration
- *       Id: "STRING_VALUE", // required
- *       Filter: { // IntelligentTieringFilter
- *         Prefix: "STRING_VALUE",
- *         Tag: { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *         And: { // IntelligentTieringAndOperator
- *           Prefix: "STRING_VALUE",
- *           Tags: [ // TagSet
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *       Status: "Enabled" || "Disabled", // required
- *       Tierings: [ // TieringList // required
- *         { // Tiering
- *           Days: Number("int"), // required
- *           AccessTier: "ARCHIVE_ACCESS" || "DEEP_ARCHIVE_ACCESS", // required
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListBucketIntelligentTieringConfigurationsOutput
+ * //   IsTruncated: true || false,
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   NextContinuationToken: "STRING_VALUE",
+ * //   IntelligentTieringConfigurationList: [ // IntelligentTieringConfigurationList
+ * //     { // IntelligentTieringConfiguration
+ * //       Id: "STRING_VALUE", // required
+ * //       Filter: { // IntelligentTieringFilter
+ * //         Prefix: "STRING_VALUE",
+ * //         Tag: { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         And: { // IntelligentTieringAndOperator
+ * //           Prefix: "STRING_VALUE",
+ * //           Tags: [ // TagSet
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       Status: "Enabled" || "Disabled", // required
+ * //       Tierings: [ // TieringList // required
+ * //         { // Tiering
+ * //           Days: Number("int"), // required
+ * //           AccessTier: "ARCHIVE_ACCESS" || "DEEP_ARCHIVE_ACCESS", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

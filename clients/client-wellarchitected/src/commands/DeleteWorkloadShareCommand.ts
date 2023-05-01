@@ -46,8 +46,7 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWorkloadShareCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

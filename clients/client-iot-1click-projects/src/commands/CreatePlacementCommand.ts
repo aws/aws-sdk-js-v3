@@ -52,8 +52,7 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * };
  * const command = new CreatePlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

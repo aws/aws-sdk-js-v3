@@ -46,18 +46,17 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * };
  * const command = new GetRequestValidatorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestValidators
- *   items: [ // ListOfRequestValidator
- *     { // RequestValidator
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       validateRequestBody: true || false,
- *       validateRequestParameters: true || false,
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // RequestValidators
+ * //   items: [ // ListOfRequestValidator
+ * //     { // RequestValidator
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       validateRequestBody: true || false,
+ * //       validateRequestParameters: true || false,
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

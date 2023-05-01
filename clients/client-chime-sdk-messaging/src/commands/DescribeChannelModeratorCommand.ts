@@ -59,21 +59,20 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * };
  * const command = new DescribeChannelModeratorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelModeratorResponse
- *   ChannelModerator: { // ChannelModerator
- *     Moderator: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     ChannelArn: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     CreatedBy: {
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeChannelModeratorResponse
+ * //   ChannelModerator: { // ChannelModerator
+ * //     Moderator: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     ChannelArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     CreatedBy: {
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

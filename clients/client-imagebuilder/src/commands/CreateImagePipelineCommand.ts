@@ -74,12 +74,11 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImagePipelineResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   imagePipelineArn: "STRING_VALUE",
- * };
+ * // { // CreateImagePipelineResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   imagePipelineArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

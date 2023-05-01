@@ -69,10 +69,9 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  * };
  * const command = new UpdateTrainingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrainingJobResponse
- *   TrainingJobArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateTrainingJobResponse
+ * //   TrainingJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

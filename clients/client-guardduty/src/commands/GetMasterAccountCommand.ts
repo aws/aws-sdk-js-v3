@@ -47,15 +47,14 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * };
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMasterAccountResponse
- *   Master: { // Master
- *     AccountId: "STRING_VALUE",
- *     InvitationId: "STRING_VALUE",
- *     RelationshipStatus: "STRING_VALUE",
- *     InvitedAt: "STRING_VALUE",
- *   },
- * };
+ * // { // GetMasterAccountResponse
+ * //   Master: { // Master
+ * //     AccountId: "STRING_VALUE",
+ * //     InvitationId: "STRING_VALUE",
+ * //     RelationshipStatus: "STRING_VALUE",
+ * //     InvitedAt: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

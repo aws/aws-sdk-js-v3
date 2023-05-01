@@ -49,8 +49,7 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * };
  * const command = new DeleteAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

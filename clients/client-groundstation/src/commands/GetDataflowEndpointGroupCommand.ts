@@ -44,64 +44,63 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * };
  * const command = new GetDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataflowEndpointGroupResponse
- *   dataflowEndpointGroupId: "STRING_VALUE",
- *   dataflowEndpointGroupArn: "STRING_VALUE",
- *   endpointsDetails: [ // EndpointDetailsList
- *     { // EndpointDetails
- *       securityDetails: { // SecurityDetails
- *         subnetIds: [ // SubnetList // required
- *           "STRING_VALUE",
- *         ],
- *         securityGroupIds: [ // SecurityGroupIdList // required
- *           "STRING_VALUE",
- *         ],
- *         roleArn: "STRING_VALUE", // required
- *       },
- *       endpoint: { // DataflowEndpoint
- *         name: "STRING_VALUE",
- *         address: { // SocketAddress
- *           name: "STRING_VALUE", // required
- *           port: Number("int"), // required
- *         },
- *         status: "STRING_VALUE",
- *         mtu: Number("int"),
- *       },
- *       awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
- *         name: "STRING_VALUE", // required
- *         egressAddress: { // ConnectionDetails
- *           socketAddress: {
- *             name: "STRING_VALUE", // required
- *             port: Number("int"), // required
- *           },
- *           mtu: Number("int"),
- *         },
- *         ingressAddress: { // RangedConnectionDetails
- *           socketAddress: { // RangedSocketAddress
- *             name: "STRING_VALUE", // required
- *             portRange: { // IntegerRange
- *               minimum: Number("int"), // required
- *               maximum: Number("int"), // required
- *             },
- *           },
- *           mtu: Number("int"),
- *         },
- *         agentStatus: "STRING_VALUE",
- *         auditResults: "STRING_VALUE",
- *       },
- *       healthStatus: "STRING_VALUE",
- *       healthReasons: [ // CapabilityHealthReasonList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   contactPrePassDurationSeconds: Number("int"),
- *   contactPostPassDurationSeconds: Number("int"),
- * };
+ * // { // GetDataflowEndpointGroupResponse
+ * //   dataflowEndpointGroupId: "STRING_VALUE",
+ * //   dataflowEndpointGroupArn: "STRING_VALUE",
+ * //   endpointsDetails: [ // EndpointDetailsList
+ * //     { // EndpointDetails
+ * //       securityDetails: { // SecurityDetails
+ * //         subnetIds: [ // SubnetList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         securityGroupIds: [ // SecurityGroupIdList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //       endpoint: { // DataflowEndpoint
+ * //         name: "STRING_VALUE",
+ * //         address: { // SocketAddress
+ * //           name: "STRING_VALUE", // required
+ * //           port: Number("int"), // required
+ * //         },
+ * //         status: "STRING_VALUE",
+ * //         mtu: Number("int"),
+ * //       },
+ * //       awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
+ * //         name: "STRING_VALUE", // required
+ * //         egressAddress: { // ConnectionDetails
+ * //           socketAddress: {
+ * //             name: "STRING_VALUE", // required
+ * //             port: Number("int"), // required
+ * //           },
+ * //           mtu: Number("int"),
+ * //         },
+ * //         ingressAddress: { // RangedConnectionDetails
+ * //           socketAddress: { // RangedSocketAddress
+ * //             name: "STRING_VALUE", // required
+ * //             portRange: { // IntegerRange
+ * //               minimum: Number("int"), // required
+ * //               maximum: Number("int"), // required
+ * //             },
+ * //           },
+ * //           mtu: Number("int"),
+ * //         },
+ * //         agentStatus: "STRING_VALUE",
+ * //         auditResults: "STRING_VALUE",
+ * //       },
+ * //       healthStatus: "STRING_VALUE",
+ * //       healthReasons: [ // CapabilityHealthReasonList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   contactPrePassDurationSeconds: Number("int"),
+ * //   contactPostPassDurationSeconds: Number("int"),
+ * // };
  *
  * ```
  *

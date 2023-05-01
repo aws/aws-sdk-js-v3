@@ -68,11 +68,10 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecretVersionStageResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // UpdateSecretVersionStageResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

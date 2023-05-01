@@ -44,29 +44,28 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * };
  * const command = new GetSecurityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSecurityConfigurationResponse
- *   SecurityConfiguration: { // SecurityConfiguration
- *     Name: "STRING_VALUE",
- *     CreatedTimeStamp: new Date("TIMESTAMP"),
- *     EncryptionConfiguration: { // EncryptionConfiguration
- *       S3Encryption: [ // S3EncryptionList
- *         { // S3Encryption
- *           S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
- *           KmsKeyArn: "STRING_VALUE",
- *         },
- *       ],
- *       CloudWatchEncryption: { // CloudWatchEncryption
- *         CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
- *         KmsKeyArn: "STRING_VALUE",
- *       },
- *       JobBookmarksEncryption: { // JobBookmarksEncryption
- *         JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
- *         KmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *   },
- * };
+ * // { // GetSecurityConfigurationResponse
+ * //   SecurityConfiguration: { // SecurityConfiguration
+ * //     Name: "STRING_VALUE",
+ * //     CreatedTimeStamp: new Date("TIMESTAMP"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       S3Encryption: [ // S3EncryptionList
+ * //         { // S3Encryption
+ * //           S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
+ * //           KmsKeyArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CloudWatchEncryption: { // CloudWatchEncryption
+ * //         CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       JobBookmarksEncryption: { // JobBookmarksEncryption
+ * //         JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

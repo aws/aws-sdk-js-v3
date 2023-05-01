@@ -72,8 +72,7 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeletePublicAccessBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

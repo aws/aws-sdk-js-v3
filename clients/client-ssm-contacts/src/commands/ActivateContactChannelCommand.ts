@@ -46,8 +46,7 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * };
  * const command = new ActivateContactChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

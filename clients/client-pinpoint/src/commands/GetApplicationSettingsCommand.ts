@@ -44,29 +44,28 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * };
  * const command = new GetApplicationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationSettingsResponse
- *   ApplicationSettingsResource: { // ApplicationSettingsResource
- *     ApplicationId: "STRING_VALUE", // required
- *     CampaignHook: { // CampaignHook
- *       LambdaFunctionName: "STRING_VALUE",
- *       Mode: "DELIVERY" || "FILTER",
- *       WebUrl: "STRING_VALUE",
- *     },
- *     LastModifiedDate: "STRING_VALUE",
- *     Limits: { // CampaignLimits
- *       Daily: Number("int"),
- *       MaximumDuration: Number("int"),
- *       MessagesPerSecond: Number("int"),
- *       Total: Number("int"),
- *       Session: Number("int"),
- *     },
- *     QuietTime: { // QuietTime
- *       End: "STRING_VALUE",
- *       Start: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetApplicationSettingsResponse
+ * //   ApplicationSettingsResource: { // ApplicationSettingsResource
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     CampaignHook: { // CampaignHook
+ * //       LambdaFunctionName: "STRING_VALUE",
+ * //       Mode: "DELIVERY" || "FILTER",
+ * //       WebUrl: "STRING_VALUE",
+ * //     },
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Limits: { // CampaignLimits
+ * //       Daily: Number("int"),
+ * //       MaximumDuration: Number("int"),
+ * //       MessagesPerSecond: Number("int"),
+ * //       Total: Number("int"),
+ * //       Session: Number("int"),
+ * //     },
+ * //     QuietTime: { // QuietTime
+ * //       End: "STRING_VALUE",
+ * //       Start: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

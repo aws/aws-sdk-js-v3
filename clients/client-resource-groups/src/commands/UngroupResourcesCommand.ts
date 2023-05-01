@@ -61,24 +61,23 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * };
  * const command = new UngroupResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UngroupResourcesOutput
- *   Succeeded: [ // ResourceArnList
- *     "STRING_VALUE",
- *   ],
- *   Failed: [ // FailedResourceList
- *     { // FailedResource
- *       ResourceArn: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *     },
- *   ],
- *   Pending: [ // PendingResourceList
- *     { // PendingResource
- *       ResourceArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UngroupResourcesOutput
+ * //   Succeeded: [ // ResourceArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Failed: [ // FailedResourceList
+ * //     { // FailedResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Pending: [ // PendingResourceList
+ * //     { // PendingResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

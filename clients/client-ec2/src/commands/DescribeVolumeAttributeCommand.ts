@@ -49,19 +49,18 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVolumeAttributeResult
- *   AutoEnableIO: { // AttributeBooleanValue
- *     Value: true || false,
- *   },
- *   ProductCodes: [ // ProductCodeList
- *     { // ProductCode
- *       ProductCodeId: "STRING_VALUE",
- *       ProductCodeType: "devpay" || "marketplace",
- *     },
- *   ],
- *   VolumeId: "STRING_VALUE",
- * };
+ * // { // DescribeVolumeAttributeResult
+ * //   AutoEnableIO: { // AttributeBooleanValue
+ * //     Value: true || false,
+ * //   },
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   VolumeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

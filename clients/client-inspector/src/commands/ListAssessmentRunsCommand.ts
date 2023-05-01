@@ -74,13 +74,12 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentRunsResponse
- *   assessmentRunArns: [ // ListReturnedArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentRunsResponse
+ * //   assessmentRunArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

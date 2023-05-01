@@ -109,10 +109,9 @@ export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstrai
  * };
  * const command = new UpdateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSizeConstraintSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateSizeConstraintSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

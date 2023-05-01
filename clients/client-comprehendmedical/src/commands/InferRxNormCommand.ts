@@ -50,52 +50,51 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * };
  * const command = new InferRxNormCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InferRxNormResponse
- *   Entities: [ // RxNormEntityList // required
- *     { // RxNormEntity
- *       Id: Number("int"),
- *       Text: "STRING_VALUE",
- *       Category: "MEDICATION",
- *       Type: "BRAND_NAME" || "GENERIC_NAME",
- *       Score: Number("float"),
- *       BeginOffset: Number("int"),
- *       EndOffset: Number("int"),
- *       Attributes: [ // RxNormAttributeList
- *         { // RxNormAttribute
- *           Type: "DOSAGE" || "DURATION" || "FORM" || "FREQUENCY" || "RATE" || "ROUTE_OR_MODE" || "STRENGTH",
- *           Score: Number("float"),
- *           RelationshipScore: Number("float"),
- *           Id: Number("int"),
- *           BeginOffset: Number("int"),
- *           EndOffset: Number("int"),
- *           Text: "STRING_VALUE",
- *           Traits: [ // RxNormTraitList
- *             { // RxNormTrait
- *               Name: "NEGATION",
- *               Score: Number("float"),
- *             },
- *           ],
- *         },
- *       ],
- *       Traits: [
- *         {
- *           Name: "NEGATION",
- *           Score: Number("float"),
- *         },
- *       ],
- *       RxNormConcepts: [ // RxNormConceptList
- *         { // RxNormConcept
- *           Description: "STRING_VALUE",
- *           Code: "STRING_VALUE",
- *           Score: Number("float"),
- *         },
- *       ],
- *     },
- *   ],
- *   PaginationToken: "STRING_VALUE",
- *   ModelVersion: "STRING_VALUE",
- * };
+ * // { // InferRxNormResponse
+ * //   Entities: [ // RxNormEntityList // required
+ * //     { // RxNormEntity
+ * //       Id: Number("int"),
+ * //       Text: "STRING_VALUE",
+ * //       Category: "MEDICATION",
+ * //       Type: "BRAND_NAME" || "GENERIC_NAME",
+ * //       Score: Number("float"),
+ * //       BeginOffset: Number("int"),
+ * //       EndOffset: Number("int"),
+ * //       Attributes: [ // RxNormAttributeList
+ * //         { // RxNormAttribute
+ * //           Type: "DOSAGE" || "DURATION" || "FORM" || "FREQUENCY" || "RATE" || "ROUTE_OR_MODE" || "STRENGTH",
+ * //           Score: Number("float"),
+ * //           RelationshipScore: Number("float"),
+ * //           Id: Number("int"),
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //           Text: "STRING_VALUE",
+ * //           Traits: [ // RxNormTraitList
+ * //             { // RxNormTrait
+ * //               Name: "NEGATION",
+ * //               Score: Number("float"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Traits: [
+ * //         {
+ * //           Name: "NEGATION",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //       RxNormConcepts: [ // RxNormConceptList
+ * //         { // RxNormConcept
+ * //           Description: "STRING_VALUE",
+ * //           Code: "STRING_VALUE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * //   ModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

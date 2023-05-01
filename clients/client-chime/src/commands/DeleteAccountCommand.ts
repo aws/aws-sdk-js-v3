@@ -54,8 +54,7 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * };
  * const command = new DeleteAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

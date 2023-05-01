@@ -45,17 +45,16 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
  * };
  * const command = new ListServiceProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceProfilesResponse
- *   NextToken: "STRING_VALUE",
- *   ServiceProfileList: [ // ServiceProfileList
- *     { // ServiceProfile
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServiceProfilesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ServiceProfileList: [ // ServiceProfileList
+ * //     { // ServiceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

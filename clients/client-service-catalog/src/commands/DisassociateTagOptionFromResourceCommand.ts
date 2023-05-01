@@ -50,8 +50,7 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * };
  * const command = new DisassociateTagOptionFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

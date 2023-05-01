@@ -47,19 +47,18 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * };
  * const command = new DescribeInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInsightRulesOutput
- *   NextToken: "STRING_VALUE",
- *   InsightRules: [ // InsightRules
- *     { // InsightRule
- *       Name: "STRING_VALUE", // required
- *       State: "STRING_VALUE", // required
- *       Schema: "STRING_VALUE", // required
- *       Definition: "STRING_VALUE", // required
- *       ManagedRule: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeInsightRulesOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   InsightRules: [ // InsightRules
+ * //     { // InsightRule
+ * //       Name: "STRING_VALUE", // required
+ * //       State: "STRING_VALUE", // required
+ * //       Schema: "STRING_VALUE", // required
+ * //       Definition: "STRING_VALUE", // required
+ * //       ManagedRule: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

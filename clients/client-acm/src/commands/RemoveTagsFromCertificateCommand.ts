@@ -55,8 +55,7 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * };
  * const command = new RemoveTagsFromCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

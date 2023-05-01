@@ -47,55 +47,54 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * };
  * const command = new DescribeFeatureGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFeatureGroupResponse
- *   FeatureGroupArn: "STRING_VALUE", // required
- *   FeatureGroupName: "STRING_VALUE", // required
- *   RecordIdentifierFeatureName: "STRING_VALUE", // required
- *   EventTimeFeatureName: "STRING_VALUE", // required
- *   FeatureDefinitions: [ // FeatureDefinitions // required
- *     { // FeatureDefinition
- *       FeatureName: "STRING_VALUE",
- *       FeatureType: "Integral" || "Fractional" || "String",
- *     },
- *   ],
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   OnlineStoreConfig: { // OnlineStoreConfig
- *     SecurityConfig: { // OnlineStoreSecurityConfig
- *       KmsKeyId: "STRING_VALUE",
- *     },
- *     EnableOnlineStore: true || false,
- *   },
- *   OfflineStoreConfig: { // OfflineStoreConfig
- *     S3StorageConfig: { // S3StorageConfig
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
- *       ResolvedOutputS3Uri: "STRING_VALUE",
- *     },
- *     DisableGlueTableCreation: true || false,
- *     DataCatalogConfig: { // DataCatalogConfig
- *       TableName: "STRING_VALUE", // required
- *       Catalog: "STRING_VALUE", // required
- *       Database: "STRING_VALUE", // required
- *     },
- *     TableFormat: "Glue" || "Iceberg",
- *   },
- *   RoleArn: "STRING_VALUE",
- *   FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
- *   OfflineStoreStatus: { // OfflineStoreStatus
- *     Status: "Active" || "Blocked" || "Disabled", // required
- *     BlockedReason: "STRING_VALUE",
- *   },
- *   LastUpdateStatus: { // LastUpdateStatus
- *     Status: "Successful" || "Failed" || "InProgress", // required
- *     FailureReason: "STRING_VALUE",
- *   },
- *   FailureReason: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   NextToken: "STRING_VALUE", // required
- *   OnlineStoreTotalSizeBytes: Number("long"),
- * };
+ * // { // DescribeFeatureGroupResponse
+ * //   FeatureGroupArn: "STRING_VALUE", // required
+ * //   FeatureGroupName: "STRING_VALUE", // required
+ * //   RecordIdentifierFeatureName: "STRING_VALUE", // required
+ * //   EventTimeFeatureName: "STRING_VALUE", // required
+ * //   FeatureDefinitions: [ // FeatureDefinitions // required
+ * //     { // FeatureDefinition
+ * //       FeatureName: "STRING_VALUE",
+ * //       FeatureType: "Integral" || "Fractional" || "String",
+ * //     },
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   OnlineStoreConfig: { // OnlineStoreConfig
+ * //     SecurityConfig: { // OnlineStoreSecurityConfig
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     EnableOnlineStore: true || false,
+ * //   },
+ * //   OfflineStoreConfig: { // OfflineStoreConfig
+ * //     S3StorageConfig: { // S3StorageConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       ResolvedOutputS3Uri: "STRING_VALUE",
+ * //     },
+ * //     DisableGlueTableCreation: true || false,
+ * //     DataCatalogConfig: { // DataCatalogConfig
+ * //       TableName: "STRING_VALUE", // required
+ * //       Catalog: "STRING_VALUE", // required
+ * //       Database: "STRING_VALUE", // required
+ * //     },
+ * //     TableFormat: "Glue" || "Iceberg",
+ * //   },
+ * //   RoleArn: "STRING_VALUE",
+ * //   FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
+ * //   OfflineStoreStatus: { // OfflineStoreStatus
+ * //     Status: "Active" || "Blocked" || "Disabled", // required
+ * //     BlockedReason: "STRING_VALUE",
+ * //   },
+ * //   LastUpdateStatus: { // LastUpdateStatus
+ * //     Status: "Successful" || "Failed" || "InProgress", // required
+ * //     FailureReason: "STRING_VALUE",
+ * //   },
+ * //   FailureReason: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE", // required
+ * //   OnlineStoreTotalSizeBytes: Number("long"),
+ * // };
  *
  * ```
  *

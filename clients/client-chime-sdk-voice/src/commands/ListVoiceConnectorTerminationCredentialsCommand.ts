@@ -54,12 +54,11 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * };
  * const command = new ListVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVoiceConnectorTerminationCredentialsResponse
- *   Usernames: [ // SensitiveStringList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListVoiceConnectorTerminationCredentialsResponse
+ * //   Usernames: [ // SensitiveStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

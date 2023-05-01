@@ -55,15 +55,14 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * };
  * const command = new PutAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAppInstanceRetentionSettingsResponse
- *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
- *     ChannelRetentionSettings: { // ChannelRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *   },
- *   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // PutAppInstanceRetentionSettingsResponse
+ * //   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ * //     ChannelRetentionSettings: { // ChannelRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

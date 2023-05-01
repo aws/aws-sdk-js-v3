@@ -57,8 +57,7 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * };
  * const command = new AdminUpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

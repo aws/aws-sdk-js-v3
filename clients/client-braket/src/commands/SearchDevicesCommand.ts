@@ -53,19 +53,18 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchDevicesResponse
- *   devices: [ // DeviceSummaryList // required
- *     { // DeviceSummary
- *       deviceArn: "STRING_VALUE", // required
- *       deviceName: "STRING_VALUE", // required
- *       providerName: "STRING_VALUE", // required
- *       deviceType: "STRING_VALUE", // required
- *       deviceStatus: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchDevicesResponse
+ * //   devices: [ // DeviceSummaryList // required
+ * //     { // DeviceSummary
+ * //       deviceArn: "STRING_VALUE", // required
+ * //       deviceName: "STRING_VALUE", // required
+ * //       providerName: "STRING_VALUE", // required
+ * //       deviceType: "STRING_VALUE", // required
+ * //       deviceStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

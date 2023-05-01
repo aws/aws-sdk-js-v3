@@ -44,25 +44,24 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  * };
  * const command = new GetClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClusterSnapshotOutput
- *   snapshot: { // ClusterSnapshot
- *     subnetIds: [ // StringList // required
- *       "STRING_VALUE",
- *     ],
- *     snapshotName: "STRING_VALUE", // required
- *     snapshotArn: "STRING_VALUE", // required
- *     snapshotCreationTime: "STRING_VALUE", // required
- *     clusterArn: "STRING_VALUE", // required
- *     clusterCreationTime: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     vpcSecurityGroupIds: [ // required
- *       "STRING_VALUE",
- *     ],
- *     adminUserName: "STRING_VALUE", // required
- *     kmsKeyId: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetClusterSnapshotOutput
+ * //   snapshot: { // ClusterSnapshot
+ * //     subnetIds: [ // StringList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     snapshotName: "STRING_VALUE", // required
+ * //     snapshotArn: "STRING_VALUE", // required
+ * //     snapshotCreationTime: "STRING_VALUE", // required
+ * //     clusterArn: "STRING_VALUE", // required
+ * //     clusterCreationTime: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     vpcSecurityGroupIds: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     adminUserName: "STRING_VALUE", // required
+ * //     kmsKeyId: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

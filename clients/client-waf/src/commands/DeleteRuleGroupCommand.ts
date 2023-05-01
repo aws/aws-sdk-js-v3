@@ -68,10 +68,9 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRuleGroupResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteRuleGroupResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

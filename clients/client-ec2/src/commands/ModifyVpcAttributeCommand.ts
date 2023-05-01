@@ -53,8 +53,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

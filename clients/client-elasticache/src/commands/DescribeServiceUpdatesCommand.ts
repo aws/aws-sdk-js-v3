@@ -49,26 +49,25 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * };
  * const command = new DescribeServiceUpdatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ServiceUpdatesMessage
- *   Marker: "STRING_VALUE",
- *   ServiceUpdates: [ // ServiceUpdateList
- *     { // ServiceUpdate
- *       ServiceUpdateName: "STRING_VALUE",
- *       ServiceUpdateReleaseDate: new Date("TIMESTAMP"),
- *       ServiceUpdateEndDate: new Date("TIMESTAMP"),
- *       ServiceUpdateSeverity: "critical" || "important" || "medium" || "low",
- *       ServiceUpdateRecommendedApplyByDate: new Date("TIMESTAMP"),
- *       ServiceUpdateStatus: "available" || "cancelled" || "expired",
- *       ServiceUpdateDescription: "STRING_VALUE",
- *       ServiceUpdateType: "security-update",
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       AutoUpdateAfterRecommendedApplyByDate: true || false,
- *       EstimatedUpdateTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ServiceUpdatesMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ServiceUpdates: [ // ServiceUpdateList
+ * //     { // ServiceUpdate
+ * //       ServiceUpdateName: "STRING_VALUE",
+ * //       ServiceUpdateReleaseDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateEndDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateSeverity: "critical" || "important" || "medium" || "low",
+ * //       ServiceUpdateRecommendedApplyByDate: new Date("TIMESTAMP"),
+ * //       ServiceUpdateStatus: "available" || "cancelled" || "expired",
+ * //       ServiceUpdateDescription: "STRING_VALUE",
+ * //       ServiceUpdateType: "security-update",
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       AutoUpdateAfterRecommendedApplyByDate: true || false,
+ * //       EstimatedUpdateTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

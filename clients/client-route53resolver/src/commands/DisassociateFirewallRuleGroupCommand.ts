@@ -49,24 +49,23 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  * };
  * const command = new DisassociateFirewallRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateFirewallRuleGroupResponse
- *   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     FirewallRuleGroupId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Priority: Number("int"),
- *     MutationProtection: "ENABLED" || "DISABLED",
- *     ManagedOwnerName: "STRING_VALUE",
- *     Status: "COMPLETE" || "DELETING" || "UPDATING",
- *     StatusMessage: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // DisassociateFirewallRuleGroupResponse
+ * //   FirewallRuleGroupAssociation: { // FirewallRuleGroupAssociation
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     FirewallRuleGroupId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Priority: Number("int"),
+ * //     MutationProtection: "ENABLED" || "DISABLED",
+ * //     ManagedOwnerName: "STRING_VALUE",
+ * //     Status: "COMPLETE" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

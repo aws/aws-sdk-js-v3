@@ -45,10 +45,9 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * };
  * const command = new PutSchemaFromJsonCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSchemaFromJsonResponse
- *   Arn: "STRING_VALUE",
- * };
+ * // { // PutSchemaFromJsonResponse
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

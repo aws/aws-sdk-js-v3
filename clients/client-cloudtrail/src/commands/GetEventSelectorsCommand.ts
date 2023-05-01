@@ -72,53 +72,52 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * };
  * const command = new GetEventSelectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEventSelectorsResponse
- *   TrailARN: "STRING_VALUE",
- *   EventSelectors: [ // EventSelectors
- *     { // EventSelector
- *       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
- *       IncludeManagementEvents: true || false,
- *       DataResources: [ // DataResources
- *         { // DataResource
- *           Type: "STRING_VALUE",
- *           Values: [ // DataResourceValues
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   AdvancedEventSelectors: [ // AdvancedEventSelectors
- *     { // AdvancedEventSelector
- *       Name: "STRING_VALUE",
- *       FieldSelectors: [ // AdvancedFieldSelectors // required
- *         { // AdvancedFieldSelector
- *           Field: "STRING_VALUE", // required
- *           Equals: [ // Operator
- *             "STRING_VALUE",
- *           ],
- *           StartsWith: [
- *             "STRING_VALUE",
- *           ],
- *           EndsWith: [
- *             "STRING_VALUE",
- *           ],
- *           NotEquals: [
- *             "STRING_VALUE",
- *           ],
- *           NotStartsWith: [
- *             "STRING_VALUE",
- *           ],
- *           NotEndsWith: "<Operator>",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetEventSelectorsResponse
+ * //   TrailARN: "STRING_VALUE",
+ * //   EventSelectors: [ // EventSelectors
+ * //     { // EventSelector
+ * //       ReadWriteType: "ReadOnly" || "WriteOnly" || "All",
+ * //       IncludeManagementEvents: true || false,
+ * //       DataResources: [ // DataResources
+ * //         { // DataResource
+ * //           Type: "STRING_VALUE",
+ * //           Values: [ // DataResourceValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ExcludeManagementEventSources: [ // ExcludeManagementEventSources
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ * //     { // AdvancedEventSelector
+ * //       Name: "STRING_VALUE",
+ * //       FieldSelectors: [ // AdvancedFieldSelectors // required
+ * //         { // AdvancedFieldSelector
+ * //           Field: "STRING_VALUE", // required
+ * //           Equals: [ // Operator
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           StartsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           EndsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotEquals: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotStartsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotEndsWith: "<Operator>",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

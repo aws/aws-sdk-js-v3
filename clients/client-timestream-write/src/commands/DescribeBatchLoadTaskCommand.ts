@@ -48,92 +48,91 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * };
  * const command = new DescribeBatchLoadTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBatchLoadTaskResponse
- *   BatchLoadTaskDescription: { // BatchLoadTaskDescription
- *     TaskId: "STRING_VALUE",
- *     ErrorMessage: "STRING_VALUE",
- *     DataSourceConfiguration: { // DataSourceConfiguration
- *       DataSourceS3Configuration: { // DataSourceS3Configuration
- *         BucketName: "STRING_VALUE", // required
- *         ObjectKeyPrefix: "STRING_VALUE",
- *       },
- *       CsvConfiguration: { // CsvConfiguration
- *         ColumnSeparator: "STRING_VALUE",
- *         EscapeChar: "STRING_VALUE",
- *         QuoteChar: "STRING_VALUE",
- *         NullValue: "STRING_VALUE",
- *         TrimWhiteSpace: true || false,
- *       },
- *       DataFormat: "CSV", // required
- *     },
- *     ProgressReport: { // BatchLoadProgressReport
- *       RecordsProcessed: Number("long"),
- *       RecordsIngested: Number("long"),
- *       ParseFailures: Number("long"),
- *       RecordIngestionFailures: Number("long"),
- *       FileFailures: Number("long"),
- *       BytesMetered: Number("long"),
- *     },
- *     ReportConfiguration: { // ReportConfiguration
- *       ReportS3Configuration: { // ReportS3Configuration
- *         BucketName: "STRING_VALUE", // required
- *         ObjectKeyPrefix: "STRING_VALUE",
- *         EncryptionOption: "SSE_S3" || "SSE_KMS",
- *         KmsKeyId: "STRING_VALUE",
- *       },
- *     },
- *     DataModelConfiguration: { // DataModelConfiguration
- *       DataModel: { // DataModel
- *         TimeColumn: "STRING_VALUE",
- *         TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
- *         DimensionMappings: [ // DimensionMappings // required
- *           { // DimensionMapping
- *             SourceColumn: "STRING_VALUE",
- *             DestinationColumn: "STRING_VALUE",
- *           },
- *         ],
- *         MultiMeasureMappings: { // MultiMeasureMappings
- *           TargetMultiMeasureName: "STRING_VALUE",
- *           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
- *             { // MultiMeasureAttributeMapping
- *               SourceColumn: "STRING_VALUE", // required
- *               TargetMultiMeasureAttributeName: "STRING_VALUE",
- *               MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
- *             },
- *           ],
- *         },
- *         MixedMeasureMappings: [ // MixedMeasureMappingList
- *           { // MixedMeasureMapping
- *             MeasureName: "STRING_VALUE",
- *             SourceColumn: "STRING_VALUE",
- *             TargetMeasureName: "STRING_VALUE",
- *             MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
- *             MultiMeasureAttributeMappings: [
- *               {
- *                 SourceColumn: "STRING_VALUE", // required
- *                 TargetMultiMeasureAttributeName: "STRING_VALUE",
- *                 MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
- *               },
- *             ],
- *           },
- *         ],
- *         MeasureNameColumn: "STRING_VALUE",
- *       },
- *       DataModelS3Configuration: { // DataModelS3Configuration
- *         BucketName: "STRING_VALUE",
- *         ObjectKey: "STRING_VALUE",
- *       },
- *     },
- *     TargetDatabaseName: "STRING_VALUE",
- *     TargetTableName: "STRING_VALUE",
- *     TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
- *     RecordVersion: Number("long"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *     ResumableUntil: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeBatchLoadTaskResponse
+ * //   BatchLoadTaskDescription: { // BatchLoadTaskDescription
+ * //     TaskId: "STRING_VALUE",
+ * //     ErrorMessage: "STRING_VALUE",
+ * //     DataSourceConfiguration: { // DataSourceConfiguration
+ * //       DataSourceS3Configuration: { // DataSourceS3Configuration
+ * //         BucketName: "STRING_VALUE", // required
+ * //         ObjectKeyPrefix: "STRING_VALUE",
+ * //       },
+ * //       CsvConfiguration: { // CsvConfiguration
+ * //         ColumnSeparator: "STRING_VALUE",
+ * //         EscapeChar: "STRING_VALUE",
+ * //         QuoteChar: "STRING_VALUE",
+ * //         NullValue: "STRING_VALUE",
+ * //         TrimWhiteSpace: true || false,
+ * //       },
+ * //       DataFormat: "CSV", // required
+ * //     },
+ * //     ProgressReport: { // BatchLoadProgressReport
+ * //       RecordsProcessed: Number("long"),
+ * //       RecordsIngested: Number("long"),
+ * //       ParseFailures: Number("long"),
+ * //       RecordIngestionFailures: Number("long"),
+ * //       FileFailures: Number("long"),
+ * //       BytesMetered: Number("long"),
+ * //     },
+ * //     ReportConfiguration: { // ReportConfiguration
+ * //       ReportS3Configuration: { // ReportS3Configuration
+ * //         BucketName: "STRING_VALUE", // required
+ * //         ObjectKeyPrefix: "STRING_VALUE",
+ * //         EncryptionOption: "SSE_S3" || "SSE_KMS",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     DataModelConfiguration: { // DataModelConfiguration
+ * //       DataModel: { // DataModel
+ * //         TimeColumn: "STRING_VALUE",
+ * //         TimeUnit: "MILLISECONDS" || "SECONDS" || "MICROSECONDS" || "NANOSECONDS",
+ * //         DimensionMappings: [ // DimensionMappings // required
+ * //           { // DimensionMapping
+ * //             SourceColumn: "STRING_VALUE",
+ * //             DestinationColumn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         MultiMeasureMappings: { // MultiMeasureMappings
+ * //           TargetMultiMeasureName: "STRING_VALUE",
+ * //           MultiMeasureAttributeMappings: [ // MultiMeasureAttributeMappingList // required
+ * //             { // MultiMeasureAttributeMapping
+ * //               SourceColumn: "STRING_VALUE", // required
+ * //               TargetMultiMeasureAttributeName: "STRING_VALUE",
+ * //               MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ * //             },
+ * //           ],
+ * //         },
+ * //         MixedMeasureMappings: [ // MixedMeasureMappingList
+ * //           { // MixedMeasureMapping
+ * //             MeasureName: "STRING_VALUE",
+ * //             SourceColumn: "STRING_VALUE",
+ * //             TargetMeasureName: "STRING_VALUE",
+ * //             MeasureValueType: "DOUBLE" || "BIGINT" || "VARCHAR" || "BOOLEAN" || "TIMESTAMP" || "MULTI", // required
+ * //             MultiMeasureAttributeMappings: [
+ * //               {
+ * //                 SourceColumn: "STRING_VALUE", // required
+ * //                 TargetMultiMeasureAttributeName: "STRING_VALUE",
+ * //                 MeasureValueType: "DOUBLE" || "BIGINT" || "BOOLEAN" || "VARCHAR" || "TIMESTAMP",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         MeasureNameColumn: "STRING_VALUE",
+ * //       },
+ * //       DataModelS3Configuration: { // DataModelS3Configuration
+ * //         BucketName: "STRING_VALUE",
+ * //         ObjectKey: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     TargetDatabaseName: "STRING_VALUE",
+ * //     TargetTableName: "STRING_VALUE",
+ * //     TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
+ * //     RecordVersion: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     ResumableUntil: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

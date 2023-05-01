@@ -53,12 +53,11 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * };
  * const command = new StartFHIRExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFHIRExportJobResponse
- *   JobId: "STRING_VALUE", // required
- *   JobStatus: "STRING_VALUE", // required
- *   DatastoreId: "STRING_VALUE",
- * };
+ * // { // StartFHIRExportJobResponse
+ * //   JobId: "STRING_VALUE", // required
+ * //   JobStatus: "STRING_VALUE", // required
+ * //   DatastoreId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

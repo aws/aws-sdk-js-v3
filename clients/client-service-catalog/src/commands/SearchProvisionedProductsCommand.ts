@@ -57,39 +57,38 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * };
  * const command = new SearchProvisionedProductsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchProvisionedProductsOutput
- *   ProvisionedProducts: [ // ProvisionedProductAttributes
- *     { // ProvisionedProductAttribute
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Status: "AVAILABLE" || "UNDER_CHANGE" || "TAINTED" || "ERROR" || "PLAN_IN_PROGRESS",
- *       StatusMessage: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       IdempotencyToken: "STRING_VALUE",
- *       LastRecordId: "STRING_VALUE",
- *       LastProvisioningRecordId: "STRING_VALUE",
- *       LastSuccessfulProvisioningRecordId: "STRING_VALUE",
- *       Tags: [ // Tags
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       PhysicalId: "STRING_VALUE",
- *       ProductId: "STRING_VALUE",
- *       ProductName: "STRING_VALUE",
- *       ProvisioningArtifactId: "STRING_VALUE",
- *       ProvisioningArtifactName: "STRING_VALUE",
- *       UserArn: "STRING_VALUE",
- *       UserArnSession: "STRING_VALUE",
- *     },
- *   ],
- *   TotalResultsCount: Number("int"),
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // SearchProvisionedProductsOutput
+ * //   ProvisionedProducts: [ // ProvisionedProductAttributes
+ * //     { // ProvisionedProductAttribute
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "UNDER_CHANGE" || "TAINTED" || "ERROR" || "PLAN_IN_PROGRESS",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       IdempotencyToken: "STRING_VALUE",
+ * //       LastRecordId: "STRING_VALUE",
+ * //       LastProvisioningRecordId: "STRING_VALUE",
+ * //       LastSuccessfulProvisioningRecordId: "STRING_VALUE",
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       PhysicalId: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       ProductName: "STRING_VALUE",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //       ProvisioningArtifactName: "STRING_VALUE",
+ * //       UserArn: "STRING_VALUE",
+ * //       UserArnSession: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TotalResultsCount: Number("int"),
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

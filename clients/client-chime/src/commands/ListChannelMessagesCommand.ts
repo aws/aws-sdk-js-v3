@@ -65,27 +65,26 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * };
  * const command = new ListChannelMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelMessagesResponse
- *   ChannelArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   ChannelMessages: [ // ChannelMessageSummaryList
- *     { // ChannelMessageSummary
- *       MessageId: "STRING_VALUE",
- *       Content: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *       Type: "STANDARD" || "CONTROL",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *       LastEditedTimestamp: new Date("TIMESTAMP"),
- *       Sender: { // Identity
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       Redacted: true || false,
- *     },
- *   ],
- * };
+ * // { // ListChannelMessagesResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   ChannelMessages: [ // ChannelMessageSummaryList
+ * //     { // ChannelMessageSummary
+ * //       MessageId: "STRING_VALUE",
+ * //       Content: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //       Type: "STANDARD" || "CONTROL",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       LastEditedTimestamp: new Date("TIMESTAMP"),
+ * //       Sender: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       Redacted: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

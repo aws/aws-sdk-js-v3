@@ -49,10 +49,9 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * };
  * const command = new DescribeWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspaceConfigurationResponse
- *   configuration: "STRING_VALUE", // required
- * };
+ * // { // DescribeWorkspaceConfigurationResponse
+ * //   configuration: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

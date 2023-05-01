@@ -45,8 +45,7 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * };
  * const command = new DeleteIpGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

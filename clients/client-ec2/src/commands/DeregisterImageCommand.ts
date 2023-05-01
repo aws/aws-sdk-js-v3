@@ -56,8 +56,7 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterImageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

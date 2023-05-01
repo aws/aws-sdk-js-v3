@@ -46,14 +46,13 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNamespaceResponse
- *   namespaceArn: "STRING_VALUE",
- *   namespaceName: "STRING_VALUE",
- *   trackingNamespaceName: "STRING_VALUE",
- *   trackingNamespaceVersion: Number("long"),
- *   namespaceVersion: Number("long"),
- * };
+ * // { // DescribeNamespaceResponse
+ * //   namespaceArn: "STRING_VALUE",
+ * //   namespaceName: "STRING_VALUE",
+ * //   trackingNamespaceName: "STRING_VALUE",
+ * //   trackingNamespaceVersion: Number("long"),
+ * //   namespaceVersion: Number("long"),
+ * // };
  *
  * ```
  *

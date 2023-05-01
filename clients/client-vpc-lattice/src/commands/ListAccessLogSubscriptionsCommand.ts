@@ -46,21 +46,20 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * };
  * const command = new ListAccessLogSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessLogSubscriptionsResponse
- *   items: [ // AccessLogSubscriptionList // required
- *     { // AccessLogSubscriptionSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       resourceId: "STRING_VALUE", // required
- *       resourceArn: "STRING_VALUE", // required
- *       destinationArn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessLogSubscriptionsResponse
+ * //   items: [ // AccessLogSubscriptionList // required
+ * //     { // AccessLogSubscriptionSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       resourceId: "STRING_VALUE", // required
+ * //       resourceArn: "STRING_VALUE", // required
+ * //       destinationArn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,15 +52,14 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountSettingsResponse
- *   accountSettingsDetail: { // AccountSettingsDetail
- *     capacityLimits: { // CapacityLimits
- *       maxIndexingCapacityInOCU: Number("int"),
- *       maxSearchCapacityInOCU: Number("int"),
- *     },
- *   },
- * };
+ * // { // UpdateAccountSettingsResponse
+ * //   accountSettingsDetail: { // AccountSettingsDetail
+ * //     capacityLimits: { // CapacityLimits
+ * //       maxIndexingCapacityInOCU: Number("int"),
+ * //       maxSearchCapacityInOCU: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

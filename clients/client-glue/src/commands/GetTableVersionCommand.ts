@@ -47,107 +47,106 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * };
  * const command = new GetTableVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTableVersionResponse
- *   TableVersion: { // TableVersion
- *     Table: { // Table
- *       Name: "STRING_VALUE", // required
- *       DatabaseName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"),
- *       UpdateTime: new Date("TIMESTAMP"),
- *       LastAccessTime: new Date("TIMESTAMP"),
- *       LastAnalyzedTime: new Date("TIMESTAMP"),
- *       Retention: Number("int"),
- *       StorageDescriptor: { // StorageDescriptor
- *         Columns: [ // ColumnList
- *           { // Column
- *             Name: "STRING_VALUE", // required
- *             Type: "STRING_VALUE",
- *             Comment: "STRING_VALUE",
- *             Parameters: { // ParametersMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *         ],
- *         Location: "STRING_VALUE",
- *         AdditionalLocations: [ // LocationStringList
- *           "STRING_VALUE",
- *         ],
- *         InputFormat: "STRING_VALUE",
- *         OutputFormat: "STRING_VALUE",
- *         Compressed: true || false,
- *         NumberOfBuckets: Number("int"),
- *         SerdeInfo: { // SerDeInfo
- *           Name: "STRING_VALUE",
- *           SerializationLibrary: "STRING_VALUE",
- *           Parameters: {
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *         BucketColumns: [ // NameStringList
- *           "STRING_VALUE",
- *         ],
- *         SortColumns: [ // OrderList
- *           { // Order
- *             Column: "STRING_VALUE", // required
- *             SortOrder: Number("int"), // required
- *           },
- *         ],
- *         Parameters: "<ParametersMap>",
- *         SkewedInfo: { // SkewedInfo
- *           SkewedColumnNames: [
- *             "STRING_VALUE",
- *           ],
- *           SkewedColumnValues: [ // ColumnValueStringList
- *             "STRING_VALUE",
- *           ],
- *           SkewedColumnValueLocationMaps: { // LocationMap
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *         StoredAsSubDirectories: true || false,
- *         SchemaReference: { // SchemaReference
- *           SchemaId: { // SchemaId
- *             SchemaArn: "STRING_VALUE",
- *             SchemaName: "STRING_VALUE",
- *             RegistryName: "STRING_VALUE",
- *           },
- *           SchemaVersionId: "STRING_VALUE",
- *           SchemaVersionNumber: Number("long"),
- *         },
- *       },
- *       PartitionKeys: [
- *         {
- *           Name: "STRING_VALUE", // required
- *           Type: "STRING_VALUE",
- *           Comment: "STRING_VALUE",
- *           Parameters: "<ParametersMap>",
- *         },
- *       ],
- *       ViewOriginalText: "STRING_VALUE",
- *       ViewExpandedText: "STRING_VALUE",
- *       TableType: "STRING_VALUE",
- *       Parameters: "<ParametersMap>",
- *       CreatedBy: "STRING_VALUE",
- *       IsRegisteredWithLakeFormation: true || false,
- *       TargetTable: { // TableIdentifier
- *         CatalogId: "STRING_VALUE",
- *         DatabaseName: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       CatalogId: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       FederatedTable: { // FederatedTable
- *         Identifier: "STRING_VALUE",
- *         DatabaseIdentifier: "STRING_VALUE",
- *         ConnectionName: "STRING_VALUE",
- *       },
- *     },
- *     VersionId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTableVersionResponse
+ * //   TableVersion: { // TableVersion
+ * //     Table: { // Table
+ * //       Name: "STRING_VALUE", // required
+ * //       DatabaseName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       UpdateTime: new Date("TIMESTAMP"),
+ * //       LastAccessTime: new Date("TIMESTAMP"),
+ * //       LastAnalyzedTime: new Date("TIMESTAMP"),
+ * //       Retention: Number("int"),
+ * //       StorageDescriptor: { // StorageDescriptor
+ * //         Columns: [ // ColumnList
+ * //           { // Column
+ * //             Name: "STRING_VALUE", // required
+ * //             Type: "STRING_VALUE",
+ * //             Comment: "STRING_VALUE",
+ * //             Parameters: { // ParametersMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         Location: "STRING_VALUE",
+ * //         AdditionalLocations: [ // LocationStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         InputFormat: "STRING_VALUE",
+ * //         OutputFormat: "STRING_VALUE",
+ * //         Compressed: true || false,
+ * //         NumberOfBuckets: Number("int"),
+ * //         SerdeInfo: { // SerDeInfo
+ * //           Name: "STRING_VALUE",
+ * //           SerializationLibrary: "STRING_VALUE",
+ * //           Parameters: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         BucketColumns: [ // NameStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SortColumns: [ // OrderList
+ * //           { // Order
+ * //             Column: "STRING_VALUE", // required
+ * //             SortOrder: Number("int"), // required
+ * //           },
+ * //         ],
+ * //         Parameters: "<ParametersMap>",
+ * //         SkewedInfo: { // SkewedInfo
+ * //           SkewedColumnNames: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SkewedColumnValues: [ // ColumnValueStringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SkewedColumnValueLocationMaps: { // LocationMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         StoredAsSubDirectories: true || false,
+ * //         SchemaReference: { // SchemaReference
+ * //           SchemaId: { // SchemaId
+ * //             SchemaArn: "STRING_VALUE",
+ * //             SchemaName: "STRING_VALUE",
+ * //             RegistryName: "STRING_VALUE",
+ * //           },
+ * //           SchemaVersionId: "STRING_VALUE",
+ * //           SchemaVersionNumber: Number("long"),
+ * //         },
+ * //       },
+ * //       PartitionKeys: [
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE",
+ * //           Comment: "STRING_VALUE",
+ * //           Parameters: "<ParametersMap>",
+ * //         },
+ * //       ],
+ * //       ViewOriginalText: "STRING_VALUE",
+ * //       ViewExpandedText: "STRING_VALUE",
+ * //       TableType: "STRING_VALUE",
+ * //       Parameters: "<ParametersMap>",
+ * //       CreatedBy: "STRING_VALUE",
+ * //       IsRegisteredWithLakeFormation: true || false,
+ * //       TargetTable: { // TableIdentifier
+ * //         CatalogId: "STRING_VALUE",
+ * //         DatabaseName: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       CatalogId: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       FederatedTable: { // FederatedTable
+ * //         Identifier: "STRING_VALUE",
+ * //         DatabaseIdentifier: "STRING_VALUE",
+ * //         ConnectionName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     VersionId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

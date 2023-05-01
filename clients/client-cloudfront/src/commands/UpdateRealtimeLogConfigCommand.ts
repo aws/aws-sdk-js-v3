@@ -78,26 +78,25 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * };
  * const command = new UpdateRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRealtimeLogConfigResult
- *   RealtimeLogConfig: { // RealtimeLogConfig
- *     ARN: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     SamplingRate: Number("long"), // required
- *     EndPoints: [ // EndPointList // required
- *       { // EndPoint
- *         StreamType: "STRING_VALUE", // required
- *         KinesisStreamConfig: { // KinesisStreamConfig
- *           RoleARN: "STRING_VALUE", // required
- *           StreamARN: "STRING_VALUE", // required
- *         },
- *       },
- *     ],
- *     Fields: [ // FieldList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // UpdateRealtimeLogConfigResult
+ * //   RealtimeLogConfig: { // RealtimeLogConfig
+ * //     ARN: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     SamplingRate: Number("long"), // required
+ * //     EndPoints: [ // EndPointList // required
+ * //       { // EndPoint
+ * //         StreamType: "STRING_VALUE", // required
+ * //         KinesisStreamConfig: { // KinesisStreamConfig
+ * //           RoleARN: "STRING_VALUE", // required
+ * //           StreamARN: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     Fields: [ // FieldList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

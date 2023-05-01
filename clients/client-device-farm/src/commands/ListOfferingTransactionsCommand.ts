@@ -47,41 +47,40 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * };
  * const command = new ListOfferingTransactionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOfferingTransactionsResult
- *   offeringTransactions: [ // OfferingTransactions
- *     { // OfferingTransaction
- *       offeringStatus: { // OfferingStatus
- *         type: "PURCHASE" || "RENEW" || "SYSTEM",
- *         offering: { // Offering
- *           id: "STRING_VALUE",
- *           description: "STRING_VALUE",
- *           type: "RECURRING",
- *           platform: "ANDROID" || "IOS",
- *           recurringCharges: [ // RecurringCharges
- *             { // RecurringCharge
- *               cost: { // MonetaryAmount
- *                 amount: Number("double"),
- *                 currencyCode: "USD",
- *               },
- *               frequency: "MONTHLY",
- *             },
- *           ],
- *         },
- *         quantity: Number("int"),
- *         effectiveOn: new Date("TIMESTAMP"),
- *       },
- *       transactionId: "STRING_VALUE",
- *       offeringPromotionId: "STRING_VALUE",
- *       createdOn: new Date("TIMESTAMP"),
- *       cost: {
- *         amount: Number("double"),
- *         currencyCode: "USD",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOfferingTransactionsResult
+ * //   offeringTransactions: [ // OfferingTransactions
+ * //     { // OfferingTransaction
+ * //       offeringStatus: { // OfferingStatus
+ * //         type: "PURCHASE" || "RENEW" || "SYSTEM",
+ * //         offering: { // Offering
+ * //           id: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           type: "RECURRING",
+ * //           platform: "ANDROID" || "IOS",
+ * //           recurringCharges: [ // RecurringCharges
+ * //             { // RecurringCharge
+ * //               cost: { // MonetaryAmount
+ * //                 amount: Number("double"),
+ * //                 currencyCode: "USD",
+ * //               },
+ * //               frequency: "MONTHLY",
+ * //             },
+ * //           ],
+ * //         },
+ * //         quantity: Number("int"),
+ * //         effectiveOn: new Date("TIMESTAMP"),
+ * //       },
+ * //       transactionId: "STRING_VALUE",
+ * //       offeringPromotionId: "STRING_VALUE",
+ * //       createdOn: new Date("TIMESTAMP"),
+ * //       cost: {
+ * //         amount: Number("double"),
+ * //         currencyCode: "USD",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

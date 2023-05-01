@@ -78,35 +78,34 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * };
  * const command = new GetNetworkRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkRoutesResponse
- *   RouteTableArn: "STRING_VALUE",
- *   CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
- *     CoreNetworkId: "STRING_VALUE",
- *     SegmentName: "STRING_VALUE",
- *     EdgeLocation: "STRING_VALUE",
- *   },
- *   RouteTableType: "TRANSIT_GATEWAY_ROUTE_TABLE" || "CORE_NETWORK_SEGMENT",
- *   RouteTableTimestamp: new Date("TIMESTAMP"),
- *   NetworkRoutes: [ // NetworkRouteList
- *     { // NetworkRoute
- *       DestinationCidrBlock: "STRING_VALUE",
- *       Destinations: [ // NetworkRouteDestinationList
- *         { // NetworkRouteDestination
- *           CoreNetworkAttachmentId: "STRING_VALUE",
- *           TransitGatewayAttachmentId: "STRING_VALUE",
- *           SegmentName: "STRING_VALUE",
- *           EdgeLocation: "STRING_VALUE",
- *           ResourceType: "STRING_VALUE",
- *           ResourceId: "STRING_VALUE",
- *         },
- *       ],
- *       PrefixListId: "STRING_VALUE",
- *       State: "ACTIVE" || "BLACKHOLE",
- *       Type: "PROPAGATED" || "STATIC",
- *     },
- *   ],
- * };
+ * // { // GetNetworkRoutesResponse
+ * //   RouteTableArn: "STRING_VALUE",
+ * //   CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     SegmentName: "STRING_VALUE",
+ * //     EdgeLocation: "STRING_VALUE",
+ * //   },
+ * //   RouteTableType: "TRANSIT_GATEWAY_ROUTE_TABLE" || "CORE_NETWORK_SEGMENT",
+ * //   RouteTableTimestamp: new Date("TIMESTAMP"),
+ * //   NetworkRoutes: [ // NetworkRouteList
+ * //     { // NetworkRoute
+ * //       DestinationCidrBlock: "STRING_VALUE",
+ * //       Destinations: [ // NetworkRouteDestinationList
+ * //         { // NetworkRouteDestination
+ * //           CoreNetworkAttachmentId: "STRING_VALUE",
+ * //           TransitGatewayAttachmentId: "STRING_VALUE",
+ * //           SegmentName: "STRING_VALUE",
+ * //           EdgeLocation: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PrefixListId: "STRING_VALUE",
+ * //       State: "ACTIVE" || "BLACKHOLE",
+ * //       Type: "PROPAGATED" || "STATIC",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,12 +48,11 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * };
  * const command = new CreatePresignedNotebookUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePresignedNotebookUrlResponse
- *   NotebookUrl: "STRING_VALUE", // required
- *   AuthToken: "STRING_VALUE", // required
- *   AuthTokenExpirationTime: Number("long"), // required
- * };
+ * // { // CreatePresignedNotebookUrlResponse
+ * //   NotebookUrl: "STRING_VALUE", // required
+ * //   AuthToken: "STRING_VALUE", // required
+ * //   AuthTokenExpirationTime: Number("long"), // required
+ * // };
  *
  * ```
  *

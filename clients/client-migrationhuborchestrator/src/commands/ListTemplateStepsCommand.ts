@@ -51,27 +51,26 @@ export interface ListTemplateStepsCommandOutput extends ListTemplateStepsRespons
  * };
  * const command = new ListTemplateStepsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplateStepsResponse
- *   nextToken: "STRING_VALUE",
- *   templateStepSummaryList: [ // TemplateStepSummaryList
- *     { // TemplateStepSummary
- *       id: "STRING_VALUE",
- *       stepGroupId: "STRING_VALUE",
- *       templateId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       stepActionType: "STRING_VALUE",
- *       targetType: "STRING_VALUE",
- *       owner: "STRING_VALUE",
- *       previous: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       next: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListTemplateStepsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   templateStepSummaryList: [ // TemplateStepSummaryList
+ * //     { // TemplateStepSummary
+ * //       id: "STRING_VALUE",
+ * //       stepGroupId: "STRING_VALUE",
+ * //       templateId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       stepActionType: "STRING_VALUE",
+ * //       targetType: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       previous: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       next: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

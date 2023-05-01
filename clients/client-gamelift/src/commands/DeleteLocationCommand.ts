@@ -46,8 +46,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * };
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

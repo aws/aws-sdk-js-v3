@@ -45,22 +45,21 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * };
  * const command = new GetWorkflowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowExecutionResponse
- *   requestId: "STRING_VALUE",
- *   workflowBuildVersionArn: "STRING_VALUE",
- *   workflowExecutionId: "STRING_VALUE",
- *   imageBuildVersionArn: "STRING_VALUE",
- *   type: "BUILD" || "TEST" || "DISTRIBUTION",
- *   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED",
- *   message: "STRING_VALUE",
- *   totalStepCount: Number("int"),
- *   totalStepsSucceeded: Number("int"),
- *   totalStepsFailed: Number("int"),
- *   totalStepsSkipped: Number("int"),
- *   startTime: "STRING_VALUE",
- *   endTime: "STRING_VALUE",
- * };
+ * // { // GetWorkflowExecutionResponse
+ * //   requestId: "STRING_VALUE",
+ * //   workflowBuildVersionArn: "STRING_VALUE",
+ * //   workflowExecutionId: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * //   type: "BUILD" || "TEST" || "DISTRIBUTION",
+ * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED",
+ * //   message: "STRING_VALUE",
+ * //   totalStepCount: Number("int"),
+ * //   totalStepsSucceeded: Number("int"),
+ * //   totalStepsFailed: Number("int"),
+ * //   totalStepsSkipped: Number("int"),
+ * //   startTime: "STRING_VALUE",
+ * //   endTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

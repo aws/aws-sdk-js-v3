@@ -75,11 +75,10 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * };
  * const command = new CreateDeviceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeviceProfileResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateDeviceProfileResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

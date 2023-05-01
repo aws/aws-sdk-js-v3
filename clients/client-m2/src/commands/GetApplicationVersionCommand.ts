@@ -45,16 +45,15 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * };
  * const command = new GetApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationVersionResponse
- *   name: "STRING_VALUE", // required
- *   applicationVersion: Number("int"), // required
- *   description: "STRING_VALUE",
- *   definitionContent: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   statusReason: "STRING_VALUE",
- * };
+ * // { // GetApplicationVersionResponse
+ * //   name: "STRING_VALUE", // required
+ * //   applicationVersion: Number("int"), // required
+ * //   description: "STRING_VALUE",
+ * //   definitionContent: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   statusReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

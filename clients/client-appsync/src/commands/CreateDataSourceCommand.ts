@@ -93,61 +93,60 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSourceResponse
- *   dataSource: { // DataSource
- *     dataSourceArn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE",
- *     serviceRoleArn: "STRING_VALUE",
- *     dynamodbConfig: { // DynamodbDataSourceConfig
- *       tableName: "STRING_VALUE", // required
- *       awsRegion: "STRING_VALUE", // required
- *       useCallerCredentials: true || false,
- *       deltaSyncConfig: { // DeltaSyncConfig
- *         baseTableTTL: Number("long"),
- *         deltaSyncTableName: "STRING_VALUE",
- *         deltaSyncTableTTL: Number("long"),
- *       },
- *       versioned: true || false,
- *     },
- *     lambdaConfig: { // LambdaDataSourceConfig
- *       lambdaFunctionArn: "STRING_VALUE", // required
- *     },
- *     elasticsearchConfig: { // ElasticsearchDataSourceConfig
- *       endpoint: "STRING_VALUE", // required
- *       awsRegion: "STRING_VALUE", // required
- *     },
- *     openSearchServiceConfig: { // OpenSearchServiceDataSourceConfig
- *       endpoint: "STRING_VALUE", // required
- *       awsRegion: "STRING_VALUE", // required
- *     },
- *     httpConfig: { // HttpDataSourceConfig
- *       endpoint: "STRING_VALUE",
- *       authorizationConfig: { // AuthorizationConfig
- *         authorizationType: "AWS_IAM", // required
- *         awsIamConfig: { // AwsIamConfig
- *           signingRegion: "STRING_VALUE",
- *           signingServiceName: "STRING_VALUE",
- *         },
- *       },
- *     },
- *     relationalDatabaseConfig: { // RelationalDatabaseDataSourceConfig
- *       relationalDatabaseSourceType: "RDS_HTTP_ENDPOINT",
- *       rdsHttpEndpointConfig: { // RdsHttpEndpointConfig
- *         awsRegion: "STRING_VALUE",
- *         dbClusterIdentifier: "STRING_VALUE",
- *         databaseName: "STRING_VALUE",
- *         schema: "STRING_VALUE",
- *         awsSecretStoreArn: "STRING_VALUE",
- *       },
- *     },
- *     eventBridgeConfig: { // EventBridgeDataSourceConfig
- *       eventBusArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // CreateDataSourceResponse
+ * //   dataSource: { // DataSource
+ * //     dataSourceArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE",
+ * //     serviceRoleArn: "STRING_VALUE",
+ * //     dynamodbConfig: { // DynamodbDataSourceConfig
+ * //       tableName: "STRING_VALUE", // required
+ * //       awsRegion: "STRING_VALUE", // required
+ * //       useCallerCredentials: true || false,
+ * //       deltaSyncConfig: { // DeltaSyncConfig
+ * //         baseTableTTL: Number("long"),
+ * //         deltaSyncTableName: "STRING_VALUE",
+ * //         deltaSyncTableTTL: Number("long"),
+ * //       },
+ * //       versioned: true || false,
+ * //     },
+ * //     lambdaConfig: { // LambdaDataSourceConfig
+ * //       lambdaFunctionArn: "STRING_VALUE", // required
+ * //     },
+ * //     elasticsearchConfig: { // ElasticsearchDataSourceConfig
+ * //       endpoint: "STRING_VALUE", // required
+ * //       awsRegion: "STRING_VALUE", // required
+ * //     },
+ * //     openSearchServiceConfig: { // OpenSearchServiceDataSourceConfig
+ * //       endpoint: "STRING_VALUE", // required
+ * //       awsRegion: "STRING_VALUE", // required
+ * //     },
+ * //     httpConfig: { // HttpDataSourceConfig
+ * //       endpoint: "STRING_VALUE",
+ * //       authorizationConfig: { // AuthorizationConfig
+ * //         authorizationType: "AWS_IAM", // required
+ * //         awsIamConfig: { // AwsIamConfig
+ * //           signingRegion: "STRING_VALUE",
+ * //           signingServiceName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     relationalDatabaseConfig: { // RelationalDatabaseDataSourceConfig
+ * //       relationalDatabaseSourceType: "RDS_HTTP_ENDPOINT",
+ * //       rdsHttpEndpointConfig: { // RdsHttpEndpointConfig
+ * //         awsRegion: "STRING_VALUE",
+ * //         dbClusterIdentifier: "STRING_VALUE",
+ * //         databaseName: "STRING_VALUE",
+ * //         schema: "STRING_VALUE",
+ * //         awsSecretStoreArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     eventBridgeConfig: { // EventBridgeDataSourceConfig
+ * //       eventBusArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

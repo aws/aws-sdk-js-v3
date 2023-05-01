@@ -60,17 +60,16 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEventsResponse
- *   FailedEntryCount: Number("int"),
- *   Entries: [ // PutEventsResultEntryList
- *     { // PutEventsResultEntry
- *       EventId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutEventsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   Entries: [ // PutEventsResultEntryList
+ * //     { // PutEventsResultEntry
+ * //       EventId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -56,10 +56,9 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * };
  * const command = new CreateHttpNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHttpNamespaceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // CreateHttpNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

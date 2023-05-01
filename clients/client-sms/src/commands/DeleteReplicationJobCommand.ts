@@ -47,8 +47,7 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * };
  * const command = new DeleteReplicationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

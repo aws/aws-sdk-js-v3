@@ -48,8 +48,7 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  * };
  * const command = new UpdateNamedQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

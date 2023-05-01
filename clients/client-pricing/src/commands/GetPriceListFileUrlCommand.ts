@@ -53,10 +53,9 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * };
  * const command = new GetPriceListFileUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPriceListFileUrlResponse
- *   Url: "STRING_VALUE",
- * };
+ * // { // GetPriceListFileUrlResponse
+ * //   Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

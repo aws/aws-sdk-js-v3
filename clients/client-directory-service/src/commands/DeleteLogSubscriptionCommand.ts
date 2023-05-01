@@ -44,8 +44,7 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * };
  * const command = new DeleteLogSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

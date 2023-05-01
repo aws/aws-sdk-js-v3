@@ -49,8 +49,7 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteJobExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

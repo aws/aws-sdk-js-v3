@@ -52,15 +52,14 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResourcePolicyResult
- *   ResourcePolicy: { // ResourcePolicy
- *     PolicyName: "STRING_VALUE",
- *     PolicyDocument: "STRING_VALUE",
- *     PolicyRevisionId: "STRING_VALUE",
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // PutResourcePolicyResult
+ * //   ResourcePolicy: { // ResourcePolicy
+ * //     PolicyName: "STRING_VALUE",
+ * //     PolicyDocument: "STRING_VALUE",
+ * //     PolicyRevisionId: "STRING_VALUE",
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

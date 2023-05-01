@@ -51,18 +51,17 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupResponse
- *   Group: { // GroupType
- *     GroupName: "STRING_VALUE",
- *     UserPoolId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     Precedence: Number("int"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetGroupResponse
+ * //   Group: { // GroupType
+ * //     GroupName: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     Precedence: Number("int"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

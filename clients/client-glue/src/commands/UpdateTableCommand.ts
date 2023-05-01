@@ -131,8 +131,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

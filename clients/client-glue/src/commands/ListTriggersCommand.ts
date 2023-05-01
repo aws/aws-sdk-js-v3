@@ -52,13 +52,12 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * };
  * const command = new ListTriggersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTriggersResponse
- *   TriggerNames: [ // TriggerNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTriggersResponse
+ * //   TriggerNames: [ // TriggerNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

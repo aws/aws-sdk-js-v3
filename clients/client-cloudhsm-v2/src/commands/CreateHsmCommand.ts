@@ -47,19 +47,18 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHsmResponse
- *   Hsm: { // Hsm
- *     AvailabilityZone: "STRING_VALUE",
- *     ClusterId: "STRING_VALUE",
- *     SubnetId: "STRING_VALUE",
- *     EniId: "STRING_VALUE",
- *     EniIp: "STRING_VALUE",
- *     HsmId: "STRING_VALUE", // required
- *     State: "STRING_VALUE",
- *     StateMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateHsmResponse
+ * //   Hsm: { // Hsm
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     ClusterId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     EniId: "STRING_VALUE",
+ * //     EniIp: "STRING_VALUE",
+ * //     HsmId: "STRING_VALUE", // required
+ * //     State: "STRING_VALUE",
+ * //     StateMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

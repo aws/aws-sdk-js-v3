@@ -48,10 +48,9 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
  * };
  * const command = new StopRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopRxNormInferenceJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StopRxNormInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,30 +57,29 @@ export interface DescribeVpnGatewaysCommandOutput extends DescribeVpnGatewaysRes
  * };
  * const command = new DescribeVpnGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpnGatewaysResult
- *   VpnGateways: [ // VpnGatewayList
- *     { // VpnGateway
- *       AvailabilityZone: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       Type: "ipsec.1",
- *       VpcAttachments: [ // VpcAttachmentList
- *         { // VpcAttachment
- *           State: "attaching" || "attached" || "detaching" || "detached",
- *           VpcId: "STRING_VALUE",
- *         },
- *       ],
- *       VpnGatewayId: "STRING_VALUE",
- *       AmazonSideAsn: Number("long"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeVpnGatewaysResult
+ * //   VpnGateways: [ // VpnGatewayList
+ * //     { // VpnGateway
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       Type: "ipsec.1",
+ * //       VpcAttachments: [ // VpcAttachmentList
+ * //         { // VpcAttachment
+ * //           State: "attaching" || "attached" || "detaching" || "detached",
+ * //           VpcId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpnGatewayId: "STRING_VALUE",
+ * //       AmazonSideAsn: Number("long"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

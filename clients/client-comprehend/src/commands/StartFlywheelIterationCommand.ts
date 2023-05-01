@@ -47,11 +47,10 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * };
  * const command = new StartFlywheelIterationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFlywheelIterationResponse
- *   FlywheelArn: "STRING_VALUE",
- *   FlywheelIterationId: "STRING_VALUE",
- * };
+ * // { // StartFlywheelIterationResponse
+ * //   FlywheelArn: "STRING_VALUE",
+ * //   FlywheelIterationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

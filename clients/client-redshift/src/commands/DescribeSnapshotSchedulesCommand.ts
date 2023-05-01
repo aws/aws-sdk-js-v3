@@ -55,35 +55,34 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * };
  * const command = new DescribeSnapshotSchedulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSnapshotSchedulesOutputMessage
- *   SnapshotSchedules: [ // SnapshotScheduleList
- *     { // SnapshotSchedule
- *       ScheduleDefinitions: [ // ScheduleDefinitionList
- *         "STRING_VALUE",
- *       ],
- *       ScheduleIdentifier: "STRING_VALUE",
- *       ScheduleDescription: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       NextInvocations: [ // ScheduledSnapshotTimeList
- *         new Date("TIMESTAMP"),
- *       ],
- *       AssociatedClusterCount: Number("int"),
- *       AssociatedClusters: [ // AssociatedClusterList
- *         { // ClusterAssociatedToSchedule
- *           ClusterIdentifier: "STRING_VALUE",
- *           ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeSnapshotSchedulesOutputMessage
+ * //   SnapshotSchedules: [ // SnapshotScheduleList
+ * //     { // SnapshotSchedule
+ * //       ScheduleDefinitions: [ // ScheduleDefinitionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ScheduleIdentifier: "STRING_VALUE",
+ * //       ScheduleDescription: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       NextInvocations: [ // ScheduledSnapshotTimeList
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       AssociatedClusterCount: Number("int"),
+ * //       AssociatedClusters: [ // AssociatedClusterList
+ * //         { // ClusterAssociatedToSchedule
+ * //           ClusterIdentifier: "STRING_VALUE",
+ * //           ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

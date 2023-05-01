@@ -45,10 +45,9 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePolicyResponse
- *   policy: "STRING_VALUE",
- * };
+ * // { // GetResourcePolicyResponse
+ * //   policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

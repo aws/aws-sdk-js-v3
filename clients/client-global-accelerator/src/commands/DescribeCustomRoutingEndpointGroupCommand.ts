@@ -56,27 +56,26 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  * };
  * const command = new DescribeCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomRoutingEndpointGroupResponse
- *   EndpointGroup: { // CustomRoutingEndpointGroup
- *     EndpointGroupArn: "STRING_VALUE",
- *     EndpointGroupRegion: "STRING_VALUE",
- *     DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
- *       { // CustomRoutingDestinationDescription
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *         Protocols: [ // Protocols
- *           "TCP" || "UDP",
- *         ],
- *       },
- *     ],
- *     EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
- *       { // CustomRoutingEndpointDescription
- *         EndpointId: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeCustomRoutingEndpointGroupResponse
+ * //   EndpointGroup: { // CustomRoutingEndpointGroup
+ * //     EndpointGroupArn: "STRING_VALUE",
+ * //     EndpointGroupRegion: "STRING_VALUE",
+ * //     DestinationDescriptions: [ // CustomRoutingDestinationDescriptions
+ * //       { // CustomRoutingDestinationDescription
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //         Protocols: [ // Protocols
+ * //           "TCP" || "UDP",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ * //       { // CustomRoutingEndpointDescription
+ * //         EndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

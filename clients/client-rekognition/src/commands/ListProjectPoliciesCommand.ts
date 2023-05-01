@@ -48,20 +48,19 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * };
  * const command = new ListProjectPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectPoliciesResponse
- *   ProjectPolicies: [ // ProjectPolicies
- *     { // ProjectPolicy
- *       ProjectArn: "STRING_VALUE",
- *       PolicyName: "STRING_VALUE",
- *       PolicyRevisionId: "STRING_VALUE",
- *       PolicyDocument: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectPoliciesResponse
+ * //   ProjectPolicies: [ // ProjectPolicies
+ * //     { // ProjectPolicy
+ * //       ProjectArn: "STRING_VALUE",
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyRevisionId: "STRING_VALUE",
+ * //       PolicyDocument: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

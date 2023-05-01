@@ -49,20 +49,19 @@ export interface GetNotificationConfigurationCommandOutput
  * };
  * const command = new GetNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNotificationConfigurationResponse
- *   notificationConfiguration: { // NotificationConfiguration
- *     channels: [ // Channels
- *       { // Channel
- *         id: "STRING_VALUE",
- *         uri: "STRING_VALUE", // required
- *         eventPublishers: [ // EventPublishers // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // GetNotificationConfigurationResponse
+ * //   notificationConfiguration: { // NotificationConfiguration
+ * //     channels: [ // Channels
+ * //       { // Channel
+ * //         id: "STRING_VALUE",
+ * //         uri: "STRING_VALUE", // required
+ * //         eventPublishers: [ // EventPublishers // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

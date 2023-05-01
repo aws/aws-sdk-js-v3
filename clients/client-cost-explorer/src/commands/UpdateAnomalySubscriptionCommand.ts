@@ -124,10 +124,9 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * };
  * const command = new UpdateAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnomalySubscriptionResponse
- *   SubscriptionArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateAnomalySubscriptionResponse
+ * //   SubscriptionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

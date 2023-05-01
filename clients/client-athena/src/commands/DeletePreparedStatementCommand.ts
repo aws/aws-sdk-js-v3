@@ -46,8 +46,7 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * };
  * const command = new DeletePreparedStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

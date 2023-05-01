@@ -48,39 +48,38 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * };
  * const command = new ListServiceQuotasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceQuotasResponse
- *   NextToken: "STRING_VALUE",
- *   Quotas: [ // ServiceQuotaListDefinition
- *     { // ServiceQuota
- *       ServiceCode: "STRING_VALUE",
- *       ServiceName: "STRING_VALUE",
- *       QuotaArn: "STRING_VALUE",
- *       QuotaCode: "STRING_VALUE",
- *       QuotaName: "STRING_VALUE",
- *       Value: Number("double"),
- *       Unit: "STRING_VALUE",
- *       Adjustable: true || false,
- *       GlobalQuota: true || false,
- *       UsageMetric: { // MetricInfo
- *         MetricNamespace: "STRING_VALUE",
- *         MetricName: "STRING_VALUE",
- *         MetricDimensions: { // MetricDimensionsMapDefinition
- *           "<keys>": "STRING_VALUE",
- *         },
- *         MetricStatisticRecommendation: "STRING_VALUE",
- *       },
- *       Period: { // QuotaPeriod
- *         PeriodValue: Number("int"),
- *         PeriodUnit: "STRING_VALUE",
- *       },
- *       ErrorReason: { // ErrorReason
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListServiceQuotasResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Quotas: [ // ServiceQuotaListDefinition
+ * //     { // ServiceQuota
+ * //       ServiceCode: "STRING_VALUE",
+ * //       ServiceName: "STRING_VALUE",
+ * //       QuotaArn: "STRING_VALUE",
+ * //       QuotaCode: "STRING_VALUE",
+ * //       QuotaName: "STRING_VALUE",
+ * //       Value: Number("double"),
+ * //       Unit: "STRING_VALUE",
+ * //       Adjustable: true || false,
+ * //       GlobalQuota: true || false,
+ * //       UsageMetric: { // MetricInfo
+ * //         MetricNamespace: "STRING_VALUE",
+ * //         MetricName: "STRING_VALUE",
+ * //         MetricDimensions: { // MetricDimensionsMapDefinition
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         MetricStatisticRecommendation: "STRING_VALUE",
+ * //       },
+ * //       Period: { // QuotaPeriod
+ * //         PeriodValue: Number("int"),
+ * //         PeriodUnit: "STRING_VALUE",
+ * //       },
+ * //       ErrorReason: { // ErrorReason
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

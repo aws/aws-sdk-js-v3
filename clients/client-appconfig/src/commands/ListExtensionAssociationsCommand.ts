@@ -51,17 +51,16 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * };
  * const command = new ListExtensionAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExtensionAssociations
- *   Items: [ // ExtensionAssociationSummaries
- *     { // ExtensionAssociationSummary
- *       Id: "STRING_VALUE",
- *       ExtensionArn: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ExtensionAssociations
+ * //   Items: [ // ExtensionAssociationSummaries
+ * //     { // ExtensionAssociationSummary
+ * //       Id: "STRING_VALUE",
+ * //       ExtensionArn: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

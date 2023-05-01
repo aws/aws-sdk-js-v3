@@ -56,18 +56,17 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  * };
  * const command = new ListModelQualityJobDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelQualityJobDefinitionsResponse
- *   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
- *     { // MonitoringJobDefinitionSummary
- *       MonitoringJobDefinitionName: "STRING_VALUE", // required
- *       MonitoringJobDefinitionArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       EndpointName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelQualityJobDefinitionsResponse
+ * //   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
+ * //     { // MonitoringJobDefinitionSummary
+ * //       MonitoringJobDefinitionName: "STRING_VALUE", // required
+ * //       MonitoringJobDefinitionArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       EndpointName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateCampaignNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

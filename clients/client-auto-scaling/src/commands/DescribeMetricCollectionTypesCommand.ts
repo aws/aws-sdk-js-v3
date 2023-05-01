@@ -47,19 +47,18 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * const input = {};
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMetricCollectionTypesAnswer
- *   Metrics: [ // MetricCollectionTypes
- *     { // MetricCollectionType
- *       Metric: "STRING_VALUE",
- *     },
- *   ],
- *   Granularities: [ // MetricGranularityTypes
- *     { // MetricGranularityType
- *       Granularity: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeMetricCollectionTypesAnswer
+ * //   Metrics: [ // MetricCollectionTypes
+ * //     { // MetricCollectionType
+ * //       Metric: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Granularities: [ // MetricGranularityTypes
+ * //     { // MetricGranularityType
+ * //       Granularity: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

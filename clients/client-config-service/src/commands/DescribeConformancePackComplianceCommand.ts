@@ -63,20 +63,19 @@ export interface DescribeConformancePackComplianceCommandOutput
  * };
  * const command = new DescribeConformancePackComplianceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConformancePackComplianceResponse
- *   ConformancePackName: "STRING_VALUE", // required
- *   ConformancePackRuleComplianceList: [ // ConformancePackRuleComplianceList // required
- *     { // ConformancePackRuleCompliance
- *       ConfigRuleName: "STRING_VALUE",
- *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
- *       Controls: [ // ControlsList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConformancePackComplianceResponse
+ * //   ConformancePackName: "STRING_VALUE", // required
+ * //   ConformancePackRuleComplianceList: [ // ConformancePackRuleComplianceList // required
+ * //     { // ConformancePackRuleCompliance
+ * //       ConfigRuleName: "STRING_VALUE",
+ * //       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ * //       Controls: [ // ControlsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

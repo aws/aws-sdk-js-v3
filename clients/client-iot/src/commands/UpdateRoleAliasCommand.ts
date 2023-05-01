@@ -47,11 +47,10 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * };
  * const command = new UpdateRoleAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRoleAliasResponse
- *   roleAlias: "STRING_VALUE",
- *   roleAliasArn: "STRING_VALUE",
- * };
+ * // { // UpdateRoleAliasResponse
+ * //   roleAlias: "STRING_VALUE",
+ * //   roleAliasArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

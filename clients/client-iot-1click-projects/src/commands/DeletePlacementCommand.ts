@@ -53,8 +53,7 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * };
  * const command = new DeletePlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,10 +52,9 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * };
  * const command = new ReplaceNetworkAclAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplaceNetworkAclAssociationResult
- *   NewAssociationId: "STRING_VALUE",
- * };
+ * // { // ReplaceNetworkAclAssociationResult
+ * //   NewAssociationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

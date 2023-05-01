@@ -51,18 +51,17 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  * };
  * const command = new ListAppInstanceBotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInstanceBotsResponse
- *   AppInstanceArn: "STRING_VALUE",
- *   AppInstanceBots: [ // AppInstanceBotList
- *     { // AppInstanceBotSummary
- *       AppInstanceBotArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInstanceBotsResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * //   AppInstanceBots: [ // AppInstanceBotList
+ * //     { // AppInstanceBotSummary
+ * //       AppInstanceBotArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

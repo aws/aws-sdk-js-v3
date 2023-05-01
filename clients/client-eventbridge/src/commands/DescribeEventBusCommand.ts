@@ -50,12 +50,11 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * };
  * const command = new DescribeEventBusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventBusResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // DescribeEventBusResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,24 +47,23 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  * };
  * const command = new GetIntegrationResponsesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIntegrationResponsesResponse
- *   Items: [ // __listOfIntegrationResponse
- *     { // IntegrationResponse
- *       ContentHandlingStrategy: "STRING_VALUE",
- *       IntegrationResponseId: "STRING_VALUE",
- *       IntegrationResponseKey: "STRING_VALUE", // required
- *       ResponseParameters: { // IntegrationParameters
- *         "<keys>": "STRING_VALUE",
- *       },
- *       ResponseTemplates: { // TemplateMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       TemplateSelectionExpression: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetIntegrationResponsesResponse
+ * //   Items: [ // __listOfIntegrationResponse
+ * //     { // IntegrationResponse
+ * //       ContentHandlingStrategy: "STRING_VALUE",
+ * //       IntegrationResponseId: "STRING_VALUE",
+ * //       IntegrationResponseKey: "STRING_VALUE", // required
+ * //       ResponseParameters: { // IntegrationParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ResponseTemplates: { // TemplateMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       TemplateSelectionExpression: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

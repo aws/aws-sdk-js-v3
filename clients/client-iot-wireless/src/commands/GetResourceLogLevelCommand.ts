@@ -46,10 +46,9 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * };
  * const command = new GetResourceLogLevelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceLogLevelResponse
- *   LogLevel: "INFO" || "ERROR" || "DISABLED",
- * };
+ * // { // GetResourceLogLevelResponse
+ * //   LogLevel: "INFO" || "ERROR" || "DISABLED",
+ * // };
  *
  * ```
  *

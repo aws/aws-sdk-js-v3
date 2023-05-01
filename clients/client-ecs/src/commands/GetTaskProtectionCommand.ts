@@ -47,23 +47,22 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * };
  * const command = new GetTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTaskProtectionResponse
- *   protectedTasks: [ // ProtectedTasks
- *     { // ProtectedTask
- *       taskArn: "STRING_VALUE",
- *       protectionEnabled: true || false,
- *       expirationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   failures: [ // Failures
- *     { // Failure
- *       arn: "STRING_VALUE",
- *       reason: "STRING_VALUE",
- *       detail: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetTaskProtectionResponse
+ * //   protectedTasks: [ // ProtectedTasks
+ * //     { // ProtectedTask
+ * //       taskArn: "STRING_VALUE",
+ * //       protectionEnabled: true || false,
+ * //       expirationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   failures: [ // Failures
+ * //     { // Failure
+ * //       arn: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
+ * //       detail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

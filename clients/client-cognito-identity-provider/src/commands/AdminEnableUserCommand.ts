@@ -55,8 +55,7 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * };
  * const command = new AdminEnableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,14 +52,13 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePricingPlanOutput
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Size: Number("long"),
- *   LastModifiedTime: Number("long"),
- * };
+ * // { // UpdatePricingPlanOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Size: Number("long"),
+ * //   LastModifiedTime: Number("long"),
+ * // };
  *
  * ```
  *

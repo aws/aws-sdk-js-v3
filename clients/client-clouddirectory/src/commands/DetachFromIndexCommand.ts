@@ -50,10 +50,9 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachFromIndexResponse
- *   DetachedObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // DetachFromIndexResponse
+ * //   DetachedObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

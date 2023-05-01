@@ -61,14 +61,13 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  * };
  * const command = new DeleteRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryPermissionsPolicyResult
- *   policy: { // ResourcePolicy
- *     resourceArn: "STRING_VALUE",
- *     revision: "STRING_VALUE",
- *     document: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteRepositoryPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

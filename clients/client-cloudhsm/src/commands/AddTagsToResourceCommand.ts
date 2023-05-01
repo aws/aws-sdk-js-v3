@@ -62,10 +62,9 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddTagsToResourceResponse
- *   Status: "STRING_VALUE", // required
- * };
+ * // { // AddTagsToResourceResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

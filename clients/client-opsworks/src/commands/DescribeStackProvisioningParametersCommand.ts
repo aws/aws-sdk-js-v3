@@ -57,13 +57,12 @@ export interface DescribeStackProvisioningParametersCommandOutput
  * };
  * const command = new DescribeStackProvisioningParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStackProvisioningParametersResult
- *   AgentInstallerUrl: "STRING_VALUE",
- *   Parameters: { // Parameters
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeStackProvisioningParametersResult
+ * //   AgentInstallerUrl: "STRING_VALUE",
+ * //   Parameters: { // Parameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

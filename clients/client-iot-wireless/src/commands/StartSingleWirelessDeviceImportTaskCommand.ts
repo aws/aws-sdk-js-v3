@@ -63,11 +63,10 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new StartSingleWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSingleWirelessDeviceImportTaskResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // StartSingleWirelessDeviceImportTaskResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,65 +50,64 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * };
  * const command = new AcceptVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptVpcPeeringConnectionResult
- *   VpcPeeringConnection: { // VpcPeeringConnection
- *     AccepterVpcInfo: { // VpcPeeringConnectionVpcInfo
- *       CidrBlock: "STRING_VALUE",
- *       Ipv6CidrBlockSet: [ // Ipv6CidrBlockSet
- *         { // Ipv6CidrBlock
- *           Ipv6CidrBlock: "STRING_VALUE",
- *         },
- *       ],
- *       CidrBlockSet: [ // CidrBlockSet
- *         { // CidrBlock
- *           CidrBlock: "STRING_VALUE",
- *         },
- *       ],
- *       OwnerId: "STRING_VALUE",
- *       PeeringOptions: { // VpcPeeringConnectionOptionsDescription
- *         AllowDnsResolutionFromRemoteVpc: true || false,
- *         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
- *         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
- *       },
- *       VpcId: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *     },
- *     ExpirationTime: new Date("TIMESTAMP"),
- *     RequesterVpcInfo: {
- *       CidrBlock: "STRING_VALUE",
- *       Ipv6CidrBlockSet: [
- *         {
- *           Ipv6CidrBlock: "STRING_VALUE",
- *         },
- *       ],
- *       CidrBlockSet: [
- *         {
- *           CidrBlock: "STRING_VALUE",
- *         },
- *       ],
- *       OwnerId: "STRING_VALUE",
- *       PeeringOptions: {
- *         AllowDnsResolutionFromRemoteVpc: true || false,
- *         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
- *         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
- *       },
- *       VpcId: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *     },
- *     Status: { // VpcPeeringConnectionStateReason
- *       Code: "initiating-request" || "pending-acceptance" || "active" || "deleted" || "rejected" || "failed" || "expired" || "provisioning" || "deleting",
- *       Message: "STRING_VALUE",
- *     },
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     VpcPeeringConnectionId: "STRING_VALUE",
- *   },
- * };
+ * // { // AcceptVpcPeeringConnectionResult
+ * //   VpcPeeringConnection: { // VpcPeeringConnection
+ * //     AccepterVpcInfo: { // VpcPeeringConnectionVpcInfo
+ * //       CidrBlock: "STRING_VALUE",
+ * //       Ipv6CidrBlockSet: [ // Ipv6CidrBlockSet
+ * //         { // Ipv6CidrBlock
+ * //           Ipv6CidrBlock: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CidrBlockSet: [ // CidrBlockSet
+ * //         { // CidrBlock
+ * //           CidrBlock: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       OwnerId: "STRING_VALUE",
+ * //       PeeringOptions: { // VpcPeeringConnectionOptionsDescription
+ * //         AllowDnsResolutionFromRemoteVpc: true || false,
+ * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //       },
+ * //       VpcId: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     ExpirationTime: new Date("TIMESTAMP"),
+ * //     RequesterVpcInfo: {
+ * //       CidrBlock: "STRING_VALUE",
+ * //       Ipv6CidrBlockSet: [
+ * //         {
+ * //           Ipv6CidrBlock: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CidrBlockSet: [
+ * //         {
+ * //           CidrBlock: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       OwnerId: "STRING_VALUE",
+ * //       PeeringOptions: {
+ * //         AllowDnsResolutionFromRemoteVpc: true || false,
+ * //         AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ * //         AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //       },
+ * //       VpcId: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     Status: { // VpcPeeringConnectionStateReason
+ * //       Code: "initiating-request" || "pending-acceptance" || "active" || "deleted" || "rejected" || "failed" || "expired" || "provisioning" || "deleting",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpcPeeringConnectionId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

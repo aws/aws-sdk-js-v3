@@ -47,22 +47,21 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * };
  * const command = new ListDetectorModelVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDetectorModelVersionsResponse
- *   detectorModelVersionSummaries: [ // DetectorModelVersionSummaries
- *     { // DetectorModelVersionSummary
- *       detectorModelName: "STRING_VALUE",
- *       detectorModelVersion: "STRING_VALUE",
- *       detectorModelArn: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       evaluationMethod: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDetectorModelVersionsResponse
+ * //   detectorModelVersionSummaries: [ // DetectorModelVersionSummaries
+ * //     { // DetectorModelVersionSummary
+ * //       detectorModelName: "STRING_VALUE",
+ * //       detectorModelVersion: "STRING_VALUE",
+ * //       detectorModelArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       evaluationMethod: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

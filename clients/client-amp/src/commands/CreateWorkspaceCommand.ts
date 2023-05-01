@@ -48,17 +48,16 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkspaceResponse
- *   workspaceId: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   status: { // WorkspaceStatus
- *     statusCode: "STRING_VALUE", // required
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateWorkspaceResponse
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   status: { // WorkspaceStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

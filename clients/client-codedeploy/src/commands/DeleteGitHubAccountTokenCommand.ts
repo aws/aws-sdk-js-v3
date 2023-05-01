@@ -44,10 +44,9 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * };
  * const command = new DeleteGitHubAccountTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGitHubAccountTokenOutput
- *   tokenName: "STRING_VALUE",
- * };
+ * // { // DeleteGitHubAccountTokenOutput
+ * //   tokenName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * };
  * const command = new StartOnDemandAuditTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartOnDemandAuditTaskResponse
- *   taskId: "STRING_VALUE",
- * };
+ * // { // StartOnDemandAuditTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

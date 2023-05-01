@@ -60,13 +60,12 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * };
  * const command = new StartSuiteRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSuiteRunResponse
- *   suiteRunId: "STRING_VALUE",
- *   suiteRunArn: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   endpoint: "STRING_VALUE",
- * };
+ * // { // StartSuiteRunResponse
+ * //   suiteRunId: "STRING_VALUE",
+ * //   suiteRunArn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   endpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

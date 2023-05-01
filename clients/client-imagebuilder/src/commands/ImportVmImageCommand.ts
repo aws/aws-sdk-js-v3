@@ -60,12 +60,11 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * };
  * const command = new ImportVmImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportVmImageResponse
- *   requestId: "STRING_VALUE",
- *   imageArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // ImportVmImageResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageArn: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

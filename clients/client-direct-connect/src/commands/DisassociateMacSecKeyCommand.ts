@@ -45,18 +45,17 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * };
  * const command = new DisassociateMacSecKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateMacSecKeyResponse
- *   connectionId: "STRING_VALUE",
- *   macSecKeys: [ // MacSecKeyList
- *     { // MacSecKey
- *       secretARN: "STRING_VALUE",
- *       ckn: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *       startOn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DisassociateMacSecKeyResponse
+ * //   connectionId: "STRING_VALUE",
+ * //   macSecKeys: [ // MacSecKeyList
+ * //     { // MacSecKey
+ * //       secretARN: "STRING_VALUE",
+ * //       ckn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       startOn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

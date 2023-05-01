@@ -49,43 +49,42 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * };
  * const command = new SearchIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchIndexResponse
- *   nextToken: "STRING_VALUE",
- *   things: [ // ThingDocumentList
- *     { // ThingDocument
- *       thingName: "STRING_VALUE",
- *       thingId: "STRING_VALUE",
- *       thingTypeName: "STRING_VALUE",
- *       thingGroupNames: [ // ThingGroupNameList
- *         "STRING_VALUE",
- *       ],
- *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *       shadow: "STRING_VALUE",
- *       deviceDefender: "STRING_VALUE",
- *       connectivity: { // ThingConnectivity
- *         connected: true || false,
- *         timestamp: Number("long"),
- *         disconnectReason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   thingGroups: [ // ThingGroupDocumentList
- *     { // ThingGroupDocument
- *       thingGroupName: "STRING_VALUE",
- *       thingGroupId: "STRING_VALUE",
- *       thingGroupDescription: "STRING_VALUE",
- *       attributes: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *       parentGroupNames: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // SearchIndexResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   things: [ // ThingDocumentList
+ * //     { // ThingDocument
+ * //       thingName: "STRING_VALUE",
+ * //       thingId: "STRING_VALUE",
+ * //       thingTypeName: "STRING_VALUE",
+ * //       thingGroupNames: [ // ThingGroupNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       shadow: "STRING_VALUE",
+ * //       deviceDefender: "STRING_VALUE",
+ * //       connectivity: { // ThingConnectivity
+ * //         connected: true || false,
+ * //         timestamp: Number("long"),
+ * //         disconnectReason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   thingGroups: [ // ThingGroupDocumentList
+ * //     { // ThingGroupDocument
+ * //       thingGroupName: "STRING_VALUE",
+ * //       thingGroupId: "STRING_VALUE",
+ * //       thingGroupDescription: "STRING_VALUE",
+ * //       attributes: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       parentGroupNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

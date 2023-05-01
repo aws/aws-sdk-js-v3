@@ -58,20 +58,19 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateListenerResponse
- *   Listener: { // Listener
- *     ListenerArn: "STRING_VALUE",
- *     PortRanges: [ // PortRanges
- *       { // PortRange
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *       },
- *     ],
- *     Protocol: "TCP" || "UDP",
- *     ClientAffinity: "NONE" || "SOURCE_IP",
- *   },
- * };
+ * // { // CreateListenerResponse
+ * //   Listener: { // Listener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     Protocol: "TCP" || "UDP",
+ * //     ClientAffinity: "NONE" || "SOURCE_IP",
+ * //   },
+ * // };
  *
  * ```
  *

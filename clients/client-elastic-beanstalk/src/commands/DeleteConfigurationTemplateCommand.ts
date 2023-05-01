@@ -50,8 +50,7 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -110,10 +110,9 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * };
  * const command = new PutMetricStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutMetricStreamOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // PutMetricStreamOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

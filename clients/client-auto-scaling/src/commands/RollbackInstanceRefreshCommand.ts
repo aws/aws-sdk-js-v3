@@ -66,10 +66,9 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * };
  * const command = new RollbackInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RollbackInstanceRefreshAnswer
- *   InstanceRefreshId: "STRING_VALUE",
- * };
+ * // { // RollbackInstanceRefreshAnswer
+ * //   InstanceRefreshId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

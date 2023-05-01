@@ -59,10 +59,9 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * };
  * const command = new AddWorkingStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddWorkingStorageOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // AddWorkingStorageOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

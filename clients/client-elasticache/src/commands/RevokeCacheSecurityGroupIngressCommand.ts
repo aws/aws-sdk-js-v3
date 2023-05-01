@@ -53,22 +53,21 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * };
  * const command = new RevokeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RevokeCacheSecurityGroupIngressResult
- *   CacheSecurityGroup: { // CacheSecurityGroup
- *     OwnerId: "STRING_VALUE",
- *     CacheSecurityGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     EC2SecurityGroups: [ // EC2SecurityGroupList
- *       { // EC2SecurityGroup
- *         Status: "STRING_VALUE",
- *         EC2SecurityGroupName: "STRING_VALUE",
- *         EC2SecurityGroupOwnerId: "STRING_VALUE",
- *       },
- *     ],
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // RevokeCacheSecurityGroupIngressResult
+ * //   CacheSecurityGroup: { // CacheSecurityGroup
+ * //     OwnerId: "STRING_VALUE",
+ * //     CacheSecurityGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     EC2SecurityGroups: [ // EC2SecurityGroupList
+ * //       { // EC2SecurityGroup
+ * //         Status: "STRING_VALUE",
+ * //         EC2SecurityGroupName: "STRING_VALUE",
+ * //         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * };
  * const command = new DeregisterEventTopicCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

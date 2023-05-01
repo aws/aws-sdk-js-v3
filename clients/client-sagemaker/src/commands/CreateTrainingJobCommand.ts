@@ -288,10 +288,9 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  * };
  * const command = new CreateTrainingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrainingJobResponse
- *   TrainingJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateTrainingJobResponse
+ * //   TrainingJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

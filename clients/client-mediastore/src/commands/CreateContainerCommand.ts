@@ -51,17 +51,16 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * };
  * const command = new CreateContainerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContainerOutput
- *   Container: { // Container
- *     Endpoint: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     ARN: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     AccessLoggingEnabled: true || false,
- *   },
- * };
+ * // { // CreateContainerOutput
+ * //   Container: { // Container
+ * //     Endpoint: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ARN: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AccessLoggingEnabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

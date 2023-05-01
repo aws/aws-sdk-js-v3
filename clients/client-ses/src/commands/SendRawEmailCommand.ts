@@ -168,10 +168,9 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendRawEmailResponse
- *   MessageId: "STRING_VALUE", // required
- * };
+ * // { // SendRawEmailResponse
+ * //   MessageId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * };
  * const command = new UpdateEventIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

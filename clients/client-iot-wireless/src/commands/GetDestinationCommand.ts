@@ -44,15 +44,14 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDestinationResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Expression: "STRING_VALUE",
- *   ExpressionType: "RuleName" || "MqttTopic",
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- * };
+ * // { // GetDestinationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Expression: "STRING_VALUE",
+ * //   ExpressionType: "RuleName" || "MqttTopic",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,15 +50,14 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * };
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRouteResponse
- *   RouteId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   ServiceId: "STRING_VALUE",
- *   ApplicationId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteRouteResponse
+ * //   RouteId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   ServiceId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

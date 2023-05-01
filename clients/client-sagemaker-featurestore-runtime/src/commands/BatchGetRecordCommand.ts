@@ -58,40 +58,39 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * };
  * const command = new BatchGetRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetRecordResponse
- *   Records: [ // BatchGetRecordResultDetails // required
- *     { // BatchGetRecordResultDetail
- *       FeatureGroupName: "STRING_VALUE", // required
- *       RecordIdentifierValueAsString: "STRING_VALUE", // required
- *       Record: [ // Record // required
- *         { // FeatureValue
- *           FeatureName: "STRING_VALUE", // required
- *           ValueAsString: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   Errors: [ // BatchGetRecordErrors // required
- *     { // BatchGetRecordError
- *       FeatureGroupName: "STRING_VALUE", // required
- *       RecordIdentifierValueAsString: "STRING_VALUE", // required
- *       ErrorCode: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- *   UnprocessedIdentifiers: [ // UnprocessedIdentifiers // required
- *     { // BatchGetRecordIdentifier
- *       FeatureGroupName: "STRING_VALUE", // required
- *       RecordIdentifiersValueAsString: [ // RecordIdentifiers // required
- *         "STRING_VALUE",
- *       ],
- *       FeatureNames: [ // FeatureNames
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // BatchGetRecordResponse
+ * //   Records: [ // BatchGetRecordResultDetails // required
+ * //     { // BatchGetRecordResultDetail
+ * //       FeatureGroupName: "STRING_VALUE", // required
+ * //       RecordIdentifierValueAsString: "STRING_VALUE", // required
+ * //       Record: [ // Record // required
+ * //         { // FeatureValue
+ * //           FeatureName: "STRING_VALUE", // required
+ * //           ValueAsString: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchGetRecordErrors // required
+ * //     { // BatchGetRecordError
+ * //       FeatureGroupName: "STRING_VALUE", // required
+ * //       RecordIdentifierValueAsString: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   UnprocessedIdentifiers: [ // UnprocessedIdentifiers // required
+ * //     { // BatchGetRecordIdentifier
+ * //       FeatureGroupName: "STRING_VALUE", // required
+ * //       RecordIdentifiersValueAsString: [ // RecordIdentifiers // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FeatureNames: [ // FeatureNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

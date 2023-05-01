@@ -51,8 +51,7 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * };
  * const command = new AssociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

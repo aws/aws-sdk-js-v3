@@ -65,23 +65,22 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * };
  * const command = new DescribeAggregateComplianceByConformancePacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAggregateComplianceByConformancePacksResponse
- *   AggregateComplianceByConformancePacks: [ // AggregateComplianceByConformancePackList
- *     { // AggregateComplianceByConformancePack
- *       ConformancePackName: "STRING_VALUE",
- *       Compliance: { // AggregateConformancePackCompliance
- *         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
- *         CompliantRuleCount: Number("int"),
- *         NonCompliantRuleCount: Number("int"),
- *         TotalRuleCount: Number("int"),
- *       },
- *       AccountId: "STRING_VALUE",
- *       AwsRegion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAggregateComplianceByConformancePacksResponse
+ * //   AggregateComplianceByConformancePacks: [ // AggregateComplianceByConformancePackList
+ * //     { // AggregateComplianceByConformancePack
+ * //       ConformancePackName: "STRING_VALUE",
+ * //       Compliance: { // AggregateConformancePackCompliance
+ * //         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA",
+ * //         CompliantRuleCount: Number("int"),
+ * //         NonCompliantRuleCount: Number("int"),
+ * //         TotalRuleCount: Number("int"),
+ * //       },
+ * //       AccountId: "STRING_VALUE",
+ * //       AwsRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

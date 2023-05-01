@@ -48,12 +48,11 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * };
  * const command = new GetLogRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLogRecordResponse
- *   logRecord: { // LogRecord
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetLogRecordResponse
+ * //   logRecord: { // LogRecord
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

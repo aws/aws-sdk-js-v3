@@ -48,15 +48,14 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * };
  * const command = new DescribeUploadBufferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUploadBufferOutput
- *   GatewayARN: "STRING_VALUE",
- *   DiskIds: [ // DiskIds
- *     "STRING_VALUE",
- *   ],
- *   UploadBufferUsedInBytes: Number("long"),
- *   UploadBufferAllocatedInBytes: Number("long"),
- * };
+ * // { // DescribeUploadBufferOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   DiskIds: [ // DiskIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   UploadBufferUsedInBytes: Number("long"),
+ * //   UploadBufferAllocatedInBytes: Number("long"),
+ * // };
  *
  * ```
  *

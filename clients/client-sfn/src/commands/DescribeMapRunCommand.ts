@@ -44,37 +44,36 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * };
  * const command = new DescribeMapRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMapRunOutput
- *   mapRunArn: "STRING_VALUE", // required
- *   executionArn: "STRING_VALUE", // required
- *   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "ABORTED", // required
- *   startDate: new Date("TIMESTAMP"), // required
- *   stopDate: new Date("TIMESTAMP"),
- *   maxConcurrency: Number("int"), // required
- *   toleratedFailurePercentage: Number("float"), // required
- *   toleratedFailureCount: Number("long"), // required
- *   itemCounts: { // MapRunItemCounts
- *     pending: Number("long"), // required
- *     running: Number("long"), // required
- *     succeeded: Number("long"), // required
- *     failed: Number("long"), // required
- *     timedOut: Number("long"), // required
- *     aborted: Number("long"), // required
- *     total: Number("long"), // required
- *     resultsWritten: Number("long"), // required
- *   },
- *   executionCounts: { // MapRunExecutionCounts
- *     pending: Number("long"), // required
- *     running: Number("long"), // required
- *     succeeded: Number("long"), // required
- *     failed: Number("long"), // required
- *     timedOut: Number("long"), // required
- *     aborted: Number("long"), // required
- *     total: Number("long"), // required
- *     resultsWritten: Number("long"), // required
- *   },
- * };
+ * // { // DescribeMapRunOutput
+ * //   mapRunArn: "STRING_VALUE", // required
+ * //   executionArn: "STRING_VALUE", // required
+ * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "ABORTED", // required
+ * //   startDate: new Date("TIMESTAMP"), // required
+ * //   stopDate: new Date("TIMESTAMP"),
+ * //   maxConcurrency: Number("int"), // required
+ * //   toleratedFailurePercentage: Number("float"), // required
+ * //   toleratedFailureCount: Number("long"), // required
+ * //   itemCounts: { // MapRunItemCounts
+ * //     pending: Number("long"), // required
+ * //     running: Number("long"), // required
+ * //     succeeded: Number("long"), // required
+ * //     failed: Number("long"), // required
+ * //     timedOut: Number("long"), // required
+ * //     aborted: Number("long"), // required
+ * //     total: Number("long"), // required
+ * //     resultsWritten: Number("long"), // required
+ * //   },
+ * //   executionCounts: { // MapRunExecutionCounts
+ * //     pending: Number("long"), // required
+ * //     running: Number("long"), // required
+ * //     succeeded: Number("long"), // required
+ * //     failed: Number("long"), // required
+ * //     timedOut: Number("long"), // required
+ * //     aborted: Number("long"), // required
+ * //     total: Number("long"), // required
+ * //     resultsWritten: Number("long"), // required
+ * //   },
+ * // };
  *
  * ```
  *

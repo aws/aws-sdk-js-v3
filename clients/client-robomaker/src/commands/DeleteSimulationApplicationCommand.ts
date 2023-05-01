@@ -50,8 +50,7 @@ export interface DeleteSimulationApplicationCommandOutput
  * };
  * const command = new DeleteSimulationApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

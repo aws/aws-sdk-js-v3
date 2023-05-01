@@ -49,20 +49,19 @@ export interface DescribeRouterConfigurationCommandOutput
  * };
  * const command = new DescribeRouterConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRouterConfigurationResponse
- *   customerRouterConfig: "STRING_VALUE",
- *   router: { // RouterType
- *     vendor: "STRING_VALUE",
- *     platform: "STRING_VALUE",
- *     software: "STRING_VALUE",
- *     xsltTemplateName: "STRING_VALUE",
- *     xsltTemplateNameForMacSec: "STRING_VALUE",
- *     routerTypeIdentifier: "STRING_VALUE",
- *   },
- *   virtualInterfaceId: "STRING_VALUE",
- *   virtualInterfaceName: "STRING_VALUE",
- * };
+ * // { // DescribeRouterConfigurationResponse
+ * //   customerRouterConfig: "STRING_VALUE",
+ * //   router: { // RouterType
+ * //     vendor: "STRING_VALUE",
+ * //     platform: "STRING_VALUE",
+ * //     software: "STRING_VALUE",
+ * //     xsltTemplateName: "STRING_VALUE",
+ * //     xsltTemplateNameForMacSec: "STRING_VALUE",
+ * //     routerTypeIdentifier: "STRING_VALUE",
+ * //   },
+ * //   virtualInterfaceId: "STRING_VALUE",
+ * //   virtualInterfaceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

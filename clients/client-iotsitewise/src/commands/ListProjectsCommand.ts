@@ -46,19 +46,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsResponse
- *   projectSummaries: [ // ProjectSummaries // required
- *     { // ProjectSummary
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *       lastUpdateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectsResponse
+ * //   projectSummaries: [ // ProjectSummaries // required
+ * //     { // ProjectSummary
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       lastUpdateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

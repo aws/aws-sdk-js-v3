@@ -51,16 +51,15 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * };
  * const command = new UpdateBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBrowserSettingsResponse
- *   browserSettings: { // BrowserSettings
- *     browserSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     browserPolicy: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateBrowserSettingsResponse
+ * //   browserSettings: { // BrowserSettings
+ * //     browserSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     browserPolicy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

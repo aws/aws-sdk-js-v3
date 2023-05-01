@@ -44,19 +44,18 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceProfileResult
- *   instanceProfile: { // InstanceProfile
- *     arn: "STRING_VALUE",
- *     packageCleanup: true || false,
- *     excludeAppPackagesFromCleanup: [ // PackageIds
- *       "STRING_VALUE",
- *     ],
- *     rebootAfterUse: true || false,
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetInstanceProfileResult
+ * //   instanceProfile: { // InstanceProfile
+ * //     arn: "STRING_VALUE",
+ * //     packageCleanup: true || false,
+ * //     excludeAppPackagesFromCleanup: [ // PackageIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     rebootAfterUse: true || false,
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,12 +44,11 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * };
  * const command = new GetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSubscriptionAttributesResponse
- *   Attributes: { // SubscriptionAttributesMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSubscriptionAttributesResponse
+ * //   Attributes: { // SubscriptionAttributesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -56,22 +56,21 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppsResponse
- *   appSummaries: [ // AppSummaryList // required
- *     { // AppSummary
- *       appArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"), // required
- *       complianceStatus: "STRING_VALUE",
- *       resiliencyScore: Number("double"),
- *       assessmentSchedule: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppsResponse
+ * //   appSummaries: [ // AppSummaryList // required
+ * //     { // AppSummary
+ * //       appArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       complianceStatus: "STRING_VALUE",
+ * //       resiliencyScore: Number("double"),
+ * //       assessmentSchedule: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

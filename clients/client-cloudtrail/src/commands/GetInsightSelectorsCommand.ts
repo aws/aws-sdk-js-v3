@@ -50,15 +50,14 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightSelectorsResponse
- *   TrailARN: "STRING_VALUE",
- *   InsightSelectors: [ // InsightSelectors
- *     { // InsightSelector
- *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
- *     },
- *   ],
- * };
+ * // { // GetInsightSelectorsResponse
+ * //   TrailARN: "STRING_VALUE",
+ * //   InsightSelectors: [ // InsightSelectors
+ * //     { // InsightSelector
+ * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * };
  * const command = new TestSegmentPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestSegmentPatternResponse
- *   match: true || false, // required
- * };
+ * // { // TestSegmentPatternResponse
+ * //   match: true || false, // required
+ * // };
  *
  * ```
  *

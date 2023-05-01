@@ -69,23 +69,22 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  * };
  * const command = new PutRemediationExceptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRemediationExceptionsResponse
- *   FailedBatches: [ // FailedRemediationExceptionBatches
- *     { // FailedRemediationExceptionBatch
- *       FailureMessage: "STRING_VALUE",
- *       FailedItems: [ // RemediationExceptions
- *         { // RemediationException
- *           ConfigRuleName: "STRING_VALUE", // required
- *           ResourceType: "STRING_VALUE", // required
- *           ResourceId: "STRING_VALUE", // required
- *           Message: "STRING_VALUE",
- *           ExpirationTime: new Date("TIMESTAMP"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // PutRemediationExceptionsResponse
+ * //   FailedBatches: [ // FailedRemediationExceptionBatches
+ * //     { // FailedRemediationExceptionBatch
+ * //       FailureMessage: "STRING_VALUE",
+ * //       FailedItems: [ // RemediationExceptions
+ * //         { // RemediationException
+ * //           ConfigRuleName: "STRING_VALUE", // required
+ * //           ResourceType: "STRING_VALUE", // required
+ * //           ResourceId: "STRING_VALUE", // required
+ * //           Message: "STRING_VALUE",
+ * //           ExpirationTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

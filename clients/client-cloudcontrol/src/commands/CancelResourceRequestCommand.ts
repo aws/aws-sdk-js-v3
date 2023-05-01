@@ -51,21 +51,20 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * };
  * const command = new CancelResourceRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelResourceRequestOutput
- *   ProgressEvent: { // ProgressEvent
- *     TypeName: "STRING_VALUE",
- *     Identifier: "STRING_VALUE",
- *     RequestToken: "STRING_VALUE",
- *     Operation: "STRING_VALUE",
- *     OperationStatus: "STRING_VALUE",
- *     EventTime: new Date("TIMESTAMP"),
- *     ResourceModel: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     ErrorCode: "STRING_VALUE",
- *     RetryAfter: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CancelResourceRequestOutput
+ * //   ProgressEvent: { // ProgressEvent
+ * //     TypeName: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     RequestToken: "STRING_VALUE",
+ * //     Operation: "STRING_VALUE",
+ * //     OperationStatus: "STRING_VALUE",
+ * //     EventTime: new Date("TIMESTAMP"),
+ * //     ResourceModel: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ErrorCode: "STRING_VALUE",
+ * //     RetryAfter: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

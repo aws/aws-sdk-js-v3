@@ -45,21 +45,20 @@ export interface GetAuthorizerCommandOutput extends Authorizer, __MetadataBearer
  * };
  * const command = new GetAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Authorizer
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
- *   providerARNs: [ // ListOfARNs
- *     "STRING_VALUE",
- *   ],
- *   authType: "STRING_VALUE",
- *   authorizerUri: "STRING_VALUE",
- *   authorizerCredentials: "STRING_VALUE",
- *   identitySource: "STRING_VALUE",
- *   identityValidationExpression: "STRING_VALUE",
- *   authorizerResultTtlInSeconds: Number("int"),
- * };
+ * // { // Authorizer
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   type: "TOKEN" || "REQUEST" || "COGNITO_USER_POOLS",
+ * //   providerARNs: [ // ListOfARNs
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   authType: "STRING_VALUE",
+ * //   authorizerUri: "STRING_VALUE",
+ * //   authorizerCredentials: "STRING_VALUE",
+ * //   identitySource: "STRING_VALUE",
+ * //   identityValidationExpression: "STRING_VALUE",
+ * //   authorizerResultTtlInSeconds: Number("int"),
+ * // };
  *
  * ```
  *

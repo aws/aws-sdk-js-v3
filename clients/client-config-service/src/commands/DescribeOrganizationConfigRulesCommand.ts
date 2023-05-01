@@ -71,65 +71,64 @@ export interface DescribeOrganizationConfigRulesCommandOutput
  * };
  * const command = new DescribeOrganizationConfigRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConfigRulesResponse
- *   OrganizationConfigRules: [ // OrganizationConfigRules
- *     { // OrganizationConfigRule
- *       OrganizationConfigRuleName: "STRING_VALUE", // required
- *       OrganizationConfigRuleArn: "STRING_VALUE", // required
- *       OrganizationManagedRuleMetadata: { // OrganizationManagedRuleMetadata
- *         Description: "STRING_VALUE",
- *         RuleIdentifier: "STRING_VALUE", // required
- *         InputParameters: "STRING_VALUE",
- *         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *         ResourceTypesScope: [ // ResourceTypesScope
- *           "STRING_VALUE",
- *         ],
- *         ResourceIdScope: "STRING_VALUE",
- *         TagKeyScope: "STRING_VALUE",
- *         TagValueScope: "STRING_VALUE",
- *       },
- *       OrganizationCustomRuleMetadata: { // OrganizationCustomRuleMetadata
- *         Description: "STRING_VALUE",
- *         LambdaFunctionArn: "STRING_VALUE", // required
- *         OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypes // required
- *           "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification" || "ScheduledNotification",
- *         ],
- *         InputParameters: "STRING_VALUE",
- *         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *         ResourceTypesScope: [
- *           "STRING_VALUE",
- *         ],
- *         ResourceIdScope: "STRING_VALUE",
- *         TagKeyScope: "STRING_VALUE",
- *         TagValueScope: "STRING_VALUE",
- *       },
- *       ExcludedAccounts: [ // ExcludedAccounts
- *         "STRING_VALUE",
- *       ],
- *       LastUpdateTime: new Date("TIMESTAMP"),
- *       OrganizationCustomPolicyRuleMetadata: { // OrganizationCustomPolicyRuleMetadataNoPolicy
- *         Description: "STRING_VALUE",
- *         OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypeNoSNs
- *           "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification",
- *         ],
- *         InputParameters: "STRING_VALUE",
- *         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *         ResourceTypesScope: [
- *           "STRING_VALUE",
- *         ],
- *         ResourceIdScope: "STRING_VALUE",
- *         TagKeyScope: "STRING_VALUE",
- *         TagValueScope: "STRING_VALUE",
- *         PolicyRuntime: "STRING_VALUE",
- *         DebugLogDeliveryAccounts: [ // DebugLogDeliveryAccounts
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOrganizationConfigRulesResponse
+ * //   OrganizationConfigRules: [ // OrganizationConfigRules
+ * //     { // OrganizationConfigRule
+ * //       OrganizationConfigRuleName: "STRING_VALUE", // required
+ * //       OrganizationConfigRuleArn: "STRING_VALUE", // required
+ * //       OrganizationManagedRuleMetadata: { // OrganizationManagedRuleMetadata
+ * //         Description: "STRING_VALUE",
+ * //         RuleIdentifier: "STRING_VALUE", // required
+ * //         InputParameters: "STRING_VALUE",
+ * //         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ * //         ResourceTypesScope: [ // ResourceTypesScope
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ResourceIdScope: "STRING_VALUE",
+ * //         TagKeyScope: "STRING_VALUE",
+ * //         TagValueScope: "STRING_VALUE",
+ * //       },
+ * //       OrganizationCustomRuleMetadata: { // OrganizationCustomRuleMetadata
+ * //         Description: "STRING_VALUE",
+ * //         LambdaFunctionArn: "STRING_VALUE", // required
+ * //         OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypes // required
+ * //           "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification" || "ScheduledNotification",
+ * //         ],
+ * //         InputParameters: "STRING_VALUE",
+ * //         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ * //         ResourceTypesScope: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ResourceIdScope: "STRING_VALUE",
+ * //         TagKeyScope: "STRING_VALUE",
+ * //         TagValueScope: "STRING_VALUE",
+ * //       },
+ * //       ExcludedAccounts: [ // ExcludedAccounts
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       OrganizationCustomPolicyRuleMetadata: { // OrganizationCustomPolicyRuleMetadataNoPolicy
+ * //         Description: "STRING_VALUE",
+ * //         OrganizationConfigRuleTriggerTypes: [ // OrganizationConfigRuleTriggerTypeNoSNs
+ * //           "ConfigurationItemChangeNotification" || "OversizedConfigurationItemChangeNotification",
+ * //         ],
+ * //         InputParameters: "STRING_VALUE",
+ * //         MaximumExecutionFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ * //         ResourceTypesScope: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ResourceIdScope: "STRING_VALUE",
+ * //         TagKeyScope: "STRING_VALUE",
+ * //         TagValueScope: "STRING_VALUE",
+ * //         PolicyRuntime: "STRING_VALUE",
+ * //         DebugLogDeliveryAccounts: [ // DebugLogDeliveryAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

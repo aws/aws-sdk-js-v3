@@ -56,11 +56,10 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  * };
  * const command = new CreateMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMulticastGroupResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateMulticastGroupResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

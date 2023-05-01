@@ -48,10 +48,9 @@ export interface RetryPipelineExecutionCommandOutput extends RetryPipelineExecut
  * };
  * const command = new RetryPipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetryPipelineExecutionResponse
- *   PipelineExecutionArn: "STRING_VALUE",
- * };
+ * // { // RetryPipelineExecutionResponse
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

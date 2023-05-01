@@ -91,17 +91,16 @@ export interface CreateParticipantConnectionCommandOutput
  * };
  * const command = new CreateParticipantConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateParticipantConnectionResponse
- *   Websocket: { // Websocket
- *     Url: "STRING_VALUE",
- *     ConnectionExpiry: "STRING_VALUE",
- *   },
- *   ConnectionCredentials: { // ConnectionCredentials
- *     ConnectionToken: "STRING_VALUE",
- *     Expiry: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateParticipantConnectionResponse
+ * //   Websocket: { // Websocket
+ * //     Url: "STRING_VALUE",
+ * //     ConnectionExpiry: "STRING_VALUE",
+ * //   },
+ * //   ConnectionCredentials: { // ConnectionCredentials
+ * //     ConnectionToken: "STRING_VALUE",
+ * //     Expiry: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

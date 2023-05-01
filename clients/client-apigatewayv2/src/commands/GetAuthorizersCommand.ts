@@ -46,32 +46,31 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  * };
  * const command = new GetAuthorizersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAuthorizersResponse
- *   Items: [ // __listOfAuthorizer
- *     { // Authorizer
- *       AuthorizerCredentialsArn: "STRING_VALUE",
- *       AuthorizerId: "STRING_VALUE",
- *       AuthorizerPayloadFormatVersion: "STRING_VALUE",
- *       AuthorizerResultTtlInSeconds: Number("int"),
- *       AuthorizerType: "STRING_VALUE",
- *       AuthorizerUri: "STRING_VALUE",
- *       EnableSimpleResponses: true || false,
- *       IdentitySource: [ // IdentitySourceList
- *         "STRING_VALUE",
- *       ],
- *       IdentityValidationExpression: "STRING_VALUE",
- *       JwtConfiguration: { // JWTConfiguration
- *         Audience: [ // __listOf__string
- *           "STRING_VALUE",
- *         ],
- *         Issuer: "STRING_VALUE",
- *       },
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAuthorizersResponse
+ * //   Items: [ // __listOfAuthorizer
+ * //     { // Authorizer
+ * //       AuthorizerCredentialsArn: "STRING_VALUE",
+ * //       AuthorizerId: "STRING_VALUE",
+ * //       AuthorizerPayloadFormatVersion: "STRING_VALUE",
+ * //       AuthorizerResultTtlInSeconds: Number("int"),
+ * //       AuthorizerType: "STRING_VALUE",
+ * //       AuthorizerUri: "STRING_VALUE",
+ * //       EnableSimpleResponses: true || false,
+ * //       IdentitySource: [ // IdentitySourceList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IdentityValidationExpression: "STRING_VALUE",
+ * //       JwtConfiguration: { // JWTConfiguration
+ * //         Audience: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Issuer: "STRING_VALUE",
+ * //       },
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * };
  * const command = new DeleteWorkGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -58,22 +58,21 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * };
  * const command = new ListTapesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTapesOutput
- *   TapeInfos: [ // TapeInfos
- *     { // TapeInfo
- *       TapeARN: "STRING_VALUE",
- *       TapeBarcode: "STRING_VALUE",
- *       TapeSizeInBytes: Number("long"),
- *       TapeStatus: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       PoolId: "STRING_VALUE",
- *       RetentionStartDate: new Date("TIMESTAMP"),
- *       PoolEntryDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListTapesOutput
+ * //   TapeInfos: [ // TapeInfos
+ * //     { // TapeInfo
+ * //       TapeARN: "STRING_VALUE",
+ * //       TapeBarcode: "STRING_VALUE",
+ * //       TapeSizeInBytes: Number("long"),
+ * //       TapeStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       PoolId: "STRING_VALUE",
+ * //       RetentionStartDate: new Date("TIMESTAMP"),
+ * //       PoolEntryDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

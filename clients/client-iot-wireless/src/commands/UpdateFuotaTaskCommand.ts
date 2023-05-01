@@ -54,8 +54,7 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

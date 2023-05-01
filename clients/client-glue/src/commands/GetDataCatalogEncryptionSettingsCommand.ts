@@ -49,19 +49,18 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * };
  * const command = new GetDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataCatalogEncryptionSettingsResponse
- *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
- *     EncryptionAtRest: { // EncryptionAtRest
- *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
- *       SseAwsKmsKeyId: "STRING_VALUE",
- *     },
- *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
- *       ReturnConnectionPasswordEncrypted: true || false, // required
- *       AwsKmsKeyId: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetDataCatalogEncryptionSettingsResponse
+ * //   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
+ * //     EncryptionAtRest: { // EncryptionAtRest
+ * //       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ * //       SseAwsKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
+ * //       ReturnConnectionPasswordEncrypted: true || false, // required
+ * //       AwsKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -59,8 +59,7 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateDeviceFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

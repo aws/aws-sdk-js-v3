@@ -51,8 +51,7 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

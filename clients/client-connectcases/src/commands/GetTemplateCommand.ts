@@ -45,25 +45,24 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemplateResponse
- *   templateId: "STRING_VALUE", // required
- *   templateArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   layoutConfiguration: { // LayoutConfiguration
- *     defaultLayout: "STRING_VALUE",
- *   },
- *   requiredFields: [ // RequiredFieldList
- *     { // RequiredField
- *       fieldId: "STRING_VALUE", // required
- *     },
- *   ],
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE", // required
- * };
+ * // { // GetTemplateResponse
+ * //   templateId: "STRING_VALUE", // required
+ * //   templateArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   layoutConfiguration: { // LayoutConfiguration
+ * //     defaultLayout: "STRING_VALUE",
+ * //   },
+ * //   requiredFields: [ // RequiredFieldList
+ * //     { // RequiredField
+ * //       fieldId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

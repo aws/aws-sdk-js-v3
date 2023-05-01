@@ -48,23 +48,22 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
  * };
  * const command = new ListRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoutesOutput
- *   routes: [ // RouteList // required
- *     { // RouteRef
- *       meshName: "STRING_VALUE", // required
- *       virtualRouterName: "STRING_VALUE", // required
- *       routeName: "STRING_VALUE", // required
- *       meshOwner: "STRING_VALUE", // required
- *       resourceOwner: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       version: Number("long"), // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRoutesOutput
+ * //   routes: [ // RouteList // required
+ * //     { // RouteRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualRouterName: "STRING_VALUE", // required
+ * //       routeName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

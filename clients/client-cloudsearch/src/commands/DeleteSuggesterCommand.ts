@@ -45,26 +45,25 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * };
  * const command = new DeleteSuggesterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSuggesterResponse
- *   Suggester: { // SuggesterStatus
- *     Options: { // Suggester
- *       SuggesterName: "STRING_VALUE", // required
- *       DocumentSuggesterOptions: { // DocumentSuggesterOptions
- *         SourceField: "STRING_VALUE", // required
- *         FuzzyMatching: "STRING_VALUE",
- *         SortExpression: "STRING_VALUE",
- *       },
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DeleteSuggesterResponse
+ * //   Suggester: { // SuggesterStatus
+ * //     Options: { // Suggester
+ * //       SuggesterName: "STRING_VALUE", // required
+ * //       DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ * //         SourceField: "STRING_VALUE", // required
+ * //         FuzzyMatching: "STRING_VALUE",
+ * //         SortExpression: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

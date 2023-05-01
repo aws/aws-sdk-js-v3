@@ -51,8 +51,7 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
  * };
  * const command = new DeleteDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

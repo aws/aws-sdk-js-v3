@@ -61,16 +61,15 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * };
  * const command = new ListCreatedArtifactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCreatedArtifactsResult
- *   NextToken: "STRING_VALUE",
- *   CreatedArtifactList: [ // CreatedArtifactList
- *     { // CreatedArtifact
- *       Name: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCreatedArtifactsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   CreatedArtifactList: [ // CreatedArtifactList
+ * //     { // CreatedArtifact
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

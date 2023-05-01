@@ -49,8 +49,7 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * };
  * const command = new PutRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

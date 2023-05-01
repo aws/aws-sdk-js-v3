@@ -58,10 +58,9 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * };
  * const command = new StartAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAssessmentResponse
- *   assessmentId: "STRING_VALUE",
- * };
+ * // { // StartAssessmentResponse
+ * //   assessmentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

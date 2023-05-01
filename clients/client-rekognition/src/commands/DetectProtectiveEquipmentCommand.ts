@@ -93,55 +93,54 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * };
  * const command = new DetectProtectiveEquipmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectProtectiveEquipmentResponse
- *   ProtectiveEquipmentModelVersion: "STRING_VALUE",
- *   Persons: [ // ProtectiveEquipmentPersons
- *     { // ProtectiveEquipmentPerson
- *       BodyParts: [ // BodyParts
- *         { // ProtectiveEquipmentBodyPart
- *           Name: "FACE" || "HEAD" || "LEFT_HAND" || "RIGHT_HAND",
- *           Confidence: Number("float"),
- *           EquipmentDetections: [ // EquipmentDetections
- *             { // EquipmentDetection
- *               BoundingBox: { // BoundingBox
- *                 Width: Number("float"),
- *                 Height: Number("float"),
- *                 Left: Number("float"),
- *                 Top: Number("float"),
- *               },
- *               Confidence: Number("float"),
- *               Type: "FACE_COVER" || "HAND_COVER" || "HEAD_COVER",
- *               CoversBodyPart: { // CoversBodyPart
- *                 Confidence: Number("float"),
- *                 Value: true || false,
- *               },
- *             },
- *           ],
- *         },
- *       ],
- *       BoundingBox: {
- *         Width: Number("float"),
- *         Height: Number("float"),
- *         Left: Number("float"),
- *         Top: Number("float"),
- *       },
- *       Confidence: Number("float"),
- *       Id: Number("int"),
- *     },
- *   ],
- *   Summary: { // ProtectiveEquipmentSummary
- *     PersonsWithRequiredEquipment: [ // ProtectiveEquipmentPersonIds
- *       Number("int"),
- *     ],
- *     PersonsWithoutRequiredEquipment: [
- *       Number("int"),
- *     ],
- *     PersonsIndeterminate: [
- *       Number("int"),
- *     ],
- *   },
- * };
+ * // { // DetectProtectiveEquipmentResponse
+ * //   ProtectiveEquipmentModelVersion: "STRING_VALUE",
+ * //   Persons: [ // ProtectiveEquipmentPersons
+ * //     { // ProtectiveEquipmentPerson
+ * //       BodyParts: [ // BodyParts
+ * //         { // ProtectiveEquipmentBodyPart
+ * //           Name: "FACE" || "HEAD" || "LEFT_HAND" || "RIGHT_HAND",
+ * //           Confidence: Number("float"),
+ * //           EquipmentDetections: [ // EquipmentDetections
+ * //             { // EquipmentDetection
+ * //               BoundingBox: { // BoundingBox
+ * //                 Width: Number("float"),
+ * //                 Height: Number("float"),
+ * //                 Left: Number("float"),
+ * //                 Top: Number("float"),
+ * //               },
+ * //               Confidence: Number("float"),
+ * //               Type: "FACE_COVER" || "HAND_COVER" || "HEAD_COVER",
+ * //               CoversBodyPart: { // CoversBodyPart
+ * //                 Confidence: Number("float"),
+ * //                 Value: true || false,
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       BoundingBox: {
+ * //         Width: Number("float"),
+ * //         Height: Number("float"),
+ * //         Left: Number("float"),
+ * //         Top: Number("float"),
+ * //       },
+ * //       Confidence: Number("float"),
+ * //       Id: Number("int"),
+ * //     },
+ * //   ],
+ * //   Summary: { // ProtectiveEquipmentSummary
+ * //     PersonsWithRequiredEquipment: [ // ProtectiveEquipmentPersonIds
+ * //       Number("int"),
+ * //     ],
+ * //     PersonsWithoutRequiredEquipment: [
+ * //       Number("int"),
+ * //     ],
+ * //     PersonsIndeterminate: [
+ * //       Number("int"),
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

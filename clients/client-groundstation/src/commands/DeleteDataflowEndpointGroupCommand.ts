@@ -47,10 +47,9 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * };
  * const command = new DeleteDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DataflowEndpointGroupIdResponse
- *   dataflowEndpointGroupId: "STRING_VALUE",
- * };
+ * // { // DataflowEndpointGroupIdResponse
+ * //   dataflowEndpointGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

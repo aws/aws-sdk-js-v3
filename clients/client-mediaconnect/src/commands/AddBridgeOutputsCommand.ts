@@ -56,27 +56,26 @@ export interface AddBridgeOutputsCommandOutput extends AddBridgeOutputsResponse,
  * };
  * const command = new AddBridgeOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddBridgeOutputsResponse
- *   BridgeArn: "STRING_VALUE",
- *   Outputs: [ // __listOfBridgeOutput
- *     { // BridgeOutput
- *       FlowOutput: { // BridgeFlowOutput
- *         FlowArn: "STRING_VALUE", // required
- *         FlowSourceArn: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *       },
- *       NetworkOutput: { // BridgeNetworkOutput
- *         IpAddress: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *         NetworkName: "STRING_VALUE", // required
- *         Port: Number("int"), // required
- *         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *         Ttl: Number("int"), // required
- *       },
- *     },
- *   ],
- * };
+ * // { // AddBridgeOutputsResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * //   Outputs: [ // __listOfBridgeOutput
+ * //     { // BridgeOutput
+ * //       FlowOutput: { // BridgeFlowOutput
+ * //         FlowArn: "STRING_VALUE", // required
+ * //         FlowSourceArn: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //       NetworkOutput: { // BridgeNetworkOutput
+ * //         IpAddress: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         NetworkName: "STRING_VALUE", // required
+ * //         Port: Number("int"), // required
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //         Ttl: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

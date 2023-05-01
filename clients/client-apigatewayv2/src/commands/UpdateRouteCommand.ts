@@ -64,30 +64,29 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRouteResult
- *   ApiGatewayManaged: true || false,
- *   ApiKeyRequired: true || false,
- *   AuthorizationScopes: [ // AuthorizationScopes
- *     "STRING_VALUE",
- *   ],
- *   AuthorizationType: "STRING_VALUE",
- *   AuthorizerId: "STRING_VALUE",
- *   ModelSelectionExpression: "STRING_VALUE",
- *   OperationName: "STRING_VALUE",
- *   RequestModels: { // RouteModels
- *     "<keys>": "STRING_VALUE",
- *   },
- *   RequestParameters: { // RouteParameters
- *     "<keys>": { // ParameterConstraints
- *       Required: true || false,
- *     },
- *   },
- *   RouteId: "STRING_VALUE",
- *   RouteKey: "STRING_VALUE",
- *   RouteResponseSelectionExpression: "STRING_VALUE",
- *   Target: "STRING_VALUE",
- * };
+ * // { // UpdateRouteResult
+ * //   ApiGatewayManaged: true || false,
+ * //   ApiKeyRequired: true || false,
+ * //   AuthorizationScopes: [ // AuthorizationScopes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   AuthorizationType: "STRING_VALUE",
+ * //   AuthorizerId: "STRING_VALUE",
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   OperationName: "STRING_VALUE",
+ * //   RequestModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   RequestParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteId: "STRING_VALUE",
+ * //   RouteKey: "STRING_VALUE",
+ * //   RouteResponseSelectionExpression: "STRING_VALUE",
+ * //   Target: "STRING_VALUE",
+ * // };
  *
  * ```
  *

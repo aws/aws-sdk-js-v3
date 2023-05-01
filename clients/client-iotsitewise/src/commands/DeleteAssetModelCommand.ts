@@ -49,22 +49,21 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * };
  * const command = new DeleteAssetModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAssetModelResponse
- *   assetModelStatus: { // AssetModelStatus
- *     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
- *     error: { // ErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *       details: [ // DetailedErrors
- *         { // DetailedError
- *           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *           message: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // DeleteAssetModelResponse
+ * //   assetModelStatus: { // AssetModelStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

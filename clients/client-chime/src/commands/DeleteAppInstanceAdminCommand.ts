@@ -45,8 +45,7 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAppInstanceAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

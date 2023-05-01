@@ -48,8 +48,7 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * };
  * const command = new DeleteFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

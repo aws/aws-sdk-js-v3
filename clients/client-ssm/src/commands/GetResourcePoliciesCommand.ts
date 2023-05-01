@@ -46,17 +46,16 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePoliciesResponse
- *   NextToken: "STRING_VALUE",
- *   Policies: [ // GetResourcePoliciesResponseEntries
- *     { // GetResourcePoliciesResponseEntry
- *       PolicyId: "STRING_VALUE",
- *       PolicyHash: "STRING_VALUE",
- *       Policy: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetResourcePoliciesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Policies: [ // GetResourcePoliciesResponseEntries
+ * //     { // GetResourcePoliciesResponseEntry
+ * //       PolicyId: "STRING_VALUE",
+ * //       PolicyHash: "STRING_VALUE",
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

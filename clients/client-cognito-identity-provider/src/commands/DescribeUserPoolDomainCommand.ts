@@ -49,21 +49,20 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * };
  * const command = new DescribeUserPoolDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserPoolDomainResponse
- *   DomainDescription: { // DomainDescriptionType
- *     UserPoolId: "STRING_VALUE",
- *     AWSAccountId: "STRING_VALUE",
- *     Domain: "STRING_VALUE",
- *     S3Bucket: "STRING_VALUE",
- *     CloudFrontDistribution: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     Status: "CREATING" || "DELETING" || "UPDATING" || "ACTIVE" || "FAILED",
- *     CustomDomainConfig: { // CustomDomainConfigType
- *       CertificateArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // DescribeUserPoolDomainResponse
+ * //   DomainDescription: { // DomainDescriptionType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     AWSAccountId: "STRING_VALUE",
+ * //     Domain: "STRING_VALUE",
+ * //     S3Bucket: "STRING_VALUE",
+ * //     CloudFrontDistribution: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Status: "CREATING" || "DELETING" || "UPDATING" || "ACTIVE" || "FAILED",
+ * //     CustomDomainConfig: { // CustomDomainConfigType
+ * //       CertificateArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

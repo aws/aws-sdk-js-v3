@@ -49,24 +49,23 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * };
  * const command = new TerminateClientVpnConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateClientVpnConnectionsResult
- *   ClientVpnEndpointId: "STRING_VALUE",
- *   Username: "STRING_VALUE",
- *   ConnectionStatuses: [ // TerminateConnectionStatusSet
- *     { // TerminateConnectionStatus
- *       ConnectionId: "STRING_VALUE",
- *       PreviousStatus: { // ClientVpnConnectionStatus
- *         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
- *         Message: "STRING_VALUE",
- *       },
- *       CurrentStatus: {
- *         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // TerminateClientVpnConnectionsResult
+ * //   ClientVpnEndpointId: "STRING_VALUE",
+ * //   Username: "STRING_VALUE",
+ * //   ConnectionStatuses: [ // TerminateConnectionStatusSet
+ * //     { // TerminateConnectionStatus
+ * //       ConnectionId: "STRING_VALUE",
+ * //       PreviousStatus: { // ClientVpnConnectionStatus
+ * //         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       CurrentStatus: {
+ * //         Code: "active" || "failed-to-terminate" || "terminating" || "terminated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,37 +48,36 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * };
  * const command = new GetSubjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubjectDetailResponse
- *   subject: { // SubjectDetail
- *     subjectArn: "STRING_VALUE",
- *     subjectId: "STRING_VALUE",
- *     enabled: true || false,
- *     x509Subject: "STRING_VALUE",
- *     lastSeenAt: new Date("TIMESTAMP"),
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *     credentials: [ // CredentialSummaries
- *       { // CredentialSummary
- *         seenAt: new Date("TIMESTAMP"),
- *         serialNumber: "STRING_VALUE",
- *         issuer: "STRING_VALUE",
- *         enabled: true || false,
- *         x509CertificateData: "STRING_VALUE",
- *         failed: true || false,
- *       },
- *     ],
- *     instanceProperties: [ // InstanceProperties
- *       { // InstanceProperty
- *         seenAt: new Date("TIMESTAMP"),
- *         properties: { // InstancePropertyMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         failed: true || false,
- *       },
- *     ],
- *   },
- * };
+ * // { // SubjectDetailResponse
+ * //   subject: { // SubjectDetail
+ * //     subjectArn: "STRING_VALUE",
+ * //     subjectId: "STRING_VALUE",
+ * //     enabled: true || false,
+ * //     x509Subject: "STRING_VALUE",
+ * //     lastSeenAt: new Date("TIMESTAMP"),
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     credentials: [ // CredentialSummaries
+ * //       { // CredentialSummary
+ * //         seenAt: new Date("TIMESTAMP"),
+ * //         serialNumber: "STRING_VALUE",
+ * //         issuer: "STRING_VALUE",
+ * //         enabled: true || false,
+ * //         x509CertificateData: "STRING_VALUE",
+ * //         failed: true || false,
+ * //       },
+ * //     ],
+ * //     instanceProperties: [ // InstanceProperties
+ * //       { // InstanceProperty
+ * //         seenAt: new Date("TIMESTAMP"),
+ * //         properties: { // InstancePropertyMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         failed: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -81,19 +81,18 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoutingControlsResponse
- *   RoutingControls: [ // RoutingControls // required
- *     { // RoutingControl
- *       ControlPanelArn: "STRING_VALUE",
- *       ControlPanelName: "STRING_VALUE",
- *       RoutingControlArn: "STRING_VALUE",
- *       RoutingControlName: "STRING_VALUE",
- *       RoutingControlState: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRoutingControlsResponse
+ * //   RoutingControls: [ // RoutingControls // required
+ * //     { // RoutingControl
+ * //       ControlPanelArn: "STRING_VALUE",
+ * //       ControlPanelName: "STRING_VALUE",
+ * //       RoutingControlArn: "STRING_VALUE",
+ * //       RoutingControlName: "STRING_VALUE",
+ * //       RoutingControlState: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

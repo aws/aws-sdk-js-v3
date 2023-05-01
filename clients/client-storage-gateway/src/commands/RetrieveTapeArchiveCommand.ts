@@ -52,10 +52,9 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * };
  * const command = new RetrieveTapeArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetrieveTapeArchiveOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // RetrieveTapeArchiveOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

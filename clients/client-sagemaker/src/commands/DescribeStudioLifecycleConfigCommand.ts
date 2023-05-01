@@ -49,15 +49,14 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * };
  * const command = new DescribeStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStudioLifecycleConfigResponse
- *   StudioLifecycleConfigArn: "STRING_VALUE",
- *   StudioLifecycleConfigName: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   StudioLifecycleConfigContent: "STRING_VALUE",
- *   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
- * };
+ * // { // DescribeStudioLifecycleConfigResponse
+ * //   StudioLifecycleConfigArn: "STRING_VALUE",
+ * //   StudioLifecycleConfigName: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   StudioLifecycleConfigContent: "STRING_VALUE",
+ * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
+ * // };
  *
  * ```
  *

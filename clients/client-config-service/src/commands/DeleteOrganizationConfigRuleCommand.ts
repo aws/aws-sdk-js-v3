@@ -52,8 +52,7 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

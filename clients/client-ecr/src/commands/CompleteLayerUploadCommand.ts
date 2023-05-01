@@ -57,13 +57,12 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * };
  * const command = new CompleteLayerUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CompleteLayerUploadResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   uploadId: "STRING_VALUE",
- *   layerDigest: "STRING_VALUE",
- * };
+ * // { // CompleteLayerUploadResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   uploadId: "STRING_VALUE",
+ * //   layerDigest: "STRING_VALUE",
+ * // };
  *
  * ```
  *

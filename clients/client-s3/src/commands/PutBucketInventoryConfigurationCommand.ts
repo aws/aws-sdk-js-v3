@@ -178,8 +178,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

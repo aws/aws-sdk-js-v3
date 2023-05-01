@@ -906,10 +906,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateJobResponse
- *   JobName: "STRING_VALUE",
- * };
+ * // { // UpdateJobResponse
+ * //   JobName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

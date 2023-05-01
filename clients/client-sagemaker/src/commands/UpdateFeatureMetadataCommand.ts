@@ -55,8 +55,7 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFeatureMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

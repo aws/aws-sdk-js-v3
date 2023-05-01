@@ -58,10 +58,9 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVpnConnectionDeviceSampleConfigurationResult
- *   VpnConnectionDeviceSampleConfiguration: "STRING_VALUE",
- * };
+ * // { // GetVpnConnectionDeviceSampleConfigurationResult
+ * //   VpnConnectionDeviceSampleConfiguration: "STRING_VALUE",
+ * // };
  *
  * ```
  *

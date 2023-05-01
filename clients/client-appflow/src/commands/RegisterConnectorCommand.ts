@@ -54,10 +54,9 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * };
  * const command = new RegisterConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterConnectorResponse
- *   connectorArn: "STRING_VALUE",
- * };
+ * // { // RegisterConnectorResponse
+ * //   connectorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

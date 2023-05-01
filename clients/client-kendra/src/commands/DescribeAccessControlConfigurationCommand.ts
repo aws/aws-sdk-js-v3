@@ -56,32 +56,31 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * };
  * const command = new DescribeAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccessControlConfigurationResponse
- *   Name: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- *   AccessControlList: [ // PrincipalList
- *     { // Principal
- *       Name: "STRING_VALUE", // required
- *       Type: "USER" || "GROUP", // required
- *       Access: "ALLOW" || "DENY", // required
- *       DataSourceId: "STRING_VALUE",
- *     },
- *   ],
- *   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
- *     { // HierarchicalPrincipal
- *       PrincipalList: [ // required
- *         {
- *           Name: "STRING_VALUE", // required
- *           Type: "USER" || "GROUP", // required
- *           Access: "ALLOW" || "DENY", // required
- *           DataSourceId: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeAccessControlConfigurationResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   AccessControlList: [ // PrincipalList
+ * //     { // Principal
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "USER" || "GROUP", // required
+ * //       Access: "ALLOW" || "DENY", // required
+ * //       DataSourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   HierarchicalAccessControlList: [ // HierarchicalPrincipalList
+ * //     { // HierarchicalPrincipal
+ * //       PrincipalList: [ // required
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "USER" || "GROUP", // required
+ * //           Access: "ALLOW" || "DENY", // required
+ * //           DataSourceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

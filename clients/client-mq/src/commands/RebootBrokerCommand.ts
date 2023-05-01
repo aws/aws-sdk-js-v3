@@ -44,8 +44,7 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,27 +50,26 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * };
  * const command = new ListCheckDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCheckDetailsOutput
- *   CheckDetails: [ // CheckDetails
- *     { // CheckDetail
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Provider: "TRUSTED_ADVISOR",
- *       LensArn: "STRING_VALUE",
- *       PillarId: "STRING_VALUE",
- *       QuestionId: "STRING_VALUE",
- *       ChoiceId: "STRING_VALUE",
- *       Status: "OKAY" || "WARNING" || "ERROR" || "NOT_AVAILABLE" || "FETCH_FAILED",
- *       AccountId: "STRING_VALUE",
- *       FlaggedResources: Number("int"),
- *       Reason: "ASSUME_ROLE_ERROR" || "ACCESS_DENIED" || "UNKNOWN_ERROR" || "PREMIUM_SUPPORT_REQUIRED",
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCheckDetailsOutput
+ * //   CheckDetails: [ // CheckDetails
+ * //     { // CheckDetail
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Provider: "TRUSTED_ADVISOR",
+ * //       LensArn: "STRING_VALUE",
+ * //       PillarId: "STRING_VALUE",
+ * //       QuestionId: "STRING_VALUE",
+ * //       ChoiceId: "STRING_VALUE",
+ * //       Status: "OKAY" || "WARNING" || "ERROR" || "NOT_AVAILABLE" || "FETCH_FAILED",
+ * //       AccountId: "STRING_VALUE",
+ * //       FlaggedResources: Number("int"),
+ * //       Reason: "ASSUME_ROLE_ERROR" || "ACCESS_DENIED" || "UNKNOWN_ERROR" || "PREMIUM_SUPPORT_REQUIRED",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

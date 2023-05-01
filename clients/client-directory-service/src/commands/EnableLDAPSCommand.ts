@@ -45,8 +45,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * };
  * const command = new EnableLDAPSCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

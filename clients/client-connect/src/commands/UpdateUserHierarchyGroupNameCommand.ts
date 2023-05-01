@@ -49,8 +49,7 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * };
  * const command = new UpdateUserHierarchyGroupNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

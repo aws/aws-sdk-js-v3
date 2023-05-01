@@ -45,10 +45,9 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  * };
  * const command = new DeleteTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrafficMirrorSessionResult
- *   TrafficMirrorSessionId: "STRING_VALUE",
- * };
+ * // { // DeleteTrafficMirrorSessionResult
+ * //   TrafficMirrorSessionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

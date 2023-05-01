@@ -54,21 +54,20 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * };
  * const command = new ListProvisionedConcurrencyConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisionedConcurrencyConfigsResponse
- *   ProvisionedConcurrencyConfigs: [ // ProvisionedConcurrencyConfigList
- *     { // ProvisionedConcurrencyConfigListItem
- *       FunctionArn: "STRING_VALUE",
- *       RequestedProvisionedConcurrentExecutions: Number("int"),
- *       AvailableProvisionedConcurrentExecutions: Number("int"),
- *       AllocatedProvisionedConcurrentExecutions: Number("int"),
- *       Status: "IN_PROGRESS" || "READY" || "FAILED",
- *       StatusReason: "STRING_VALUE",
- *       LastModified: "STRING_VALUE",
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // ListProvisionedConcurrencyConfigsResponse
+ * //   ProvisionedConcurrencyConfigs: [ // ProvisionedConcurrencyConfigList
+ * //     { // ProvisionedConcurrencyConfigListItem
+ * //       FunctionArn: "STRING_VALUE",
+ * //       RequestedProvisionedConcurrentExecutions: Number("int"),
+ * //       AvailableProvisionedConcurrentExecutions: Number("int"),
+ * //       AllocatedProvisionedConcurrentExecutions: Number("int"),
+ * //       Status: "IN_PROGRESS" || "READY" || "FAILED",
+ * //       StatusReason: "STRING_VALUE",
+ * //       LastModified: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

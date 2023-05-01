@@ -50,8 +50,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

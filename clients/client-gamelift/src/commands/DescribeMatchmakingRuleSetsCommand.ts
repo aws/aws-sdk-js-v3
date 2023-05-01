@@ -62,18 +62,17 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * };
  * const command = new DescribeMatchmakingRuleSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMatchmakingRuleSetsOutput
- *   RuleSets: [ // MatchmakingRuleSetList // required
- *     { // MatchmakingRuleSet
- *       RuleSetName: "STRING_VALUE",
- *       RuleSetArn: "STRING_VALUE",
- *       RuleSetBody: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMatchmakingRuleSetsOutput
+ * //   RuleSets: [ // MatchmakingRuleSetList // required
+ * //     { // MatchmakingRuleSet
+ * //       RuleSetName: "STRING_VALUE",
+ * //       RuleSetArn: "STRING_VALUE",
+ * //       RuleSetBody: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

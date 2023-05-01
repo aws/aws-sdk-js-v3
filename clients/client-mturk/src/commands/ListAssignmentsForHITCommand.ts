@@ -75,27 +75,26 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * };
  * const command = new ListAssignmentsForHITCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssignmentsForHITResponse
- *   NextToken: "STRING_VALUE",
- *   NumResults: Number("int"),
- *   Assignments: [ // AssignmentList
- *     { // Assignment
- *       AssignmentId: "STRING_VALUE",
- *       WorkerId: "STRING_VALUE",
- *       HITId: "STRING_VALUE",
- *       AssignmentStatus: "STRING_VALUE",
- *       AutoApprovalTime: new Date("TIMESTAMP"),
- *       AcceptTime: new Date("TIMESTAMP"),
- *       SubmitTime: new Date("TIMESTAMP"),
- *       ApprovalTime: new Date("TIMESTAMP"),
- *       RejectionTime: new Date("TIMESTAMP"),
- *       Deadline: new Date("TIMESTAMP"),
- *       Answer: "STRING_VALUE",
- *       RequesterFeedback: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAssignmentsForHITResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NumResults: Number("int"),
+ * //   Assignments: [ // AssignmentList
+ * //     { // Assignment
+ * //       AssignmentId: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //       HITId: "STRING_VALUE",
+ * //       AssignmentStatus: "STRING_VALUE",
+ * //       AutoApprovalTime: new Date("TIMESTAMP"),
+ * //       AcceptTime: new Date("TIMESTAMP"),
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //       ApprovalTime: new Date("TIMESTAMP"),
+ * //       RejectionTime: new Date("TIMESTAMP"),
+ * //       Deadline: new Date("TIMESTAMP"),
+ * //       Answer: "STRING_VALUE",
+ * //       RequesterFeedback: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

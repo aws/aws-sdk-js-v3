@@ -46,16 +46,15 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * };
  * const command = new ListPolicyVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyVersionsResponse
- *   policyVersions: [ // PolicyVersions
- *     { // PolicyVersion
- *       versionId: "STRING_VALUE",
- *       isDefaultVersion: true || false,
- *       createDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListPolicyVersionsResponse
+ * //   policyVersions: [ // PolicyVersions
+ * //     { // PolicyVersion
+ * //       versionId: "STRING_VALUE",
+ * //       isDefaultVersion: true || false,
+ * //       createDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

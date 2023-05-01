@@ -44,8 +44,7 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * };
  * const command = new DeleteWorldTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

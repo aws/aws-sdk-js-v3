@@ -44,12 +44,11 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * };
  * const command = new CancelReplayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelReplayResponse
- *   ReplayArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- * };
+ * // { // CancelReplayResponse
+ * //   ReplayArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,23 +45,22 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * };
  * const command = new GetAppsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppsResponse
- *   ApplicationsResponse: { // ApplicationsResponse
- *     Item: [ // ListOfApplicationResponse
- *       { // ApplicationResponse
- *         Arn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *         tags: { // MapOf__string
- *           "<keys>": "STRING_VALUE",
- *         },
- *         CreationDate: "STRING_VALUE",
- *       },
- *     ],
- *     NextToken: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAppsResponse
+ * //   ApplicationsResponse: { // ApplicationsResponse
+ * //     Item: [ // ListOfApplicationResponse
+ * //       { // ApplicationResponse
+ * //         Arn: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         tags: { // MapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         CreationDate: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

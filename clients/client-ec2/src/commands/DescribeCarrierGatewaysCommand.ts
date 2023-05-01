@@ -57,24 +57,23 @@ export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGat
  * };
  * const command = new DescribeCarrierGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCarrierGatewaysResult
- *   CarrierGateways: [ // CarrierGatewaySet
- *     { // CarrierGateway
- *       CarrierGatewayId: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       OwnerId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeCarrierGatewaysResult
+ * //   CarrierGateways: [ // CarrierGatewaySet
+ * //     { // CarrierGateway
+ * //       CarrierGatewayId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

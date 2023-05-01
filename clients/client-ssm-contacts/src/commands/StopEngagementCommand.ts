@@ -46,8 +46,7 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * };
  * const command = new StopEngagementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

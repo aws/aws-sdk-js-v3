@@ -54,16 +54,15 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectionResponse
- *   Connection: { // Connection
- *     ConnectionName: "STRING_VALUE",
- *     ConnectionArn: "STRING_VALUE",
- *     ProviderType: "GITHUB",
- *     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
- *     CreatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateConnectionResponse
+ * //   Connection: { // Connection
+ * //     ConnectionName: "STRING_VALUE",
+ * //     ConnectionArn: "STRING_VALUE",
+ * //     ProviderType: "GITHUB",
+ * //     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface AssociateSourceServersCommandOutput extends AssociateSourceServ
  * };
  * const command = new AssociateSourceServersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

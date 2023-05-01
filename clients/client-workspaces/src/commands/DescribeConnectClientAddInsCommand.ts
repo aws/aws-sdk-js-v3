@@ -46,18 +46,17 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * };
  * const command = new DescribeConnectClientAddInsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConnectClientAddInsResult
- *   AddIns: [ // ConnectClientAddInList
- *     { // ConnectClientAddIn
- *       AddInId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       URL: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConnectClientAddInsResult
+ * //   AddIns: [ // ConnectClientAddInList
+ * //     { // ConnectClientAddIn
+ * //       AddInId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       URL: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

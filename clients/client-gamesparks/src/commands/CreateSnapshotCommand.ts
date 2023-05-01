@@ -45,22 +45,21 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSnapshotResult
- *   Snapshot: { // SnapshotDetails
- *     Id: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Sections: { // Sections
- *       "<keys>": { // Section
- *         Name: "STRING_VALUE",
- *         Size: Number("int"),
- *         Attributes: "DOCUMENT_VALUE",
- *       },
- *     },
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateSnapshotResult
+ * //   Snapshot: { // SnapshotDetails
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * };
  * const command = new DisassociateConnectionAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

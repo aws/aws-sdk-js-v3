@@ -49,37 +49,36 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplicationDescriptionMessage
- *   Application: { // ApplicationDescription
- *     ApplicationArn: "STRING_VALUE",
- *     ApplicationName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DateCreated: new Date("TIMESTAMP"),
- *     DateUpdated: new Date("TIMESTAMP"),
- *     Versions: [ // VersionLabelsList
- *       "STRING_VALUE",
- *     ],
- *     ConfigurationTemplates: [ // ConfigurationTemplateNamesList
- *       "STRING_VALUE",
- *     ],
- *     ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
- *       ServiceRole: "STRING_VALUE",
- *       VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
- *         MaxCountRule: { // MaxCountRule
- *           Enabled: true || false, // required
- *           MaxCount: Number("int"),
- *           DeleteSourceFromS3: true || false,
- *         },
- *         MaxAgeRule: { // MaxAgeRule
- *           Enabled: true || false, // required
- *           MaxAgeInDays: Number("int"),
- *           DeleteSourceFromS3: true || false,
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // ApplicationDescriptionMessage
+ * //   Application: { // ApplicationDescription
+ * //     ApplicationArn: "STRING_VALUE",
+ * //     ApplicationName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateUpdated: new Date("TIMESTAMP"),
+ * //     Versions: [ // VersionLabelsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ConfigurationTemplates: [ // ConfigurationTemplateNamesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ * //       ServiceRole: "STRING_VALUE",
+ * //       VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ * //         MaxCountRule: { // MaxCountRule
+ * //           Enabled: true || false, // required
+ * //           MaxCount: Number("int"),
+ * //           DeleteSourceFromS3: true || false,
+ * //         },
+ * //         MaxAgeRule: { // MaxAgeRule
+ * //           Enabled: true || false, // required
+ * //           MaxAgeInDays: Number("int"),
+ * //           DeleteSourceFromS3: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

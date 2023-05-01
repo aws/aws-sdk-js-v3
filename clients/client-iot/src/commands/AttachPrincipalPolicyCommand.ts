@@ -52,8 +52,7 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPrincipalPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

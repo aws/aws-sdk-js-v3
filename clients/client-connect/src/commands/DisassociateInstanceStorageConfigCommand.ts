@@ -51,8 +51,7 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * };
  * const command = new DisassociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

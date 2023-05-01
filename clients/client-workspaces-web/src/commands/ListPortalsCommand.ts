@@ -45,27 +45,26 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * };
  * const command = new ListPortalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPortalsResponse
- *   portals: [ // PortalList
- *     { // PortalSummary
- *       portalArn: "STRING_VALUE",
- *       rendererType: "STRING_VALUE",
- *       browserType: "STRING_VALUE",
- *       portalStatus: "STRING_VALUE",
- *       portalEndpoint: "STRING_VALUE",
- *       displayName: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *       browserSettingsArn: "STRING_VALUE",
- *       userSettingsArn: "STRING_VALUE",
- *       networkSettingsArn: "STRING_VALUE",
- *       trustStoreArn: "STRING_VALUE",
- *       userAccessLoggingSettingsArn: "STRING_VALUE",
- *       authenticationType: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPortalsResponse
+ * //   portals: [ // PortalList
+ * //     { // PortalSummary
+ * //       portalArn: "STRING_VALUE",
+ * //       rendererType: "STRING_VALUE",
+ * //       browserType: "STRING_VALUE",
+ * //       portalStatus: "STRING_VALUE",
+ * //       portalEndpoint: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       browserSettingsArn: "STRING_VALUE",
+ * //       userSettingsArn: "STRING_VALUE",
+ * //       networkSettingsArn: "STRING_VALUE",
+ * //       trustStoreArn: "STRING_VALUE",
+ * //       userAccessLoggingSettingsArn: "STRING_VALUE",
+ * //       authenticationType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,19 +57,18 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * };
  * const command = new CancelElasticsearchServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelElasticsearchServiceSoftwareUpdateResponse
- *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
- *     CurrentVersion: "STRING_VALUE",
- *     NewVersion: "STRING_VALUE",
- *     UpdateAvailable: true || false,
- *     Cancellable: true || false,
- *     UpdateStatus: "PENDING_UPDATE" || "IN_PROGRESS" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
- *     Description: "STRING_VALUE",
- *     AutomatedUpdateDate: new Date("TIMESTAMP"),
- *     OptionalDeployment: true || false,
- *   },
- * };
+ * // { // CancelElasticsearchServiceSoftwareUpdateResponse
+ * //   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ * //     CurrentVersion: "STRING_VALUE",
+ * //     NewVersion: "STRING_VALUE",
+ * //     UpdateAvailable: true || false,
+ * //     Cancellable: true || false,
+ * //     UpdateStatus: "PENDING_UPDATE" || "IN_PROGRESS" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
+ * //     Description: "STRING_VALUE",
+ * //     AutomatedUpdateDate: new Date("TIMESTAMP"),
+ * //     OptionalDeployment: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

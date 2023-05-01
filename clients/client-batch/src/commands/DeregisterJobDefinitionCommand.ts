@@ -44,8 +44,7 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * };
  * const command = new DeregisterJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

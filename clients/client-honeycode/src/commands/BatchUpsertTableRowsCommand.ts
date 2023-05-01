@@ -79,24 +79,23 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * };
  * const command = new BatchUpsertTableRowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpsertTableRowsResult
- *   rows: { // UpsertRowsResultMap // required
- *     "<keys>": { // UpsertRowsResult
- *       rowIds: [ // RowIdList // required
- *         "STRING_VALUE",
- *       ],
- *       upsertAction: "STRING_VALUE", // required
- *     },
- *   },
- *   workbookCursor: Number("long"), // required
- *   failedBatchItems: [ // FailedBatchItems
- *     { // FailedBatchItem
- *       id: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchUpsertTableRowsResult
+ * //   rows: { // UpsertRowsResultMap // required
+ * //     "<keys>": { // UpsertRowsResult
+ * //       rowIds: [ // RowIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       upsertAction: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   workbookCursor: Number("long"), // required
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

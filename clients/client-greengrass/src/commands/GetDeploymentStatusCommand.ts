@@ -45,19 +45,18 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * };
  * const command = new GetDeploymentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeploymentStatusResponse
- *   DeploymentStatus: "STRING_VALUE",
- *   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
- *   ErrorDetails: [ // ErrorDetails
- *     { // ErrorDetail
- *       DetailedErrorCode: "STRING_VALUE",
- *       DetailedErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   ErrorMessage: "STRING_VALUE",
- *   UpdatedAt: "STRING_VALUE",
- * };
+ * // { // GetDeploymentStatusResponse
+ * //   DeploymentStatus: "STRING_VALUE",
+ * //   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
+ * //   ErrorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       DetailedErrorCode: "STRING_VALUE",
+ * //       DetailedErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   UpdatedAt: "STRING_VALUE",
+ * // };
  *
  * ```
  *

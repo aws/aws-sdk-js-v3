@@ -54,37 +54,36 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentsResponse
- *   EnvironmentSummaryList: [ // EnvironmentSummaries
- *     { // EnvironmentSummary
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       EnvironmentId: "STRING_VALUE",
- *       NetworkFabricType: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Error: { // ErrorResponse
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *         AccountId: "STRING_VALUE",
- *         ResourceIdentifier: "STRING_VALUE",
- *         ResourceType: "STRING_VALUE",
- *         AdditionalDetails: { // AdditionalDetails
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEnvironmentsResponse
+ * //   EnvironmentSummaryList: [ // EnvironmentSummaries
+ * //     { // EnvironmentSummary
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EnvironmentId: "STRING_VALUE",
+ * //       NetworkFabricType: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Error: { // ErrorResponse
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //         AccountId: "STRING_VALUE",
+ * //         ResourceIdentifier: "STRING_VALUE",
+ * //         ResourceType: "STRING_VALUE",
+ * //         AdditionalDetails: { // AdditionalDetails
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

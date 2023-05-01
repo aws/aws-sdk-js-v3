@@ -51,20 +51,19 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  * };
  * const command = new UpdateServiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceTemplateOutput
- *   serviceTemplate: { // ServiceTemplate
- *     name: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     displayName: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     recommendedVersion: "STRING_VALUE",
- *     encryptionKey: "STRING_VALUE",
- *     pipelineProvisioning: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateServiceTemplateOutput
+ * //   serviceTemplate: { // ServiceTemplate
+ * //     name: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     displayName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     recommendedVersion: "STRING_VALUE",
+ * //     encryptionKey: "STRING_VALUE",
+ * //     pipelineProvisioning: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

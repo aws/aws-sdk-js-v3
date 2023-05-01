@@ -47,10 +47,9 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CommitTransactionResponse
- *   transactionStatus: "STRING_VALUE",
- * };
+ * // { // CommitTransactionResponse
+ * //   transactionStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

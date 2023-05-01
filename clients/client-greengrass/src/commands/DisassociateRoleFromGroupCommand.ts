@@ -44,10 +44,9 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  * };
  * const command = new DisassociateRoleFromGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateRoleFromGroupResponse
- *   DisassociatedAt: "STRING_VALUE",
- * };
+ * // { // DisassociateRoleFromGroupResponse
+ * //   DisassociatedAt: "STRING_VALUE",
+ * // };
  *
  * ```
  *

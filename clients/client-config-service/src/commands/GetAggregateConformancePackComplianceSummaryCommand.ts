@@ -63,20 +63,19 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  * };
  * const command = new GetAggregateConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAggregateConformancePackComplianceSummaryResponse
- *   AggregateConformancePackComplianceSummaries: [ // AggregateConformancePackComplianceSummaryList
- *     { // AggregateConformancePackComplianceSummary
- *       ComplianceSummary: { // AggregateConformancePackComplianceCount
- *         CompliantConformancePackCount: Number("int"),
- *         NonCompliantConformancePackCount: Number("int"),
- *       },
- *       GroupName: "STRING_VALUE",
- *     },
- *   ],
- *   GroupByKey: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAggregateConformancePackComplianceSummaryResponse
+ * //   AggregateConformancePackComplianceSummaries: [ // AggregateConformancePackComplianceSummaryList
+ * //     { // AggregateConformancePackComplianceSummary
+ * //       ComplianceSummary: { // AggregateConformancePackComplianceCount
+ * //         CompliantConformancePackCount: Number("int"),
+ * //         NonCompliantConformancePackCount: Number("int"),
+ * //       },
+ * //       GroupName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   GroupByKey: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

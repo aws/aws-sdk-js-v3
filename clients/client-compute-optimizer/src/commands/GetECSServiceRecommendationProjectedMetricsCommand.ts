@@ -59,29 +59,28 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * };
  * const command = new GetECSServiceRecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetECSServiceRecommendationProjectedMetricsResponse
- *   recommendedOptionProjectedMetrics: [ // ECSServiceRecommendedOptionProjectedMetrics
- *     { // ECSServiceRecommendedOptionProjectedMetric
- *       recommendedCpuUnits: Number("int"),
- *       recommendedMemorySize: Number("int"),
- *       projectedMetrics: [ // ECSServiceProjectedMetrics
- *         { // ECSServiceProjectedMetric
- *           name: "Cpu" || "Memory",
- *           timestamps: [ // Timestamps
- *             new Date("TIMESTAMP"),
- *           ],
- *           upperBoundValues: [ // MetricValues
- *             Number("double"),
- *           ],
- *           lowerBoundValues: [
- *             Number("double"),
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetECSServiceRecommendationProjectedMetricsResponse
+ * //   recommendedOptionProjectedMetrics: [ // ECSServiceRecommendedOptionProjectedMetrics
+ * //     { // ECSServiceRecommendedOptionProjectedMetric
+ * //       recommendedCpuUnits: Number("int"),
+ * //       recommendedMemorySize: Number("int"),
+ * //       projectedMetrics: [ // ECSServiceProjectedMetrics
+ * //         { // ECSServiceProjectedMetric
+ * //           name: "Cpu" || "Memory",
+ * //           timestamps: [ // Timestamps
+ * //             new Date("TIMESTAMP"),
+ * //           ],
+ * //           upperBoundValues: [ // MetricValues
+ * //             Number("double"),
+ * //           ],
+ * //           lowerBoundValues: [
+ * //             Number("double"),
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

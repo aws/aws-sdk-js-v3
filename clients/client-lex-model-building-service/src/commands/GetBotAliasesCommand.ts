@@ -53,33 +53,32 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * };
  * const command = new GetBotAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBotAliasesResponse
- *   BotAliases: [ // BotAliasMetadataList
- *     { // BotAliasMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       botVersion: "STRING_VALUE",
- *       botName: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       checksum: "STRING_VALUE",
- *       conversationLogs: { // ConversationLogsResponse
- *         logSettings: [ // LogSettingsResponseList
- *           { // LogSettingsResponse
- *             logType: "STRING_VALUE",
- *             destination: "STRING_VALUE",
- *             kmsKeyArn: "STRING_VALUE",
- *             resourceArn: "STRING_VALUE",
- *             resourcePrefix: "STRING_VALUE",
- *           },
- *         ],
- *         iamRoleArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetBotAliasesResponse
+ * //   BotAliases: [ // BotAliasMetadataList
+ * //     { // BotAliasMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botVersion: "STRING_VALUE",
+ * //       botName: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       checksum: "STRING_VALUE",
+ * //       conversationLogs: { // ConversationLogsResponse
+ * //         logSettings: [ // LogSettingsResponseList
+ * //           { // LogSettingsResponse
+ * //             logType: "STRING_VALUE",
+ * //             destination: "STRING_VALUE",
+ * //             kmsKeyArn: "STRING_VALUE",
+ * //             resourceArn: "STRING_VALUE",
+ * //             resourcePrefix: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         iamRoleArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

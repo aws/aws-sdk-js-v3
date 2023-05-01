@@ -55,30 +55,29 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentsOutput
- *   nextToken: "STRING_VALUE",
- *   environments: [ // EnvironmentSummaryList // required
- *     { // EnvironmentSummary
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
- *       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
- *       arn: "STRING_VALUE", // required
- *       templateName: "STRING_VALUE", // required
- *       templateMajorVersion: "STRING_VALUE", // required
- *       templateMinorVersion: "STRING_VALUE", // required
- *       deploymentStatus: "STRING_VALUE", // required
- *       deploymentStatusMessage: "STRING_VALUE",
- *       protonServiceRoleArn: "STRING_VALUE",
- *       environmentAccountConnectionId: "STRING_VALUE",
- *       environmentAccountId: "STRING_VALUE",
- *       provisioning: "STRING_VALUE",
- *       componentRoleArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListEnvironmentsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   environments: [ // EnvironmentSummaryList // required
+ * //     { // EnvironmentSummary
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //       arn: "STRING_VALUE", // required
+ * //       templateName: "STRING_VALUE", // required
+ * //       templateMajorVersion: "STRING_VALUE", // required
+ * //       templateMinorVersion: "STRING_VALUE", // required
+ * //       deploymentStatus: "STRING_VALUE", // required
+ * //       deploymentStatusMessage: "STRING_VALUE",
+ * //       protonServiceRoleArn: "STRING_VALUE",
+ * //       environmentAccountConnectionId: "STRING_VALUE",
+ * //       environmentAccountId: "STRING_VALUE",
+ * //       provisioning: "STRING_VALUE",
+ * //       componentRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

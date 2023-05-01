@@ -59,18 +59,17 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMembersResponse
- *   AccountIds: [ // AccountIdList
- *     "STRING_VALUE",
- *   ],
- *   UnprocessedAccounts: [ // UnprocessedAccountList
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteMembersResponse
+ * //   AccountIds: [ // AccountIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccountList
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -51,19 +51,18 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * };
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePortfolioSharesOutput
- *   NextPageToken: "STRING_VALUE",
- *   PortfolioShareDetails: [ // PortfolioShareDetails
- *     { // PortfolioShareDetail
- *       PrincipalId: "STRING_VALUE",
- *       Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT",
- *       Accepted: true || false,
- *       ShareTagOptions: true || false,
- *       SharePrincipals: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribePortfolioSharesOutput
+ * //   NextPageToken: "STRING_VALUE",
+ * //   PortfolioShareDetails: [ // PortfolioShareDetails
+ * //     { // PortfolioShareDetail
+ * //       PrincipalId: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT",
+ * //       Accepted: true || false,
+ * //       ShareTagOptions: true || false,
+ * //       SharePrincipals: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

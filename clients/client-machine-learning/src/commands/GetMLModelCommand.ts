@@ -47,37 +47,36 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * };
  * const command = new GetMLModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMLModelOutput
- *   MLModelId: "STRING_VALUE",
- *   TrainingDataSourceId: "STRING_VALUE",
- *   CreatedByIamUser: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- *   Name: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   SizeInBytes: Number("long"),
- *   EndpointInfo: { // RealtimeEndpointInfo
- *     PeakRequestsPerSecond: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     EndpointUrl: "STRING_VALUE",
- *     EndpointStatus: "STRING_VALUE",
- *   },
- *   TrainingParameters: { // TrainingParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   InputDataLocationS3: "STRING_VALUE",
- *   MLModelType: "STRING_VALUE",
- *   ScoreThreshold: Number("float"),
- *   ScoreThresholdLastUpdatedAt: new Date("TIMESTAMP"),
- *   LogUri: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   ComputeTime: Number("long"),
- *   FinishedAt: new Date("TIMESTAMP"),
- *   StartedAt: new Date("TIMESTAMP"),
- *   Recipe: "STRING_VALUE",
- *   Schema: "STRING_VALUE",
- * };
+ * // { // GetMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * //   TrainingDataSourceId: "STRING_VALUE",
+ * //   CreatedByIamUser: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   Name: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   SizeInBytes: Number("long"),
+ * //   EndpointInfo: { // RealtimeEndpointInfo
+ * //     PeakRequestsPerSecond: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     EndpointUrl: "STRING_VALUE",
+ * //     EndpointStatus: "STRING_VALUE",
+ * //   },
+ * //   TrainingParameters: { // TrainingParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   InputDataLocationS3: "STRING_VALUE",
+ * //   MLModelType: "STRING_VALUE",
+ * //   ScoreThreshold: Number("float"),
+ * //   ScoreThresholdLastUpdatedAt: new Date("TIMESTAMP"),
+ * //   LogUri: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   ComputeTime: Number("long"),
+ * //   FinishedAt: new Date("TIMESTAMP"),
+ * //   StartedAt: new Date("TIMESTAMP"),
+ * //   Recipe: "STRING_VALUE",
+ * //   Schema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

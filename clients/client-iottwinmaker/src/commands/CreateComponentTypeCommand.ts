@@ -142,12 +142,11 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * };
  * const command = new CreateComponentTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateComponentTypeResponse
- *   arn: "STRING_VALUE", // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- * };
+ * // { // CreateComponentTypeResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

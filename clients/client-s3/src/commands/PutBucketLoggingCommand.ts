@@ -141,8 +141,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

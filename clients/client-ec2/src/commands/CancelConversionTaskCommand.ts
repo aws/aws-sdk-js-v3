@@ -50,8 +50,7 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelConversionTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

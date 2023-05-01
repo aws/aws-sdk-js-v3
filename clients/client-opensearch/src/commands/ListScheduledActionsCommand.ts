@@ -49,23 +49,22 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * };
  * const command = new ListScheduledActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScheduledActionsResponse
- *   ScheduledActions: [ // ScheduledActionsList
- *     { // ScheduledAction
- *       Id: "STRING_VALUE", // required
- *       Type: "SERVICE_SOFTWARE_UPDATE" || "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING", // required
- *       Severity: "HIGH" || "MEDIUM" || "LOW", // required
- *       ScheduledTime: Number("long"), // required
- *       Description: "STRING_VALUE",
- *       ScheduledBy: "CUSTOMER" || "SYSTEM",
- *       Status: "PENDING_UPDATE" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
- *       Mandatory: true || false,
- *       Cancellable: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListScheduledActionsResponse
+ * //   ScheduledActions: [ // ScheduledActionsList
+ * //     { // ScheduledAction
+ * //       Id: "STRING_VALUE", // required
+ * //       Type: "SERVICE_SOFTWARE_UPDATE" || "JVM_HEAP_SIZE_TUNING" || "JVM_YOUNG_GEN_TUNING", // required
+ * //       Severity: "HIGH" || "MEDIUM" || "LOW", // required
+ * //       ScheduledTime: Number("long"), // required
+ * //       Description: "STRING_VALUE",
+ * //       ScheduledBy: "CUSTOMER" || "SYSTEM",
+ * //       Status: "PENDING_UPDATE" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
+ * //       Mandatory: true || false,
+ * //       Cancellable: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

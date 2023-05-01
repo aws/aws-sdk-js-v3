@@ -55,16 +55,15 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountAttributesResult
- *   AccountAttributes: [ // AccountAttributeList
- *     { // AccountAttribute
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAccountAttributesResult
+ * //   AccountAttributes: [ // AccountAttributeList
+ * //     { // AccountAttribute
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

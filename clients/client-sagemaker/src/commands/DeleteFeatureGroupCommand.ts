@@ -49,8 +49,7 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFeatureGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

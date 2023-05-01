@@ -56,17 +56,16 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesOutput
- *   TypeName: "STRING_VALUE",
- *   ResourceDescriptions: [ // ResourceDescriptions
- *     { // ResourceDescription
- *       Identifier: "STRING_VALUE",
- *       Properties: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesOutput
+ * //   TypeName: "STRING_VALUE",
+ * //   ResourceDescriptions: [ // ResourceDescriptions
+ * //     { // ResourceDescription
+ * //       Identifier: "STRING_VALUE",
+ * //       Properties: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

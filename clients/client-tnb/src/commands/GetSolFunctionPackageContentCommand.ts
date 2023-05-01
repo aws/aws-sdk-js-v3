@@ -51,11 +51,10 @@ export interface GetSolFunctionPackageContentCommandOutput
  * };
  * const command = new GetSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolFunctionPackageContentOutput
- *   contentType: "application/zip",
- *   packageContent: "BLOB_VALUE",
- * };
+ * // { // GetSolFunctionPackageContentOutput
+ * //   contentType: "application/zip",
+ * //   packageContent: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

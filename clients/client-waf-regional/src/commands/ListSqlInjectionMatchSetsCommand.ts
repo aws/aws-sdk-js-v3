@@ -53,16 +53,15 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  * };
  * const command = new ListSqlInjectionMatchSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSqlInjectionMatchSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   SqlInjectionMatchSets: [ // SqlInjectionMatchSetSummaries
- *     { // SqlInjectionMatchSetSummary
- *       SqlInjectionMatchSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListSqlInjectionMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   SqlInjectionMatchSets: [ // SqlInjectionMatchSetSummaries
+ * //     { // SqlInjectionMatchSetSummary
+ * //       SqlInjectionMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

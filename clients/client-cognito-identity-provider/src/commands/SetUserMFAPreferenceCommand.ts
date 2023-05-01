@@ -69,8 +69,7 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * };
  * const command = new SetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,27 +45,26 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeploymentsResult
- *   Deployments: [ // EdgeDeployments
- *     { // EdgeDeployment
- *       DeploymentName: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       FailureHandlingPolicy: "STRING_VALUE",
- *       Definitions: [ // Definitions
- *         { // Definition
- *           ModelHandle: "STRING_VALUE",
- *           S3Url: "STRING_VALUE",
- *           Checksum: { // Checksum
- *             Type: "STRING_VALUE",
- *             Sum: "STRING_VALUE",
- *           },
- *           State: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetDeploymentsResult
+ * //   Deployments: [ // EdgeDeployments
+ * //     { // EdgeDeployment
+ * //       DeploymentName: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       FailureHandlingPolicy: "STRING_VALUE",
+ * //       Definitions: [ // Definitions
+ * //         { // Definition
+ * //           ModelHandle: "STRING_VALUE",
+ * //           S3Url: "STRING_VALUE",
+ * //           Checksum: { // Checksum
+ * //             Type: "STRING_VALUE",
+ * //             Sum: "STRING_VALUE",
+ * //           },
+ * //           State: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

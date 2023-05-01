@@ -47,23 +47,22 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * };
  * const command = new DeleteLaunchTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLaunchTemplateResult
- *   LaunchTemplate: { // LaunchTemplate
- *     LaunchTemplateId: "STRING_VALUE",
- *     LaunchTemplateName: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     CreatedBy: "STRING_VALUE",
- *     DefaultVersionNumber: Number("long"),
- *     LatestVersionNumber: Number("long"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteLaunchTemplateResult
+ * //   LaunchTemplate: { // LaunchTemplate
+ * //     LaunchTemplateId: "STRING_VALUE",
+ * //     LaunchTemplateName: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     CreatedBy: "STRING_VALUE",
+ * //     DefaultVersionNumber: Number("long"),
+ * //     LatestVersionNumber: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

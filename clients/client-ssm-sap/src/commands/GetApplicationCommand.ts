@@ -47,24 +47,23 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationOutput
- *   Application: { // Application
- *     Id: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     AppRegistryArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Components: [ // ComponentIdList
- *       "STRING_VALUE",
- *     ],
- *     LastUpdated: new Date("TIMESTAMP"),
- *     StatusMessage: "STRING_VALUE",
- *   },
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetApplicationOutput
+ * //   Application: { // Application
+ * //     Id: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     AppRegistryArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Components: [ // ComponentIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

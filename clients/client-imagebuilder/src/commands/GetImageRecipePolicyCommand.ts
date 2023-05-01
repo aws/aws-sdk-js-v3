@@ -44,11 +44,10 @@ export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyR
  * };
  * const command = new GetImageRecipePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImageRecipePolicyResponse
- *   requestId: "STRING_VALUE",
- *   policy: "STRING_VALUE",
- * };
+ * // { // GetImageRecipePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

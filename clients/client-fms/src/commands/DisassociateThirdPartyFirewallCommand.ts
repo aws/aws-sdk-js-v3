@@ -49,10 +49,9 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * };
  * const command = new DisassociateThirdPartyFirewallCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateThirdPartyFirewallResponse
- *   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
- * };
+ * // { // DisassociateThirdPartyFirewallResponse
+ * //   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
+ * // };
  *
  * ```
  *

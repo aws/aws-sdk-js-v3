@@ -69,8 +69,7 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * };
  * const command = new PutExternalModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

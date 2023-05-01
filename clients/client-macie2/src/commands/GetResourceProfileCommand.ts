@@ -44,23 +44,22 @@ export interface GetResourceProfileCommandOutput extends GetResourceProfileRespo
  * };
  * const command = new GetResourceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceProfileResponse
- *   profileUpdatedAt: new Date("TIMESTAMP"),
- *   sensitivityScore: Number("int"),
- *   sensitivityScoreOverridden: true || false,
- *   statistics: { // ResourceStatistics
- *     totalBytesClassified: Number("long"),
- *     totalDetections: Number("long"),
- *     totalDetectionsSuppressed: Number("long"),
- *     totalItemsClassified: Number("long"),
- *     totalItemsSensitive: Number("long"),
- *     totalItemsSkipped: Number("long"),
- *     totalItemsSkippedInvalidEncryption: Number("long"),
- *     totalItemsSkippedInvalidKms: Number("long"),
- *     totalItemsSkippedPermissionDenied: Number("long"),
- *   },
- * };
+ * // { // GetResourceProfileResponse
+ * //   profileUpdatedAt: new Date("TIMESTAMP"),
+ * //   sensitivityScore: Number("int"),
+ * //   sensitivityScoreOverridden: true || false,
+ * //   statistics: { // ResourceStatistics
+ * //     totalBytesClassified: Number("long"),
+ * //     totalDetections: Number("long"),
+ * //     totalDetectionsSuppressed: Number("long"),
+ * //     totalItemsClassified: Number("long"),
+ * //     totalItemsSensitive: Number("long"),
+ * //     totalItemsSkipped: Number("long"),
+ * //     totalItemsSkippedInvalidEncryption: Number("long"),
+ * //     totalItemsSkippedInvalidKms: Number("long"),
+ * //     totalItemsSkippedPermissionDenied: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

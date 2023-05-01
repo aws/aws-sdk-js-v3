@@ -45,22 +45,21 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * };
  * const command = new GetSyncJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSyncJobResponse
- *   arn: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE", // required
- *   syncSource: "STRING_VALUE", // required
- *   syncRole: "STRING_VALUE", // required
- *   status: { // SyncJobStatus
- *     state: "STRING_VALUE",
- *     error: { // ErrorDetails
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   },
- *   creationDateTime: new Date("TIMESTAMP"), // required
- *   updateDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetSyncJobResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   syncSource: "STRING_VALUE", // required
+ * //   syncRole: "STRING_VALUE", // required
+ * //   status: { // SyncJobStatus
+ * //     state: "STRING_VALUE",
+ * //     error: { // ErrorDetails
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

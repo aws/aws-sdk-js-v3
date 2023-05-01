@@ -53,26 +53,25 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserResponse
- *   Username: "STRING_VALUE", // required
- *   UserAttributes: [ // AttributeListType // required
- *     { // AttributeType
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   MFAOptions: [ // MFAOptionListType
- *     { // MFAOptionType
- *       DeliveryMedium: "SMS" || "EMAIL",
- *       AttributeName: "STRING_VALUE",
- *     },
- *   ],
- *   PreferredMfaSetting: "STRING_VALUE",
- *   UserMFASettingList: [ // UserMFASettingListType
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetUserResponse
+ * //   Username: "STRING_VALUE", // required
+ * //   UserAttributes: [ // AttributeListType // required
+ * //     { // AttributeType
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   MFAOptions: [ // MFAOptionListType
+ * //     { // MFAOptionType
+ * //       DeliveryMedium: "SMS" || "EMAIL",
+ * //       AttributeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PreferredMfaSetting: "STRING_VALUE",
+ * //   UserMFASettingList: [ // UserMFASettingListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

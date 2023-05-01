@@ -46,8 +46,7 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  * };
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

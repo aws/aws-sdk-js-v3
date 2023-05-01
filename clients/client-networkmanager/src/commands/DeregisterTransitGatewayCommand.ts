@@ -46,17 +46,16 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * };
  * const command = new DeregisterTransitGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterTransitGatewayResponse
- *   TransitGatewayRegistration: { // TransitGatewayRegistration
- *     GlobalNetworkId: "STRING_VALUE",
- *     TransitGatewayArn: "STRING_VALUE",
- *     State: { // TransitGatewayRegistrationStateReason
- *       Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
- *       Message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeregisterTransitGatewayResponse
+ * //   TransitGatewayRegistration: { // TransitGatewayRegistration
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     TransitGatewayArn: "STRING_VALUE",
+ * //     State: { // TransitGatewayRegistrationStateReason
+ * //       Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

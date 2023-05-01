@@ -45,8 +45,7 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * };
  * const command = new DeleteEventIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

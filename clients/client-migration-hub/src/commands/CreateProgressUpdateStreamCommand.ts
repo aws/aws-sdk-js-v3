@@ -49,8 +49,7 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * };
  * const command = new CreateProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

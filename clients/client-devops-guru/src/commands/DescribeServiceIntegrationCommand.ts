@@ -44,17 +44,16 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * const input = {};
  * const command = new DescribeServiceIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServiceIntegrationResponse
- *   ServiceIntegration: { // ServiceIntegrationConfig
- *     OpsCenter: { // OpsCenterIntegration
- *       OptInStatus: "ENABLED" || "DISABLED",
- *     },
- *     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegration
- *       OptInStatus: "ENABLED" || "DISABLED",
- *     },
- *   },
- * };
+ * // { // DescribeServiceIntegrationResponse
+ * //   ServiceIntegration: { // ServiceIntegrationConfig
+ * //     OpsCenter: { // OpsCenterIntegration
+ * //       OptInStatus: "ENABLED" || "DISABLED",
+ * //     },
+ * //     LogsAnomalyDetection: { // LogsAnomalyDetectionIntegration
+ * //       OptInStatus: "ENABLED" || "DISABLED",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,18 +50,17 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * };
  * const command = new DescribeSpeakerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSpeakerResponse
- *   Speaker: { // Speaker
- *     DomainId: "STRING_VALUE",
- *     CustomerSpeakerId: "STRING_VALUE",
- *     GeneratedSpeakerId: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     UpdatedAt: new Date("TIMESTAMP"),
- *     LastAccessedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeSpeakerResponse
+ * //   Speaker: { // Speaker
+ * //     DomainId: "STRING_VALUE",
+ * //     CustomerSpeakerId: "STRING_VALUE",
+ * //     GeneratedSpeakerId: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     LastAccessedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

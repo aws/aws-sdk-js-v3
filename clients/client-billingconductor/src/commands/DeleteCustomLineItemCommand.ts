@@ -50,10 +50,9 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  * };
  * const command = new DeleteCustomLineItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCustomLineItemOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeleteCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

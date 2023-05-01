@@ -276,27 +276,26 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * };
  * const command = new CopyObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyObjectOutput
- *   CopyObjectResult: { // CopyObjectResult
- *     ETag: "STRING_VALUE",
- *     LastModified: new Date("TIMESTAMP"),
- *     ChecksumCRC32: "STRING_VALUE",
- *     ChecksumCRC32C: "STRING_VALUE",
- *     ChecksumSHA1: "STRING_VALUE",
- *     ChecksumSHA256: "STRING_VALUE",
- *   },
- *   Expiration: "STRING_VALUE",
- *   CopySourceVersionId: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   SSEKMSEncryptionContext: "STRING_VALUE",
- *   BucketKeyEnabled: true || false,
- *   RequestCharged: "requester",
- * };
+ * // { // CopyObjectOutput
+ * //   CopyObjectResult: { // CopyObjectResult
+ * //     ETag: "STRING_VALUE",
+ * //     LastModified: new Date("TIMESTAMP"),
+ * //     ChecksumCRC32: "STRING_VALUE",
+ * //     ChecksumCRC32C: "STRING_VALUE",
+ * //     ChecksumSHA1: "STRING_VALUE",
+ * //     ChecksumSHA256: "STRING_VALUE",
+ * //   },
+ * //   Expiration: "STRING_VALUE",
+ * //   CopySourceVersionId: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   SSECustomerAlgorithm: "STRING_VALUE",
+ * //   SSECustomerKeyMD5: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   SSEKMSEncryptionContext: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

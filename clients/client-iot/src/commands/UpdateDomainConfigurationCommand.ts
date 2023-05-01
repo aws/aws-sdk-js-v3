@@ -55,11 +55,10 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * };
  * const command = new UpdateDomainConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainConfigurationResponse
- *   domainConfigurationName: "STRING_VALUE",
- *   domainConfigurationArn: "STRING_VALUE",
- * };
+ * // { // UpdateDomainConfigurationResponse
+ * //   domainConfigurationName: "STRING_VALUE",
+ * //   domainConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

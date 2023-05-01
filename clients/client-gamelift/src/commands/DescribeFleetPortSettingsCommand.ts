@@ -70,21 +70,20 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * };
  * const command = new DescribeFleetPortSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetPortSettingsOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- *   InboundPermissions: [ // IpPermissionsList
- *     { // IpPermission
- *       FromPort: Number("int"), // required
- *       ToPort: Number("int"), // required
- *       IpRange: "STRING_VALUE", // required
- *       Protocol: "TCP" || "UDP", // required
- *     },
- *   ],
- *   UpdateStatus: "PENDING_UPDATE",
- *   Location: "STRING_VALUE",
- * };
+ * // { // DescribeFleetPortSettingsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   InboundPermissions: [ // IpPermissionsList
+ * //     { // IpPermission
+ * //       FromPort: Number("int"), // required
+ * //       ToPort: Number("int"), // required
+ * //       IpRange: "STRING_VALUE", // required
+ * //       Protocol: "TCP" || "UDP", // required
+ * //     },
+ * //   ],
+ * //   UpdateStatus: "PENDING_UPDATE",
+ * //   Location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

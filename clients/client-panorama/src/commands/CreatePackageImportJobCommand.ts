@@ -69,10 +69,9 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * };
  * const command = new CreatePackageImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePackageImportJobResponse
- *   JobId: "STRING_VALUE", // required
- * };
+ * // { // CreatePackageImportJobResponse
+ * //   JobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

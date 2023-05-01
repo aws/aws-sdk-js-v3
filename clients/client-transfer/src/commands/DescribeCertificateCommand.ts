@@ -48,30 +48,29 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCertificateResponse
- *   Certificate: { // DescribedCertificate
- *     Arn: "STRING_VALUE", // required
- *     CertificateId: "STRING_VALUE",
- *     Usage: "SIGNING" || "ENCRYPTION",
- *     Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
- *     Certificate: "STRING_VALUE",
- *     CertificateChain: "STRING_VALUE",
- *     ActiveDate: new Date("TIMESTAMP"),
- *     InactiveDate: new Date("TIMESTAMP"),
- *     Serial: "STRING_VALUE",
- *     NotBeforeDate: new Date("TIMESTAMP"),
- *     NotAfterDate: new Date("TIMESTAMP"),
- *     Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
- *     Description: "STRING_VALUE",
- *     Tags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeCertificateResponse
+ * //   Certificate: { // DescribedCertificate
+ * //     Arn: "STRING_VALUE", // required
+ * //     CertificateId: "STRING_VALUE",
+ * //     Usage: "SIGNING" || "ENCRYPTION",
+ * //     Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
+ * //     Certificate: "STRING_VALUE",
+ * //     CertificateChain: "STRING_VALUE",
+ * //     ActiveDate: new Date("TIMESTAMP"),
+ * //     InactiveDate: new Date("TIMESTAMP"),
+ * //     Serial: "STRING_VALUE",
+ * //     NotBeforeDate: new Date("TIMESTAMP"),
+ * //     NotAfterDate: new Date("TIMESTAMP"),
+ * //     Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

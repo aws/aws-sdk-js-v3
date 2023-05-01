@@ -58,15 +58,14 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * };
  * const command = new GetRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRevisionResponse
- *   Proof: { // ValueHolder
- *     IonText: "STRING_VALUE",
- *   },
- *   Revision: {
- *     IonText: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRevisionResponse
+ * //   Proof: { // ValueHolder
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * //   Revision: {
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

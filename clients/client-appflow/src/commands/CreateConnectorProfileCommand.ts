@@ -284,10 +284,9 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * };
  * const command = new CreateConnectorProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectorProfileResponse
- *   connectorProfileArn: "STRING_VALUE",
- * };
+ * // { // CreateConnectorProfileResponse
+ * //   connectorProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

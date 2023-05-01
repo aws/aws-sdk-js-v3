@@ -89,11 +89,10 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * };
  * const command = new RegisterUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterUsageResult
- *   PublicKeyRotationTimestamp: new Date("TIMESTAMP"),
- *   Signature: "STRING_VALUE",
- * };
+ * // { // RegisterUsageResult
+ * //   PublicKeyRotationTimestamp: new Date("TIMESTAMP"),
+ * //   Signature: "STRING_VALUE",
+ * // };
  *
  * ```
  *

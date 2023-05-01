@@ -77,22 +77,21 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchResourcesOutput
- *   ResourceIdentifiers: [ // ResourceIdentifierList
- *     { // ResourceIdentifier
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   QueryErrors: [ // QueryErrorList
- *     { // QueryError
- *       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // SearchResourcesOutput
+ * //   ResourceIdentifiers: [ // ResourceIdentifierList
+ * //     { // ResourceIdentifier
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   QueryErrors: [ // QueryErrorList
+ * //     { // QueryError
+ * //       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

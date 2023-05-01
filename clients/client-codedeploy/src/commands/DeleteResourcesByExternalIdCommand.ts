@@ -44,8 +44,7 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * };
  * const command = new DeleteResourcesByExternalIdCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

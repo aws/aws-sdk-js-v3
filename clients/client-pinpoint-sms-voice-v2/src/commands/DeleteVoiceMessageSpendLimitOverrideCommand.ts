@@ -58,10 +58,9 @@ export interface DeleteVoiceMessageSpendLimitOverrideCommandOutput
  * const input = {};
  * const command = new DeleteVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVoiceMessageSpendLimitOverrideResult
- *   MonthlyLimit: Number("long"),
- * };
+ * // { // DeleteVoiceMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
  *
  * ```
  *

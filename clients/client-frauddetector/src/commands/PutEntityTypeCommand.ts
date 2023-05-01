@@ -51,8 +51,7 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * };
  * const command = new PutEntityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

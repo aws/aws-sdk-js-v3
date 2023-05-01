@@ -58,22 +58,21 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeWithResponseStreamResponse
- *   StatusCode: Number("int"),
- *   ExecutedVersion: "STRING_VALUE",
- *   EventStream: { // InvokeWithResponseStreamResponseEvent Union: only one key present
- *     PayloadChunk: { // InvokeResponseStreamUpdate
- *       Payload: "BLOB_VALUE",
- *     },
- *     InvokeComplete: { // InvokeWithResponseStreamCompleteEvent
- *       ErrorCode: "STRING_VALUE",
- *       ErrorDetails: "STRING_VALUE",
- *       LogResult: "STRING_VALUE",
- *     },
- *   },
- *   ResponseStreamContentType: "STRING_VALUE",
- * };
+ * // { // InvokeWithResponseStreamResponse
+ * //   StatusCode: Number("int"),
+ * //   ExecutedVersion: "STRING_VALUE",
+ * //   EventStream: { // InvokeWithResponseStreamResponseEvent Union: only one key present
+ * //     PayloadChunk: { // InvokeResponseStreamUpdate
+ * //       Payload: "BLOB_VALUE",
+ * //     },
+ * //     InvokeComplete: { // InvokeWithResponseStreamCompleteEvent
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorDetails: "STRING_VALUE",
+ * //       LogResult: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ResponseStreamContentType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

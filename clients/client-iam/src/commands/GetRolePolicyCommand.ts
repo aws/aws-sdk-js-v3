@@ -61,12 +61,11 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * };
  * const command = new GetRolePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRolePolicyResponse
- *   RoleName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
- * };
+ * // { // GetRolePolicyResponse
+ * //   RoleName: "STRING_VALUE", // required
+ * //   PolicyName: "STRING_VALUE", // required
+ * //   PolicyDocument: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

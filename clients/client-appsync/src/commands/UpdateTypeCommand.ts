@@ -47,16 +47,15 @@ export interface UpdateTypeCommandOutput extends UpdateTypeResponse, __MetadataB
  * };
  * const command = new UpdateTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTypeResponse
- *   type: { // Type
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     definition: "STRING_VALUE",
- *     format: "SDL" || "JSON",
- *   },
- * };
+ * // { // UpdateTypeResponse
+ * //   type: { // Type
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     definition: "STRING_VALUE",
+ * //     format: "SDL" || "JSON",
+ * //   },
+ * // };
  *
  * ```
  *

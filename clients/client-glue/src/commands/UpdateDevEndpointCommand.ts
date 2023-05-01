@@ -62,8 +62,7 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * };
  * const command = new UpdateDevEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,10 +59,9 @@ export interface SendCustomVerificationEmailCommandOutput
  * };
  * const command = new SendCustomVerificationEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendCustomVerificationEmailResponse
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendCustomVerificationEmailResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

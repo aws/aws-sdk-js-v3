@@ -52,23 +52,22 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * };
  * const command = new CreatePhoneNumberOrderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePhoneNumberOrderResponse
- *   PhoneNumberOrder: { // PhoneNumberOrder
- *     PhoneNumberOrderId: "STRING_VALUE",
- *     ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
- *     Status: "Processing" || "Successful" || "Failed" || "Partial" || "PendingDocuments" || "Submitted" || "FOC" || "ChangeRequested" || "Exception" || "CancelRequested" || "Cancelled",
- *     OrderType: "New" || "Porting",
- *     OrderedPhoneNumbers: [ // OrderedPhoneNumberList
- *       { // OrderedPhoneNumber
- *         E164PhoneNumber: "STRING_VALUE",
- *         Status: "Processing" || "Acquired" || "Failed",
- *       },
- *     ],
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreatePhoneNumberOrderResponse
+ * //   PhoneNumberOrder: { // PhoneNumberOrder
+ * //     PhoneNumberOrderId: "STRING_VALUE",
+ * //     ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
+ * //     Status: "Processing" || "Successful" || "Failed" || "Partial" || "PendingDocuments" || "Submitted" || "FOC" || "ChangeRequested" || "Exception" || "CancelRequested" || "Cancelled",
+ * //     OrderType: "New" || "Porting",
+ * //     OrderedPhoneNumbers: [ // OrderedPhoneNumberList
+ * //       { // OrderedPhoneNumber
+ * //         E164PhoneNumber: "STRING_VALUE",
+ * //         Status: "Processing" || "Acquired" || "Failed",
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

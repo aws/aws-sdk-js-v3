@@ -46,27 +46,26 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * };
  * const command = new ModifyIpamScopeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyIpamScopeResult
- *   IpamScope: { // IpamScope
- *     OwnerId: "STRING_VALUE",
- *     IpamScopeId: "STRING_VALUE",
- *     IpamScopeArn: "STRING_VALUE",
- *     IpamArn: "STRING_VALUE",
- *     IpamRegion: "STRING_VALUE",
- *     IpamScopeType: "public" || "private",
- *     IsDefault: true || false,
- *     Description: "STRING_VALUE",
- *     PoolCount: Number("int"),
- *     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyIpamScopeResult
+ * //   IpamScope: { // IpamScope
+ * //     OwnerId: "STRING_VALUE",
+ * //     IpamScopeId: "STRING_VALUE",
+ * //     IpamScopeArn: "STRING_VALUE",
+ * //     IpamArn: "STRING_VALUE",
+ * //     IpamRegion: "STRING_VALUE",
+ * //     IpamScopeType: "public" || "private",
+ * //     IsDefault: true || false,
+ * //     Description: "STRING_VALUE",
+ * //     PoolCount: Number("int"),
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

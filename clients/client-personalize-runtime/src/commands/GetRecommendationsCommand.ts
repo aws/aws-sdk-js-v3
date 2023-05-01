@@ -90,17 +90,16 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecommendationsResponse
- *   itemList: [ // ItemList
- *     { // PredictedItem
- *       itemId: "STRING_VALUE",
- *       score: Number("double"),
- *       promotionName: "STRING_VALUE",
- *     },
- *   ],
- *   recommendationId: "STRING_VALUE",
- * };
+ * // { // GetRecommendationsResponse
+ * //   itemList: [ // ItemList
+ * //     { // PredictedItem
+ * //       itemId: "STRING_VALUE",
+ * //       score: Number("double"),
+ * //       promotionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   recommendationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateElasticIpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

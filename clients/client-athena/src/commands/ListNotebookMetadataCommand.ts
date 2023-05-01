@@ -49,20 +49,19 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * };
  * const command = new ListNotebookMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotebookMetadataOutput
- *   NextToken: "STRING_VALUE",
- *   NotebookMetadataList: [ // NotebookMetadataArray
- *     { // NotebookMetadata
- *       NotebookId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       WorkGroup: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       Type: "IPYNB",
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListNotebookMetadataOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   NotebookMetadataList: [ // NotebookMetadataArray
+ * //     { // NotebookMetadata
+ * //       NotebookId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       WorkGroup: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Type: "IPYNB",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

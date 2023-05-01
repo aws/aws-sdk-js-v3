@@ -72,8 +72,7 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

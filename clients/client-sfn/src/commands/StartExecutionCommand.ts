@@ -60,11 +60,10 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * };
  * const command = new StartExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExecutionOutput
- *   executionArn: "STRING_VALUE", // required
- *   startDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // StartExecutionOutput
+ * //   executionArn: "STRING_VALUE", // required
+ * //   startDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

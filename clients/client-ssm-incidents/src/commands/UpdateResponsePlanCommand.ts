@@ -98,8 +98,7 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * };
  * const command = new UpdateResponsePlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

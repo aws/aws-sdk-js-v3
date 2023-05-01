@@ -109,8 +109,7 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * };
  * const command = new GrantPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

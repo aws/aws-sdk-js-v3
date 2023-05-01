@@ -51,24 +51,23 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  * };
  * const command = new CreateUserImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserImportJobResponse
- *   UserImportJob: { // UserImportJobType
- *     JobName: "STRING_VALUE",
- *     JobId: "STRING_VALUE",
- *     UserPoolId: "STRING_VALUE",
- *     PreSignedUrl: "STRING_VALUE",
- *     CreationDate: new Date("TIMESTAMP"),
- *     StartDate: new Date("TIMESTAMP"),
- *     CompletionDate: new Date("TIMESTAMP"),
- *     Status: "Created" || "Pending" || "InProgress" || "Stopping" || "Expired" || "Stopped" || "Failed" || "Succeeded",
- *     CloudWatchLogsRoleArn: "STRING_VALUE",
- *     ImportedUsers: Number("long"),
- *     SkippedUsers: Number("long"),
- *     FailedUsers: Number("long"),
- *     CompletionMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateUserImportJobResponse
+ * //   UserImportJob: { // UserImportJobType
+ * //     JobName: "STRING_VALUE",
+ * //     JobId: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     PreSignedUrl: "STRING_VALUE",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     StartDate: new Date("TIMESTAMP"),
+ * //     CompletionDate: new Date("TIMESTAMP"),
+ * //     Status: "Created" || "Pending" || "InProgress" || "Stopping" || "Expired" || "Stopped" || "Failed" || "Succeeded",
+ * //     CloudWatchLogsRoleArn: "STRING_VALUE",
+ * //     ImportedUsers: Number("long"),
+ * //     SkippedUsers: Number("long"),
+ * //     FailedUsers: Number("long"),
+ * //     CompletionMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

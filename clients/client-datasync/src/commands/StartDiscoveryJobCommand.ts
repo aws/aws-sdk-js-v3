@@ -54,10 +54,9 @@ export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobRespons
  * };
  * const command = new StartDiscoveryJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDiscoveryJobResponse
- *   DiscoveryJobArn: "STRING_VALUE",
- * };
+ * // { // StartDiscoveryJobResponse
+ * //   DiscoveryJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

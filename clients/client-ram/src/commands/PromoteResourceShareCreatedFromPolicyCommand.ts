@@ -66,10 +66,9 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * };
  * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PromoteResourceShareCreatedFromPolicyResponse
- *   returnValue: true || false,
- * };
+ * // { // PromoteResourceShareCreatedFromPolicyResponse
+ * //   returnValue: true || false,
+ * // };
  *
  * ```
  *

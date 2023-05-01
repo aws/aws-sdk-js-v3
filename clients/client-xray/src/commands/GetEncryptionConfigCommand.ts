@@ -42,14 +42,13 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * const input = {};
  * const command = new GetEncryptionConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEncryptionConfigResult
- *   EncryptionConfig: { // EncryptionConfig
- *     KeyId: "STRING_VALUE",
- *     Status: "UPDATING" || "ACTIVE",
- *     Type: "NONE" || "KMS",
- *   },
- * };
+ * // { // GetEncryptionConfigResult
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     KeyId: "STRING_VALUE",
+ * //     Status: "UPDATING" || "ACTIVE",
+ * //     Type: "NONE" || "KMS",
+ * //   },
+ * // };
  *
  * ```
  *

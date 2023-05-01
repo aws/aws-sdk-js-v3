@@ -48,8 +48,7 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * };
  * const command = new DeleteNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

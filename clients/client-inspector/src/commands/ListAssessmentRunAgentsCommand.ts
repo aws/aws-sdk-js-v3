@@ -55,27 +55,26 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * };
  * const command = new ListAssessmentRunAgentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentRunAgentsResponse
- *   assessmentRunAgents: [ // AssessmentRunAgentList // required
- *     { // AssessmentRunAgent
- *       agentId: "STRING_VALUE", // required
- *       assessmentRunArn: "STRING_VALUE", // required
- *       agentHealth: "STRING_VALUE", // required
- *       agentHealthCode: "STRING_VALUE", // required
- *       agentHealthDetails: "STRING_VALUE",
- *       autoScalingGroup: "STRING_VALUE",
- *       telemetryMetadata: [ // TelemetryMetadataList // required
- *         { // TelemetryMetadata
- *           messageType: "STRING_VALUE", // required
- *           count: Number("long"), // required
- *           dataSize: Number("long"),
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentRunAgentsResponse
+ * //   assessmentRunAgents: [ // AssessmentRunAgentList // required
+ * //     { // AssessmentRunAgent
+ * //       agentId: "STRING_VALUE", // required
+ * //       assessmentRunArn: "STRING_VALUE", // required
+ * //       agentHealth: "STRING_VALUE", // required
+ * //       agentHealthCode: "STRING_VALUE", // required
+ * //       agentHealthDetails: "STRING_VALUE",
+ * //       autoScalingGroup: "STRING_VALUE",
+ * //       telemetryMetadata: [ // TelemetryMetadataList // required
+ * //         { // TelemetryMetadata
+ * //           messageType: "STRING_VALUE", // required
+ * //           count: Number("long"), // required
+ * //           dataSize: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

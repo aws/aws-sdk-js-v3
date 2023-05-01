@@ -46,10 +46,9 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * };
  * const command = new GetSuiteRunReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSuiteRunReportResponse
- *   qualificationReportDownloadUrl: "STRING_VALUE",
- * };
+ * // { // GetSuiteRunReportResponse
+ * //   qualificationReportDownloadUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

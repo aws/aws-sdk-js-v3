@@ -57,16 +57,15 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLocationsResponse
- *   Locations: [ // LocationList
- *     { // LocationListEntry
- *       LocationArn: "STRING_VALUE",
- *       LocationUri: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLocationsResponse
+ * //   Locations: [ // LocationList
+ * //     { // LocationListEntry
+ * //       LocationArn: "STRING_VALUE",
+ * //       LocationUri: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

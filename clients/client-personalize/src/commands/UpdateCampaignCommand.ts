@@ -62,10 +62,9 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCampaignResponse
- *   campaignArn: "STRING_VALUE",
- * };
+ * // { // UpdateCampaignResponse
+ * //   campaignArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

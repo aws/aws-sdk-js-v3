@@ -55,8 +55,7 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * };
  * const command = new ModifyDocumentPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

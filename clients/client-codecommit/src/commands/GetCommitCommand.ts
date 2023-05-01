@@ -45,28 +45,27 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * };
  * const command = new GetCommitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCommitOutput
- *   commit: { // Commit
- *     commitId: "STRING_VALUE",
- *     treeId: "STRING_VALUE",
- *     parents: [ // ParentList
- *       "STRING_VALUE",
- *     ],
- *     message: "STRING_VALUE",
- *     author: { // UserInfo
- *       name: "STRING_VALUE",
- *       email: "STRING_VALUE",
- *       date: "STRING_VALUE",
- *     },
- *     committer: {
- *       name: "STRING_VALUE",
- *       email: "STRING_VALUE",
- *       date: "STRING_VALUE",
- *     },
- *     additionalData: "STRING_VALUE",
- *   },
- * };
+ * // { // GetCommitOutput
+ * //   commit: { // Commit
+ * //     commitId: "STRING_VALUE",
+ * //     treeId: "STRING_VALUE",
+ * //     parents: [ // ParentList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     message: "STRING_VALUE",
+ * //     author: { // UserInfo
+ * //       name: "STRING_VALUE",
+ * //       email: "STRING_VALUE",
+ * //       date: "STRING_VALUE",
+ * //     },
+ * //     committer: {
+ * //       name: "STRING_VALUE",
+ * //       email: "STRING_VALUE",
+ * //       date: "STRING_VALUE",
+ * //     },
+ * //     additionalData: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

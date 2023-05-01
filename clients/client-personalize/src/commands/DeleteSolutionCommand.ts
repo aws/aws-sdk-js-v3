@@ -50,8 +50,7 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSolutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

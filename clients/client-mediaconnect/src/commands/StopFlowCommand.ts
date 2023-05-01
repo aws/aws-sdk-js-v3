@@ -44,11 +44,10 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * };
  * const command = new StopFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopFlowResponse
- *   FlowArn: "STRING_VALUE",
- *   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
- * };
+ * // { // StopFlowResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
+ * // };
  *
  * ```
  *

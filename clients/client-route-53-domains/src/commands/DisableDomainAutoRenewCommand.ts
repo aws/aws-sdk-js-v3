@@ -45,8 +45,7 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * };
  * const command = new DisableDomainAutoRenewCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

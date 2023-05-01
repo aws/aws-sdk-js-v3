@@ -67,14 +67,13 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * };
  * const command = new ModifyCurrentDBClusterCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBClusterCapacityInfo
- *   DBClusterIdentifier: "STRING_VALUE",
- *   PendingCapacity: Number("int"),
- *   CurrentCapacity: Number("int"),
- *   SecondsBeforeTimeout: Number("int"),
- *   TimeoutAction: "STRING_VALUE",
- * };
+ * // { // DBClusterCapacityInfo
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   PendingCapacity: Number("int"),
+ * //   CurrentCapacity: Number("int"),
+ * //   SecondsBeforeTimeout: Number("int"),
+ * //   TimeoutAction: "STRING_VALUE",
+ * // };
  *
  * ```
  *

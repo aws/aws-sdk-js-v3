@@ -73,8 +73,7 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * };
  * const command = new CreateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

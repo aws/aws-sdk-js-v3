@@ -49,10 +49,9 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * };
  * const command = new UpdateMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMaintenanceStartTimeOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateMaintenanceStartTimeOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

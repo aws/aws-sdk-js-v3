@@ -51,20 +51,19 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * };
  * const command = new ListProvisionedProductPlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisionedProductPlansOutput
- *   ProvisionedProductPlans: [ // ProvisionedProductPlans
- *     { // ProvisionedProductPlanSummary
- *       PlanName: "STRING_VALUE",
- *       PlanId: "STRING_VALUE",
- *       ProvisionProductId: "STRING_VALUE",
- *       ProvisionProductName: "STRING_VALUE",
- *       PlanType: "CLOUDFORMATION",
- *       ProvisioningArtifactId: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListProvisionedProductPlansOutput
+ * //   ProvisionedProductPlans: [ // ProvisionedProductPlans
+ * //     { // ProvisionedProductPlanSummary
+ * //       PlanName: "STRING_VALUE",
+ * //       PlanId: "STRING_VALUE",
+ * //       ProvisionProductId: "STRING_VALUE",
+ * //       ProvisionProductName: "STRING_VALUE",
+ * //       PlanType: "CLOUDFORMATION",
+ * //       ProvisioningArtifactId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

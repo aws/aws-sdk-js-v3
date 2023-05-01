@@ -82,12 +82,11 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * };
  * const command = new RegisterSlackWorkspaceForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterSlackWorkspaceForOrganizationResult
- *   teamId: "STRING_VALUE",
- *   teamName: "STRING_VALUE",
- *   accountType: "STRING_VALUE",
- * };
+ * // { // RegisterSlackWorkspaceForOrganizationResult
+ * //   teamId: "STRING_VALUE",
+ * //   teamName: "STRING_VALUE",
+ * //   accountType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

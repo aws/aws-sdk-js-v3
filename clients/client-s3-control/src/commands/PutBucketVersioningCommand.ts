@@ -113,8 +113,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * };
  * const command = new StopMetricStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

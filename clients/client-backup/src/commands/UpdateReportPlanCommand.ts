@@ -70,12 +70,11 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * };
  * const command = new UpdateReportPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateReportPlanOutput
- *   ReportPlanName: "STRING_VALUE",
- *   ReportPlanArn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateReportPlanOutput
+ * //   ReportPlanName: "STRING_VALUE",
+ * //   ReportPlanArn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

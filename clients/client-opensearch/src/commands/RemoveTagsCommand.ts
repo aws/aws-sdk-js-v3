@@ -48,8 +48,7 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

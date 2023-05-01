@@ -88,12 +88,11 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ArchiveCreationOutput
- *   location: "STRING_VALUE",
- *   checksum: "STRING_VALUE",
- *   archiveId: "STRING_VALUE",
- * };
+ * // { // ArchiveCreationOutput
+ * //   location: "STRING_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   archiveId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

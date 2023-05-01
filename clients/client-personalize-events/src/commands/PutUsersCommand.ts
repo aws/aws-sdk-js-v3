@@ -55,8 +55,7 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

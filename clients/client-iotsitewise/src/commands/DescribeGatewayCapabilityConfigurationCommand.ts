@@ -58,13 +58,12 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * };
  * const command = new DescribeGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGatewayCapabilityConfigurationResponse
- *   gatewayId: "STRING_VALUE", // required
- *   capabilityNamespace: "STRING_VALUE", // required
- *   capabilityConfiguration: "STRING_VALUE", // required
- *   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
- * };
+ * // { // DescribeGatewayCapabilityConfigurationResponse
+ * //   gatewayId: "STRING_VALUE", // required
+ * //   capabilityNamespace: "STRING_VALUE", // required
+ * //   capabilityConfiguration: "STRING_VALUE", // required
+ * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * // };
  *
  * ```
  *

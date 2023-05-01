@@ -45,17 +45,16 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * };
  * const command = new DeleteTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTemplateSyncConfigOutput
- *   templateSyncConfig: { // TemplateSyncConfig
- *     templateName: "STRING_VALUE", // required
- *     templateType: "STRING_VALUE", // required
- *     repositoryProvider: "STRING_VALUE", // required
- *     repositoryName: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
- *     subdirectory: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteTemplateSyncConfigOutput
+ * //   templateSyncConfig: { // TemplateSyncConfig
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateType: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     subdirectory: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

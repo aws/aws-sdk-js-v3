@@ -52,10 +52,9 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * };
  * const command = new SetLocalConsolePasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetLocalConsolePasswordOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // SetLocalConsolePasswordOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

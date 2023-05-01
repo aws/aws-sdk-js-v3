@@ -46,8 +46,7 @@ export interface DeleteLabelGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLabelGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

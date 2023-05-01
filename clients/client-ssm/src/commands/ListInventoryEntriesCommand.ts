@@ -56,19 +56,18 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * };
  * const command = new ListInventoryEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInventoryEntriesResult
- *   TypeName: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   SchemaVersion: "STRING_VALUE",
- *   CaptureTime: "STRING_VALUE",
- *   Entries: [ // InventoryItemEntryList
- *     { // InventoryItemEntry
- *       "<keys>": "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInventoryEntriesResult
+ * //   TypeName: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   CaptureTime: "STRING_VALUE",
+ * //   Entries: [ // InventoryItemEntryList
+ * //     { // InventoryItemEntry
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

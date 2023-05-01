@@ -50,10 +50,9 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * };
  * const command = new CheckIfPhoneNumberIsOptedOutCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckIfPhoneNumberIsOptedOutResponse
- *   isOptedOut: true || false,
- * };
+ * // { // CheckIfPhoneNumberIsOptedOutResponse
+ * //   isOptedOut: true || false,
+ * // };
  *
  * ```
  *

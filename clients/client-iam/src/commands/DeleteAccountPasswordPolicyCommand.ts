@@ -41,8 +41,7 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * const input = {};
  * const command = new DeleteAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,24 +60,23 @@ export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfi
  * };
  * const command = new UpdateDirectoryConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDirectoryConfigResult
- *   DirectoryConfig: { // DirectoryConfig
- *     DirectoryName: "STRING_VALUE", // required
- *     OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
- *       "STRING_VALUE",
- *     ],
- *     ServiceAccountCredentials: { // ServiceAccountCredentials
- *       AccountName: "STRING_VALUE", // required
- *       AccountPassword: "STRING_VALUE", // required
- *     },
- *     CreatedTime: new Date("TIMESTAMP"),
- *     CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
- *       Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
- *       CertificateAuthorityArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateDirectoryConfigResult
+ * //   DirectoryConfig: { // DirectoryConfig
+ * //     DirectoryName: "STRING_VALUE", // required
+ * //     OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceAccountCredentials: { // ServiceAccountCredentials
+ * //       AccountName: "STRING_VALUE", // required
+ * //       AccountPassword: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ * //       Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ * //       CertificateAuthorityArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

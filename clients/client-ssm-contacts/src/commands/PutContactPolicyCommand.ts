@@ -47,8 +47,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * };
  * const command = new PutContactPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

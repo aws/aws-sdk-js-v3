@@ -59,16 +59,15 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  * };
  * const command = new DescribeAcceleratorOfferingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAcceleratorOfferingsResponse
- *   acceleratorTypeOfferings: [ // AcceleratorTypeOfferingList
- *     { // AcceleratorTypeOffering
- *       acceleratorType: "STRING_VALUE",
- *       locationType: "region" || "availability-zone" || "availability-zone-id",
- *       location: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeAcceleratorOfferingsResponse
+ * //   acceleratorTypeOfferings: [ // AcceleratorTypeOfferingList
+ * //     { // AcceleratorTypeOffering
+ * //       acceleratorType: "STRING_VALUE",
+ * //       locationType: "region" || "availability-zone" || "availability-zone-id",
+ * //       location: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

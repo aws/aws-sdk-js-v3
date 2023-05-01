@@ -47,23 +47,22 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * };
  * const command = new ListFormsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFormsResponse
- *   entities: [ // FormSummaryList // required
- *     { // FormSummary
- *       appId: "STRING_VALUE", // required
- *       dataType: { // FormDataTypeConfig
- *         dataSourceType: "STRING_VALUE", // required
- *         dataTypeName: "STRING_VALUE", // required
- *       },
- *       environmentName: "STRING_VALUE", // required
- *       formActionType: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFormsResponse
+ * //   entities: [ // FormSummaryList // required
+ * //     { // FormSummary
+ * //       appId: "STRING_VALUE", // required
+ * //       dataType: { // FormDataTypeConfig
+ * //         dataSourceType: "STRING_VALUE", // required
+ * //         dataTypeName: "STRING_VALUE", // required
+ * //       },
+ * //       environmentName: "STRING_VALUE", // required
+ * //       formActionType: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * };
  * const command = new PutDefaultEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDefaultEncryptionConfigurationResponse
- *   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
- *   kmsKeyArn: "STRING_VALUE",
- *   configurationStatus: { // ConfigurationStatus
- *     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
- *     error: { // ConfigurationErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // PutDefaultEncryptionConfigurationResponse
+ * //   encryptionType: "SITEWISE_DEFAULT_ENCRYPTION" || "KMS_BASED_ENCRYPTION", // required
+ * //   kmsKeyArn: "STRING_VALUE",
+ * //   configurationStatus: { // ConfigurationStatus
+ * //     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //     error: { // ConfigurationErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

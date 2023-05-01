@@ -53,16 +53,15 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * };
  * const command = new BatchSnoozeAlarmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchSnoozeAlarmResponse
- *   errorEntries: [ // BatchAlarmActionErrorEntries
- *     { // BatchAlarmActionErrorEntry
- *       requestId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchSnoozeAlarmResponse
+ * //   errorEntries: [ // BatchAlarmActionErrorEntries
+ * //     { // BatchAlarmActionErrorEntry
+ * //       requestId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

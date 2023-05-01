@@ -53,8 +53,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeregisterStreamConsumerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,19 +45,18 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * };
  * const command = new ListOrganizationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrganizationsResponse
- *   OrganizationSummaries: [ // OrganizationSummaries
- *     { // OrganizationSummary
- *       OrganizationId: "STRING_VALUE",
- *       Alias: "STRING_VALUE",
- *       DefaultMailDomain: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOrganizationsResponse
+ * //   OrganizationSummaries: [ // OrganizationSummaries
+ * //     { // OrganizationSummary
+ * //       OrganizationId: "STRING_VALUE",
+ * //       Alias: "STRING_VALUE",
+ * //       DefaultMailDomain: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

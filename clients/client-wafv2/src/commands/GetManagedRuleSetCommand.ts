@@ -50,28 +50,27 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  * };
  * const command = new GetManagedRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetManagedRuleSetResponse
- *   ManagedRuleSet: { // ManagedRuleSet
- *     Name: "STRING_VALUE", // required
- *     Id: "STRING_VALUE", // required
- *     ARN: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     PublishedVersions: { // PublishedVersions
- *       "<keys>": { // ManagedRuleSetVersion
- *         AssociatedRuleGroupArn: "STRING_VALUE",
- *         Capacity: Number("long"),
- *         ForecastedLifetime: Number("int"),
- *         PublishTimestamp: new Date("TIMESTAMP"),
- *         LastUpdateTimestamp: new Date("TIMESTAMP"),
- *         ExpiryTimestamp: new Date("TIMESTAMP"),
- *       },
- *     },
- *     RecommendedVersion: "STRING_VALUE",
- *     LabelNamespace: "STRING_VALUE",
- *   },
- *   LockToken: "STRING_VALUE",
- * };
+ * // { // GetManagedRuleSetResponse
+ * //   ManagedRuleSet: { // ManagedRuleSet
+ * //     Name: "STRING_VALUE", // required
+ * //     Id: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     PublishedVersions: { // PublishedVersions
+ * //       "<keys>": { // ManagedRuleSetVersion
+ * //         AssociatedRuleGroupArn: "STRING_VALUE",
+ * //         Capacity: Number("long"),
+ * //         ForecastedLifetime: Number("int"),
+ * //         PublishTimestamp: new Date("TIMESTAMP"),
+ * //         LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //         ExpiryTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //     RecommendedVersion: "STRING_VALUE",
+ * //     LabelNamespace: "STRING_VALUE",
+ * //   },
+ * //   LockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

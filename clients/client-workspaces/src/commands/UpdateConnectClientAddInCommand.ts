@@ -48,8 +48,7 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * };
  * const command = new UpdateConnectClientAddInCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

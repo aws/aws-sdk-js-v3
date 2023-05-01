@@ -53,8 +53,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * };
  * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

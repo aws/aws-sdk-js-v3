@@ -51,8 +51,7 @@ export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRdsDbInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

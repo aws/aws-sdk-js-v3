@@ -53,24 +53,23 @@ export interface ListWorkflowsCommandOutput extends ListMigrationWorkflowsRespon
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMigrationWorkflowsResponse
- *   nextToken: "STRING_VALUE",
- *   migrationWorkflowSummary: [ // MigrationWorkflowSummaryList // required
- *     { // MigrationWorkflowSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       templateId: "STRING_VALUE",
- *       adsApplicationConfigurationName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *       statusMessage: "STRING_VALUE",
- *       completedSteps: Number("int"),
- *       totalSteps: Number("int"),
- *     },
- *   ],
- * };
+ * // { // ListMigrationWorkflowsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   migrationWorkflowSummary: [ // MigrationWorkflowSummaryList // required
+ * //     { // MigrationWorkflowSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       templateId: "STRING_VALUE",
+ * //       adsApplicationConfigurationName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       statusMessage: "STRING_VALUE",
+ * //       completedSteps: Number("int"),
+ * //       totalSteps: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

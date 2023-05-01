@@ -46,22 +46,21 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   Users: [ // Users
- *     { // User
- *       Id: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       State: "ENABLED" || "DISABLED" || "DELETED",
- *       UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
- *       EnabledDate: new Date("TIMESTAMP"),
- *       DisabledDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersResponse
+ * //   Users: [ // Users
+ * //     { // User
+ * //       Id: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "DELETED",
+ * //       UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
+ * //       EnabledDate: new Date("TIMESTAMP"),
+ * //       DisabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

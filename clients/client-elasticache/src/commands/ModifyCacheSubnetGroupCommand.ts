@@ -48,32 +48,31 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * };
  * const command = new ModifyCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyCacheSubnetGroupResult
- *   CacheSubnetGroup: { // CacheSubnetGroup
- *     CacheSubnetGroupName: "STRING_VALUE",
- *     CacheSubnetGroupDescription: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     Subnets: [ // SubnetList
- *       { // Subnet
- *         SubnetIdentifier: "STRING_VALUE",
- *         SubnetAvailabilityZone: { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *         SubnetOutpost: { // SubnetOutpost
- *           SubnetOutpostArn: "STRING_VALUE",
- *         },
- *         SupportedNetworkTypes: [ // NetworkTypeList
- *           "ipv4" || "ipv6" || "dual_stack",
- *         ],
- *       },
- *     ],
- *     ARN: "STRING_VALUE",
- *     SupportedNetworkTypes: [
- *       "ipv4" || "ipv6" || "dual_stack",
- *     ],
- *   },
- * };
+ * // { // ModifyCacheSubnetGroupResult
+ * //   CacheSubnetGroup: { // CacheSubnetGroup
+ * //     CacheSubnetGroupName: "STRING_VALUE",
+ * //     CacheSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetOutpost: { // SubnetOutpost
+ * //           SubnetOutpostArn: "STRING_VALUE",
+ * //         },
+ * //         SupportedNetworkTypes: [ // NetworkTypeList
+ * //           "ipv4" || "ipv6" || "dual_stack",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //     SupportedNetworkTypes: [
+ * //       "ipv4" || "ipv6" || "dual_stack",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

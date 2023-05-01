@@ -46,19 +46,18 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  * };
  * const command = new UpdateWorkloadShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkloadShareOutput
- *   WorkloadId: "STRING_VALUE",
- *   WorkloadShare: { // WorkloadShare
- *     ShareId: "STRING_VALUE",
- *     SharedBy: "STRING_VALUE",
- *     SharedWith: "STRING_VALUE",
- *     PermissionType: "READONLY" || "CONTRIBUTOR",
- *     Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
- *     WorkloadName: "STRING_VALUE",
- *     WorkloadId: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateWorkloadShareOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadShare: { // WorkloadShare
+ * //     ShareId: "STRING_VALUE",
+ * //     SharedBy: "STRING_VALUE",
+ * //     SharedWith: "STRING_VALUE",
+ * //     PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //     Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //     WorkloadName: "STRING_VALUE",
+ * //     WorkloadId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

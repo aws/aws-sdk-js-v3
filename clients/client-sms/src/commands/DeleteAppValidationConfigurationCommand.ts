@@ -49,8 +49,7 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * };
  * const command = new DeleteAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

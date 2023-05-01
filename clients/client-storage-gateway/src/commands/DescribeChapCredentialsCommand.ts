@@ -50,17 +50,16 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * };
  * const command = new DescribeChapCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChapCredentialsOutput
- *   ChapCredentials: [ // ChapCredentials
- *     { // ChapInfo
- *       TargetARN: "STRING_VALUE",
- *       SecretToAuthenticateInitiator: "STRING_VALUE",
- *       InitiatorName: "STRING_VALUE",
- *       SecretToAuthenticateTarget: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeChapCredentialsOutput
+ * //   ChapCredentials: [ // ChapCredentials
+ * //     { // ChapInfo
+ * //       TargetARN: "STRING_VALUE",
+ * //       SecretToAuthenticateInitiator: "STRING_VALUE",
+ * //       InitiatorName: "STRING_VALUE",
+ * //       SecretToAuthenticateTarget: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

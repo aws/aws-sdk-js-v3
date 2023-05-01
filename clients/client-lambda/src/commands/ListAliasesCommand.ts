@@ -48,24 +48,23 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAliasesResponse
- *   NextMarker: "STRING_VALUE",
- *   Aliases: [ // AliasList
- *     { // AliasConfiguration
- *       AliasArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       FunctionVersion: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       RoutingConfig: { // AliasRoutingConfiguration
- *         AdditionalVersionWeights: { // AdditionalVersionWeights
- *           "<keys>": Number("double"),
- *         },
- *       },
- *       RevisionId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAliasesResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Aliases: [ // AliasList
+ * //     { // AliasConfiguration
+ * //       AliasArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       FunctionVersion: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       RoutingConfig: { // AliasRoutingConfiguration
+ * //         AdditionalVersionWeights: { // AdditionalVersionWeights
+ * //           "<keys>": Number("double"),
+ * //         },
+ * //       },
+ * //       RevisionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

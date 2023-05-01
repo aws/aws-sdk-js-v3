@@ -44,10 +44,9 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * };
  * const command = new DeleteEphemerisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EphemerisIdResponse
- *   ephemerisId: "STRING_VALUE",
- * };
+ * // { // EphemerisIdResponse
+ * //   ephemerisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

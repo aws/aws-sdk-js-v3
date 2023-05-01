@@ -65,23 +65,22 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * };
  * const command = new DescribeBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBandwidthRateLimitScheduleOutput
- *   GatewayARN: "STRING_VALUE",
- *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
- *     { // BandwidthRateLimitInterval
- *       StartHourOfDay: Number("int"), // required
- *       StartMinuteOfHour: Number("int"), // required
- *       EndHourOfDay: Number("int"), // required
- *       EndMinuteOfHour: Number("int"), // required
- *       DaysOfWeek: [ // DaysOfWeek // required
- *         Number("int"),
- *       ],
- *       AverageUploadRateLimitInBitsPerSec: Number("long"),
- *       AverageDownloadRateLimitInBitsPerSec: Number("long"),
- *     },
- *   ],
- * };
+ * // { // DescribeBandwidthRateLimitScheduleOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
+ * //     { // BandwidthRateLimitInterval
+ * //       StartHourOfDay: Number("int"), // required
+ * //       StartMinuteOfHour: Number("int"), // required
+ * //       EndHourOfDay: Number("int"), // required
+ * //       EndMinuteOfHour: Number("int"), // required
+ * //       DaysOfWeek: [ // DaysOfWeek // required
+ * //         Number("int"),
+ * //       ],
+ * //       AverageUploadRateLimitInBitsPerSec: Number("long"),
+ * //       AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

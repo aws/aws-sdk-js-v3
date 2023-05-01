@@ -53,14 +53,13 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * };
  * const command = new UpdateAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAcceleratorAttributesResponse
- *   AcceleratorAttributes: { // AcceleratorAttributes
- *     FlowLogsEnabled: true || false,
- *     FlowLogsS3Bucket: "STRING_VALUE",
- *     FlowLogsS3Prefix: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // AcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -150,10 +150,9 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * };
  * const command = new PutObjectTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectTaggingOutput
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // PutObjectTaggingOutput
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

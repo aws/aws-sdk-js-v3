@@ -102,31 +102,30 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * };
  * const command = new ListHostedZonesByNameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHostedZonesByNameResponse
- *   HostedZones: [ // HostedZones // required
- *     { // HostedZone
- *       Id: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       CallerReference: "STRING_VALUE", // required
- *       Config: { // HostedZoneConfig
- *         Comment: "STRING_VALUE",
- *         PrivateZone: true || false,
- *       },
- *       ResourceRecordSetCount: Number("long"),
- *       LinkedService: { // LinkedService
- *         ServicePrincipal: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   DNSName: "STRING_VALUE",
- *   HostedZoneId: "STRING_VALUE",
- *   IsTruncated: true || false, // required
- *   NextDNSName: "STRING_VALUE",
- *   NextHostedZoneId: "STRING_VALUE",
- *   MaxItems: Number("int"), // required
- * };
+ * // { // ListHostedZonesByNameResponse
+ * //   HostedZones: [ // HostedZones // required
+ * //     { // HostedZone
+ * //       Id: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Config: { // HostedZoneConfig
+ * //         Comment: "STRING_VALUE",
+ * //         PrivateZone: true || false,
+ * //       },
+ * //       ResourceRecordSetCount: Number("long"),
+ * //       LinkedService: { // LinkedService
+ * //         ServicePrincipal: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   DNSName: "STRING_VALUE",
+ * //   HostedZoneId: "STRING_VALUE",
+ * //   IsTruncated: true || false, // required
+ * //   NextDNSName: "STRING_VALUE",
+ * //   NextHostedZoneId: "STRING_VALUE",
+ * //   MaxItems: Number("int"), // required
+ * // };
  *
  * ```
  *

@@ -62,10 +62,9 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * };
  * const command = new PutInventoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutInventoryResult
- *   Message: "STRING_VALUE",
- * };
+ * // { // PutInventoryResult
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

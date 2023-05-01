@@ -50,8 +50,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateStreamModeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

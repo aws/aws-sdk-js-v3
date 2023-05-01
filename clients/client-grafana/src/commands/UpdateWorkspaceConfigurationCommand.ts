@@ -50,8 +50,7 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * };
  * const command = new UpdateWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

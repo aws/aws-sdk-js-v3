@@ -56,18 +56,17 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * };
  * const command = new ListWebsiteAuthorizationProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWebsiteAuthorizationProvidersResponse
- *   WebsiteAuthorizationProviders: [ // WebsiteAuthorizationProvidersSummaryList
- *     { // WebsiteAuthorizationProviderSummary
- *       AuthorizationProviderId: "STRING_VALUE",
- *       AuthorizationProviderType: "STRING_VALUE", // required
- *       DomainName: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWebsiteAuthorizationProvidersResponse
+ * //   WebsiteAuthorizationProviders: [ // WebsiteAuthorizationProvidersSummaryList
+ * //     { // WebsiteAuthorizationProviderSummary
+ * //       AuthorizationProviderId: "STRING_VALUE",
+ * //       AuthorizationProviderType: "STRING_VALUE", // required
+ * //       DomainName: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

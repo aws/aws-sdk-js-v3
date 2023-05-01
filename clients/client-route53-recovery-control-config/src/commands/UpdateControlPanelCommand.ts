@@ -49,17 +49,16 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * };
  * const command = new UpdateControlPanelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateControlPanelResponse
- *   ControlPanel: { // ControlPanel
- *     ClusterArn: "STRING_VALUE",
- *     ControlPanelArn: "STRING_VALUE",
- *     DefaultControlPanel: true || false,
- *     Name: "STRING_VALUE",
- *     RoutingControlCount: Number("int"),
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // UpdateControlPanelResponse
+ * //   ControlPanel: { // ControlPanel
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     DefaultControlPanel: true || false,
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlCount: Number("int"),
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

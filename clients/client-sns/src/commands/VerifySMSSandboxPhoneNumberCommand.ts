@@ -54,8 +54,7 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

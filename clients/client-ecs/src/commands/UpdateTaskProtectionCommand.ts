@@ -75,23 +75,22 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTaskProtectionResponse
- *   protectedTasks: [ // ProtectedTasks
- *     { // ProtectedTask
- *       taskArn: "STRING_VALUE",
- *       protectionEnabled: true || false,
- *       expirationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   failures: [ // Failures
- *     { // Failure
- *       arn: "STRING_VALUE",
- *       reason: "STRING_VALUE",
- *       detail: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UpdateTaskProtectionResponse
+ * //   protectedTasks: [ // ProtectedTasks
+ * //     { // ProtectedTask
+ * //       taskArn: "STRING_VALUE",
+ * //       protectionEnabled: true || false,
+ * //       expirationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   failures: [ // Failures
+ * //     { // Failure
+ * //       arn: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
+ * //       detail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new DisassociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

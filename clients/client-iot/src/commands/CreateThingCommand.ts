@@ -60,12 +60,11 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * };
  * const command = new CreateThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateThingResponse
- *   thingName: "STRING_VALUE",
- *   thingArn: "STRING_VALUE",
- *   thingId: "STRING_VALUE",
- * };
+ * // { // CreateThingResponse
+ * //   thingName: "STRING_VALUE",
+ * //   thingArn: "STRING_VALUE",
+ * //   thingId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

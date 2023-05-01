@@ -48,8 +48,7 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * };
  * const command = new DeleteRoutingControlCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

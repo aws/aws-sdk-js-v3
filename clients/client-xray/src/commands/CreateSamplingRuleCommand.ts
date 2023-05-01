@@ -72,30 +72,29 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * };
  * const command = new CreateSamplingRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSamplingRuleResult
- *   SamplingRuleRecord: { // SamplingRuleRecord
- *     SamplingRule: { // SamplingRule
- *       RuleName: "STRING_VALUE",
- *       RuleARN: "STRING_VALUE",
- *       ResourceARN: "STRING_VALUE", // required
- *       Priority: Number("int"), // required
- *       FixedRate: Number("double"), // required
- *       ReservoirSize: Number("int"), // required
- *       ServiceName: "STRING_VALUE", // required
- *       ServiceType: "STRING_VALUE", // required
- *       Host: "STRING_VALUE", // required
- *       HTTPMethod: "STRING_VALUE", // required
- *       URLPath: "STRING_VALUE", // required
- *       Version: Number("int"), // required
- *       Attributes: { // AttributeMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     CreatedAt: new Date("TIMESTAMP"),
- *     ModifiedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateSamplingRuleResult
+ * //   SamplingRuleRecord: { // SamplingRuleRecord
+ * //     SamplingRule: { // SamplingRule
+ * //       RuleName: "STRING_VALUE",
+ * //       RuleARN: "STRING_VALUE",
+ * //       ResourceARN: "STRING_VALUE", // required
+ * //       Priority: Number("int"), // required
+ * //       FixedRate: Number("double"), // required
+ * //       ReservoirSize: Number("int"), // required
+ * //       ServiceName: "STRING_VALUE", // required
+ * //       ServiceType: "STRING_VALUE", // required
+ * //       Host: "STRING_VALUE", // required
+ * //       HTTPMethod: "STRING_VALUE", // required
+ * //       URLPath: "STRING_VALUE", // required
+ * //       Version: Number("int"), // required
+ * //       Attributes: { // AttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     ModifiedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

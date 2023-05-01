@@ -45,31 +45,30 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfigurationsResponse
- *   Configurations: [ // __listOfConfiguration
- *     { // Configuration
- *       Arn: "STRING_VALUE", // required
- *       AuthenticationStrategy: "STRING_VALUE", // required
- *       Created: new Date("TIMESTAMP"), // required
- *       Description: "STRING_VALUE", // required
- *       EngineType: "STRING_VALUE", // required
- *       EngineVersion: "STRING_VALUE", // required
- *       Id: "STRING_VALUE", // required
- *       LatestRevision: { // ConfigurationRevision
- *         Created: new Date("TIMESTAMP"), // required
- *         Description: "STRING_VALUE",
- *         Revision: Number("int"), // required
- *       },
- *       Name: "STRING_VALUE", // required
- *       Tags: { // __mapOf__string
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConfigurationsResponse
+ * //   Configurations: [ // __listOfConfiguration
+ * //     { // Configuration
+ * //       Arn: "STRING_VALUE", // required
+ * //       AuthenticationStrategy: "STRING_VALUE", // required
+ * //       Created: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE", // required
+ * //       EngineType: "STRING_VALUE", // required
+ * //       EngineVersion: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE", // required
+ * //       LatestRevision: { // ConfigurationRevision
+ * //         Created: new Date("TIMESTAMP"), // required
+ * //         Description: "STRING_VALUE",
+ * //         Revision: Number("int"), // required
+ * //       },
+ * //       Name: "STRING_VALUE", // required
+ * //       Tags: { // __mapOf__string
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

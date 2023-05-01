@@ -67,12 +67,11 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * };
  * const command = new PutSigningProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSigningProfileResponse
- *   arn: "STRING_VALUE",
- *   profileVersion: "STRING_VALUE",
- *   profileVersionArn: "STRING_VALUE",
- * };
+ * // { // PutSigningProfileResponse
+ * //   arn: "STRING_VALUE",
+ * //   profileVersion: "STRING_VALUE",
+ * //   profileVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

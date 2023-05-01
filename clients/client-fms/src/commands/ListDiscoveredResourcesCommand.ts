@@ -49,18 +49,17 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDiscoveredResourcesResponse
- *   Items: [ // DiscoveredResourceList
- *     { // DiscoveredResource
- *       URI: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDiscoveredResourcesResponse
+ * //   Items: [ // DiscoveredResourceList
+ * //     { // DiscoveredResource
+ * //       URI: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

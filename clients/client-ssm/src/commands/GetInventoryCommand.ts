@@ -92,28 +92,27 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * };
  * const command = new GetInventoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInventoryResult
- *   Entities: [ // InventoryResultEntityList
- *     { // InventoryResultEntity
- *       Id: "STRING_VALUE",
- *       Data: { // InventoryResultItemMap
- *         "<keys>": { // InventoryResultItem
- *           TypeName: "STRING_VALUE", // required
- *           SchemaVersion: "STRING_VALUE", // required
- *           CaptureTime: "STRING_VALUE",
- *           ContentHash: "STRING_VALUE",
- *           Content: [ // InventoryItemEntryList // required
- *             { // InventoryItemEntry
- *               "<keys>": "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInventoryResult
+ * //   Entities: [ // InventoryResultEntityList
+ * //     { // InventoryResultEntity
+ * //       Id: "STRING_VALUE",
+ * //       Data: { // InventoryResultItemMap
+ * //         "<keys>": { // InventoryResultItem
+ * //           TypeName: "STRING_VALUE", // required
+ * //           SchemaVersion: "STRING_VALUE", // required
+ * //           CaptureTime: "STRING_VALUE",
+ * //           ContentHash: "STRING_VALUE",
+ * //           Content: [ // InventoryItemEntryList // required
+ * //             { // InventoryItemEntry
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

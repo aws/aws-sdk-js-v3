@@ -46,17 +46,16 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * };
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDirectConnectGatewayResult
- *   directConnectGateway: { // DirectConnectGateway
- *     directConnectGatewayId: "STRING_VALUE",
- *     directConnectGatewayName: "STRING_VALUE",
- *     amazonSideAsn: Number("long"),
- *     ownerAccount: "STRING_VALUE",
- *     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
- *     stateChangeError: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteDirectConnectGatewayResult
+ * //   directConnectGateway: { // DirectConnectGateway
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayName: "STRING_VALUE",
+ * //     amazonSideAsn: Number("long"),
+ * //     ownerAccount: "STRING_VALUE",
+ * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
+ * //     stateChangeError: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

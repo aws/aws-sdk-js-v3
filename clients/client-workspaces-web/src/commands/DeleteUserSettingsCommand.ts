@@ -44,8 +44,7 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * };
  * const command = new DeleteUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

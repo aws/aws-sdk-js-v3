@@ -55,27 +55,26 @@ export interface BatchDetectDominantLanguageCommandOutput
  * };
  * const command = new BatchDetectDominantLanguageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDetectDominantLanguageResponse
- *   ResultList: [ // ListOfDetectDominantLanguageResult // required
- *     { // BatchDetectDominantLanguageItemResult
- *       Index: Number("int"),
- *       Languages: [ // ListOfDominantLanguages
- *         { // DominantLanguage
- *           LanguageCode: "STRING_VALUE",
- *           Score: Number("float"),
- *         },
- *       ],
- *     },
- *   ],
- *   ErrorList: [ // BatchItemErrorList // required
- *     { // BatchItemError
- *       Index: Number("int"),
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDetectDominantLanguageResponse
+ * //   ResultList: [ // ListOfDetectDominantLanguageResult // required
+ * //     { // BatchDetectDominantLanguageItemResult
+ * //       Index: Number("int"),
+ * //       Languages: [ // ListOfDominantLanguages
+ * //         { // DominantLanguage
+ * //           LanguageCode: "STRING_VALUE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ErrorList: [ // BatchItemErrorList // required
+ * //     { // BatchItemError
+ * //       Index: Number("int"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

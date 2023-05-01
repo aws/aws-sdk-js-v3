@@ -63,24 +63,23 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OrderableDBInstanceOptionsMessage
- *   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
- *     { // OrderableDBInstanceOption
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       DBInstanceClass: "STRING_VALUE",
- *       LicenseModel: "STRING_VALUE",
- *       AvailabilityZones: [ // AvailabilityZoneList
- *         { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *       Vpc: true || false,
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // OrderableDBInstanceOptionsMessage
+ * //   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
+ * //     { // OrderableDBInstanceOption
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       DBInstanceClass: "STRING_VALUE",
+ * //       LicenseModel: "STRING_VALUE",
+ * //       AvailabilityZones: [ // AvailabilityZoneList
+ * //         { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Vpc: true || false,
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

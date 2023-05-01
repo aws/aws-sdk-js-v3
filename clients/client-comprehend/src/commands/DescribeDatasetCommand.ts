@@ -46,21 +46,20 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetResponse
- *   DatasetProperties: { // DatasetProperties
- *     DatasetArn: "STRING_VALUE",
- *     DatasetName: "STRING_VALUE",
- *     DatasetType: "TRAIN" || "TEST",
- *     DatasetS3Uri: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Status: "CREATING" || "COMPLETED" || "FAILED",
- *     Message: "STRING_VALUE",
- *     NumberOfDocuments: Number("long"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeDatasetResponse
+ * //   DatasetProperties: { // DatasetProperties
+ * //     DatasetArn: "STRING_VALUE",
+ * //     DatasetName: "STRING_VALUE",
+ * //     DatasetType: "TRAIN" || "TEST",
+ * //     DatasetS3Uri: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETED" || "FAILED",
+ * //     Message: "STRING_VALUE",
+ * //     NumberOfDocuments: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

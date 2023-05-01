@@ -48,18 +48,17 @@ export interface ListTransactionsCommandOutput extends ListTransactionsResponse,
  * };
  * const command = new ListTransactionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTransactionsResponse
- *   Transactions: [ // TransactionDescriptionList
- *     { // TransactionDescription
- *       TransactionId: "STRING_VALUE",
- *       TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
- *       TransactionStartTime: new Date("TIMESTAMP"),
- *       TransactionEndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTransactionsResponse
+ * //   Transactions: [ // TransactionDescriptionList
+ * //     { // TransactionDescription
+ * //       TransactionId: "STRING_VALUE",
+ * //       TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
+ * //       TransactionStartTime: new Date("TIMESTAMP"),
+ * //       TransactionEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

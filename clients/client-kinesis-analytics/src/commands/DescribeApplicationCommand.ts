@@ -53,131 +53,130 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationResponse
- *   ApplicationDetail: { // ApplicationDetail
- *     ApplicationName: "STRING_VALUE", // required
- *     ApplicationDescription: "STRING_VALUE",
- *     ApplicationARN: "STRING_VALUE", // required
- *     ApplicationStatus: "STRING_VALUE", // required
- *     CreateTimestamp: new Date("TIMESTAMP"),
- *     LastUpdateTimestamp: new Date("TIMESTAMP"),
- *     InputDescriptions: [ // InputDescriptions
- *       { // InputDescription
- *         InputId: "STRING_VALUE",
- *         NamePrefix: "STRING_VALUE",
- *         InAppStreamNames: [ // InAppStreamNames
- *           "STRING_VALUE",
- *         ],
- *         InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
- *           InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
- *             ResourceARN: "STRING_VALUE",
- *             RoleARN: "STRING_VALUE",
- *           },
- *         },
- *         KinesisStreamsInputDescription: { // KinesisStreamsInputDescription
- *           ResourceARN: "STRING_VALUE",
- *           RoleARN: "STRING_VALUE",
- *         },
- *         KinesisFirehoseInputDescription: { // KinesisFirehoseInputDescription
- *           ResourceARN: "STRING_VALUE",
- *           RoleARN: "STRING_VALUE",
- *         },
- *         InputSchema: { // SourceSchema
- *           RecordFormat: { // RecordFormat
- *             RecordFormatType: "STRING_VALUE", // required
- *             MappingParameters: { // MappingParameters
- *               JSONMappingParameters: { // JSONMappingParameters
- *                 RecordRowPath: "STRING_VALUE", // required
- *               },
- *               CSVMappingParameters: { // CSVMappingParameters
- *                 RecordRowDelimiter: "STRING_VALUE", // required
- *                 RecordColumnDelimiter: "STRING_VALUE", // required
- *               },
- *             },
- *           },
- *           RecordEncoding: "STRING_VALUE",
- *           RecordColumns: [ // RecordColumns // required
- *             { // RecordColumn
- *               Name: "STRING_VALUE", // required
- *               Mapping: "STRING_VALUE",
- *               SqlType: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *         InputParallelism: { // InputParallelism
- *           Count: Number("int"),
- *         },
- *         InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *           InputStartingPosition: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     OutputDescriptions: [ // OutputDescriptions
- *       { // OutputDescription
- *         OutputId: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *         KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
- *           ResourceARN: "STRING_VALUE",
- *           RoleARN: "STRING_VALUE",
- *         },
- *         KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
- *           ResourceARN: "STRING_VALUE",
- *           RoleARN: "STRING_VALUE",
- *         },
- *         LambdaOutputDescription: { // LambdaOutputDescription
- *           ResourceARN: "STRING_VALUE",
- *           RoleARN: "STRING_VALUE",
- *         },
- *         DestinationSchema: { // DestinationSchema
- *           RecordFormatType: "STRING_VALUE", // required
- *         },
- *       },
- *     ],
- *     ReferenceDataSourceDescriptions: [ // ReferenceDataSourceDescriptions
- *       { // ReferenceDataSourceDescription
- *         ReferenceId: "STRING_VALUE", // required
- *         TableName: "STRING_VALUE", // required
- *         S3ReferenceDataSourceDescription: { // S3ReferenceDataSourceDescription
- *           BucketARN: "STRING_VALUE", // required
- *           FileKey: "STRING_VALUE", // required
- *           ReferenceRoleARN: "STRING_VALUE", // required
- *         },
- *         ReferenceSchema: {
- *           RecordFormat: {
- *             RecordFormatType: "STRING_VALUE", // required
- *             MappingParameters: {
- *               JSONMappingParameters: {
- *                 RecordRowPath: "STRING_VALUE", // required
- *               },
- *               CSVMappingParameters: {
- *                 RecordRowDelimiter: "STRING_VALUE", // required
- *                 RecordColumnDelimiter: "STRING_VALUE", // required
- *               },
- *             },
- *           },
- *           RecordEncoding: "STRING_VALUE",
- *           RecordColumns: [ // required
- *             {
- *               Name: "STRING_VALUE", // required
- *               Mapping: "STRING_VALUE",
- *               SqlType: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *     ],
- *     CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
- *       { // CloudWatchLoggingOptionDescription
- *         CloudWatchLoggingOptionId: "STRING_VALUE",
- *         LogStreamARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE", // required
- *       },
- *     ],
- *     ApplicationCode: "STRING_VALUE",
- *     ApplicationVersionId: Number("long"), // required
- *   },
- * };
+ * // { // DescribeApplicationResponse
+ * //   ApplicationDetail: { // ApplicationDetail
+ * //     ApplicationName: "STRING_VALUE", // required
+ * //     ApplicationDescription: "STRING_VALUE",
+ * //     ApplicationARN: "STRING_VALUE", // required
+ * //     ApplicationStatus: "STRING_VALUE", // required
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     InputDescriptions: [ // InputDescriptions
+ * //       { // InputDescription
+ * //         InputId: "STRING_VALUE",
+ * //         NamePrefix: "STRING_VALUE",
+ * //         InAppStreamNames: [ // InAppStreamNames
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
+ * //           InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
+ * //             ResourceARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         KinesisStreamsInputDescription: { // KinesisStreamsInputDescription
+ * //           ResourceARN: "STRING_VALUE",
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //         KinesisFirehoseInputDescription: { // KinesisFirehoseInputDescription
+ * //           ResourceARN: "STRING_VALUE",
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //         InputSchema: { // SourceSchema
+ * //           RecordFormat: { // RecordFormat
+ * //             RecordFormatType: "STRING_VALUE", // required
+ * //             MappingParameters: { // MappingParameters
+ * //               JSONMappingParameters: { // JSONMappingParameters
+ * //                 RecordRowPath: "STRING_VALUE", // required
+ * //               },
+ * //               CSVMappingParameters: { // CSVMappingParameters
+ * //                 RecordRowDelimiter: "STRING_VALUE", // required
+ * //                 RecordColumnDelimiter: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           RecordEncoding: "STRING_VALUE",
+ * //           RecordColumns: [ // RecordColumns // required
+ * //             { // RecordColumn
+ * //               Name: "STRING_VALUE", // required
+ * //               Mapping: "STRING_VALUE",
+ * //               SqlType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //         InputParallelism: { // InputParallelism
+ * //           Count: Number("int"),
+ * //         },
+ * //         InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
+ * //           InputStartingPosition: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     OutputDescriptions: [ // OutputDescriptions
+ * //       { // OutputDescription
+ * //         OutputId: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
+ * //           ResourceARN: "STRING_VALUE",
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //         KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
+ * //           ResourceARN: "STRING_VALUE",
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //         LambdaOutputDescription: { // LambdaOutputDescription
+ * //           ResourceARN: "STRING_VALUE",
+ * //           RoleARN: "STRING_VALUE",
+ * //         },
+ * //         DestinationSchema: { // DestinationSchema
+ * //           RecordFormatType: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     ReferenceDataSourceDescriptions: [ // ReferenceDataSourceDescriptions
+ * //       { // ReferenceDataSourceDescription
+ * //         ReferenceId: "STRING_VALUE", // required
+ * //         TableName: "STRING_VALUE", // required
+ * //         S3ReferenceDataSourceDescription: { // S3ReferenceDataSourceDescription
+ * //           BucketARN: "STRING_VALUE", // required
+ * //           FileKey: "STRING_VALUE", // required
+ * //           ReferenceRoleARN: "STRING_VALUE", // required
+ * //         },
+ * //         ReferenceSchema: {
+ * //           RecordFormat: {
+ * //             RecordFormatType: "STRING_VALUE", // required
+ * //             MappingParameters: {
+ * //               JSONMappingParameters: {
+ * //                 RecordRowPath: "STRING_VALUE", // required
+ * //               },
+ * //               CSVMappingParameters: {
+ * //                 RecordRowDelimiter: "STRING_VALUE", // required
+ * //                 RecordColumnDelimiter: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           RecordEncoding: "STRING_VALUE",
+ * //           RecordColumns: [ // required
+ * //             {
+ * //               Name: "STRING_VALUE", // required
+ * //               Mapping: "STRING_VALUE",
+ * //               SqlType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
+ * //       { // CloudWatchLoggingOptionDescription
+ * //         CloudWatchLoggingOptionId: "STRING_VALUE",
+ * //         LogStreamARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ApplicationCode: "STRING_VALUE",
+ * //     ApplicationVersionId: Number("long"), // required
+ * //   },
+ * // };
  *
  * ```
  *

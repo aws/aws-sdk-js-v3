@@ -75,8 +75,7 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * };
  * const command = new UpdateClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

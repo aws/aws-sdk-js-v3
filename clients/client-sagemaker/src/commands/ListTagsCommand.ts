@@ -46,16 +46,15 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsOutput
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTagsOutput
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

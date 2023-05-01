@@ -87,56 +87,55 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * };
  * const command = new UpdateBotAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBotAliasResponse
- *   botAliasId: "STRING_VALUE",
- *   botAliasName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
- *     "<keys>": { // BotAliasLocaleSettings
- *       enabled: true || false, // required
- *       codeHookSpecification: { // CodeHookSpecification
- *         lambdaCodeHook: { // LambdaCodeHook
- *           lambdaARN: "STRING_VALUE", // required
- *           codeHookInterfaceVersion: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *   },
- *   conversationLogSettings: { // ConversationLogSettings
- *     textLogSettings: [ // TextLogSettingsList
- *       { // TextLogSetting
- *         enabled: true || false, // required
- *         destination: { // TextLogDestination
- *           cloudWatch: { // CloudWatchLogGroupLogDestination
- *             cloudWatchLogGroupArn: "STRING_VALUE", // required
- *             logPrefix: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *     ],
- *     audioLogSettings: [ // AudioLogSettingsList
- *       { // AudioLogSetting
- *         enabled: true || false, // required
- *         destination: { // AudioLogDestination
- *           s3Bucket: { // S3BucketLogDestination
- *             kmsKeyArn: "STRING_VALUE",
- *             s3BucketArn: "STRING_VALUE", // required
- *             logPrefix: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *     ],
- *   },
- *   sentimentAnalysisSettings: { // SentimentAnalysisSettings
- *     detectSentiment: true || false, // required
- *   },
- *   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
- *   botId: "STRING_VALUE",
- *   creationDateTime: new Date("TIMESTAMP"),
- *   lastUpdatedDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateBotAliasResponse
+ * //   botAliasId: "STRING_VALUE",
+ * //   botAliasName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botAliasLocaleSettings: { // BotAliasLocaleSettingsMap
+ * //     "<keys>": { // BotAliasLocaleSettings
+ * //       enabled: true || false, // required
+ * //       codeHookSpecification: { // CodeHookSpecification
+ * //         lambdaCodeHook: { // LambdaCodeHook
+ * //           lambdaARN: "STRING_VALUE", // required
+ * //           codeHookInterfaceVersion: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   conversationLogSettings: { // ConversationLogSettings
+ * //     textLogSettings: [ // TextLogSettingsList
+ * //       { // TextLogSetting
+ * //         enabled: true || false, // required
+ * //         destination: { // TextLogDestination
+ * //           cloudWatch: { // CloudWatchLogGroupLogDestination
+ * //             cloudWatchLogGroupArn: "STRING_VALUE", // required
+ * //             logPrefix: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //     audioLogSettings: [ // AudioLogSettingsList
+ * //       { // AudioLogSetting
+ * //         enabled: true || false, // required
+ * //         destination: { // AudioLogDestination
+ * //           s3Bucket: { // S3BucketLogDestination
+ * //             kmsKeyArn: "STRING_VALUE",
+ * //             s3BucketArn: "STRING_VALUE", // required
+ * //             logPrefix: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   sentimentAnalysisSettings: { // SentimentAnalysisSettings
+ * //     detectSentiment: true || false, // required
+ * //   },
+ * //   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
+ * //   botId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

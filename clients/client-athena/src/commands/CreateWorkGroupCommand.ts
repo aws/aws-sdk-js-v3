@@ -79,8 +79,7 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * };
  * const command = new CreateWorkGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -79,36 +79,35 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  * };
  * const command = new ListOutgoingTypedLinksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOutgoingTypedLinksResponse
- *   TypedLinkSpecifiers: [ // TypedLinkSpecifierList
- *     { // TypedLinkSpecifier
- *       TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *         SchemaArn: "STRING_VALUE", // required
- *         TypedLinkName: "STRING_VALUE", // required
- *       },
- *       SourceObjectReference: { // ObjectReference
- *         Selector: "STRING_VALUE",
- *       },
- *       TargetObjectReference: {
- *         Selector: "STRING_VALUE",
- *       },
- *       IdentityAttributeValues: [ // AttributeNameAndValueList // required
- *         { // AttributeNameAndValue
- *           AttributeName: "STRING_VALUE", // required
- *           Value: { // TypedAttributeValue Union: only one key present
- *             StringValue: "STRING_VALUE",
- *             BinaryValue: "BLOB_VALUE",
- *             BooleanValue: true || false,
- *             NumberValue: "STRING_VALUE",
- *             DatetimeValue: new Date("TIMESTAMP"),
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOutgoingTypedLinksResponse
+ * //   TypedLinkSpecifiers: [ // TypedLinkSpecifierList
+ * //     { // TypedLinkSpecifier
+ * //       TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ * //         SchemaArn: "STRING_VALUE", // required
+ * //         TypedLinkName: "STRING_VALUE", // required
+ * //       },
+ * //       SourceObjectReference: { // ObjectReference
+ * //         Selector: "STRING_VALUE",
+ * //       },
+ * //       TargetObjectReference: {
+ * //         Selector: "STRING_VALUE",
+ * //       },
+ * //       IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ * //         { // AttributeNameAndValue
+ * //           AttributeName: "STRING_VALUE", // required
+ * //           Value: { // TypedAttributeValue Union: only one key present
+ * //             StringValue: "STRING_VALUE",
+ * //             BinaryValue: "BLOB_VALUE",
+ * //             BooleanValue: true || false,
+ * //             NumberValue: "STRING_VALUE",
+ * //             DatetimeValue: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

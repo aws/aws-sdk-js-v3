@@ -51,16 +51,15 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * };
  * const command = new StopWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopWorkspacesResult
- *   FailedRequests: [ // FailedStopWorkspaceRequests
- *     { // FailedWorkspaceChangeRequest
- *       WorkspaceId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // StopWorkspacesResult
+ * //   FailedRequests: [ // FailedStopWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

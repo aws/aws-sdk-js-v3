@@ -48,11 +48,10 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRegistryResponse
- *   RegistryName: "STRING_VALUE",
- *   RegistryArn: "STRING_VALUE",
- * };
+ * // { // UpdateRegistryResponse
+ * //   RegistryName: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

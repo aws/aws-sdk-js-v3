@@ -48,8 +48,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

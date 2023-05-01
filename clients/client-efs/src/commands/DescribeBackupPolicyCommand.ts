@@ -44,12 +44,11 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * };
  * const command = new DescribeBackupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BackupPolicyDescription
- *   BackupPolicy: { // BackupPolicy
- *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
- *   },
- * };
+ * // { // BackupPolicyDescription
+ * //   BackupPolicy: { // BackupPolicy
+ * //     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ * //   },
+ * // };
  *
  * ```
  *

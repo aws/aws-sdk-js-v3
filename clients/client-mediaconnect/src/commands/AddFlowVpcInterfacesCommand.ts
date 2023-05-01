@@ -55,24 +55,23 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * };
  * const command = new AddFlowVpcInterfacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddFlowVpcInterfacesResponse
- *   FlowArn: "STRING_VALUE",
- *   VpcInterfaces: [ // __listOfVpcInterface
- *     { // VpcInterface
- *       Name: "STRING_VALUE", // required
- *       NetworkInterfaceIds: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       NetworkInterfaceType: "ena" || "efa", // required
- *       RoleArn: "STRING_VALUE", // required
- *       SecurityGroupIds: [ // required
- *         "STRING_VALUE",
- *       ],
- *       SubnetId: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // AddFlowVpcInterfacesResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   VpcInterfaces: [ // __listOfVpcInterface
+ * //     { // VpcInterface
+ * //       Name: "STRING_VALUE", // required
+ * //       NetworkInterfaceIds: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NetworkInterfaceType: "ena" || "efa", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       SecurityGroupIds: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SubnetId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -49,27 +49,26 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRepositoriesResponse
- *   repositories: [ // RepositoryList
- *     { // Repository
- *       repositoryArn: "STRING_VALUE",
- *       registryId: "STRING_VALUE",
- *       repositoryName: "STRING_VALUE",
- *       repositoryUri: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       imageTagMutability: "STRING_VALUE",
- *       imageScanningConfiguration: { // ImageScanningConfiguration
- *         scanOnPush: true || false,
- *       },
- *       encryptionConfiguration: { // EncryptionConfiguration
- *         encryptionType: "STRING_VALUE", // required
- *         kmsKey: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeRepositoriesResponse
+ * //   repositories: [ // RepositoryList
+ * //     { // Repository
+ * //       repositoryArn: "STRING_VALUE",
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       repositoryUri: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       imageTagMutability: "STRING_VALUE",
+ * //       imageScanningConfiguration: { // ImageScanningConfiguration
+ * //         scanOnPush: true || false,
+ * //       },
+ * //       encryptionConfiguration: { // EncryptionConfiguration
+ * //         encryptionType: "STRING_VALUE", // required
+ * //         kmsKey: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,27 +45,26 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactResponse
- *   ContactListName: "STRING_VALUE",
- *   EmailAddress: "STRING_VALUE",
- *   TopicPreferences: [ // TopicPreferenceList
- *     { // TopicPreference
- *       TopicName: "STRING_VALUE", // required
- *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
- *     },
- *   ],
- *   TopicDefaultPreferences: [
- *     {
- *       TopicName: "STRING_VALUE", // required
- *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
- *     },
- *   ],
- *   UnsubscribeAll: true || false,
- *   AttributesData: "STRING_VALUE",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- *   LastUpdatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetContactResponse
+ * //   ContactListName: "STRING_VALUE",
+ * //   EmailAddress: "STRING_VALUE",
+ * //   TopicPreferences: [ // TopicPreferenceList
+ * //     { // TopicPreference
+ * //       TopicName: "STRING_VALUE", // required
+ * //       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //     },
+ * //   ],
+ * //   TopicDefaultPreferences: [
+ * //     {
+ * //       TopicName: "STRING_VALUE", // required
+ * //       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //     },
+ * //   ],
+ * //   UnsubscribeAll: true || false,
+ * //   AttributesData: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

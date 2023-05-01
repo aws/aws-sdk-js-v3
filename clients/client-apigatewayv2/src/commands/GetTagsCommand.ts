@@ -44,12 +44,11 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTagsResponse
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetTagsResponse
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

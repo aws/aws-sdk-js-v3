@@ -56,8 +56,7 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * };
  * const command = new GenerateRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

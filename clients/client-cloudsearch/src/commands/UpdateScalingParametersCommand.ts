@@ -49,23 +49,22 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * };
  * const command = new UpdateScalingParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateScalingParametersResponse
- *   ScalingParameters: { // ScalingParametersStatus
- *     Options: { // ScalingParameters
- *       DesiredInstanceType: "STRING_VALUE",
- *       DesiredReplicationCount: Number("int"),
- *       DesiredPartitionCount: Number("int"),
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // UpdateScalingParametersResponse
+ * //   ScalingParameters: { // ScalingParametersStatus
+ * //     Options: { // ScalingParameters
+ * //       DesiredInstanceType: "STRING_VALUE",
+ * //       DesiredReplicationCount: Number("int"),
+ * //       DesiredPartitionCount: Number("int"),
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

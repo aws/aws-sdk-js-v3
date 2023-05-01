@@ -44,13 +44,12 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * };
  * const command = new ListDeploymentConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentConfigsOutput
- *   deploymentConfigsList: [ // DeploymentConfigsList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentConfigsOutput
+ * //   deploymentConfigsList: [ // DeploymentConfigsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

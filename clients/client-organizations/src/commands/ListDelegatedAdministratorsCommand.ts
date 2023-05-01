@@ -55,22 +55,21 @@ export interface ListDelegatedAdministratorsCommandOutput
  * };
  * const command = new ListDelegatedAdministratorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDelegatedAdministratorsResponse
- *   DelegatedAdministrators: [ // DelegatedAdministrators
- *     { // DelegatedAdministrator
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- *       JoinedMethod: "INVITED" || "CREATED",
- *       JoinedTimestamp: new Date("TIMESTAMP"),
- *       DelegationEnabledDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDelegatedAdministratorsResponse
+ * //   DelegatedAdministrators: [ // DelegatedAdministrators
+ * //     { // DelegatedAdministrator
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       JoinedMethod: "INVITED" || "CREATED",
+ * //       JoinedTimestamp: new Date("TIMESTAMP"),
+ * //       DelegationEnabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

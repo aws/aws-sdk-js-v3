@@ -53,14 +53,13 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * };
  * const command = new ListUserPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserPoliciesResponse
- *   PolicyNames: [ // policyNameListType // required
- *     "STRING_VALUE",
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListUserPoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

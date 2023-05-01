@@ -65,10 +65,9 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * };
  * const command = new UpdateMLTransformCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMLTransformResponse
- *   TransformId: "STRING_VALUE",
- * };
+ * // { // UpdateMLTransformResponse
+ * //   TransformId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

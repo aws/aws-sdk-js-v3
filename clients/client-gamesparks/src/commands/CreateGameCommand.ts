@@ -52,21 +52,20 @@ export interface CreateGameCommandOutput extends CreateGameResult, __MetadataBea
  * };
  * const command = new CreateGameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGameResult
- *   Game: { // GameDetails
- *     Name: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     State: "STRING_VALUE",
- *     EnableTerminationProtection: true || false,
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateGameResult
+ * //   Game: { // GameDetails
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     State: "STRING_VALUE",
+ * //     EnableTerminationProtection: true || false,
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * };
  * const command = new UpdateSecurityHubConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

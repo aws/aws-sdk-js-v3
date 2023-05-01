@@ -44,8 +44,7 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteCorsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

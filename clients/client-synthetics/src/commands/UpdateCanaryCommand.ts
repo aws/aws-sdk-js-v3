@@ -97,8 +97,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

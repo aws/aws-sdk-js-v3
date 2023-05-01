@@ -44,23 +44,22 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
  * };
  * const command = new GetApnsSandboxChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApnsSandboxChannelResponse
- *   APNSSandboxChannelResponse: { // APNSSandboxChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     DefaultAuthenticationMethod: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     HasTokenKey: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // GetApnsSandboxChannelResponse
+ * //   APNSSandboxChannelResponse: { // APNSSandboxChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

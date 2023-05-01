@@ -44,8 +44,7 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * };
  * const command = new CancelWorldGenerationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

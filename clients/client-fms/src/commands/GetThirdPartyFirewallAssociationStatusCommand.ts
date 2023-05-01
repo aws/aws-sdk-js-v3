@@ -53,11 +53,10 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * };
  * const command = new GetThirdPartyFirewallAssociationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetThirdPartyFirewallAssociationStatusResponse
- *   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
- *   MarketplaceOnboardingStatus: "NO_SUBSCRIPTION" || "NOT_COMPLETE" || "COMPLETE",
- * };
+ * // { // GetThirdPartyFirewallAssociationStatusResponse
+ * //   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
+ * //   MarketplaceOnboardingStatus: "NO_SUBSCRIPTION" || "NOT_COMPLETE" || "COMPLETE",
+ * // };
  *
  * ```
  *

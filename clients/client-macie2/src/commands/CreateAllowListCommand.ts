@@ -56,11 +56,10 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  * };
  * const command = new CreateAllowListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAllowListResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- * };
+ * // { // CreateAllowListResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

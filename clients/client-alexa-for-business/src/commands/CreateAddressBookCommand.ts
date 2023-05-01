@@ -52,10 +52,9 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  * };
  * const command = new CreateAddressBookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAddressBookResponse
- *   AddressBookArn: "STRING_VALUE",
- * };
+ * // { // CreateAddressBookResponse
+ * //   AddressBookArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

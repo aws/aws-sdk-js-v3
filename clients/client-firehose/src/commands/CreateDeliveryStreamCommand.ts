@@ -516,10 +516,9 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * };
  * const command = new CreateDeliveryStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeliveryStreamOutput
- *   DeliveryStreamARN: "STRING_VALUE",
- * };
+ * // { // CreateDeliveryStreamOutput
+ * //   DeliveryStreamARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDetectorsResponse
- *   detectorSummaries: [ // DetectorSummaries
- *     { // DetectorSummary
- *       detectorModelName: "STRING_VALUE",
- *       keyValue: "STRING_VALUE",
- *       detectorModelVersion: "STRING_VALUE",
- *       state: { // DetectorStateSummary
- *         stateName: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDetectorsResponse
+ * //   detectorSummaries: [ // DetectorSummaries
+ * //     { // DetectorSummary
+ * //       detectorModelName: "STRING_VALUE",
+ * //       keyValue: "STRING_VALUE",
+ * //       detectorModelVersion: "STRING_VALUE",
+ * //       state: { // DetectorStateSummary
+ * //         stateName: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SignalResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

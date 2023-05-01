@@ -60,10 +60,9 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserAccessLoggingSettingsResponse
- *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // CreateUserAccessLoggingSettingsResponse
+ * //   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

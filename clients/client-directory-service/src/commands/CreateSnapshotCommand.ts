@@ -48,10 +48,9 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSnapshotResult
- *   SnapshotId: "STRING_VALUE",
- * };
+ * // { // CreateSnapshotResult
+ * //   SnapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

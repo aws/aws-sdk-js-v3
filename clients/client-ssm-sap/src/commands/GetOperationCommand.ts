@@ -44,24 +44,23 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOperationOutput
- *   Operation: { // Operation
- *     Id: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     Properties: { // OperationProperties
- *       "<keys>": "STRING_VALUE",
- *     },
- *     ResourceType: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceArn: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetOperationOutput
+ * //   Operation: { // Operation
+ * //     Id: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Properties: { // OperationProperties
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     ResourceType: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

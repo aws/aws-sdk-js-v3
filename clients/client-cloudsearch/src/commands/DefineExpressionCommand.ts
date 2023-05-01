@@ -48,22 +48,21 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  * };
  * const command = new DefineExpressionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DefineExpressionResponse
- *   Expression: { // ExpressionStatus
- *     Options: { // Expression
- *       ExpressionName: "STRING_VALUE", // required
- *       ExpressionValue: "STRING_VALUE", // required
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DefineExpressionResponse
+ * //   Expression: { // ExpressionStatus
+ * //     Options: { // Expression
+ * //       ExpressionName: "STRING_VALUE", // required
+ * //       ExpressionValue: "STRING_VALUE", // required
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

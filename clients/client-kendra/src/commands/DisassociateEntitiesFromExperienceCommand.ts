@@ -63,15 +63,14 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  * };
  * const command = new DisassociateEntitiesFromExperienceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateEntitiesFromExperienceResponse
- *   FailedEntityList: [ // FailedEntityList
- *     { // FailedEntity
- *       EntityId: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DisassociateEntitiesFromExperienceResponse
+ * //   FailedEntityList: [ // FailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

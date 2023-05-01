@@ -56,11 +56,10 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * };
  * const command = new NotifyWhenUploadedCommand(input);
  * const response = await client.send(command);
- * /**
- * { // NotifyWhenUploadedOutput
- *   FileShareARN: "STRING_VALUE",
- *   NotificationId: "STRING_VALUE",
- * };
+ * // { // NotifyWhenUploadedOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * //   NotificationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

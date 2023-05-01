@@ -47,10 +47,9 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionRes
  * };
  * const command = new GetResourcePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePositionResponse
- *   GeoJsonPayload: "BLOB_VALUE",
- * };
+ * // { // GetResourcePositionResponse
+ * //   GeoJsonPayload: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,13 +47,12 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * };
  * const command = new ImportBackendStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportBackendStorageResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // ImportBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,21 +61,20 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * };
  * const command = new CreateHsmConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHsmConfigurationResult
- *   HsmConfiguration: { // HsmConfiguration
- *     HsmConfigurationIdentifier: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     HsmIpAddress: "STRING_VALUE",
- *     HsmPartitionName: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateHsmConfigurationResult
+ * //   HsmConfiguration: { // HsmConfiguration
+ * //     HsmConfigurationIdentifier: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     HsmIpAddress: "STRING_VALUE",
+ * //     HsmPartitionName: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

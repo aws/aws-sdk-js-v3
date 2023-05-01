@@ -58,10 +58,9 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * };
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAssessmentTemplateResponse
- *   assessmentTemplateArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAssessmentTemplateResponse
+ * //   assessmentTemplateArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

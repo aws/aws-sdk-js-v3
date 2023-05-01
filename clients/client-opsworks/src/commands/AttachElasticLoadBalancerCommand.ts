@@ -58,8 +58,7 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * };
  * const command = new AttachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

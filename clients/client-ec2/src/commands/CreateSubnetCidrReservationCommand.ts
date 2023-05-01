@@ -59,23 +59,22 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * };
  * const command = new CreateSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSubnetCidrReservationResult
- *   SubnetCidrReservation: { // SubnetCidrReservation
- *     SubnetCidrReservationId: "STRING_VALUE",
- *     SubnetId: "STRING_VALUE",
- *     Cidr: "STRING_VALUE",
- *     ReservationType: "prefix" || "explicit",
- *     OwnerId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateSubnetCidrReservationResult
+ * //   SubnetCidrReservation: { // SubnetCidrReservation
+ * //     SubnetCidrReservationId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     Cidr: "STRING_VALUE",
+ * //     ReservationType: "prefix" || "explicit",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

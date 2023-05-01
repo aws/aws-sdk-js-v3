@@ -70,11 +70,10 @@ export interface CreateResourcePolicyStatementCommandOutput
  * };
  * const command = new CreateResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResourcePolicyStatementResponse
- *   resourceArn: "STRING_VALUE",
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // CreateResourcePolicyStatementResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

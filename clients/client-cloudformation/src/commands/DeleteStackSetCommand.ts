@@ -46,8 +46,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * };
  * const command = new DeleteStackSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

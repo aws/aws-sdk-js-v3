@@ -58,28 +58,27 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * };
  * const command = new DescribeDBClusterEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBClusterEndpointMessage
- *   Marker: "STRING_VALUE",
- *   DBClusterEndpoints: [ // DBClusterEndpointList
- *     { // DBClusterEndpoint
- *       DBClusterEndpointIdentifier: "STRING_VALUE",
- *       DBClusterIdentifier: "STRING_VALUE",
- *       DBClusterEndpointResourceIdentifier: "STRING_VALUE",
- *       Endpoint: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       EndpointType: "STRING_VALUE",
- *       CustomEndpointType: "STRING_VALUE",
- *       StaticMembers: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       ExcludedMembers: [
- *         "STRING_VALUE",
- *       ],
- *       DBClusterEndpointArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DBClusterEndpointMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBClusterEndpoints: [ // DBClusterEndpointList
+ * //     { // DBClusterEndpoint
+ * //       DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       EndpointType: "STRING_VALUE",
+ * //       CustomEndpointType: "STRING_VALUE",
+ * //       StaticMembers: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ExcludedMembers: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DBClusterEndpointArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

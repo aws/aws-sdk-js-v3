@@ -61,22 +61,21 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * };
  * const command = new ListControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListControlInsightsByControlDomainResponse
- *   controlInsightsMetadata: [ // ControlInsightsMetadata
- *     { // ControlInsightsMetadataItem
- *       name: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       evidenceInsights: { // EvidenceInsights
- *         noncompliantEvidenceCount: Number("int"),
- *         compliantEvidenceCount: Number("int"),
- *         inconclusiveEvidenceCount: Number("int"),
- *       },
- *       lastUpdated: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListControlInsightsByControlDomainResponse
+ * //   controlInsightsMetadata: [ // ControlInsightsMetadata
+ * //     { // ControlInsightsMetadataItem
+ * //       name: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       evidenceInsights: { // EvidenceInsights
+ * //         noncompliantEvidenceCount: Number("int"),
+ * //         compliantEvidenceCount: Number("int"),
+ * //         inconclusiveEvidenceCount: Number("int"),
+ * //       },
+ * //       lastUpdated: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

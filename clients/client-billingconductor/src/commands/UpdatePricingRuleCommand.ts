@@ -60,26 +60,25 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * };
  * const command = new UpdatePricingRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePricingRuleOutput
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Scope: "STRING_VALUE",
- *   Type: "STRING_VALUE",
- *   ModifierPercentage: Number("double"),
- *   Service: "STRING_VALUE",
- *   AssociatedPricingPlanCount: Number("long"),
- *   LastModifiedTime: Number("long"),
- *   BillingEntity: "STRING_VALUE",
- *   Tiering: { // UpdateTieringInput
- *     FreeTier: { // UpdateFreeTierConfig
- *       Activated: true || false, // required
- *     },
- *   },
- *   UsageType: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- * };
+ * // { // UpdatePricingRuleOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Scope: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   ModifierPercentage: Number("double"),
+ * //   Service: "STRING_VALUE",
+ * //   AssociatedPricingPlanCount: Number("long"),
+ * //   LastModifiedTime: Number("long"),
+ * //   BillingEntity: "STRING_VALUE",
+ * //   Tiering: { // UpdateTieringInput
+ * //     FreeTier: { // UpdateFreeTierConfig
+ * //       Activated: true || false, // required
+ * //     },
+ * //   },
+ * //   UsageType: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * // };
  *
  * ```
  *

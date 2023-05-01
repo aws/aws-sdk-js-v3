@@ -44,10 +44,9 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  * };
  * const command = new GetCustomRulePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCustomRulePolicyResponse
- *   PolicyText: "STRING_VALUE",
- * };
+ * // { // GetCustomRulePolicyResponse
+ * //   PolicyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

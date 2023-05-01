@@ -49,16 +49,15 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * };
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataCatalogsOutput
- *   DataCatalogsSummary: [ // DataCatalogSummaryList
- *     { // DataCatalogSummary
- *       CatalogName: "STRING_VALUE",
- *       Type: "LAMBDA" || "GLUE" || "HIVE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataCatalogsOutput
+ * //   DataCatalogsSummary: [ // DataCatalogSummaryList
+ * //     { // DataCatalogSummary
+ * //       CatalogName: "STRING_VALUE",
+ * //       Type: "LAMBDA" || "GLUE" || "HIVE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

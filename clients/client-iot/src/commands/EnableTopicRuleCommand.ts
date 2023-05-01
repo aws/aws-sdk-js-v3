@@ -45,8 +45,7 @@ export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableTopicRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

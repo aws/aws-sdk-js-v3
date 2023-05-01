@@ -46,8 +46,7 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * };
  * const command = new DeleteContainerImageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

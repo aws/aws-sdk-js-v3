@@ -45,20 +45,19 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  * };
  * const command = new GetLensCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLensOutput
- *   Lens: { // Lens
- *     LensArn: "STRING_VALUE",
- *     LensVersion: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     ShareInvitationId: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetLensOutput
+ * //   Lens: { // Lens
+ * //     LensArn: "STRING_VALUE",
+ * //     LensVersion: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ShareInvitationId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

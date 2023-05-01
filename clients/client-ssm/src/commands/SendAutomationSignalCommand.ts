@@ -51,8 +51,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * };
  * const command = new SendAutomationSignalCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * };
  * const command = new StopExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopExecutionOutput
- *   stopDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // StopExecutionOutput
+ * //   stopDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

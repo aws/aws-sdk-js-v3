@@ -44,8 +44,7 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * };
  * const command = new InvalidateProjectCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

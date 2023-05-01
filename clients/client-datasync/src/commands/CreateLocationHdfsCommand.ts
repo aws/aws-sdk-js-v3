@@ -71,10 +71,9 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationHdfsResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationHdfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

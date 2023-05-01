@@ -47,19 +47,18 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * };
  * const command = new BatchGetApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetApplicationsOutput
- *   applicationsInfo: [ // ApplicationsInfoList
- *     { // ApplicationInfo
- *       applicationId: "STRING_VALUE",
- *       applicationName: "STRING_VALUE",
- *       createTime: new Date("TIMESTAMP"),
- *       linkedToGitHub: true || false,
- *       gitHubAccountName: "STRING_VALUE",
- *       computePlatform: "Server" || "Lambda" || "ECS",
- *     },
- *   ],
- * };
+ * // { // BatchGetApplicationsOutput
+ * //   applicationsInfo: [ // ApplicationsInfoList
+ * //     { // ApplicationInfo
+ * //       applicationId: "STRING_VALUE",
+ * //       applicationName: "STRING_VALUE",
+ * //       createTime: new Date("TIMESTAMP"),
+ * //       linkedToGitHub: true || false,
+ * //       gitHubAccountName: "STRING_VALUE",
+ * //       computePlatform: "Server" || "Lambda" || "ECS",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

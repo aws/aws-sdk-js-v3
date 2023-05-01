@@ -48,23 +48,22 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * };
  * const command = new GetDeviceIdentifierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceIdentifierResponse
- *   deviceIdentifier: { // DeviceIdentifier
- *     deviceIdentifierArn: "STRING_VALUE",
- *     trafficGroupArn: "STRING_VALUE",
- *     networkArn: "STRING_VALUE",
- *     imsi: "STRING_VALUE",
- *     iccid: "STRING_VALUE",
- *     vendor: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     orderArn: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetDeviceIdentifierResponse
+ * //   deviceIdentifier: { // DeviceIdentifier
+ * //     deviceIdentifierArn: "STRING_VALUE",
+ * //     trafficGroupArn: "STRING_VALUE",
+ * //     networkArn: "STRING_VALUE",
+ * //     imsi: "STRING_VALUE",
+ * //     iccid: "STRING_VALUE",
+ * //     vendor: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     orderArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

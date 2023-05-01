@@ -69,24 +69,23 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * };
  * const command = new GetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssetPropertyAggregatesResponse
- *   aggregatedValues: [ // AggregatedValues // required
- *     { // AggregatedValue
- *       timestamp: new Date("TIMESTAMP"), // required
- *       quality: "GOOD" || "BAD" || "UNCERTAIN",
- *       value: { // Aggregates
- *         average: Number("double"),
- *         count: Number("double"),
- *         maximum: Number("double"),
- *         minimum: Number("double"),
- *         sum: Number("double"),
- *         standardDeviation: Number("double"),
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetAssetPropertyAggregatesResponse
+ * //   aggregatedValues: [ // AggregatedValues // required
+ * //     { // AggregatedValue
+ * //       timestamp: new Date("TIMESTAMP"), // required
+ * //       quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //       value: { // Aggregates
+ * //         average: Number("double"),
+ * //         count: Number("double"),
+ * //         maximum: Number("double"),
+ * //         minimum: Number("double"),
+ * //         sum: Number("double"),
+ * //         standardDeviation: Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

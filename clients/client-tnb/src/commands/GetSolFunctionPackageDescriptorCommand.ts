@@ -52,11 +52,10 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * };
  * const command = new GetSolFunctionPackageDescriptorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolFunctionPackageDescriptorOutput
- *   contentType: "text/plain",
- *   vnfd: "BLOB_VALUE",
- * };
+ * // { // GetSolFunctionPackageDescriptorOutput
+ * //   contentType: "text/plain",
+ * //   vnfd: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

@@ -78,24 +78,23 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * };
  * const command = new GetInterpolatedAssetPropertyValuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInterpolatedAssetPropertyValuesResponse
- *   interpolatedAssetPropertyValues: [ // InterpolatedAssetPropertyValues // required
- *     { // InterpolatedAssetPropertyValue
- *       timestamp: { // TimeInNanos
- *         timeInSeconds: Number("long"), // required
- *         offsetInNanos: Number("int"),
- *       },
- *       value: { // Variant
- *         stringValue: "STRING_VALUE",
- *         integerValue: Number("int"),
- *         doubleValue: Number("double"),
- *         booleanValue: true || false,
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetInterpolatedAssetPropertyValuesResponse
+ * //   interpolatedAssetPropertyValues: [ // InterpolatedAssetPropertyValues // required
+ * //     { // InterpolatedAssetPropertyValue
+ * //       timestamp: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       value: { // Variant
+ * //         stringValue: "STRING_VALUE",
+ * //         integerValue: Number("int"),
+ * //         doubleValue: Number("double"),
+ * //         booleanValue: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

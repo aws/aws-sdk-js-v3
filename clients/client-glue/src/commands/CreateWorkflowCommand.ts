@@ -52,10 +52,9 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * };
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkflowResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateWorkflowResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

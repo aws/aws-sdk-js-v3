@@ -122,12 +122,11 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * };
  * const command = new RunScheduledInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RunScheduledInstancesResult
- *   InstanceIdSet: [ // InstanceIdSet
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // RunScheduledInstancesResult
+ * //   InstanceIdSet: [ // InstanceIdSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

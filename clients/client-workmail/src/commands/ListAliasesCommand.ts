@@ -48,13 +48,12 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAliasesResponse
- *   Aliases: [ // Aliases
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

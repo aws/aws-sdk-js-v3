@@ -43,15 +43,14 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGlobalSettingsResponse
- *   BusinessCalling: { // BusinessCallingSettings
- *     CdrBucket: "STRING_VALUE",
- *   },
- *   VoiceConnector: { // VoiceConnectorSettings
- *     CdrBucket: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGlobalSettingsResponse
+ * //   BusinessCalling: { // BusinessCallingSettings
+ * //     CdrBucket: "STRING_VALUE",
+ * //   },
+ * //   VoiceConnector: { // VoiceConnectorSettings
+ * //     CdrBucket: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

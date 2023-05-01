@@ -55,12 +55,11 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * const input = {};
  * const command = new DescribeLifecycleHookTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLifecycleHookTypesAnswer
- *   LifecycleHookTypes: [ // AutoScalingNotificationTypes
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeLifecycleHookTypesAnswer
+ * //   LifecycleHookTypes: [ // AutoScalingNotificationTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

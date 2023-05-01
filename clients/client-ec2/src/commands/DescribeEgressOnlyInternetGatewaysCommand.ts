@@ -65,27 +65,26 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
  * };
  * const command = new DescribeEgressOnlyInternetGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEgressOnlyInternetGatewaysResult
- *   EgressOnlyInternetGateways: [ // EgressOnlyInternetGatewayList
- *     { // EgressOnlyInternetGateway
- *       Attachments: [ // InternetGatewayAttachmentList
- *         { // InternetGatewayAttachment
- *           State: "attaching" || "attached" || "detaching" || "detached",
- *           VpcId: "STRING_VALUE",
- *         },
- *       ],
- *       EgressOnlyInternetGatewayId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEgressOnlyInternetGatewaysResult
+ * //   EgressOnlyInternetGateways: [ // EgressOnlyInternetGatewayList
+ * //     { // EgressOnlyInternetGateway
+ * //       Attachments: [ // InternetGatewayAttachmentList
+ * //         { // InternetGatewayAttachment
+ * //           State: "attaching" || "attached" || "detaching" || "detached",
+ * //           VpcId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -67,8 +67,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

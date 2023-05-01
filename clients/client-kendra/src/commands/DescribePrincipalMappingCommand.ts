@@ -53,21 +53,20 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * };
  * const command = new DescribePrincipalMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePrincipalMappingResponse
- *   IndexId: "STRING_VALUE",
- *   DataSourceId: "STRING_VALUE",
- *   GroupId: "STRING_VALUE",
- *   GroupOrderingIdSummaries: [ // GroupOrderingIdSummaries
- *     { // GroupOrderingIdSummary
- *       Status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
- *       LastUpdatedAt: new Date("TIMESTAMP"),
- *       ReceivedAt: new Date("TIMESTAMP"),
- *       OrderingId: Number("long"),
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribePrincipalMappingResponse
+ * //   IndexId: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   GroupId: "STRING_VALUE",
+ * //   GroupOrderingIdSummaries: [ // GroupOrderingIdSummaries
+ * //     { // GroupOrderingIdSummary
+ * //       Status: "FAILED" || "SUCCEEDED" || "PROCESSING" || "DELETING" || "DELETED",
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       ReceivedAt: new Date("TIMESTAMP"),
+ * //       OrderingId: Number("long"),
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

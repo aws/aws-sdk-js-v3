@@ -71,8 +71,7 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * };
  * const command = new PutCorsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

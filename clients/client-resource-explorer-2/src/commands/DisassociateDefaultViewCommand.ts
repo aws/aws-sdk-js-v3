@@ -50,8 +50,7 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * const input = {};
  * const command = new DisassociateDefaultViewCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

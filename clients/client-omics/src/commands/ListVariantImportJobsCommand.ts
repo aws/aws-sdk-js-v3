@@ -52,22 +52,21 @@ export interface ListVariantImportJobsCommandOutput extends ListVariantImportJob
  * };
  * const command = new ListVariantImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVariantImportJobsResponse
- *   variantImportJobs: [ // VariantImportJobItems
- *     { // VariantImportJobItem
- *       id: "STRING_VALUE", // required
- *       destinationName: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       completionTime: new Date("TIMESTAMP"),
- *       runLeftNormalization: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVariantImportJobsResponse
+ * //   variantImportJobs: [ // VariantImportJobItems
+ * //     { // VariantImportJobItem
+ * //       id: "STRING_VALUE", // required
+ * //       destinationName: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //       runLeftNormalization: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

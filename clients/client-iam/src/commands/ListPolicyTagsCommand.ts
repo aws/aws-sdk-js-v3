@@ -48,17 +48,16 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * };
  * const command = new ListPolicyTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyTagsResponse
- *   Tags: [ // tagListType // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListPolicyTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

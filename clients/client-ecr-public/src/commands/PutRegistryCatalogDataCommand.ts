@@ -44,12 +44,11 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  * };
  * const command = new PutRegistryCatalogDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRegistryCatalogDataResponse
- *   registryCatalogData: { // RegistryCatalogData
- *     displayName: "STRING_VALUE",
- *   },
- * };
+ * // { // PutRegistryCatalogDataResponse
+ * //   registryCatalogData: { // RegistryCatalogData
+ * //     displayName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

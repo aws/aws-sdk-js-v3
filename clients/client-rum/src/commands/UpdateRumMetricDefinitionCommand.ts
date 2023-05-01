@@ -58,8 +58,7 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * };
  * const command = new UpdateRumMetricDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

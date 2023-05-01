@@ -44,23 +44,22 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * };
  * const command = new DeleteApnsChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApnsChannelResponse
- *   APNSChannelResponse: { // APNSChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     DefaultAuthenticationMethod: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     HasTokenKey: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteApnsChannelResponse
+ * //   APNSChannelResponse: { // APNSChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

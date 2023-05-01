@@ -47,17 +47,16 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * };
  * const command = new GetExtensionAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExtensionAssociation
- *   Id: "STRING_VALUE",
- *   ExtensionArn: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Parameters: { // ParameterValueMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ExtensionVersionNumber: Number("int"),
- * };
+ * // { // ExtensionAssociation
+ * //   Id: "STRING_VALUE",
+ * //   ExtensionArn: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Parameters: { // ParameterValueMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ExtensionVersionNumber: Number("int"),
+ * // };
  *
  * ```
  *

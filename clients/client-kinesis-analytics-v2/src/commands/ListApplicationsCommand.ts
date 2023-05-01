@@ -53,20 +53,19 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   ApplicationSummaries: [ // ApplicationSummaries // required
- *     { // ApplicationSummary
- *       ApplicationName: "STRING_VALUE", // required
- *       ApplicationARN: "STRING_VALUE", // required
- *       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
- *       ApplicationVersionId: Number("long"), // required
- *       RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15", // required
- *       ApplicationMode: "STREAMING" || "INTERACTIVE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   ApplicationSummaries: [ // ApplicationSummaries // required
+ * //     { // ApplicationSummary
+ * //       ApplicationName: "STRING_VALUE", // required
+ * //       ApplicationARN: "STRING_VALUE", // required
+ * //       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15", // required
+ * //       ApplicationMode: "STREAMING" || "INTERACTIVE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * };
  * const command = new DeleteStudioMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

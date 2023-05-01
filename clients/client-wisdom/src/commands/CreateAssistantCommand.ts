@@ -53,23 +53,22 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * };
  * const command = new CreateAssistantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAssistantResponse
- *   assistant: { // AssistantData
- *     assistantId: "STRING_VALUE", // required
- *     assistantArn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *       kmsKeyId: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateAssistantResponse
+ * //   assistant: { // AssistantData
+ * //     assistantId: "STRING_VALUE", // required
+ * //     assistantArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

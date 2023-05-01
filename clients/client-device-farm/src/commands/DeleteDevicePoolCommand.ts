@@ -45,8 +45,7 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * };
  * const command = new DeleteDevicePoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

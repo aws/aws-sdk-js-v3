@@ -44,8 +44,7 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * };
  * const command = new DeleteResourceDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

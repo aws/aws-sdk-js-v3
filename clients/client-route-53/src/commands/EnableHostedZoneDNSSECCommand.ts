@@ -45,15 +45,14 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * };
  * const command = new EnableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableHostedZoneDNSSECResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // EnableHostedZoneDNSSECResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

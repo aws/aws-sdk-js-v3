@@ -42,16 +42,15 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * const input = {};
  * const command = new DescribeCustomerMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomerMetadataResponse
- *   agreements: [ // AgreementList
- *     { // CustomerAgreement
- *       agreementName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *     },
- *   ],
- *   nniPartnerType: "v1" || "v2" || "nonPartner",
- * };
+ * // { // DescribeCustomerMetadataResponse
+ * //   agreements: [ // AgreementList
+ * //     { // CustomerAgreement
+ * //       agreementName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nniPartnerType: "v1" || "v2" || "nonPartner",
+ * // };
  *
  * ```
  *

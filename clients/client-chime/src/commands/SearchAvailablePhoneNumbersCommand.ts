@@ -64,13 +64,12 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * };
  * const command = new SearchAvailablePhoneNumbersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchAvailablePhoneNumbersResponse
- *   E164PhoneNumbers: [ // E164PhoneNumberList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // SearchAvailablePhoneNumbersResponse
+ * //   E164PhoneNumbers: [ // E164PhoneNumberList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

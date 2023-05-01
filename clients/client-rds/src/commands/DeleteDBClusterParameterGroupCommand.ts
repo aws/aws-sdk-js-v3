@@ -53,8 +53,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

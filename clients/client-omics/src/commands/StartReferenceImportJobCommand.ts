@@ -56,14 +56,13 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  * };
  * const command = new StartReferenceImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReferenceImportJobResponse
- *   id: "STRING_VALUE", // required
- *   referenceStoreId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // StartReferenceImportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   referenceStoreId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -44,44 +44,43 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * };
  * const command = new DescribePipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePipelineExecutionResponse
- *   PipelineArn: "STRING_VALUE",
- *   PipelineExecutionArn: "STRING_VALUE",
- *   PipelineExecutionDisplayName: "STRING_VALUE",
- *   PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
- *   PipelineExecutionDescription: "STRING_VALUE",
- *   PipelineExperimentConfig: { // PipelineExperimentConfig
- *     ExperimentName: "STRING_VALUE",
- *     TrialName: "STRING_VALUE",
- *   },
- *   FailureReason: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   ParallelismConfiguration: { // ParallelismConfiguration
- *     MaxParallelExecutionSteps: Number("int"), // required
- *   },
- * };
+ * // { // DescribePipelineExecutionResponse
+ * //   PipelineArn: "STRING_VALUE",
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * //   PipelineExecutionDisplayName: "STRING_VALUE",
+ * //   PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //   PipelineExecutionDescription: "STRING_VALUE",
+ * //   PipelineExperimentConfig: { // PipelineExperimentConfig
+ * //     ExperimentName: "STRING_VALUE",
+ * //     TrialName: "STRING_VALUE",
+ * //   },
+ * //   FailureReason: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ParallelismConfiguration: { // ParallelismConfiguration
+ * //     MaxParallelExecutionSteps: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

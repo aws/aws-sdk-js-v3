@@ -47,14 +47,13 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  * };
  * const command = new StopBotRecommendationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopBotRecommendationResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped",
- *   botRecommendationId: "STRING_VALUE",
- * };
+ * // { // StopBotRecommendationResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped",
+ * //   botRecommendationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

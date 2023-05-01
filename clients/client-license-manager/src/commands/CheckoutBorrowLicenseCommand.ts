@@ -60,28 +60,27 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * };
  * const command = new CheckoutBorrowLicenseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckoutBorrowLicenseResponse
- *   LicenseArn: "STRING_VALUE",
- *   LicenseConsumptionToken: "STRING_VALUE",
- *   EntitlementsAllowed: [ // EntitlementDataList
- *     { // EntitlementData
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
- *     },
- *   ],
- *   NodeId: "STRING_VALUE",
- *   SignedToken: "STRING_VALUE",
- *   IssuedAt: "STRING_VALUE",
- *   Expiration: "STRING_VALUE",
- *   CheckoutMetadata: [ // MetadataList
- *     { // Metadata
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CheckoutBorrowLicenseResponse
+ * //   LicenseArn: "STRING_VALUE",
+ * //   LicenseConsumptionToken: "STRING_VALUE",
+ * //   EntitlementsAllowed: [ // EntitlementDataList
+ * //     { // EntitlementData
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //       Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ * //     },
+ * //   ],
+ * //   NodeId: "STRING_VALUE",
+ * //   SignedToken: "STRING_VALUE",
+ * //   IssuedAt: "STRING_VALUE",
+ * //   Expiration: "STRING_VALUE",
+ * //   CheckoutMetadata: [ // MetadataList
+ * //     { // Metadata
+ * //       Name: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

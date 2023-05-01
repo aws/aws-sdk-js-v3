@@ -44,88 +44,87 @@ export interface DescribeTrialComponentCommandOutput extends DescribeTrialCompon
  * };
  * const command = new DescribeTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrialComponentResponse
- *   TrialComponentName: "STRING_VALUE",
- *   TrialComponentArn: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   Source: { // TrialComponentSource
- *     SourceArn: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *   },
- *   Status: { // TrialComponentStatus
- *     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *     Message: "STRING_VALUE",
- *   },
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   CreationTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   Parameters: { // TrialComponentParameters
- *     "<keys>": { // TrialComponentParameterValue Union: only one key present
- *       StringValue: "STRING_VALUE",
- *       NumberValue: Number("double"),
- *     },
- *   },
- *   InputArtifacts: { // TrialComponentArtifacts
- *     "<keys>": { // TrialComponentArtifact
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
- *     },
- *   },
- *   OutputArtifacts: {
- *     "<keys>": {
- *       MediaType: "STRING_VALUE",
- *       Value: "STRING_VALUE", // required
- *     },
- *   },
- *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
- *   },
- *   Metrics: [ // TrialComponentMetricSummaries
- *     { // TrialComponentMetricSummary
- *       MetricName: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE",
- *       TimeStamp: new Date("TIMESTAMP"),
- *       Max: Number("double"),
- *       Min: Number("double"),
- *       Last: Number("double"),
- *       Count: Number("int"),
- *       Avg: Number("double"),
- *       StdDev: Number("double"),
- *     },
- *   ],
- *   LineageGroupArn: "STRING_VALUE",
- *   Sources: [ // TrialComponentSources
- *     {
- *       SourceArn: "STRING_VALUE", // required
- *       SourceType: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeTrialComponentResponse
+ * //   TrialComponentName: "STRING_VALUE",
+ * //   TrialComponentArn: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   Source: { // TrialComponentSource
+ * //     SourceArn: "STRING_VALUE", // required
+ * //     SourceType: "STRING_VALUE",
+ * //   },
+ * //   Status: { // TrialComponentStatus
+ * //     PrimaryStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Parameters: { // TrialComponentParameters
+ * //     "<keys>": { // TrialComponentParameterValue Union: only one key present
+ * //       StringValue: "STRING_VALUE",
+ * //       NumberValue: Number("double"),
+ * //     },
+ * //   },
+ * //   InputArtifacts: { // TrialComponentArtifacts
+ * //     "<keys>": { // TrialComponentArtifact
+ * //       MediaType: "STRING_VALUE",
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   OutputArtifacts: {
+ * //     "<keys>": {
+ * //       MediaType: "STRING_VALUE",
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   MetadataProperties: { // MetadataProperties
+ * //     CommitId: "STRING_VALUE",
+ * //     Repository: "STRING_VALUE",
+ * //     GeneratedBy: "STRING_VALUE",
+ * //     ProjectId: "STRING_VALUE",
+ * //   },
+ * //   Metrics: [ // TrialComponentMetricSummaries
+ * //     { // TrialComponentMetricSummary
+ * //       MetricName: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       TimeStamp: new Date("TIMESTAMP"),
+ * //       Max: Number("double"),
+ * //       Min: Number("double"),
+ * //       Last: Number("double"),
+ * //       Count: Number("int"),
+ * //       Avg: Number("double"),
+ * //       StdDev: Number("double"),
+ * //     },
+ * //   ],
+ * //   LineageGroupArn: "STRING_VALUE",
+ * //   Sources: [ // TrialComponentSources
+ * //     {
+ * //       SourceArn: "STRING_VALUE", // required
+ * //       SourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

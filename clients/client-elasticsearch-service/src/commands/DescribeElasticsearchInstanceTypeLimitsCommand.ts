@@ -66,41 +66,40 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  * };
  * const command = new DescribeElasticsearchInstanceTypeLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeElasticsearchInstanceTypeLimitsResponse
- *   LimitsByRole: { // LimitsByRole
- *     "<keys>": { // Limits
- *       StorageTypes: [ // StorageTypeList
- *         { // StorageType
- *           StorageTypeName: "STRING_VALUE",
- *           StorageSubTypeName: "STRING_VALUE",
- *           StorageTypeLimits: [ // StorageTypeLimitList
- *             { // StorageTypeLimit
- *               LimitName: "STRING_VALUE",
- *               LimitValues: [ // LimitValueList
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *         },
- *       ],
- *       InstanceLimits: { // InstanceLimits
- *         InstanceCountLimits: { // InstanceCountLimits
- *           MinimumInstanceCount: Number("int"),
- *           MaximumInstanceCount: Number("int"),
- *         },
- *       },
- *       AdditionalLimits: [ // AdditionalLimitList
- *         { // AdditionalLimit
- *           LimitName: "STRING_VALUE",
- *           LimitValues: [
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // DescribeElasticsearchInstanceTypeLimitsResponse
+ * //   LimitsByRole: { // LimitsByRole
+ * //     "<keys>": { // Limits
+ * //       StorageTypes: [ // StorageTypeList
+ * //         { // StorageType
+ * //           StorageTypeName: "STRING_VALUE",
+ * //           StorageSubTypeName: "STRING_VALUE",
+ * //           StorageTypeLimits: [ // StorageTypeLimitList
+ * //             { // StorageTypeLimit
+ * //               LimitName: "STRING_VALUE",
+ * //               LimitValues: [ // LimitValueList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       InstanceLimits: { // InstanceLimits
+ * //         InstanceCountLimits: { // InstanceCountLimits
+ * //           MinimumInstanceCount: Number("int"),
+ * //           MaximumInstanceCount: Number("int"),
+ * //         },
+ * //       },
+ * //       AdditionalLimits: [ // AdditionalLimitList
+ * //         { // AdditionalLimit
+ * //           LimitName: "STRING_VALUE",
+ * //           LimitValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * };
  * const command = new GetCertificateAuthorityCsrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCertificateAuthorityCsrResponse
- *   Csr: "STRING_VALUE",
- * };
+ * // { // GetCertificateAuthorityCsrResponse
+ * //   Csr: "STRING_VALUE",
+ * // };
  *
  * ```
  *

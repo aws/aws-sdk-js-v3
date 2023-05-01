@@ -54,23 +54,22 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * };
  * const command = new GetRateBasedRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRateBasedRuleResponse
- *   Rule: { // RateBasedRule
- *     RuleId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     MetricName: "STRING_VALUE",
- *     MatchPredicates: [ // Predicates // required
- *       { // Predicate
- *         Negated: true || false, // required
- *         Type: "STRING_VALUE", // required
- *         DataId: "STRING_VALUE", // required
- *       },
- *     ],
- *     RateKey: "STRING_VALUE", // required
- *     RateLimit: Number("long"), // required
- *   },
- * };
+ * // { // GetRateBasedRuleResponse
+ * //   Rule: { // RateBasedRule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     MatchPredicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     RateKey: "STRING_VALUE", // required
+ * //     RateLimit: Number("long"), // required
+ * //   },
+ * // };
  *
  * ```
  *

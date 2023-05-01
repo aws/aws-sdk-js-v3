@@ -82,11 +82,10 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * };
  * const command = new CreateOpsItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOpsItemResponse
- *   OpsItemId: "STRING_VALUE",
- *   OpsItemArn: "STRING_VALUE",
- * };
+ * // { // CreateOpsItemResponse
+ * //   OpsItemId: "STRING_VALUE",
+ * //   OpsItemArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

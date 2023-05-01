@@ -81,8 +81,7 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

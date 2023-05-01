@@ -58,8 +58,7 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * };
  * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

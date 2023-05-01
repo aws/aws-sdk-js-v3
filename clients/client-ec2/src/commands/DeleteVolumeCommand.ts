@@ -49,8 +49,7 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

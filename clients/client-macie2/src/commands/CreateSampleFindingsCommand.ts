@@ -46,8 +46,7 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * };
  * const command = new CreateSampleFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,25 +51,24 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * };
  * const command = new BatchGetPreparedStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetPreparedStatementOutput
- *   PreparedStatements: [ // PreparedStatementDetailsList
- *     { // PreparedStatement
- *       StatementName: "STRING_VALUE",
- *       QueryStatement: "STRING_VALUE",
- *       WorkGroupName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   UnprocessedPreparedStatementNames: [ // UnprocessedPreparedStatementNameList
- *     { // UnprocessedPreparedStatementName
- *       StatementName: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetPreparedStatementOutput
+ * //   PreparedStatements: [ // PreparedStatementDetailsList
+ * //     { // PreparedStatement
+ * //       StatementName: "STRING_VALUE",
+ * //       QueryStatement: "STRING_VALUE",
+ * //       WorkGroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   UnprocessedPreparedStatementNames: [ // UnprocessedPreparedStatementNameList
+ * //     { // UnprocessedPreparedStatementName
+ * //       StatementName: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

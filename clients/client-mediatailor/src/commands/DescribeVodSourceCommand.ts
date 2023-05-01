@@ -45,24 +45,23 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * };
  * const command = new DescribeVodSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVodSourceResponse
- *   Arn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   HttpPackageConfigurations: [ // HttpPackageConfigurations
- *     { // HttpPackageConfiguration
- *       Path: "STRING_VALUE", // required
- *       SourceGroup: "STRING_VALUE", // required
- *       Type: "DASH" || "HLS", // required
- *     },
- *   ],
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   SourceLocationName: "STRING_VALUE",
- *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- *   VodSourceName: "STRING_VALUE",
- * };
+ * // { // DescribeVodSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   HttpPackageConfigurations: [ // HttpPackageConfigurations
+ * //     { // HttpPackageConfiguration
+ * //       Path: "STRING_VALUE", // required
+ * //       SourceGroup: "STRING_VALUE", // required
+ * //       Type: "DASH" || "HLS", // required
+ * //     },
+ * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   SourceLocationName: "STRING_VALUE",
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   VodSourceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

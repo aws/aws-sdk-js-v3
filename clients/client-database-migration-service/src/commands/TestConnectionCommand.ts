@@ -49,17 +49,16 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * };
  * const command = new TestConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestConnectionResponse
- *   Connection: { // Connection
- *     ReplicationInstanceArn: "STRING_VALUE",
- *     EndpointArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     LastFailureMessage: "STRING_VALUE",
- *     EndpointIdentifier: "STRING_VALUE",
- *     ReplicationInstanceIdentifier: "STRING_VALUE",
- *   },
- * };
+ * // { // TestConnectionResponse
+ * //   Connection: { // Connection
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     EndpointArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //     EndpointIdentifier: "STRING_VALUE",
+ * //     ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

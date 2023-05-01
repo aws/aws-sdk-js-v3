@@ -47,16 +47,15 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * };
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityConfigurationsOutput
- *   SecurityConfigurations: [ // SecurityConfigurationList
- *     { // SecurityConfigurationSummary
- *       Name: "STRING_VALUE",
- *       CreationDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListSecurityConfigurationsOutput
+ * //   SecurityConfigurations: [ // SecurityConfigurationList
+ * //     { // SecurityConfigurationSummary
+ * //       Name: "STRING_VALUE",
+ * //       CreationDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

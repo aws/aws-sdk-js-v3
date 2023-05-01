@@ -45,13 +45,12 @@ export interface GetRequestValidatorCommandOutput extends RequestValidator, __Me
  * };
  * const command = new GetRequestValidatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestValidator
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   validateRequestBody: true || false,
- *   validateRequestParameters: true || false,
- * };
+ * // { // RequestValidator
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   validateRequestBody: true || false,
+ * //   validateRequestParameters: true || false,
+ * // };
  *
  * ```
  *

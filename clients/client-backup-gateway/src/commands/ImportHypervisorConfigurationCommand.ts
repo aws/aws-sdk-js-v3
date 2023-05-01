@@ -63,10 +63,9 @@ export interface ImportHypervisorConfigurationCommandOutput
  * };
  * const command = new ImportHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportHypervisorConfigurationOutput
- *   HypervisorArn: "STRING_VALUE",
- * };
+ * // { // ImportHypervisorConfigurationOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

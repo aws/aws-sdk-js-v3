@@ -85,22 +85,21 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEmailIdentityResponse
- *   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
- *   VerifiedForSendingStatus: true || false,
- *   DkimAttributes: { // DkimAttributes
- *     SigningEnabled: true || false,
- *     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
- *     Tokens: [ // DnsTokenList
- *       "STRING_VALUE",
- *     ],
- *     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL",
- *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
- *     CurrentSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
- *     LastKeyGenerationTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateEmailIdentityResponse
+ * //   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
+ * //   VerifiedForSendingStatus: true || false,
+ * //   DkimAttributes: { // DkimAttributes
+ * //     SigningEnabled: true || false,
+ * //     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ * //     Tokens: [ // DnsTokenList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL",
+ * //     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ * //     CurrentSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ * //     LastKeyGenerationTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

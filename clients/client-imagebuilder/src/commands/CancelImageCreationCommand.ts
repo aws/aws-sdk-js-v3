@@ -46,12 +46,11 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * };
  * const command = new CancelImageCreationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelImageCreationResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   imageBuildVersionArn: "STRING_VALUE",
- * };
+ * // { // CancelImageCreationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

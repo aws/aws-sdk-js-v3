@@ -46,18 +46,17 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMonitorsOutput
- *   Monitors: [ // MonitorList // required
- *     { // Monitor
- *       MonitorName: "STRING_VALUE", // required
- *       MonitorArn: "STRING_VALUE", // required
- *       Status: "STRING_VALUE", // required
- *       ProcessingStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMonitorsOutput
+ * //   Monitors: [ // MonitorList // required
+ * //     { // Monitor
+ * //       MonitorName: "STRING_VALUE", // required
+ * //       MonitorArn: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       ProcessingStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

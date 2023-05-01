@@ -79,10 +79,9 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppMonitorResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateAppMonitorResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

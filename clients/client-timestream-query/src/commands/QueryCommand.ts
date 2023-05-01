@@ -78,70 +78,69 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryResponse
- *   QueryId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   Rows: [ // RowList // required
- *     { // Row
- *       Data: [ // DatumList // required
- *         { // Datum
- *           ScalarValue: "STRING_VALUE",
- *           TimeSeriesValue: [ // TimeSeriesDataPointList
- *             { // TimeSeriesDataPoint
- *               Time: "STRING_VALUE", // required
- *               Value: {
- *                 ScalarValue: "STRING_VALUE",
- *                 TimeSeriesValue: [
- *                   {
- *                     Time: "STRING_VALUE", // required
- *                     Value: "<Datum>", // required
- *                   },
- *                 ],
- *                 ArrayValue: [
- *                   "<Datum>",
- *                 ],
- *                 RowValue: {
- *                   Data: "<DatumList>", // required
- *                 },
- *                 NullValue: true || false,
- *               },
- *             },
- *           ],
- *           ArrayValue: "<DatumList>",
- *           RowValue: "<Row>",
- *           NullValue: true || false,
- *         },
- *       ],
- *     },
- *   ],
- *   ColumnInfo: [ // ColumnInfoList // required
- *     { // ColumnInfo
- *       Name: "STRING_VALUE",
- *       Type: { // Type
- *         ScalarType: "STRING_VALUE",
- *         ArrayColumnInfo: {
- *           Name: "STRING_VALUE",
- *           Type: {
- *             ScalarType: "STRING_VALUE",
- *             ArrayColumnInfo: "<ColumnInfo>",
- *             TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
- *             RowColumnInfo: [
- *               "<ColumnInfo>",
- *             ],
- *           },
- *         },
- *         TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
- *         RowColumnInfo: "<ColumnInfoList>",
- *       },
- *     },
- *   ],
- *   QueryStatus: { // QueryStatus
- *     ProgressPercentage: Number("double"),
- *     CumulativeBytesScanned: Number("long"),
- *     CumulativeBytesMetered: Number("long"),
- *   },
- * };
+ * // { // QueryResponse
+ * //   QueryId: "STRING_VALUE", // required
+ * //   NextToken: "STRING_VALUE",
+ * //   Rows: [ // RowList // required
+ * //     { // Row
+ * //       Data: [ // DatumList // required
+ * //         { // Datum
+ * //           ScalarValue: "STRING_VALUE",
+ * //           TimeSeriesValue: [ // TimeSeriesDataPointList
+ * //             { // TimeSeriesDataPoint
+ * //               Time: "STRING_VALUE", // required
+ * //               Value: {
+ * //                 ScalarValue: "STRING_VALUE",
+ * //                 TimeSeriesValue: [
+ * //                   {
+ * //                     Time: "STRING_VALUE", // required
+ * //                     Value: "<Datum>", // required
+ * //                   },
+ * //                 ],
+ * //                 ArrayValue: [
+ * //                   "<Datum>",
+ * //                 ],
+ * //                 RowValue: {
+ * //                   Data: "<DatumList>", // required
+ * //                 },
+ * //                 NullValue: true || false,
+ * //               },
+ * //             },
+ * //           ],
+ * //           ArrayValue: "<DatumList>",
+ * //           RowValue: "<Row>",
+ * //           NullValue: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ColumnInfo: [ // ColumnInfoList // required
+ * //     { // ColumnInfo
+ * //       Name: "STRING_VALUE",
+ * //       Type: { // Type
+ * //         ScalarType: "STRING_VALUE",
+ * //         ArrayColumnInfo: {
+ * //           Name: "STRING_VALUE",
+ * //           Type: {
+ * //             ScalarType: "STRING_VALUE",
+ * //             ArrayColumnInfo: "<ColumnInfo>",
+ * //             TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
+ * //             RowColumnInfo: [
+ * //               "<ColumnInfo>",
+ * //             ],
+ * //           },
+ * //         },
+ * //         TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
+ * //         RowColumnInfo: "<ColumnInfoList>",
+ * //       },
+ * //     },
+ * //   ],
+ * //   QueryStatus: { // QueryStatus
+ * //     ProgressPercentage: Number("double"),
+ * //     CumulativeBytesScanned: Number("long"),
+ * //     CumulativeBytesMetered: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

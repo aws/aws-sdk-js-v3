@@ -64,21 +64,20 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * };
  * const command = new PutVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutVoiceConnectorOriginationResponse
- *   Origination: { // Origination
- *     Routes: [ // OriginationRouteList
- *       { // OriginationRoute
- *         Host: "STRING_VALUE",
- *         Port: Number("int"),
- *         Protocol: "TCP" || "UDP",
- *         Priority: Number("int"),
- *         Weight: Number("int"),
- *       },
- *     ],
- *     Disabled: true || false,
- *   },
- * };
+ * // { // PutVoiceConnectorOriginationResponse
+ * //   Origination: { // Origination
+ * //     Routes: [ // OriginationRouteList
+ * //       { // OriginationRoute
+ * //         Host: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         Protocol: "TCP" || "UDP",
+ * //         Priority: Number("int"),
+ * //         Weight: Number("int"),
+ * //       },
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

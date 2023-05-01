@@ -47,25 +47,24 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  * };
  * const command = new ListLensReviewsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLensReviewsOutput
- *   WorkloadId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- *   LensReviewSummaries: [ // LensReviewSummaries
- *     { // LensReviewSummary
- *       LensAlias: "STRING_VALUE",
- *       LensArn: "STRING_VALUE",
- *       LensVersion: "STRING_VALUE",
- *       LensName: "STRING_VALUE",
- *       LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       RiskCounts: { // RiskCounts
- *         "<keys>": Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLensReviewsOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * //   LensReviewSummaries: [ // LensReviewSummaries
+ * //     { // LensReviewSummary
+ * //       LensAlias: "STRING_VALUE",
+ * //       LensArn: "STRING_VALUE",
+ * //       LensVersion: "STRING_VALUE",
+ * //       LensName: "STRING_VALUE",
+ * //       LensStatus: "CURRENT" || "NOT_CURRENT" || "DEPRECATED" || "DELETED" || "UNSHARED",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       RiskCounts: { // RiskCounts
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

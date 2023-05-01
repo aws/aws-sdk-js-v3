@@ -45,8 +45,7 @@ export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteAccessLogSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

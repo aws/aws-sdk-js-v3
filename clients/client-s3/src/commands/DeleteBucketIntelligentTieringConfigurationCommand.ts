@@ -71,8 +71,7 @@ export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extend
  * };
  * const command = new DeleteBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

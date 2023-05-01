@@ -49,60 +49,59 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  * };
  * const command = new ListAnswersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnswersOutput
- *   WorkloadId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- *   LensAlias: "STRING_VALUE",
- *   LensArn: "STRING_VALUE",
- *   AnswerSummaries: [ // AnswerSummaries
- *     { // AnswerSummary
- *       QuestionId: "STRING_VALUE",
- *       PillarId: "STRING_VALUE",
- *       QuestionTitle: "STRING_VALUE",
- *       Choices: [ // Choices
- *         { // Choice
- *           ChoiceId: "STRING_VALUE",
- *           Title: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           HelpfulResource: { // ChoiceContent
- *             DisplayText: "STRING_VALUE",
- *             Url: "STRING_VALUE",
- *           },
- *           ImprovementPlan: {
- *             DisplayText: "STRING_VALUE",
- *             Url: "STRING_VALUE",
- *           },
- *           AdditionalResources: [ // AdditionalResourcesList
- *             { // AdditionalResources
- *               Type: "HELPFUL_RESOURCE" || "IMPROVEMENT_PLAN",
- *               Content: [ // Urls
- *                 {
- *                   DisplayText: "STRING_VALUE",
- *                   Url: "STRING_VALUE",
- *                 },
- *               ],
- *             },
- *           ],
- *         },
- *       ],
- *       SelectedChoices: [ // SelectedChoices
- *         "STRING_VALUE",
- *       ],
- *       ChoiceAnswerSummaries: [ // ChoiceAnswerSummaries
- *         { // ChoiceAnswerSummary
- *           ChoiceId: "STRING_VALUE",
- *           Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED",
- *           Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
- *         },
- *       ],
- *       IsApplicable: true || false,
- *       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
- *       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAnswersOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * //   LensAlias: "STRING_VALUE",
+ * //   LensArn: "STRING_VALUE",
+ * //   AnswerSummaries: [ // AnswerSummaries
+ * //     { // AnswerSummary
+ * //       QuestionId: "STRING_VALUE",
+ * //       PillarId: "STRING_VALUE",
+ * //       QuestionTitle: "STRING_VALUE",
+ * //       Choices: [ // Choices
+ * //         { // Choice
+ * //           ChoiceId: "STRING_VALUE",
+ * //           Title: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           HelpfulResource: { // ChoiceContent
+ * //             DisplayText: "STRING_VALUE",
+ * //             Url: "STRING_VALUE",
+ * //           },
+ * //           ImprovementPlan: {
+ * //             DisplayText: "STRING_VALUE",
+ * //             Url: "STRING_VALUE",
+ * //           },
+ * //           AdditionalResources: [ // AdditionalResourcesList
+ * //             { // AdditionalResources
+ * //               Type: "HELPFUL_RESOURCE" || "IMPROVEMENT_PLAN",
+ * //               Content: [ // Urls
+ * //                 {
+ * //                   DisplayText: "STRING_VALUE",
+ * //                   Url: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       SelectedChoices: [ // SelectedChoices
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ChoiceAnswerSummaries: [ // ChoiceAnswerSummaries
+ * //         { // ChoiceAnswerSummary
+ * //           ChoiceId: "STRING_VALUE",
+ * //           Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED",
+ * //           Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //         },
+ * //       ],
+ * //       IsApplicable: true || false,
+ * //       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
+ * //       Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

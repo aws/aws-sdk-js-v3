@@ -59,8 +59,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePrincipalMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

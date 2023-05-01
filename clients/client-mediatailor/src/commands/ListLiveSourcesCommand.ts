@@ -46,29 +46,28 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * };
  * const command = new ListLiveSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLiveSourcesResponse
- *   Items: [ // __listOfLiveSource
- *     { // LiveSource
- *       Arn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"),
- *       HttpPackageConfigurations: [ // HttpPackageConfigurations // required
- *         { // HttpPackageConfiguration
- *           Path: "STRING_VALUE", // required
- *           SourceGroup: "STRING_VALUE", // required
- *           Type: "DASH" || "HLS", // required
- *         },
- *       ],
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       LiveSourceName: "STRING_VALUE", // required
- *       SourceLocationName: "STRING_VALUE", // required
- *       Tags: { // __mapOf__string
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLiveSourcesResponse
+ * //   Items: [ // __listOfLiveSource
+ * //     { // LiveSource
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ * //         { // HttpPackageConfiguration
+ * //           Path: "STRING_VALUE", // required
+ * //           SourceGroup: "STRING_VALUE", // required
+ * //           Type: "DASH" || "HLS", // required
+ * //         },
+ * //       ],
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LiveSourceName: "STRING_VALUE", // required
+ * //       SourceLocationName: "STRING_VALUE", // required
+ * //       Tags: { // __mapOf__string
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -62,8 +62,7 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateArchiveRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

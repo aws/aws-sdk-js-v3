@@ -62,10 +62,9 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * };
  * const command = new SendVoiceMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendVoiceMessageResponse
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendVoiceMessageResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

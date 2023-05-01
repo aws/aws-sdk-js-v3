@@ -46,11 +46,10 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * };
  * const command = new ResetDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetDeploymentsResponse
- *   DeploymentArn: "STRING_VALUE",
- *   DeploymentId: "STRING_VALUE",
- * };
+ * // { // ResetDeploymentsResponse
+ * //   DeploymentArn: "STRING_VALUE",
+ * //   DeploymentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,13 +47,12 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  * };
  * const command = new ListRoleAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoleAliasesResponse
- *   roleAliases: [ // RoleAliases
- *     "STRING_VALUE",
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListRoleAliasesResponse
+ * //   roleAliases: [ // RoleAliases
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

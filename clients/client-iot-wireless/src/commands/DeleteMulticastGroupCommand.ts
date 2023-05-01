@@ -44,8 +44,7 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * };
  * const command = new DeleteMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

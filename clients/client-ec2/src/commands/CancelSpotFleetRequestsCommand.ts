@@ -54,25 +54,24 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * };
  * const command = new CancelSpotFleetRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelSpotFleetRequestsResponse
- *   SuccessfulFleetRequests: [ // CancelSpotFleetRequestsSuccessSet
- *     { // CancelSpotFleetRequestsSuccessItem
- *       CurrentSpotFleetRequestState: "submitted" || "active" || "cancelled" || "failed" || "cancelled_running" || "cancelled_terminating" || "modifying",
- *       PreviousSpotFleetRequestState: "submitted" || "active" || "cancelled" || "failed" || "cancelled_running" || "cancelled_terminating" || "modifying",
- *       SpotFleetRequestId: "STRING_VALUE",
- *     },
- *   ],
- *   UnsuccessfulFleetRequests: [ // CancelSpotFleetRequestsErrorSet
- *     { // CancelSpotFleetRequestsErrorItem
- *       Error: { // CancelSpotFleetRequestsError
- *         Code: "fleetRequestIdDoesNotExist" || "fleetRequestIdMalformed" || "fleetRequestNotInCancellableState" || "unexpectedError",
- *         Message: "STRING_VALUE",
- *       },
- *       SpotFleetRequestId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CancelSpotFleetRequestsResponse
+ * //   SuccessfulFleetRequests: [ // CancelSpotFleetRequestsSuccessSet
+ * //     { // CancelSpotFleetRequestsSuccessItem
+ * //       CurrentSpotFleetRequestState: "submitted" || "active" || "cancelled" || "failed" || "cancelled_running" || "cancelled_terminating" || "modifying",
+ * //       PreviousSpotFleetRequestState: "submitted" || "active" || "cancelled" || "failed" || "cancelled_running" || "cancelled_terminating" || "modifying",
+ * //       SpotFleetRequestId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnsuccessfulFleetRequests: [ // CancelSpotFleetRequestsErrorSet
+ * //     { // CancelSpotFleetRequestsErrorItem
+ * //       Error: { // CancelSpotFleetRequestsError
+ * //         Code: "fleetRequestIdDoesNotExist" || "fleetRequestIdMalformed" || "fleetRequestNotInCancellableState" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       SpotFleetRequestId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

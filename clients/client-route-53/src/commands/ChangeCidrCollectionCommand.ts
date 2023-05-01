@@ -79,10 +79,9 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * };
  * const command = new ChangeCidrCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ChangeCidrCollectionResponse
- *   Id: "STRING_VALUE", // required
- * };
+ * // { // ChangeCidrCollectionResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

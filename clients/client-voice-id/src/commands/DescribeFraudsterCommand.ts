@@ -49,17 +49,16 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * };
  * const command = new DescribeFraudsterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFraudsterResponse
- *   Fraudster: { // Fraudster
- *     DomainId: "STRING_VALUE",
- *     GeneratedFraudsterId: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     WatchlistIds: [ // ResponseWatchlistIds
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeFraudsterResponse
+ * //   Fraudster: { // Fraudster
+ * //     DomainId: "STRING_VALUE",
+ * //     GeneratedFraudsterId: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     WatchlistIds: [ // ResponseWatchlistIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

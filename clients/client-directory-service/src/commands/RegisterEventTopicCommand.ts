@@ -49,8 +49,7 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * };
  * const command = new RegisterEventTopicCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

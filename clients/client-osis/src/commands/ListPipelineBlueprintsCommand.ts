@@ -43,14 +43,13 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * const input = {};
  * const command = new ListPipelineBlueprintsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelineBlueprintsResponse
- *   Blueprints: [ // PipelineBlueprintsSummaryList
- *     { // PipelineBlueprintSummary
- *       BlueprintName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListPipelineBlueprintsResponse
+ * //   Blueprints: [ // PipelineBlueprintsSummaryList
+ * //     { // PipelineBlueprintSummary
+ * //       BlueprintName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

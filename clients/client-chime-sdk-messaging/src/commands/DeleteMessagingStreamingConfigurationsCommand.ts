@@ -53,8 +53,7 @@ export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __M
  * };
  * const command = new DeleteMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

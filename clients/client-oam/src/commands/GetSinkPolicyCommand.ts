@@ -45,12 +45,11 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * };
  * const command = new GetSinkPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSinkPolicyOutput
- *   SinkArn: "STRING_VALUE",
- *   SinkId: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetSinkPolicyOutput
+ * //   SinkArn: "STRING_VALUE",
+ * //   SinkId: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

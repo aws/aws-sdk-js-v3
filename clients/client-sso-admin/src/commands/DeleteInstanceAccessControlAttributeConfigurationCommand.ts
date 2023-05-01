@@ -56,8 +56,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new DeleteInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

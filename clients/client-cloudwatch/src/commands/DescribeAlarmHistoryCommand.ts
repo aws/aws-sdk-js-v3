@@ -58,20 +58,19 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * };
  * const command = new DescribeAlarmHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAlarmHistoryOutput
- *   AlarmHistoryItems: [ // AlarmHistoryItems
- *     { // AlarmHistoryItem
- *       AlarmName: "STRING_VALUE",
- *       AlarmType: "CompositeAlarm" || "MetricAlarm",
- *       Timestamp: new Date("TIMESTAMP"),
- *       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
- *       HistorySummary: "STRING_VALUE",
- *       HistoryData: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAlarmHistoryOutput
+ * //   AlarmHistoryItems: [ // AlarmHistoryItems
+ * //     { // AlarmHistoryItem
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmType: "CompositeAlarm" || "MetricAlarm",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ * //       HistorySummary: "STRING_VALUE",
+ * //       HistoryData: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

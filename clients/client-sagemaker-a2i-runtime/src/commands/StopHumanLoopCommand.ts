@@ -48,8 +48,7 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * };
  * const command = new StopHumanLoopCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

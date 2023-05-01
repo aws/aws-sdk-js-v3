@@ -46,8 +46,7 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

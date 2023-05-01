@@ -45,8 +45,7 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteProxySessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

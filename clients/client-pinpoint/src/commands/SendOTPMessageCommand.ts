@@ -57,32 +57,31 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * };
  * const command = new SendOTPMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendOTPMessageResponse
- *   MessageResponse: { // MessageResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     EndpointResult: { // MapOfEndpointMessageResult
- *       "<keys>": { // EndpointMessageResult
- *         Address: "STRING_VALUE",
- *         DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
- *         MessageId: "STRING_VALUE",
- *         StatusCode: Number("int"), // required
- *         StatusMessage: "STRING_VALUE",
- *         UpdatedToken: "STRING_VALUE",
- *       },
- *     },
- *     RequestId: "STRING_VALUE",
- *     Result: { // MapOfMessageResult
- *       "<keys>": { // MessageResult
- *         DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
- *         MessageId: "STRING_VALUE",
- *         StatusCode: Number("int"), // required
- *         StatusMessage: "STRING_VALUE",
- *         UpdatedToken: "STRING_VALUE",
- *       },
- *     },
- *   },
- * };
+ * // { // SendOTPMessageResponse
+ * //   MessageResponse: { // MessageResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     EndpointResult: { // MapOfEndpointMessageResult
+ * //       "<keys>": { // EndpointMessageResult
+ * //         Address: "STRING_VALUE",
+ * //         DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
+ * //         MessageId: "STRING_VALUE",
+ * //         StatusCode: Number("int"), // required
+ * //         StatusMessage: "STRING_VALUE",
+ * //         UpdatedToken: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     RequestId: "STRING_VALUE",
+ * //     Result: { // MapOfMessageResult
+ * //       "<keys>": { // MessageResult
+ * //         DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
+ * //         MessageId: "STRING_VALUE",
+ * //         StatusCode: Number("int"), // required
+ * //         StatusMessage: "STRING_VALUE",
+ * //         UpdatedToken: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

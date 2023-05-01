@@ -46,15 +46,14 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
  * };
  * const command = new GenerateBackendAPIModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateBackendAPIModelsResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // GenerateBackendAPIModelsResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

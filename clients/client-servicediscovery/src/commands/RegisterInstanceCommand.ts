@@ -92,10 +92,9 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterInstanceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // RegisterInstanceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

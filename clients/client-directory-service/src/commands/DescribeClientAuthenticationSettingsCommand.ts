@@ -56,17 +56,16 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * };
  * const command = new DescribeClientAuthenticationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientAuthenticationSettingsResult
- *   ClientAuthenticationSettingsInfo: [ // ClientAuthenticationSettingsInfo
- *     { // ClientAuthenticationSettingInfo
- *       Type: "SmartCard" || "SmartCardOrPassword",
- *       Status: "Enabled" || "Disabled",
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeClientAuthenticationSettingsResult
+ * //   ClientAuthenticationSettingsInfo: [ // ClientAuthenticationSettingsInfo
+ * //     { // ClientAuthenticationSettingInfo
+ * //       Type: "SmartCard" || "SmartCardOrPassword",
+ * //       Status: "Enabled" || "Disabled",
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

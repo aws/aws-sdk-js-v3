@@ -59,8 +59,7 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * };
  * const command = new CreateListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

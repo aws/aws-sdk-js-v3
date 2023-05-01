@@ -43,8 +43,7 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * const input = {};
  * const command = new DeleteNotificationChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

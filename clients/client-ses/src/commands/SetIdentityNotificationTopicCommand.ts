@@ -56,8 +56,7 @@ export interface SetIdentityNotificationTopicCommandOutput
  * };
  * const command = new SetIdentityNotificationTopicCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

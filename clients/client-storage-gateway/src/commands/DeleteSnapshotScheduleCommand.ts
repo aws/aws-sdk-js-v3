@@ -58,10 +58,9 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSnapshotScheduleOutput
- *   VolumeARN: "STRING_VALUE",
- * };
+ * // { // DeleteSnapshotScheduleOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

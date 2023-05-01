@@ -46,8 +46,7 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteThesaurusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

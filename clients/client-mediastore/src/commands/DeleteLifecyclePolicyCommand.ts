@@ -44,8 +44,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

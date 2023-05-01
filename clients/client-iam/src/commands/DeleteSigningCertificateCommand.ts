@@ -49,8 +49,7 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteSigningCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

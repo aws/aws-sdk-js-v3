@@ -55,8 +55,7 @@ export interface DisassociateFromMasterAccountCommandOutput
  * const input = {};
  * const command = new DisassociateFromMasterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

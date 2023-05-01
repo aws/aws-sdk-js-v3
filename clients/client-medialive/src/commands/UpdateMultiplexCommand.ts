@@ -51,36 +51,35 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * };
  * const command = new UpdateMultiplexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMultiplexResponse
- *   Multiplex: { // Multiplex
- *     Arn: "STRING_VALUE",
- *     AvailabilityZones: [ // __listOf__string
- *       "STRING_VALUE",
- *     ],
- *     Destinations: [ // __listOfMultiplexOutputDestination
- *       { // MultiplexOutputDestination
- *         MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
- *           EntitlementArn: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     Id: "STRING_VALUE",
- *     MultiplexSettings: { // MultiplexSettings
- *       MaximumVideoBufferDelayMilliseconds: Number("int"),
- *       TransportStreamBitrate: Number("int"), // required
- *       TransportStreamId: Number("int"), // required
- *       TransportStreamReservedBitrate: Number("int"),
- *     },
- *     Name: "STRING_VALUE",
- *     PipelinesRunningCount: Number("int"),
- *     ProgramCount: Number("int"),
- *     State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
- *     Tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateMultiplexResponse
+ * //   Multiplex: { // Multiplex
+ * //     Arn: "STRING_VALUE",
+ * //     AvailabilityZones: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Destinations: [ // __listOfMultiplexOutputDestination
+ * //       { // MultiplexOutputDestination
+ * //         MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ * //           EntitlementArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     Id: "STRING_VALUE",
+ * //     MultiplexSettings: { // MultiplexSettings
+ * //       MaximumVideoBufferDelayMilliseconds: Number("int"),
+ * //       TransportStreamBitrate: Number("int"), // required
+ * //       TransportStreamId: Number("int"), // required
+ * //       TransportStreamReservedBitrate: Number("int"),
+ * //     },
+ * //     Name: "STRING_VALUE",
+ * //     PipelinesRunningCount: Number("int"),
+ * //     ProgramCount: Number("int"),
+ * //     State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
+ * //     Tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

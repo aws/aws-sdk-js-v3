@@ -51,10 +51,9 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * };
  * const command = new UpdateArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateArtifactResponse
- *   ArtifactArn: "STRING_VALUE",
- * };
+ * // { // UpdateArtifactResponse
+ * //   ArtifactArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

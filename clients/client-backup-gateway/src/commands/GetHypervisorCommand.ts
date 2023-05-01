@@ -46,20 +46,19 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * };
  * const command = new GetHypervisorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHypervisorOutput
- *   Hypervisor: { // HypervisorDetails
- *     Host: "STRING_VALUE",
- *     HypervisorArn: "STRING_VALUE",
- *     KmsKeyArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     LogGroupArn: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     LastSuccessfulMetadataSyncTime: new Date("TIMESTAMP"),
- *     LatestMetadataSyncStatusMessage: "STRING_VALUE",
- *     LatestMetadataSyncStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // GetHypervisorOutput
+ * //   Hypervisor: { // HypervisorDetails
+ * //     Host: "STRING_VALUE",
+ * //     HypervisorArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     LogGroupArn: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     LastSuccessfulMetadataSyncTime: new Date("TIMESTAMP"),
+ * //     LatestMetadataSyncStatusMessage: "STRING_VALUE",
+ * //     LatestMetadataSyncStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -75,12 +75,11 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteObjectOutput
- *   DeleteMarker: true || false,
- *   VersionId: "STRING_VALUE",
- *   RequestCharged: "requester",
- * };
+ * // { // DeleteObjectOutput
+ * //   DeleteMarker: true || false,
+ * //   VersionId: "STRING_VALUE",
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

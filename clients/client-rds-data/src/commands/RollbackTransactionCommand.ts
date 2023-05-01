@@ -46,10 +46,9 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * };
  * const command = new RollbackTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RollbackTransactionResponse
- *   transactionStatus: "STRING_VALUE",
- * };
+ * // { // RollbackTransactionResponse
+ * //   transactionStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

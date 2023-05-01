@@ -57,27 +57,26 @@ export interface UpdateBridgeSourceCommandOutput extends UpdateBridgeSourceRespo
  * };
  * const command = new UpdateBridgeSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBridgeSourceResponse
- *   BridgeArn: "STRING_VALUE",
- *   Source: { // BridgeSource
- *     FlowSource: { // BridgeFlowSource
- *       FlowArn: "STRING_VALUE", // required
- *       FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
- *         VpcInterfaceName: "STRING_VALUE",
- *       },
- *       Name: "STRING_VALUE", // required
- *       OutputArn: "STRING_VALUE",
- *     },
- *     NetworkSource: { // BridgeNetworkSource
- *       MulticastIp: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       NetworkName: "STRING_VALUE", // required
- *       Port: Number("int"), // required
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *     },
- *   },
- * };
+ * // { // UpdateBridgeSourceResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * //   Source: { // BridgeSource
+ * //     FlowSource: { // BridgeFlowSource
+ * //       FlowArn: "STRING_VALUE", // required
+ * //       FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
+ * //         VpcInterfaceName: "STRING_VALUE",
+ * //       },
+ * //       Name: "STRING_VALUE", // required
+ * //       OutputArn: "STRING_VALUE",
+ * //     },
+ * //     NetworkSource: { // BridgeNetworkSource
+ * //       MulticastIp: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       NetworkName: "STRING_VALUE", // required
+ * //       Port: Number("int"), // required
+ * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,25 +52,24 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * };
  * const command = new GetDifferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDifferencesOutput
- *   differences: [ // DifferenceList
- *     { // Difference
- *       beforeBlob: { // BlobMetadata
- *         blobId: "STRING_VALUE",
- *         path: "STRING_VALUE",
- *         mode: "STRING_VALUE",
- *       },
- *       afterBlob: {
- *         blobId: "STRING_VALUE",
- *         path: "STRING_VALUE",
- *         mode: "STRING_VALUE",
- *       },
- *       changeType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetDifferencesOutput
+ * //   differences: [ // DifferenceList
+ * //     { // Difference
+ * //       beforeBlob: { // BlobMetadata
+ * //         blobId: "STRING_VALUE",
+ * //         path: "STRING_VALUE",
+ * //         mode: "STRING_VALUE",
+ * //       },
+ * //       afterBlob: {
+ * //         blobId: "STRING_VALUE",
+ * //         path: "STRING_VALUE",
+ * //         mode: "STRING_VALUE",
+ * //       },
+ * //       changeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

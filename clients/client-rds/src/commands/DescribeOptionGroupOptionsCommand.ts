@@ -55,56 +55,55 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * };
  * const command = new DescribeOptionGroupOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OptionGroupOptionsMessage
- *   OptionGroupOptions: [ // OptionGroupOptionsList
- *     { // OptionGroupOption
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       EngineName: "STRING_VALUE",
- *       MajorEngineVersion: "STRING_VALUE",
- *       MinimumRequiredMinorEngineVersion: "STRING_VALUE",
- *       PortRequired: true || false,
- *       DefaultPort: Number("int"),
- *       OptionsDependedOn: [ // OptionsDependedOn
- *         "STRING_VALUE",
- *       ],
- *       OptionsConflictsWith: [ // OptionsConflictsWith
- *         "STRING_VALUE",
- *       ],
- *       Persistent: true || false,
- *       Permanent: true || false,
- *       RequiresAutoMinorEngineVersionUpgrade: true || false,
- *       VpcOnly: true || false,
- *       SupportsOptionVersionDowngrade: true || false,
- *       OptionGroupOptionSettings: [ // OptionGroupOptionSettingsList
- *         { // OptionGroupOptionSetting
- *           SettingName: "STRING_VALUE",
- *           SettingDescription: "STRING_VALUE",
- *           DefaultValue: "STRING_VALUE",
- *           ApplyType: "STRING_VALUE",
- *           AllowedValues: "STRING_VALUE",
- *           IsModifiable: true || false,
- *           IsRequired: true || false,
- *           MinimumEngineVersionPerAllowedValue: [ // MinimumEngineVersionPerAllowedValueList
- *             { // MinimumEngineVersionPerAllowedValue
- *               AllowedValue: "STRING_VALUE",
- *               MinimumEngineVersion: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *       OptionGroupOptionVersions: [ // OptionGroupOptionVersionsList
- *         { // OptionVersion
- *           Version: "STRING_VALUE",
- *           IsDefault: true || false,
- *         },
- *       ],
- *       CopyableCrossAccount: true || false,
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // OptionGroupOptionsMessage
+ * //   OptionGroupOptions: [ // OptionGroupOptionsList
+ * //     { // OptionGroupOption
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EngineName: "STRING_VALUE",
+ * //       MajorEngineVersion: "STRING_VALUE",
+ * //       MinimumRequiredMinorEngineVersion: "STRING_VALUE",
+ * //       PortRequired: true || false,
+ * //       DefaultPort: Number("int"),
+ * //       OptionsDependedOn: [ // OptionsDependedOn
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       OptionsConflictsWith: [ // OptionsConflictsWith
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Persistent: true || false,
+ * //       Permanent: true || false,
+ * //       RequiresAutoMinorEngineVersionUpgrade: true || false,
+ * //       VpcOnly: true || false,
+ * //       SupportsOptionVersionDowngrade: true || false,
+ * //       OptionGroupOptionSettings: [ // OptionGroupOptionSettingsList
+ * //         { // OptionGroupOptionSetting
+ * //           SettingName: "STRING_VALUE",
+ * //           SettingDescription: "STRING_VALUE",
+ * //           DefaultValue: "STRING_VALUE",
+ * //           ApplyType: "STRING_VALUE",
+ * //           AllowedValues: "STRING_VALUE",
+ * //           IsModifiable: true || false,
+ * //           IsRequired: true || false,
+ * //           MinimumEngineVersionPerAllowedValue: [ // MinimumEngineVersionPerAllowedValueList
+ * //             { // MinimumEngineVersionPerAllowedValue
+ * //               AllowedValue: "STRING_VALUE",
+ * //               MinimumEngineVersion: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       OptionGroupOptionVersions: [ // OptionGroupOptionVersionsList
+ * //         { // OptionVersion
+ * //           Version: "STRING_VALUE",
+ * //           IsDefault: true || false,
+ * //         },
+ * //       ],
+ * //       CopyableCrossAccount: true || false,
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

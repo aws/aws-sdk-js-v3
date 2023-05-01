@@ -45,8 +45,7 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRequestValidatorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

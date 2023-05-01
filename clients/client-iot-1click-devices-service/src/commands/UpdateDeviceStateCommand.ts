@@ -50,8 +50,7 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * };
  * const command = new UpdateDeviceStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

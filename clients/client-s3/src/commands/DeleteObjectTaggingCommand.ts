@@ -68,10 +68,9 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * };
  * const command = new DeleteObjectTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteObjectTaggingOutput
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // DeleteObjectTaggingOutput
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

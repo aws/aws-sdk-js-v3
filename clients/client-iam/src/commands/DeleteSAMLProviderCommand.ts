@@ -50,8 +50,7 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

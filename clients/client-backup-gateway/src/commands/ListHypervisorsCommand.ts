@@ -45,19 +45,18 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * };
  * const command = new ListHypervisorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHypervisorsOutput
- *   Hypervisors: [ // Hypervisors
- *     { // Hypervisor
- *       Host: "STRING_VALUE",
- *       HypervisorArn: "STRING_VALUE",
- *       KmsKeyArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHypervisorsOutput
+ * //   Hypervisors: [ // Hypervisors
+ * //     { // Hypervisor
+ * //       Host: "STRING_VALUE",
+ * //       HypervisorArn: "STRING_VALUE",
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

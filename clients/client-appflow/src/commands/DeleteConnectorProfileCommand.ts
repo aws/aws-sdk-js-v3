@@ -45,8 +45,7 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * };
  * const command = new DeleteConnectorProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

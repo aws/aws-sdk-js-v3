@@ -56,23 +56,22 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * };
  * const command = new DescribeCommandsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCommandsResult
- *   Commands: [ // Commands
- *     { // Command
- *       CommandId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       DeploymentId: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *       AcknowledgedAt: "STRING_VALUE",
- *       CompletedAt: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       ExitCode: Number("int"),
- *       LogUrl: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeCommandsResult
+ * //   Commands: [ // Commands
+ * //     { // Command
+ * //       CommandId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       DeploymentId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       AcknowledgedAt: "STRING_VALUE",
+ * //       CompletedAt: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ExitCode: Number("int"),
+ * //       LogUrl: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,11 +48,10 @@ export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToCl
  * };
  * const command = new RestoreAddressToClassicCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreAddressToClassicResult
- *   PublicIp: "STRING_VALUE",
- *   Status: "MoveInProgress" || "InVpc" || "InClassic",
- * };
+ * // { // RestoreAddressToClassicResult
+ * //   PublicIp: "STRING_VALUE",
+ * //   Status: "MoveInProgress" || "InVpc" || "InClassic",
+ * // };
  *
  * ```
  *

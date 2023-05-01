@@ -52,22 +52,21 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * };
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserSettingsResponse
- *   userSettings: { // UserSettings
- *     userSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     copyAllowed: "STRING_VALUE",
- *     pasteAllowed: "STRING_VALUE",
- *     downloadAllowed: "STRING_VALUE",
- *     uploadAllowed: "STRING_VALUE",
- *     printAllowed: "STRING_VALUE",
- *     disconnectTimeoutInMinutes: Number("int"),
- *     idleDisconnectTimeoutInMinutes: Number("int"),
- *   },
- * };
+ * // { // UpdateUserSettingsResponse
+ * //   userSettings: { // UserSettings
+ * //     userSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     copyAllowed: "STRING_VALUE",
+ * //     pasteAllowed: "STRING_VALUE",
+ * //     downloadAllowed: "STRING_VALUE",
+ * //     uploadAllowed: "STRING_VALUE",
+ * //     printAllowed: "STRING_VALUE",
+ * //     disconnectTimeoutInMinutes: Number("int"),
+ * //     idleDisconnectTimeoutInMinutes: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

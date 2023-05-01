@@ -46,13 +46,12 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * };
  * const command = new ListManagedSchemaArnsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedSchemaArnsResponse
- *   SchemaArns: [ // Arns
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedSchemaArnsResponse
+ * //   SchemaArns: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

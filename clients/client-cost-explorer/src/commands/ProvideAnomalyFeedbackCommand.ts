@@ -45,10 +45,9 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * };
  * const command = new ProvideAnomalyFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvideAnomalyFeedbackResponse
- *   AnomalyId: "STRING_VALUE", // required
- * };
+ * // { // ProvideAnomalyFeedbackResponse
+ * //   AnomalyId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

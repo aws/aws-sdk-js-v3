@@ -57,8 +57,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

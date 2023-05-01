@@ -52,17 +52,16 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * };
  * const command = new ListQueryLoggingConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueryLoggingConfigsResponse
- *   QueryLoggingConfigs: [ // QueryLoggingConfigs // required
- *     { // QueryLoggingConfig
- *       Id: "STRING_VALUE", // required
- *       HostedZoneId: "STRING_VALUE", // required
- *       CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQueryLoggingConfigsResponse
+ * //   QueryLoggingConfigs: [ // QueryLoggingConfigs // required
+ * //     { // QueryLoggingConfig
+ * //       Id: "STRING_VALUE", // required
+ * //       HostedZoneId: "STRING_VALUE", // required
+ * //       CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

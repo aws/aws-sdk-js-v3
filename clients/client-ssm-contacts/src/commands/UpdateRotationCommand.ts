@@ -85,8 +85,7 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  * };
  * const command = new UpdateRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

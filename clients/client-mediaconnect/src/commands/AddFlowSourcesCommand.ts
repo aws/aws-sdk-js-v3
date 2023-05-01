@@ -95,74 +95,73 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  * };
  * const command = new AddFlowSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddFlowSourcesResponse
- *   FlowArn: "STRING_VALUE",
- *   Sources: [ // __listOfSource
- *     { // Source
- *       DataTransferSubscriberFeePercent: Number("int"),
- *       Decryption: { // Encryption
- *         Algorithm: "aes128" || "aes192" || "aes256",
- *         ConstantInitializationVector: "STRING_VALUE",
- *         DeviceId: "STRING_VALUE",
- *         KeyType: "speke" || "static-key" || "srt-password",
- *         Region: "STRING_VALUE",
- *         ResourceId: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE", // required
- *         SecretArn: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *       EntitlementArn: "STRING_VALUE",
- *       IngestIp: "STRING_VALUE",
- *       IngestPort: Number("int"),
- *       MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfiguration
- *         { // MediaStreamSourceConfiguration
- *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           InputConfigurations: [ // __listOfInputConfiguration
- *             { // InputConfiguration
- *               InputIp: "STRING_VALUE", // required
- *               InputPort: Number("int"), // required
- *               Interface: { // Interface
- *                 Name: "STRING_VALUE", // required
- *               },
- *             },
- *           ],
- *           MediaStreamName: "STRING_VALUE", // required
- *         },
- *       ],
- *       Name: "STRING_VALUE", // required
- *       SenderControlPort: Number("int"),
- *       SenderIpAddress: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE", // required
- *       Transport: { // Transport
- *         CidrAllowList: [ // __listOf__string
- *           "STRING_VALUE",
- *         ],
- *         MaxBitrate: Number("int"),
- *         MaxLatency: Number("int"),
- *         MaxSyncBuffer: Number("int"),
- *         MinLatency: Number("int"),
- *         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *         RemoteId: "STRING_VALUE",
- *         SenderControlPort: Number("int"),
- *         SenderIpAddress: "STRING_VALUE",
- *         SmoothingLatency: Number("int"),
- *         SourceListenerAddress: "STRING_VALUE",
- *         SourceListenerPort: Number("int"),
- *         StreamId: "STRING_VALUE",
- *       },
- *       VpcInterfaceName: "STRING_VALUE",
- *       WhitelistCidr: "STRING_VALUE",
- *       GatewayBridgeSource: { // GatewayBridgeSource
- *         BridgeArn: "STRING_VALUE", // required
- *         VpcInterfaceAttachment: { // VpcInterfaceAttachment
- *           VpcInterfaceName: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // AddFlowSourcesResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Sources: [ // __listOfSource
+ * //     { // Source
+ * //       DataTransferSubscriberFeePercent: Number("int"),
+ * //       Decryption: { // Encryption
+ * //         Algorithm: "aes128" || "aes192" || "aes256",
+ * //         ConstantInitializationVector: "STRING_VALUE",
+ * //         DeviceId: "STRING_VALUE",
+ * //         KeyType: "speke" || "static-key" || "srt-password",
+ * //         Region: "STRING_VALUE",
+ * //         ResourceId: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE", // required
+ * //         SecretArn: "STRING_VALUE",
+ * //         Url: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //       EntitlementArn: "STRING_VALUE",
+ * //       IngestIp: "STRING_VALUE",
+ * //       IngestPort: Number("int"),
+ * //       MediaStreamSourceConfigurations: [ // __listOfMediaStreamSourceConfiguration
+ * //         { // MediaStreamSourceConfiguration
+ * //           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ * //           InputConfigurations: [ // __listOfInputConfiguration
+ * //             { // InputConfiguration
+ * //               InputIp: "STRING_VALUE", // required
+ * //               InputPort: Number("int"), // required
+ * //               Interface: { // Interface
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
+ * //           MediaStreamName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE", // required
+ * //       SenderControlPort: Number("int"),
+ * //       SenderIpAddress: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE", // required
+ * //       Transport: { // Transport
+ * //         CidrAllowList: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MaxBitrate: Number("int"),
+ * //         MaxLatency: Number("int"),
+ * //         MaxSyncBuffer: Number("int"),
+ * //         MinLatency: Number("int"),
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //         RemoteId: "STRING_VALUE",
+ * //         SenderControlPort: Number("int"),
+ * //         SenderIpAddress: "STRING_VALUE",
+ * //         SmoothingLatency: Number("int"),
+ * //         SourceListenerAddress: "STRING_VALUE",
+ * //         SourceListenerPort: Number("int"),
+ * //         StreamId: "STRING_VALUE",
+ * //       },
+ * //       VpcInterfaceName: "STRING_VALUE",
+ * //       WhitelistCidr: "STRING_VALUE",
+ * //       GatewayBridgeSource: { // GatewayBridgeSource
+ * //         BridgeArn: "STRING_VALUE", // required
+ * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
+ * //           VpcInterfaceName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

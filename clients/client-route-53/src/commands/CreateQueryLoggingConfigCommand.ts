@@ -213,15 +213,14 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * };
  * const command = new CreateQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQueryLoggingConfigResponse
- *   QueryLoggingConfig: { // QueryLoggingConfig
- *     Id: "STRING_VALUE", // required
- *     HostedZoneId: "STRING_VALUE", // required
- *     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
- *   },
- *   Location: "STRING_VALUE", // required
- * };
+ * // { // CreateQueryLoggingConfigResponse
+ * //   QueryLoggingConfig: { // QueryLoggingConfig
+ * //     Id: "STRING_VALUE", // required
+ * //     HostedZoneId: "STRING_VALUE", // required
+ * //     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

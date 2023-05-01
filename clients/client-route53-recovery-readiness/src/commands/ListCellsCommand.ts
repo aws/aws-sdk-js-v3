@@ -49,25 +49,24 @@ export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBea
  * };
  * const command = new ListCellsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCellsResponse
- *   Cells: [ // __listOfCellOutput
- *     { // CellOutput
- *       CellArn: "STRING_VALUE", // required
- *       CellName: "STRING_VALUE", // required
- *       Cells: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       ParentReadinessScopes: [ // required
- *         "STRING_VALUE",
- *       ],
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCellsResponse
+ * //   Cells: [ // __listOfCellOutput
+ * //     { // CellOutput
+ * //       CellArn: "STRING_VALUE", // required
+ * //       CellName: "STRING_VALUE", // required
+ * //       Cells: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ParentReadinessScopes: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,18 +54,17 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
  * };
  * const command = new ListSubscriptionDefinitionVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscriptionDefinitionVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   Versions: [ // __listOfVersionInformation
- *     { // VersionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListSubscriptionDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

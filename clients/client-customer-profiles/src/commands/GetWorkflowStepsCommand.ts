@@ -47,26 +47,25 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * };
  * const command = new GetWorkflowStepsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowStepsResponse
- *   WorkflowId: "STRING_VALUE",
- *   WorkflowType: "APPFLOW_INTEGRATION",
- *   Items: [ // WorkflowStepsList
- *     { // WorkflowStepItem
- *       AppflowIntegration: { // AppflowIntegrationWorkflowStep
- *         FlowName: "STRING_VALUE", // required
- *         Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED", // required
- *         ExecutionMessage: "STRING_VALUE", // required
- *         RecordsProcessed: Number("long"), // required
- *         BatchRecordsStartTime: "STRING_VALUE", // required
- *         BatchRecordsEndTime: "STRING_VALUE", // required
- *         CreatedAt: new Date("TIMESTAMP"), // required
- *         LastUpdatedAt: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetWorkflowStepsResponse
+ * //   WorkflowId: "STRING_VALUE",
+ * //   WorkflowType: "APPFLOW_INTEGRATION",
+ * //   Items: [ // WorkflowStepsList
+ * //     { // WorkflowStepItem
+ * //       AppflowIntegration: { // AppflowIntegrationWorkflowStep
+ * //         FlowName: "STRING_VALUE", // required
+ * //         Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED", // required
+ * //         ExecutionMessage: "STRING_VALUE", // required
+ * //         RecordsProcessed: Number("long"), // required
+ * //         BatchRecordsStartTime: "STRING_VALUE", // required
+ * //         BatchRecordsEndTime: "STRING_VALUE", // required
+ * //         CreatedAt: new Date("TIMESTAMP"), // required
+ * //         LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

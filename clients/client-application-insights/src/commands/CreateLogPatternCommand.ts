@@ -52,16 +52,15 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  * };
  * const command = new CreateLogPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLogPatternResponse
- *   LogPattern: { // LogPattern
- *     PatternSetName: "STRING_VALUE",
- *     PatternName: "STRING_VALUE",
- *     Pattern: "STRING_VALUE",
- *     Rank: Number("int"),
- *   },
- *   ResourceGroupName: "STRING_VALUE",
- * };
+ * // { // CreateLogPatternResponse
+ * //   LogPattern: { // LogPattern
+ * //     PatternSetName: "STRING_VALUE",
+ * //     PatternName: "STRING_VALUE",
+ * //     Pattern: "STRING_VALUE",
+ * //     Rank: Number("int"),
+ * //   },
+ * //   ResourceGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

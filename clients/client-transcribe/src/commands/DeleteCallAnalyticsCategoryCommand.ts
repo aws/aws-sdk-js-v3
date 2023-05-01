@@ -48,8 +48,7 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * };
  * const command = new DeleteCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -69,8 +69,7 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new JoinStorageSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

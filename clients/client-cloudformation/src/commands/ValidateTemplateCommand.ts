@@ -47,25 +47,24 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * };
  * const command = new ValidateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateTemplateOutput
- *   Parameters: [ // TemplateParameters
- *     { // TemplateParameter
- *       ParameterKey: "STRING_VALUE",
- *       DefaultValue: "STRING_VALUE",
- *       NoEcho: true || false,
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   Description: "STRING_VALUE",
- *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
- *   ],
- *   CapabilitiesReason: "STRING_VALUE",
- *   DeclaredTransforms: [ // TransformsList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ValidateTemplateOutput
+ * //   Parameters: [ // TemplateParameters
+ * //     { // TemplateParameter
+ * //       ParameterKey: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       NoEcho: true || false,
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Description: "STRING_VALUE",
+ * //   Capabilities: [ // Capabilities
+ * //     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ * //   ],
+ * //   CapabilitiesReason: "STRING_VALUE",
+ * //   DeclaredTransforms: [ // TransformsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -59,41 +59,40 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * };
  * const command = new DescribeStorageSystemResourceMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStorageSystemResourceMetricsResponse
- *   Metrics: [ // Metrics
- *     { // ResourceMetrics
- *       Timestamp: new Date("TIMESTAMP"),
- *       P95Metrics: { // P95Metrics
- *         IOPS: { // IOPS
- *           Read: Number("double"),
- *           Write: Number("double"),
- *           Other: Number("double"),
- *           Total: Number("double"),
- *         },
- *         Throughput: { // Throughput
- *           Read: Number("double"),
- *           Write: Number("double"),
- *           Other: Number("double"),
- *           Total: Number("double"),
- *         },
- *         Latency: { // Latency
- *           Read: Number("double"),
- *           Write: Number("double"),
- *           Other: Number("double"),
- *         },
- *       },
- *       Capacity: { // Capacity
- *         Used: Number("long"),
- *         Provisioned: Number("long"),
- *         LogicalUsed: Number("long"),
- *       },
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "SVM" || "VOLUME" || "CLUSTER",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeStorageSystemResourceMetricsResponse
+ * //   Metrics: [ // Metrics
+ * //     { // ResourceMetrics
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       P95Metrics: { // P95Metrics
+ * //         IOPS: { // IOPS
+ * //           Read: Number("double"),
+ * //           Write: Number("double"),
+ * //           Other: Number("double"),
+ * //           Total: Number("double"),
+ * //         },
+ * //         Throughput: { // Throughput
+ * //           Read: Number("double"),
+ * //           Write: Number("double"),
+ * //           Other: Number("double"),
+ * //           Total: Number("double"),
+ * //         },
+ * //         Latency: { // Latency
+ * //           Read: Number("double"),
+ * //           Write: Number("double"),
+ * //           Other: Number("double"),
+ * //         },
+ * //       },
+ * //       Capacity: { // Capacity
+ * //         Used: Number("long"),
+ * //         Provisioned: Number("long"),
+ * //         LogicalUsed: Number("long"),
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "SVM" || "VOLUME" || "CLUSTER",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,19 +47,18 @@ export interface ListRescoreExecutionPlansCommandOutput extends ListRescoreExecu
  * };
  * const command = new ListRescoreExecutionPlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRescoreExecutionPlansResponse
- *   SummaryItems: [ // RescoreExecutionPlanSummaryList
- *     { // RescoreExecutionPlanSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRescoreExecutionPlansResponse
+ * //   SummaryItems: [ // RescoreExecutionPlanSummaryList
+ * //     { // RescoreExecutionPlanSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

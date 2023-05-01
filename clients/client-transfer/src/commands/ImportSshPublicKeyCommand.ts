@@ -50,12 +50,11 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * };
  * const command = new ImportSshPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportSshPublicKeyResponse
- *   ServerId: "STRING_VALUE", // required
- *   SshPublicKeyId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE", // required
- * };
+ * // { // ImportSshPublicKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   SshPublicKeyId: "STRING_VALUE", // required
+ * //   UserName: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

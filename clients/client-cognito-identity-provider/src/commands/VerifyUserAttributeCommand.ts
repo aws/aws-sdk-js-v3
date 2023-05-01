@@ -60,8 +60,7 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * };
  * const command = new VerifyUserAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

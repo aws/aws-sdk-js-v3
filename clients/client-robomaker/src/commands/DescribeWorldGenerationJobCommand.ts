@@ -44,42 +44,41 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * };
  * const command = new DescribeWorldGenerationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorldGenerationJobResponse
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   failureCode: "STRING_VALUE",
- *   failureReason: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
- *   template: "STRING_VALUE",
- *   worldCount: { // WorldCount
- *     floorplanCount: Number("int"),
- *     interiorCountPerFloorplan: Number("int"),
- *   },
- *   finishedWorldsSummary: { // FinishedWorldsSummary
- *     finishedCount: Number("int"),
- *     succeededWorlds: [ // Arns
- *       "STRING_VALUE",
- *     ],
- *     failureSummary: { // FailureSummary
- *       totalFailureCount: Number("int"),
- *       failures: [ // WorldFailures
- *         { // WorldFailure
- *           failureCode: "STRING_VALUE",
- *           sampleFailureReason: "STRING_VALUE",
- *           failureCount: Number("int"),
- *         },
- *       ],
- *     },
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   worldTags: {
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeWorldGenerationJobResponse
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   failureCode: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   template: "STRING_VALUE",
+ * //   worldCount: { // WorldCount
+ * //     floorplanCount: Number("int"),
+ * //     interiorCountPerFloorplan: Number("int"),
+ * //   },
+ * //   finishedWorldsSummary: { // FinishedWorldsSummary
+ * //     finishedCount: Number("int"),
+ * //     succeededWorlds: [ // Arns
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     failureSummary: { // FailureSummary
+ * //       totalFailureCount: Number("int"),
+ * //       failures: [ // WorldFailures
+ * //         { // WorldFailure
+ * //           failureCode: "STRING_VALUE",
+ * //           sampleFailureReason: "STRING_VALUE",
+ * //           failureCount: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   worldTags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

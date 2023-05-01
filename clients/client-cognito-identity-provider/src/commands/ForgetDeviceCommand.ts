@@ -50,8 +50,7 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ForgetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * };
  * const command = new ListDocumentVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDocumentVersionsResult
- *   DocumentVersions: [ // DocumentVersionList
- *     { // DocumentVersionInfo
- *       Name: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       DocumentVersion: "STRING_VALUE",
- *       VersionName: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       IsDefaultVersion: true || false,
- *       DocumentFormat: "YAML" || "JSON" || "TEXT",
- *       Status: "Creating" || "Active" || "Updating" || "Deleting" || "Failed",
- *       StatusInformation: "STRING_VALUE",
- *       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDocumentVersionsResult
+ * //   DocumentVersions: [ // DocumentVersionList
+ * //     { // DocumentVersionInfo
+ * //       Name: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       VersionName: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       IsDefaultVersion: true || false,
+ * //       DocumentFormat: "YAML" || "JSON" || "TEXT",
+ * //       Status: "Creating" || "Active" || "Updating" || "Deleting" || "Failed",
+ * //       StatusInformation: "STRING_VALUE",
+ * //       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

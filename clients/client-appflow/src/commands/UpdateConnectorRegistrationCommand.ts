@@ -65,10 +65,9 @@ export interface UpdateConnectorRegistrationCommandOutput
  * };
  * const command = new UpdateConnectorRegistrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectorRegistrationResponse
- *   connectorArn: "STRING_VALUE",
- * };
+ * // { // UpdateConnectorRegistrationResponse
+ * //   connectorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

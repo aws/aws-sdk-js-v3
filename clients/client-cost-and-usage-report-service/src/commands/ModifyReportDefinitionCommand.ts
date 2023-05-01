@@ -66,8 +66,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * };
  * const command = new ModifyReportDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,16 +44,15 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * };
  * const command = new ListS3BucketsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListS3BucketsResponse
- *   Buckets: [ // ListOfS3BucketInfo
- *     { // S3BucketInfo
- *       CreationDate: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListS3BucketsResponse
+ * //   Buckets: [ // ListOfS3BucketInfo
+ * //     { // S3BucketInfo
+ * //       CreationDate: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,11 +49,10 @@ export interface GetPortalServiceProviderMetadataCommandOutput
  * };
  * const command = new GetPortalServiceProviderMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPortalServiceProviderMetadataResponse
- *   portalArn: "STRING_VALUE", // required
- *   serviceProviderSamlMetadata: "STRING_VALUE",
- * };
+ * // { // GetPortalServiceProviderMetadataResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   serviceProviderSamlMetadata: "STRING_VALUE",
+ * // };
  *
  * ```
  *

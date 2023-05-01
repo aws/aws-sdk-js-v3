@@ -61,22 +61,21 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  * };
  * const command = new CreateSegmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSegmentResponse
- *   segment: { // Segment
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     pattern: "STRING_VALUE", // required
- *     createdTime: new Date("TIMESTAMP"), // required
- *     lastUpdatedTime: new Date("TIMESTAMP"), // required
- *     description: "STRING_VALUE",
- *     experimentCount: Number("long"),
- *     launchCount: Number("long"),
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateSegmentResponse
+ * //   segment: { // Segment
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     pattern: "STRING_VALUE", // required
+ * //     createdTime: new Date("TIMESTAMP"), // required
+ * //     lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     description: "STRING_VALUE",
+ * //     experimentCount: Number("long"),
+ * //     launchCount: Number("long"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,30 +46,29 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  * };
  * const command = new DescribeProvisionedProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProvisionedProductOutput
- *   ProvisionedProductDetail: { // ProvisionedProductDetail
- *     Name: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Status: "AVAILABLE" || "UNDER_CHANGE" || "TAINTED" || "ERROR" || "PLAN_IN_PROGRESS",
- *     StatusMessage: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     IdempotencyToken: "STRING_VALUE",
- *     LastRecordId: "STRING_VALUE",
- *     LastProvisioningRecordId: "STRING_VALUE",
- *     LastSuccessfulProvisioningRecordId: "STRING_VALUE",
- *     ProductId: "STRING_VALUE",
- *     ProvisioningArtifactId: "STRING_VALUE",
- *     LaunchRoleArn: "STRING_VALUE",
- *   },
- *   CloudWatchDashboards: [ // CloudWatchDashboards
- *     { // CloudWatchDashboard
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeProvisionedProductOutput
+ * //   ProvisionedProductDetail: { // ProvisionedProductDetail
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "UNDER_CHANGE" || "TAINTED" || "ERROR" || "PLAN_IN_PROGRESS",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     IdempotencyToken: "STRING_VALUE",
+ * //     LastRecordId: "STRING_VALUE",
+ * //     LastProvisioningRecordId: "STRING_VALUE",
+ * //     LastSuccessfulProvisioningRecordId: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     ProvisioningArtifactId: "STRING_VALUE",
+ * //     LaunchRoleArn: "STRING_VALUE",
+ * //   },
+ * //   CloudWatchDashboards: [ // CloudWatchDashboards
+ * //     { // CloudWatchDashboard
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

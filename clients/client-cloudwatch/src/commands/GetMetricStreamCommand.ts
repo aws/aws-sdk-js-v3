@@ -44,41 +44,40 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * };
  * const command = new GetMetricStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricStreamOutput
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   IncludeFilters: [ // MetricStreamFilters
- *     { // MetricStreamFilter
- *       Namespace: "STRING_VALUE",
- *     },
- *   ],
- *   ExcludeFilters: [
- *     {
- *       Namespace: "STRING_VALUE",
- *     },
- *   ],
- *   FirehoseArn: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   LastUpdateDate: new Date("TIMESTAMP"),
- *   OutputFormat: "json" || "opentelemetry0.7",
- *   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
- *     { // MetricStreamStatisticsConfiguration
- *       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required
- *         { // MetricStreamStatisticsMetric
- *           Namespace: "STRING_VALUE", // required
- *           MetricName: "STRING_VALUE", // required
- *         },
- *       ],
- *       AdditionalStatistics: [ // MetricStreamStatisticsAdditionalStatistics // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   IncludeLinkedAccountsMetrics: true || false,
- * };
+ * // { // GetMetricStreamOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   IncludeFilters: [ // MetricStreamFilters
+ * //     { // MetricStreamFilter
+ * //       Namespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExcludeFilters: [
+ * //     {
+ * //       Namespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   FirehoseArn: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastUpdateDate: new Date("TIMESTAMP"),
+ * //   OutputFormat: "json" || "opentelemetry0.7",
+ * //   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
+ * //     { // MetricStreamStatisticsConfiguration
+ * //       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required
+ * //         { // MetricStreamStatisticsMetric
+ * //           Namespace: "STRING_VALUE", // required
+ * //           MetricName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       AdditionalStatistics: [ // MetricStreamStatisticsAdditionalStatistics // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IncludeLinkedAccountsMetrics: true || false,
+ * // };
  *
  * ```
  *

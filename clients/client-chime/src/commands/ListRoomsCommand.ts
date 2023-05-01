@@ -47,20 +47,19 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * };
  * const command = new ListRoomsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoomsResponse
- *   Rooms: [ // RoomList
- *     { // Room
- *       RoomId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *       CreatedBy: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRoomsResponse
+ * //   Rooms: [ // RoomList
+ * //     { // Room
+ * //       RoomId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

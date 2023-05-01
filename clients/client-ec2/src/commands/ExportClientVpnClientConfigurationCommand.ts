@@ -55,10 +55,9 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * };
  * const command = new ExportClientVpnClientConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportClientVpnClientConfigurationResult
- *   ClientConfiguration: "STRING_VALUE",
- * };
+ * // { // ExportClientVpnClientConfigurationResult
+ * //   ClientConfiguration: "STRING_VALUE",
+ * // };
  *
  * ```
  *

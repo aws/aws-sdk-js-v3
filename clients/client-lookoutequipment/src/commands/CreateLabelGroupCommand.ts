@@ -56,11 +56,10 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * };
  * const command = new CreateLabelGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLabelGroupResponse
- *   LabelGroupName: "STRING_VALUE",
- *   LabelGroupArn: "STRING_VALUE",
- * };
+ * // { // CreateLabelGroupResponse
+ * //   LabelGroupName: "STRING_VALUE",
+ * //   LabelGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

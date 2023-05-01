@@ -47,8 +47,7 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * };
  * const command = new StartConfigurationRecorderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

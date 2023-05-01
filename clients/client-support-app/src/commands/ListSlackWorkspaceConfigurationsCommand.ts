@@ -49,17 +49,16 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * };
  * const command = new ListSlackWorkspaceConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSlackWorkspaceConfigurationsResult
- *   nextToken: "STRING_VALUE",
- *   slackWorkspaceConfigurations: [ // SlackWorkspaceConfigurationList
- *     { // SlackWorkspaceConfiguration
- *       teamId: "STRING_VALUE", // required
- *       teamName: "STRING_VALUE",
- *       allowOrganizationMemberAccount: true || false,
- *     },
- *   ],
- * };
+ * // { // ListSlackWorkspaceConfigurationsResult
+ * //   nextToken: "STRING_VALUE",
+ * //   slackWorkspaceConfigurations: [ // SlackWorkspaceConfigurationList
+ * //     { // SlackWorkspaceConfiguration
+ * //       teamId: "STRING_VALUE", // required
+ * //       teamName: "STRING_VALUE",
+ * //       allowOrganizationMemberAccount: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

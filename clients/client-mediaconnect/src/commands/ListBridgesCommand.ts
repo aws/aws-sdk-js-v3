@@ -46,19 +46,18 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  * };
  * const command = new ListBridgesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBridgesResponse
- *   Bridges: [ // __listOfListedBridge
- *     { // ListedBridge
- *       BridgeArn: "STRING_VALUE", // required
- *       BridgeState: "CREATING" || "STANDBY" || "STARTING" || "DEPLOYING" || "ACTIVE" || "STOPPING" || "DELETING" || "DELETED" || "START_FAILED" || "START_PENDING" || "STOP_FAILED" || "UPDATING", // required
- *       BridgeType: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       PlacementArn: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBridgesResponse
+ * //   Bridges: [ // __listOfListedBridge
+ * //     { // ListedBridge
+ * //       BridgeArn: "STRING_VALUE", // required
+ * //       BridgeState: "CREATING" || "STANDBY" || "STARTING" || "DEPLOYING" || "ACTIVE" || "STOPPING" || "DELETING" || "DELETED" || "START_FAILED" || "START_PENDING" || "STOP_FAILED" || "UPDATING", // required
+ * //       BridgeType: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       PlacementArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

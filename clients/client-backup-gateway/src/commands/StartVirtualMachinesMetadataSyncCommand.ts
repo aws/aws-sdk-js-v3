@@ -49,10 +49,9 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * };
  * const command = new StartVirtualMachinesMetadataSyncCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartVirtualMachinesMetadataSyncOutput
- *   HypervisorArn: "STRING_VALUE",
- * };
+ * // { // StartVirtualMachinesMetadataSyncOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

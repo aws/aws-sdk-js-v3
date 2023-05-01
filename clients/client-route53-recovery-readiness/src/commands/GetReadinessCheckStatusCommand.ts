@@ -50,24 +50,23 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  * };
  * const command = new GetReadinessCheckStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadinessCheckStatusResponse
- *   Messages: [ // __listOfMessage
- *     { // Message
- *       MessageText: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Readiness: "STRING_VALUE",
- *   Resources: [ // __listOfResourceResult
- *     { // ResourceResult
- *       ComponentId: "STRING_VALUE",
- *       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
- *       Readiness: "STRING_VALUE", // required
- *       ResourceArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetReadinessCheckStatusResponse
+ * //   Messages: [ // __listOfMessage
+ * //     { // Message
+ * //       MessageText: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Readiness: "STRING_VALUE",
+ * //   Resources: [ // __listOfResourceResult
+ * //     { // ResourceResult
+ * //       ComponentId: "STRING_VALUE",
+ * //       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
+ * //       Readiness: "STRING_VALUE", // required
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

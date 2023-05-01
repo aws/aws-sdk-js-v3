@@ -48,44 +48,43 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserResponse
- *   ServerId: "STRING_VALUE", // required
- *   User: { // DescribedUser
- *     Arn: "STRING_VALUE", // required
- *     HomeDirectory: "STRING_VALUE",
- *     HomeDirectoryMappings: [ // HomeDirectoryMappings
- *       { // HomeDirectoryMapEntry
- *         Entry: "STRING_VALUE", // required
- *         Target: "STRING_VALUE", // required
- *       },
- *     ],
- *     HomeDirectoryType: "PATH" || "LOGICAL",
- *     Policy: "STRING_VALUE",
- *     PosixProfile: { // PosixProfile
- *       Uid: Number("long"), // required
- *       Gid: Number("long"), // required
- *       SecondaryGids: [ // SecondaryGids
- *         Number("long"),
- *       ],
- *     },
- *     Role: "STRING_VALUE",
- *     SshPublicKeys: [ // SshPublicKeys
- *       { // SshPublicKey
- *         DateImported: new Date("TIMESTAMP"), // required
- *         SshPublicKeyBody: "STRING_VALUE", // required
- *         SshPublicKeyId: "STRING_VALUE", // required
- *       },
- *     ],
- *     Tags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     UserName: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeUserResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   User: { // DescribedUser
+ * //     Arn: "STRING_VALUE", // required
+ * //     HomeDirectory: "STRING_VALUE",
+ * //     HomeDirectoryMappings: [ // HomeDirectoryMappings
+ * //       { // HomeDirectoryMapEntry
+ * //         Entry: "STRING_VALUE", // required
+ * //         Target: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     HomeDirectoryType: "PATH" || "LOGICAL",
+ * //     Policy: "STRING_VALUE",
+ * //     PosixProfile: { // PosixProfile
+ * //       Uid: Number("long"), // required
+ * //       Gid: Number("long"), // required
+ * //       SecondaryGids: [ // SecondaryGids
+ * //         Number("long"),
+ * //       ],
+ * //     },
+ * //     Role: "STRING_VALUE",
+ * //     SshPublicKeys: [ // SshPublicKeys
+ * //       { // SshPublicKey
+ * //         DateImported: new Date("TIMESTAMP"), // required
+ * //         SshPublicKeyBody: "STRING_VALUE", // required
+ * //         SshPublicKeyId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     UserName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

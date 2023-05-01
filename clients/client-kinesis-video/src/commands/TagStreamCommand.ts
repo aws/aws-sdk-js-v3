@@ -57,8 +57,7 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * };
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

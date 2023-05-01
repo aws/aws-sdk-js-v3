@@ -54,8 +54,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

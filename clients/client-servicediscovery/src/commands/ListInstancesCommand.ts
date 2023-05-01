@@ -47,18 +47,17 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstancesResponse
- *   Instances: [ // InstanceSummaryList
- *     { // InstanceSummary
- *       Id: "STRING_VALUE",
- *       Attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInstancesResponse
+ * //   Instances: [ // InstanceSummaryList
+ * //     { // InstanceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

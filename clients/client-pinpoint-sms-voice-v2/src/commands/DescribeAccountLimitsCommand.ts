@@ -56,17 +56,16 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountLimitsResult
- *   AccountLimits: [ // AccountLimitList
- *     { // AccountLimit
- *       Name: "STRING_VALUE", // required
- *       Used: Number("long"), // required
- *       Max: Number("long"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAccountLimitsResult
+ * //   AccountLimits: [ // AccountLimitList
+ * //     { // AccountLimit
+ * //       Name: "STRING_VALUE", // required
+ * //       Used: Number("long"), // required
+ * //       Max: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

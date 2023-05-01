@@ -62,11 +62,10 @@ export interface CreateSecurityConfigurationCommandOutput
  * };
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecurityConfigurationResponse
- *   Name: "STRING_VALUE",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // CreateSecurityConfigurationResponse
+ * //   Name: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

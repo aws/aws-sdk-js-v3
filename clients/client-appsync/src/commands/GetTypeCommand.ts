@@ -46,16 +46,15 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * };
  * const command = new GetTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTypeResponse
- *   type: { // Type
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     definition: "STRING_VALUE",
- *     format: "SDL" || "JSON",
- *   },
- * };
+ * // { // GetTypeResponse
+ * //   type: { // Type
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     definition: "STRING_VALUE",
+ * //     format: "SDL" || "JSON",
+ * //   },
+ * // };
  *
  * ```
  *

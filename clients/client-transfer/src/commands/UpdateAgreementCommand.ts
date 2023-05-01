@@ -53,10 +53,9 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * };
  * const command = new UpdateAgreementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAgreementResponse
- *   AgreementId: "STRING_VALUE", // required
- * };
+ * // { // UpdateAgreementResponse
+ * //   AgreementId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

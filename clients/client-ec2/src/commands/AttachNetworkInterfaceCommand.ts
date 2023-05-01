@@ -54,11 +54,10 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachNetworkInterfaceResult
- *   AttachmentId: "STRING_VALUE",
- *   NetworkCardIndex: Number("int"),
- * };
+ * // { // AttachNetworkInterfaceResult
+ * //   AttachmentId: "STRING_VALUE",
+ * //   NetworkCardIndex: Number("int"),
+ * // };
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * };
  * const command = new UpdateThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

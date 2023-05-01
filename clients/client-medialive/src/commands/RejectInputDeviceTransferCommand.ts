@@ -44,8 +44,7 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * };
  * const command = new RejectInputDeviceTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

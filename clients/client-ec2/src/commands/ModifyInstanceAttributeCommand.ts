@@ -104,8 +104,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

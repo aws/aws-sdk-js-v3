@@ -73,10 +73,9 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * };
  * const command = new MeterUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MeterUsageResult
- *   MeteringRecordId: "STRING_VALUE",
- * };
+ * // { // MeterUsageResult
+ * //   MeteringRecordId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

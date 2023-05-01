@@ -85,8 +85,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

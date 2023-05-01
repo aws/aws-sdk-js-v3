@@ -44,8 +44,7 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

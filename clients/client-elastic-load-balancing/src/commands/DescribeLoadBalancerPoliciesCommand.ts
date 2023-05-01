@@ -57,21 +57,20 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * };
  * const command = new DescribeLoadBalancerPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancerPoliciesOutput
- *   PolicyDescriptions: [ // PolicyDescriptions
- *     { // PolicyDescription
- *       PolicyName: "STRING_VALUE",
- *       PolicyTypeName: "STRING_VALUE",
- *       PolicyAttributeDescriptions: [ // PolicyAttributeDescriptions
- *         { // PolicyAttributeDescription
- *           AttributeName: "STRING_VALUE",
- *           AttributeValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeLoadBalancerPoliciesOutput
+ * //   PolicyDescriptions: [ // PolicyDescriptions
+ * //     { // PolicyDescription
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyTypeName: "STRING_VALUE",
+ * //       PolicyAttributeDescriptions: [ // PolicyAttributeDescriptions
+ * //         { // PolicyAttributeDescription
+ * //           AttributeName: "STRING_VALUE",
+ * //           AttributeValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

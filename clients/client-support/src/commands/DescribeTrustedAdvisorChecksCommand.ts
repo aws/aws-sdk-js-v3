@@ -74,20 +74,19 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorChecksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrustedAdvisorChecksResponse
- *   checks: [ // TrustedAdvisorCheckList // required
- *     { // TrustedAdvisorCheckDescription
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       category: "STRING_VALUE", // required
- *       metadata: [ // StringList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeTrustedAdvisorChecksResponse
+ * //   checks: [ // TrustedAdvisorCheckList // required
+ * //     { // TrustedAdvisorCheckDescription
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       category: "STRING_VALUE", // required
+ * //       metadata: [ // StringList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

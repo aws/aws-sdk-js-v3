@@ -42,10 +42,9 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  * const input = {};
  * const command = new IsVpcPeeredCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IsVpcPeeredResult
- *   isPeered: true || false,
- * };
+ * // { // IsVpcPeeredResult
+ * //   isPeered: true || false,
+ * // };
  *
  * ```
  *

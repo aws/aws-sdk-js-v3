@@ -45,17 +45,16 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * };
  * const command = new ListFuotaTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFuotaTasksResponse
- *   NextToken: "STRING_VALUE",
- *   FuotaTaskList: [ // FuotaTaskList
- *     { // FuotaTask
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFuotaTasksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FuotaTaskList: [ // FuotaTaskList
+ * //     { // FuotaTask
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

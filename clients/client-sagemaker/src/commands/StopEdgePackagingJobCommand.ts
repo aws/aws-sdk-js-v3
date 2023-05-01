@@ -44,8 +44,7 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopEdgePackagingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

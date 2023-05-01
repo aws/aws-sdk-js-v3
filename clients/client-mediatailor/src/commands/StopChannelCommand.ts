@@ -44,8 +44,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * };
  * const command = new StopChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

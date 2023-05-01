@@ -64,8 +64,7 @@ export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateExperienceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

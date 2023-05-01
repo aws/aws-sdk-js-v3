@@ -91,8 +91,7 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * };
  * const command = new PutAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

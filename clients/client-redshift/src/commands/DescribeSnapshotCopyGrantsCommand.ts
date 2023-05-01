@@ -58,22 +58,21 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * };
  * const command = new DescribeSnapshotCopyGrantsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SnapshotCopyGrantMessage
- *   Marker: "STRING_VALUE",
- *   SnapshotCopyGrants: [ // SnapshotCopyGrantList
- *     { // SnapshotCopyGrant
- *       SnapshotCopyGrantName: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // SnapshotCopyGrantMessage
+ * //   Marker: "STRING_VALUE",
+ * //   SnapshotCopyGrants: [ // SnapshotCopyGrantList
+ * //     { // SnapshotCopyGrant
+ * //       SnapshotCopyGrantName: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

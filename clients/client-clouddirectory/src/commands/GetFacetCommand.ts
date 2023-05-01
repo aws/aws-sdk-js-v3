@@ -46,14 +46,13 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * };
  * const command = new GetFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFacetResponse
- *   Facet: { // Facet
- *     Name: "STRING_VALUE",
- *     ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
- *     FacetStyle: "STATIC" || "DYNAMIC",
- *   },
- * };
+ * // { // GetFacetResponse
+ * //   Facet: { // Facet
+ * //     Name: "STRING_VALUE",
+ * //     ObjectType: "NODE" || "LEAF_NODE" || "POLICY" || "INDEX",
+ * //     FacetStyle: "STATIC" || "DYNAMIC",
+ * //   },
+ * // };
  *
  * ```
  *

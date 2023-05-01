@@ -86,17 +86,16 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * };
  * const command = new CreateAccountSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccountSubscriptionResponse
- *   SignupResponse: { // SignupResponse
- *     IAMUser: true || false,
- *     userLoginName: "STRING_VALUE",
- *     accountName: "STRING_VALUE",
- *     directoryType: "STRING_VALUE",
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateAccountSubscriptionResponse
+ * //   SignupResponse: { // SignupResponse
+ * //     IAMUser: true || false,
+ * //     userLoginName: "STRING_VALUE",
+ * //     accountName: "STRING_VALUE",
+ * //     directoryType: "STRING_VALUE",
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

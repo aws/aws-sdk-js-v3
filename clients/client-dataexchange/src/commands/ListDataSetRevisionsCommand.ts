@@ -46,25 +46,24 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * };
  * const command = new ListDataSetRevisionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataSetRevisionsResponse
- *   NextToken: "STRING_VALUE",
- *   Revisions: [ // ListOfRevisionEntry
- *     { // RevisionEntry
- *       Arn: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"), // required
- *       DataSetId: "STRING_VALUE", // required
- *       Finalized: true || false,
- *       Id: "STRING_VALUE", // required
- *       SourceId: "STRING_VALUE",
- *       UpdatedAt: new Date("TIMESTAMP"), // required
- *       RevocationComment: "STRING_VALUE",
- *       Revoked: true || false,
- *       RevokedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListDataSetRevisionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Revisions: [ // ListOfRevisionEntry
+ * //     { // RevisionEntry
+ * //       Arn: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       DataSetId: "STRING_VALUE", // required
+ * //       Finalized: true || false,
+ * //       Id: "STRING_VALUE", // required
+ * //       SourceId: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //       RevocationComment: "STRING_VALUE",
+ * //       Revoked: true || false,
+ * //       RevokedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

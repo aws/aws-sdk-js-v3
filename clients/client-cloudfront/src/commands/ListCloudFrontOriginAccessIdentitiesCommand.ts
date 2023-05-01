@@ -53,23 +53,22 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * };
  * const command = new ListCloudFrontOriginAccessIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCloudFrontOriginAccessIdentitiesResult
- *   CloudFrontOriginAccessIdentityList: { // CloudFrontOriginAccessIdentityList
- *     Marker: "STRING_VALUE", // required
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     IsTruncated: true || false, // required
- *     Quantity: Number("int"), // required
- *     Items: [ // CloudFrontOriginAccessIdentitySummaryList
- *       { // CloudFrontOriginAccessIdentitySummary
- *         Id: "STRING_VALUE", // required
- *         S3CanonicalUserId: "STRING_VALUE", // required
- *         Comment: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // ListCloudFrontOriginAccessIdentitiesResult
+ * //   CloudFrontOriginAccessIdentityList: { // CloudFrontOriginAccessIdentityList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // CloudFrontOriginAccessIdentitySummaryList
+ * //       { // CloudFrontOriginAccessIdentitySummary
+ * //         Id: "STRING_VALUE", // required
+ * //         S3CanonicalUserId: "STRING_VALUE", // required
+ * //         Comment: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

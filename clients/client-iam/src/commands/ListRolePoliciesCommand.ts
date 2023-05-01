@@ -54,14 +54,13 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  * };
  * const command = new ListRolePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRolePoliciesResponse
- *   PolicyNames: [ // policyNameListType // required
- *     "STRING_VALUE",
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListRolePoliciesResponse
+ * //   PolicyNames: [ // policyNameListType // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

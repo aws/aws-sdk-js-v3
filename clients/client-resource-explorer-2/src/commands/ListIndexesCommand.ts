@@ -54,17 +54,16 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * };
  * const command = new ListIndexesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIndexesOutput
- *   Indexes: [ // IndexList
- *     { // Index
- *       Region: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIndexesOutput
+ * //   Indexes: [ // IndexList
+ * //     { // Index
+ * //       Region: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

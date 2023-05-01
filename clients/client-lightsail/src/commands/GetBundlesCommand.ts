@@ -54,30 +54,29 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * };
  * const command = new GetBundlesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBundlesResult
- *   bundles: [ // BundleList
- *     { // Bundle
- *       price: Number("float"),
- *       cpuCount: Number("int"),
- *       diskSizeInGb: Number("int"),
- *       bundleId: "STRING_VALUE",
- *       instanceType: "STRING_VALUE",
- *       isActive: true || false,
- *       name: "STRING_VALUE",
- *       power: Number("int"),
- *       ramSizeInGb: Number("float"),
- *       transferPerMonthInGb: Number("int"),
- *       supportedPlatforms: [ // InstancePlatformList
- *         "LINUX_UNIX" || "WINDOWS",
- *       ],
- *       supportedAppCategories: [ // AppCategoryList
- *         "LfR",
- *       ],
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetBundlesResult
+ * //   bundles: [ // BundleList
+ * //     { // Bundle
+ * //       price: Number("float"),
+ * //       cpuCount: Number("int"),
+ * //       diskSizeInGb: Number("int"),
+ * //       bundleId: "STRING_VALUE",
+ * //       instanceType: "STRING_VALUE",
+ * //       isActive: true || false,
+ * //       name: "STRING_VALUE",
+ * //       power: Number("int"),
+ * //       ramSizeInGb: Number("float"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       supportedPlatforms: [ // InstancePlatformList
+ * //         "LINUX_UNIX" || "WINDOWS",
+ * //       ],
+ * //       supportedAppCategories: [ // AppCategoryList
+ * //         "LfR",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface DeleteAccessControlConfigurationCommandOutput
  * };
  * const command = new DeleteAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

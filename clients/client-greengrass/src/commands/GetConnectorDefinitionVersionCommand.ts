@@ -51,25 +51,24 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * };
  * const command = new GetConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectorDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // ConnectorDefinitionVersion
- *     Connectors: [ // __listOfConnector
- *       { // Connector
- *         ConnectorArn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
- *         Parameters: { // __mapOf__string
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetConnectorDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // ConnectorDefinitionVersion
+ * //     Connectors: [ // __listOfConnector
+ * //       { // Connector
+ * //         ConnectorArn: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         Parameters: { // __mapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

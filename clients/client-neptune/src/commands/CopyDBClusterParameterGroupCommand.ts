@@ -52,15 +52,14 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyDBClusterParameterGroupResult
- *   DBClusterParameterGroup: { // DBClusterParameterGroup
- *     DBClusterParameterGroupName: "STRING_VALUE",
- *     DBParameterGroupFamily: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DBClusterParameterGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CopyDBClusterParameterGroupResult
+ * //   DBClusterParameterGroup: { // DBClusterParameterGroup
+ * //     DBClusterParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBClusterParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

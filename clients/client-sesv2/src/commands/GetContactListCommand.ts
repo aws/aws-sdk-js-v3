@@ -45,27 +45,26 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * };
  * const command = new GetContactListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactListResponse
- *   ContactListName: "STRING_VALUE",
- *   Topics: [ // Topics
- *     { // Topic
- *       TopicName: "STRING_VALUE", // required
- *       DisplayName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       DefaultSubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
- *     },
- *   ],
- *   Description: "STRING_VALUE",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- *   LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetContactListResponse
+ * //   ContactListName: "STRING_VALUE",
+ * //   Topics: [ // Topics
+ * //     { // Topic
+ * //       TopicName: "STRING_VALUE", // required
+ * //       DisplayName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       DefaultSubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //     },
+ * //   ],
+ * //   Description: "STRING_VALUE",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -72,19 +72,18 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * };
  * const command = new ResolveComponentCandidatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveComponentCandidatesResponse
- *   resolvedComponentVersions: [ // ResolvedComponentVersionsList
- *     { // ResolvedComponentVersion
- *       arn: "STRING_VALUE",
- *       componentName: "STRING_VALUE",
- *       componentVersion: "STRING_VALUE",
- *       recipe: "BLOB_VALUE",
- *       vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ResolveComponentCandidatesResponse
+ * //   resolvedComponentVersions: [ // ResolvedComponentVersionsList
+ * //     { // ResolvedComponentVersion
+ * //       arn: "STRING_VALUE",
+ * //       componentName: "STRING_VALUE",
+ * //       componentVersion: "STRING_VALUE",
+ * //       recipe: "BLOB_VALUE",
+ * //       vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

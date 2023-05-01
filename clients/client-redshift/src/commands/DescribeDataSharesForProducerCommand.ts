@@ -52,27 +52,26 @@ export interface DescribeDataSharesForProducerCommandOutput
  * };
  * const command = new DescribeDataSharesForProducerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDataSharesForProducerResult
- *   DataShares: [ // DataShareList
- *     { // DataShare
- *       DataShareArn: "STRING_VALUE",
- *       ProducerArn: "STRING_VALUE",
- *       AllowPubliclyAccessibleConsumers: true || false,
- *       DataShareAssociations: [ // DataShareAssociationList
- *         { // DataShareAssociation
- *           ConsumerIdentifier: "STRING_VALUE",
- *           Status: "ACTIVE" || "PENDING_AUTHORIZATION" || "AUTHORIZED" || "DEAUTHORIZED" || "REJECTED" || "AVAILABLE",
- *           ConsumerRegion: "STRING_VALUE",
- *           CreatedDate: new Date("TIMESTAMP"),
- *           StatusChangeDate: new Date("TIMESTAMP"),
- *         },
- *       ],
- *       ManagedBy: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeDataSharesForProducerResult
+ * //   DataShares: [ // DataShareList
+ * //     { // DataShare
+ * //       DataShareArn: "STRING_VALUE",
+ * //       ProducerArn: "STRING_VALUE",
+ * //       AllowPubliclyAccessibleConsumers: true || false,
+ * //       DataShareAssociations: [ // DataShareAssociationList
+ * //         { // DataShareAssociation
+ * //           ConsumerIdentifier: "STRING_VALUE",
+ * //           Status: "ACTIVE" || "PENDING_AUTHORIZATION" || "AUTHORIZED" || "DEAUTHORIZED" || "REJECTED" || "AVAILABLE",
+ * //           ConsumerRegion: "STRING_VALUE",
+ * //           CreatedDate: new Date("TIMESTAMP"),
+ * //           StatusChangeDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       ManagedBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -65,13 +65,12 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamResponse
- *   streamId: "STRING_VALUE",
- *   streamArn: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   streamVersion: Number("int"),
- * };
+ * // { // CreateStreamResponse
+ * //   streamId: "STRING_VALUE",
+ * //   streamArn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   streamVersion: Number("int"),
+ * // };
  *
  * ```
  *

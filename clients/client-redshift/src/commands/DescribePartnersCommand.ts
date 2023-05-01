@@ -47,19 +47,18 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * };
  * const command = new DescribePartnersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePartnersOutputMessage
- *   PartnerIntegrationInfoList: [ // PartnerIntegrationInfoList
- *     { // PartnerIntegrationInfo
- *       DatabaseName: "STRING_VALUE",
- *       PartnerName: "STRING_VALUE",
- *       Status: "Active" || "Inactive" || "RuntimeFailure" || "ConnectionFailure",
- *       StatusMessage: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribePartnersOutputMessage
+ * //   PartnerIntegrationInfoList: [ // PartnerIntegrationInfoList
+ * //     { // PartnerIntegrationInfo
+ * //       DatabaseName: "STRING_VALUE",
+ * //       PartnerName: "STRING_VALUE",
+ * //       Status: "Active" || "Inactive" || "RuntimeFailure" || "ConnectionFailure",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

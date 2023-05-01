@@ -57,16 +57,15 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * };
  * const command = new BatchDeletePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeletePhoneNumberResponse
- *   PhoneNumberErrors: [ // PhoneNumberErrorList
- *     { // PhoneNumberError
- *       PhoneNumberId: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist" || "Gone",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeletePhoneNumberResponse
+ * //   PhoneNumberErrors: [ // PhoneNumberErrorList
+ * //     { // PhoneNumberError
+ * //       PhoneNumberId: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist" || "Gone",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

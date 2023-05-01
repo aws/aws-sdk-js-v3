@@ -50,22 +50,21 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelinesResponse
- *   PipelineSummaries: [ // PipelineSummaryList
- *     { // PipelineSummary
- *       PipelineArn: "STRING_VALUE",
- *       PipelineName: "STRING_VALUE",
- *       PipelineDisplayName: "STRING_VALUE",
- *       PipelineDescription: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       LastExecutionTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPipelinesResponse
+ * //   PipelineSummaries: [ // PipelineSummaryList
+ * //     { // PipelineSummary
+ * //       PipelineArn: "STRING_VALUE",
+ * //       PipelineName: "STRING_VALUE",
+ * //       PipelineDisplayName: "STRING_VALUE",
+ * //       PipelineDescription: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastExecutionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

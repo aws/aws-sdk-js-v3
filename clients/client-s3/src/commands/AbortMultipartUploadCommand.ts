@@ -86,10 +86,9 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AbortMultipartUploadOutput
- *   RequestCharged: "requester",
- * };
+ * // { // AbortMultipartUploadOutput
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

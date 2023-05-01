@@ -45,16 +45,15 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * };
  * const command = new GetUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserSettingsResponse
- *   UserSettings: { // UserSettings
- *     Telephony: { // TelephonySettings
- *       InboundCalling: true || false, // required
- *       OutboundCalling: true || false, // required
- *       SMS: true || false, // required
- *     },
- *   },
- * };
+ * // { // GetUserSettingsResponse
+ * //   UserSettings: { // UserSettings
+ * //     Telephony: { // TelephonySettings
+ * //       InboundCalling: true || false, // required
+ * //       OutboundCalling: true || false, // required
+ * //       SMS: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

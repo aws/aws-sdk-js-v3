@@ -45,10 +45,9 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteIntegrationResponse
- *   Message: "STRING_VALUE", // required
- * };
+ * // { // DeleteIntegrationResponse
+ * //   Message: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

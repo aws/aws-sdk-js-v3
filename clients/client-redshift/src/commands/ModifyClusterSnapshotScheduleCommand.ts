@@ -49,8 +49,7 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * };
  * const command = new ModifyClusterSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

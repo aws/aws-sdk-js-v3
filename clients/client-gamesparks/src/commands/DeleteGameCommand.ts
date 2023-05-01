@@ -44,8 +44,7 @@ export interface DeleteGameCommandOutput extends DeleteGameResult, __MetadataBea
  * };
  * const command = new DeleteGameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,15 +45,14 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeploymentResponse
- *   AutoDeployed: true || false,
- *   CreatedDate: new Date("TIMESTAMP"),
- *   DeploymentId: "STRING_VALUE",
- *   DeploymentStatus: "STRING_VALUE",
- *   DeploymentStatusMessage: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // GetDeploymentResponse
+ * //   AutoDeployed: true || false,
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   DeploymentId: "STRING_VALUE",
+ * //   DeploymentStatus: "STRING_VALUE",
+ * //   DeploymentStatusMessage: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

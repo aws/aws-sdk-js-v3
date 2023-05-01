@@ -68,10 +68,9 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  * };
  * const command = new DeleteGeoMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGeoMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteGeoMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

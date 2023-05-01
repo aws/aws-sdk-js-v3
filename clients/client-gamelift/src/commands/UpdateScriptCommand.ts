@@ -74,23 +74,22 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * };
  * const command = new UpdateScriptCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateScriptOutput
- *   Script: { // Script
- *     ScriptId: "STRING_VALUE",
- *     ScriptArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     SizeOnDisk: Number("long"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     StorageLocation: { // S3Location
- *       Bucket: "STRING_VALUE",
- *       Key: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       ObjectVersion: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateScriptOutput
+ * //   Script: { // Script
+ * //     ScriptId: "STRING_VALUE",
+ * //     ScriptArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     SizeOnDisk: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     StorageLocation: { // S3Location
+ * //       Bucket: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ObjectVersion: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

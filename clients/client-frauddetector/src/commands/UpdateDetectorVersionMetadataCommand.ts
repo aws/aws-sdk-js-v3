@@ -52,8 +52,7 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * };
  * const command = new UpdateDetectorVersionMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

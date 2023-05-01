@@ -54,10 +54,9 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * };
  * const command = new InvokeDeviceMethodCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeDeviceMethodResponse
- *   DeviceMethodResponse: "STRING_VALUE",
- * };
+ * // { // InvokeDeviceMethodResponse
+ * //   DeviceMethodResponse: "STRING_VALUE",
+ * // };
  *
  * ```
  *

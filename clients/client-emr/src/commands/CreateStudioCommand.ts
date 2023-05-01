@@ -63,11 +63,10 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStudioOutput
- *   StudioId: "STRING_VALUE",
- *   Url: "STRING_VALUE",
- * };
+ * // { // CreateStudioOutput
+ * //   StudioId: "STRING_VALUE",
+ * //   Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

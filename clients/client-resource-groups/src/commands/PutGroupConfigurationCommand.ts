@@ -70,8 +70,7 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * };
  * const command = new PutGroupConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

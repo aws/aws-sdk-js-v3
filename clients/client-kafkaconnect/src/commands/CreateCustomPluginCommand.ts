@@ -53,13 +53,12 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * };
  * const command = new CreateCustomPluginCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomPluginResponse
- *   customPluginArn: "STRING_VALUE",
- *   customPluginState: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   revision: Number("long"),
- * };
+ * // { // CreateCustomPluginResponse
+ * //   customPluginArn: "STRING_VALUE",
+ * //   customPluginState: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   revision: Number("long"),
+ * // };
  *
  * ```
  *

@@ -64,14 +64,13 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * };
  * const command = new StartReadSetImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReadSetImportJobResponse
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // StartReadSetImportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

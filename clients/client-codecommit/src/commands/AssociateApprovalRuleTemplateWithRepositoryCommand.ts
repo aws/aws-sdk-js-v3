@@ -55,8 +55,7 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * };
  * const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

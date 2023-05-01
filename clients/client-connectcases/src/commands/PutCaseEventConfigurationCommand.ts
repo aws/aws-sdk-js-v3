@@ -59,8 +59,7 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * };
  * const command = new PutCaseEventConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

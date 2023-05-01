@@ -44,8 +44,7 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * };
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

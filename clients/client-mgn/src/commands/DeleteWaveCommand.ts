@@ -44,8 +44,7 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * };
  * const command = new DeleteWaveCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

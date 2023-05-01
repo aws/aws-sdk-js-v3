@@ -67,43 +67,42 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * };
  * const command = new GetTranscriptCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTranscriptResponse
- *   InitialContactId: "STRING_VALUE",
- *   Transcript: [ // Transcript
- *     { // Item
- *       AbsoluteTime: "STRING_VALUE",
- *       Content: "STRING_VALUE",
- *       ContentType: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Type: "TYPING" || "PARTICIPANT_JOINED" || "PARTICIPANT_LEFT" || "CHAT_ENDED" || "TRANSFER_SUCCEEDED" || "TRANSFER_FAILED" || "MESSAGE" || "EVENT" || "ATTACHMENT" || "CONNECTION_ACK" || "MESSAGE_DELIVERED" || "MESSAGE_READ",
- *       ParticipantId: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM",
- *       Attachments: [ // Attachments
- *         { // AttachmentItem
- *           ContentType: "STRING_VALUE",
- *           AttachmentId: "STRING_VALUE",
- *           AttachmentName: "STRING_VALUE",
- *           Status: "APPROVED" || "REJECTED" || "IN_PROGRESS",
- *         },
- *       ],
- *       MessageMetadata: { // MessageMetadata
- *         MessageId: "STRING_VALUE",
- *         Receipts: [ // Receipts
- *           { // Receipt
- *             DeliveredTimestamp: "STRING_VALUE",
- *             ReadTimestamp: "STRING_VALUE",
- *             RecipientParticipantId: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *       RelatedContactId: "STRING_VALUE",
- *       ContactId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTranscriptResponse
+ * //   InitialContactId: "STRING_VALUE",
+ * //   Transcript: [ // Transcript
+ * //     { // Item
+ * //       AbsoluteTime: "STRING_VALUE",
+ * //       Content: "STRING_VALUE",
+ * //       ContentType: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Type: "TYPING" || "PARTICIPANT_JOINED" || "PARTICIPANT_LEFT" || "CHAT_ENDED" || "TRANSFER_SUCCEEDED" || "TRANSFER_FAILED" || "MESSAGE" || "EVENT" || "ATTACHMENT" || "CONNECTION_ACK" || "MESSAGE_DELIVERED" || "MESSAGE_READ",
+ * //       ParticipantId: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM",
+ * //       Attachments: [ // Attachments
+ * //         { // AttachmentItem
+ * //           ContentType: "STRING_VALUE",
+ * //           AttachmentId: "STRING_VALUE",
+ * //           AttachmentName: "STRING_VALUE",
+ * //           Status: "APPROVED" || "REJECTED" || "IN_PROGRESS",
+ * //         },
+ * //       ],
+ * //       MessageMetadata: { // MessageMetadata
+ * //         MessageId: "STRING_VALUE",
+ * //         Receipts: [ // Receipts
+ * //           { // Receipt
+ * //             DeliveredTimestamp: "STRING_VALUE",
+ * //             ReadTimestamp: "STRING_VALUE",
+ * //             RecipientParticipantId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       RelatedContactId: "STRING_VALUE",
+ * //       ContactId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

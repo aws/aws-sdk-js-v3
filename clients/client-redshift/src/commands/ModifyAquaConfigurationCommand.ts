@@ -45,13 +45,12 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * };
  * const command = new ModifyAquaConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyAquaOutputMessage
- *   AquaConfiguration: { // AquaConfiguration
- *     AquaStatus: "enabled" || "disabled" || "applying",
- *     AquaConfigurationStatus: "enabled" || "disabled" || "auto",
- *   },
- * };
+ * // { // ModifyAquaOutputMessage
+ * //   AquaConfiguration: { // AquaConfiguration
+ * //     AquaStatus: "enabled" || "disabled" || "applying",
+ * //     AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ * //   },
+ * // };
  *
  * ```
  *

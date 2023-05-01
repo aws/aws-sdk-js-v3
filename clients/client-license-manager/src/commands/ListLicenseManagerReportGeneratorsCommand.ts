@@ -61,44 +61,43 @@ export interface ListLicenseManagerReportGeneratorsCommandOutput
  * };
  * const command = new ListLicenseManagerReportGeneratorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLicenseManagerReportGeneratorsResponse
- *   ReportGenerators: [ // ReportGeneratorList
- *     { // ReportGenerator
- *       ReportGeneratorName: "STRING_VALUE",
- *       ReportType: [ // ReportTypeList
- *         "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
- *       ],
- *       ReportContext: { // ReportContext
- *         licenseConfigurationArns: [ // ArnList // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       ReportFrequency: { // ReportFrequency
- *         value: Number("int"),
- *         period: "DAY" || "WEEK" || "MONTH",
- *       },
- *       LicenseManagerReportGeneratorArn: "STRING_VALUE",
- *       LastRunStatus: "STRING_VALUE",
- *       LastRunFailureReason: "STRING_VALUE",
- *       LastReportGenerationTime: "STRING_VALUE",
- *       ReportCreatorAccount: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       S3Location: { // S3Location
- *         bucket: "STRING_VALUE",
- *         keyPrefix: "STRING_VALUE",
- *       },
- *       CreateTime: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLicenseManagerReportGeneratorsResponse
+ * //   ReportGenerators: [ // ReportGeneratorList
+ * //     { // ReportGenerator
+ * //       ReportGeneratorName: "STRING_VALUE",
+ * //       ReportType: [ // ReportTypeList
+ * //         "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ * //       ],
+ * //       ReportContext: { // ReportContext
+ * //         licenseConfigurationArns: [ // ArnList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ReportFrequency: { // ReportFrequency
+ * //         value: Number("int"),
+ * //         period: "DAY" || "WEEK" || "MONTH",
+ * //       },
+ * //       LicenseManagerReportGeneratorArn: "STRING_VALUE",
+ * //       LastRunStatus: "STRING_VALUE",
+ * //       LastRunFailureReason: "STRING_VALUE",
+ * //       LastReportGenerationTime: "STRING_VALUE",
+ * //       ReportCreatorAccount: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       S3Location: { // S3Location
+ * //         bucket: "STRING_VALUE",
+ * //         keyPrefix: "STRING_VALUE",
+ * //       },
+ * //       CreateTime: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,15 +49,14 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * };
  * const command = new DescribeAuthenticationProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAuthenticationProfilesResult
- *   AuthenticationProfiles: [ // AuthenticationProfileList
- *     { // AuthenticationProfile
- *       AuthenticationProfileName: "STRING_VALUE",
- *       AuthenticationProfileContent: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeAuthenticationProfilesResult
+ * //   AuthenticationProfiles: [ // AuthenticationProfileList
+ * //     { // AuthenticationProfile
+ * //       AuthenticationProfileName: "STRING_VALUE",
+ * //       AuthenticationProfileContent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

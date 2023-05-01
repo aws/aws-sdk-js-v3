@@ -44,8 +44,7 @@ export interface DeleteApiCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApiCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

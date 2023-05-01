@@ -52,8 +52,7 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  * };
  * const command = new UpdatePartnerAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

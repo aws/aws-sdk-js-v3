@@ -44,8 +44,7 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * };
  * const command = new DeleteKeyspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

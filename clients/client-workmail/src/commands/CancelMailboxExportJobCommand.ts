@@ -50,8 +50,7 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * };
  * const command = new CancelMailboxExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

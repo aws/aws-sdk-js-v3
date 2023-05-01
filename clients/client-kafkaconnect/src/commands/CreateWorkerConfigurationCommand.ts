@@ -50,17 +50,16 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * };
  * const command = new CreateWorkerConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkerConfigurationResponse
- *   creationTime: new Date("TIMESTAMP"),
- *   latestRevision: { // WorkerConfigurationRevisionSummary
- *     creationTime: new Date("TIMESTAMP"),
- *     description: "STRING_VALUE",
- *     revision: Number("long"),
- *   },
- *   name: "STRING_VALUE",
- *   workerConfigurationArn: "STRING_VALUE",
- * };
+ * // { // CreateWorkerConfigurationResponse
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   latestRevision: { // WorkerConfigurationRevisionSummary
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     description: "STRING_VALUE",
+ * //     revision: Number("long"),
+ * //   },
+ * //   name: "STRING_VALUE",
+ * //   workerConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,22 +57,21 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * };
  * const command = new GetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssetPropertyValueResponse
- *   propertyValue: { // AssetPropertyValue
- *     value: { // Variant
- *       stringValue: "STRING_VALUE",
- *       integerValue: Number("int"),
- *       doubleValue: Number("double"),
- *       booleanValue: true || false,
- *     },
- *     timestamp: { // TimeInNanos
- *       timeInSeconds: Number("long"), // required
- *       offsetInNanos: Number("int"),
- *     },
- *     quality: "GOOD" || "BAD" || "UNCERTAIN",
- *   },
- * };
+ * // { // GetAssetPropertyValueResponse
+ * //   propertyValue: { // AssetPropertyValue
+ * //     value: { // Variant
+ * //       stringValue: "STRING_VALUE",
+ * //       integerValue: Number("int"),
+ * //       doubleValue: Number("double"),
+ * //       booleanValue: true || false,
+ * //     },
+ * //     timestamp: { // TimeInNanos
+ * //       timeInSeconds: Number("long"), // required
+ * //       offsetInNanos: Number("int"),
+ * //     },
+ * //     quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //   },
+ * // };
  *
  * ```
  *

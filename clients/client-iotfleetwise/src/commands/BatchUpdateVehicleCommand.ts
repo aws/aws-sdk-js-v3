@@ -60,22 +60,21 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * };
  * const command = new BatchUpdateVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateVehicleResponse
- *   vehicles: [ // updateVehicleResponseItems
- *     { // UpdateVehicleResponseItem
- *       vehicleName: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   errors: [ // updateVehicleErrors
- *     { // UpdateVehicleError
- *       vehicleName: "STRING_VALUE",
- *       code: Number("int"),
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchUpdateVehicleResponse
+ * //   vehicles: [ // updateVehicleResponseItems
+ * //     { // UpdateVehicleResponseItem
+ * //       vehicleName: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   errors: [ // updateVehicleErrors
+ * //     { // UpdateVehicleError
+ * //       vehicleName: "STRING_VALUE",
+ * //       code: Number("int"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

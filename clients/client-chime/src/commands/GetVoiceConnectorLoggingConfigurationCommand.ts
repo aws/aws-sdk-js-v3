@@ -53,13 +53,12 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorLoggingConfigurationResponse
- *   LoggingConfiguration: { // LoggingConfiguration
- *     EnableSIPLogs: true || false,
- *     EnableMediaMetricLogs: true || false,
- *   },
- * };
+ * // { // GetVoiceConnectorLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     EnableSIPLogs: true || false,
+ * //     EnableMediaMetricLogs: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

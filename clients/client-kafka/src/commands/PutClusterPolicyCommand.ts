@@ -46,10 +46,9 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * };
  * const command = new PutClusterPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutClusterPolicyResponse
- *   CurrentVersion: "STRING_VALUE",
- * };
+ * // { // PutClusterPolicyResponse
+ * //   CurrentVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

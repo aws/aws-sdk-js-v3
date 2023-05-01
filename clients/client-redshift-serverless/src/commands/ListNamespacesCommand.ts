@@ -53,29 +53,28 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNamespacesResponse
- *   nextToken: "STRING_VALUE",
- *   namespaces: [ // NamespaceList // required
- *     { // Namespace
- *       namespaceArn: "STRING_VALUE",
- *       namespaceId: "STRING_VALUE",
- *       namespaceName: "STRING_VALUE",
- *       adminUsername: "STRING_VALUE",
- *       dbName: "STRING_VALUE",
- *       kmsKeyId: "STRING_VALUE",
- *       defaultIamRoleArn: "STRING_VALUE",
- *       iamRoles: [ // IamRoleArnList
- *         "STRING_VALUE",
- *       ],
- *       logExports: [ // LogExportList
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListNamespacesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   namespaces: [ // NamespaceList // required
+ * //     { // Namespace
+ * //       namespaceArn: "STRING_VALUE",
+ * //       namespaceId: "STRING_VALUE",
+ * //       namespaceName: "STRING_VALUE",
+ * //       adminUsername: "STRING_VALUE",
+ * //       dbName: "STRING_VALUE",
+ * //       kmsKeyId: "STRING_VALUE",
+ * //       defaultIamRoleArn: "STRING_VALUE",
+ * //       iamRoles: [ // IamRoleArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       logExports: [ // LogExportList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

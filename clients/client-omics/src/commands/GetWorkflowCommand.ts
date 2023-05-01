@@ -48,31 +48,30 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   type: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   engine: "STRING_VALUE",
- *   definition: "STRING_VALUE",
- *   main: "STRING_VALUE",
- *   digest: "STRING_VALUE",
- *   parameterTemplate: { // WorkflowParameterTemplate
- *     "<keys>": { // WorkflowParameter
- *       description: "STRING_VALUE",
- *       optional: true || false,
- *     },
- *   },
- *   storageCapacity: Number("int"),
- *   creationTime: new Date("TIMESTAMP"),
- *   statusMessage: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetWorkflowResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   type: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   engine: "STRING_VALUE",
+ * //   definition: "STRING_VALUE",
+ * //   main: "STRING_VALUE",
+ * //   digest: "STRING_VALUE",
+ * //   parameterTemplate: { // WorkflowParameterTemplate
+ * //     "<keys>": { // WorkflowParameter
+ * //       description: "STRING_VALUE",
+ * //       optional: true || false,
+ * //     },
+ * //   },
+ * //   storageCapacity: Number("int"),
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   statusMessage: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

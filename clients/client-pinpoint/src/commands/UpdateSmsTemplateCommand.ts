@@ -55,13 +55,12 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * };
  * const command = new UpdateSmsTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSmsTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateSmsTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

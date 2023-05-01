@@ -44,11 +44,10 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * };
  * const command = new DescribeApplicationStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationStateResult
- *   ApplicationStatus: "STRING_VALUE",
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeApplicationStateResult
+ * //   ApplicationStatus: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

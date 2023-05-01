@@ -45,32 +45,31 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * };
  * const command = new DescribeQuickConnectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeQuickConnectResponse
- *   QuickConnect: { // QuickConnect
- *     QuickConnectARN: "STRING_VALUE",
- *     QuickConnectId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     QuickConnectConfig: { // QuickConnectConfig
- *       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
- *       UserConfig: { // UserQuickConnectConfig
- *         UserId: "STRING_VALUE", // required
- *         ContactFlowId: "STRING_VALUE", // required
- *       },
- *       QueueConfig: { // QueueQuickConnectConfig
- *         QueueId: "STRING_VALUE", // required
- *         ContactFlowId: "STRING_VALUE", // required
- *       },
- *       PhoneConfig: { // PhoneNumberQuickConnectConfig
- *         PhoneNumber: "STRING_VALUE", // required
- *       },
- *     },
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeQuickConnectResponse
+ * //   QuickConnect: { // QuickConnect
+ * //     QuickConnectARN: "STRING_VALUE",
+ * //     QuickConnectId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     QuickConnectConfig: { // QuickConnectConfig
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ * //       UserConfig: { // UserQuickConnectConfig
+ * //         UserId: "STRING_VALUE", // required
+ * //         ContactFlowId: "STRING_VALUE", // required
+ * //       },
+ * //       QueueConfig: { // QueueQuickConnectConfig
+ * //         QueueId: "STRING_VALUE", // required
+ * //         ContactFlowId: "STRING_VALUE", // required
+ * //       },
+ * //       PhoneConfig: { // PhoneNumberQuickConnectConfig
+ * //         PhoneNumber: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

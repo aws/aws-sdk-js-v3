@@ -52,21 +52,20 @@ export interface DescribeObservabilityConfigurationCommandOutput
  * };
  * const command = new DescribeObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeObservabilityConfigurationResponse
- *   ObservabilityConfiguration: { // ObservabilityConfiguration
- *     ObservabilityConfigurationArn: "STRING_VALUE",
- *     ObservabilityConfigurationName: "STRING_VALUE",
- *     TraceConfiguration: { // TraceConfiguration
- *       Vendor: "AWSXRAY", // required
- *     },
- *     ObservabilityConfigurationRevision: Number("int"),
- *     Latest: true || false,
- *     Status: "ACTIVE" || "INACTIVE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     DeletedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeObservabilityConfigurationResponse
+ * //   ObservabilityConfiguration: { // ObservabilityConfiguration
+ * //     ObservabilityConfigurationArn: "STRING_VALUE",
+ * //     ObservabilityConfigurationName: "STRING_VALUE",
+ * //     TraceConfiguration: { // TraceConfiguration
+ * //       Vendor: "AWSXRAY", // required
+ * //     },
+ * //     ObservabilityConfigurationRevision: Number("int"),
+ * //     Latest: true || false,
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

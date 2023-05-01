@@ -55,15 +55,14 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserProfileResult
- *   userArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   emailAddress: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
- *   createdTimestamp: new Date("TIMESTAMP"),
- *   lastModifiedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // CreateUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   sshPublicKey: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

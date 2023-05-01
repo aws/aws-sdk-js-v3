@@ -51,8 +51,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * };
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

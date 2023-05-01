@@ -44,8 +44,7 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  * };
  * const command = new DeactivateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

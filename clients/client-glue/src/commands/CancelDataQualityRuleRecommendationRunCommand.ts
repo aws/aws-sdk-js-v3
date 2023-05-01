@@ -53,8 +53,7 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * };
  * const command = new CancelDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

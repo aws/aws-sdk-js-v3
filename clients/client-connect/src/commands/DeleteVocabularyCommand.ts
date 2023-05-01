@@ -45,12 +45,11 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  * };
  * const command = new DeleteVocabularyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVocabularyResponse
- *   VocabularyArn: "STRING_VALUE", // required
- *   VocabularyId: "STRING_VALUE", // required
- *   State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
- * };
+ * // { // DeleteVocabularyResponse
+ * //   VocabularyArn: "STRING_VALUE", // required
+ * //   VocabularyId: "STRING_VALUE", // required
+ * //   State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
+ * // };
  *
  * ```
  *

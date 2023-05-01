@@ -112,10 +112,9 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutScalingPolicyOutput
- *   Name: "STRING_VALUE",
- * };
+ * // { // PutScalingPolicyOutput
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

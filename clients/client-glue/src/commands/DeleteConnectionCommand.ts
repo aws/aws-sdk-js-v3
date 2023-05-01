@@ -45,8 +45,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

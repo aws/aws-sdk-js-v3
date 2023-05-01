@@ -55,17 +55,16 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * };
  * const command = new StartMigrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMigrationResponse
- *   v1BotName: "STRING_VALUE",
- *   v1BotVersion: "STRING_VALUE",
- *   v1BotLocale: "STRING_VALUE",
- *   v2BotId: "STRING_VALUE",
- *   v2BotRole: "STRING_VALUE",
- *   migrationId: "STRING_VALUE",
- *   migrationStrategy: "STRING_VALUE",
- *   migrationTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // StartMigrationResponse
+ * //   v1BotName: "STRING_VALUE",
+ * //   v1BotVersion: "STRING_VALUE",
+ * //   v1BotLocale: "STRING_VALUE",
+ * //   v2BotId: "STRING_VALUE",
+ * //   v2BotRole: "STRING_VALUE",
+ * //   migrationId: "STRING_VALUE",
+ * //   migrationStrategy: "STRING_VALUE",
+ * //   migrationTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

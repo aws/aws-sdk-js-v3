@@ -48,31 +48,30 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * };
  * const command = new DescribeConformancePacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConformancePacksResponse
- *   ConformancePackDetails: [ // ConformancePackDetailList
- *     { // ConformancePackDetail
- *       ConformancePackName: "STRING_VALUE", // required
- *       ConformancePackArn: "STRING_VALUE", // required
- *       ConformancePackId: "STRING_VALUE", // required
- *       DeliveryS3Bucket: "STRING_VALUE",
- *       DeliveryS3KeyPrefix: "STRING_VALUE",
- *       ConformancePackInputParameters: [ // ConformancePackInputParameters
- *         { // ConformancePackInputParameter
- *           ParameterName: "STRING_VALUE", // required
- *           ParameterValue: "STRING_VALUE", // required
- *         },
- *       ],
- *       LastUpdateRequestedTime: new Date("TIMESTAMP"),
- *       CreatedBy: "STRING_VALUE",
- *       TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
- *         DocumentName: "STRING_VALUE", // required
- *         DocumentVersion: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConformancePacksResponse
+ * //   ConformancePackDetails: [ // ConformancePackDetailList
+ * //     { // ConformancePackDetail
+ * //       ConformancePackName: "STRING_VALUE", // required
+ * //       ConformancePackArn: "STRING_VALUE", // required
+ * //       ConformancePackId: "STRING_VALUE", // required
+ * //       DeliveryS3Bucket: "STRING_VALUE",
+ * //       DeliveryS3KeyPrefix: "STRING_VALUE",
+ * //       ConformancePackInputParameters: [ // ConformancePackInputParameters
+ * //         { // ConformancePackInputParameter
+ * //           ParameterName: "STRING_VALUE", // required
+ * //           ParameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       LastUpdateRequestedTime: new Date("TIMESTAMP"),
+ * //       CreatedBy: "STRING_VALUE",
+ * //       TemplateSSMDocumentDetails: { // TemplateSSMDocumentDetails
+ * //         DocumentName: "STRING_VALUE", // required
+ * //         DocumentVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

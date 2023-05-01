@@ -56,26 +56,25 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoomResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   createTime: new Date("TIMESTAMP"),
- *   updateTime: new Date("TIMESTAMP"),
- *   maximumMessageRatePerSecond: Number("int"),
- *   maximumMessageLength: Number("int"),
- *   messageReviewHandler: { // MessageReviewHandler
- *     uri: "STRING_VALUE",
- *     fallbackResult: "STRING_VALUE",
- *   },
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // CreateRoomResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createTime: new Date("TIMESTAMP"),
+ * //   updateTime: new Date("TIMESTAMP"),
+ * //   maximumMessageRatePerSecond: Number("int"),
+ * //   maximumMessageLength: Number("int"),
+ * //   messageReviewHandler: { // MessageReviewHandler
+ * //     uri: "STRING_VALUE",
+ * //     fallbackResult: "STRING_VALUE",
+ * //   },
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   loggingConfigurationIdentifiers: [ // LoggingConfigurationIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

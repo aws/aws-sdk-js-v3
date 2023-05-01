@@ -45,19 +45,18 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  * };
  * const command = new ListBootstrapActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBootstrapActionsOutput
- *   BootstrapActions: [ // CommandList
- *     { // Command
- *       Name: "STRING_VALUE",
- *       ScriptPath: "STRING_VALUE",
- *       Args: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListBootstrapActionsOutput
+ * //   BootstrapActions: [ // CommandList
+ * //     { // Command
+ * //       Name: "STRING_VALUE",
+ * //       ScriptPath: "STRING_VALUE",
+ * //       Args: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

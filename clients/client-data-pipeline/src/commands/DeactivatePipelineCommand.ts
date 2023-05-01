@@ -48,8 +48,7 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * };
  * const command = new DeactivatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,11 +44,10 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * const input = {};
  * const command = new GetNotificationChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNotificationChannelResponse
- *   SnsTopicArn: "STRING_VALUE",
- *   SnsRoleName: "STRING_VALUE",
- * };
+ * // { // GetNotificationChannelResponse
+ * //   SnsTopicArn: "STRING_VALUE",
+ * //   SnsRoleName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

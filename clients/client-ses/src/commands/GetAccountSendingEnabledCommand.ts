@@ -43,10 +43,9 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * const input = {};
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSendingEnabledResponse
- *   Enabled: true || false,
- * };
+ * // { // GetAccountSendingEnabledResponse
+ * //   Enabled: true || false,
+ * // };
  *
  * ```
  *

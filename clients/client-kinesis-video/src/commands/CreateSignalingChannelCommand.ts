@@ -56,10 +56,9 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * };
  * const command = new CreateSignalingChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSignalingChannelOutput
- *   ChannelARN: "STRING_VALUE",
- * };
+ * // { // CreateSignalingChannelOutput
+ * //   ChannelARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,22 +48,21 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * };
  * const command = new ListCalculationExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCalculationExecutionsResponse
- *   NextToken: "STRING_VALUE",
- *   Calculations: [ // CalculationsList
- *     { // CalculationSummary
- *       CalculationExecutionId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: { // CalculationStatus
- *         SubmissionDateTime: new Date("TIMESTAMP"),
- *         CompletionDateTime: new Date("TIMESTAMP"),
- *         State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- *         StateChangeReason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListCalculationExecutionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Calculations: [ // CalculationsList
+ * //     { // CalculationSummary
+ * //       CalculationExecutionId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: { // CalculationStatus
+ * //         SubmissionDateTime: new Date("TIMESTAMP"),
+ * //         CompletionDateTime: new Date("TIMESTAMP"),
+ * //         State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * //         StateChangeReason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

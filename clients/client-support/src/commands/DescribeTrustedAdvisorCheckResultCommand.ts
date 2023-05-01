@@ -111,37 +111,36 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorCheckResultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrustedAdvisorCheckResultResponse
- *   result: { // TrustedAdvisorCheckResult
- *     checkId: "STRING_VALUE", // required
- *     timestamp: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     resourcesSummary: { // TrustedAdvisorResourcesSummary
- *       resourcesProcessed: Number("long"), // required
- *       resourcesFlagged: Number("long"), // required
- *       resourcesIgnored: Number("long"), // required
- *       resourcesSuppressed: Number("long"), // required
- *     },
- *     categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
- *       costOptimizing: { // TrustedAdvisorCostOptimizingSummary
- *         estimatedMonthlySavings: Number("double"), // required
- *         estimatedPercentMonthlySavings: Number("double"), // required
- *       },
- *     },
- *     flaggedResources: [ // TrustedAdvisorResourceDetailList // required
- *       { // TrustedAdvisorResourceDetail
- *         status: "STRING_VALUE", // required
- *         region: "STRING_VALUE",
- *         resourceId: "STRING_VALUE", // required
- *         isSuppressed: true || false,
- *         metadata: [ // StringList // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeTrustedAdvisorCheckResultResponse
+ * //   result: { // TrustedAdvisorCheckResult
+ * //     checkId: "STRING_VALUE", // required
+ * //     timestamp: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     resourcesSummary: { // TrustedAdvisorResourcesSummary
+ * //       resourcesProcessed: Number("long"), // required
+ * //       resourcesFlagged: Number("long"), // required
+ * //       resourcesIgnored: Number("long"), // required
+ * //       resourcesSuppressed: Number("long"), // required
+ * //     },
+ * //     categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
+ * //       costOptimizing: { // TrustedAdvisorCostOptimizingSummary
+ * //         estimatedMonthlySavings: Number("double"), // required
+ * //         estimatedPercentMonthlySavings: Number("double"), // required
+ * //       },
+ * //     },
+ * //     flaggedResources: [ // TrustedAdvisorResourceDetailList // required
+ * //       { // TrustedAdvisorResourceDetail
+ * //         status: "STRING_VALUE", // required
+ * //         region: "STRING_VALUE",
+ * //         resourceId: "STRING_VALUE", // required
+ * //         isSuppressed: true || false,
+ * //         metadata: [ // StringList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

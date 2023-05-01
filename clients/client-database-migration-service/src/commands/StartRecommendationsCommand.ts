@@ -54,8 +54,7 @@ export interface StartRecommendationsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOut
  * };
  * const command = new ListVirtualGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVirtualGatewaysOutput
- *   virtualGateways: [ // VirtualGatewayList // required
- *     { // VirtualGatewayRef
- *       meshName: "STRING_VALUE", // required
- *       virtualGatewayName: "STRING_VALUE", // required
- *       meshOwner: "STRING_VALUE", // required
- *       resourceOwner: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       version: Number("long"), // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVirtualGatewaysOutput
+ * //   virtualGateways: [ // VirtualGatewayList // required
+ * //     { // VirtualGatewayRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualGatewayName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

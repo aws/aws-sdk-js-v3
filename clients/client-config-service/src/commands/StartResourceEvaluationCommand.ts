@@ -65,10 +65,9 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * };
  * const command = new StartResourceEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartResourceEvaluationResponse
- *   ResourceEvaluationId: "STRING_VALUE",
- * };
+ * // { // StartResourceEvaluationResponse
+ * //   ResourceEvaluationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

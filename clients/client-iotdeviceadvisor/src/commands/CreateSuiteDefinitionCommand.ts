@@ -62,13 +62,12 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * };
  * const command = new CreateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSuiteDefinitionResponse
- *   suiteDefinitionId: "STRING_VALUE",
- *   suiteDefinitionArn: "STRING_VALUE",
- *   suiteDefinitionName: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- * };
+ * // { // CreateSuiteDefinitionResponse
+ * //   suiteDefinitionId: "STRING_VALUE",
+ * //   suiteDefinitionArn: "STRING_VALUE",
+ * //   suiteDefinitionName: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

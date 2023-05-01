@@ -50,8 +50,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,15 +60,14 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
  * };
  * const command = new UpdateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSuiteDefinitionResponse
- *   suiteDefinitionId: "STRING_VALUE",
- *   suiteDefinitionArn: "STRING_VALUE",
- *   suiteDefinitionName: "STRING_VALUE",
- *   suiteDefinitionVersion: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateSuiteDefinitionResponse
+ * //   suiteDefinitionId: "STRING_VALUE",
+ * //   suiteDefinitionArn: "STRING_VALUE",
+ * //   suiteDefinitionName: "STRING_VALUE",
+ * //   suiteDefinitionVersion: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -46,19 +46,18 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * };
  * const command = new ListTestGridSessionActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTestGridSessionActionsResult
- *   actions: [ // TestGridSessionActions
- *     { // TestGridSessionAction
- *       action: "STRING_VALUE",
- *       started: new Date("TIMESTAMP"),
- *       duration: Number("long"),
- *       statusCode: "STRING_VALUE",
- *       requestMethod: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTestGridSessionActionsResult
+ * //   actions: [ // TestGridSessionActions
+ * //     { // TestGridSessionAction
+ * //       action: "STRING_VALUE",
+ * //       started: new Date("TIMESTAMP"),
+ * //       duration: Number("long"),
+ * //       statusCode: "STRING_VALUE",
+ * //       requestMethod: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

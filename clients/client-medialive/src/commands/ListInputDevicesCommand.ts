@@ -45,57 +45,56 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * };
  * const command = new ListInputDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInputDevicesResponse
- *   InputDevices: [ // __listOfInputDeviceSummary
- *     { // InputDeviceSummary
- *       Arn: "STRING_VALUE",
- *       ConnectionState: "DISCONNECTED" || "CONNECTED",
- *       DeviceSettingsSyncState: "SYNCED" || "SYNCING",
- *       DeviceUpdateStatus: "UP_TO_DATE" || "NOT_UP_TO_DATE" || "UPDATING",
- *       HdDeviceSettings: { // InputDeviceHdSettings
- *         ActiveInput: "HDMI" || "SDI",
- *         ConfiguredInput: "AUTO" || "HDMI" || "SDI",
- *         DeviceState: "IDLE" || "STREAMING",
- *         Framerate: Number("double"),
- *         Height: Number("int"),
- *         MaxBitrate: Number("int"),
- *         ScanType: "INTERLACED" || "PROGRESSIVE",
- *         Width: Number("int"),
- *         LatencyMs: Number("int"),
- *       },
- *       Id: "STRING_VALUE",
- *       MacAddress: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       NetworkSettings: { // InputDeviceNetworkSettings
- *         DnsAddresses: [ // __listOf__string
- *           "STRING_VALUE",
- *         ],
- *         Gateway: "STRING_VALUE",
- *         IpAddress: "STRING_VALUE",
- *         IpScheme: "STATIC" || "DHCP",
- *         SubnetMask: "STRING_VALUE",
- *       },
- *       SerialNumber: "STRING_VALUE",
- *       Type: "HD" || "UHD",
- *       UhdDeviceSettings: { // InputDeviceUhdSettings
- *         ActiveInput: "HDMI" || "SDI",
- *         ConfiguredInput: "AUTO" || "HDMI" || "SDI",
- *         DeviceState: "IDLE" || "STREAMING",
- *         Framerate: Number("double"),
- *         Height: Number("int"),
- *         MaxBitrate: Number("int"),
- *         ScanType: "INTERLACED" || "PROGRESSIVE",
- *         Width: Number("int"),
- *         LatencyMs: Number("int"),
- *       },
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInputDevicesResponse
+ * //   InputDevices: [ // __listOfInputDeviceSummary
+ * //     { // InputDeviceSummary
+ * //       Arn: "STRING_VALUE",
+ * //       ConnectionState: "DISCONNECTED" || "CONNECTED",
+ * //       DeviceSettingsSyncState: "SYNCED" || "SYNCING",
+ * //       DeviceUpdateStatus: "UP_TO_DATE" || "NOT_UP_TO_DATE" || "UPDATING",
+ * //       HdDeviceSettings: { // InputDeviceHdSettings
+ * //         ActiveInput: "HDMI" || "SDI",
+ * //         ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ * //         DeviceState: "IDLE" || "STREAMING",
+ * //         Framerate: Number("double"),
+ * //         Height: Number("int"),
+ * //         MaxBitrate: Number("int"),
+ * //         ScanType: "INTERLACED" || "PROGRESSIVE",
+ * //         Width: Number("int"),
+ * //         LatencyMs: Number("int"),
+ * //       },
+ * //       Id: "STRING_VALUE",
+ * //       MacAddress: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       NetworkSettings: { // InputDeviceNetworkSettings
+ * //         DnsAddresses: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Gateway: "STRING_VALUE",
+ * //         IpAddress: "STRING_VALUE",
+ * //         IpScheme: "STATIC" || "DHCP",
+ * //         SubnetMask: "STRING_VALUE",
+ * //       },
+ * //       SerialNumber: "STRING_VALUE",
+ * //       Type: "HD" || "UHD",
+ * //       UhdDeviceSettings: { // InputDeviceUhdSettings
+ * //         ActiveInput: "HDMI" || "SDI",
+ * //         ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ * //         DeviceState: "IDLE" || "STREAMING",
+ * //         Framerate: Number("double"),
+ * //         Height: Number("int"),
+ * //         MaxBitrate: Number("int"),
+ * //         ScanType: "INTERLACED" || "PROGRESSIVE",
+ * //         Width: Number("int"),
+ * //         LatencyMs: Number("int"),
+ * //       },
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

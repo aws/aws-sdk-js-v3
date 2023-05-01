@@ -54,18 +54,17 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventsResponse
- *   NextToken: "STRING_VALUE",
- *   Events: [ // EventList
- *     { // Event
- *       SourceName: "STRING_VALUE",
- *       SourceType: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       Date: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeEventsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Events: [ // EventList
+ * //     { // Event
+ * //       SourceName: "STRING_VALUE",
+ * //       SourceType: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       Date: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

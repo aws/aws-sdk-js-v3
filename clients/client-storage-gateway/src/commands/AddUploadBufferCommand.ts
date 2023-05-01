@@ -53,10 +53,9 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * };
  * const command = new AddUploadBufferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddUploadBufferOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // AddUploadBufferOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * };
  * const command = new DeleteWorkflowStepCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

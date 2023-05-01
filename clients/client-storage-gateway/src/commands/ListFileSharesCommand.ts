@@ -48,20 +48,19 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * };
  * const command = new ListFileSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFileSharesOutput
- *   Marker: "STRING_VALUE",
- *   NextMarker: "STRING_VALUE",
- *   FileShareInfoList: [ // FileShareInfoList
- *     { // FileShareInfo
- *       FileShareType: "STRING_VALUE",
- *       FileShareARN: "STRING_VALUE",
- *       FileShareId: "STRING_VALUE",
- *       FileShareStatus: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFileSharesOutput
+ * //   Marker: "STRING_VALUE",
+ * //   NextMarker: "STRING_VALUE",
+ * //   FileShareInfoList: [ // FileShareInfoList
+ * //     { // FileShareInfo
+ * //       FileShareType: "STRING_VALUE",
+ * //       FileShareARN: "STRING_VALUE",
+ * //       FileShareId: "STRING_VALUE",
+ * //       FileShareStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

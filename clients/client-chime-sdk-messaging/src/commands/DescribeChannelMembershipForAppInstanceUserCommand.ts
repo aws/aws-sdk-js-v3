@@ -66,24 +66,23 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * };
  * const command = new DescribeChannelMembershipForAppInstanceUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelMembershipForAppInstanceUserResponse
- *   ChannelMembership: { // ChannelMembershipForAppInstanceUserSummary
- *     ChannelSummary: { // ChannelSummary
- *       Name: "STRING_VALUE",
- *       ChannelArn: "STRING_VALUE",
- *       Mode: "UNRESTRICTED" || "RESTRICTED",
- *       Privacy: "PUBLIC" || "PRIVATE",
- *       Metadata: "STRING_VALUE",
- *       LastMessageTimestamp: new Date("TIMESTAMP"),
- *     },
- *     AppInstanceUserMembershipSummary: { // AppInstanceUserMembershipSummary
- *       Type: "DEFAULT" || "HIDDEN",
- *       ReadMarkerTimestamp: new Date("TIMESTAMP"),
- *       SubChannelId: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeChannelMembershipForAppInstanceUserResponse
+ * //   ChannelMembership: { // ChannelMembershipForAppInstanceUserSummary
+ * //     ChannelSummary: { // ChannelSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //       LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //     AppInstanceUserMembershipSummary: { // AppInstanceUserMembershipSummary
+ * //       Type: "DEFAULT" || "HIDDEN",
+ * //       ReadMarkerTimestamp: new Date("TIMESTAMP"),
+ * //       SubChannelId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

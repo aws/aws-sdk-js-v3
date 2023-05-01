@@ -79,8 +79,7 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * };
  * const command = new DeleteHITCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

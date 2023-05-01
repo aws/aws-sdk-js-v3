@@ -68,8 +68,7 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTimeSeriesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

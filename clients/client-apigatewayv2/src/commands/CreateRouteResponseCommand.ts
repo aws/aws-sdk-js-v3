@@ -55,20 +55,19 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * };
  * const command = new CreateRouteResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRouteResponseResponse
- *   ModelSelectionExpression: "STRING_VALUE",
- *   ResponseModels: { // RouteModels
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ResponseParameters: { // RouteParameters
- *     "<keys>": { // ParameterConstraints
- *       Required: true || false,
- *     },
- *   },
- *   RouteResponseId: "STRING_VALUE",
- *   RouteResponseKey: "STRING_VALUE",
- * };
+ * // { // CreateRouteResponseResponse
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   ResponseModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteResponseId: "STRING_VALUE",
+ * //   RouteResponseKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -65,8 +65,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * };
  * const command = new NotifyResourceDeploymentStatusChangeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

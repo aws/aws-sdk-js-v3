@@ -52,21 +52,20 @@ export interface ListWhatIfForecastsCommandOutput extends ListWhatIfForecastsRes
  * };
  * const command = new ListWhatIfForecastsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWhatIfForecastsResponse
- *   WhatIfForecasts: [ // WhatIfForecasts
- *     { // WhatIfForecastSummary
- *       WhatIfForecastArn: "STRING_VALUE",
- *       WhatIfForecastName: "STRING_VALUE",
- *       WhatIfAnalysisArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWhatIfForecastsResponse
+ * //   WhatIfForecasts: [ // WhatIfForecasts
+ * //     { // WhatIfForecastSummary
+ * //       WhatIfForecastArn: "STRING_VALUE",
+ * //       WhatIfForecastName: "STRING_VALUE",
+ * //       WhatIfAnalysisArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

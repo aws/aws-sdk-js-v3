@@ -58,23 +58,22 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * };
  * const command = new ListRobotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRobotsResponse
- *   robots: [ // Robots
- *     { // Robot
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       fleetArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       greenGrassGroupId: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       architecture: "STRING_VALUE",
- *       lastDeploymentJob: "STRING_VALUE",
- *       lastDeploymentTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRobotsResponse
+ * //   robots: [ // Robots
+ * //     { // Robot
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       fleetArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       greenGrassGroupId: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       architecture: "STRING_VALUE",
+ * //       lastDeploymentJob: "STRING_VALUE",
+ * //       lastDeploymentTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

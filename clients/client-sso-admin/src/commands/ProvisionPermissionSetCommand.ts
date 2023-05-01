@@ -48,17 +48,16 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * };
  * const command = new ProvisionPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionPermissionSetResponse
- *   PermissionSetProvisioningStatus: { // PermissionSetProvisioningStatus
- *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
- *     RequestId: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
- *     PermissionSetArn: "STRING_VALUE",
- *     FailureReason: "STRING_VALUE",
- *     CreatedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ProvisionPermissionSetResponse
+ * //   PermissionSetProvisioningStatus: { // PermissionSetProvisioningStatus
+ * //     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //     RequestId: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     FailureReason: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -57,20 +57,19 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * };
  * const command = new UpdatePoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePoolResult
- *   PoolArn: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- *   TwoWayEnabled: true || false,
- *   TwoWayChannelArn: "STRING_VALUE",
- *   SelfManagedOptOutsEnabled: true || false,
- *   OptOutListName: "STRING_VALUE",
- *   SharedRoutesEnabled: true || false,
- *   DeletionProtectionEnabled: true || false,
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // UpdatePoolResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * //   TwoWayEnabled: true || false,
+ * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   SelfManagedOptOutsEnabled: true || false,
+ * //   OptOutListName: "STRING_VALUE",
+ * //   SharedRoutesEnabled: true || false,
+ * //   DeletionProtectionEnabled: true || false,
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

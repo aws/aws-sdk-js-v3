@@ -58,18 +58,17 @@ export interface DescribeReplicationInstanceTaskLogsCommandOutput
  * };
  * const command = new DescribeReplicationInstanceTaskLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReplicationInstanceTaskLogsResponse
- *   ReplicationInstanceArn: "STRING_VALUE",
- *   ReplicationInstanceTaskLogs: [ // ReplicationInstanceTaskLogsList
- *     { // ReplicationInstanceTaskLog
- *       ReplicationTaskName: "STRING_VALUE",
- *       ReplicationTaskArn: "STRING_VALUE",
- *       ReplicationInstanceTaskLogSize: Number("long"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeReplicationInstanceTaskLogsResponse
+ * //   ReplicationInstanceArn: "STRING_VALUE",
+ * //   ReplicationInstanceTaskLogs: [ // ReplicationInstanceTaskLogsList
+ * //     { // ReplicationInstanceTaskLog
+ * //       ReplicationTaskName: "STRING_VALUE",
+ * //       ReplicationTaskArn: "STRING_VALUE",
+ * //       ReplicationInstanceTaskLogSize: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

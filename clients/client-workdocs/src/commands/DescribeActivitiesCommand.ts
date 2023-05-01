@@ -58,90 +58,89 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * };
  * const command = new DescribeActivitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeActivitiesResponse
- *   UserActivities: [ // UserActivities
- *     { // Activity
- *       Type: "DOCUMENT_CHECKED_IN" || "DOCUMENT_CHECKED_OUT" || "DOCUMENT_RENAMED" || "DOCUMENT_VERSION_UPLOADED" || "DOCUMENT_VERSION_DELETED" || "DOCUMENT_VERSION_VIEWED" || "DOCUMENT_VERSION_DOWNLOADED" || "DOCUMENT_RECYCLED" || "DOCUMENT_RESTORED" || "DOCUMENT_REVERTED" || "DOCUMENT_SHARED" || "DOCUMENT_UNSHARED" || "DOCUMENT_SHARE_PERMISSION_CHANGED" || "DOCUMENT_SHAREABLE_LINK_CREATED" || "DOCUMENT_SHAREABLE_LINK_REMOVED" || "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED" || "DOCUMENT_MOVED" || "DOCUMENT_COMMENT_ADDED" || "DOCUMENT_COMMENT_DELETED" || "DOCUMENT_ANNOTATION_ADDED" || "DOCUMENT_ANNOTATION_DELETED" || "FOLDER_CREATED" || "FOLDER_DELETED" || "FOLDER_RENAMED" || "FOLDER_RECYCLED" || "FOLDER_RESTORED" || "FOLDER_SHARED" || "FOLDER_UNSHARED" || "FOLDER_SHARE_PERMISSION_CHANGED" || "FOLDER_SHAREABLE_LINK_CREATED" || "FOLDER_SHAREABLE_LINK_REMOVED" || "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED" || "FOLDER_MOVED",
- *       TimeStamp: new Date("TIMESTAMP"),
- *       IsIndirectActivity: true || false,
- *       OrganizationId: "STRING_VALUE",
- *       Initiator: { // UserMetadata
- *         Id: "STRING_VALUE",
- *         Username: "STRING_VALUE",
- *         GivenName: "STRING_VALUE",
- *         Surname: "STRING_VALUE",
- *         EmailAddress: "STRING_VALUE",
- *       },
- *       Participants: { // Participants
- *         Users: [ // UserMetadataList
- *           {
- *             Id: "STRING_VALUE",
- *             Username: "STRING_VALUE",
- *             GivenName: "STRING_VALUE",
- *             Surname: "STRING_VALUE",
- *             EmailAddress: "STRING_VALUE",
- *           },
- *         ],
- *         Groups: [ // GroupMetadataList
- *           { // GroupMetadata
- *             Id: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *       ResourceMetadata: { // ResourceMetadata
- *         Type: "FOLDER" || "DOCUMENT",
- *         Name: "STRING_VALUE",
- *         OriginalName: "STRING_VALUE",
- *         Id: "STRING_VALUE",
- *         VersionId: "STRING_VALUE",
- *         Owner: "<UserMetadata>",
- *         ParentId: "STRING_VALUE",
- *       },
- *       OriginalParent: {
- *         Type: "FOLDER" || "DOCUMENT",
- *         Name: "STRING_VALUE",
- *         OriginalName: "STRING_VALUE",
- *         Id: "STRING_VALUE",
- *         VersionId: "STRING_VALUE",
- *         Owner: "<UserMetadata>",
- *         ParentId: "STRING_VALUE",
- *       },
- *       CommentMetadata: { // CommentMetadata
- *         CommentId: "STRING_VALUE",
- *         Contributor: { // User
- *           Id: "STRING_VALUE",
- *           Username: "STRING_VALUE",
- *           EmailAddress: "STRING_VALUE",
- *           GivenName: "STRING_VALUE",
- *           Surname: "STRING_VALUE",
- *           OrganizationId: "STRING_VALUE",
- *           RootFolderId: "STRING_VALUE",
- *           RecycleBinFolderId: "STRING_VALUE",
- *           Status: "ACTIVE" || "INACTIVE" || "PENDING",
- *           Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
- *           CreatedTimestamp: new Date("TIMESTAMP"),
- *           ModifiedTimestamp: new Date("TIMESTAMP"),
- *           TimeZoneId: "STRING_VALUE",
- *           Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
- *           Storage: { // UserStorageMetadata
- *             StorageUtilizedInBytes: Number("long"),
- *             StorageRule: { // StorageRuleType
- *               StorageAllocatedInBytes: Number("long"),
- *               StorageType: "UNLIMITED" || "QUOTA",
- *             },
- *           },
- *         },
- *         CreatedTimestamp: new Date("TIMESTAMP"),
- *         CommentStatus: "DRAFT" || "PUBLISHED" || "DELETED",
- *         RecipientId: "STRING_VALUE",
- *         ContributorId: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeActivitiesResponse
+ * //   UserActivities: [ // UserActivities
+ * //     { // Activity
+ * //       Type: "DOCUMENT_CHECKED_IN" || "DOCUMENT_CHECKED_OUT" || "DOCUMENT_RENAMED" || "DOCUMENT_VERSION_UPLOADED" || "DOCUMENT_VERSION_DELETED" || "DOCUMENT_VERSION_VIEWED" || "DOCUMENT_VERSION_DOWNLOADED" || "DOCUMENT_RECYCLED" || "DOCUMENT_RESTORED" || "DOCUMENT_REVERTED" || "DOCUMENT_SHARED" || "DOCUMENT_UNSHARED" || "DOCUMENT_SHARE_PERMISSION_CHANGED" || "DOCUMENT_SHAREABLE_LINK_CREATED" || "DOCUMENT_SHAREABLE_LINK_REMOVED" || "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED" || "DOCUMENT_MOVED" || "DOCUMENT_COMMENT_ADDED" || "DOCUMENT_COMMENT_DELETED" || "DOCUMENT_ANNOTATION_ADDED" || "DOCUMENT_ANNOTATION_DELETED" || "FOLDER_CREATED" || "FOLDER_DELETED" || "FOLDER_RENAMED" || "FOLDER_RECYCLED" || "FOLDER_RESTORED" || "FOLDER_SHARED" || "FOLDER_UNSHARED" || "FOLDER_SHARE_PERMISSION_CHANGED" || "FOLDER_SHAREABLE_LINK_CREATED" || "FOLDER_SHAREABLE_LINK_REMOVED" || "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED" || "FOLDER_MOVED",
+ * //       TimeStamp: new Date("TIMESTAMP"),
+ * //       IsIndirectActivity: true || false,
+ * //       OrganizationId: "STRING_VALUE",
+ * //       Initiator: { // UserMetadata
+ * //         Id: "STRING_VALUE",
+ * //         Username: "STRING_VALUE",
+ * //         GivenName: "STRING_VALUE",
+ * //         Surname: "STRING_VALUE",
+ * //         EmailAddress: "STRING_VALUE",
+ * //       },
+ * //       Participants: { // Participants
+ * //         Users: [ // UserMetadataList
+ * //           {
+ * //             Id: "STRING_VALUE",
+ * //             Username: "STRING_VALUE",
+ * //             GivenName: "STRING_VALUE",
+ * //             Surname: "STRING_VALUE",
+ * //             EmailAddress: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         Groups: [ // GroupMetadataList
+ * //           { // GroupMetadata
+ * //             Id: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       ResourceMetadata: { // ResourceMetadata
+ * //         Type: "FOLDER" || "DOCUMENT",
+ * //         Name: "STRING_VALUE",
+ * //         OriginalName: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //         VersionId: "STRING_VALUE",
+ * //         Owner: "<UserMetadata>",
+ * //         ParentId: "STRING_VALUE",
+ * //       },
+ * //       OriginalParent: {
+ * //         Type: "FOLDER" || "DOCUMENT",
+ * //         Name: "STRING_VALUE",
+ * //         OriginalName: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //         VersionId: "STRING_VALUE",
+ * //         Owner: "<UserMetadata>",
+ * //         ParentId: "STRING_VALUE",
+ * //       },
+ * //       CommentMetadata: { // CommentMetadata
+ * //         CommentId: "STRING_VALUE",
+ * //         Contributor: { // User
+ * //           Id: "STRING_VALUE",
+ * //           Username: "STRING_VALUE",
+ * //           EmailAddress: "STRING_VALUE",
+ * //           GivenName: "STRING_VALUE",
+ * //           Surname: "STRING_VALUE",
+ * //           OrganizationId: "STRING_VALUE",
+ * //           RootFolderId: "STRING_VALUE",
+ * //           RecycleBinFolderId: "STRING_VALUE",
+ * //           Status: "ACTIVE" || "INACTIVE" || "PENDING",
+ * //           Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
+ * //           CreatedTimestamp: new Date("TIMESTAMP"),
+ * //           ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //           TimeZoneId: "STRING_VALUE",
+ * //           Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
+ * //           Storage: { // UserStorageMetadata
+ * //             StorageUtilizedInBytes: Number("long"),
+ * //             StorageRule: { // StorageRuleType
+ * //               StorageAllocatedInBytes: Number("long"),
+ * //               StorageType: "UNLIMITED" || "QUOTA",
+ * //             },
+ * //           },
+ * //         },
+ * //         CreatedTimestamp: new Date("TIMESTAMP"),
+ * //         CommentStatus: "DRAFT" || "PUBLISHED" || "DELETED",
+ * //         RecipientId: "STRING_VALUE",
+ * //         ContributorId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

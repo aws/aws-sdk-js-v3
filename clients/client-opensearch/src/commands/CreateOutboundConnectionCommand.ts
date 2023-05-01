@@ -61,33 +61,32 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * };
  * const command = new CreateOutboundConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOutboundConnectionResponse
- *   LocalDomainInfo: { // DomainInformationContainer
- *     AWSDomainInformation: { // AWSDomainInformation
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *   },
- *   RemoteDomainInfo: {
- *     AWSDomainInformation: {
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *   },
- *   ConnectionAlias: "STRING_VALUE",
- *   ConnectionStatus: { // OutboundConnectionStatus
- *     StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
- *     Message: "STRING_VALUE",
- *   },
- *   ConnectionId: "STRING_VALUE",
- *   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
- *   ConnectionProperties: { // ConnectionProperties
- *     Endpoint: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateOutboundConnectionResponse
+ * //   LocalDomainInfo: { // DomainInformationContainer
+ * //     AWSDomainInformation: { // AWSDomainInformation
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   RemoteDomainInfo: {
+ * //     AWSDomainInformation: {
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ConnectionAlias: "STRING_VALUE",
+ * //   ConnectionStatus: { // OutboundConnectionStatus
+ * //     StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   ConnectionId: "STRING_VALUE",
+ * //   ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * //   ConnectionProperties: { // ConnectionProperties
+ * //     Endpoint: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

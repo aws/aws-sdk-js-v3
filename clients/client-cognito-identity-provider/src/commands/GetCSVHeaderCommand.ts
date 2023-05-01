@@ -50,13 +50,12 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * };
  * const command = new GetCSVHeaderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCSVHeaderResponse
- *   UserPoolId: "STRING_VALUE",
- *   CSVHeader: [ // ListOfStringTypes
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetCSVHeaderResponse
+ * //   UserPoolId: "STRING_VALUE",
+ * //   CSVHeader: [ // ListOfStringTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

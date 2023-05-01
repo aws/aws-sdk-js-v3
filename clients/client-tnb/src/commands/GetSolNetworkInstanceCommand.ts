@@ -49,26 +49,25 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * };
  * const command = new GetSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolNetworkInstanceOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsInstanceName: "STRING_VALUE", // required
- *   nsInstanceDescription: "STRING_VALUE", // required
- *   nsdId: "STRING_VALUE", // required
- *   nsdInfoId: "STRING_VALUE", // required
- *   nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "IMPAIRED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS",
- *   lcmOpInfo: { // LcmOperationInfo
- *     nsLcmOpOccId: "STRING_VALUE", // required
- *   },
- *   metadata: { // GetSolNetworkInstanceMetadata
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModified: new Date("TIMESTAMP"), // required
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSolNetworkInstanceOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsInstanceName: "STRING_VALUE", // required
+ * //   nsInstanceDescription: "STRING_VALUE", // required
+ * //   nsdId: "STRING_VALUE", // required
+ * //   nsdInfoId: "STRING_VALUE", // required
+ * //   nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "IMPAIRED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS",
+ * //   lcmOpInfo: { // LcmOperationInfo
+ * //     nsLcmOpOccId: "STRING_VALUE", // required
+ * //   },
+ * //   metadata: { // GetSolNetworkInstanceMetadata
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

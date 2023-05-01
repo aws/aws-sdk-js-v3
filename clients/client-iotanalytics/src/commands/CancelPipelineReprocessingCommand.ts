@@ -45,8 +45,7 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * };
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

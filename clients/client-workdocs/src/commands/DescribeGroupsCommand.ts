@@ -53,16 +53,15 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * };
  * const command = new DescribeGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGroupsResponse
- *   Groups: [ // GroupMetadataList
- *     { // GroupMetadata
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeGroupsResponse
+ * //   Groups: [ // GroupMetadataList
+ * //     { // GroupMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

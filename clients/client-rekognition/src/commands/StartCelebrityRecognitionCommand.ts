@@ -66,10 +66,9 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  * };
  * const command = new StartCelebrityRecognitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartCelebrityRecognitionResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartCelebrityRecognitionResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

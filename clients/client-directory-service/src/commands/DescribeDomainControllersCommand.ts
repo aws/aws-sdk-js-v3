@@ -49,24 +49,23 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * };
  * const command = new DescribeDomainControllersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDomainControllersResult
- *   DomainControllers: [ // DomainControllers
- *     { // DomainController
- *       DirectoryId: "STRING_VALUE",
- *       DomainControllerId: "STRING_VALUE",
- *       DnsIpAddr: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed",
- *       StatusReason: "STRING_VALUE",
- *       LaunchTime: new Date("TIMESTAMP"),
- *       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDomainControllersResult
+ * //   DomainControllers: [ // DomainControllers
+ * //     { // DomainController
+ * //       DirectoryId: "STRING_VALUE",
+ * //       DomainControllerId: "STRING_VALUE",
+ * //       DnsIpAddr: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed",
+ * //       StatusReason: "STRING_VALUE",
+ * //       LaunchTime: new Date("TIMESTAMP"),
+ * //       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeactivateEventSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,20 +48,19 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
  * };
  * const command = new ListWorkloadSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkloadSharesOutput
- *   WorkloadId: "STRING_VALUE",
- *   WorkloadShareSummaries: [ // WorkloadShareSummaries
- *     { // WorkloadShareSummary
- *       ShareId: "STRING_VALUE",
- *       SharedWith: "STRING_VALUE",
- *       PermissionType: "READONLY" || "CONTRIBUTOR",
- *       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkloadSharesOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadShareSummaries: [ // WorkloadShareSummaries
+ * //     { // WorkloadShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

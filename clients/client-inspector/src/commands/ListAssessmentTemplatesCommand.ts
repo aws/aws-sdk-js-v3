@@ -59,13 +59,12 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentTemplatesResponse
- *   assessmentTemplateArns: [ // ListReturnedArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentTemplatesResponse
+ * //   assessmentTemplateArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

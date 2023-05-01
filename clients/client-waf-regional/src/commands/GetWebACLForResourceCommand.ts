@@ -52,13 +52,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * };
  * const command = new GetWebACLForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWebACLForResourceResponse
- *   WebACLSummary: { // WebACLSummary
- *     WebACLId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetWebACLForResourceResponse
+ * //   WebACLSummary: { // WebACLSummary
+ * //     WebACLId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,21 +49,20 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * };
  * const command = new UpdateAdmChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAdmChannelResponse
- *   ADMChannelResponse: { // ADMChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // UpdateAdmChannelResponse
+ * //   ADMChannelResponse: { // ADMChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

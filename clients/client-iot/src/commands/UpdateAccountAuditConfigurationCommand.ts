@@ -64,8 +64,7 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * };
  * const command = new UpdateAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

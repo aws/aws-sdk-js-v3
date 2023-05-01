@@ -55,24 +55,23 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * };
  * const command = new ListPipesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipesResponse
- *   Pipes: [ // PipeList
- *     { // Pipe
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       DesiredState: "STRING_VALUE",
- *       CurrentState: "STRING_VALUE",
- *       StateReason: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       Source: "STRING_VALUE",
- *       Target: "STRING_VALUE",
- *       Enrichment: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPipesResponse
+ * //   Pipes: [ // PipeList
+ * //     { // Pipe
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       DesiredState: "STRING_VALUE",
+ * //       CurrentState: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       Source: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       Enrichment: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,10 +51,9 @@ export interface StartOnDemandReplicationRunCommandOutput
  * };
  * const command = new StartOnDemandReplicationRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartOnDemandReplicationRunResponse
- *   replicationRunId: "STRING_VALUE",
- * };
+ * // { // StartOnDemandReplicationRunResponse
+ * //   replicationRunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

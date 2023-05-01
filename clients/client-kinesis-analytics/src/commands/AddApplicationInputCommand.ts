@@ -103,8 +103,7 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * };
  * const command = new AddApplicationInputCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

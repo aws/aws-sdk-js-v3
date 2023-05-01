@@ -50,21 +50,20 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchemasResponse
- *   Schemas: [ // SchemaListDefinition
- *     { // SchemaListItem
- *       RegistryName: "STRING_VALUE",
- *       SchemaName: "STRING_VALUE",
- *       SchemaArn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       SchemaStatus: "AVAILABLE" || "PENDING" || "DELETING",
- *       CreatedTime: "STRING_VALUE",
- *       UpdatedTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSchemasResponse
+ * //   Schemas: [ // SchemaListDefinition
+ * //     { // SchemaListItem
+ * //       RegistryName: "STRING_VALUE",
+ * //       SchemaName: "STRING_VALUE",
+ * //       SchemaArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       SchemaStatus: "AVAILABLE" || "PENDING" || "DELETING",
+ * //       CreatedTime: "STRING_VALUE",
+ * //       UpdatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

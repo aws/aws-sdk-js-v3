@@ -55,18 +55,17 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
  * };
  * const command = new DescribeEffectiveInstanceAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEffectiveInstanceAssociationsResult
- *   Associations: [ // InstanceAssociationList
- *     { // InstanceAssociation
- *       AssociationId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       Content: "STRING_VALUE",
- *       AssociationVersion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEffectiveInstanceAssociationsResult
+ * //   Associations: [ // InstanceAssociationList
+ * //     { // InstanceAssociation
+ * //       AssociationId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Content: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

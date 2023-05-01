@@ -60,18 +60,17 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  * };
  * const command = new SearchSkillGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchSkillGroupsResponse
- *   SkillGroups: [ // SkillGroupDataList
- *     { // SkillGroupData
- *       SkillGroupArn: "STRING_VALUE",
- *       SkillGroupName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchSkillGroupsResponse
+ * //   SkillGroups: [ // SkillGroupDataList
+ * //     { // SkillGroupData
+ * //       SkillGroupArn: "STRING_VALUE",
+ * //       SkillGroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

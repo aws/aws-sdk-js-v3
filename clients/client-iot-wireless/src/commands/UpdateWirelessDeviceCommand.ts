@@ -72,8 +72,7 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * };
  * const command = new UpdateWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * };
  * const command = new UpdateExpirationForHITCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

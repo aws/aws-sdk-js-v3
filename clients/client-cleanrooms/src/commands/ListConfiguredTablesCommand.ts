@@ -45,23 +45,22 @@ export interface ListConfiguredTablesCommandOutput extends ListConfiguredTablesO
  * };
  * const command = new ListConfiguredTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfiguredTablesOutput
- *   configuredTableSummaries: [ // ConfiguredTableSummaryList // required
- *     { // ConfiguredTableSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       createTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
- *         "AGGREGATION" || "LIST",
- *       ],
- *       analysisMethod: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListConfiguredTablesOutput
+ * //   configuredTableSummaries: [ // ConfiguredTableSummaryList // required
+ * //     { // ConfiguredTableSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
+ * //         "AGGREGATION" || "LIST",
+ * //       ],
+ * //       analysisMethod: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

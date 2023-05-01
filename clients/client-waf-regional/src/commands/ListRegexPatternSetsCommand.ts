@@ -53,16 +53,15 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRegexPatternSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   RegexPatternSets: [ // RegexPatternSetSummaries
- *     { // RegexPatternSetSummary
- *       RegexPatternSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRegexPatternSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RegexPatternSets: [ // RegexPatternSetSummaries
+ * //     { // RegexPatternSetSummary
+ * //       RegexPatternSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

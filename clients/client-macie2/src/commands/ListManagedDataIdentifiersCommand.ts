@@ -44,16 +44,15 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  * };
  * const command = new ListManagedDataIdentifiersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedDataIdentifiersResponse
- *   items: [ // __listOfManagedDataIdentifierSummary
- *     { // ManagedDataIdentifierSummary
- *       category: "FINANCIAL_INFORMATION" || "PERSONAL_INFORMATION" || "CREDENTIALS" || "CUSTOM_IDENTIFIER",
- *       id: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedDataIdentifiersResponse
+ * //   items: [ // __listOfManagedDataIdentifierSummary
+ * //     { // ManagedDataIdentifierSummary
+ * //       category: "FINANCIAL_INFORMATION" || "PERSONAL_INFORMATION" || "CREDENTIALS" || "CUSTOM_IDENTIFIER",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

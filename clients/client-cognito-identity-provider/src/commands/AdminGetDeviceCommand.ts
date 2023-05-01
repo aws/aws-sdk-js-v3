@@ -57,21 +57,20 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * };
  * const command = new AdminGetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AdminGetDeviceResponse
- *   Device: { // DeviceType
- *     DeviceKey: "STRING_VALUE",
- *     DeviceAttributes: [ // AttributeListType
- *       { // AttributeType
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     DeviceCreateDate: new Date("TIMESTAMP"),
- *     DeviceLastModifiedDate: new Date("TIMESTAMP"),
- *     DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // AdminGetDeviceResponse
+ * //   Device: { // DeviceType
+ * //     DeviceKey: "STRING_VALUE",
+ * //     DeviceAttributes: [ // AttributeListType
+ * //       { // AttributeType
+ * //         Name: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DeviceCreateDate: new Date("TIMESTAMP"),
+ * //     DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

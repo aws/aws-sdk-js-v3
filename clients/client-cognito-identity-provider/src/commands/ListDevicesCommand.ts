@@ -56,24 +56,23 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicesResponse
- *   Devices: [ // DeviceListType
- *     { // DeviceType
- *       DeviceKey: "STRING_VALUE",
- *       DeviceAttributes: [ // AttributeListType
- *         { // AttributeType
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       DeviceCreateDate: new Date("TIMESTAMP"),
- *       DeviceLastModifiedDate: new Date("TIMESTAMP"),
- *       DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   PaginationToken: "STRING_VALUE",
- * };
+ * // { // ListDevicesResponse
+ * //   Devices: [ // DeviceListType
+ * //     { // DeviceType
+ * //       DeviceKey: "STRING_VALUE",
+ * //       DeviceAttributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DeviceCreateDate: new Date("TIMESTAMP"),
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //       DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

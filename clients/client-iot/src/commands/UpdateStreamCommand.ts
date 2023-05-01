@@ -57,13 +57,12 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * };
  * const command = new UpdateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStreamResponse
- *   streamId: "STRING_VALUE",
- *   streamArn: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   streamVersion: Number("int"),
- * };
+ * // { // UpdateStreamResponse
+ * //   streamId: "STRING_VALUE",
+ * //   streamArn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   streamVersion: Number("int"),
+ * // };
  *
  * ```
  *

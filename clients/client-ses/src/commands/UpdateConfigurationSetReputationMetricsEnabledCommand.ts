@@ -53,8 +53,7 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * };
  * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

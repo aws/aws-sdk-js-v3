@@ -49,8 +49,7 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * };
  * const command = new CancelSchemaExtensionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

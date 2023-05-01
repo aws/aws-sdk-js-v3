@@ -46,19 +46,18 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  * };
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventTrackerResponse
- *   eventTracker: { // EventTracker
- *     name: "STRING_VALUE",
- *     eventTrackerArn: "STRING_VALUE",
- *     accountId: "STRING_VALUE",
- *     trackingId: "STRING_VALUE",
- *     datasetGroupArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeEventTrackerResponse
+ * //   eventTracker: { // EventTracker
+ * //     name: "STRING_VALUE",
+ * //     eventTrackerArn: "STRING_VALUE",
+ * //     accountId: "STRING_VALUE",
+ * //     trackingId: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

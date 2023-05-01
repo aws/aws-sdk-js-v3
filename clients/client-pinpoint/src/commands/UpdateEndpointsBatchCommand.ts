@@ -91,13 +91,12 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  * };
  * const command = new UpdateEndpointsBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEndpointsBatchResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateEndpointsBatchResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

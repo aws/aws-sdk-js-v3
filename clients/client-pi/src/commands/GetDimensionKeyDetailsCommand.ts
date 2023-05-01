@@ -53,16 +53,15 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * };
  * const command = new GetDimensionKeyDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDimensionKeyDetailsResponse
- *   Dimensions: [ // DimensionKeyDetailList
- *     { // DimensionKeyDetail
- *       Value: "STRING_VALUE",
- *       Dimension: "STRING_VALUE",
- *       Status: "AVAILABLE" || "PROCESSING" || "UNAVAILABLE",
- *     },
- *   ],
- * };
+ * // { // GetDimensionKeyDetailsResponse
+ * //   Dimensions: [ // DimensionKeyDetailList
+ * //     { // DimensionKeyDetail
+ * //       Value: "STRING_VALUE",
+ * //       Dimension: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "PROCESSING" || "UNAVAILABLE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

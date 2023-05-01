@@ -74,15 +74,14 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketTaggingOutput
- *   TagSet: [ // TagSet // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetBucketTaggingOutput
+ * //   TagSet: [ // TagSet // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

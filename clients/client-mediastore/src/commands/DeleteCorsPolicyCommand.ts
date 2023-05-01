@@ -48,8 +48,7 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * };
  * const command = new DeleteCorsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

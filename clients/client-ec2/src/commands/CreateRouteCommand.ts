@@ -79,10 +79,9 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRouteResult
- *   Return: true || false,
- * };
+ * // { // CreateRouteResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

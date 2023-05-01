@@ -51,20 +51,19 @@ export interface ListResourceProfileDetectionsCommandOutput
  * };
  * const command = new ListResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceProfileDetectionsResponse
- *   detections: [ // __listOfDetection
- *     { // Detection
- *       arn: "STRING_VALUE",
- *       count: Number("long"),
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       suppressed: true || false,
- *       type: "CUSTOM" || "MANAGED",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceProfileDetectionsResponse
+ * //   detections: [ // __listOfDetection
+ * //     { // Detection
+ * //       arn: "STRING_VALUE",
+ * //       count: Number("long"),
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       suppressed: true || false,
+ * //       type: "CUSTOM" || "MANAGED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

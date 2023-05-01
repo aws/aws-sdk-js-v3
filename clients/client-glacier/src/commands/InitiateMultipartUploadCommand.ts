@@ -80,11 +80,10 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * };
  * const command = new InitiateMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InitiateMultipartUploadOutput
- *   location: "STRING_VALUE",
- *   uploadId: "STRING_VALUE",
- * };
+ * // { // InitiateMultipartUploadOutput
+ * //   location: "STRING_VALUE",
+ * //   uploadId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

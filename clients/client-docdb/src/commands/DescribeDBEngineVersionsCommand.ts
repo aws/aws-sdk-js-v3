@@ -59,32 +59,31 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBEngineVersionMessage
- *   Marker: "STRING_VALUE",
- *   DBEngineVersions: [ // DBEngineVersionList
- *     { // DBEngineVersion
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       DBParameterGroupFamily: "STRING_VALUE",
- *       DBEngineDescription: "STRING_VALUE",
- *       DBEngineVersionDescription: "STRING_VALUE",
- *       ValidUpgradeTarget: [ // ValidUpgradeTargetList
- *         { // UpgradeTarget
- *           Engine: "STRING_VALUE",
- *           EngineVersion: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           AutoUpgrade: true || false,
- *           IsMajorVersionUpgrade: true || false,
- *         },
- *       ],
- *       ExportableLogTypes: [ // LogTypeList
- *         "STRING_VALUE",
- *       ],
- *       SupportsLogExportsToCloudwatchLogs: true || false,
- *     },
- *   ],
- * };
+ * // { // DBEngineVersionMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBEngineVersions: [ // DBEngineVersionList
+ * //     { // DBEngineVersion
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       DBParameterGroupFamily: "STRING_VALUE",
+ * //       DBEngineDescription: "STRING_VALUE",
+ * //       DBEngineVersionDescription: "STRING_VALUE",
+ * //       ValidUpgradeTarget: [ // ValidUpgradeTargetList
+ * //         { // UpgradeTarget
+ * //           Engine: "STRING_VALUE",
+ * //           EngineVersion: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           AutoUpgrade: true || false,
+ * //           IsMajorVersionUpgrade: true || false,
+ * //         },
+ * //       ],
+ * //       ExportableLogTypes: [ // LogTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsLogExportsToCloudwatchLogs: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

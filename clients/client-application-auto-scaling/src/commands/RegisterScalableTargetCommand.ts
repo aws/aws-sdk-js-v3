@@ -92,10 +92,9 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * };
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterScalableTargetResponse
- *   ScalableTargetARN: "STRING_VALUE",
- * };
+ * // { // RegisterScalableTargetResponse
+ * //   ScalableTargetARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

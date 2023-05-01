@@ -72,19 +72,18 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMultipartUploadsOutput
- *   UploadsList: [ // UploadsList
- *     { // UploadListElement
- *       MultipartUploadId: "STRING_VALUE",
- *       VaultARN: "STRING_VALUE",
- *       ArchiveDescription: "STRING_VALUE",
- *       PartSizeInBytes: Number("long"),
- *       CreationDate: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListMultipartUploadsOutput
+ * //   UploadsList: [ // UploadsList
+ * //     { // UploadListElement
+ * //       MultipartUploadId: "STRING_VALUE",
+ * //       VaultARN: "STRING_VALUE",
+ * //       ArchiveDescription: "STRING_VALUE",
+ * //       PartSizeInBytes: Number("long"),
+ * //       CreationDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

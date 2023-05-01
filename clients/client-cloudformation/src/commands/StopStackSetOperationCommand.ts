@@ -48,8 +48,7 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * };
  * const command = new StopStackSetOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -118,24 +118,23 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * };
  * const command = new GetUsageForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUsageForecastResponse
- *   Total: { // MetricValue
- *     Amount: "STRING_VALUE",
- *     Unit: "STRING_VALUE",
- *   },
- *   ForecastResultsByTime: [ // ForecastResultsByTime
- *     { // ForecastResult
- *       TimePeriod: { // DateInterval
- *         Start: "STRING_VALUE", // required
- *         End: "STRING_VALUE", // required
- *       },
- *       MeanValue: "STRING_VALUE",
- *       PredictionIntervalLowerBound: "STRING_VALUE",
- *       PredictionIntervalUpperBound: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetUsageForecastResponse
+ * //   Total: { // MetricValue
+ * //     Amount: "STRING_VALUE",
+ * //     Unit: "STRING_VALUE",
+ * //   },
+ * //   ForecastResultsByTime: [ // ForecastResultsByTime
+ * //     { // ForecastResult
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       MeanValue: "STRING_VALUE",
+ * //       PredictionIntervalLowerBound: "STRING_VALUE",
+ * //       PredictionIntervalUpperBound: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

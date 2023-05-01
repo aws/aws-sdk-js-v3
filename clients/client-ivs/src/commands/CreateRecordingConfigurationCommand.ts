@@ -73,27 +73,26 @@ export interface CreateRecordingConfigurationCommandOutput
  * };
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRecordingConfigurationResponse
- *   recordingConfiguration: { // RecordingConfiguration
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE",
- *     destinationConfiguration: { // DestinationConfiguration
- *       s3: { // S3DestinationConfiguration
- *         bucketName: "STRING_VALUE", // required
- *       },
- *     },
- *     state: "STRING_VALUE", // required
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     thumbnailConfiguration: { // ThumbnailConfiguration
- *       recordingMode: "STRING_VALUE",
- *       targetIntervalSeconds: Number("long"),
- *     },
- *     recordingReconnectWindowSeconds: Number("int"),
- *   },
- * };
+ * // { // CreateRecordingConfigurationResponse
+ * //   recordingConfiguration: { // RecordingConfiguration
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     destinationConfiguration: { // DestinationConfiguration
+ * //       s3: { // S3DestinationConfiguration
+ * //         bucketName: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     state: "STRING_VALUE", // required
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     thumbnailConfiguration: { // ThumbnailConfiguration
+ * //       recordingMode: "STRING_VALUE",
+ * //       targetIntervalSeconds: Number("long"),
+ * //     },
+ * //     recordingReconnectWindowSeconds: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

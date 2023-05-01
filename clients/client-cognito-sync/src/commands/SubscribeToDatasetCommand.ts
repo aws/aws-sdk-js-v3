@@ -90,8 +90,7 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * };
  * const command = new SubscribeToDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

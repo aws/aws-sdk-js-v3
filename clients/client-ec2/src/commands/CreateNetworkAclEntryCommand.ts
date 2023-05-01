@@ -66,8 +66,7 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

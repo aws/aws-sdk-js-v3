@@ -54,8 +54,7 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

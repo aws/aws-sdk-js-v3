@@ -44,26 +44,25 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * };
  * const command = new DescribeInputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInputResponse
- *   input: { // Input
- *     inputConfiguration: { // InputConfiguration
- *       inputName: "STRING_VALUE", // required
- *       inputDescription: "STRING_VALUE",
- *       inputArn: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       lastUpdateTime: new Date("TIMESTAMP"), // required
- *       status: "STRING_VALUE", // required
- *     },
- *     inputDefinition: { // InputDefinition
- *       attributes: [ // Attributes // required
- *         { // Attribute
- *           jsonPath: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // DescribeInputResponse
+ * //   input: { // Input
+ * //     inputConfiguration: { // InputConfiguration
+ * //       inputName: "STRING_VALUE", // required
+ * //       inputDescription: "STRING_VALUE",
+ * //       inputArn: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastUpdateTime: new Date("TIMESTAMP"), // required
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //     inputDefinition: { // InputDefinition
+ * //       attributes: [ // Attributes // required
+ * //         { // Attribute
+ * //           jsonPath: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

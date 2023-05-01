@@ -48,25 +48,24 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * };
  * const command = new GetResourceCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceCollectionResponse
- *   ResourceCollection: { // ResourceCollectionFilter
- *     CloudFormation: { // CloudFormationCollectionFilter
- *       StackNames: [ // StackNames
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Tags: [ // TagCollectionFilters
- *       { // TagCollectionFilter
- *         AppBoundaryKey: "STRING_VALUE", // required
- *         TagValues: [ // TagValues // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetResourceCollectionResponse
+ * //   ResourceCollection: { // ResourceCollectionFilter
+ * //     CloudFormation: { // CloudFormationCollectionFilter
+ * //       StackNames: [ // StackNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagCollectionFilters
+ * //       { // TagCollectionFilter
+ * //         AppBoundaryKey: "STRING_VALUE", // required
+ * //         TagValues: [ // TagValues // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

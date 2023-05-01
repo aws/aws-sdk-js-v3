@@ -65,8 +65,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

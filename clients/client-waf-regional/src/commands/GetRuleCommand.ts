@@ -52,21 +52,20 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRuleResponse
- *   Rule: { // Rule
- *     RuleId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     MetricName: "STRING_VALUE",
- *     Predicates: [ // Predicates // required
- *       { // Predicate
- *         Negated: true || false, // required
- *         Type: "STRING_VALUE", // required
- *         DataId: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetRuleResponse
+ * //   Rule: { // Rule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     Predicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

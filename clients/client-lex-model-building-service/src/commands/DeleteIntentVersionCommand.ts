@@ -52,8 +52,7 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIntentVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

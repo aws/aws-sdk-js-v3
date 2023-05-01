@@ -44,66 +44,65 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * };
  * const command = new DescribeAttackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAttackResponse
- *   Attack: { // AttackDetail
- *     AttackId: "STRING_VALUE",
- *     ResourceArn: "STRING_VALUE",
- *     SubResources: [ // SubResourceSummaryList
- *       { // SubResourceSummary
- *         Type: "STRING_VALUE",
- *         Id: "STRING_VALUE",
- *         AttackVectors: [ // SummarizedAttackVectorList
- *           { // SummarizedAttackVector
- *             VectorType: "STRING_VALUE", // required
- *             VectorCounters: [ // SummarizedCounterList
- *               { // SummarizedCounter
- *                 Name: "STRING_VALUE",
- *                 Max: Number("double"),
- *                 Average: Number("double"),
- *                 Sum: Number("double"),
- *                 N: Number("int"),
- *                 Unit: "STRING_VALUE",
- *               },
- *             ],
- *           },
- *         ],
- *         Counters: [
- *           {
- *             Name: "STRING_VALUE",
- *             Max: Number("double"),
- *             Average: Number("double"),
- *             Sum: Number("double"),
- *             N: Number("int"),
- *             Unit: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     AttackCounters: "<SummarizedCounterList>",
- *     AttackProperties: [ // AttackProperties
- *       { // AttackProperty
- *         AttackLayer: "STRING_VALUE",
- *         AttackPropertyIdentifier: "STRING_VALUE",
- *         TopContributors: [ // TopContributors
- *           { // Contributor
- *             Name: "STRING_VALUE",
- *             Value: Number("long"),
- *           },
- *         ],
- *         Unit: "STRING_VALUE",
- *         Total: Number("long"),
- *       },
- *     ],
- *     Mitigations: [ // MitigationList
- *       { // Mitigation
- *         MitigationName: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeAttackResponse
+ * //   Attack: { // AttackDetail
+ * //     AttackId: "STRING_VALUE",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     SubResources: [ // SubResourceSummaryList
+ * //       { // SubResourceSummary
+ * //         Type: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //         AttackVectors: [ // SummarizedAttackVectorList
+ * //           { // SummarizedAttackVector
+ * //             VectorType: "STRING_VALUE", // required
+ * //             VectorCounters: [ // SummarizedCounterList
+ * //               { // SummarizedCounter
+ * //                 Name: "STRING_VALUE",
+ * //                 Max: Number("double"),
+ * //                 Average: Number("double"),
+ * //                 Sum: Number("double"),
+ * //                 N: Number("int"),
+ * //                 Unit: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         Counters: [
+ * //           {
+ * //             Name: "STRING_VALUE",
+ * //             Max: Number("double"),
+ * //             Average: Number("double"),
+ * //             Sum: Number("double"),
+ * //             N: Number("int"),
+ * //             Unit: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     AttackCounters: "<SummarizedCounterList>",
+ * //     AttackProperties: [ // AttackProperties
+ * //       { // AttackProperty
+ * //         AttackLayer: "STRING_VALUE",
+ * //         AttackPropertyIdentifier: "STRING_VALUE",
+ * //         TopContributors: [ // TopContributors
+ * //           { // Contributor
+ * //             Name: "STRING_VALUE",
+ * //             Value: Number("long"),
+ * //           },
+ * //         ],
+ * //         Unit: "STRING_VALUE",
+ * //         Total: Number("long"),
+ * //       },
+ * //     ],
+ * //     Mitigations: [ // MitigationList
+ * //       { // Mitigation
+ * //         MitigationName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

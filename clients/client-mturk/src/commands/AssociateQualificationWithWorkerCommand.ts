@@ -72,8 +72,7 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * };
  * const command = new AssociateQualificationWithWorkerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,20 +46,19 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIPSetResponse
- *   IPSet: { // IPSet
- *     Name: "STRING_VALUE", // required
- *     Id: "STRING_VALUE", // required
- *     ARN: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     IPAddressVersion: "IPV4" || "IPV6", // required
- *     Addresses: [ // IPAddresses // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   LockToken: "STRING_VALUE",
- * };
+ * // { // GetIPSetResponse
+ * //   IPSet: { // IPSet
+ * //     Name: "STRING_VALUE", // required
+ * //     Id: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     IPAddressVersion: "IPV4" || "IPV6", // required
+ * //     Addresses: [ // IPAddresses // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   LockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

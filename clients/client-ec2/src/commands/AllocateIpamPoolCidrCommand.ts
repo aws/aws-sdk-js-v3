@@ -56,18 +56,17 @@ export interface AllocateIpamPoolCidrCommandOutput extends AllocateIpamPoolCidrR
  * };
  * const command = new AllocateIpamPoolCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AllocateIpamPoolCidrResult
- *   IpamPoolAllocation: { // IpamPoolAllocation
- *     Cidr: "STRING_VALUE",
- *     IpamPoolAllocationId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom",
- *     ResourceRegion: "STRING_VALUE",
- *     ResourceOwner: "STRING_VALUE",
- *   },
- * };
+ * // { // AllocateIpamPoolCidrResult
+ * //   IpamPoolAllocation: { // IpamPoolAllocation
+ * //     Cidr: "STRING_VALUE",
+ * //     IpamPoolAllocationId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom",
+ * //     ResourceRegion: "STRING_VALUE",
+ * //     ResourceOwner: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

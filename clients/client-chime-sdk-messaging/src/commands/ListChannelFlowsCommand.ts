@@ -55,29 +55,28 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * };
  * const command = new ListChannelFlowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelFlowsResponse
- *   ChannelFlows: [ // ChannelFlowSummaryList
- *     { // ChannelFlowSummary
- *       ChannelFlowArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Processors: [ // ProcessorList
- *         { // Processor
- *           Name: "STRING_VALUE", // required
- *           Configuration: { // ProcessorConfiguration
- *             Lambda: { // LambdaConfiguration
- *               ResourceArn: "STRING_VALUE", // required
- *               InvocationType: "ASYNC", // required
- *             },
- *           },
- *           ExecutionOrder: Number("int"), // required
- *           FallbackAction: "CONTINUE" || "ABORT", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelFlowsResponse
+ * //   ChannelFlows: [ // ChannelFlowSummaryList
+ * //     { // ChannelFlowSummary
+ * //       ChannelFlowArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Processors: [ // ProcessorList
+ * //         { // Processor
+ * //           Name: "STRING_VALUE", // required
+ * //           Configuration: { // ProcessorConfiguration
+ * //             Lambda: { // LambdaConfiguration
+ * //               ResourceArn: "STRING_VALUE", // required
+ * //               InvocationType: "ASYNC", // required
+ * //             },
+ * //           },
+ * //           ExecutionOrder: Number("int"), // required
+ * //           FallbackAction: "CONTINUE" || "ABORT", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

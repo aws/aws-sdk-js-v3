@@ -53,8 +53,7 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

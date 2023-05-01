@@ -54,32 +54,31 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * };
  * const command = new DescribeEvaluationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEvaluationsOutput
- *   Results: [ // Evaluations
- *     { // Evaluation
- *       EvaluationId: "STRING_VALUE",
- *       MLModelId: "STRING_VALUE",
- *       EvaluationDataSourceId: "STRING_VALUE",
- *       InputDataLocationS3: "STRING_VALUE",
- *       CreatedByIamUser: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       LastUpdatedAt: new Date("TIMESTAMP"),
- *       Name: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       PerformanceMetrics: { // PerformanceMetrics
- *         Properties: { // PerformanceMetricsProperties
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       Message: "STRING_VALUE",
- *       ComputeTime: Number("long"),
- *       FinishedAt: new Date("TIMESTAMP"),
- *       StartedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEvaluationsOutput
+ * //   Results: [ // Evaluations
+ * //     { // Evaluation
+ * //       EvaluationId: "STRING_VALUE",
+ * //       MLModelId: "STRING_VALUE",
+ * //       EvaluationDataSourceId: "STRING_VALUE",
+ * //       InputDataLocationS3: "STRING_VALUE",
+ * //       CreatedByIamUser: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       PerformanceMetrics: { // PerformanceMetrics
+ * //         Properties: { // PerformanceMetricsProperties
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Message: "STRING_VALUE",
+ * //       ComputeTime: Number("long"),
+ * //       FinishedAt: new Date("TIMESTAMP"),
+ * //       StartedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

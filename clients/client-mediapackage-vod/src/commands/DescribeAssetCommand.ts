@@ -44,26 +44,25 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * };
  * const command = new DescribeAssetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAssetResponse
- *   Arn: "STRING_VALUE",
- *   CreatedAt: "STRING_VALUE",
- *   EgressEndpoints: [ // __listOfEgressEndpoint
- *     { // EgressEndpoint
- *       PackagingConfigurationId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Url: "STRING_VALUE",
- *     },
- *   ],
- *   Id: "STRING_VALUE",
- *   PackagingGroupId: "STRING_VALUE",
- *   ResourceId: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   SourceRoleArn: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeAssetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreatedAt: "STRING_VALUE",
+ * //   EgressEndpoints: [ // __listOfEgressEndpoint
+ * //     { // EgressEndpoint
+ * //       PackagingConfigurationId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Id: "STRING_VALUE",
+ * //   PackagingGroupId: "STRING_VALUE",
+ * //   ResourceId: "STRING_VALUE",
+ * //   SourceArn: "STRING_VALUE",
+ * //   SourceRoleArn: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

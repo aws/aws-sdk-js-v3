@@ -52,12 +52,11 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * };
  * const command = new SetDefaultSenderIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetDefaultSenderIdResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   SenderId: "STRING_VALUE",
- * };
+ * // { // SetDefaultSenderIdResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   SenderId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

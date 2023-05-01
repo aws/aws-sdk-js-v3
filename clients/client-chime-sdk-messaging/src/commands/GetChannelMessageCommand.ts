@@ -60,38 +60,37 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * };
  * const command = new GetChannelMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelMessageResponse
- *   ChannelMessage: { // ChannelMessage
- *     ChannelArn: "STRING_VALUE",
- *     MessageId: "STRING_VALUE",
- *     Content: "STRING_VALUE",
- *     Metadata: "STRING_VALUE",
- *     Type: "STANDARD" || "CONTROL",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastEditedTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     Sender: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     Redacted: true || false,
- *     Persistence: "PERSISTENT" || "NON_PERSISTENT",
- *     Status: { // ChannelMessageStatusStructure
- *       Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
- *       Detail: "STRING_VALUE",
- *     },
- *     MessageAttributes: { // MessageAttributeMap
- *       "<keys>": { // MessageAttributeValue
- *         StringValues: [ // MessageAttributeStringValues
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *     SubChannelId: "STRING_VALUE",
- *     ContentType: "STRING_VALUE",
- *   },
- * };
+ * // { // GetChannelMessageResponse
+ * //   ChannelMessage: { // ChannelMessage
+ * //     ChannelArn: "STRING_VALUE",
+ * //     MessageId: "STRING_VALUE",
+ * //     Content: "STRING_VALUE",
+ * //     Metadata: "STRING_VALUE",
+ * //     Type: "STANDARD" || "CONTROL",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastEditedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     Sender: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Redacted: true || false,
+ * //     Persistence: "PERSISTENT" || "NON_PERSISTENT",
+ * //     Status: { // ChannelMessageStatusStructure
+ * //       Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
+ * //       Detail: "STRING_VALUE",
+ * //     },
+ * //     MessageAttributes: { // MessageAttributeMap
+ * //       "<keys>": { // MessageAttributeValue
+ * //         StringValues: [ // MessageAttributeStringValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     SubChannelId: "STRING_VALUE",
+ * //     ContentType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

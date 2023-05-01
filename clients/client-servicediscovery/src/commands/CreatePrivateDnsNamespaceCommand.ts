@@ -67,10 +67,9 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * };
  * const command = new CreatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePrivateDnsNamespaceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // CreatePrivateDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * };
  * const command = new DeleteTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrialComponentResponse
- *   TrialComponentArn: "STRING_VALUE",
- * };
+ * // { // DeleteTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

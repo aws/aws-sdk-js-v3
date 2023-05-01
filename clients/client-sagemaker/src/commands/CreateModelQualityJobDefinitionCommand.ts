@@ -151,10 +151,9 @@ export interface CreateModelQualityJobDefinitionCommandOutput
  * };
  * const command = new CreateModelQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelQualityJobDefinitionResponse
- *   JobDefinitionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelQualityJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

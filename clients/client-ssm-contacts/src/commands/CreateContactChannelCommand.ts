@@ -51,10 +51,9 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * };
  * const command = new CreateContactChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContactChannelResult
- *   ContactChannelArn: "STRING_VALUE", // required
- * };
+ * // { // CreateContactChannelResult
+ * //   ContactChannelArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

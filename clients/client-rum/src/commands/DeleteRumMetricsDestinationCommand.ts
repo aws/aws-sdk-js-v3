@@ -52,8 +52,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * };
  * const command = new DeleteRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

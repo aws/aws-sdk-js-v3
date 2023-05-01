@@ -53,18 +53,17 @@ export interface ListModelBiasJobDefinitionsCommandOutput
  * };
  * const command = new ListModelBiasJobDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelBiasJobDefinitionsResponse
- *   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
- *     { // MonitoringJobDefinitionSummary
- *       MonitoringJobDefinitionName: "STRING_VALUE", // required
- *       MonitoringJobDefinitionArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       EndpointName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelBiasJobDefinitionsResponse
+ * //   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
+ * //     { // MonitoringJobDefinitionSummary
+ * //       MonitoringJobDefinitionName: "STRING_VALUE", // required
+ * //       MonitoringJobDefinitionArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       EndpointName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

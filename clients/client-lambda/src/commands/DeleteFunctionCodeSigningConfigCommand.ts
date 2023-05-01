@@ -47,8 +47,7 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  * };
  * const command = new DeleteFunctionCodeSigningConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

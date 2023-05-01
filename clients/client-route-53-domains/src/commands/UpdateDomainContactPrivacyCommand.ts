@@ -69,10 +69,9 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * };
  * const command = new UpdateDomainContactPrivacyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainContactPrivacyResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateDomainContactPrivacyResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,12 +45,11 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * };
  * const command = new GetBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBackupVaultAccessPolicyOutput
- *   BackupVaultName: "STRING_VALUE",
- *   BackupVaultArn: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetBackupVaultAccessPolicyOutput
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

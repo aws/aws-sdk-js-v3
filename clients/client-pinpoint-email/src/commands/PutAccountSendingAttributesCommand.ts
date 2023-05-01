@@ -49,8 +49,7 @@ export interface PutAccountSendingAttributesCommandOutput
  * };
  * const command = new PutAccountSendingAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

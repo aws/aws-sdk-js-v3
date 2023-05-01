@@ -47,8 +47,7 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * };
  * const command = new AssociateDeviceWithRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

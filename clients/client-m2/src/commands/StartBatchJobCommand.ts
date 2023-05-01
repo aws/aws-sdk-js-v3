@@ -57,10 +57,9 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartBatchJobResponse
- *   executionId: "STRING_VALUE", // required
- * };
+ * // { // StartBatchJobResponse
+ * //   executionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

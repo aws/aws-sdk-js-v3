@@ -46,19 +46,18 @@ export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConn
  * };
  * const command = new ListClientVpcConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClientVpcConnectionsResponse
- *   ClientVpcConnections: [ // __listOfClientVpcConnection
- *     { // ClientVpcConnection
- *       Authentication: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
- *       VpcConnectionArn: "STRING_VALUE", // required
- *       Owner: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListClientVpcConnectionsResponse
+ * //   ClientVpcConnections: [ // __listOfClientVpcConnection
+ * //     { // ClientVpcConnection
+ * //       Authentication: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ * //       VpcConnectionArn: "STRING_VALUE", // required
+ * //       Owner: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

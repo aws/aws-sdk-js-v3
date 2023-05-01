@@ -66,8 +66,7 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * };
  * const command = new ConfirmForgotPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

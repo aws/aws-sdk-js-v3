@@ -45,21 +45,20 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * };
  * const command = new ListMeshesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMeshesOutput
- *   meshes: [ // MeshList // required
- *     { // MeshRef
- *       meshName: "STRING_VALUE", // required
- *       meshOwner: "STRING_VALUE", // required
- *       resourceOwner: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       version: Number("long"), // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMeshesOutput
+ * //   meshes: [ // MeshList // required
+ * //     { // MeshRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

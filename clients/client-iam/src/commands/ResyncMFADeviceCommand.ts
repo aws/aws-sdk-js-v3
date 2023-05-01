@@ -50,8 +50,7 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResyncMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

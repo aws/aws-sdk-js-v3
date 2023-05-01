@@ -51,20 +51,19 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotebookExecutionsOutput
- *   NotebookExecutions: [ // NotebookExecutionSummaryList
- *     { // NotebookExecutionSummary
- *       NotebookExecutionId: "STRING_VALUE",
- *       EditorId: "STRING_VALUE",
- *       NotebookExecutionName: "STRING_VALUE",
- *       Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListNotebookExecutionsOutput
+ * //   NotebookExecutions: [ // NotebookExecutionSummaryList
+ * //     { // NotebookExecutionSummary
+ * //       NotebookExecutionId: "STRING_VALUE",
+ * //       EditorId: "STRING_VALUE",
+ * //       NotebookExecutionName: "STRING_VALUE",
+ * //       Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * };
  * const command = new RejectVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RejectVpcPeeringConnectionResult
- *   Return: true || false,
- * };
+ * // { // RejectVpcPeeringConnectionResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

@@ -46,11 +46,10 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  * };
  * const command = new SetDefaultAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetDefaultAuthorizerResponse
- *   authorizerName: "STRING_VALUE",
- *   authorizerArn: "STRING_VALUE",
- * };
+ * // { // SetDefaultAuthorizerResponse
+ * //   authorizerName: "STRING_VALUE",
+ * //   authorizerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

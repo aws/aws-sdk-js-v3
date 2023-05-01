@@ -53,21 +53,20 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * };
  * const command = new DescribeFolderResolvedPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFolderResolvedPermissionsResponse
- *   Status: Number("int"),
- *   FolderId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeFolderResolvedPermissionsResponse
+ * //   Status: Number("int"),
+ * //   FolderId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,11 +50,10 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * };
  * const command = new UpdateVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVehicleResponse
- *   vehicleName: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // UpdateVehicleResponse
+ * //   vehicleName: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * };
  * const command = new AssociateSkillWithUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

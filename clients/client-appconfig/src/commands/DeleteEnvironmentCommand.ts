@@ -46,8 +46,7 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,26 +48,25 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * };
  * const command = new GetCorsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCorsPolicyOutput
- *   CorsPolicy: [ // CorsPolicy // required
- *     { // CorsRule
- *       AllowedOrigins: [ // AllowedOrigins // required
- *         "STRING_VALUE",
- *       ],
- *       AllowedMethods: [ // AllowedMethods
- *         "STRING_VALUE",
- *       ],
- *       AllowedHeaders: [ // AllowedHeaders // required
- *         "STRING_VALUE",
- *       ],
- *       MaxAgeSeconds: Number("int"),
- *       ExposeHeaders: [ // ExposeHeaders
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetCorsPolicyOutput
+ * //   CorsPolicy: [ // CorsPolicy // required
+ * //     { // CorsRule
+ * //       AllowedOrigins: [ // AllowedOrigins // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedMethods: [ // AllowedMethods
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedHeaders: [ // AllowedHeaders // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MaxAgeSeconds: Number("int"),
+ * //       ExposeHeaders: [ // ExposeHeaders
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

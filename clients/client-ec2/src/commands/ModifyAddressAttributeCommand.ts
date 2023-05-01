@@ -46,19 +46,18 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  * };
  * const command = new ModifyAddressAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyAddressAttributeResult
- *   Address: { // AddressAttribute
- *     PublicIp: "STRING_VALUE",
- *     AllocationId: "STRING_VALUE",
- *     PtrRecord: "STRING_VALUE",
- *     PtrRecordUpdate: { // PtrUpdateStatus
- *       Value: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // ModifyAddressAttributeResult
+ * //   Address: { // AddressAttribute
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     PtrRecord: "STRING_VALUE",
+ * //     PtrRecordUpdate: { // PtrUpdateStatus
+ * //       Value: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

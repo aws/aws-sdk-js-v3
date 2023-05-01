@@ -62,20 +62,19 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * };
  * const command = new RequestUploadCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestUploadCredentialsOutput
- *   UploadCredentials: { // AwsCredentials
- *     AccessKeyId: "STRING_VALUE",
- *     SecretAccessKey: "STRING_VALUE",
- *     SessionToken: "STRING_VALUE",
- *   },
- *   StorageLocation: { // S3Location
- *     Bucket: "STRING_VALUE",
- *     Key: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     ObjectVersion: "STRING_VALUE",
- *   },
- * };
+ * // { // RequestUploadCredentialsOutput
+ * //   UploadCredentials: { // AwsCredentials
+ * //     AccessKeyId: "STRING_VALUE",
+ * //     SecretAccessKey: "STRING_VALUE",
+ * //     SessionToken: "STRING_VALUE",
+ * //   },
+ * //   StorageLocation: { // S3Location
+ * //     Bucket: "STRING_VALUE",
+ * //     Key: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     ObjectVersion: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

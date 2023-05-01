@@ -54,8 +54,7 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * };
  * const command = new CreateBatchImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

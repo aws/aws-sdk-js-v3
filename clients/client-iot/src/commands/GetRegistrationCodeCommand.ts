@@ -43,10 +43,9 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * const input = {};
  * const command = new GetRegistrationCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegistrationCodeResponse
- *   registrationCode: "STRING_VALUE",
- * };
+ * // { // GetRegistrationCodeResponse
+ * //   registrationCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

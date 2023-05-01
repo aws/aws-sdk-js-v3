@@ -46,8 +46,7 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  * };
  * const command = new DeleteResolverCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

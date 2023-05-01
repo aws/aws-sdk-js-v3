@@ -51,12 +51,11 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  * };
  * const command = new RegisterSchemaVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterSchemaVersionResponse
- *   SchemaVersionId: "STRING_VALUE",
- *   VersionNumber: Number("long"),
- *   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
- * };
+ * // { // RegisterSchemaVersionResponse
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   VersionNumber: Number("long"),
+ * //   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * // };
  *
  * ```
  *

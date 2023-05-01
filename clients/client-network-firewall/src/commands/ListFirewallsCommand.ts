@@ -51,16 +51,15 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * };
  * const command = new ListFirewallsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFirewallsResponse
- *   NextToken: "STRING_VALUE",
- *   Firewalls: [ // Firewalls
- *     { // FirewallMetadata
- *       FirewallName: "STRING_VALUE",
- *       FirewallArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFirewallsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Firewalls: [ // Firewalls
+ * //     { // FirewallMetadata
+ * //       FirewallName: "STRING_VALUE",
+ * //       FirewallArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -53,13 +53,12 @@ export interface UpdateTemplateActiveVersionCommandOutput
  * };
  * const command = new UpdateTemplateActiveVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTemplateActiveVersionResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateTemplateActiveVersionResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

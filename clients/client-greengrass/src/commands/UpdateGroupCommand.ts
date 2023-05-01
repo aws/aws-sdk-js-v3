@@ -45,8 +45,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

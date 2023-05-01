@@ -44,8 +44,7 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  * };
  * const command = new ForgetSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

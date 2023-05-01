@@ -55,23 +55,22 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * };
  * const command = new DescribeInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceAccessControlAttributeConfigurationResponse
- *   Status: "ENABLED" || "CREATION_IN_PROGRESS" || "CREATION_FAILED",
- *   StatusReason: "STRING_VALUE",
- *   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
- *     AccessControlAttributes: [ // AccessControlAttributeList // required
- *       { // AccessControlAttribute
- *         Key: "STRING_VALUE", // required
- *         Value: { // AccessControlAttributeValue
- *           Source: [ // AccessControlAttributeValueSourceList // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeInstanceAccessControlAttributeConfigurationResponse
+ * //   Status: "ENABLED" || "CREATION_IN_PROGRESS" || "CREATION_FAILED",
+ * //   StatusReason: "STRING_VALUE",
+ * //   InstanceAccessControlAttributeConfiguration: { // InstanceAccessControlAttributeConfiguration
+ * //     AccessControlAttributes: [ // AccessControlAttributeList // required
+ * //       { // AccessControlAttribute
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: { // AccessControlAttributeValue
+ * //           Source: [ // AccessControlAttributeValueSourceList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

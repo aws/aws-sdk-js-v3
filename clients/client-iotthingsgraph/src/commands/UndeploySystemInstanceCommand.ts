@@ -46,20 +46,19 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * };
  * const command = new UndeploySystemInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UndeploySystemInstanceResponse
- *   summary: { // SystemInstanceSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     target: "STRING_VALUE",
- *     greengrassGroupName: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *     greengrassGroupId: "STRING_VALUE",
- *     greengrassGroupVersionId: "STRING_VALUE",
- *   },
- * };
+ * // { // UndeploySystemInstanceResponse
+ * //   summary: { // SystemInstanceSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     target: "STRING_VALUE",
+ * //     greengrassGroupName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     greengrassGroupId: "STRING_VALUE",
+ * //     greengrassGroupVersionId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,26 +46,25 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * };
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountResponse
- *   Account: { // Account
- *     AwsAccountId: "STRING_VALUE", // required
- *     AccountId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     AccountType: "Team" || "EnterpriseDirectory" || "EnterpriseLWA" || "EnterpriseOIDC",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     DefaultLicense: "Basic" || "Plus" || "Pro" || "ProTrial",
- *     SupportedLicenses: [ // LicenseList
- *       "Basic" || "Plus" || "Pro" || "ProTrial",
- *     ],
- *     AccountStatus: "Suspended" || "Active",
- *     SigninDelegateGroups: [ // SigninDelegateGroupList
- *       { // SigninDelegateGroup
- *         GroupName: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateAccountResponse
+ * //   Account: { // Account
+ * //     AwsAccountId: "STRING_VALUE", // required
+ * //     AccountId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     AccountType: "Team" || "EnterpriseDirectory" || "EnterpriseLWA" || "EnterpriseOIDC",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     DefaultLicense: "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     SupportedLicenses: [ // LicenseList
+ * //       "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     ],
+ * //     AccountStatus: "Suspended" || "Active",
+ * //     SigninDelegateGroups: [ // SigninDelegateGroupList
+ * //       { // SigninDelegateGroup
+ * //         GroupName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

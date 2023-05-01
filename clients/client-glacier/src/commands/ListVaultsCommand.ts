@@ -64,20 +64,19 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * };
  * const command = new ListVaultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVaultsOutput
- *   VaultList: [ // VaultList
- *     { // DescribeVaultOutput
- *       VaultARN: "STRING_VALUE",
- *       VaultName: "STRING_VALUE",
- *       CreationDate: "STRING_VALUE",
- *       LastInventoryDate: "STRING_VALUE",
- *       NumberOfArchives: Number("long"),
- *       SizeInBytes: Number("long"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListVaultsOutput
+ * //   VaultList: [ // VaultList
+ * //     { // DescribeVaultOutput
+ * //       VaultARN: "STRING_VALUE",
+ * //       VaultName: "STRING_VALUE",
+ * //       CreationDate: "STRING_VALUE",
+ * //       LastInventoryDate: "STRING_VALUE",
+ * //       NumberOfArchives: Number("long"),
+ * //       SizeInBytes: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

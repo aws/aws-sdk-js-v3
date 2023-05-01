@@ -54,11 +54,10 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * };
  * const command = new ConfigureLogsForPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigureLogsForPlaybackConfigurationResponse
- *   PercentEnabled: Number("int"), // required
- *   PlaybackConfigurationName: "STRING_VALUE",
- * };
+ * // { // ConfigureLogsForPlaybackConfigurationResponse
+ * //   PercentEnabled: Number("int"), // required
+ * //   PlaybackConfigurationName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,12 +51,11 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * };
  * const command = new DisableKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // KinesisStreamingDestinationOutput
- *   TableName: "STRING_VALUE",
- *   StreamArn: "STRING_VALUE",
- *   DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
- * };
+ * // { // KinesisStreamingDestinationOutput
+ * //   TableName: "STRING_VALUE",
+ * //   StreamArn: "STRING_VALUE",
+ * //   DestinationStatus: "ENABLING" || "ACTIVE" || "DISABLING" || "DISABLED" || "ENABLE_FAILED",
+ * // };
  *
  * ```
  *

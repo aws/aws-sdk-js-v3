@@ -47,8 +47,7 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * };
  * const command = new UpdateGatewayGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,44 +49,43 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  * };
  * const command = new ListResourceSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceSetsResponse
- *   NextToken: "STRING_VALUE",
- *   ResourceSets: [ // __listOfResourceSetOutput
- *     { // ResourceSetOutput
- *       ResourceSetArn: "STRING_VALUE", // required
- *       ResourceSetName: "STRING_VALUE", // required
- *       ResourceSetType: "STRING_VALUE", // required
- *       Resources: [ // __listOfResource // required
- *         { // Resource
- *           ComponentId: "STRING_VALUE",
- *           DnsTargetResource: { // DNSTargetResource
- *             DomainName: "STRING_VALUE",
- *             HostedZoneArn: "STRING_VALUE",
- *             RecordSetId: "STRING_VALUE",
- *             RecordType: "STRING_VALUE",
- *             TargetResource: { // TargetResource
- *               NLBResource: { // NLBResource
- *                 Arn: "STRING_VALUE",
- *               },
- *               R53Resource: { // R53ResourceRecord
- *                 DomainName: "STRING_VALUE",
- *                 RecordSetId: "STRING_VALUE",
- *               },
- *             },
- *           },
- *           ReadinessScopes: [ // __listOf__string
- *             "STRING_VALUE",
- *           ],
- *           ResourceArn: "STRING_VALUE",
- *         },
- *       ],
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListResourceSetsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ResourceSets: [ // __listOfResourceSetOutput
+ * //     { // ResourceSetOutput
+ * //       ResourceSetArn: "STRING_VALUE", // required
+ * //       ResourceSetName: "STRING_VALUE", // required
+ * //       ResourceSetType: "STRING_VALUE", // required
+ * //       Resources: [ // __listOfResource // required
+ * //         { // Resource
+ * //           ComponentId: "STRING_VALUE",
+ * //           DnsTargetResource: { // DNSTargetResource
+ * //             DomainName: "STRING_VALUE",
+ * //             HostedZoneArn: "STRING_VALUE",
+ * //             RecordSetId: "STRING_VALUE",
+ * //             RecordType: "STRING_VALUE",
+ * //             TargetResource: { // TargetResource
+ * //               NLBResource: { // NLBResource
+ * //                 Arn: "STRING_VALUE",
+ * //               },
+ * //               R53Resource: { // R53ResourceRecord
+ * //                 DomainName: "STRING_VALUE",
+ * //                 RecordSetId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           },
+ * //           ReadinessScopes: [ // __listOf__string
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ResourceArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

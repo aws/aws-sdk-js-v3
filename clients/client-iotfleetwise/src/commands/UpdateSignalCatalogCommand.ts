@@ -134,11 +134,10 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  * };
  * const command = new UpdateSignalCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSignalCatalogResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // UpdateSignalCatalogResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

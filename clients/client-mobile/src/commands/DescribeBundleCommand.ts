@@ -46,19 +46,18 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * };
  * const command = new DescribeBundleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBundleResult
- *   details: { // BundleDetails
- *     bundleId: "STRING_VALUE",
- *     title: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     iconUrl: "STRING_VALUE",
- *     availablePlatforms: [ // Platforms
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeBundleResult
+ * //   details: { // BundleDetails
+ * //     bundleId: "STRING_VALUE",
+ * //     title: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     iconUrl: "STRING_VALUE",
+ * //     availablePlatforms: [ // Platforms
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * };
  * const command = new DeletePartitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

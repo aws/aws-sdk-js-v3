@@ -70,44 +70,43 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStreamOutput
- *   StreamDescription: { // StreamDescription
- *     StreamName: "STRING_VALUE", // required
- *     StreamARN: "STRING_VALUE", // required
- *     StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
- *     StreamModeDetails: { // StreamModeDetails
- *       StreamMode: "PROVISIONED" || "ON_DEMAND", // required
- *     },
- *     Shards: [ // ShardList // required
- *       { // Shard
- *         ShardId: "STRING_VALUE", // required
- *         ParentShardId: "STRING_VALUE",
- *         AdjacentParentShardId: "STRING_VALUE",
- *         HashKeyRange: { // HashKeyRange
- *           StartingHashKey: "STRING_VALUE", // required
- *           EndingHashKey: "STRING_VALUE", // required
- *         },
- *         SequenceNumberRange: { // SequenceNumberRange
- *           StartingSequenceNumber: "STRING_VALUE", // required
- *           EndingSequenceNumber: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     HasMoreShards: true || false, // required
- *     RetentionPeriodHours: Number("int"), // required
- *     StreamCreationTimestamp: new Date("TIMESTAMP"), // required
- *     EnhancedMonitoring: [ // EnhancedMonitoringList // required
- *       { // EnhancedMetrics
- *         ShardLevelMetrics: [ // MetricsNameList
- *           "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
- *         ],
- *       },
- *     ],
- *     EncryptionType: "NONE" || "KMS",
- *     KeyId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeStreamOutput
+ * //   StreamDescription: { // StreamDescription
+ * //     StreamName: "STRING_VALUE", // required
+ * //     StreamARN: "STRING_VALUE", // required
+ * //     StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
+ * //     StreamModeDetails: { // StreamModeDetails
+ * //       StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ * //     },
+ * //     Shards: [ // ShardList // required
+ * //       { // Shard
+ * //         ShardId: "STRING_VALUE", // required
+ * //         ParentShardId: "STRING_VALUE",
+ * //         AdjacentParentShardId: "STRING_VALUE",
+ * //         HashKeyRange: { // HashKeyRange
+ * //           StartingHashKey: "STRING_VALUE", // required
+ * //           EndingHashKey: "STRING_VALUE", // required
+ * //         },
+ * //         SequenceNumberRange: { // SequenceNumberRange
+ * //           StartingSequenceNumber: "STRING_VALUE", // required
+ * //           EndingSequenceNumber: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     HasMoreShards: true || false, // required
+ * //     RetentionPeriodHours: Number("int"), // required
+ * //     StreamCreationTimestamp: new Date("TIMESTAMP"), // required
+ * //     EnhancedMonitoring: [ // EnhancedMonitoringList // required
+ * //       { // EnhancedMetrics
+ * //         ShardLevelMetrics: [ // MetricsNameList
+ * //           "IncomingBytes" || "IncomingRecords" || "OutgoingBytes" || "OutgoingRecords" || "WriteProvisionedThroughputExceeded" || "ReadProvisionedThroughputExceeded" || "IteratorAgeMilliseconds" || "ALL",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     EncryptionType: "NONE" || "KMS",
+ * //     KeyId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * };
  * const command = new DeleteProductCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

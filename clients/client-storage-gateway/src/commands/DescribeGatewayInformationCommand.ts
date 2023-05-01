@@ -46,43 +46,42 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * };
  * const command = new DescribeGatewayInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGatewayInformationOutput
- *   GatewayARN: "STRING_VALUE",
- *   GatewayId: "STRING_VALUE",
- *   GatewayName: "STRING_VALUE",
- *   GatewayTimezone: "STRING_VALUE",
- *   GatewayState: "STRING_VALUE",
- *   GatewayNetworkInterfaces: [ // GatewayNetworkInterfaces
- *     { // NetworkInterface
- *       Ipv4Address: "STRING_VALUE",
- *       MacAddress: "STRING_VALUE",
- *       Ipv6Address: "STRING_VALUE",
- *     },
- *   ],
- *   GatewayType: "STRING_VALUE",
- *   NextUpdateAvailabilityDate: "STRING_VALUE",
- *   LastSoftwareUpdate: "STRING_VALUE",
- *   Ec2InstanceId: "STRING_VALUE",
- *   Ec2InstanceRegion: "STRING_VALUE",
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   VPCEndpoint: "STRING_VALUE",
- *   CloudWatchLogGroupARN: "STRING_VALUE",
- *   HostEnvironment: "STRING_VALUE",
- *   EndpointType: "STRING_VALUE",
- *   SoftwareUpdatesEndDate: "STRING_VALUE",
- *   DeprecationDate: "STRING_VALUE",
- *   GatewayCapacity: "STRING_VALUE",
- *   SupportedGatewayCapacities: [ // SupportedGatewayCapacities
- *     "STRING_VALUE",
- *   ],
- *   HostEnvironmentId: "STRING_VALUE",
- * };
+ * // { // DescribeGatewayInformationOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   GatewayId: "STRING_VALUE",
+ * //   GatewayName: "STRING_VALUE",
+ * //   GatewayTimezone: "STRING_VALUE",
+ * //   GatewayState: "STRING_VALUE",
+ * //   GatewayNetworkInterfaces: [ // GatewayNetworkInterfaces
+ * //     { // NetworkInterface
+ * //       Ipv4Address: "STRING_VALUE",
+ * //       MacAddress: "STRING_VALUE",
+ * //       Ipv6Address: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   GatewayType: "STRING_VALUE",
+ * //   NextUpdateAvailabilityDate: "STRING_VALUE",
+ * //   LastSoftwareUpdate: "STRING_VALUE",
+ * //   Ec2InstanceId: "STRING_VALUE",
+ * //   Ec2InstanceRegion: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   VPCEndpoint: "STRING_VALUE",
+ * //   CloudWatchLogGroupARN: "STRING_VALUE",
+ * //   HostEnvironment: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   SoftwareUpdatesEndDate: "STRING_VALUE",
+ * //   DeprecationDate: "STRING_VALUE",
+ * //   GatewayCapacity: "STRING_VALUE",
+ * //   SupportedGatewayCapacities: [ // SupportedGatewayCapacities
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HostEnvironmentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

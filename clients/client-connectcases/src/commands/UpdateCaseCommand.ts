@@ -58,8 +58,7 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * };
  * const command = new UpdateCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

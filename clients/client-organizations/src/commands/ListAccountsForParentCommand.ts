@@ -64,21 +64,20 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountsForParentResponse
- *   Accounts: [ // Accounts
- *     { // Account
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- *       JoinedMethod: "INVITED" || "CREATED",
- *       JoinedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountsForParentResponse
+ * //   Accounts: [ // Accounts
+ * //     { // Account
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //       JoinedMethod: "INVITED" || "CREATED",
+ * //       JoinedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

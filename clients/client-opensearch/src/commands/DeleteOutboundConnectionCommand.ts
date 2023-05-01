@@ -46,35 +46,34 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * };
  * const command = new DeleteOutboundConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteOutboundConnectionResponse
- *   Connection: { // OutboundConnection
- *     LocalDomainInfo: { // DomainInformationContainer
- *       AWSDomainInformation: { // AWSDomainInformation
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *     },
- *     RemoteDomainInfo: {
- *       AWSDomainInformation: {
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *     },
- *     ConnectionId: "STRING_VALUE",
- *     ConnectionAlias: "STRING_VALUE",
- *     ConnectionStatus: { // OutboundConnectionStatus
- *       StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
- *       Message: "STRING_VALUE",
- *     },
- *     ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
- *     ConnectionProperties: { // ConnectionProperties
- *       Endpoint: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeleteOutboundConnectionResponse
+ * //   Connection: { // OutboundConnection
+ * //     LocalDomainInfo: { // DomainInformationContainer
+ * //       AWSDomainInformation: { // AWSDomainInformation
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     RemoteDomainInfo: {
+ * //       AWSDomainInformation: {
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ConnectionId: "STRING_VALUE",
+ * //     ConnectionAlias: "STRING_VALUE",
+ * //     ConnectionStatus: { // OutboundConnectionStatus
+ * //       StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * //     ConnectionProperties: { // ConnectionProperties
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

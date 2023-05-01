@@ -53,11 +53,10 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * };
  * const command = new RefreshTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RefreshTokenResponse
- *   accessToken: "STRING_VALUE", // required
- *   expiresIn: Number("int"), // required
- * };
+ * // { // RefreshTokenResponse
+ * //   accessToken: "STRING_VALUE", // required
+ * //   expiresIn: Number("int"), // required
+ * // };
  *
  * ```
  *

@@ -57,10 +57,9 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * };
  * const command = new CreateApplicationInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationInstanceResponse
- *   ApplicationInstanceId: "STRING_VALUE", // required
- * };
+ * // { // CreateApplicationInstanceResponse
+ * //   ApplicationInstanceId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

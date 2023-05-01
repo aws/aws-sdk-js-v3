@@ -51,10 +51,9 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * };
  * const command = new ConfirmPublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfirmPublicVirtualInterfaceResponse
- *   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
- * };
+ * // { // ConfirmPublicVirtualInterfaceResponse
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
  *
  * ```
  *

@@ -51,22 +51,21 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * };
  * const command = new CreatePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePullRequestApprovalRuleOutput
- *   approvalRule: { // ApprovalRule
- *     approvalRuleId: "STRING_VALUE",
- *     approvalRuleName: "STRING_VALUE",
- *     approvalRuleContent: "STRING_VALUE",
- *     ruleContentSha256: "STRING_VALUE",
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedUser: "STRING_VALUE",
- *     originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
- *       approvalRuleTemplateId: "STRING_VALUE",
- *       approvalRuleTemplateName: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreatePullRequestApprovalRuleOutput
+ * //   approvalRule: { // ApprovalRule
+ * //     approvalRuleId: "STRING_VALUE",
+ * //     approvalRuleName: "STRING_VALUE",
+ * //     approvalRuleContent: "STRING_VALUE",
+ * //     ruleContentSha256: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedUser: "STRING_VALUE",
+ * //     originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ * //       approvalRuleTemplateId: "STRING_VALUE",
+ * //       approvalRuleTemplateName: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

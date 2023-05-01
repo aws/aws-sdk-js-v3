@@ -48,29 +48,28 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExportTasksResponse
- *   exportTasks: [ // ExportTasks
- *     { // ExportTask
- *       taskId: "STRING_VALUE",
- *       taskName: "STRING_VALUE",
- *       logGroupName: "STRING_VALUE",
- *       from: Number("long"),
- *       to: Number("long"),
- *       destination: "STRING_VALUE",
- *       destinationPrefix: "STRING_VALUE",
- *       status: { // ExportTaskStatus
- *         code: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
- *         message: "STRING_VALUE",
- *       },
- *       executionInfo: { // ExportTaskExecutionInfo
- *         creationTime: Number("long"),
- *         completionTime: Number("long"),
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeExportTasksResponse
+ * //   exportTasks: [ // ExportTasks
+ * //     { // ExportTask
+ * //       taskId: "STRING_VALUE",
+ * //       taskName: "STRING_VALUE",
+ * //       logGroupName: "STRING_VALUE",
+ * //       from: Number("long"),
+ * //       to: Number("long"),
+ * //       destination: "STRING_VALUE",
+ * //       destinationPrefix: "STRING_VALUE",
+ * //       status: { // ExportTaskStatus
+ * //         code: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //       executionInfo: { // ExportTaskExecutionInfo
+ * //         creationTime: Number("long"),
+ * //         completionTime: Number("long"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

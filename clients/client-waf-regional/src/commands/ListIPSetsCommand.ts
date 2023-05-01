@@ -53,16 +53,15 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIPSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   IPSets: [ // IPSetSummaries
- *     { // IPSetSummary
- *       IPSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListIPSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   IPSets: [ // IPSetSummaries
+ * //     { // IPSetSummary
+ * //       IPSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

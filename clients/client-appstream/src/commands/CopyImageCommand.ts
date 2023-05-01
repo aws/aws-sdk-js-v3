@@ -47,10 +47,9 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyImageResponse
- *   DestinationImageName: "STRING_VALUE",
- * };
+ * // { // CopyImageResponse
+ * //   DestinationImageName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

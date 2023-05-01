@@ -50,8 +50,7 @@ export interface DeleteRemediationConfigurationCommandOutput
  * };
  * const command = new DeleteRemediationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

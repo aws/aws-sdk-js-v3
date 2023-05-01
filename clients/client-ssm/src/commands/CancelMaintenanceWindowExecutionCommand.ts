@@ -51,10 +51,9 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * };
  * const command = new CancelMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelMaintenanceWindowExecutionResult
- *   WindowExecutionId: "STRING_VALUE",
- * };
+ * // { // CancelMaintenanceWindowExecutionResult
+ * //   WindowExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

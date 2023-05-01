@@ -47,18 +47,17 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  * };
  * const command = new ListFolderMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFolderMembersResponse
- *   Status: Number("int"),
- *   FolderMemberList: [ // FolderMemberList
- *     { // MemberIdArnPair
- *       MemberId: "STRING_VALUE",
- *       MemberArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // ListFolderMembersResponse
+ * //   Status: Number("int"),
+ * //   FolderMemberList: [ // FolderMemberList
+ * //     { // MemberIdArnPair
+ * //       MemberId: "STRING_VALUE",
+ * //       MemberArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

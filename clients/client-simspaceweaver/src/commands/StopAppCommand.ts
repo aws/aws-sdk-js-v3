@@ -46,8 +46,7 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * };
  * const command = new StopAppCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,17 +59,16 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * };
  * const command = new StartDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDevEnvironmentSessionResponse
- *   accessDetails: { // DevEnvironmentAccessDetails
- *     streamUrl: "STRING_VALUE", // required
- *     tokenValue: "STRING_VALUE", // required
- *   },
- *   sessionId: "STRING_VALUE",
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- * };
+ * // { // StartDevEnvironmentSessionResponse
+ * //   accessDetails: { // DevEnvironmentAccessDetails
+ * //     streamUrl: "STRING_VALUE", // required
+ * //     tokenValue: "STRING_VALUE", // required
+ * //   },
+ * //   sessionId: "STRING_VALUE",
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

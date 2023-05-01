@@ -53,24 +53,23 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVpcLinkResponse
- *   CreatedDate: new Date("TIMESTAMP"),
- *   Name: "STRING_VALUE",
- *   SecurityGroupIds: [ // SecurityGroupIdList
- *     "STRING_VALUE",
- *   ],
- *   SubnetIds: [ // SubnetIdList
- *     "STRING_VALUE",
- *   ],
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   VpcLinkId: "STRING_VALUE",
- *   VpcLinkStatus: "STRING_VALUE",
- *   VpcLinkStatusMessage: "STRING_VALUE",
- *   VpcLinkVersion: "STRING_VALUE",
- * };
+ * // { // CreateVpcLinkResponse
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   Name: "STRING_VALUE",
+ * //   SecurityGroupIds: [ // SecurityGroupIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SubnetIds: [ // SubnetIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   VpcLinkId: "STRING_VALUE",
+ * //   VpcLinkStatus: "STRING_VALUE",
+ * //   VpcLinkStatusMessage: "STRING_VALUE",
+ * //   VpcLinkVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

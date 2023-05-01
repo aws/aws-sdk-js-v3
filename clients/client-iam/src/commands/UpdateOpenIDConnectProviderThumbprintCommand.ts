@@ -73,8 +73,7 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * };
  * const command = new UpdateOpenIDConnectProviderThumbprintCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

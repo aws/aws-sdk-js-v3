@@ -126,12 +126,11 @@ export interface CreateDistributionConfigurationCommandOutput
  * };
  * const command = new CreateDistributionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDistributionConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   distributionConfigurationArn: "STRING_VALUE",
- * };
+ * // { // CreateDistributionConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   distributionConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

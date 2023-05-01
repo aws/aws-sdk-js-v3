@@ -118,24 +118,23 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * };
  * const command = new GetCostForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCostForecastResponse
- *   Total: { // MetricValue
- *     Amount: "STRING_VALUE",
- *     Unit: "STRING_VALUE",
- *   },
- *   ForecastResultsByTime: [ // ForecastResultsByTime
- *     { // ForecastResult
- *       TimePeriod: { // DateInterval
- *         Start: "STRING_VALUE", // required
- *         End: "STRING_VALUE", // required
- *       },
- *       MeanValue: "STRING_VALUE",
- *       PredictionIntervalLowerBound: "STRING_VALUE",
- *       PredictionIntervalUpperBound: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetCostForecastResponse
+ * //   Total: { // MetricValue
+ * //     Amount: "STRING_VALUE",
+ * //     Unit: "STRING_VALUE",
+ * //   },
+ * //   ForecastResultsByTime: [ // ForecastResultsByTime
+ * //     { // ForecastResult
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       MeanValue: "STRING_VALUE",
+ * //       PredictionIntervalLowerBound: "STRING_VALUE",
+ * //       PredictionIntervalUpperBound: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

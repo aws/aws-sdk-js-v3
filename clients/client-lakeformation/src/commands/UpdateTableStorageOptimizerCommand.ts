@@ -56,10 +56,9 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * };
  * const command = new UpdateTableStorageOptimizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTableStorageOptimizerResponse
- *   Result: "STRING_VALUE",
- * };
+ * // { // UpdateTableStorageOptimizerResponse
+ * //   Result: "STRING_VALUE",
+ * // };
  *
  * ```
  *

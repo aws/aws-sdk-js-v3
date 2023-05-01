@@ -45,8 +45,7 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * };
  * const command = new DeleteAssistantAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

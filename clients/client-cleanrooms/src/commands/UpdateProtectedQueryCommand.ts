@@ -50,42 +50,41 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * };
  * const command = new UpdateProtectedQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProtectedQueryOutput
- *   protectedQuery: { // ProtectedQuery
- *     id: "STRING_VALUE", // required
- *     membershipId: "STRING_VALUE", // required
- *     membershipArn: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     sqlParameters: { // ProtectedQuerySQLParameters
- *       queryString: "STRING_VALUE", // required
- *     },
- *     status: "STRING_VALUE", // required
- *     resultConfiguration: { // ProtectedQueryResultConfiguration
- *       outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
- *         s3: { // ProtectedQueryS3OutputConfiguration
- *           resultFormat: "STRING_VALUE", // required
- *           bucket: "STRING_VALUE", // required
- *           keyPrefix: "STRING_VALUE",
- *         },
- *       },
- *     },
- *     statistics: { // ProtectedQueryStatistics
- *       totalDurationInMillis: Number("long"),
- *     },
- *     result: { // ProtectedQueryResult
- *       output: { // ProtectedQueryOutput Union: only one key present
- *         s3: { // ProtectedQueryS3Output
- *           location: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *     error: { // ProtectedQueryError
- *       message: "STRING_VALUE", // required
- *       code: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // UpdateProtectedQueryOutput
+ * //   protectedQuery: { // ProtectedQuery
+ * //     id: "STRING_VALUE", // required
+ * //     membershipId: "STRING_VALUE", // required
+ * //     membershipArn: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     sqlParameters: { // ProtectedQuerySQLParameters
+ * //       queryString: "STRING_VALUE", // required
+ * //     },
+ * //     status: "STRING_VALUE", // required
+ * //     resultConfiguration: { // ProtectedQueryResultConfiguration
+ * //       outputConfiguration: { // ProtectedQueryOutputConfiguration Union: only one key present
+ * //         s3: { // ProtectedQueryS3OutputConfiguration
+ * //           resultFormat: "STRING_VALUE", // required
+ * //           bucket: "STRING_VALUE", // required
+ * //           keyPrefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     statistics: { // ProtectedQueryStatistics
+ * //       totalDurationInMillis: Number("long"),
+ * //     },
+ * //     result: { // ProtectedQueryResult
+ * //       output: { // ProtectedQueryOutput Union: only one key present
+ * //         s3: { // ProtectedQueryS3Output
+ * //           location: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     error: { // ProtectedQueryError
+ * //       message: "STRING_VALUE", // required
+ * //       code: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

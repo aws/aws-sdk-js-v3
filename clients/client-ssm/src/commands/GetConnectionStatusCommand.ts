@@ -45,11 +45,10 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * };
  * const command = new GetConnectionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectionStatusResponse
- *   Target: "STRING_VALUE",
- *   Status: "Connected" || "NotConnected",
- * };
+ * // { // GetConnectionStatusResponse
+ * //   Target: "STRING_VALUE",
+ * //   Status: "Connected" || "NotConnected",
+ * // };
  *
  * ```
  *

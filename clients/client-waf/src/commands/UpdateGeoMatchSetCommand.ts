@@ -92,10 +92,9 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * };
  * const command = new UpdateGeoMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGeoMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateGeoMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

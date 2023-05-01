@@ -62,8 +62,7 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * };
  * const command = new UpdateImpersonationRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

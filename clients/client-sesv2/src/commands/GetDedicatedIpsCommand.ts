@@ -47,18 +47,17 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * };
  * const command = new GetDedicatedIpsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDedicatedIpsResponse
- *   DedicatedIps: [ // DedicatedIpList
- *     { // DedicatedIp
- *       Ip: "STRING_VALUE", // required
- *       WarmupStatus: "IN_PROGRESS" || "DONE", // required
- *       WarmupPercentage: Number("int"), // required
- *       PoolName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetDedicatedIpsResponse
+ * //   DedicatedIps: [ // DedicatedIpList
+ * //     { // DedicatedIp
+ * //       Ip: "STRING_VALUE", // required
+ * //       WarmupStatus: "IN_PROGRESS" || "DONE", // required
+ * //       WarmupPercentage: Number("int"), // required
+ * //       PoolName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

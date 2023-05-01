@@ -50,16 +50,15 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * };
  * const command = new GetCelebrityInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCelebrityInfoResponse
- *   Urls: [ // Urls
- *     "STRING_VALUE",
- *   ],
- *   Name: "STRING_VALUE",
- *   KnownGender: { // KnownGender
- *     Type: "Male" || "Female" || "Nonbinary" || "Unlisted",
- *   },
- * };
+ * // { // GetCelebrityInfoResponse
+ * //   Urls: [ // Urls
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   KnownGender: { // KnownGender
+ * //     Type: "Male" || "Female" || "Nonbinary" || "Unlisted",
+ * //   },
+ * // };
  *
  * ```
  *

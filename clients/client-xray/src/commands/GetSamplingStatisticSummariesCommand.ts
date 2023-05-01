@@ -49,19 +49,18 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * };
  * const command = new GetSamplingStatisticSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSamplingStatisticSummariesResult
- *   SamplingStatisticSummaries: [ // SamplingStatisticSummaryList
- *     { // SamplingStatisticSummary
- *       RuleName: "STRING_VALUE",
- *       Timestamp: new Date("TIMESTAMP"),
- *       RequestCount: Number("int"),
- *       BorrowCount: Number("int"),
- *       SampledCount: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSamplingStatisticSummariesResult
+ * //   SamplingStatisticSummaries: [ // SamplingStatisticSummaryList
+ * //     { // SamplingStatisticSummary
+ * //       RuleName: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       RequestCount: Number("int"),
+ * //       BorrowCount: Number("int"),
+ * //       SampledCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

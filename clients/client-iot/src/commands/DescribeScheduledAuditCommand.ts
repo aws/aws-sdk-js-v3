@@ -45,17 +45,16 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * };
  * const command = new DescribeScheduledAuditCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScheduledAuditResponse
- *   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
- *   dayOfMonth: "STRING_VALUE",
- *   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
- *   targetCheckNames: [ // TargetAuditCheckNames
- *     "STRING_VALUE",
- *   ],
- *   scheduledAuditName: "STRING_VALUE",
- *   scheduledAuditArn: "STRING_VALUE",
- * };
+ * // { // DescribeScheduledAuditResponse
+ * //   frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
+ * //   dayOfMonth: "STRING_VALUE",
+ * //   dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ * //   targetCheckNames: [ // TargetAuditCheckNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   scheduledAuditName: "STRING_VALUE",
+ * //   scheduledAuditArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,58 +58,57 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * };
  * const command = new CreateRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRouteTableResult
- *   RouteTable: { // RouteTable
- *     Associations: [ // RouteTableAssociationList
- *       { // RouteTableAssociation
- *         Main: true || false,
- *         RouteTableAssociationId: "STRING_VALUE",
- *         RouteTableId: "STRING_VALUE",
- *         SubnetId: "STRING_VALUE",
- *         GatewayId: "STRING_VALUE",
- *         AssociationState: { // RouteTableAssociationState
- *           State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
- *           StatusMessage: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     PropagatingVgws: [ // PropagatingVgwList
- *       { // PropagatingVgw
- *         GatewayId: "STRING_VALUE",
- *       },
- *     ],
- *     RouteTableId: "STRING_VALUE",
- *     Routes: [ // RouteList
- *       { // Route
- *         DestinationCidrBlock: "STRING_VALUE",
- *         DestinationIpv6CidrBlock: "STRING_VALUE",
- *         DestinationPrefixListId: "STRING_VALUE",
- *         EgressOnlyInternetGatewayId: "STRING_VALUE",
- *         GatewayId: "STRING_VALUE",
- *         InstanceId: "STRING_VALUE",
- *         InstanceOwnerId: "STRING_VALUE",
- *         NatGatewayId: "STRING_VALUE",
- *         TransitGatewayId: "STRING_VALUE",
- *         LocalGatewayId: "STRING_VALUE",
- *         CarrierGatewayId: "STRING_VALUE",
- *         NetworkInterfaceId: "STRING_VALUE",
- *         Origin: "CreateRouteTable" || "CreateRoute" || "EnableVgwRoutePropagation",
- *         State: "active" || "blackhole",
- *         VpcPeeringConnectionId: "STRING_VALUE",
- *         CoreNetworkArn: "STRING_VALUE",
- *       },
- *     ],
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     VpcId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRouteTableResult
+ * //   RouteTable: { // RouteTable
+ * //     Associations: [ // RouteTableAssociationList
+ * //       { // RouteTableAssociation
+ * //         Main: true || false,
+ * //         RouteTableAssociationId: "STRING_VALUE",
+ * //         RouteTableId: "STRING_VALUE",
+ * //         SubnetId: "STRING_VALUE",
+ * //         GatewayId: "STRING_VALUE",
+ * //         AssociationState: { // RouteTableAssociationState
+ * //           State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
+ * //           StatusMessage: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     PropagatingVgws: [ // PropagatingVgwList
+ * //       { // PropagatingVgw
+ * //         GatewayId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     RouteTableId: "STRING_VALUE",
+ * //     Routes: [ // RouteList
+ * //       { // Route
+ * //         DestinationCidrBlock: "STRING_VALUE",
+ * //         DestinationIpv6CidrBlock: "STRING_VALUE",
+ * //         DestinationPrefixListId: "STRING_VALUE",
+ * //         EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //         GatewayId: "STRING_VALUE",
+ * //         InstanceId: "STRING_VALUE",
+ * //         InstanceOwnerId: "STRING_VALUE",
+ * //         NatGatewayId: "STRING_VALUE",
+ * //         TransitGatewayId: "STRING_VALUE",
+ * //         LocalGatewayId: "STRING_VALUE",
+ * //         CarrierGatewayId: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         Origin: "CreateRouteTable" || "CreateRoute" || "EnableVgwRoutePropagation",
+ * //         State: "active" || "blackhole",
+ * //         VpcPeeringConnectionId: "STRING_VALUE",
+ * //         CoreNetworkArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     VpcId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

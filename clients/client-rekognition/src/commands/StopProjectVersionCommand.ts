@@ -46,10 +46,9 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * };
  * const command = new StopProjectVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopProjectVersionResponse
- *   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
- * };
+ * // { // StopProjectVersionResponse
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * // };
  *
  * ```
  *

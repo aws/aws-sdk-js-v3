@@ -47,8 +47,7 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SwapEnvironmentCNAMEsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

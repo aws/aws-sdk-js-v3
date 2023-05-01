@@ -56,20 +56,19 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * };
  * const command = new UpdateListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateListenerResponse
- *   Listener: { // Listener
- *     ListenerArn: "STRING_VALUE",
- *     PortRanges: [ // PortRanges
- *       { // PortRange
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *       },
- *     ],
- *     Protocol: "TCP" || "UDP",
- *     ClientAffinity: "NONE" || "SOURCE_IP",
- *   },
- * };
+ * // { // UpdateListenerResponse
+ * //   Listener: { // Listener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     Protocol: "TCP" || "UDP",
+ * //     ClientAffinity: "NONE" || "SOURCE_IP",
+ * //   },
+ * // };
  *
  * ```
  *

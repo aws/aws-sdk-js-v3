@@ -91,10 +91,9 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * };
  * const command = new StartLendingAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartLendingAnalysisResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartLendingAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

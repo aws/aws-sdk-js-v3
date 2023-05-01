@@ -60,8 +60,7 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * };
  * const command = new DisassociatePrincipalFromPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

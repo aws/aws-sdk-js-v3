@@ -50,20 +50,19 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Environment
- *   ApplicationId: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
- *   Monitors: [ // MonitorList
- *     { // Monitor
- *       AlarmArn: "STRING_VALUE", // required
- *       AlarmRoleArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // Environment
+ * //   ApplicationId: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   Monitors: [ // MonitorList
+ * //     { // Monitor
+ * //       AlarmArn: "STRING_VALUE", // required
+ * //       AlarmRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

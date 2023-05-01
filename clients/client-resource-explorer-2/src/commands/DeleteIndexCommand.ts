@@ -59,12 +59,11 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteIndexOutput
- *   Arn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

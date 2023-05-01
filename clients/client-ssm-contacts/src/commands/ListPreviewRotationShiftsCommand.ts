@@ -100,25 +100,24 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  * };
  * const command = new ListPreviewRotationShiftsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPreviewRotationShiftsResult
- *   RotationShifts: [ // RotationShifts
- *     { // RotationShift
- *       ContactIds: [ // SsmContactsArnList
- *         "STRING_VALUE",
- *       ],
- *       StartTime: new Date("TIMESTAMP"), // required
- *       EndTime: new Date("TIMESTAMP"), // required
- *       Type: "REGULAR" || "OVERRIDDEN",
- *       ShiftDetails: { // ShiftDetails
- *         OverriddenContactIds: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPreviewRotationShiftsResult
+ * //   RotationShifts: [ // RotationShifts
+ * //     { // RotationShift
+ * //       ContactIds: [ // SsmContactsArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StartTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"), // required
+ * //       Type: "REGULAR" || "OVERRIDDEN",
+ * //       ShiftDetails: { // ShiftDetails
+ * //         OverriddenContactIds: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

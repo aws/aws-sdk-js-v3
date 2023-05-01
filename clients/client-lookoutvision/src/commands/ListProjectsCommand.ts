@@ -51,17 +51,16 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsResponse
- *   Projects: [ // ProjectMetadataList
- *     { // ProjectMetadata
- *       ProjectArn: "STRING_VALUE",
- *       ProjectName: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectsResponse
+ * //   Projects: [ // ProjectMetadataList
+ * //     { // ProjectMetadata
+ * //       ProjectArn: "STRING_VALUE",
+ * //       ProjectName: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

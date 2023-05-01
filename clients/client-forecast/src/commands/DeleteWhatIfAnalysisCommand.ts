@@ -46,8 +46,7 @@ export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

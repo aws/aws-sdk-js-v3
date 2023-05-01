@@ -79,10 +79,9 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * };
  * const command = new CreateEphemerisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EphemerisIdResponse
- *   ephemerisId: "STRING_VALUE",
- * };
+ * // { // EphemerisIdResponse
+ * //   ephemerisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

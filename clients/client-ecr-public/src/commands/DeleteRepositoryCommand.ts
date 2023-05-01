@@ -48,16 +48,15 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryResponse
- *   repository: { // Repository
- *     repositoryArn: "STRING_VALUE",
- *     registryId: "STRING_VALUE",
- *     repositoryName: "STRING_VALUE",
- *     repositoryUri: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteRepositoryResponse
+ * //   repository: { // Repository
+ * //     repositoryArn: "STRING_VALUE",
+ * //     registryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryUri: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

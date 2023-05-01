@@ -115,11 +115,10 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * };
  * const command = new CreateDecoderManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDecoderManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

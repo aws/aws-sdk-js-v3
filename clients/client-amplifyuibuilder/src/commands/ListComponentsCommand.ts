@@ -48,19 +48,18 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsResponse
- *   entities: [ // ComponentSummaryList // required
- *     { // ComponentSummary
- *       appId: "STRING_VALUE", // required
- *       environmentName: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       componentType: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentsResponse
+ * //   entities: [ // ComponentSummaryList // required
+ * //     { // ComponentSummary
+ * //       appId: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       componentType: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

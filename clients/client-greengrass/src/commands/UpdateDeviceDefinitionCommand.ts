@@ -45,8 +45,7 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * };
  * const command = new UpdateDeviceDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

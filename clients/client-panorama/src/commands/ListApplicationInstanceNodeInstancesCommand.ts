@@ -54,21 +54,20 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  * };
  * const command = new ListApplicationInstanceNodeInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationInstanceNodeInstancesResponse
- *   NodeInstances: [ // NodeInstances
- *     { // NodeInstance
- *       NodeInstanceId: "STRING_VALUE", // required
- *       NodeId: "STRING_VALUE",
- *       PackageName: "STRING_VALUE",
- *       PackageVersion: "STRING_VALUE",
- *       PackagePatchVersion: "STRING_VALUE",
- *       NodeName: "STRING_VALUE",
- *       CurrentStatus: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationInstanceNodeInstancesResponse
+ * //   NodeInstances: [ // NodeInstances
+ * //     { // NodeInstance
+ * //       NodeInstanceId: "STRING_VALUE", // required
+ * //       NodeId: "STRING_VALUE",
+ * //       PackageName: "STRING_VALUE",
+ * //       PackageVersion: "STRING_VALUE",
+ * //       PackagePatchVersion: "STRING_VALUE",
+ * //       NodeName: "STRING_VALUE",
+ * //       CurrentStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

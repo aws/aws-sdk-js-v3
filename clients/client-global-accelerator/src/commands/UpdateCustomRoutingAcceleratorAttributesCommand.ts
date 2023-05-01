@@ -60,14 +60,13 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * };
  * const command = new UpdateCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCustomRoutingAcceleratorAttributesResponse
- *   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
- *     FlowLogsEnabled: true || false,
- *     FlowLogsS3Bucket: "STRING_VALUE",
- *     FlowLogsS3Prefix: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateCustomRoutingAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

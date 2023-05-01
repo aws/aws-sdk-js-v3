@@ -58,8 +58,7 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * };
  * const command = new EnableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

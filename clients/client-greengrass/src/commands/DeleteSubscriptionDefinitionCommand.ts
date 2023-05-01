@@ -49,8 +49,7 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * };
  * const command = new DeleteSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

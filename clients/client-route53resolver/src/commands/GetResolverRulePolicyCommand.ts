@@ -45,10 +45,9 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  * };
  * const command = new GetResolverRulePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverRulePolicyResponse
- *   ResolverRulePolicy: "STRING_VALUE",
- * };
+ * // { // GetResolverRulePolicyResponse
+ * //   ResolverRulePolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

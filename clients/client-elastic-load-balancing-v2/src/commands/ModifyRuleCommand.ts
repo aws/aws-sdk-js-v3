@@ -152,116 +152,115 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * };
  * const command = new ModifyRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyRuleOutput
- *   Rules: [ // Rules
- *     { // Rule
- *       RuleArn: "STRING_VALUE",
- *       Priority: "STRING_VALUE",
- *       Conditions: [ // RuleConditionList
- *         { // RuleCondition
- *           Field: "STRING_VALUE",
- *           Values: [ // ListOfString
- *             "STRING_VALUE",
- *           ],
- *           HostHeaderConfig: { // HostHeaderConditionConfig
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           PathPatternConfig: { // PathPatternConditionConfig
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           HttpHeaderConfig: { // HttpHeaderConditionConfig
- *             HttpHeaderName: "STRING_VALUE",
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           QueryStringConfig: { // QueryStringConditionConfig
- *             Values: [ // QueryStringKeyValuePairList
- *               { // QueryStringKeyValuePair
- *                 Key: "STRING_VALUE",
- *                 Value: "STRING_VALUE",
- *               },
- *             ],
- *           },
- *           HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           SourceIpConfig: { // SourceIpConditionConfig
- *             Values: "<ListOfString>",
- *           },
- *         },
- *       ],
- *       Actions: [ // Actions
- *         { // Action
- *           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
- *           TargetGroupArn: "STRING_VALUE",
- *           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
- *             Issuer: "STRING_VALUE", // required
- *             AuthorizationEndpoint: "STRING_VALUE", // required
- *             TokenEndpoint: "STRING_VALUE", // required
- *             UserInfoEndpoint: "STRING_VALUE", // required
- *             ClientId: "STRING_VALUE", // required
- *             ClientSecret: "STRING_VALUE",
- *             SessionCookieName: "STRING_VALUE",
- *             Scope: "STRING_VALUE",
- *             SessionTimeout: Number("long"),
- *             AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
- *               "<keys>": "STRING_VALUE",
- *             },
- *             OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
- *             UseExistingClientSecret: true || false,
- *           },
- *           AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
- *             UserPoolArn: "STRING_VALUE", // required
- *             UserPoolClientId: "STRING_VALUE", // required
- *             UserPoolDomain: "STRING_VALUE", // required
- *             SessionCookieName: "STRING_VALUE",
- *             Scope: "STRING_VALUE",
- *             SessionTimeout: Number("long"),
- *             AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
- *               "<keys>": "STRING_VALUE",
- *             },
- *             OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
- *           },
- *           Order: Number("int"),
- *           RedirectConfig: { // RedirectActionConfig
- *             Protocol: "STRING_VALUE",
- *             Port: "STRING_VALUE",
- *             Host: "STRING_VALUE",
- *             Path: "STRING_VALUE",
- *             Query: "STRING_VALUE",
- *             StatusCode: "HTTP_301" || "HTTP_302", // required
- *           },
- *           FixedResponseConfig: { // FixedResponseActionConfig
- *             MessageBody: "STRING_VALUE",
- *             StatusCode: "STRING_VALUE", // required
- *             ContentType: "STRING_VALUE",
- *           },
- *           ForwardConfig: { // ForwardActionConfig
- *             TargetGroups: [ // TargetGroupList
- *               { // TargetGroupTuple
- *                 TargetGroupArn: "STRING_VALUE",
- *                 Weight: Number("int"),
- *               },
- *             ],
- *             TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
- *               Enabled: true || false,
- *               DurationSeconds: Number("int"),
- *             },
- *           },
- *         },
- *       ],
- *       IsDefault: true || false,
- *     },
- *   ],
- * };
+ * // { // ModifyRuleOutput
+ * //   Rules: [ // Rules
+ * //     { // Rule
+ * //       RuleArn: "STRING_VALUE",
+ * //       Priority: "STRING_VALUE",
+ * //       Conditions: [ // RuleConditionList
+ * //         { // RuleCondition
+ * //           Field: "STRING_VALUE",
+ * //           Values: [ // ListOfString
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           HostHeaderConfig: { // HostHeaderConditionConfig
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           PathPatternConfig: { // PathPatternConditionConfig
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           HttpHeaderConfig: { // HttpHeaderConditionConfig
+ * //             HttpHeaderName: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           QueryStringConfig: { // QueryStringConditionConfig
+ * //             Values: [ // QueryStringKeyValuePairList
+ * //               { // QueryStringKeyValuePair
+ * //                 Key: "STRING_VALUE",
+ * //                 Value: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           HttpRequestMethodConfig: { // HttpRequestMethodConditionConfig
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           SourceIpConfig: { // SourceIpConditionConfig
+ * //             Values: "<ListOfString>",
+ * //           },
+ * //         },
+ * //       ],
+ * //       Actions: [ // Actions
+ * //         { // Action
+ * //           Type: "forward" || "authenticate-oidc" || "authenticate-cognito" || "redirect" || "fixed-response", // required
+ * //           TargetGroupArn: "STRING_VALUE",
+ * //           AuthenticateOidcConfig: { // AuthenticateOidcActionConfig
+ * //             Issuer: "STRING_VALUE", // required
+ * //             AuthorizationEndpoint: "STRING_VALUE", // required
+ * //             TokenEndpoint: "STRING_VALUE", // required
+ * //             UserInfoEndpoint: "STRING_VALUE", // required
+ * //             ClientId: "STRING_VALUE", // required
+ * //             ClientSecret: "STRING_VALUE",
+ * //             SessionCookieName: "STRING_VALUE",
+ * //             Scope: "STRING_VALUE",
+ * //             SessionTimeout: Number("long"),
+ * //             AuthenticationRequestExtraParams: { // AuthenticateOidcActionAuthenticationRequestExtraParams
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ * //             UseExistingClientSecret: true || false,
+ * //           },
+ * //           AuthenticateCognitoConfig: { // AuthenticateCognitoActionConfig
+ * //             UserPoolArn: "STRING_VALUE", // required
+ * //             UserPoolClientId: "STRING_VALUE", // required
+ * //             UserPoolDomain: "STRING_VALUE", // required
+ * //             SessionCookieName: "STRING_VALUE",
+ * //             Scope: "STRING_VALUE",
+ * //             SessionTimeout: Number("long"),
+ * //             AuthenticationRequestExtraParams: { // AuthenticateCognitoActionAuthenticationRequestExtraParams
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             OnUnauthenticatedRequest: "deny" || "allow" || "authenticate",
+ * //           },
+ * //           Order: Number("int"),
+ * //           RedirectConfig: { // RedirectActionConfig
+ * //             Protocol: "STRING_VALUE",
+ * //             Port: "STRING_VALUE",
+ * //             Host: "STRING_VALUE",
+ * //             Path: "STRING_VALUE",
+ * //             Query: "STRING_VALUE",
+ * //             StatusCode: "HTTP_301" || "HTTP_302", // required
+ * //           },
+ * //           FixedResponseConfig: { // FixedResponseActionConfig
+ * //             MessageBody: "STRING_VALUE",
+ * //             StatusCode: "STRING_VALUE", // required
+ * //             ContentType: "STRING_VALUE",
+ * //           },
+ * //           ForwardConfig: { // ForwardActionConfig
+ * //             TargetGroups: [ // TargetGroupList
+ * //               { // TargetGroupTuple
+ * //                 TargetGroupArn: "STRING_VALUE",
+ * //                 Weight: Number("int"),
+ * //               },
+ * //             ],
+ * //             TargetGroupStickinessConfig: { // TargetGroupStickinessConfig
+ * //               Enabled: true || false,
+ * //               DurationSeconds: Number("int"),
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

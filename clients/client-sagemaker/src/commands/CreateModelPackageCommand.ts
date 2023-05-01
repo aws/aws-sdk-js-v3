@@ -265,10 +265,9 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelPackageOutput
- *   ModelPackageArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelPackageOutput
+ * //   ModelPackageArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -57,19 +57,18 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * };
  * const command = new CreateComputerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateComputerResult
- *   Computer: { // Computer
- *     ComputerId: "STRING_VALUE",
- *     ComputerName: "STRING_VALUE",
- *     ComputerAttributes: [ // Attributes
- *       { // Attribute
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateComputerResult
+ * //   Computer: { // Computer
+ * //     ComputerId: "STRING_VALUE",
+ * //     ComputerName: "STRING_VALUE",
+ * //     ComputerAttributes: [ // Attributes
+ * //       { // Attribute
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

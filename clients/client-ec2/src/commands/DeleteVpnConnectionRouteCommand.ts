@@ -48,8 +48,7 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

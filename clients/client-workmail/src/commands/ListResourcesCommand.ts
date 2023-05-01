@@ -46,21 +46,20 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesResponse
- *   Resources: [ // Resources
- *     { // Resource
- *       Id: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "ROOM" || "EQUIPMENT",
- *       State: "ENABLED" || "DISABLED" || "DELETED",
- *       EnabledDate: new Date("TIMESTAMP"),
- *       DisabledDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesResponse
+ * //   Resources: [ // Resources
+ * //     { // Resource
+ * //       Id: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "ROOM" || "EQUIPMENT",
+ * //       State: "ENABLED" || "DISABLED" || "DELETED",
+ * //       EnabledDate: new Date("TIMESTAMP"),
+ * //       DisabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

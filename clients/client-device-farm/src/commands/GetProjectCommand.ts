@@ -44,24 +44,23 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProjectResult
- *   project: { // Project
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     defaultJobTimeoutMinutes: Number("int"),
- *     created: new Date("TIMESTAMP"),
- *     vpcConfig: { // VpcConfig
- *       securityGroupIds: [ // VpcSecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       subnetIds: [ // VpcSubnetIds // required
- *         "STRING_VALUE",
- *       ],
- *       vpcId: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // GetProjectResult
+ * //   project: { // Project
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     defaultJobTimeoutMinutes: Number("int"),
+ * //     created: new Date("TIMESTAMP"),
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // VpcSubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

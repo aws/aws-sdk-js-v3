@@ -46,8 +46,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLedgerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

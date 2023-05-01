@@ -64,8 +64,7 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * };
  * const command = new UpdateNotificationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

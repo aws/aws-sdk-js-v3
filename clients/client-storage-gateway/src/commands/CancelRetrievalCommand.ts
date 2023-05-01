@@ -47,10 +47,9 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * };
  * const command = new CancelRetrievalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelRetrievalOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // CancelRetrievalOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

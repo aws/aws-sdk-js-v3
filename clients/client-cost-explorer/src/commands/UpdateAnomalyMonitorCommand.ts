@@ -46,10 +46,9 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * };
  * const command = new UpdateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnomalyMonitorResponse
- *   MonitorArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateAnomalyMonitorResponse
+ * //   MonitorArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

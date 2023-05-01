@@ -52,8 +52,7 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * };
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

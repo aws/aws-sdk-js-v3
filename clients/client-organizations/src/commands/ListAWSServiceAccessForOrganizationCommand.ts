@@ -61,16 +61,15 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * };
  * const command = new ListAWSServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAWSServiceAccessForOrganizationResponse
- *   EnabledServicePrincipals: [ // EnabledServicePrincipals
- *     { // EnabledServicePrincipal
- *       ServicePrincipal: "STRING_VALUE",
- *       DateEnabled: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAWSServiceAccessForOrganizationResponse
+ * //   EnabledServicePrincipals: [ // EnabledServicePrincipals
+ * //     { // EnabledServicePrincipal
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       DateEnabled: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

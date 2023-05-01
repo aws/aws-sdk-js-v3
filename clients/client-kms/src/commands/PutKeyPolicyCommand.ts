@@ -59,8 +59,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutKeyPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

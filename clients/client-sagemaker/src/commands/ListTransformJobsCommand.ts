@@ -53,21 +53,20 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * };
  * const command = new ListTransformJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTransformJobsResponse
- *   TransformJobSummaries: [ // TransformJobSummaries // required
- *     { // TransformJobSummary
- *       TransformJobName: "STRING_VALUE", // required
- *       TransformJobArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       TransformEndTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       TransformJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTransformJobsResponse
+ * //   TransformJobSummaries: [ // TransformJobSummaries // required
+ * //     { // TransformJobSummary
+ * //       TransformJobName: "STRING_VALUE", // required
+ * //       TransformJobArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       TransformEndTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       TransformJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

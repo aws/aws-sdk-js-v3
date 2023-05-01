@@ -49,11 +49,10 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * };
  * const command = new GetWirelessGatewayCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayCertificateResponse
- *   IotCertificateId: "STRING_VALUE",
- *   LoRaWANNetworkServerCertificateId: "STRING_VALUE",
- * };
+ * // { // GetWirelessGatewayCertificateResponse
+ * //   IotCertificateId: "STRING_VALUE",
+ * //   LoRaWANNetworkServerCertificateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

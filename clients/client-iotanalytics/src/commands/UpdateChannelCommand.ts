@@ -56,8 +56,7 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

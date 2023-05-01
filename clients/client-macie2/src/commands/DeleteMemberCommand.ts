@@ -44,8 +44,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __Metad
  * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

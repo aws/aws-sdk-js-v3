@@ -61,15 +61,14 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * };
  * const command = new RegisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterInstanceEventNotificationAttributesResult
- *   InstanceTagAttribute: { // InstanceTagNotificationAttribute
- *     InstanceTagKeys: [ // InstanceTagKeySet
- *       "STRING_VALUE",
- *     ],
- *     IncludeAllTagsOfInstance: true || false,
- *   },
- * };
+ * // { // RegisterInstanceEventNotificationAttributesResult
+ * //   InstanceTagAttribute: { // InstanceTagNotificationAttribute
+ * //     InstanceTagKeys: [ // InstanceTagKeySet
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     IncludeAllTagsOfInstance: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

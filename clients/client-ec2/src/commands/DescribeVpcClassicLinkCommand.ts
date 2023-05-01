@@ -58,21 +58,20 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * };
  * const command = new DescribeVpcClassicLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcClassicLinkResult
- *   Vpcs: [ // VpcClassicLinkList
- *     { // VpcClassicLink
- *       ClassicLinkEnabled: true || false,
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       VpcId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeVpcClassicLinkResult
+ * //   Vpcs: [ // VpcClassicLinkList
+ * //     { // VpcClassicLink
+ * //       ClassicLinkEnabled: true || false,
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

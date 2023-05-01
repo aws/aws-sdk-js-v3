@@ -170,11 +170,10 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateComputeEnvironmentResponse
- *   computeEnvironmentName: "STRING_VALUE",
- *   computeEnvironmentArn: "STRING_VALUE",
- * };
+ * // { // CreateComputeEnvironmentResponse
+ * //   computeEnvironmentName: "STRING_VALUE",
+ * //   computeEnvironmentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

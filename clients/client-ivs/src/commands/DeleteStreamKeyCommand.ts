@@ -45,8 +45,7 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStreamKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

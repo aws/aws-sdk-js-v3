@@ -70,46 +70,45 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * };
  * const command = new BatchGetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetAssetPropertyAggregatesResponse
- *   errorEntries: [ // BatchGetAssetPropertyAggregatesErrorEntries // required
- *     { // BatchGetAssetPropertyAggregatesErrorEntry
- *       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *       errorMessage: "STRING_VALUE", // required
- *       entryId: "STRING_VALUE", // required
- *     },
- *   ],
- *   successEntries: [ // BatchGetAssetPropertyAggregatesSuccessEntries // required
- *     { // BatchGetAssetPropertyAggregatesSuccessEntry
- *       entryId: "STRING_VALUE", // required
- *       aggregatedValues: [ // AggregatedValues // required
- *         { // AggregatedValue
- *           timestamp: new Date("TIMESTAMP"), // required
- *           quality: "GOOD" || "BAD" || "UNCERTAIN",
- *           value: { // Aggregates
- *             average: Number("double"),
- *             count: Number("double"),
- *             maximum: Number("double"),
- *             minimum: Number("double"),
- *             sum: Number("double"),
- *             standardDeviation: Number("double"),
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   skippedEntries: [ // BatchGetAssetPropertyAggregatesSkippedEntries // required
- *     { // BatchGetAssetPropertyAggregatesSkippedEntry
- *       entryId: "STRING_VALUE", // required
- *       completionStatus: "SUCCESS" || "ERROR", // required
- *       errorInfo: { // BatchGetAssetPropertyAggregatesErrorInfo
- *         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *         errorTimestamp: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // BatchGetAssetPropertyAggregatesResponse
+ * //   errorEntries: [ // BatchGetAssetPropertyAggregatesErrorEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesErrorEntry
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //       entryId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   successEntries: [ // BatchGetAssetPropertyAggregatesSuccessEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesSuccessEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       aggregatedValues: [ // AggregatedValues // required
+ * //         { // AggregatedValue
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //           value: { // Aggregates
+ * //             average: Number("double"),
+ * //             count: Number("double"),
+ * //             maximum: Number("double"),
+ * //             minimum: Number("double"),
+ * //             sum: Number("double"),
+ * //             standardDeviation: Number("double"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   skippedEntries: [ // BatchGetAssetPropertyAggregatesSkippedEntries // required
+ * //     { // BatchGetAssetPropertyAggregatesSkippedEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       completionStatus: "SUCCESS" || "ERROR", // required
+ * //       errorInfo: { // BatchGetAssetPropertyAggregatesErrorInfo
+ * //         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //         errorTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

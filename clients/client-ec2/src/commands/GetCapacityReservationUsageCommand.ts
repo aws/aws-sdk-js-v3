@@ -49,21 +49,20 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * };
  * const command = new GetCapacityReservationUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCapacityReservationUsageResult
- *   NextToken: "STRING_VALUE",
- *   CapacityReservationId: "STRING_VALUE",
- *   InstanceType: "STRING_VALUE",
- *   TotalInstanceCount: Number("int"),
- *   AvailableInstanceCount: Number("int"),
- *   State: "active" || "expired" || "cancelled" || "pending" || "failed",
- *   InstanceUsages: [ // InstanceUsageSet
- *     { // InstanceUsage
- *       AccountId: "STRING_VALUE",
- *       UsedInstanceCount: Number("int"),
- *     },
- *   ],
- * };
+ * // { // GetCapacityReservationUsageResult
+ * //   NextToken: "STRING_VALUE",
+ * //   CapacityReservationId: "STRING_VALUE",
+ * //   InstanceType: "STRING_VALUE",
+ * //   TotalInstanceCount: Number("int"),
+ * //   AvailableInstanceCount: Number("int"),
+ * //   State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ * //   InstanceUsages: [ // InstanceUsageSet
+ * //     { // InstanceUsage
+ * //       AccountId: "STRING_VALUE",
+ * //       UsedInstanceCount: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

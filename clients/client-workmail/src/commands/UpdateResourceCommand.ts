@@ -53,8 +53,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

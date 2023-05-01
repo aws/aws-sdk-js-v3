@@ -99,10 +99,9 @@ export interface CreateMultiRegionAccessPointCommandOutput
  * };
  * const command = new CreateMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMultiRegionAccessPointResult
- *   RequestTokenARN: "STRING_VALUE",
- * };
+ * // { // CreateMultiRegionAccessPointResult
+ * //   RequestTokenARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

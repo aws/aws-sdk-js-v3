@@ -59,8 +59,7 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  * };
  * const command = new UpdateMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

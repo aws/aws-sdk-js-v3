@@ -60,8 +60,7 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * };
  * const command = new PutDataCatalogEncryptionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

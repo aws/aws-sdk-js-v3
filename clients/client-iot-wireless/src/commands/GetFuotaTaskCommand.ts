@@ -44,24 +44,23 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * };
  * const command = new GetFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFuotaTaskResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Status: "Pending" || "FuotaSession_Waiting" || "In_FuotaSession" || "FuotaDone" || "Delete_Waiting",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   LoRaWAN: { // LoRaWANFuotaTaskGetInfo
- *     RfRegion: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *   },
- *   FirmwareUpdateImage: "STRING_VALUE",
- *   FirmwareUpdateRole: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   RedundancyPercent: Number("int"),
- *   FragmentSizeBytes: Number("int"),
- *   FragmentIntervalMS: Number("int"),
- * };
+ * // { // GetFuotaTaskResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Status: "Pending" || "FuotaSession_Waiting" || "In_FuotaSession" || "FuotaDone" || "Delete_Waiting",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   LoRaWAN: { // LoRaWANFuotaTaskGetInfo
+ * //     RfRegion: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   FirmwareUpdateImage: "STRING_VALUE",
+ * //   FirmwareUpdateRole: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   RedundancyPercent: Number("int"),
+ * //   FragmentSizeBytes: Number("int"),
+ * //   FragmentIntervalMS: Number("int"),
+ * // };
  *
  * ```
  *

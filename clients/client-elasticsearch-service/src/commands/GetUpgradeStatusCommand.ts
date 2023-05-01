@@ -48,12 +48,11 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * };
  * const command = new GetUpgradeStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUpgradeStatusResponse
- *   UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
- *   StepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
- *   UpgradeName: "STRING_VALUE",
- * };
+ * // { // GetUpgradeStatusResponse
+ * //   UpgradeStep: "PRE_UPGRADE_CHECK" || "SNAPSHOT" || "UPGRADE",
+ * //   StepStatus: "IN_PROGRESS" || "SUCCEEDED" || "SUCCEEDED_WITH_ISSUES" || "FAILED",
+ * //   UpgradeName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

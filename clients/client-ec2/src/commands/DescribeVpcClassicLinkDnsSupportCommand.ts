@@ -60,16 +60,15 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcClassicLinkDnsSupportResult
- *   NextToken: "STRING_VALUE",
- *   Vpcs: [ // ClassicLinkDnsSupportList
- *     { // ClassicLinkDnsSupport
- *       ClassicLinkDnsSupported: true || false,
- *       VpcId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeVpcClassicLinkDnsSupportResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Vpcs: [ // ClassicLinkDnsSupportList
+ * //     { // ClassicLinkDnsSupport
+ * //       ClassicLinkDnsSupported: true || false,
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,21 +47,20 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkflowsResponse
- *   items: [ // WorkflowList
- *     { // WorkflowListItem
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       digest: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkflowsResponse
+ * //   items: [ // WorkflowList
+ * //     { // WorkflowListItem
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       digest: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

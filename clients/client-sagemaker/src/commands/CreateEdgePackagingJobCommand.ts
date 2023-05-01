@@ -61,8 +61,7 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateEdgePackagingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

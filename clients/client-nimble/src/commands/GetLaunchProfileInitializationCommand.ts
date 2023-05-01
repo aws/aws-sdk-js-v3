@@ -59,53 +59,52 @@ export interface GetLaunchProfileInitializationCommandOutput
  * };
  * const command = new GetLaunchProfileInitializationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLaunchProfileInitializationResponse
- *   launchProfileInitialization: { // LaunchProfileInitialization
- *     activeDirectory: { // LaunchProfileInitializationActiveDirectory
- *       computerAttributes: [ // ActiveDirectoryComputerAttributeList
- *         { // ActiveDirectoryComputerAttribute
- *           name: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       directoryId: "STRING_VALUE",
- *       directoryName: "STRING_VALUE",
- *       dnsIpAddresses: [ // ActiveDirectoryDnsIpAddressList
- *         "STRING_VALUE",
- *       ],
- *       organizationalUnitDistinguishedName: "STRING_VALUE",
- *       studioComponentId: "STRING_VALUE",
- *       studioComponentName: "STRING_VALUE",
- *     },
- *     ec2SecurityGroupIds: [ // LaunchProfileSecurityGroupIdList
- *       "STRING_VALUE",
- *     ],
- *     launchProfileId: "STRING_VALUE",
- *     launchProfileProtocolVersion: "STRING_VALUE",
- *     launchPurpose: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     platform: "LINUX" || "WINDOWS",
- *     systemInitializationScripts: [ // LaunchProfileInitializationScriptList
- *       { // LaunchProfileInitializationScript
- *         script: "STRING_VALUE",
- *         studioComponentId: "STRING_VALUE",
- *         studioComponentName: "STRING_VALUE",
- *         secureInitializationRoleArn: "STRING_VALUE",
- *         runtimeRoleArn: "STRING_VALUE",
- *       },
- *     ],
- *     userInitializationScripts: [
- *       {
- *         script: "STRING_VALUE",
- *         studioComponentId: "STRING_VALUE",
- *         studioComponentName: "STRING_VALUE",
- *         secureInitializationRoleArn: "STRING_VALUE",
- *         runtimeRoleArn: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetLaunchProfileInitializationResponse
+ * //   launchProfileInitialization: { // LaunchProfileInitialization
+ * //     activeDirectory: { // LaunchProfileInitializationActiveDirectory
+ * //       computerAttributes: [ // ActiveDirectoryComputerAttributeList
+ * //         { // ActiveDirectoryComputerAttribute
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       directoryId: "STRING_VALUE",
+ * //       directoryName: "STRING_VALUE",
+ * //       dnsIpAddresses: [ // ActiveDirectoryDnsIpAddressList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       organizationalUnitDistinguishedName: "STRING_VALUE",
+ * //       studioComponentId: "STRING_VALUE",
+ * //       studioComponentName: "STRING_VALUE",
+ * //     },
+ * //     ec2SecurityGroupIds: [ // LaunchProfileSecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     launchProfileId: "STRING_VALUE",
+ * //     launchProfileProtocolVersion: "STRING_VALUE",
+ * //     launchPurpose: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     platform: "LINUX" || "WINDOWS",
+ * //     systemInitializationScripts: [ // LaunchProfileInitializationScriptList
+ * //       { // LaunchProfileInitializationScript
+ * //         script: "STRING_VALUE",
+ * //         studioComponentId: "STRING_VALUE",
+ * //         studioComponentName: "STRING_VALUE",
+ * //         secureInitializationRoleArn: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     userInitializationScripts: [
+ * //       {
+ * //         script: "STRING_VALUE",
+ * //         studioComponentId: "STRING_VALUE",
+ * //         studioComponentName: "STRING_VALUE",
+ * //         secureInitializationRoleArn: "STRING_VALUE",
+ * //         runtimeRoleArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

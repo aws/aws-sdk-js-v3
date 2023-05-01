@@ -51,8 +51,7 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

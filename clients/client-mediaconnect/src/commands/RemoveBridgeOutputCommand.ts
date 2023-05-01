@@ -45,11 +45,10 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * };
  * const command = new RemoveBridgeOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveBridgeOutputResponse
- *   BridgeArn: "STRING_VALUE",
- *   OutputName: "STRING_VALUE",
- * };
+ * // { // RemoveBridgeOutputResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * //   OutputName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

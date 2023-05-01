@@ -44,8 +44,7 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSipRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

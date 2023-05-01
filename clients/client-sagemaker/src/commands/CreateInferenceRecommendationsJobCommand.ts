@@ -143,10 +143,9 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  * };
  * const command = new CreateInferenceRecommendationsJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInferenceRecommendationsJobResponse
- *   JobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateInferenceRecommendationsJobResponse
+ * //   JobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

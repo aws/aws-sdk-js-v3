@@ -74,48 +74,47 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * };
  * const command = new GetContentModerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContentModerationResponse
- *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *   StatusMessage: "STRING_VALUE",
- *   VideoMetadata: { // VideoMetadata
- *     Codec: "STRING_VALUE",
- *     DurationMillis: Number("long"),
- *     Format: "STRING_VALUE",
- *     FrameRate: Number("float"),
- *     FrameHeight: Number("long"),
- *     FrameWidth: Number("long"),
- *     ColorRange: "FULL" || "LIMITED",
- *   },
- *   ModerationLabels: [ // ContentModerationDetections
- *     { // ContentModerationDetection
- *       Timestamp: Number("long"),
- *       ModerationLabel: { // ModerationLabel
- *         Confidence: Number("float"),
- *         Name: "STRING_VALUE",
- *         ParentName: "STRING_VALUE",
- *       },
- *       StartTimestampMillis: Number("long"),
- *       EndTimestampMillis: Number("long"),
- *       DurationMillis: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ModerationModelVersion: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Video: { // Video
- *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   },
- *   JobTag: "STRING_VALUE",
- *   GetRequestMetadata: { // GetContentModerationRequestMetadata
- *     SortBy: "NAME" || "TIMESTAMP",
- *     AggregateBy: "TIMESTAMPS" || "SEGMENTS",
- *   },
- * };
+ * // { // GetContentModerationResponse
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   VideoMetadata: { // VideoMetadata
+ * //     Codec: "STRING_VALUE",
+ * //     DurationMillis: Number("long"),
+ * //     Format: "STRING_VALUE",
+ * //     FrameRate: Number("float"),
+ * //     FrameHeight: Number("long"),
+ * //     FrameWidth: Number("long"),
+ * //     ColorRange: "FULL" || "LIMITED",
+ * //   },
+ * //   ModerationLabels: [ // ContentModerationDetections
+ * //     { // ContentModerationDetection
+ * //       Timestamp: Number("long"),
+ * //       ModerationLabel: { // ModerationLabel
+ * //         Confidence: Number("float"),
+ * //         Name: "STRING_VALUE",
+ * //         ParentName: "STRING_VALUE",
+ * //       },
+ * //       StartTimestampMillis: Number("long"),
+ * //       EndTimestampMillis: Number("long"),
+ * //       DurationMillis: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ModerationModelVersion: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Video: { // Video
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobTag: "STRING_VALUE",
+ * //   GetRequestMetadata: { // GetContentModerationRequestMetadata
+ * //     SortBy: "NAME" || "TIMESTAMP",
+ * //     AggregateBy: "TIMESTAMPS" || "SEGMENTS",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,16 +52,15 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * };
  * const command = new GetExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExportResponse
- *   name: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   resourceType: "STRING_VALUE",
- *   exportType: "STRING_VALUE",
- *   exportStatus: "STRING_VALUE",
- *   failureReason: "STRING_VALUE",
- *   url: "STRING_VALUE",
- * };
+ * // { // GetExportResponse
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   resourceType: "STRING_VALUE",
+ * //   exportType: "STRING_VALUE",
+ * //   exportStatus: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * //   url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

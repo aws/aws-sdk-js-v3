@@ -48,8 +48,7 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * };
  * const command = new DeleteBudgetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

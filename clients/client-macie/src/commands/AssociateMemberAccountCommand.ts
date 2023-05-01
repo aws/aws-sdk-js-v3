@@ -45,8 +45,7 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateMemberAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

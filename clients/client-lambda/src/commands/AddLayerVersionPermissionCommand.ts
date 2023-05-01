@@ -55,11 +55,10 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * };
  * const command = new AddLayerVersionPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddLayerVersionPermissionResponse
- *   Statement: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
- * };
+ * // { // AddLayerVersionPermissionResponse
+ * //   Statement: "STRING_VALUE",
+ * //   RevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

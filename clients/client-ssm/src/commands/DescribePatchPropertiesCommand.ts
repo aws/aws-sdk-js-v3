@@ -111,15 +111,14 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * };
  * const command = new DescribePatchPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePatchPropertiesResult
- *   Properties: [ // PatchPropertiesList
- *     { // PatchPropertyEntry
- *       "<keys>": "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePatchPropertiesResult
+ * //   Properties: [ // PatchPropertiesList
+ * //     { // PatchPropertyEntry
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

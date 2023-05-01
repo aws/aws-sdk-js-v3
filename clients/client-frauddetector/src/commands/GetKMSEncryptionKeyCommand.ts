@@ -42,12 +42,11 @@ export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyRes
  * const input = {};
  * const command = new GetKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKMSEncryptionKeyResult
- *   kmsKey: { // KMSKey
- *     kmsEncryptionKeyArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetKMSEncryptionKeyResult
+ * //   kmsKey: { // KMSKey
+ * //     kmsEncryptionKeyArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

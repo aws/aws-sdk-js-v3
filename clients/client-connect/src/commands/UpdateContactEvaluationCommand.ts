@@ -62,11 +62,10 @@ export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvalu
  * };
  * const command = new UpdateContactEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateContactEvaluationResponse
- *   EvaluationId: "STRING_VALUE", // required
- *   EvaluationArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateContactEvaluationResponse
+ * //   EvaluationId: "STRING_VALUE", // required
+ * //   EvaluationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

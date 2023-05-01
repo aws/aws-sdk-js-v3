@@ -57,26 +57,25 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * };
  * const command = new GetDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDevicePositionHistoryResponse
- *   DevicePositions: [ // DevicePositionList // required
- *     { // DevicePosition
- *       DeviceId: "STRING_VALUE",
- *       SampleTime: new Date("TIMESTAMP"), // required
- *       ReceivedTime: new Date("TIMESTAMP"), // required
- *       Position: [ // Position // required
- *         Number("double"),
- *       ],
- *       Accuracy: { // PositionalAccuracy
- *         Horizontal: Number("double"), // required
- *       },
- *       PositionProperties: { // PropertyMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetDevicePositionHistoryResponse
+ * //   DevicePositions: [ // DevicePositionList // required
+ * //     { // DevicePosition
+ * //       DeviceId: "STRING_VALUE",
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       ReceivedTime: new Date("TIMESTAMP"), // required
+ * //       Position: [ // Position // required
+ * //         Number("double"),
+ * //       ],
+ * //       Accuracy: { // PositionalAccuracy
+ * //         Horizontal: Number("double"), // required
+ * //       },
+ * //       PositionProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

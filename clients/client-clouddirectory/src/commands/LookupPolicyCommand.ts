@@ -54,22 +54,21 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * };
  * const command = new LookupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LookupPolicyResponse
- *   PolicyToPathList: [ // PolicyToPathList
- *     { // PolicyToPath
- *       Path: "STRING_VALUE",
- *       Policies: [ // PolicyAttachmentList
- *         { // PolicyAttachment
- *           PolicyId: "STRING_VALUE",
- *           ObjectIdentifier: "STRING_VALUE",
- *           PolicyType: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // LookupPolicyResponse
+ * //   PolicyToPathList: [ // PolicyToPathList
+ * //     { // PolicyToPath
+ * //       Path: "STRING_VALUE",
+ * //       Policies: [ // PolicyAttachmentList
+ * //         { // PolicyAttachment
+ * //           PolicyId: "STRING_VALUE",
+ * //           ObjectIdentifier: "STRING_VALUE",
+ * //           PolicyType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

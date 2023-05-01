@@ -44,10 +44,9 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  * };
  * const command = new CancelFindingsReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelFindingsReportResponse
- *   reportId: "STRING_VALUE", // required
- * };
+ * // { // CancelFindingsReportResponse
+ * //   reportId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

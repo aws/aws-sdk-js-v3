@@ -50,8 +50,7 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * };
  * const command = new DeleteBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,13 +46,12 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  * };
  * const command = new ListExclusionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExclusionsResponse
- *   exclusionArns: [ // ListReturnedArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExclusionsResponse
+ * //   exclusionArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

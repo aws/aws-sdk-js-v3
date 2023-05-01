@@ -56,10 +56,9 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * };
  * const command = new StartPipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPipelineExecutionResponse
- *   PipelineExecutionArn: "STRING_VALUE",
- * };
+ * // { // StartPipelineExecutionResponse
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

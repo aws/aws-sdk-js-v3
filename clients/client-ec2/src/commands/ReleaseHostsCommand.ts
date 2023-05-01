@@ -54,21 +54,20 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * };
  * const command = new ReleaseHostsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReleaseHostsResult
- *   Successful: [ // ResponseHostIdList
- *     "STRING_VALUE",
- *   ],
- *   Unsuccessful: [ // UnsuccessfulItemList
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ReleaseHostsResult
+ * //   Successful: [ // ResponseHostIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Unsuccessful: [ // UnsuccessfulItemList
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

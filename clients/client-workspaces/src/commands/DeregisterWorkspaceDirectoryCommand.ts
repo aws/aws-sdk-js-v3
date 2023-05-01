@@ -62,8 +62,7 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * };
  * const command = new DeregisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

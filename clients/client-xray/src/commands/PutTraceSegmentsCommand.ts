@@ -108,16 +108,15 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * };
  * const command = new PutTraceSegmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutTraceSegmentsResult
- *   UnprocessedTraceSegments: [ // UnprocessedTraceSegmentList
- *     { // UnprocessedTraceSegment
- *       Id: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutTraceSegmentsResult
+ * //   UnprocessedTraceSegments: [ // UnprocessedTraceSegmentList
+ * //     { // UnprocessedTraceSegment
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

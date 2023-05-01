@@ -62,8 +62,7 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * };
  * const command = new UpdateDatalakeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

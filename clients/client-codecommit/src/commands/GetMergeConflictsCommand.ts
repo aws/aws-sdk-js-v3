@@ -51,47 +51,46 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  * };
  * const command = new GetMergeConflictsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMergeConflictsOutput
- *   mergeable: true || false, // required
- *   destinationCommitId: "STRING_VALUE", // required
- *   sourceCommitId: "STRING_VALUE", // required
- *   baseCommitId: "STRING_VALUE",
- *   conflictMetadataList: [ // ConflictMetadataList // required
- *     { // ConflictMetadata
- *       filePath: "STRING_VALUE",
- *       fileSizes: { // FileSizes
- *         source: Number("long"),
- *         destination: Number("long"),
- *         base: Number("long"),
- *       },
- *       fileModes: { // FileModes
- *         source: "STRING_VALUE",
- *         destination: "STRING_VALUE",
- *         base: "STRING_VALUE",
- *       },
- *       objectTypes: { // ObjectTypes
- *         source: "STRING_VALUE",
- *         destination: "STRING_VALUE",
- *         base: "STRING_VALUE",
- *       },
- *       numberOfConflicts: Number("int"),
- *       isBinaryFile: { // IsBinaryFile
- *         source: true || false,
- *         destination: true || false,
- *         base: true || false,
- *       },
- *       contentConflict: true || false,
- *       fileModeConflict: true || false,
- *       objectTypeConflict: true || false,
- *       mergeOperations: { // MergeOperations
- *         source: "STRING_VALUE",
- *         destination: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetMergeConflictsOutput
+ * //   mergeable: true || false, // required
+ * //   destinationCommitId: "STRING_VALUE", // required
+ * //   sourceCommitId: "STRING_VALUE", // required
+ * //   baseCommitId: "STRING_VALUE",
+ * //   conflictMetadataList: [ // ConflictMetadataList // required
+ * //     { // ConflictMetadata
+ * //       filePath: "STRING_VALUE",
+ * //       fileSizes: { // FileSizes
+ * //         source: Number("long"),
+ * //         destination: Number("long"),
+ * //         base: Number("long"),
+ * //       },
+ * //       fileModes: { // FileModes
+ * //         source: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
+ * //         base: "STRING_VALUE",
+ * //       },
+ * //       objectTypes: { // ObjectTypes
+ * //         source: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
+ * //         base: "STRING_VALUE",
+ * //       },
+ * //       numberOfConflicts: Number("int"),
+ * //       isBinaryFile: { // IsBinaryFile
+ * //         source: true || false,
+ * //         destination: true || false,
+ * //         base: true || false,
+ * //       },
+ * //       contentConflict: true || false,
+ * //       fileModeConflict: true || false,
+ * //       objectTypeConflict: true || false,
+ * //       mergeOperations: { // MergeOperations
+ * //         source: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

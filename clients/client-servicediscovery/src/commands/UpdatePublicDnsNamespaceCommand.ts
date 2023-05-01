@@ -56,10 +56,9 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * };
  * const command = new UpdatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePublicDnsNamespaceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdatePublicDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

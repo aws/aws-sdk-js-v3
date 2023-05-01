@@ -46,16 +46,15 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  * };
  * const command = new ListPreparedStatementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPreparedStatementsOutput
- *   PreparedStatements: [ // PreparedStatementsList
- *     { // PreparedStatementSummary
- *       StatementName: "STRING_VALUE",
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPreparedStatementsOutput
+ * //   PreparedStatements: [ // PreparedStatementsList
+ * //     { // PreparedStatementSummary
+ * //       StatementName: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

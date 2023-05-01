@@ -43,19 +43,18 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * const input = {};
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBucketsOutput
- *   Buckets: [ // Buckets
- *     { // Bucket
- *       Name: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Owner: { // Owner
- *     DisplayName: "STRING_VALUE",
- *     ID: "STRING_VALUE",
- *   },
- * };
+ * // { // ListBucketsOutput
+ * //   Buckets: [ // Buckets
+ * //     { // Bucket
+ * //       Name: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Owner: { // Owner
+ * //     DisplayName: "STRING_VALUE",
+ * //     ID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

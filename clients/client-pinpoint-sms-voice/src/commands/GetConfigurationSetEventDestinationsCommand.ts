@@ -52,29 +52,28 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConfigurationSetEventDestinationsResponse
- *   EventDestinations: [ // EventDestinations
- *     { // EventDestination
- *       CloudWatchLogsDestination: { // CloudWatchLogsDestination
- *         IamRoleArn: "STRING_VALUE",
- *         LogGroupArn: "STRING_VALUE",
- *       },
- *       Enabled: true || false,
- *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *         DeliveryStreamArn: "STRING_VALUE",
- *         IamRoleArn: "STRING_VALUE",
- *       },
- *       MatchingEventTypes: [ // EventTypes
- *         "STRING_VALUE",
- *       ],
- *       Name: "STRING_VALUE",
- *       SnsDestination: { // SnsDestination
- *         TopicArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetConfigurationSetEventDestinationsResponse
+ * //   EventDestinations: [ // EventDestinations
+ * //     { // EventDestination
+ * //       CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ * //         IamRoleArn: "STRING_VALUE",
+ * //         LogGroupArn: "STRING_VALUE",
+ * //       },
+ * //       Enabled: true || false,
+ * //       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ * //         DeliveryStreamArn: "STRING_VALUE",
+ * //         IamRoleArn: "STRING_VALUE",
+ * //       },
+ * //       MatchingEventTypes: [ // EventTypes
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       SnsDestination: { // SnsDestination
+ * //         TopicArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

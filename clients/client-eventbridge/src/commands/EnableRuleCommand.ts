@@ -47,8 +47,7 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

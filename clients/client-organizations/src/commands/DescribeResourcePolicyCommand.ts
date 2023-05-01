@@ -44,16 +44,15 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * const input = {};
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourcePolicyResponse
- *   ResourcePolicy: { // ResourcePolicy
- *     ResourcePolicySummary: { // ResourcePolicySummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *     Content: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeResourcePolicyResponse
+ * //   ResourcePolicy: { // ResourcePolicy
+ * //     ResourcePolicySummary: { // ResourcePolicySummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //     Content: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

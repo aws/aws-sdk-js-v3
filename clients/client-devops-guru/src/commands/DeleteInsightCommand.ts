@@ -44,8 +44,7 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

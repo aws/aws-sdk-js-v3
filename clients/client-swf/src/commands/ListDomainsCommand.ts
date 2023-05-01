@@ -78,18 +78,17 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DomainInfos
- *   domainInfos: [ // DomainInfoList // required
- *     { // DomainInfo
- *       name: "STRING_VALUE", // required
- *       status: "REGISTERED" || "DEPRECATED", // required
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // DomainInfos
+ * //   domainInfos: [ // DomainInfoList // required
+ * //     { // DomainInfo
+ * //       name: "STRING_VALUE", // required
+ * //       status: "REGISTERED" || "DEPRECATED", // required
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

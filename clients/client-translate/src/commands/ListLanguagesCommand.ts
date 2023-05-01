@@ -46,17 +46,16 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * };
  * const command = new ListLanguagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLanguagesResponse
- *   Languages: [ // LanguagesList
- *     { // Language
- *       LanguageName: "STRING_VALUE", // required
- *       LanguageCode: "STRING_VALUE", // required
- *     },
- *   ],
- *   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLanguagesResponse
+ * //   Languages: [ // LanguagesList
+ * //     { // Language
+ * //       LanguageName: "STRING_VALUE", // required
+ * //       LanguageCode: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   DisplayLanguageCode: "de" || "en" || "es" || "fr" || "it" || "ja" || "ko" || "pt" || "zh" || "zh-TW",
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

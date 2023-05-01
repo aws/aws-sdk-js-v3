@@ -49,12 +49,11 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * };
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDevicesInPlacementResponse
- *   devices: { // DeviceMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetDevicesInPlacementResponse
+ * //   devices: { // DeviceMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

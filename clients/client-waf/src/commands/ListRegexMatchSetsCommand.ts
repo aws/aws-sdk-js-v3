@@ -53,16 +53,15 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * };
  * const command = new ListRegexMatchSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRegexMatchSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   RegexMatchSets: [ // RegexMatchSetSummaries
- *     { // RegexMatchSetSummary
- *       RegexMatchSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRegexMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RegexMatchSets: [ // RegexMatchSetSummaries
+ * //     { // RegexMatchSetSummary
+ * //       RegexMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

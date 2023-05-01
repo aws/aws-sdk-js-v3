@@ -44,19 +44,18 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * };
  * const command = new DescribeLocationS3Command(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationS3Response
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   S3StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_INSTANT_RETRIEVAL",
- *   S3Config: { // S3Config
- *     BucketAccessRoleArn: "STRING_VALUE", // required
- *   },
- *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLocationS3Response
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   S3StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_INSTANT_RETRIEVAL",
+ * //   S3Config: { // S3Config
+ * //     BucketAccessRoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   AgentArns: [ // AgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

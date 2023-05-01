@@ -59,37 +59,36 @@ export interface DescribeLoadBasedAutoScalingCommandOutput
  * };
  * const command = new DescribeLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBasedAutoScalingResult
- *   LoadBasedAutoScalingConfigurations: [ // LoadBasedAutoScalingConfigurations
- *     { // LoadBasedAutoScalingConfiguration
- *       LayerId: "STRING_VALUE",
- *       Enable: true || false,
- *       UpScaling: { // AutoScalingThresholds
- *         InstanceCount: Number("int"),
- *         ThresholdsWaitTime: Number("int"),
- *         IgnoreMetricsTime: Number("int"),
- *         CpuThreshold: Number("double"),
- *         MemoryThreshold: Number("double"),
- *         LoadThreshold: Number("double"),
- *         Alarms: [ // Strings
- *           "STRING_VALUE",
- *         ],
- *       },
- *       DownScaling: {
- *         InstanceCount: Number("int"),
- *         ThresholdsWaitTime: Number("int"),
- *         IgnoreMetricsTime: Number("int"),
- *         CpuThreshold: Number("double"),
- *         MemoryThreshold: Number("double"),
- *         LoadThreshold: Number("double"),
- *         Alarms: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeLoadBasedAutoScalingResult
+ * //   LoadBasedAutoScalingConfigurations: [ // LoadBasedAutoScalingConfigurations
+ * //     { // LoadBasedAutoScalingConfiguration
+ * //       LayerId: "STRING_VALUE",
+ * //       Enable: true || false,
+ * //       UpScaling: { // AutoScalingThresholds
+ * //         InstanceCount: Number("int"),
+ * //         ThresholdsWaitTime: Number("int"),
+ * //         IgnoreMetricsTime: Number("int"),
+ * //         CpuThreshold: Number("double"),
+ * //         MemoryThreshold: Number("double"),
+ * //         LoadThreshold: Number("double"),
+ * //         Alarms: [ // Strings
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       DownScaling: {
+ * //         InstanceCount: Number("int"),
+ * //         ThresholdsWaitTime: Number("int"),
+ * //         IgnoreMetricsTime: Number("int"),
+ * //         CpuThreshold: Number("double"),
+ * //         MemoryThreshold: Number("double"),
+ * //         LoadThreshold: Number("double"),
+ * //         Alarms: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

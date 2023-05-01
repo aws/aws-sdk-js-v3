@@ -63,10 +63,9 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * };
  * const command = new UpdateRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecipeResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateRecipeResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

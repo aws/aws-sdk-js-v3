@@ -57,8 +57,7 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

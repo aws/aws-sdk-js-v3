@@ -47,18 +47,17 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
  * };
  * const command = new GetUsagePlanKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UsagePlanKeys
- *   items: [ // ListOfUsagePlanKey
- *     { // UsagePlanKey
- *       id: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // UsagePlanKeys
+ * //   items: [ // ListOfUsagePlanKey
+ * //     { // UsagePlanKey
+ * //       id: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

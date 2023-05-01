@@ -50,10 +50,9 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  * };
  * const command = new UpdateAppInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppInstanceResponse
- *   AppInstanceArn: "STRING_VALUE",
- * };
+ * // { // UpdateAppInstanceResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

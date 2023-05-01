@@ -57,10 +57,9 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * };
  * const command = new ValidateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateMatchmakingRuleSetOutput
- *   Valid: true || false,
- * };
+ * // { // ValidateMatchmakingRuleSetOutput
+ * //   Valid: true || false,
+ * // };
  *
  * ```
  *

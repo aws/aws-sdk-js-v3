@@ -50,8 +50,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * const input = {};
  * const command = new AssociateServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

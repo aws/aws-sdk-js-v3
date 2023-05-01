@@ -44,24 +44,23 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * };
  * const command = new DescribeModelPackageGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeModelPackageGroupOutput
- *   ModelPackageGroupName: "STRING_VALUE", // required
- *   ModelPackageGroupArn: "STRING_VALUE", // required
- *   ModelPackageGroupDescription: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
- * };
+ * // { // DescribeModelPackageGroupOutput
+ * //   ModelPackageGroupName: "STRING_VALUE", // required
+ * //   ModelPackageGroupArn: "STRING_VALUE", // required
+ * //   ModelPackageGroupDescription: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
+ * // };
  *
  * ```
  *

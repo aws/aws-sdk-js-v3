@@ -73,18 +73,17 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * };
  * const command = new CreateLanguageModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLanguageModelResponse
- *   LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
- *   BaseModelName: "NarrowBand" || "WideBand",
- *   ModelName: "STRING_VALUE",
- *   InputDataConfig: { // InputDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     TuningDataS3Uri: "STRING_VALUE",
- *     DataAccessRoleArn: "STRING_VALUE", // required
- *   },
- *   ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
- * };
+ * // { // CreateLanguageModelResponse
+ * //   LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
+ * //   BaseModelName: "NarrowBand" || "WideBand",
+ * //   ModelName: "STRING_VALUE",
+ * //   InputDataConfig: { // InputDataConfig
+ * //     S3Uri: "STRING_VALUE", // required
+ * //     TuningDataS3Uri: "STRING_VALUE",
+ * //     DataAccessRoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * // };
  *
  * ```
  *

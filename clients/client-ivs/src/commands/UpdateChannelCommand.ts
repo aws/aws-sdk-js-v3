@@ -51,23 +51,22 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelResponse
- *   channel: { // Channel
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     latencyMode: "STRING_VALUE",
- *     type: "BASIC" || "STANDARD",
- *     recordingConfigurationArn: "STRING_VALUE",
- *     ingestEndpoint: "STRING_VALUE",
- *     playbackUrl: "STRING_VALUE",
- *     authorized: true || false,
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     insecureIngest: true || false,
- *   },
- * };
+ * // { // UpdateChannelResponse
+ * //   channel: { // Channel
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     latencyMode: "STRING_VALUE",
+ * //     type: "BASIC" || "STANDARD",
+ * //     recordingConfigurationArn: "STRING_VALUE",
+ * //     ingestEndpoint: "STRING_VALUE",
+ * //     playbackUrl: "STRING_VALUE",
+ * //     authorized: true || false,
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     insecureIngest: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

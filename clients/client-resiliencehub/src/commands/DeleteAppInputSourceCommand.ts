@@ -53,23 +53,22 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  * };
  * const command = new DeleteAppInputSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAppInputSourceResponse
- *   appArn: "STRING_VALUE",
- *   appInputSource: { // AppInputSource
- *     sourceName: "STRING_VALUE",
- *     importType: "STRING_VALUE", // required
- *     sourceArn: "STRING_VALUE",
- *     terraformSource: { // TerraformSource
- *       s3StateFileUrl: "STRING_VALUE", // required
- *     },
- *     resourceCount: Number("int"),
- *     eksSourceClusterNamespace: { // EksSourceClusterNamespace
- *       eksClusterArn: "STRING_VALUE", // required
- *       namespace: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // DeleteAppInputSourceResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appInputSource: { // AppInputSource
+ * //     sourceName: "STRING_VALUE",
+ * //     importType: "STRING_VALUE", // required
+ * //     sourceArn: "STRING_VALUE",
+ * //     terraformSource: { // TerraformSource
+ * //       s3StateFileUrl: "STRING_VALUE", // required
+ * //     },
+ * //     resourceCount: Number("int"),
+ * //     eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ * //       eksClusterArn: "STRING_VALUE", // required
+ * //       namespace: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

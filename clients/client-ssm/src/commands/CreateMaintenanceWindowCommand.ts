@@ -72,10 +72,9 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * };
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- * };
+ * // { // CreateMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

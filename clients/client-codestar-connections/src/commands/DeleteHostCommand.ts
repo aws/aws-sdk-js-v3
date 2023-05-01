@@ -51,8 +51,7 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * };
  * const command = new DeleteHostCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

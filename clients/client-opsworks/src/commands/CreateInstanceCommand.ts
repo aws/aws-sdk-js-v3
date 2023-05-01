@@ -82,10 +82,9 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInstanceResult
- *   InstanceId: "STRING_VALUE",
- * };
+ * // { // CreateInstanceResult
+ * //   InstanceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

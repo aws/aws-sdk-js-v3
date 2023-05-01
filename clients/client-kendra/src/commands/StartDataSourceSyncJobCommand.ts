@@ -47,10 +47,9 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * };
  * const command = new StartDataSourceSyncJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDataSourceSyncJobResponse
- *   ExecutionId: "STRING_VALUE",
- * };
+ * // { // StartDataSourceSyncJobResponse
+ * //   ExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

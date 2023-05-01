@@ -45,21 +45,20 @@ export interface UpdateGameCommandOutput extends UpdateGameResult, __MetadataBea
  * };
  * const command = new UpdateGameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGameResult
- *   Game: { // GameDetails
- *     Name: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     State: "STRING_VALUE",
- *     EnableTerminationProtection: true || false,
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateGameResult
+ * //   Game: { // GameDetails
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     State: "STRING_VALUE",
+ * //     EnableTerminationProtection: true || false,
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

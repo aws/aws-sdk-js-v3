@@ -49,22 +49,21 @@ export interface ListDatalakeExceptionsCommandOutput extends ListDatalakeExcepti
  * };
  * const command = new ListDatalakeExceptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatalakeExceptionsResponse
- *   nonRetryableFailures: [ // FailuresResponseList // required
- *     { // FailuresResponse
- *       region: "STRING_VALUE",
- *       failures: [ // Failureslist
- *         { // Failures
- *           exceptionMessage: "STRING_VALUE", // required
- *           remediation: "STRING_VALUE", // required
- *           timestamp: new Date("TIMESTAMP"), // required
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatalakeExceptionsResponse
+ * //   nonRetryableFailures: [ // FailuresResponseList // required
+ * //     { // FailuresResponse
+ * //       region: "STRING_VALUE",
+ * //       failures: [ // Failureslist
+ * //         { // Failures
+ * //           exceptionMessage: "STRING_VALUE", // required
+ * //           remediation: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

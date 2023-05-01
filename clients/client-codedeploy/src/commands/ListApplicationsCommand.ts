@@ -44,13 +44,12 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsOutput
- *   applications: [ // ApplicationsList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsOutput
+ * //   applications: [ // ApplicationsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

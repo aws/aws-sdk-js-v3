@@ -61,15 +61,14 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * };
  * const command = new PutSipMediaApplicationAlexaSkillConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSipMediaApplicationAlexaSkillConfigurationResponse
- *   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
- *     AlexaSkillStatus: "ACTIVE" || "INACTIVE", // required
- *     AlexaSkillIds: [ // AlexaSkillIdList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // PutSipMediaApplicationAlexaSkillConfigurationResponse
+ * //   SipMediaApplicationAlexaSkillConfiguration: { // SipMediaApplicationAlexaSkillConfiguration
+ * //     AlexaSkillStatus: "ACTIVE" || "INACTIVE", // required
+ * //     AlexaSkillIds: [ // AlexaSkillIdList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -61,11 +61,10 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new PutDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDataSetRefreshPropertiesResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // PutDataSetRefreshPropertiesResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

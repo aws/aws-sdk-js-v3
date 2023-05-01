@@ -136,10 +136,9 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  * };
  * const command = new RegisterTaskWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterTaskWithMaintenanceWindowResult
- *   WindowTaskId: "STRING_VALUE",
- * };
+ * // { // RegisterTaskWithMaintenanceWindowResult
+ * //   WindowTaskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

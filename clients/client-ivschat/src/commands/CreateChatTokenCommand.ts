@@ -63,12 +63,11 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * };
  * const command = new CreateChatTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChatTokenResponse
- *   token: "STRING_VALUE",
- *   tokenExpirationTime: new Date("TIMESTAMP"),
- *   sessionExpirationTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateChatTokenResponse
+ * //   token: "STRING_VALUE",
+ * //   tokenExpirationTime: new Date("TIMESTAMP"),
+ * //   sessionExpirationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

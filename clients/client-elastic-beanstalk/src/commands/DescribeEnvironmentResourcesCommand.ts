@@ -47,48 +47,47 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * };
  * const command = new DescribeEnvironmentResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnvironmentResourceDescriptionsMessage
- *   EnvironmentResources: { // EnvironmentResourceDescription
- *     EnvironmentName: "STRING_VALUE",
- *     AutoScalingGroups: [ // AutoScalingGroupList
- *       { // AutoScalingGroup
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *     Instances: [ // InstanceList
- *       { // Instance
- *         Id: "STRING_VALUE",
- *       },
- *     ],
- *     LaunchConfigurations: [ // LaunchConfigurationList
- *       { // LaunchConfiguration
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *     LaunchTemplates: [ // LaunchTemplateList
- *       { // LaunchTemplate
- *         Id: "STRING_VALUE",
- *       },
- *     ],
- *     LoadBalancers: [ // LoadBalancerList
- *       { // LoadBalancer
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *     Triggers: [ // TriggerList
- *       { // Trigger
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *     Queues: [ // QueueList
- *       { // Queue
- *         Name: "STRING_VALUE",
- *         URL: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // EnvironmentResourceDescriptionsMessage
+ * //   EnvironmentResources: { // EnvironmentResourceDescription
+ * //     EnvironmentName: "STRING_VALUE",
+ * //     AutoScalingGroups: [ // AutoScalingGroupList
+ * //       { // AutoScalingGroup
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Instances: [ // InstanceList
+ * //       { // Instance
+ * //         Id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     LaunchConfigurations: [ // LaunchConfigurationList
+ * //       { // LaunchConfiguration
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     LaunchTemplates: [ // LaunchTemplateList
+ * //       { // LaunchTemplate
+ * //         Id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     LoadBalancers: [ // LoadBalancerList
+ * //       { // LoadBalancer
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Triggers: [ // TriggerList
+ * //       { // Trigger
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Queues: [ // QueueList
+ * //       { // Queue
+ * //         Name: "STRING_VALUE",
+ * //         URL: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

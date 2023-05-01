@@ -45,23 +45,22 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  * };
  * const command = new GetReadSetExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadSetExportJobResponse
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   destination: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusMessage: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"), // required
- *   completionTime: new Date("TIMESTAMP"),
- *   readSets: [ // ExportReadSetDetailList
- *     { // ExportReadSetDetail
- *       id: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetReadSetExportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   destination: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   readSets: [ // ExportReadSetDetailList
+ * //     { // ExportReadSetDetail
+ * //       id: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

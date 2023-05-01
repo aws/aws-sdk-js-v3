@@ -46,11 +46,10 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGroupResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteGroupResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

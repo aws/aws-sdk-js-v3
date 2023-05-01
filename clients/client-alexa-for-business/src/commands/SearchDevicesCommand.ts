@@ -59,37 +59,36 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * };
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchDevicesResponse
- *   Devices: [ // DeviceDataList
- *     { // DeviceData
- *       DeviceArn: "STRING_VALUE",
- *       DeviceSerialNumber: "STRING_VALUE",
- *       DeviceType: "STRING_VALUE",
- *       DeviceName: "STRING_VALUE",
- *       SoftwareVersion: "STRING_VALUE",
- *       MacAddress: "STRING_VALUE",
- *       DeviceStatus: "STRING_VALUE",
- *       NetworkProfileArn: "STRING_VALUE",
- *       NetworkProfileName: "STRING_VALUE",
- *       RoomArn: "STRING_VALUE",
- *       RoomName: "STRING_VALUE",
- *       DeviceStatusInfo: { // DeviceStatusInfo
- *         DeviceStatusDetails: [ // DeviceStatusDetails
- *           { // DeviceStatusDetail
- *             Feature: "STRING_VALUE",
- *             Code: "STRING_VALUE",
- *           },
- *         ],
- *         ConnectionStatus: "STRING_VALUE",
- *         ConnectionStatusUpdatedTime: new Date("TIMESTAMP"),
- *       },
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchDevicesResponse
+ * //   Devices: [ // DeviceDataList
+ * //     { // DeviceData
+ * //       DeviceArn: "STRING_VALUE",
+ * //       DeviceSerialNumber: "STRING_VALUE",
+ * //       DeviceType: "STRING_VALUE",
+ * //       DeviceName: "STRING_VALUE",
+ * //       SoftwareVersion: "STRING_VALUE",
+ * //       MacAddress: "STRING_VALUE",
+ * //       DeviceStatus: "STRING_VALUE",
+ * //       NetworkProfileArn: "STRING_VALUE",
+ * //       NetworkProfileName: "STRING_VALUE",
+ * //       RoomArn: "STRING_VALUE",
+ * //       RoomName: "STRING_VALUE",
+ * //       DeviceStatusInfo: { // DeviceStatusInfo
+ * //         DeviceStatusDetails: [ // DeviceStatusDetails
+ * //           { // DeviceStatusDetail
+ * //             Feature: "STRING_VALUE",
+ * //             Code: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ConnectionStatus: "STRING_VALUE",
+ * //         ConnectionStatusUpdatedTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

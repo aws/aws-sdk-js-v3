@@ -47,16 +47,15 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * };
  * const command = new UpdateZonalShiftCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ZonalShift
- *   zonalShiftId: "STRING_VALUE", // required
- *   resourceIdentifier: "STRING_VALUE", // required
- *   awayFrom: "STRING_VALUE", // required
- *   expiryTime: new Date("TIMESTAMP"), // required
- *   startTime: new Date("TIMESTAMP"), // required
- *   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
- *   comment: "STRING_VALUE", // required
- * };
+ * // { // ZonalShift
+ * //   zonalShiftId: "STRING_VALUE", // required
+ * //   resourceIdentifier: "STRING_VALUE", // required
+ * //   awayFrom: "STRING_VALUE", // required
+ * //   expiryTime: new Date("TIMESTAMP"), // required
+ * //   startTime: new Date("TIMESTAMP"), // required
+ * //   status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
+ * //   comment: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

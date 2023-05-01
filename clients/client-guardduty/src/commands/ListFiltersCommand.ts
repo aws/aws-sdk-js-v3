@@ -46,13 +46,12 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFiltersResponse
- *   FilterNames: [ // FilterNames // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFiltersResponse
+ * //   FilterNames: [ // FilterNames // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

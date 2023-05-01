@@ -51,15 +51,14 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRouteResponse
- *   RouteId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   ServiceId: "STRING_VALUE",
- *   ApplicationId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateRouteResponse
+ * //   RouteId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   ServiceId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

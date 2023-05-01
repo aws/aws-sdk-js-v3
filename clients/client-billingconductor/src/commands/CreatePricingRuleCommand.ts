@@ -67,10 +67,9 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * };
  * const command = new CreatePricingRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePricingRuleOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreatePricingRuleOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

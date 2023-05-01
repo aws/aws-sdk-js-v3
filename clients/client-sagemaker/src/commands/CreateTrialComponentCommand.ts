@@ -90,10 +90,9 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * };
  * const command = new CreateTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrialComponentResponse
- *   TrialComponentArn: "STRING_VALUE",
- * };
+ * // { // CreateTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

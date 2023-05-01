@@ -50,14 +50,13 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * };
  * const command = new GetHostedZoneLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHostedZoneLimitResponse
- *   Limit: { // HostedZoneLimit
- *     Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
- *     Value: Number("long"), // required
- *   },
- *   Count: Number("long"), // required
- * };
+ * // { // GetHostedZoneLimitResponse
+ * //   Limit: { // HostedZoneLimit
+ * //     Type: "MAX_RRSETS_BY_ZONE" || "MAX_VPCS_ASSOCIATED_BY_ZONE", // required
+ * //     Value: Number("long"), // required
+ * //   },
+ * //   Count: Number("long"), // required
+ * // };
  *
  * ```
  *

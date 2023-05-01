@@ -60,8 +60,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

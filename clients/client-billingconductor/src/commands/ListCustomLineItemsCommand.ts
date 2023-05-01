@@ -64,32 +64,31 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * };
  * const command = new ListCustomLineItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomLineItemsOutput
- *   CustomLineItems: [ // CustomLineItemList
- *     { // CustomLineItemListElement
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       ChargeDetails: { // ListCustomLineItemChargeDetails
- *         Flat: { // ListCustomLineItemFlatChargeDetails
- *           ChargeValue: Number("double"), // required
- *         },
- *         Percentage: { // ListCustomLineItemPercentageChargeDetails
- *           PercentageValue: Number("double"), // required
- *         },
- *         Type: "STRING_VALUE", // required
- *       },
- *       CurrencyCode: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ProductCode: "STRING_VALUE",
- *       BillingGroupArn: "STRING_VALUE",
- *       CreationTime: Number("long"),
- *       LastModifiedTime: Number("long"),
- *       AssociationSize: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomLineItemsOutput
+ * //   CustomLineItems: [ // CustomLineItemList
+ * //     { // CustomLineItemListElement
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ChargeDetails: { // ListCustomLineItemChargeDetails
+ * //         Flat: { // ListCustomLineItemFlatChargeDetails
+ * //           ChargeValue: Number("double"), // required
+ * //         },
+ * //         Percentage: { // ListCustomLineItemPercentageChargeDetails
+ * //           PercentageValue: Number("double"), // required
+ * //         },
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ProductCode: "STRING_VALUE",
+ * //       BillingGroupArn: "STRING_VALUE",
+ * //       CreationTime: Number("long"),
+ * //       LastModifiedTime: Number("long"),
+ * //       AssociationSize: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

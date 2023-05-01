@@ -50,21 +50,20 @@ export interface ListCustomRoutingListenersCommandOutput extends ListCustomRouti
  * };
  * const command = new ListCustomRoutingListenersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomRoutingListenersResponse
- *   Listeners: [ // CustomRoutingListeners
- *     { // CustomRoutingListener
- *       ListenerArn: "STRING_VALUE",
- *       PortRanges: [ // PortRanges
- *         { // PortRange
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomRoutingListenersResponse
+ * //   Listeners: [ // CustomRoutingListeners
+ * //     { // CustomRoutingListener
+ * //       ListenerArn: "STRING_VALUE",
+ * //       PortRanges: [ // PortRanges
+ * //         { // PortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

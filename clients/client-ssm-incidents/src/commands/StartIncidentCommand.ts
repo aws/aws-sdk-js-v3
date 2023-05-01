@@ -73,10 +73,9 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  * };
  * const command = new StartIncidentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartIncidentOutput
- *   incidentRecordArn: "STRING_VALUE", // required
- * };
+ * // { // StartIncidentOutput
+ * //   incidentRecordArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -50,13 +50,12 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * };
  * const command = new DescribeOrganizationHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationHealthResponse
- *   OpenReactiveInsights: Number("int"), // required
- *   OpenProactiveInsights: Number("int"), // required
- *   MetricsAnalyzed: Number("int"), // required
- *   ResourceHours: Number("long"), // required
- * };
+ * // { // DescribeOrganizationHealthResponse
+ * //   OpenReactiveInsights: Number("int"), // required
+ * //   OpenProactiveInsights: Number("int"), // required
+ * //   MetricsAnalyzed: Number("int"), // required
+ * //   ResourceHours: Number("long"), // required
+ * // };
  *
  * ```
  *

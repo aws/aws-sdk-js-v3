@@ -42,15 +42,14 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMasterAccountResponse
- *   master: { // Invitation
- *     accountId: "STRING_VALUE",
- *     invitationId: "STRING_VALUE",
- *     invitedAt: new Date("TIMESTAMP"),
- *     relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
- *   },
- * };
+ * // { // GetMasterAccountResponse
+ * //   master: { // Invitation
+ * //     accountId: "STRING_VALUE",
+ * //     invitationId: "STRING_VALUE",
+ * //     invitedAt: new Date("TIMESTAMP"),
+ * //     relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //   },
+ * // };
  *
  * ```
  *

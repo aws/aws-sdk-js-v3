@@ -73,121 +73,120 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * };
  * const command = new DeleteCacheClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCacheClusterResult
- *   CacheCluster: { // CacheCluster
- *     CacheClusterId: "STRING_VALUE",
- *     ConfigurationEndpoint: { // Endpoint
- *       Address: "STRING_VALUE",
- *       Port: Number("int"),
- *     },
- *     ClientDownloadLandingPage: "STRING_VALUE",
- *     CacheNodeType: "STRING_VALUE",
- *     Engine: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     CacheClusterStatus: "STRING_VALUE",
- *     NumCacheNodes: Number("int"),
- *     PreferredAvailabilityZone: "STRING_VALUE",
- *     PreferredOutpostArn: "STRING_VALUE",
- *     CacheClusterCreateTime: new Date("TIMESTAMP"),
- *     PreferredMaintenanceWindow: "STRING_VALUE",
- *     PendingModifiedValues: { // PendingModifiedValues
- *       NumCacheNodes: Number("int"),
- *       CacheNodeIdsToRemove: [ // CacheNodeIdsList
- *         "STRING_VALUE",
- *       ],
- *       EngineVersion: "STRING_VALUE",
- *       CacheNodeType: "STRING_VALUE",
- *       AuthTokenStatus: "SETTING" || "ROTATING",
- *       LogDeliveryConfigurations: [ // PendingLogDeliveryConfigurationList
- *         { // PendingLogDeliveryConfiguration
- *           LogType: "slow-log" || "engine-log",
- *           DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *           DestinationDetails: { // DestinationDetails
- *             CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
- *               LogGroup: "STRING_VALUE",
- *             },
- *             KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
- *               DeliveryStream: "STRING_VALUE",
- *             },
- *           },
- *           LogFormat: "text" || "json",
- *         },
- *       ],
- *       TransitEncryptionEnabled: true || false,
- *       TransitEncryptionMode: "preferred" || "required",
- *     },
- *     NotificationConfiguration: { // NotificationConfiguration
- *       TopicArn: "STRING_VALUE",
- *       TopicStatus: "STRING_VALUE",
- *     },
- *     CacheSecurityGroups: [ // CacheSecurityGroupMembershipList
- *       { // CacheSecurityGroupMembership
- *         CacheSecurityGroupName: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *       },
- *     ],
- *     CacheParameterGroup: { // CacheParameterGroupStatus
- *       CacheParameterGroupName: "STRING_VALUE",
- *       ParameterApplyStatus: "STRING_VALUE",
- *       CacheNodeIdsToReboot: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     CacheSubnetGroupName: "STRING_VALUE",
- *     CacheNodes: [ // CacheNodeList
- *       { // CacheNode
- *         CacheNodeId: "STRING_VALUE",
- *         CacheNodeStatus: "STRING_VALUE",
- *         CacheNodeCreateTime: new Date("TIMESTAMP"),
- *         Endpoint: {
- *           Address: "STRING_VALUE",
- *           Port: Number("int"),
- *         },
- *         ParameterGroupStatus: "STRING_VALUE",
- *         SourceCacheNodeId: "STRING_VALUE",
- *         CustomerAvailabilityZone: "STRING_VALUE",
- *         CustomerOutpostArn: "STRING_VALUE",
- *       },
- *     ],
- *     AutoMinorVersionUpgrade: true || false,
- *     SecurityGroups: [ // SecurityGroupMembershipList
- *       { // SecurityGroupMembership
- *         SecurityGroupId: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *       },
- *     ],
- *     ReplicationGroupId: "STRING_VALUE",
- *     SnapshotRetentionLimit: Number("int"),
- *     SnapshotWindow: "STRING_VALUE",
- *     AuthTokenEnabled: true || false,
- *     AuthTokenLastModifiedDate: new Date("TIMESTAMP"),
- *     TransitEncryptionEnabled: true || false,
- *     AtRestEncryptionEnabled: true || false,
- *     ARN: "STRING_VALUE",
- *     ReplicationGroupLogDeliveryEnabled: true || false,
- *     LogDeliveryConfigurations: [ // LogDeliveryConfigurationList
- *       { // LogDeliveryConfiguration
- *         LogType: "slow-log" || "engine-log",
- *         DestinationType: "cloudwatch-logs" || "kinesis-firehose",
- *         DestinationDetails: {
- *           CloudWatchLogsDetails: {
- *             LogGroup: "STRING_VALUE",
- *           },
- *           KinesisFirehoseDetails: {
- *             DeliveryStream: "STRING_VALUE",
- *           },
- *         },
- *         LogFormat: "text" || "json",
- *         Status: "active" || "enabling" || "modifying" || "disabling" || "error",
- *         Message: "STRING_VALUE",
- *       },
- *     ],
- *     NetworkType: "ipv4" || "ipv6" || "dual_stack",
- *     IpDiscovery: "ipv4" || "ipv6",
- *     TransitEncryptionMode: "preferred" || "required",
- *   },
- * };
+ * // { // DeleteCacheClusterResult
+ * //   CacheCluster: { // CacheCluster
+ * //     CacheClusterId: "STRING_VALUE",
+ * //     ConfigurationEndpoint: { // Endpoint
+ * //       Address: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //     },
+ * //     ClientDownloadLandingPage: "STRING_VALUE",
+ * //     CacheNodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     CacheClusterStatus: "STRING_VALUE",
+ * //     NumCacheNodes: Number("int"),
+ * //     PreferredAvailabilityZone: "STRING_VALUE",
+ * //     PreferredOutpostArn: "STRING_VALUE",
+ * //     CacheClusterCreateTime: new Date("TIMESTAMP"),
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PendingModifiedValues: { // PendingModifiedValues
+ * //       NumCacheNodes: Number("int"),
+ * //       CacheNodeIdsToRemove: [ // CacheNodeIdsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EngineVersion: "STRING_VALUE",
+ * //       CacheNodeType: "STRING_VALUE",
+ * //       AuthTokenStatus: "SETTING" || "ROTATING",
+ * //       LogDeliveryConfigurations: [ // PendingLogDeliveryConfigurationList
+ * //         { // PendingLogDeliveryConfiguration
+ * //           LogType: "slow-log" || "engine-log",
+ * //           DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ * //           DestinationDetails: { // DestinationDetails
+ * //             CloudWatchLogsDetails: { // CloudWatchLogsDestinationDetails
+ * //               LogGroup: "STRING_VALUE",
+ * //             },
+ * //             KinesisFirehoseDetails: { // KinesisFirehoseDestinationDetails
+ * //               DeliveryStream: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           LogFormat: "text" || "json",
+ * //         },
+ * //       ],
+ * //       TransitEncryptionEnabled: true || false,
+ * //       TransitEncryptionMode: "preferred" || "required",
+ * //     },
+ * //     NotificationConfiguration: { // NotificationConfiguration
+ * //       TopicArn: "STRING_VALUE",
+ * //       TopicStatus: "STRING_VALUE",
+ * //     },
+ * //     CacheSecurityGroups: [ // CacheSecurityGroupMembershipList
+ * //       { // CacheSecurityGroupMembership
+ * //         CacheSecurityGroupName: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CacheParameterGroup: { // CacheParameterGroupStatus
+ * //       CacheParameterGroupName: "STRING_VALUE",
+ * //       ParameterApplyStatus: "STRING_VALUE",
+ * //       CacheNodeIdsToReboot: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CacheSubnetGroupName: "STRING_VALUE",
+ * //     CacheNodes: [ // CacheNodeList
+ * //       { // CacheNode
+ * //         CacheNodeId: "STRING_VALUE",
+ * //         CacheNodeStatus: "STRING_VALUE",
+ * //         CacheNodeCreateTime: new Date("TIMESTAMP"),
+ * //         Endpoint: {
+ * //           Address: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //         },
+ * //         ParameterGroupStatus: "STRING_VALUE",
+ * //         SourceCacheNodeId: "STRING_VALUE",
+ * //         CustomerAvailabilityZone: "STRING_VALUE",
+ * //         CustomerOutpostArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     AutoMinorVersionUpgrade: true || false,
+ * //     SecurityGroups: [ // SecurityGroupMembershipList
+ * //       { // SecurityGroupMembership
+ * //         SecurityGroupId: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ReplicationGroupId: "STRING_VALUE",
+ * //     SnapshotRetentionLimit: Number("int"),
+ * //     SnapshotWindow: "STRING_VALUE",
+ * //     AuthTokenEnabled: true || false,
+ * //     AuthTokenLastModifiedDate: new Date("TIMESTAMP"),
+ * //     TransitEncryptionEnabled: true || false,
+ * //     AtRestEncryptionEnabled: true || false,
+ * //     ARN: "STRING_VALUE",
+ * //     ReplicationGroupLogDeliveryEnabled: true || false,
+ * //     LogDeliveryConfigurations: [ // LogDeliveryConfigurationList
+ * //       { // LogDeliveryConfiguration
+ * //         LogType: "slow-log" || "engine-log",
+ * //         DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ * //         DestinationDetails: {
+ * //           CloudWatchLogsDetails: {
+ * //             LogGroup: "STRING_VALUE",
+ * //           },
+ * //           KinesisFirehoseDetails: {
+ * //             DeliveryStream: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         LogFormat: "text" || "json",
+ * //         Status: "active" || "enabling" || "modifying" || "disabling" || "error",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ * //     IpDiscovery: "ipv4" || "ipv6",
+ * //     TransitEncryptionMode: "preferred" || "required",
+ * //   },
+ * // };
  *
  * ```
  *

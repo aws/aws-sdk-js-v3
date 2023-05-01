@@ -106,10 +106,9 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  * };
  * const command = new CreateNotebookInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNotebookInstanceOutput
- *   NotebookInstanceArn: "STRING_VALUE",
- * };
+ * // { // CreateNotebookInstanceOutput
+ * //   NotebookInstanceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

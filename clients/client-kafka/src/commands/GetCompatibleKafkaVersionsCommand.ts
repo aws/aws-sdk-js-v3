@@ -44,17 +44,16 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * };
  * const command = new GetCompatibleKafkaVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCompatibleKafkaVersionsResponse
- *   CompatibleKafkaVersions: [ // __listOfCompatibleKafkaVersion
- *     { // CompatibleKafkaVersion
- *       SourceVersion: "STRING_VALUE",
- *       TargetVersions: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetCompatibleKafkaVersionsResponse
+ * //   CompatibleKafkaVersions: [ // __listOfCompatibleKafkaVersion
+ * //     { // CompatibleKafkaVersion
+ * //       SourceVersion: "STRING_VALUE",
+ * //       TargetVersions: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

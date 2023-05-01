@@ -50,14 +50,13 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcEndpointResponse
- *   deleteVpcEndpointDetail: { // DeleteVpcEndpointDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteVpcEndpointResponse
+ * //   deleteVpcEndpointDetail: { // DeleteVpcEndpointDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

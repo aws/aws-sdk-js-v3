@@ -63,10 +63,9 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * };
  * const command = new ModifyInstanceCapacityReservationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstanceCapacityReservationAttributesResult
- *   Return: true || false,
- * };
+ * // { // ModifyInstanceCapacityReservationAttributesResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

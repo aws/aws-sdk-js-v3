@@ -52,8 +52,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

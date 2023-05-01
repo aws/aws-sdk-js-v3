@@ -49,8 +49,7 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachRolePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

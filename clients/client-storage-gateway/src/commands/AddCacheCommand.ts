@@ -51,10 +51,9 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * };
  * const command = new AddCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddCacheOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // AddCacheOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

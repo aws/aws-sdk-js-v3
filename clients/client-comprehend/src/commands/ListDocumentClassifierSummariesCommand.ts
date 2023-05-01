@@ -50,19 +50,18 @@ export interface ListDocumentClassifierSummariesCommandOutput
  * };
  * const command = new ListDocumentClassifierSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDocumentClassifierSummariesResponse
- *   DocumentClassifierSummariesList: [ // DocumentClassifierSummariesList
- *     { // DocumentClassifierSummary
- *       DocumentClassifierName: "STRING_VALUE",
- *       NumberOfVersions: Number("int"),
- *       LatestVersionCreatedAt: new Date("TIMESTAMP"),
- *       LatestVersionName: "STRING_VALUE",
- *       LatestVersionStatus: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDocumentClassifierSummariesResponse
+ * //   DocumentClassifierSummariesList: [ // DocumentClassifierSummariesList
+ * //     { // DocumentClassifierSummary
+ * //       DocumentClassifierName: "STRING_VALUE",
+ * //       NumberOfVersions: Number("int"),
+ * //       LatestVersionCreatedAt: new Date("TIMESTAMP"),
+ * //       LatestVersionName: "STRING_VALUE",
+ * //       LatestVersionStatus: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

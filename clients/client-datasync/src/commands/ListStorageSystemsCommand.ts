@@ -45,16 +45,15 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * };
  * const command = new ListStorageSystemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStorageSystemsResponse
- *   StorageSystems: [ // StorageSystemList
- *     { // StorageSystemListEntry
- *       StorageSystemArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStorageSystemsResponse
+ * //   StorageSystems: [ // StorageSystemList
+ * //     { // StorageSystemListEntry
+ * //       StorageSystemArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,8 +59,7 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * };
  * const command = new UpdateNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

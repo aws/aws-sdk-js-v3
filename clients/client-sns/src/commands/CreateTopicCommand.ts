@@ -58,10 +58,9 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * };
  * const command = new CreateTopicCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTopicResponse
- *   TopicArn: "STRING_VALUE",
- * };
+ * // { // CreateTopicResponse
+ * //   TopicArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

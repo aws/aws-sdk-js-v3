@@ -47,8 +47,7 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteSolFunctionPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

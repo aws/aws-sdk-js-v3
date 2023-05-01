@@ -44,28 +44,27 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProjectResponse
- *   CreateDate: new Date("TIMESTAMP"),
- *   CreatedBy: "STRING_VALUE",
- *   DatasetName: "STRING_VALUE",
- *   LastModifiedDate: new Date("TIMESTAMP"),
- *   LastModifiedBy: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   RecipeName: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   Sample: { // Sample
- *     Size: Number("int"),
- *     Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
- *   },
- *   RoleArn: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   SessionStatus: "ASSIGNED" || "FAILED" || "INITIALIZING" || "PROVISIONING" || "READY" || "RECYCLING" || "ROTATING" || "TERMINATED" || "TERMINATING" || "UPDATING",
- *   OpenedBy: "STRING_VALUE",
- *   OpenDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeProjectResponse
+ * //   CreateDate: new Date("TIMESTAMP"),
+ * //   CreatedBy: "STRING_VALUE",
+ * //   DatasetName: "STRING_VALUE",
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: "STRING_VALUE",
+ * //   Name: "STRING_VALUE", // required
+ * //   RecipeName: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Sample: { // Sample
+ * //     Size: Number("int"),
+ * //     Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
+ * //   },
+ * //   RoleArn: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   SessionStatus: "ASSIGNED" || "FAILED" || "INITIALIZING" || "PROVISIONING" || "READY" || "RECYCLING" || "ROTATING" || "TERMINATED" || "TERMINATING" || "UPDATING",
+ * //   OpenedBy: "STRING_VALUE",
+ * //   OpenDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

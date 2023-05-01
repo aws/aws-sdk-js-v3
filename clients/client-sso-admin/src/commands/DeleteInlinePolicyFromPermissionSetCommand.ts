@@ -53,8 +53,7 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  * };
  * const command = new DeleteInlinePolicyFromPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

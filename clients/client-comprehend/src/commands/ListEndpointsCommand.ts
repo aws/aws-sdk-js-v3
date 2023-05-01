@@ -52,26 +52,25 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEndpointsResponse
- *   EndpointPropertiesList: [ // EndpointPropertiesList
- *     { // EndpointProperties
- *       EndpointArn: "STRING_VALUE",
- *       Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
- *       Message: "STRING_VALUE",
- *       ModelArn: "STRING_VALUE",
- *       DesiredModelArn: "STRING_VALUE",
- *       DesiredInferenceUnits: Number("int"),
- *       CurrentInferenceUnits: Number("int"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       DataAccessRoleArn: "STRING_VALUE",
- *       DesiredDataAccessRoleArn: "STRING_VALUE",
- *       FlywheelArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEndpointsResponse
+ * //   EndpointPropertiesList: [ // EndpointPropertiesList
+ * //     { // EndpointProperties
+ * //       EndpointArn: "STRING_VALUE",
+ * //       Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
+ * //       Message: "STRING_VALUE",
+ * //       ModelArn: "STRING_VALUE",
+ * //       DesiredModelArn: "STRING_VALUE",
+ * //       DesiredInferenceUnits: Number("int"),
+ * //       CurrentInferenceUnits: Number("int"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       DesiredDataAccessRoleArn: "STRING_VALUE",
+ * //       FlywheelArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

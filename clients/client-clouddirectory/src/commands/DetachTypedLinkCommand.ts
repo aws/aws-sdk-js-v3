@@ -68,8 +68,7 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachTypedLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

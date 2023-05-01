@@ -45,8 +45,7 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTopicRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * };
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelStatementResponse
- *   Status: true || false,
- * };
+ * // { // CancelStatementResponse
+ * //   Status: true || false,
+ * // };
  *
  * ```
  *

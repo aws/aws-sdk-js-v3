@@ -50,8 +50,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * };
  * const command = new SkipWaitTimeForInstanceTerminationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * };
  * const command = new ResetResourceLogLevelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

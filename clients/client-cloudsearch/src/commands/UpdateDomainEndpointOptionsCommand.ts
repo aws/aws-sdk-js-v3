@@ -50,22 +50,21 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * };
  * const command = new UpdateDomainEndpointOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainEndpointOptionsResponse
- *   DomainEndpointOptions: { // DomainEndpointOptionsStatus
- *     Options: { // DomainEndpointOptions
- *       EnforceHTTPS: true || false,
- *       TLSSecurityPolicy: "STRING_VALUE",
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // UpdateDomainEndpointOptionsResponse
+ * //   DomainEndpointOptions: { // DomainEndpointOptionsStatus
+ * //     Options: { // DomainEndpointOptions
+ * //       EnforceHTTPS: true || false,
+ * //       TLSSecurityPolicy: "STRING_VALUE",
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

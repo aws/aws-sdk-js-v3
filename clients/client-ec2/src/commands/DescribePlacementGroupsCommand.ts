@@ -60,26 +60,25 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * };
  * const command = new DescribePlacementGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePlacementGroupsResult
- *   PlacementGroups: [ // PlacementGroupList
- *     { // PlacementGroup
- *       GroupName: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       Strategy: "cluster" || "spread" || "partition",
- *       PartitionCount: Number("int"),
- *       GroupId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       GroupArn: "STRING_VALUE",
- *       SpreadLevel: "host" || "rack",
- *     },
- *   ],
- * };
+ * // { // DescribePlacementGroupsResult
+ * //   PlacementGroups: [ // PlacementGroupList
+ * //     { // PlacementGroup
+ * //       GroupName: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       Strategy: "cluster" || "spread" || "partition",
+ * //       PartitionCount: Number("int"),
+ * //       GroupId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       GroupArn: "STRING_VALUE",
+ * //       SpreadLevel: "host" || "rack",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

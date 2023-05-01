@@ -56,16 +56,15 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagesResponse
- *   imageIds: [ // ImageIdentifierList
- *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImagesResponse
+ * //   imageIds: [ // ImageIdentifierList
+ * //     { // ImageIdentifier
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTag: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

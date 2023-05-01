@@ -67,8 +67,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * };
  * const command = new PutDeliverabilityDashboardOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

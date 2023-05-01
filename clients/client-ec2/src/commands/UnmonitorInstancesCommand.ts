@@ -49,17 +49,16 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * };
  * const command = new UnmonitorInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnmonitorInstancesResult
- *   InstanceMonitorings: [ // InstanceMonitoringList
- *     { // InstanceMonitoring
- *       InstanceId: "STRING_VALUE",
- *       Monitoring: { // Monitoring
- *         State: "disabled" || "disabling" || "enabled" || "pending",
- *       },
- *     },
- *   ],
- * };
+ * // { // UnmonitorInstancesResult
+ * //   InstanceMonitorings: [ // InstanceMonitoringList
+ * //     { // InstanceMonitoring
+ * //       InstanceId: "STRING_VALUE",
+ * //       Monitoring: { // Monitoring
+ * //         State: "disabled" || "disabling" || "enabled" || "pending",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -75,10 +75,9 @@ export interface GetBucketAccelerateConfigurationCommandOutput
  * };
  * const command = new GetBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketAccelerateConfigurationOutput
- *   Status: "Enabled" || "Suspended",
- * };
+ * // { // GetBucketAccelerateConfigurationOutput
+ * //   Status: "Enabled" || "Suspended",
+ * // };
  *
  * ```
  *

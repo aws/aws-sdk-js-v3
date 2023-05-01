@@ -56,13 +56,12 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * };
  * const command = new CreateSourceRepositoryBranchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSourceRepositoryBranchResponse
- *   ref: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   lastUpdatedTime: new Date("TIMESTAMP"),
- *   headCommitId: "STRING_VALUE",
- * };
+ * // { // CreateSourceRepositoryBranchResponse
+ * //   ref: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   lastUpdatedTime: new Date("TIMESTAMP"),
+ * //   headCommitId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

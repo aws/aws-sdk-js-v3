@@ -63,10 +63,9 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * };
  * const command = new SubmitContainerStateChangeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubmitContainerStateChangeResponse
- *   acknowledgment: "STRING_VALUE",
- * };
+ * // { // SubmitContainerStateChangeResponse
+ * //   acknowledgment: "STRING_VALUE",
+ * // };
  *
  * ```
  *

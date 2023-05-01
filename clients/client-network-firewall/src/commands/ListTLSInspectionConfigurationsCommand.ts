@@ -50,16 +50,15 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * };
  * const command = new ListTLSInspectionConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTLSInspectionConfigurationsResponse
- *   NextToken: "STRING_VALUE",
- *   TLSInspectionConfigurations: [ // TLSInspectionConfigurations
- *     { // TLSInspectionConfigurationMetadata
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListTLSInspectionConfigurationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TLSInspectionConfigurations: [ // TLSInspectionConfigurations
+ * //     { // TLSInspectionConfigurationMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

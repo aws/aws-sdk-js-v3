@@ -55,12 +55,11 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * };
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIdentityProviderConfigurationResponse
- *   IdentityProviderType: "STRING_VALUE",
- *   ServiceProviderSamlMetadata: "STRING_VALUE",
- *   IdentityProviderSamlMetadata: "STRING_VALUE",
- * };
+ * // { // DescribeIdentityProviderConfigurationResponse
+ * //   IdentityProviderType: "STRING_VALUE",
+ * //   ServiceProviderSamlMetadata: "STRING_VALUE",
+ * //   IdentityProviderSamlMetadata: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * };
  * const command = new DeleteMitigationActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

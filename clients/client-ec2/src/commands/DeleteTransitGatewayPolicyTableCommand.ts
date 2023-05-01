@@ -50,21 +50,20 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  * };
  * const command = new DeleteTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTransitGatewayPolicyTableResult
- *   TransitGatewayPolicyTable: { // TransitGatewayPolicyTable
- *     TransitGatewayPolicyTableId: "STRING_VALUE",
- *     TransitGatewayId: "STRING_VALUE",
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTransitGatewayPolicyTableResult
+ * //   TransitGatewayPolicyTable: { // TransitGatewayPolicyTable
+ * //     TransitGatewayPolicyTableId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

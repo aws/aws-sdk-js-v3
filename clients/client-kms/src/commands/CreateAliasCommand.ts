@@ -101,8 +101,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

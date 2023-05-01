@@ -71,10 +71,9 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * };
  * const command = new AssociateNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateNodeResponse
- *   NodeAssociationStatusToken: "STRING_VALUE",
- * };
+ * // { // AssociateNodeResponse
+ * //   NodeAssociationStatusToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

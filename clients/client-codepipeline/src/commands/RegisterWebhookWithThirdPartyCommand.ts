@@ -50,8 +50,7 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * };
  * const command = new RegisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * };
  * const command = new DetachClassicLinkVpcCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachClassicLinkVpcResult
- *   Return: true || false,
- * };
+ * // { // DetachClassicLinkVpcResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

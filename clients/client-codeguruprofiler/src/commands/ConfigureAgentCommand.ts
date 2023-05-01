@@ -52,16 +52,15 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * };
  * const command = new ConfigureAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigureAgentResponse
- *   configuration: { // AgentConfiguration
- *     shouldProfile: true || false, // required
- *     periodInSeconds: Number("int"), // required
- *     agentParameters: { // AgentParameters
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // ConfigureAgentResponse
+ * //   configuration: { // AgentConfiguration
+ * //     shouldProfile: true || false, // required
+ * //     periodInSeconds: Number("int"), // required
+ * //     agentParameters: { // AgentParameters
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

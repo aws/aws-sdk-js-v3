@@ -44,11 +44,10 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEnvironmentStatusResult
- *   status: "error" || "creating" || "connecting" || "ready" || "stopping" || "stopped" || "deleting", // required
- *   message: "STRING_VALUE", // required
- * };
+ * // { // DescribeEnvironmentStatusResult
+ * //   status: "error" || "creating" || "connecting" || "ready" || "stopping" || "stopped" || "deleting", // required
+ * //   message: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

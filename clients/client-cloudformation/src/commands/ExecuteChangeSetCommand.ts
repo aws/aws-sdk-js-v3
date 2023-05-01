@@ -57,8 +57,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * };
  * const command = new ExecuteChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

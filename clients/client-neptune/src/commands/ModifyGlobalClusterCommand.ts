@@ -50,28 +50,27 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyGlobalClusterResult
- *   GlobalCluster: { // GlobalCluster
- *     GlobalClusterIdentifier: "STRING_VALUE",
- *     GlobalClusterResourceId: "STRING_VALUE",
- *     GlobalClusterArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Engine: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     StorageEncrypted: true || false,
- *     DeletionProtection: true || false,
- *     GlobalClusterMembers: [ // GlobalClusterMemberList
- *       { // GlobalClusterMember
- *         DBClusterArn: "STRING_VALUE",
- *         Readers: [ // ReadersArnList
- *           "STRING_VALUE",
- *         ],
- *         IsWriter: true || false,
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyGlobalClusterResult
+ * //   GlobalCluster: { // GlobalCluster
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     GlobalClusterResourceId: "STRING_VALUE",
+ * //     GlobalClusterArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     DeletionProtection: true || false,
+ * //     GlobalClusterMembers: [ // GlobalClusterMemberList
+ * //       { // GlobalClusterMember
+ * //         DBClusterArn: "STRING_VALUE",
+ * //         Readers: [ // ReadersArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IsWriter: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

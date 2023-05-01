@@ -55,8 +55,7 @@ export interface AcceptAdministratorInvitationCommandOutput
  * };
  * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

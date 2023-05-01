@@ -45,19 +45,18 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * };
  * const command = new GetRunTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRunTaskResponse
- *   taskId: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   cpus: Number("int"),
- *   memory: Number("int"),
- *   creationTime: new Date("TIMESTAMP"),
- *   startTime: new Date("TIMESTAMP"),
- *   stopTime: new Date("TIMESTAMP"),
- *   statusMessage: "STRING_VALUE",
- *   logStream: "STRING_VALUE",
- * };
+ * // { // GetRunTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   cpus: Number("int"),
+ * //   memory: Number("int"),
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   stopTime: new Date("TIMESTAMP"),
+ * //   statusMessage: "STRING_VALUE",
+ * //   logStream: "STRING_VALUE",
+ * // };
  *
  * ```
  *

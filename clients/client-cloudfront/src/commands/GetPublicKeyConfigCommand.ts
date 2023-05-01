@@ -44,16 +44,15 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * };
  * const command = new GetPublicKeyConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPublicKeyConfigResult
- *   PublicKeyConfig: { // PublicKeyConfig
- *     CallerReference: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     EncodedKey: "STRING_VALUE", // required
- *     Comment: "STRING_VALUE",
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetPublicKeyConfigResult
+ * //   PublicKeyConfig: { // PublicKeyConfig
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     EncodedKey: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,17 +47,16 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * };
  * const command = new ListLayoutsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLayoutsResponse
- *   layouts: [ // LayoutSummaryList // required
- *     { // LayoutSummary
- *       layoutId: "STRING_VALUE", // required
- *       layoutArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListLayoutsResponse
+ * //   layouts: [ // LayoutSummaryList // required
+ * //     { // LayoutSummary
+ * //       layoutId: "STRING_VALUE", // required
+ * //       layoutArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

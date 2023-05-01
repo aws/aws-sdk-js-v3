@@ -65,8 +65,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

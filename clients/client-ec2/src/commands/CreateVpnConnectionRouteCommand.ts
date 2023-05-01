@@ -49,8 +49,7 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * };
  * const command = new CreateVpnConnectionRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

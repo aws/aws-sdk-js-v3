@@ -51,19 +51,18 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * };
  * const command = new CreateVoiceConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVoiceConnectorResponse
- *   VoiceConnector: { // VoiceConnector
- *     VoiceConnectorId: "STRING_VALUE",
- *     AwsRegion: "us-east-1" || "us-west-2",
- *     Name: "STRING_VALUE",
- *     OutboundHostName: "STRING_VALUE",
- *     RequireEncryption: true || false,
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     VoiceConnectorArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateVoiceConnectorResponse
+ * //   VoiceConnector: { // VoiceConnector
+ * //     VoiceConnectorId: "STRING_VALUE",
+ * //     AwsRegion: "us-east-1" || "us-west-2",
+ * //     Name: "STRING_VALUE",
+ * //     OutboundHostName: "STRING_VALUE",
+ * //     RequireEncryption: true || false,
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     VoiceConnectorArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

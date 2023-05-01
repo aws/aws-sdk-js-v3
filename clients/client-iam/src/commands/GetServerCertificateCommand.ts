@@ -48,27 +48,26 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * };
  * const command = new GetServerCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServerCertificateResponse
- *   ServerCertificate: { // ServerCertificate
- *     ServerCertificateMetadata: { // ServerCertificateMetadata
- *       Path: "STRING_VALUE", // required
- *       ServerCertificateName: "STRING_VALUE", // required
- *       ServerCertificateId: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       UploadDate: new Date("TIMESTAMP"),
- *       Expiration: new Date("TIMESTAMP"),
- *     },
- *     CertificateBody: "STRING_VALUE", // required
- *     CertificateChain: "STRING_VALUE",
- *     Tags: [ // tagListType
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetServerCertificateResponse
+ * //   ServerCertificate: { // ServerCertificate
+ * //     ServerCertificateMetadata: { // ServerCertificateMetadata
+ * //       Path: "STRING_VALUE", // required
+ * //       ServerCertificateName: "STRING_VALUE", // required
+ * //       ServerCertificateId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       UploadDate: new Date("TIMESTAMP"),
+ * //       Expiration: new Date("TIMESTAMP"),
+ * //     },
+ * //     CertificateBody: "STRING_VALUE", // required
+ * //     CertificateChain: "STRING_VALUE",
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

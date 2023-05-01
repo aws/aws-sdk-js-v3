@@ -75,8 +75,7 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * };
  * const command = new ApproveAssignmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

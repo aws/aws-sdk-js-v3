@@ -61,29 +61,28 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * };
  * const command = new GetIpamDiscoveredResourceCidrsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIpamDiscoveredResourceCidrsResult
- *   IpamDiscoveredResourceCidrs: [ // IpamDiscoveredResourceCidrSet
- *     { // IpamDiscoveredResourceCidr
- *       IpamResourceDiscoveryId: "STRING_VALUE",
- *       ResourceRegion: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceOwnerId: "STRING_VALUE",
- *       ResourceCidr: "STRING_VALUE",
- *       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
- *       ResourceTags: [ // IpamResourceTagList
- *         { // IpamResourceTag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       IpUsage: Number("double"),
- *       VpcId: "STRING_VALUE",
- *       SampleTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetIpamDiscoveredResourceCidrsResult
+ * //   IpamDiscoveredResourceCidrs: [ // IpamDiscoveredResourceCidrSet
+ * //     { // IpamDiscoveredResourceCidr
+ * //       IpamResourceDiscoveryId: "STRING_VALUE",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       ResourceCidr: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ * //       ResourceTags: [ // IpamResourceTagList
+ * //         { // IpamResourceTag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       IpUsage: Number("double"),
+ * //       VpcId: "STRING_VALUE",
+ * //       SampleTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

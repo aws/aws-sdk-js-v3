@@ -49,19 +49,18 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserProfilesResponse
- *   UserProfiles: [ // UserProfileList
- *     { // UserProfileDetails
- *       DomainId: "STRING_VALUE",
- *       UserProfileName: "STRING_VALUE",
- *       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUserProfilesResponse
+ * //   UserProfiles: [ // UserProfileList
+ * //     { // UserProfileDetails
+ * //       DomainId: "STRING_VALUE",
+ * //       UserProfileName: "STRING_VALUE",
+ * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

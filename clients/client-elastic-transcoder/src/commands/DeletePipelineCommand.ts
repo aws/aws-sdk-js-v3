@@ -51,8 +51,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

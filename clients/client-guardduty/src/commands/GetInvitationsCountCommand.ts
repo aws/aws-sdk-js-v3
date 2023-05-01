@@ -43,10 +43,9 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInvitationsCountResponse
- *   InvitationsCount: Number("int"),
- * };
+ * // { // GetInvitationsCountResponse
+ * //   InvitationsCount: Number("int"),
+ * // };
  *
  * ```
  *

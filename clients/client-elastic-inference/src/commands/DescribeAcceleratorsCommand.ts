@@ -63,21 +63,20 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * };
  * const command = new DescribeAcceleratorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAcceleratorsResponse
- *   acceleratorSet: [ // ElasticInferenceAcceleratorSet
- *     { // ElasticInferenceAccelerator
- *       acceleratorHealth: { // ElasticInferenceAcceleratorHealth
- *         status: "STRING_VALUE",
- *       },
- *       acceleratorType: "STRING_VALUE",
- *       acceleratorId: "STRING_VALUE",
- *       availabilityZone: "STRING_VALUE",
- *       attachedResource: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAcceleratorsResponse
+ * //   acceleratorSet: [ // ElasticInferenceAcceleratorSet
+ * //     { // ElasticInferenceAccelerator
+ * //       acceleratorHealth: { // ElasticInferenceAcceleratorHealth
+ * //         status: "STRING_VALUE",
+ * //       },
+ * //       acceleratorType: "STRING_VALUE",
+ * //       acceleratorId: "STRING_VALUE",
+ * //       availabilityZone: "STRING_VALUE",
+ * //       attachedResource: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

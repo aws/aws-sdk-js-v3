@@ -56,17 +56,16 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * };
  * const command = new ListDataIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataIntegrationAssociationsResponse
- *   DataIntegrationAssociations: [ // DataIntegrationAssociationsList
- *     { // DataIntegrationAssociationSummary
- *       DataIntegrationAssociationArn: "STRING_VALUE",
- *       DataIntegrationArn: "STRING_VALUE",
- *       ClientId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataIntegrationAssociationsResponse
+ * //   DataIntegrationAssociations: [ // DataIntegrationAssociationsList
+ * //     { // DataIntegrationAssociationSummary
+ * //       DataIntegrationAssociationArn: "STRING_VALUE",
+ * //       DataIntegrationArn: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

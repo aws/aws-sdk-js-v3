@@ -46,16 +46,15 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExportsOutput
- *   ExportSummaries: [ // ExportSummaries
- *     { // ExportSummary
- *       ExportArn: "STRING_VALUE",
- *       ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExportsOutput
+ * //   ExportSummaries: [ // ExportSummaries
+ * //     { // ExportSummary
+ * //       ExportArn: "STRING_VALUE",
+ * //       ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

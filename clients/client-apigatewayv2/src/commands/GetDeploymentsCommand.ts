@@ -46,20 +46,19 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeploymentsResponse
- *   Items: [ // __listOfDeployment
- *     { // Deployment
- *       AutoDeployed: true || false,
- *       CreatedDate: new Date("TIMESTAMP"),
- *       DeploymentId: "STRING_VALUE",
- *       DeploymentStatus: "STRING_VALUE",
- *       DeploymentStatusMessage: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetDeploymentsResponse
+ * //   Items: [ // __listOfDeployment
+ * //     { // Deployment
+ * //       AutoDeployed: true || false,
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       DeploymentId: "STRING_VALUE",
+ * //       DeploymentStatus: "STRING_VALUE",
+ * //       DeploymentStatusMessage: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

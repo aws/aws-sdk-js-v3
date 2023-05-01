@@ -64,19 +64,18 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * };
  * const command = new GetSlotTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSlotTypesResponse
- *   slotTypes: [ // SlotTypeMetadataList
- *     { // SlotTypeMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetSlotTypesResponse
+ * //   slotTypes: [ // SlotTypeMetadataList
+ * //     { // SlotTypeMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

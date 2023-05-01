@@ -46,23 +46,22 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * };
  * const command = new ListDataSetImportHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataSetImportHistoryResponse
- *   dataSetImportTasks: [ // DataSetImportTaskList // required
- *     { // DataSetImportTask
- *       taskId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       summary: { // DataSetImportSummary
- *         total: Number("int"), // required
- *         succeeded: Number("int"), // required
- *         failed: Number("int"), // required
- *         pending: Number("int"), // required
- *         inProgress: Number("int"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDataSetImportHistoryResponse
+ * //   dataSetImportTasks: [ // DataSetImportTaskList // required
+ * //     { // DataSetImportTask
+ * //       taskId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       summary: { // DataSetImportSummary
+ * //         total: Number("int"), // required
+ * //         succeeded: Number("int"), // required
+ * //         failed: Number("int"), // required
+ * //         pending: Number("int"), // required
+ * //         inProgress: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

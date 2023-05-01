@@ -53,27 +53,26 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * };
  * const command = new DescribeJournalS3ExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJournalS3ExportResponse
- *   ExportDescription: { // JournalS3ExportDescription
- *     LedgerName: "STRING_VALUE", // required
- *     ExportId: "STRING_VALUE", // required
- *     ExportCreationTime: new Date("TIMESTAMP"), // required
- *     Status: "IN_PROGRESS" || "COMPLETED" || "CANCELLED", // required
- *     InclusiveStartTime: new Date("TIMESTAMP"), // required
- *     ExclusiveEndTime: new Date("TIMESTAMP"), // required
- *     S3ExportConfiguration: { // S3ExportConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE", // required
- *       EncryptionConfiguration: { // S3EncryptionConfiguration
- *         ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
- *         KmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *     RoleArn: "STRING_VALUE", // required
- *     OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
- *   },
- * };
+ * // { // DescribeJournalS3ExportResponse
+ * //   ExportDescription: { // JournalS3ExportDescription
+ * //     LedgerName: "STRING_VALUE", // required
+ * //     ExportId: "STRING_VALUE", // required
+ * //     ExportCreationTime: new Date("TIMESTAMP"), // required
+ * //     Status: "IN_PROGRESS" || "COMPLETED" || "CANCELLED", // required
+ * //     InclusiveStartTime: new Date("TIMESTAMP"), // required
+ * //     ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ * //     S3ExportConfiguration: { // S3ExportConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE", // required
+ * //       EncryptionConfiguration: { // S3EncryptionConfiguration
+ * //         ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
+ * //   },
+ * // };
  *
  * ```
  *

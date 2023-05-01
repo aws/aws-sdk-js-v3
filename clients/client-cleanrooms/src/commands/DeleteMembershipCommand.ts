@@ -44,8 +44,7 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  * };
  * const command = new DeleteMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

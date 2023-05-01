@@ -72,13 +72,12 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVaultLockOutput
- *   Policy: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   ExpirationDate: "STRING_VALUE",
- *   CreationDate: "STRING_VALUE",
- * };
+ * // { // GetVaultLockOutput
+ * //   Policy: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   ExpirationDate: "STRING_VALUE",
+ * //   CreationDate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

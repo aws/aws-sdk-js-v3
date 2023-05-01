@@ -44,39 +44,38 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * };
  * const command = new DescribeCopyJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCopyJobOutput
- *   CopyJob: { // CopyJob
- *     AccountId: "STRING_VALUE",
- *     CopyJobId: "STRING_VALUE",
- *     SourceBackupVaultArn: "STRING_VALUE",
- *     SourceRecoveryPointArn: "STRING_VALUE",
- *     DestinationBackupVaultArn: "STRING_VALUE",
- *     DestinationRecoveryPointArn: "STRING_VALUE",
- *     ResourceArn: "STRING_VALUE",
- *     CreationDate: new Date("TIMESTAMP"),
- *     CompletionDate: new Date("TIMESTAMP"),
- *     State: "CREATED" || "RUNNING" || "COMPLETED" || "FAILED" || "PARTIAL",
- *     StatusMessage: "STRING_VALUE",
- *     BackupSizeInBytes: Number("long"),
- *     IamRoleArn: "STRING_VALUE",
- *     CreatedBy: { // RecoveryPointCreator
- *       BackupPlanId: "STRING_VALUE",
- *       BackupPlanArn: "STRING_VALUE",
- *       BackupPlanVersion: "STRING_VALUE",
- *       BackupRuleId: "STRING_VALUE",
- *     },
- *     ResourceType: "STRING_VALUE",
- *     ParentJobId: "STRING_VALUE",
- *     IsParent: true || false,
- *     CompositeMemberIdentifier: "STRING_VALUE",
- *     NumberOfChildJobs: Number("long"),
- *     ChildJobsInState: { // CopyJobChildJobsInState
- *       "<keys>": Number("long"),
- *     },
- *     ResourceName: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeCopyJobOutput
+ * //   CopyJob: { // CopyJob
+ * //     AccountId: "STRING_VALUE",
+ * //     CopyJobId: "STRING_VALUE",
+ * //     SourceBackupVaultArn: "STRING_VALUE",
+ * //     SourceRecoveryPointArn: "STRING_VALUE",
+ * //     DestinationBackupVaultArn: "STRING_VALUE",
+ * //     DestinationRecoveryPointArn: "STRING_VALUE",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     CompletionDate: new Date("TIMESTAMP"),
+ * //     State: "CREATED" || "RUNNING" || "COMPLETED" || "FAILED" || "PARTIAL",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     BackupSizeInBytes: Number("long"),
+ * //     IamRoleArn: "STRING_VALUE",
+ * //     CreatedBy: { // RecoveryPointCreator
+ * //       BackupPlanId: "STRING_VALUE",
+ * //       BackupPlanArn: "STRING_VALUE",
+ * //       BackupPlanVersion: "STRING_VALUE",
+ * //       BackupRuleId: "STRING_VALUE",
+ * //     },
+ * //     ResourceType: "STRING_VALUE",
+ * //     ParentJobId: "STRING_VALUE",
+ * //     IsParent: true || false,
+ * //     CompositeMemberIdentifier: "STRING_VALUE",
+ * //     NumberOfChildJobs: Number("long"),
+ * //     ChildJobsInState: { // CopyJobChildJobsInState
+ * //       "<keys>": Number("long"),
+ * //     },
+ * //     ResourceName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -62,18 +62,17 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * };
  * const command = new ImportKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportKeyPairResult
- *   KeyFingerprint: "STRING_VALUE",
- *   KeyName: "STRING_VALUE",
- *   KeyPairId: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ImportKeyPairResult
+ * //   KeyFingerprint: "STRING_VALUE",
+ * //   KeyName: "STRING_VALUE",
+ * //   KeyPairId: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

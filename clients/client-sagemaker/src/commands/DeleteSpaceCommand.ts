@@ -45,8 +45,7 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSpaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

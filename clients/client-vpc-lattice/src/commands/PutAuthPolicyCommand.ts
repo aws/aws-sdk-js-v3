@@ -46,11 +46,10 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * };
  * const command = new PutAuthPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAuthPolicyResponse
- *   policy: "STRING_VALUE",
- *   state: "STRING_VALUE",
- * };
+ * // { // PutAuthPolicyResponse
+ * //   policy: "STRING_VALUE",
+ * //   state: "STRING_VALUE",
+ * // };
  *
  * ```
  *

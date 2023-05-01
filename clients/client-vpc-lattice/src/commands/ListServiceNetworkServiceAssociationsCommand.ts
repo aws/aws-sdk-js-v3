@@ -63,30 +63,29 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
  * };
  * const command = new ListServiceNetworkServiceAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceNetworkServiceAssociationsResponse
- *   items: [ // ServiceNetworkServiceAssociationList // required
- *     { // ServiceNetworkServiceAssociationSummary
- *       id: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       createdBy: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       serviceId: "STRING_VALUE",
- *       serviceName: "STRING_VALUE",
- *       serviceArn: "STRING_VALUE",
- *       serviceNetworkId: "STRING_VALUE",
- *       serviceNetworkName: "STRING_VALUE",
- *       serviceNetworkArn: "STRING_VALUE",
- *       dnsEntry: { // DnsEntry
- *         domainName: "STRING_VALUE",
- *         hostedZoneId: "STRING_VALUE",
- *       },
- *       customDomainName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListServiceNetworkServiceAssociationsResponse
+ * //   items: [ // ServiceNetworkServiceAssociationList // required
+ * //     { // ServiceNetworkServiceAssociationSummary
+ * //       id: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       createdBy: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       serviceId: "STRING_VALUE",
+ * //       serviceName: "STRING_VALUE",
+ * //       serviceArn: "STRING_VALUE",
+ * //       serviceNetworkId: "STRING_VALUE",
+ * //       serviceNetworkName: "STRING_VALUE",
+ * //       serviceNetworkArn: "STRING_VALUE",
+ * //       dnsEntry: { // DnsEntry
+ * //         domainName: "STRING_VALUE",
+ * //         hostedZoneId: "STRING_VALUE",
+ * //       },
+ * //       customDomainName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

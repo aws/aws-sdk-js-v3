@@ -48,8 +48,7 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * };
  * const command = new StopQueryExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

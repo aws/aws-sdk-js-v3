@@ -81,12 +81,11 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  * };
  * const command = new StartPiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPiiEntitiesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartPiiEntitiesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

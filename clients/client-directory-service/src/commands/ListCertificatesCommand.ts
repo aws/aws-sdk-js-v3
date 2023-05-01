@@ -46,19 +46,18 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCertificatesResult
- *   NextToken: "STRING_VALUE",
- *   CertificatesInfo: [ // CertificatesInfo
- *     { // CertificateInfo
- *       CertificateId: "STRING_VALUE",
- *       CommonName: "STRING_VALUE",
- *       State: "Registering" || "Registered" || "RegisterFailed" || "Deregistering" || "Deregistered" || "DeregisterFailed",
- *       ExpiryDateTime: new Date("TIMESTAMP"),
- *       Type: "ClientCertAuth" || "ClientLDAPS",
- *     },
- *   ],
- * };
+ * // { // ListCertificatesResult
+ * //   NextToken: "STRING_VALUE",
+ * //   CertificatesInfo: [ // CertificatesInfo
+ * //     { // CertificateInfo
+ * //       CertificateId: "STRING_VALUE",
+ * //       CommonName: "STRING_VALUE",
+ * //       State: "Registering" || "Registered" || "RegisterFailed" || "Deregistering" || "Deregistered" || "DeregisterFailed",
+ * //       ExpiryDateTime: new Date("TIMESTAMP"),
+ * //       Type: "ClientCertAuth" || "ClientLDAPS",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

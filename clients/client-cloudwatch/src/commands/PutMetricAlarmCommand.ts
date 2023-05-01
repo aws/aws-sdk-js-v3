@@ -156,8 +156,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

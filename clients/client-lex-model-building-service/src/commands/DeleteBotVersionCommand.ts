@@ -52,8 +52,7 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

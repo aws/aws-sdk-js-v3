@@ -48,8 +48,7 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteReadinessCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

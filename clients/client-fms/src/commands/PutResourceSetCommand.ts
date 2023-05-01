@@ -61,21 +61,20 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * };
  * const command = new PutResourceSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResourceSetResponse
- *   ResourceSet: { // ResourceSet
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     UpdateToken: "STRING_VALUE",
- *     ResourceTypeList: [ // ResourceTypeList // required
- *       "STRING_VALUE",
- *     ],
- *     LastUpdateTime: new Date("TIMESTAMP"),
- *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
- *   },
- *   ResourceSetArn: "STRING_VALUE", // required
- * };
+ * // { // PutResourceSetResponse
+ * //   ResourceSet: { // ResourceSet
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     UpdateToken: "STRING_VALUE",
+ * //     ResourceTypeList: [ // ResourceTypeList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //   },
+ * //   ResourceSetArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * };
  * const command = new RemoveFacetFromObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

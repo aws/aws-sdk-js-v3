@@ -44,8 +44,7 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * };
  * const command = new DeleteIncidentRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

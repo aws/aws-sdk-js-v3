@@ -47,43 +47,42 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * };
  * const command = new GetIdentityResolutionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityResolutionJobResponse
- *   DomainName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "PENDING" || "PREPROCESSING" || "FIND_MATCHING" || "MERGING" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED",
- *   Message: "STRING_VALUE",
- *   JobStartTime: new Date("TIMESTAMP"),
- *   JobEndTime: new Date("TIMESTAMP"),
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- *   JobExpirationTime: new Date("TIMESTAMP"),
- *   AutoMerging: { // AutoMerging
- *     Enabled: true || false, // required
- *     Consolidation: { // Consolidation
- *       MatchingAttributesList: [ // MatchingAttributesList // required
- *         [ // MatchingAttributes
- *           "STRING_VALUE",
- *         ],
- *       ],
- *     },
- *     ConflictResolution: { // ConflictResolution
- *       ConflictResolvingModel: "RECENCY" || "SOURCE", // required
- *       SourceName: "STRING_VALUE",
- *     },
- *     MinAllowedConfidenceScoreForMerging: Number("double"),
- *   },
- *   ExportingLocation: { // ExportingLocation
- *     S3Exporting: { // S3ExportingLocation
- *       S3BucketName: "STRING_VALUE",
- *       S3KeyName: "STRING_VALUE",
- *     },
- *   },
- *   JobStats: { // JobStats
- *     NumberOfProfilesReviewed: Number("long"),
- *     NumberOfMatchesFound: Number("long"),
- *     NumberOfMergesDone: Number("long"),
- *   },
- * };
+ * // { // GetIdentityResolutionJobResponse
+ * //   DomainName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "PENDING" || "PREPROCESSING" || "FIND_MATCHING" || "MERGING" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED",
+ * //   Message: "STRING_VALUE",
+ * //   JobStartTime: new Date("TIMESTAMP"),
+ * //   JobEndTime: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   JobExpirationTime: new Date("TIMESTAMP"),
+ * //   AutoMerging: { // AutoMerging
+ * //     Enabled: true || false, // required
+ * //     Consolidation: { // Consolidation
+ * //       MatchingAttributesList: [ // MatchingAttributesList // required
+ * //         [ // MatchingAttributes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       ],
+ * //     },
+ * //     ConflictResolution: { // ConflictResolution
+ * //       ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ * //       SourceName: "STRING_VALUE",
+ * //     },
+ * //     MinAllowedConfidenceScoreForMerging: Number("double"),
+ * //   },
+ * //   ExportingLocation: { // ExportingLocation
+ * //     S3Exporting: { // S3ExportingLocation
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3KeyName: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobStats: { // JobStats
+ * //     NumberOfProfilesReviewed: Number("long"),
+ * //     NumberOfMatchesFound: Number("long"),
+ * //     NumberOfMergesDone: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

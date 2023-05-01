@@ -82,34 +82,33 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
  * };
  * const command = new DescribeSavingsPlansOfferingRatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSavingsPlansOfferingRatesResponse
- *   searchResults: [ // SavingsPlanOfferingRatesList
- *     { // SavingsPlanOfferingRate
- *       savingsPlanOffering: { // ParentSavingsPlanOffering
- *         offeringId: "STRING_VALUE",
- *         paymentOption: "STRING_VALUE",
- *         planType: "STRING_VALUE",
- *         durationSeconds: Number("long"),
- *         currency: "STRING_VALUE",
- *         planDescription: "STRING_VALUE",
- *       },
- *       rate: "STRING_VALUE",
- *       unit: "STRING_VALUE",
- *       productType: "STRING_VALUE",
- *       serviceCode: "STRING_VALUE",
- *       usageType: "STRING_VALUE",
- *       operation: "STRING_VALUE",
- *       properties: [ // SavingsPlanOfferingRatePropertyList
- *         { // SavingsPlanOfferingRateProperty
- *           name: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSavingsPlansOfferingRatesResponse
+ * //   searchResults: [ // SavingsPlanOfferingRatesList
+ * //     { // SavingsPlanOfferingRate
+ * //       savingsPlanOffering: { // ParentSavingsPlanOffering
+ * //         offeringId: "STRING_VALUE",
+ * //         paymentOption: "STRING_VALUE",
+ * //         planType: "STRING_VALUE",
+ * //         durationSeconds: Number("long"),
+ * //         currency: "STRING_VALUE",
+ * //         planDescription: "STRING_VALUE",
+ * //       },
+ * //       rate: "STRING_VALUE",
+ * //       unit: "STRING_VALUE",
+ * //       productType: "STRING_VALUE",
+ * //       serviceCode: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       operation: "STRING_VALUE",
+ * //       properties: [ // SavingsPlanOfferingRatePropertyList
+ * //         { // SavingsPlanOfferingRateProperty
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

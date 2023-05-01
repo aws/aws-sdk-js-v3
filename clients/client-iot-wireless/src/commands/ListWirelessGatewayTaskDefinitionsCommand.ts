@@ -54,28 +54,27 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  * };
  * const command = new ListWirelessGatewayTaskDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWirelessGatewayTaskDefinitionsResponse
- *   NextToken: "STRING_VALUE",
- *   TaskDefinitions: [ // WirelessGatewayTaskDefinitionList
- *     { // UpdateWirelessGatewayTaskEntry
- *       Id: "STRING_VALUE",
- *       LoRaWAN: { // LoRaWANUpdateGatewayTaskEntry
- *         CurrentVersion: { // LoRaWANGatewayVersion
- *           PackageVersion: "STRING_VALUE",
- *           Model: "STRING_VALUE",
- *           Station: "STRING_VALUE",
- *         },
- *         UpdateVersion: {
- *           PackageVersion: "STRING_VALUE",
- *           Model: "STRING_VALUE",
- *           Station: "STRING_VALUE",
- *         },
- *       },
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWirelessGatewayTaskDefinitionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TaskDefinitions: [ // WirelessGatewayTaskDefinitionList
+ * //     { // UpdateWirelessGatewayTaskEntry
+ * //       Id: "STRING_VALUE",
+ * //       LoRaWAN: { // LoRaWANUpdateGatewayTaskEntry
+ * //         CurrentVersion: { // LoRaWANGatewayVersion
+ * //           PackageVersion: "STRING_VALUE",
+ * //           Model: "STRING_VALUE",
+ * //           Station: "STRING_VALUE",
+ * //         },
+ * //         UpdateVersion: {
+ * //           PackageVersion: "STRING_VALUE",
+ * //           Model: "STRING_VALUE",
+ * //           Station: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

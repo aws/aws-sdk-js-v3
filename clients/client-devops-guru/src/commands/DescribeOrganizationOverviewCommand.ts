@@ -57,11 +57,10 @@ export interface DescribeOrganizationOverviewCommandOutput
  * };
  * const command = new DescribeOrganizationOverviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationOverviewResponse
- *   ReactiveInsights: Number("int"), // required
- *   ProactiveInsights: Number("int"), // required
- * };
+ * // { // DescribeOrganizationOverviewResponse
+ * //   ReactiveInsights: Number("int"), // required
+ * //   ProactiveInsights: Number("int"), // required
+ * // };
  *
  * ```
  *

@@ -60,8 +60,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  * };
  * const command = new DisassociateConfigurationItemsFromApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

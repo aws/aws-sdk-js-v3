@@ -46,22 +46,21 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUsersResult
- *   Users: [ // UserList
- *     { // User
- *       Arn: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       Enabled: true || false,
- *       Status: "STRING_VALUE",
- *       FirstName: "STRING_VALUE",
- *       LastName: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeUsersResult
+ * //   Users: [ // UserList
+ * //     { // User
+ * //       Arn: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Status: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

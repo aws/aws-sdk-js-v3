@@ -52,32 +52,31 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput
  * };
  * const command = new GetDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataQualityRuleRecommendationRunResponse
- *   RunId: "STRING_VALUE",
- *   DataSource: { // DataSource
- *     GlueTable: { // GlueTable
- *       DatabaseName: "STRING_VALUE", // required
- *       TableName: "STRING_VALUE", // required
- *       CatalogId: "STRING_VALUE",
- *       ConnectionName: "STRING_VALUE",
- *       AdditionalOptions: { // GlueTableAdditionalOptions
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   },
- *   Role: "STRING_VALUE",
- *   NumberOfWorkers: Number("int"),
- *   Timeout: Number("int"),
- *   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
- *   ErrorString: "STRING_VALUE",
- *   StartedOn: new Date("TIMESTAMP"),
- *   LastModifiedOn: new Date("TIMESTAMP"),
- *   CompletedOn: new Date("TIMESTAMP"),
- *   ExecutionTime: Number("int"),
- *   RecommendedRuleset: "STRING_VALUE",
- *   CreatedRulesetName: "STRING_VALUE",
- * };
+ * // { // GetDataQualityRuleRecommendationRunResponse
+ * //   RunId: "STRING_VALUE",
+ * //   DataSource: { // DataSource
+ * //     GlueTable: { // GlueTable
+ * //       DatabaseName: "STRING_VALUE", // required
+ * //       TableName: "STRING_VALUE", // required
+ * //       CatalogId: "STRING_VALUE",
+ * //       ConnectionName: "STRING_VALUE",
+ * //       AdditionalOptions: { // GlueTableAdditionalOptions
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   Role: "STRING_VALUE",
+ * //   NumberOfWorkers: Number("int"),
+ * //   Timeout: Number("int"),
+ * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * //   ErrorString: "STRING_VALUE",
+ * //   StartedOn: new Date("TIMESTAMP"),
+ * //   LastModifiedOn: new Date("TIMESTAMP"),
+ * //   CompletedOn: new Date("TIMESTAMP"),
+ * //   ExecutionTime: Number("int"),
+ * //   RecommendedRuleset: "STRING_VALUE",
+ * //   CreatedRulesetName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

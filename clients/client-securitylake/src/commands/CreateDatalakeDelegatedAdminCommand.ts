@@ -51,8 +51,7 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * };
  * const command = new CreateDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

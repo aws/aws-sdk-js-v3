@@ -66,18 +66,17 @@ export interface DescribeUserStackAssociationsCommandOutput
  * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserStackAssociationsResult
- *   UserStackAssociations: [ // UserStackAssociationList
- *     { // UserStackAssociation
- *       StackName: "STRING_VALUE", // required
- *       UserName: "STRING_VALUE", // required
- *       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
- *       SendEmailNotification: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeUserStackAssociationsResult
+ * //   UserStackAssociations: [ // UserStackAssociationList
+ * //     { // UserStackAssociation
+ * //       StackName: "STRING_VALUE", // required
+ * //       UserName: "STRING_VALUE", // required
+ * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * //       SendEmailNotification: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

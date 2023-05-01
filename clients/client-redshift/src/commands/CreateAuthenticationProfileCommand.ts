@@ -45,11 +45,10 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * };
  * const command = new CreateAuthenticationProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAuthenticationProfileResult
- *   AuthenticationProfileName: "STRING_VALUE",
- *   AuthenticationProfileContent: "STRING_VALUE",
- * };
+ * // { // CreateAuthenticationProfileResult
+ * //   AuthenticationProfileName: "STRING_VALUE",
+ * //   AuthenticationProfileContent: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,13 +47,12 @@ export interface CreateRequestValidatorCommandOutput extends RequestValidator, _
  * };
  * const command = new CreateRequestValidatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestValidator
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   validateRequestBody: true || false,
- *   validateRequestParameters: true || false,
- * };
+ * // { // RequestValidator
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   validateRequestBody: true || false,
+ * //   validateRequestParameters: true || false,
+ * // };
  *
  * ```
  *

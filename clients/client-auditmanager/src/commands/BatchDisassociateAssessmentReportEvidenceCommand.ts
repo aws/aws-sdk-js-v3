@@ -58,19 +58,18 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * };
  * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateAssessmentReportEvidenceResponse
- *   evidenceIds: [ // EvidenceIds
- *     "STRING_VALUE",
- *   ],
- *   errors: [ // AssessmentReportEvidenceErrors
- *     { // AssessmentReportEvidenceError
- *       evidenceId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateAssessmentReportEvidenceResponse
+ * //   evidenceIds: [ // EvidenceIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   errors: [ // AssessmentReportEvidenceErrors
+ * //     { // AssessmentReportEvidenceError
+ * //       evidenceId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

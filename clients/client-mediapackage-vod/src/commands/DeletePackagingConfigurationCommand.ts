@@ -49,8 +49,7 @@ export interface DeletePackagingConfigurationCommandOutput
  * };
  * const command = new DeletePackagingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

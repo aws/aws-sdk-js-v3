@@ -64,14 +64,13 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCampaignResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateCampaignResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

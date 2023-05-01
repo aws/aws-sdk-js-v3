@@ -46,10 +46,9 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  * };
  * const command = new EnableSerialConsoleAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableSerialConsoleAccessResult
- *   SerialConsoleAccessEnabled: true || false,
- * };
+ * // { // EnableSerialConsoleAccessResult
+ * //   SerialConsoleAccessEnabled: true || false,
+ * // };
  *
  * ```
  *

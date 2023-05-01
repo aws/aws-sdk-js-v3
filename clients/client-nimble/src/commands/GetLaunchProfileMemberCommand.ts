@@ -46,15 +46,14 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  * };
  * const command = new GetLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLaunchProfileMemberResponse
- *   member: { // LaunchProfileMembership
- *     identityStoreId: "STRING_VALUE",
- *     persona: "USER",
- *     principalId: "STRING_VALUE",
- *     sid: "STRING_VALUE",
- *   },
- * };
+ * // { // GetLaunchProfileMemberResponse
+ * //   member: { // LaunchProfileMembership
+ * //     identityStoreId: "STRING_VALUE",
+ * //     persona: "USER",
+ * //     principalId: "STRING_VALUE",
+ * //     sid: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

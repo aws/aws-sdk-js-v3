@@ -58,17 +58,16 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * };
  * const command = new ListPermissionSetProvisioningStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionSetProvisioningStatusResponse
- *   PermissionSetsProvisioningStatus: [ // PermissionSetProvisioningStatusList
- *     { // PermissionSetProvisioningStatusMetadata
- *       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
- *       RequestId: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionSetProvisioningStatusResponse
+ * //   PermissionSetsProvisioningStatus: [ // PermissionSetProvisioningStatusList
+ * //     { // PermissionSetProvisioningStatusMetadata
+ * //       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       RequestId: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

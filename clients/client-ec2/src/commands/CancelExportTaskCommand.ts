@@ -46,8 +46,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

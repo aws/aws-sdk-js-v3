@@ -73,10 +73,9 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * };
  * const command = new CreateNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNodeOutput
- *   NodeId: "STRING_VALUE",
- * };
+ * // { // CreateNodeOutput
+ * //   NodeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

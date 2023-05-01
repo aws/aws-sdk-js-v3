@@ -64,8 +64,7 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
  * };
  * const command = new DeleteAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

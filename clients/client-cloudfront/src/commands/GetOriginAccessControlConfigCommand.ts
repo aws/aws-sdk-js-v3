@@ -49,17 +49,16 @@ export interface GetOriginAccessControlConfigCommandOutput
  * };
  * const command = new GetOriginAccessControlConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOriginAccessControlConfigResult
- *   OriginAccessControlConfig: { // OriginAccessControlConfig
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     SigningProtocol: "sigv4", // required
- *     SigningBehavior: "never" || "always" || "no-override", // required
- *     OriginAccessControlOriginType: "s3" || "mediastore", // required
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetOriginAccessControlConfigResult
+ * //   OriginAccessControlConfig: { // OriginAccessControlConfig
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     SigningProtocol: "sigv4", // required
+ * //     SigningBehavior: "never" || "always" || "no-override", // required
+ * //     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

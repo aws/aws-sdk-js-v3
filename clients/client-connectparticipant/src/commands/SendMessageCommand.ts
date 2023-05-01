@@ -58,11 +58,10 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendMessageResponse
- *   Id: "STRING_VALUE",
- *   AbsoluteTime: "STRING_VALUE",
- * };
+ * // { // SendMessageResponse
+ * //   Id: "STRING_VALUE",
+ * //   AbsoluteTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

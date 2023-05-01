@@ -76,10 +76,9 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * };
  * const command = new EvaluateExpressionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EvaluateExpressionOutput
- *   evaluatedExpression: "STRING_VALUE", // required
- * };
+ * // { // EvaluateExpressionOutput
+ * //   evaluatedExpression: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

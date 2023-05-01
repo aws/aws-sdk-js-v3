@@ -58,11 +58,10 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * };
  * const command = new CreateServiceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceProfileResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateServiceProfileResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

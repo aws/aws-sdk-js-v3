@@ -299,10 +299,9 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * };
  * const command = new CreateInsightCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInsightResponse
- *   InsightArn: "STRING_VALUE", // required
- * };
+ * // { // CreateInsightResponse
+ * //   InsightArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

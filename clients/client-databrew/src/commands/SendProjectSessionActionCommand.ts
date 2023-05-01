@@ -77,12 +77,11 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * };
  * const command = new SendProjectSessionActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendProjectSessionActionResponse
- *   Result: "STRING_VALUE",
- *   Name: "STRING_VALUE", // required
- *   ActionId: Number("int"),
- * };
+ * // { // SendProjectSessionActionResponse
+ * //   Result: "STRING_VALUE",
+ * //   Name: "STRING_VALUE", // required
+ * //   ActionId: Number("int"),
+ * // };
  *
  * ```
  *

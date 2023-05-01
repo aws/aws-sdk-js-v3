@@ -51,8 +51,7 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * };
  * const command = new ArchiveFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

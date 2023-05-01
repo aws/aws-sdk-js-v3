@@ -54,10 +54,9 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * };
  * const command = new GetGameSessionLogUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGameSessionLogUrlOutput
- *   PreSignedUrl: "STRING_VALUE",
- * };
+ * // { // GetGameSessionLogUrlOutput
+ * //   PreSignedUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

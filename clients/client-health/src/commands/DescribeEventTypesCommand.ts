@@ -64,17 +64,16 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * };
  * const command = new DescribeEventTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventTypesResponse
- *   eventTypes: [ // EventTypeList
- *     { // EventType
- *       service: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       category: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEventTypesResponse
+ * //   eventTypes: [ // EventTypeList
+ * //     { // EventType
+ * //       service: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

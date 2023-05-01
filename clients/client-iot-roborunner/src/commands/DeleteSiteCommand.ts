@@ -44,8 +44,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * };
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

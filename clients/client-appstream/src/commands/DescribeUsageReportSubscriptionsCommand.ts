@@ -50,23 +50,22 @@ export interface DescribeUsageReportSubscriptionsCommandOutput
  * };
  * const command = new DescribeUsageReportSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUsageReportSubscriptionsResult
- *   UsageReportSubscriptions: [ // UsageReportSubscriptionList
- *     { // UsageReportSubscription
- *       S3BucketName: "STRING_VALUE",
- *       Schedule: "DAILY",
- *       LastGeneratedReportDate: new Date("TIMESTAMP"),
- *       SubscriptionErrors: [ // LastReportGenerationExecutionErrors
- *         { // LastReportGenerationExecutionError
- *           ErrorCode: "RESOURCE_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
- *           ErrorMessage: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeUsageReportSubscriptionsResult
+ * //   UsageReportSubscriptions: [ // UsageReportSubscriptionList
+ * //     { // UsageReportSubscription
+ * //       S3BucketName: "STRING_VALUE",
+ * //       Schedule: "DAILY",
+ * //       LastGeneratedReportDate: new Date("TIMESTAMP"),
+ * //       SubscriptionErrors: [ // LastReportGenerationExecutionErrors
+ * //         { // LastReportGenerationExecutionError
+ * //           ErrorCode: "RESOURCE_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
+ * //           ErrorMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

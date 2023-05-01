@@ -57,15 +57,14 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
  * };
  * const command = new GetMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMessagingStreamingConfigurationsResponse
- *   StreamingConfigurations: [ // StreamingConfigurationList
- *     { // StreamingConfiguration
- *       DataType: "Channel" || "ChannelMessage", // required
- *       ResourceArn: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetMessagingStreamingConfigurationsResponse
+ * //   StreamingConfigurations: [ // StreamingConfigurationList
+ * //     { // StreamingConfiguration
+ * //       DataType: "Channel" || "ChannelMessage", // required
+ * //       ResourceArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

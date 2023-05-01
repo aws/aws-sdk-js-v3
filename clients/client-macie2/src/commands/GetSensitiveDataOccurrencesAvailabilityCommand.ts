@@ -53,13 +53,12 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * };
  * const command = new GetSensitiveDataOccurrencesAvailabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSensitiveDataOccurrencesAvailabilityResponse
- *   code: "AVAILABLE" || "UNAVAILABLE",
- *   reasons: [ // __listOfUnavailabilityReasonCode
- *     "OBJECT_EXCEEDS_SIZE_QUOTA" || "UNSUPPORTED_OBJECT_TYPE" || "UNSUPPORTED_FINDING_TYPE" || "INVALID_CLASSIFICATION_RESULT" || "OBJECT_UNAVAILABLE",
- *   ],
- * };
+ * // { // GetSensitiveDataOccurrencesAvailabilityResponse
+ * //   code: "AVAILABLE" || "UNAVAILABLE",
+ * //   reasons: [ // __listOfUnavailabilityReasonCode
+ * //     "OBJECT_EXCEEDS_SIZE_QUOTA" || "UNSUPPORTED_OBJECT_TYPE" || "UNSUPPORTED_FINDING_TYPE" || "INVALID_CLASSIFICATION_RESULT" || "OBJECT_UNAVAILABLE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,20 +45,19 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * };
  * const command = new DescribeSMBSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSMBSettingsOutput
- *   GatewayARN: "STRING_VALUE",
- *   DomainName: "STRING_VALUE",
- *   ActiveDirectoryStatus: "STRING_VALUE",
- *   SMBGuestPasswordSet: true || false,
- *   SMBSecurityStrategy: "STRING_VALUE",
- *   FileSharesVisible: true || false,
- *   SMBLocalGroups: { // SMBLocalGroups
- *     GatewayAdmins: [ // UserList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeSMBSettingsOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   DomainName: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * //   SMBGuestPasswordSet: true || false,
+ * //   SMBSecurityStrategy: "STRING_VALUE",
+ * //   FileSharesVisible: true || false,
+ * //   SMBLocalGroups: { // SMBLocalGroups
+ * //     GatewayAdmins: [ // UserList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

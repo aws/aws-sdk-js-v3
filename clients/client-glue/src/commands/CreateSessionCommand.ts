@@ -69,33 +69,32 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSessionResponse
- *   Session: { // Session
- *     Id: "STRING_VALUE",
- *     CreatedOn: new Date("TIMESTAMP"),
- *     Status: "PROVISIONING" || "READY" || "FAILED" || "TIMEOUT" || "STOPPING" || "STOPPED",
- *     ErrorMessage: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Role: "STRING_VALUE",
- *     Command: { // SessionCommand
- *       Name: "STRING_VALUE",
- *       PythonVersion: "STRING_VALUE",
- *     },
- *     DefaultArguments: { // OrchestrationArgumentsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     Connections: { // ConnectionsList
- *       Connections: [ // OrchestrationStringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Progress: Number("double"),
- *     MaxCapacity: Number("double"),
- *     SecurityConfiguration: "STRING_VALUE",
- *     GlueVersion: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSessionResponse
+ * //   Session: { // Session
+ * //     Id: "STRING_VALUE",
+ * //     CreatedOn: new Date("TIMESTAMP"),
+ * //     Status: "PROVISIONING" || "READY" || "FAILED" || "TIMEOUT" || "STOPPING" || "STOPPED",
+ * //     ErrorMessage: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Role: "STRING_VALUE",
+ * //     Command: { // SessionCommand
+ * //       Name: "STRING_VALUE",
+ * //       PythonVersion: "STRING_VALUE",
+ * //     },
+ * //     DefaultArguments: { // OrchestrationArgumentsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Connections: { // ConnectionsList
+ * //       Connections: [ // OrchestrationStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Progress: Number("double"),
+ * //     MaxCapacity: Number("double"),
+ * //     SecurityConfiguration: "STRING_VALUE",
+ * //     GlueVersion: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

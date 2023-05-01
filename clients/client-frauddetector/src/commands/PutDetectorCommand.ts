@@ -52,8 +52,7 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  * };
  * const command = new PutDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

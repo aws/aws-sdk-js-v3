@@ -55,13 +55,12 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePolicyResponse
- *   policyName: "STRING_VALUE",
- *   policyArn: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE",
- *   policyVersionId: "STRING_VALUE",
- * };
+ * // { // CreatePolicyResponse
+ * //   policyName: "STRING_VALUE",
+ * //   policyArn: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

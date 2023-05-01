@@ -46,16 +46,15 @@ export interface GetGeneratedCodeJobCommandOutput extends GetGeneratedCodeJobRes
  * };
  * const command = new GetGeneratedCodeJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGeneratedCodeJobResult
- *   GeneratedCodeJob: { // GeneratedCodeJobDetails
- *     S3Url: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ExpirationTime: new Date("TIMESTAMP"),
- *     GeneratedCodeJobId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGeneratedCodeJobResult
+ * //   GeneratedCodeJob: { // GeneratedCodeJobDetails
+ * //     S3Url: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ExpirationTime: new Date("TIMESTAMP"),
+ * //     GeneratedCodeJobId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

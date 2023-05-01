@@ -44,8 +44,7 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -67,8 +67,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * };
  * const command = new UpdateLocationHdfsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

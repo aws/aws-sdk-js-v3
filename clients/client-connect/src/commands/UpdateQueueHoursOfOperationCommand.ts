@@ -50,8 +50,7 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateQueueHoursOfOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

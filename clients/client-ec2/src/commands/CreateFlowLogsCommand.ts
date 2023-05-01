@@ -83,22 +83,21 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * };
  * const command = new CreateFlowLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFlowLogsResult
- *   ClientToken: "STRING_VALUE",
- *   FlowLogIds: [ // ValueStringList
- *     "STRING_VALUE",
- *   ],
- *   Unsuccessful: [ // UnsuccessfulItemSet
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateFlowLogsResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   FlowLogIds: [ // ValueStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

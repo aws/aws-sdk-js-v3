@@ -51,17 +51,16 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoomResponse
- *   Room: { // Room
- *     RoomId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
- *     CreatedBy: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateRoomResponse
+ * //   Room: { // Room
+ * //     RoomId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     CreatedBy: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

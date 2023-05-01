@@ -54,42 +54,41 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * };
  * const command = new QueryAssistantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryAssistantResponse
- *   results: [ // QueryResultsList // required
- *     { // ResultData
- *       resultId: "STRING_VALUE", // required
- *       document: { // Document
- *         contentReference: { // ContentReference
- *           knowledgeBaseArn: "STRING_VALUE",
- *           knowledgeBaseId: "STRING_VALUE",
- *           contentArn: "STRING_VALUE",
- *           contentId: "STRING_VALUE",
- *         },
- *         title: { // DocumentText
- *           text: "STRING_VALUE",
- *           highlights: [ // Highlights
- *             { // Highlight
- *               beginOffsetInclusive: Number("int"),
- *               endOffsetExclusive: Number("int"),
- *             },
- *           ],
- *         },
- *         excerpt: {
- *           text: "STRING_VALUE",
- *           highlights: [
- *             {
- *               beginOffsetInclusive: Number("int"),
- *               endOffsetExclusive: Number("int"),
- *             },
- *           ],
- *         },
- *       },
- *       relevanceScore: Number("double"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // QueryAssistantResponse
+ * //   results: [ // QueryResultsList // required
+ * //     { // ResultData
+ * //       resultId: "STRING_VALUE", // required
+ * //       document: { // Document
+ * //         contentReference: { // ContentReference
+ * //           knowledgeBaseArn: "STRING_VALUE",
+ * //           knowledgeBaseId: "STRING_VALUE",
+ * //           contentArn: "STRING_VALUE",
+ * //           contentId: "STRING_VALUE",
+ * //         },
+ * //         title: { // DocumentText
+ * //           text: "STRING_VALUE",
+ * //           highlights: [ // Highlights
+ * //             { // Highlight
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //         excerpt: {
+ * //           text: "STRING_VALUE",
+ * //           highlights: [
+ * //             {
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       relevanceScore: Number("double"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -82,10 +82,9 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * };
  * const command = new CreateDataSourceFromS3Command(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSourceFromS3Output
- *   DataSourceId: "STRING_VALUE",
- * };
+ * // { // CreateDataSourceFromS3Output
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

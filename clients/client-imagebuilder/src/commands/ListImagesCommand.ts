@@ -57,25 +57,24 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagesResponse
- *   requestId: "STRING_VALUE",
- *   imageVersionList: [ // ImageVersionList
- *     { // ImageVersion
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       type: "AMI" || "DOCKER",
- *       version: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       osVersion: "STRING_VALUE",
- *       owner: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
- *       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImagesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageVersionList: [ // ImageVersionList
+ * //     { // ImageVersion
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       type: "AMI" || "DOCKER",
+ * //       version: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       osVersion: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

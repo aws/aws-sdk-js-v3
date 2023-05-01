@@ -54,28 +54,27 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * };
  * const command = new DescribeSavingsPlanRatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSavingsPlanRatesResponse
- *   savingsPlanId: "STRING_VALUE",
- *   searchResults: [ // SavingsPlanRateList
- *     { // SavingsPlanRate
- *       rate: "STRING_VALUE",
- *       currency: "STRING_VALUE",
- *       unit: "STRING_VALUE",
- *       productType: "STRING_VALUE",
- *       serviceCode: "STRING_VALUE",
- *       usageType: "STRING_VALUE",
- *       operation: "STRING_VALUE",
- *       properties: [ // SavingsPlanRatePropertyList
- *         { // SavingsPlanRateProperty
- *           name: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSavingsPlanRatesResponse
+ * //   savingsPlanId: "STRING_VALUE",
+ * //   searchResults: [ // SavingsPlanRateList
+ * //     { // SavingsPlanRate
+ * //       rate: "STRING_VALUE",
+ * //       currency: "STRING_VALUE",
+ * //       unit: "STRING_VALUE",
+ * //       productType: "STRING_VALUE",
+ * //       serviceCode: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       operation: "STRING_VALUE",
+ * //       properties: [ // SavingsPlanRatePropertyList
+ * //         { // SavingsPlanRateProperty
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

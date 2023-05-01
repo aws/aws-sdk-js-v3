@@ -64,32 +64,31 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * };
  * const command = new SearchContactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchContactsResponse
- *   Contacts: [ // ContactDataList
- *     { // ContactData
- *       ContactArn: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       FirstName: "STRING_VALUE",
- *       LastName: "STRING_VALUE",
- *       PhoneNumber: "STRING_VALUE",
- *       PhoneNumbers: [ // PhoneNumberList
- *         { // PhoneNumber
- *           Number: "STRING_VALUE", // required
- *           Type: "STRING_VALUE", // required
- *         },
- *       ],
- *       SipAddresses: [ // SipAddressList
- *         { // SipAddress
- *           Uri: "STRING_VALUE", // required
- *           Type: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchContactsResponse
+ * //   Contacts: [ // ContactDataList
+ * //     { // ContactData
+ * //       ContactArn: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       PhoneNumbers: [ // PhoneNumberList
+ * //         { // PhoneNumber
+ * //           Number: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       SipAddresses: [ // SipAddressList
+ * //         { // SipAddress
+ * //           Uri: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

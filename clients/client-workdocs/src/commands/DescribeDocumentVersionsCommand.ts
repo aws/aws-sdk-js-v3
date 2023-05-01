@@ -55,31 +55,30 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * };
  * const command = new DescribeDocumentVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDocumentVersionsResponse
- *   DocumentVersions: [ // DocumentVersionMetadataList
- *     { // DocumentVersionMetadata
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       ContentType: "STRING_VALUE",
- *       Size: Number("long"),
- *       Signature: "STRING_VALUE",
- *       Status: "INITIALIZED" || "ACTIVE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       ModifiedTimestamp: new Date("TIMESTAMP"),
- *       ContentCreatedTimestamp: new Date("TIMESTAMP"),
- *       ContentModifiedTimestamp: new Date("TIMESTAMP"),
- *       CreatorId: "STRING_VALUE",
- *       Thumbnail: { // DocumentThumbnailUrlMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Source: { // DocumentSourceUrlMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeDocumentVersionsResponse
+ * //   DocumentVersions: [ // DocumentVersionMetadataList
+ * //     { // DocumentVersionMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ContentType: "STRING_VALUE",
+ * //       Size: Number("long"),
+ * //       Signature: "STRING_VALUE",
+ * //       Status: "INITIALIZED" || "ACTIVE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       ContentCreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ContentModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       CreatorId: "STRING_VALUE",
+ * //       Thumbnail: { // DocumentThumbnailUrlMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Source: { // DocumentSourceUrlMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

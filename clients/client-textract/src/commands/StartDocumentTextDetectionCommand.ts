@@ -77,10 +77,9 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * };
  * const command = new StartDocumentTextDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDocumentTextDetectionResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartDocumentTextDetectionResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

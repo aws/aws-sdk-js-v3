@@ -57,8 +57,7 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

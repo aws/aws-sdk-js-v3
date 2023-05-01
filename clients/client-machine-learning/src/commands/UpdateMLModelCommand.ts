@@ -47,10 +47,9 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * };
  * const command = new UpdateMLModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMLModelOutput
- *   MLModelId: "STRING_VALUE",
- * };
+ * // { // UpdateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

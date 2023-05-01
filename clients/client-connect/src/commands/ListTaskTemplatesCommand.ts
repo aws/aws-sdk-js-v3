@@ -48,21 +48,20 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  * };
  * const command = new ListTaskTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTaskTemplatesResponse
- *   TaskTemplates: [ // TaskTemplateList
- *     { // TaskTemplateMetadata
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "ACTIVE" || "INACTIVE",
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTaskTemplatesResponse
+ * //   TaskTemplates: [ // TaskTemplateList
+ * //     { // TaskTemplateMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

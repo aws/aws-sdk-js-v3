@@ -82,15 +82,14 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
  * };
  * const command = new DeleteBackendAPICommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBackendAPIResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // DeleteBackendAPIResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

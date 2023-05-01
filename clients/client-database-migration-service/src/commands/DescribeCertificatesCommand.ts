@@ -57,24 +57,23 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * };
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCertificatesResponse
- *   Marker: "STRING_VALUE",
- *   Certificates: [ // CertificateList
- *     { // Certificate
- *       CertificateIdentifier: "STRING_VALUE",
- *       CertificateCreationDate: new Date("TIMESTAMP"),
- *       CertificatePem: "STRING_VALUE",
- *       CertificateWallet: "BLOB_VALUE",
- *       CertificateArn: "STRING_VALUE",
- *       CertificateOwner: "STRING_VALUE",
- *       ValidFromDate: new Date("TIMESTAMP"),
- *       ValidToDate: new Date("TIMESTAMP"),
- *       SigningAlgorithm: "STRING_VALUE",
- *       KeyLength: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeCertificatesResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateIdentifier: "STRING_VALUE",
+ * //       CertificateCreationDate: new Date("TIMESTAMP"),
+ * //       CertificatePem: "STRING_VALUE",
+ * //       CertificateWallet: "BLOB_VALUE",
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateOwner: "STRING_VALUE",
+ * //       ValidFromDate: new Date("TIMESTAMP"),
+ * //       ValidToDate: new Date("TIMESTAMP"),
+ * //       SigningAlgorithm: "STRING_VALUE",
+ * //       KeyLength: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

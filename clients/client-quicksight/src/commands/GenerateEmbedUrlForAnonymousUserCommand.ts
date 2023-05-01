@@ -100,13 +100,12 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * };
  * const command = new GenerateEmbedUrlForAnonymousUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateEmbedUrlForAnonymousUserResponse
- *   EmbedUrl: "STRING_VALUE", // required
- *   Status: Number("int"), // required
- *   RequestId: "STRING_VALUE", // required
- *   AnonymousUserArn: "STRING_VALUE", // required
- * };
+ * // { // GenerateEmbedUrlForAnonymousUserResponse
+ * //   EmbedUrl: "STRING_VALUE", // required
+ * //   Status: Number("int"), // required
+ * //   RequestId: "STRING_VALUE", // required
+ * //   AnonymousUserArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

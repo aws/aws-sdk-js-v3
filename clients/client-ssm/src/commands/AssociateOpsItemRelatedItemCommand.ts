@@ -51,10 +51,9 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * };
  * const command = new AssociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateOpsItemRelatedItemResponse
- *   AssociationId: "STRING_VALUE",
- * };
+ * // { // AssociateOpsItemRelatedItemResponse
+ * //   AssociationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

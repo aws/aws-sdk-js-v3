@@ -53,12 +53,11 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * };
  * const command = new StopActivityStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopActivityStreamResponse
- *   KmsKeyId: "STRING_VALUE",
- *   KinesisStreamName: "STRING_VALUE",
- *   Status: "stopped" || "starting" || "started" || "stopping",
- * };
+ * // { // StopActivityStreamResponse
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   KinesisStreamName: "STRING_VALUE",
+ * //   Status: "stopped" || "starting" || "started" || "stopping",
+ * // };
  *
  * ```
  *

@@ -94,16 +94,15 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExecuteStatementOutput
- *   Id: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   ClusterIdentifier: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE",
- *   SecretArn: "STRING_VALUE",
- *   WorkgroupName: "STRING_VALUE",
- * };
+ * // { // ExecuteStatementOutput
+ * //   Id: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   DbUser: "STRING_VALUE",
+ * //   Database: "STRING_VALUE",
+ * //   SecretArn: "STRING_VALUE",
+ * //   WorkgroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

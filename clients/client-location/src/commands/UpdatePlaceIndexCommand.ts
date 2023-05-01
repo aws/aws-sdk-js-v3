@@ -49,12 +49,11 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * };
  * const command = new UpdatePlaceIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePlaceIndexResponse
- *   IndexName: "STRING_VALUE", // required
- *   IndexArn: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdatePlaceIndexResponse
+ * //   IndexName: "STRING_VALUE", // required
+ * //   IndexArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

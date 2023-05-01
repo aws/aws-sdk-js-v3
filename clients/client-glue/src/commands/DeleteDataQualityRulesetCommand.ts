@@ -44,8 +44,7 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * };
  * const command = new DeleteDataQualityRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

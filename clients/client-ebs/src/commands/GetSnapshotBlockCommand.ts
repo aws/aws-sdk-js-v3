@@ -55,13 +55,12 @@ export interface GetSnapshotBlockCommandOutput
  * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSnapshotBlockResponse
- *   DataLength: Number("int"),
- *   BlockData: "STREAMING_BLOB_VALUE",
- *   Checksum: "STRING_VALUE",
- *   ChecksumAlgorithm: "STRING_VALUE",
- * };
+ * // { // GetSnapshotBlockResponse
+ * //   DataLength: Number("int"),
+ * //   BlockData: "STREAMING_BLOB_VALUE",
+ * //   Checksum: "STRING_VALUE",
+ * //   ChecksumAlgorithm: "STRING_VALUE",
+ * // };
  *
  * ```
  *

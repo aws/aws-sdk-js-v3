@@ -54,16 +54,15 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * };
  * const command = new ListSMSSandboxPhoneNumbersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSMSSandboxPhoneNumbersResult
- *   PhoneNumbers: [ // SMSSandboxPhoneNumberList // required
- *     { // SMSSandboxPhoneNumber
- *       PhoneNumber: "STRING_VALUE",
- *       Status: "Pending" || "Verified",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSMSSandboxPhoneNumbersResult
+ * //   PhoneNumbers: [ // SMSSandboxPhoneNumberList // required
+ * //     { // SMSSandboxPhoneNumber
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       Status: "Pending" || "Verified",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

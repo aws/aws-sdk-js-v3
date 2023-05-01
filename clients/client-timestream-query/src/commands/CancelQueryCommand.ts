@@ -50,10 +50,9 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelQueryResponse
- *   CancellationMessage: "STRING_VALUE",
- * };
+ * // { // CancelQueryResponse
+ * //   CancellationMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

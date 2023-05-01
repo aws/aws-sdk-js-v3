@@ -50,8 +50,7 @@ export interface DeleteVoiceConnectorTerminationCommandOutput extends __Metadata
  * };
  * const command = new DeleteVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -84,10 +84,9 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * };
  * const command = new StartSegmentDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSegmentDetectionResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartSegmentDetectionResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

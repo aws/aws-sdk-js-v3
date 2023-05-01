@@ -47,8 +47,7 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

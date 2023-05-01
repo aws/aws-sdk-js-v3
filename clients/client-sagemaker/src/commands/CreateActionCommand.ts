@@ -71,10 +71,9 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * };
  * const command = new CreateActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateActionResponse
- *   ActionArn: "STRING_VALUE",
- * };
+ * // { // CreateActionResponse
+ * //   ActionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

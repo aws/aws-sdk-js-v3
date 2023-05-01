@@ -50,17 +50,16 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * };
  * const command = new ListDataIntegrationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataIntegrationsResponse
- *   DataIntegrations: [ // DataIntegrationsList
- *     { // DataIntegrationSummary
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       SourceURI: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataIntegrationsResponse
+ * //   DataIntegrations: [ // DataIntegrationsList
+ * //     { // DataIntegrationSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       SourceURI: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -72,10 +72,9 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * };
  * const command = new ConnectDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConnectDirectoryResult
- *   DirectoryId: "STRING_VALUE",
- * };
+ * // { // ConnectDirectoryResult
+ * //   DirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

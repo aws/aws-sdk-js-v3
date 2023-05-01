@@ -63,8 +63,7 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * };
  * const command = new CreateAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,15 +51,14 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * };
  * const command = new CancelSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelSpotInstanceRequestsResult
- *   CancelledSpotInstanceRequests: [ // CancelledSpotInstanceRequestList
- *     { // CancelledSpotInstanceRequest
- *       SpotInstanceRequestId: "STRING_VALUE",
- *       State: "active" || "open" || "closed" || "cancelled" || "completed",
- *     },
- *   ],
- * };
+ * // { // CancelSpotInstanceRequestsResult
+ * //   CancelledSpotInstanceRequests: [ // CancelledSpotInstanceRequestList
+ * //     { // CancelledSpotInstanceRequest
+ * //       SpotInstanceRequestId: "STRING_VALUE",
+ * //       State: "active" || "open" || "closed" || "cancelled" || "completed",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

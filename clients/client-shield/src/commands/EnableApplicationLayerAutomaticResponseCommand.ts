@@ -71,8 +71,7 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  * };
  * const command = new EnableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

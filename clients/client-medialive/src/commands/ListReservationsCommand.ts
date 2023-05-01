@@ -53,47 +53,46 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * };
  * const command = new ListReservationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReservationsResponse
- *   NextToken: "STRING_VALUE",
- *   Reservations: [ // __listOfReservation
- *     { // Reservation
- *       Arn: "STRING_VALUE",
- *       Count: Number("int"),
- *       CurrencyCode: "STRING_VALUE",
- *       Duration: Number("int"),
- *       DurationUnits: "MONTHS",
- *       End: "STRING_VALUE",
- *       FixedPrice: Number("double"),
- *       Name: "STRING_VALUE",
- *       OfferingDescription: "STRING_VALUE",
- *       OfferingId: "STRING_VALUE",
- *       OfferingType: "NO_UPFRONT",
- *       Region: "STRING_VALUE",
- *       RenewalSettings: { // RenewalSettings
- *         AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
- *         RenewalCount: Number("int"),
- *       },
- *       ReservationId: "STRING_VALUE",
- *       ResourceSpecification: { // ReservationResourceSpecification
- *         ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- *         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
- *         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
- *         MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
- *         Resolution: "SD" || "HD" || "FHD" || "UHD",
- *         ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",
- *         SpecialFeature: "ADVANCED_AUDIO" || "AUDIO_NORMALIZATION" || "MGHD" || "MGUHD",
- *         VideoQuality: "STANDARD" || "ENHANCED" || "PREMIUM",
- *       },
- *       Start: "STRING_VALUE",
- *       State: "ACTIVE" || "EXPIRED" || "CANCELED" || "DELETED",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *       UsagePrice: Number("double"),
- *     },
- *   ],
- * };
+ * // { // ListReservationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Reservations: [ // __listOfReservation
+ * //     { // Reservation
+ * //       Arn: "STRING_VALUE",
+ * //       Count: Number("int"),
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       Duration: Number("int"),
+ * //       DurationUnits: "MONTHS",
+ * //       End: "STRING_VALUE",
+ * //       FixedPrice: Number("double"),
+ * //       Name: "STRING_VALUE",
+ * //       OfferingDescription: "STRING_VALUE",
+ * //       OfferingId: "STRING_VALUE",
+ * //       OfferingType: "NO_UPFRONT",
+ * //       Region: "STRING_VALUE",
+ * //       RenewalSettings: { // RenewalSettings
+ * //         AutomaticRenewal: "DISABLED" || "ENABLED" || "UNAVAILABLE",
+ * //         RenewalCount: Number("int"),
+ * //       },
+ * //       ReservationId: "STRING_VALUE",
+ * //       ResourceSpecification: { // ReservationResourceSpecification
+ * //         ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
+ * //         Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
+ * //         MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
+ * //         MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
+ * //         Resolution: "SD" || "HD" || "FHD" || "UHD",
+ * //         ResourceType: "INPUT" || "OUTPUT" || "MULTIPLEX" || "CHANNEL",
+ * //         SpecialFeature: "ADVANCED_AUDIO" || "AUDIO_NORMALIZATION" || "MGHD" || "MGUHD",
+ * //         VideoQuality: "STANDARD" || "ENHANCED" || "PREMIUM",
+ * //       },
+ * //       Start: "STRING_VALUE",
+ * //       State: "ACTIVE" || "EXPIRED" || "CANCELED" || "DELETED",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       UsagePrice: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

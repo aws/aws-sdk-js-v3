@@ -48,10 +48,9 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * const input = {};
  * const command = new GetAWSOrganizationsAccessStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAWSOrganizationsAccessStatusOutput
- *   AccessStatus: "ENABLED" || "UNDER_CHANGE" || "DISABLED",
- * };
+ * // { // GetAWSOrganizationsAccessStatusOutput
+ * //   AccessStatus: "ENABLED" || "UNDER_CHANGE" || "DISABLED",
+ * // };
  *
  * ```
  *

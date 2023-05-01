@@ -51,10 +51,9 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * const input = {};
  * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDatalakeExceptionsSubscriptionResponse
- *   status: "STRING_VALUE", // required
- * };
+ * // { // DeleteDatalakeExceptionsSubscriptionResponse
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

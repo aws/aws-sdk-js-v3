@@ -63,19 +63,18 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
  * };
  * const command = new DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAwsNetworkPerformanceMetricSubscriptionsResult
- *   NextToken: "STRING_VALUE",
- *   Subscriptions: [ // SubscriptionList
- *     { // Subscription
- *       Source: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
- *       Metric: "aggregate-latency",
- *       Statistic: "p50",
- *       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
- *     },
- *   ],
- * };
+ * // { // DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       Source: "STRING_VALUE",
+ * //       Destination: "STRING_VALUE",
+ * //       Metric: "aggregate-latency",
+ * //       Statistic: "p50",
+ * //       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

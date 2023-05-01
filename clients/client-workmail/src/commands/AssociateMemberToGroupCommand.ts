@@ -46,8 +46,7 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * };
  * const command = new AssociateMemberToGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

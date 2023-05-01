@@ -44,19 +44,18 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   LastUpdatedTimestamp: "STRING_VALUE",
- *   LatestVersion: "STRING_VALUE",
- *   LatestVersionArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetGroupResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LastUpdatedTimestamp: "STRING_VALUE",
+ * //   LatestVersion: "STRING_VALUE",
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

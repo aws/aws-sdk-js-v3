@@ -44,15 +44,14 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * };
  * const command = new DescribeLocationFsxLustreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationFsxLustreResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
- *     "STRING_VALUE",
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLocationFsxLustreResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

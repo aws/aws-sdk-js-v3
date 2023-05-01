@@ -171,10 +171,9 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * };
  * const command = new CreateDeploymentGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeploymentGroupOutput
- *   deploymentGroupId: "STRING_VALUE",
- * };
+ * // { // CreateDeploymentGroupOutput
+ * //   deploymentGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,14 +53,13 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  * };
  * const command = new GetRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryPermissionsPolicyResult
- *   policy: { // ResourcePolicy
- *     resourceArn: "STRING_VALUE",
- *     revision: "STRING_VALUE",
- *     document: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRepositoryPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

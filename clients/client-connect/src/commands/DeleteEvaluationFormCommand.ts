@@ -55,8 +55,7 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEvaluationFormCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -81,10 +81,9 @@ export interface PutOrganizationConformancePackCommandOutput
  * };
  * const command = new PutOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutOrganizationConformancePackResponse
- *   OrganizationConformancePackArn: "STRING_VALUE",
- * };
+ * // { // PutOrganizationConformancePackResponse
+ * //   OrganizationConformancePackArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

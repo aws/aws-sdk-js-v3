@@ -53,11 +53,10 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * };
  * const command = new UpdateModelManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateModelManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // UpdateModelManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

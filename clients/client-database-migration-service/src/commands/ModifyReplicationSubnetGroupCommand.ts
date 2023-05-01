@@ -57,27 +57,26 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyReplicationSubnetGroupResponse
- *   ReplicationSubnetGroup: { // ReplicationSubnetGroup
- *     ReplicationSubnetGroupIdentifier: "STRING_VALUE",
- *     ReplicationSubnetGroupDescription: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     SubnetGroupStatus: "STRING_VALUE",
- *     Subnets: [ // SubnetList
- *       { // Subnet
- *         SubnetIdentifier: "STRING_VALUE",
- *         SubnetAvailabilityZone: { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *         SubnetStatus: "STRING_VALUE",
- *       },
- *     ],
- *     SupportedNetworkTypes: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // ModifyReplicationSubnetGroupResponse
+ * //   ReplicationSubnetGroup: { // ReplicationSubnetGroup
+ * //     ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ * //     ReplicationSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetGroupStatus: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SupportedNetworkTypes: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

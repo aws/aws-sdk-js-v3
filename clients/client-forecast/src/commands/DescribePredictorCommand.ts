@@ -82,114 +82,113 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * };
  * const command = new DescribePredictorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePredictorResponse
- *   PredictorArn: "STRING_VALUE",
- *   PredictorName: "STRING_VALUE",
- *   AlgorithmArn: "STRING_VALUE",
- *   AutoMLAlgorithmArns: [ // ArnList
- *     "STRING_VALUE",
- *   ],
- *   ForecastHorizon: Number("int"),
- *   ForecastTypes: [ // ForecastTypes
- *     "STRING_VALUE",
- *   ],
- *   PerformAutoML: true || false,
- *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
- *   PerformHPO: true || false,
- *   TrainingParameters: { // TrainingParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   EvaluationParameters: { // EvaluationParameters
- *     NumberOfBacktestWindows: Number("int"),
- *     BackTestWindowOffset: Number("int"),
- *   },
- *   HPOConfig: { // HyperParameterTuningJobConfig
- *     ParameterRanges: { // ParameterRanges
- *       CategoricalParameterRanges: [ // CategoricalParameterRanges
- *         { // CategoricalParameterRange
- *           Name: "STRING_VALUE", // required
- *           Values: [ // Values // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       ContinuousParameterRanges: [ // ContinuousParameterRanges
- *         { // ContinuousParameterRange
- *           Name: "STRING_VALUE", // required
- *           MaxValue: Number("double"), // required
- *           MinValue: Number("double"), // required
- *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
- *         },
- *       ],
- *       IntegerParameterRanges: [ // IntegerParameterRanges
- *         { // IntegerParameterRange
- *           Name: "STRING_VALUE", // required
- *           MaxValue: Number("int"), // required
- *           MinValue: Number("int"), // required
- *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
- *         },
- *       ],
- *     },
- *   },
- *   InputDataConfig: { // InputDataConfig
- *     DatasetGroupArn: "STRING_VALUE", // required
- *     SupplementaryFeatures: [ // SupplementaryFeatures
- *       { // SupplementaryFeature
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   FeaturizationConfig: { // FeaturizationConfig
- *     ForecastFrequency: "STRING_VALUE", // required
- *     ForecastDimensions: [ // ForecastDimensions
- *       "STRING_VALUE",
- *     ],
- *     Featurizations: [ // Featurizations
- *       { // Featurization
- *         AttributeName: "STRING_VALUE", // required
- *         FeaturizationPipeline: [ // FeaturizationPipeline
- *           { // FeaturizationMethod
- *             FeaturizationMethodName: "filling", // required
- *             FeaturizationMethodParameters: { // FeaturizationMethodParameters
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   EncryptionConfig: { // EncryptionConfig
- *     RoleArn: "STRING_VALUE", // required
- *     KMSKeyArn: "STRING_VALUE", // required
- *   },
- *   PredictorExecutionDetails: { // PredictorExecutionDetails
- *     PredictorExecutions: [ // PredictorExecutions
- *       { // PredictorExecution
- *         AlgorithmArn: "STRING_VALUE",
- *         TestWindows: [ // TestWindowDetails
- *           { // TestWindowSummary
- *             TestWindowStart: new Date("TIMESTAMP"),
- *             TestWindowEnd: new Date("TIMESTAMP"),
- *             Status: "STRING_VALUE",
- *             Message: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   EstimatedTimeRemainingInMinutes: Number("long"),
- *   IsAutoPredictor: true || false,
- *   DatasetImportJobArns: [
- *     "STRING_VALUE",
- *   ],
- *   Status: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
- * };
+ * // { // DescribePredictorResponse
+ * //   PredictorArn: "STRING_VALUE",
+ * //   PredictorName: "STRING_VALUE",
+ * //   AlgorithmArn: "STRING_VALUE",
+ * //   AutoMLAlgorithmArns: [ // ArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ForecastHorizon: Number("int"),
+ * //   ForecastTypes: [ // ForecastTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   PerformAutoML: true || false,
+ * //   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ * //   PerformHPO: true || false,
+ * //   TrainingParameters: { // TrainingParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   EvaluationParameters: { // EvaluationParameters
+ * //     NumberOfBacktestWindows: Number("int"),
+ * //     BackTestWindowOffset: Number("int"),
+ * //   },
+ * //   HPOConfig: { // HyperParameterTuningJobConfig
+ * //     ParameterRanges: { // ParameterRanges
+ * //       CategoricalParameterRanges: [ // CategoricalParameterRanges
+ * //         { // CategoricalParameterRange
+ * //           Name: "STRING_VALUE", // required
+ * //           Values: [ // Values // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ContinuousParameterRanges: [ // ContinuousParameterRanges
+ * //         { // ContinuousParameterRange
+ * //           Name: "STRING_VALUE", // required
+ * //           MaxValue: Number("double"), // required
+ * //           MinValue: Number("double"), // required
+ * //           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ * //         },
+ * //       ],
+ * //       IntegerParameterRanges: [ // IntegerParameterRanges
+ * //         { // IntegerParameterRange
+ * //           Name: "STRING_VALUE", // required
+ * //           MaxValue: Number("int"), // required
+ * //           MinValue: Number("int"), // required
+ * //           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   InputDataConfig: { // InputDataConfig
+ * //     DatasetGroupArn: "STRING_VALUE", // required
+ * //     SupplementaryFeatures: [ // SupplementaryFeatures
+ * //       { // SupplementaryFeature
+ * //         Name: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   FeaturizationConfig: { // FeaturizationConfig
+ * //     ForecastFrequency: "STRING_VALUE", // required
+ * //     ForecastDimensions: [ // ForecastDimensions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Featurizations: [ // Featurizations
+ * //       { // Featurization
+ * //         AttributeName: "STRING_VALUE", // required
+ * //         FeaturizationPipeline: [ // FeaturizationPipeline
+ * //           { // FeaturizationMethod
+ * //             FeaturizationMethodName: "filling", // required
+ * //             FeaturizationMethodParameters: { // FeaturizationMethodParameters
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     KMSKeyArn: "STRING_VALUE", // required
+ * //   },
+ * //   PredictorExecutionDetails: { // PredictorExecutionDetails
+ * //     PredictorExecutions: [ // PredictorExecutions
+ * //       { // PredictorExecution
+ * //         AlgorithmArn: "STRING_VALUE",
+ * //         TestWindows: [ // TestWindowDetails
+ * //           { // TestWindowSummary
+ * //             TestWindowStart: new Date("TIMESTAMP"),
+ * //             TestWindowEnd: new Date("TIMESTAMP"),
+ * //             Status: "STRING_VALUE",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   IsAutoPredictor: true || false,
+ * //   DatasetImportJobArns: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Status: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * // };
  *
  * ```
  *

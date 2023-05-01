@@ -57,14 +57,13 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVpcEndpointResponse
- *   createVpcEndpointDetail: { // CreateVpcEndpointDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateVpcEndpointResponse
+ * //   createVpcEndpointDetail: { // CreateVpcEndpointDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

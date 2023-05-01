@@ -53,8 +53,7 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new DeleteMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

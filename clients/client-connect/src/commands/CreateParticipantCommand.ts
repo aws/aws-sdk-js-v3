@@ -51,14 +51,13 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * };
  * const command = new CreateParticipantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateParticipantResponse
- *   ParticipantCredentials: { // ParticipantTokenCredentials
- *     ParticipantToken: "STRING_VALUE",
- *     Expiry: "STRING_VALUE",
- *   },
- *   ParticipantId: "STRING_VALUE",
- * };
+ * // { // CreateParticipantResponse
+ * //   ParticipantCredentials: { // ParticipantTokenCredentials
+ * //     ParticipantToken: "STRING_VALUE",
+ * //     Expiry: "STRING_VALUE",
+ * //   },
+ * //   ParticipantId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

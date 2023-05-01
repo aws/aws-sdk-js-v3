@@ -69,8 +69,7 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * };
  * const command = new UpdateNotificationRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

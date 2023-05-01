@@ -100,41 +100,40 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  * };
  * const command = new GetResourceLFTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceLFTagsResponse
- *   LFTagOnDatabase: [ // LFTagsList
- *     { // LFTagPair
- *       CatalogId: "STRING_VALUE",
- *       TagKey: "STRING_VALUE", // required
- *       TagValues: [ // TagValueList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   LFTagsOnTable: [
- *     {
- *       CatalogId: "STRING_VALUE",
- *       TagKey: "STRING_VALUE", // required
- *       TagValues: [ // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   LFTagsOnColumns: [ // ColumnLFTagsList
- *     { // ColumnLFTag
- *       Name: "STRING_VALUE",
- *       LFTags: [
- *         {
- *           CatalogId: "STRING_VALUE",
- *           TagKey: "STRING_VALUE", // required
- *           TagValues: [ // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetResourceLFTagsResponse
+ * //   LFTagOnDatabase: [ // LFTagsList
+ * //     { // LFTagPair
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // TagValueList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   LFTagsOnTable: [
+ * //     {
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   LFTagsOnColumns: [ // ColumnLFTagsList
+ * //     { // ColumnLFTag
+ * //       Name: "STRING_VALUE",
+ * //       LFTags: [
+ * //         {
+ * //           CatalogId: "STRING_VALUE",
+ * //           TagKey: "STRING_VALUE", // required
+ * //           TagValues: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

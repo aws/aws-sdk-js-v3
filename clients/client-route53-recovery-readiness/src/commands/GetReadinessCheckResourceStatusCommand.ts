@@ -56,23 +56,22 @@ export interface GetReadinessCheckResourceStatusCommandOutput
  * };
  * const command = new GetReadinessCheckResourceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadinessCheckResourceStatusResponse
- *   NextToken: "STRING_VALUE",
- *   Readiness: "STRING_VALUE",
- *   Rules: [ // __listOfRuleResult
- *     { // RuleResult
- *       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
- *       Messages: [ // __listOfMessage // required
- *         { // Message
- *           MessageText: "STRING_VALUE",
- *         },
- *       ],
- *       Readiness: "STRING_VALUE", // required
- *       RuleId: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetReadinessCheckResourceStatusResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Readiness: "STRING_VALUE",
+ * //   Rules: [ // __listOfRuleResult
+ * //     { // RuleResult
+ * //       LastCheckedTimestamp: new Date("TIMESTAMP"), // required
+ * //       Messages: [ // __listOfMessage // required
+ * //         { // Message
+ * //           MessageText: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Readiness: "STRING_VALUE", // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

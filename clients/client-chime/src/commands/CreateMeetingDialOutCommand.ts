@@ -54,10 +54,9 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * };
  * const command = new CreateMeetingDialOutCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMeetingDialOutResponse
- *   TransactionId: "STRING_VALUE",
- * };
+ * // { // CreateMeetingDialOutResponse
+ * //   TransactionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -62,23 +62,22 @@ export interface ListPackageVersionDependenciesCommandOutput
  * };
  * const command = new ListPackageVersionDependenciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPackageVersionDependenciesResult
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   versionRevision: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   dependencies: [ // PackageDependencyList
- *     { // PackageDependency
- *       namespace: "STRING_VALUE",
- *       package: "STRING_VALUE",
- *       dependencyType: "STRING_VALUE",
- *       versionRequirement: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListPackageVersionDependenciesResult
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //   namespace: "STRING_VALUE",
+ * //   package: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   versionRevision: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * //   dependencies: [ // PackageDependencyList
+ * //     { // PackageDependency
+ * //       namespace: "STRING_VALUE",
+ * //       package: "STRING_VALUE",
+ * //       dependencyType: "STRING_VALUE",
+ * //       versionRequirement: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

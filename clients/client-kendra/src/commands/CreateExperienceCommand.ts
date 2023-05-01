@@ -65,10 +65,9 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  * };
  * const command = new CreateExperienceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateExperienceResponse
- *   Id: "STRING_VALUE", // required
- * };
+ * // { // CreateExperienceResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

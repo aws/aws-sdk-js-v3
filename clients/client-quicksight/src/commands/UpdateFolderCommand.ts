@@ -46,13 +46,12 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * };
  * const command = new UpdateFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFolderResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   FolderId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateFolderResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   FolderId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

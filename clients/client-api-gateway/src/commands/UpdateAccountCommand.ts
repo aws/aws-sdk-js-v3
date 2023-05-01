@@ -51,18 +51,17 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
  * };
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Account
- *   cloudwatchRoleArn: "STRING_VALUE",
- *   throttleSettings: { // ThrottleSettings
- *     burstLimit: Number("int"),
- *     rateLimit: Number("double"),
- *   },
- *   features: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   apiKeyVersion: "STRING_VALUE",
- * };
+ * // { // Account
+ * //   cloudwatchRoleArn: "STRING_VALUE",
+ * //   throttleSettings: { // ThrottleSettings
+ * //     burstLimit: Number("int"),
+ * //     rateLimit: Number("double"),
+ * //   },
+ * //   features: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   apiKeyVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

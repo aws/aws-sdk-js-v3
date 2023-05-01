@@ -52,31 +52,30 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * };
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStatementsResponse
- *   Statements: [ // StatementList // required
- *     { // StatementData
- *       Id: "STRING_VALUE", // required
- *       QueryString: "STRING_VALUE",
- *       QueryStrings: [ // StatementStringList
- *         "STRING_VALUE",
- *       ],
- *       SecretArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       StatementName: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       QueryParameters: [ // SqlParametersList
- *         { // SqlParameter
- *           name: "STRING_VALUE", // required
- *           value: "STRING_VALUE", // required
- *         },
- *       ],
- *       IsBatchStatement: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStatementsResponse
+ * //   Statements: [ // StatementList // required
+ * //     { // StatementData
+ * //       Id: "STRING_VALUE", // required
+ * //       QueryString: "STRING_VALUE",
+ * //       QueryStrings: [ // StatementStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SecretArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatementName: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       QueryParameters: [ // SqlParametersList
+ * //         { // SqlParameter
+ * //           name: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       IsBatchStatement: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

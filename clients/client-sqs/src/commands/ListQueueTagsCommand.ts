@@ -50,12 +50,11 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * };
  * const command = new ListQueueTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueueTagsResult
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListQueueTagsResult
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

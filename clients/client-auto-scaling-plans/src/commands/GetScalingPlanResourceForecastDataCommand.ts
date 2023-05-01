@@ -62,15 +62,14 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * };
  * const command = new GetScalingPlanResourceForecastDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetScalingPlanResourceForecastDataResponse
- *   Datapoints: [ // Datapoints // required
- *     { // Datapoint
- *       Timestamp: new Date("TIMESTAMP"),
- *       Value: Number("double"),
- *     },
- *   ],
- * };
+ * // { // GetScalingPlanResourceForecastDataResponse
+ * //   Datapoints: [ // Datapoints // required
+ * //     { // Datapoint
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       Value: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

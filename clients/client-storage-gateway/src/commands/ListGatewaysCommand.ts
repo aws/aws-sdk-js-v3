@@ -55,23 +55,22 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewaysOutput
- *   Gateways: [ // Gateways
- *     { // GatewayInfo
- *       GatewayId: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       GatewayType: "STRING_VALUE",
- *       GatewayOperationalState: "STRING_VALUE",
- *       GatewayName: "STRING_VALUE",
- *       Ec2InstanceId: "STRING_VALUE",
- *       Ec2InstanceRegion: "STRING_VALUE",
- *       HostEnvironment: "STRING_VALUE",
- *       HostEnvironmentId: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListGatewaysOutput
+ * //   Gateways: [ // Gateways
+ * //     { // GatewayInfo
+ * //       GatewayId: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       GatewayType: "STRING_VALUE",
+ * //       GatewayOperationalState: "STRING_VALUE",
+ * //       GatewayName: "STRING_VALUE",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       Ec2InstanceRegion: "STRING_VALUE",
+ * //       HostEnvironment: "STRING_VALUE",
+ * //       HostEnvironmentId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

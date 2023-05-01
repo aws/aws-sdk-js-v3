@@ -46,13 +46,12 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * };
  * const command = new DeleteRefreshScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRefreshScheduleResponse
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- *   ScheduleId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeleteRefreshScheduleResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   ScheduleId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

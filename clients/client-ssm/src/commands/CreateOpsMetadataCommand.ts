@@ -56,10 +56,9 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * };
  * const command = new CreateOpsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOpsMetadataResult
- *   OpsMetadataArn: "STRING_VALUE",
- * };
+ * // { // CreateOpsMetadataResult
+ * //   OpsMetadataArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

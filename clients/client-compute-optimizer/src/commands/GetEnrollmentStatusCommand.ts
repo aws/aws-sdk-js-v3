@@ -46,14 +46,13 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  * const input = {};
  * const command = new GetEnrollmentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEnrollmentStatusResponse
- *   status: "Active" || "Inactive" || "Pending" || "Failed",
- *   statusReason: "STRING_VALUE",
- *   memberAccountsEnrolled: true || false,
- *   lastUpdatedTimestamp: new Date("TIMESTAMP"),
- *   numberOfMemberAccountsOptedIn: Number("int"),
- * };
+ * // { // GetEnrollmentStatusResponse
+ * //   status: "Active" || "Inactive" || "Pending" || "Failed",
+ * //   statusReason: "STRING_VALUE",
+ * //   memberAccountsEnrolled: true || false,
+ * //   lastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   numberOfMemberAccountsOptedIn: Number("int"),
+ * // };
  *
  * ```
  *

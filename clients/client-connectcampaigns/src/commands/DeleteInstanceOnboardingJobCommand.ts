@@ -47,8 +47,7 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteInstanceOnboardingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

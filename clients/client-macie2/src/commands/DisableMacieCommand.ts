@@ -42,8 +42,7 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * const input = {};
  * const command = new DisableMacieCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

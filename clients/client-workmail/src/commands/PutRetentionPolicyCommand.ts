@@ -58,8 +58,7 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

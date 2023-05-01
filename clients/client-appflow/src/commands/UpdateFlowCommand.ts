@@ -309,10 +309,9 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * };
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFlowResponse
- *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
- * };
+ * // { // UpdateFlowResponse
+ * //   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * // };
  *
  * ```
  *

@@ -68,8 +68,7 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

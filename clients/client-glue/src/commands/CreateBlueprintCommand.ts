@@ -49,10 +49,9 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * };
  * const command = new CreateBlueprintCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBlueprintResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateBlueprintResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

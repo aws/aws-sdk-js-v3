@@ -50,20 +50,19 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * };
  * const command = new ListEngagementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEngagementsResult
- *   NextToken: "STRING_VALUE",
- *   Engagements: [ // EngagementsList // required
- *     { // Engagement
- *       EngagementArn: "STRING_VALUE", // required
- *       ContactArn: "STRING_VALUE", // required
- *       Sender: "STRING_VALUE", // required
- *       IncidentId: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       StopTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListEngagementsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Engagements: [ // EngagementsList // required
+ * //     { // Engagement
+ * //       EngagementArn: "STRING_VALUE", // required
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Sender: "STRING_VALUE", // required
+ * //       IncidentId: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       StopTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

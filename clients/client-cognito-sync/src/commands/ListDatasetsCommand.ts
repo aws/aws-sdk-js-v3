@@ -105,22 +105,21 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   Datasets: [ // DatasetList
- *     { // Dataset
- *       IdentityId: "STRING_VALUE",
- *       DatasetName: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       LastModifiedBy: "STRING_VALUE",
- *       DataStorage: Number("long"),
- *       NumRecords: Number("long"),
- *     },
- *   ],
- *   Count: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetsResponse
+ * //   Datasets: [ // DatasetList
+ * //     { // Dataset
+ * //       IdentityId: "STRING_VALUE",
+ * //       DatasetName: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       DataStorage: Number("long"),
+ * //       NumRecords: Number("long"),
+ * //     },
+ * //   ],
+ * //   Count: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

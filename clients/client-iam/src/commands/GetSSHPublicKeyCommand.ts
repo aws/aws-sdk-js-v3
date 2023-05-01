@@ -50,17 +50,16 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * };
  * const command = new GetSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSSHPublicKeyResponse
- *   SSHPublicKey: { // SSHPublicKey
- *     UserName: "STRING_VALUE", // required
- *     SSHPublicKeyId: "STRING_VALUE", // required
- *     Fingerprint: "STRING_VALUE", // required
- *     SSHPublicKeyBody: "STRING_VALUE", // required
- *     Status: "Active" || "Inactive", // required
- *     UploadDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetSSHPublicKeyResponse
+ * //   SSHPublicKey: { // SSHPublicKey
+ * //     UserName: "STRING_VALUE", // required
+ * //     SSHPublicKeyId: "STRING_VALUE", // required
+ * //     Fingerprint: "STRING_VALUE", // required
+ * //     SSHPublicKeyBody: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //     UploadDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

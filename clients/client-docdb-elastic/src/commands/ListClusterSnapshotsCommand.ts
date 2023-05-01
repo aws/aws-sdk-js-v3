@@ -46,19 +46,18 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * };
  * const command = new ListClusterSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClusterSnapshotsOutput
- *   snapshots: [ // ClusterSnapshotList
- *     { // ClusterSnapshotInList
- *       snapshotName: "STRING_VALUE", // required
- *       snapshotArn: "STRING_VALUE", // required
- *       clusterArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       snapshotCreationTime: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListClusterSnapshotsOutput
+ * //   snapshots: [ // ClusterSnapshotList
+ * //     { // ClusterSnapshotInList
+ * //       snapshotName: "STRING_VALUE", // required
+ * //       snapshotArn: "STRING_VALUE", // required
+ * //       clusterArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       snapshotCreationTime: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

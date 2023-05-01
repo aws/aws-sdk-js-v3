@@ -50,20 +50,19 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  * };
  * const command = new ListVoiceProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVoiceProfilesResponse
- *   VoiceProfiles: [ // VoiceProfileSummaryList
- *     { // VoiceProfileSummary
- *       VoiceProfileId: "STRING_VALUE",
- *       VoiceProfileArn: "STRING_VALUE",
- *       VoiceProfileDomainId: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *       ExpirationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVoiceProfilesResponse
+ * //   VoiceProfiles: [ // VoiceProfileSummaryList
+ * //     { // VoiceProfileSummary
+ * //       VoiceProfileId: "STRING_VALUE",
+ * //       VoiceProfileArn: "STRING_VALUE",
+ * //       VoiceProfileDomainId: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       ExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

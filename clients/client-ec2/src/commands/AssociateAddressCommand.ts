@@ -77,10 +77,9 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateAddressResult
- *   AssociationId: "STRING_VALUE",
- * };
+ * // { // AssociateAddressResult
+ * //   AssociationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -79,16 +79,15 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendChannelMessageResponse
- *   ChannelArn: "STRING_VALUE",
- *   MessageId: "STRING_VALUE",
- *   Status: { // ChannelMessageStatusStructure
- *     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
- *     Detail: "STRING_VALUE",
- *   },
- *   SubChannelId: "STRING_VALUE",
- * };
+ * // { // SendChannelMessageResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   MessageId: "STRING_VALUE",
+ * //   Status: { // ChannelMessageStatusStructure
+ * //     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
+ * //     Detail: "STRING_VALUE",
+ * //   },
+ * //   SubChannelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

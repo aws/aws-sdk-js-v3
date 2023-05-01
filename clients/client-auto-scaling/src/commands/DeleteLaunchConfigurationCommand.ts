@@ -46,8 +46,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,23 +45,22 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * };
  * const command = new GetOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpenIDConnectProviderResponse
- *   Url: "STRING_VALUE",
- *   ClientIDList: [ // clientIDListType
- *     "STRING_VALUE",
- *   ],
- *   ThumbprintList: [ // thumbprintListType
- *     "STRING_VALUE",
- *   ],
- *   CreateDate: new Date("TIMESTAMP"),
- *   Tags: [ // tagListType
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetOpenIDConnectProviderResponse
+ * //   Url: "STRING_VALUE",
+ * //   ClientIDList: [ // clientIDListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ThumbprintList: [ // thumbprintListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreateDate: new Date("TIMESTAMP"),
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

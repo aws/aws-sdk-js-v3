@@ -46,22 +46,21 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * };
  * const command = new GetVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceToneAnalysisTaskResponse
- *   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
- *     VoiceToneAnalysisTaskId: "STRING_VALUE",
- *     VoiceToneAnalysisTaskStatus: "STRING_VALUE",
- *     CallDetails: { // CallDetails
- *       VoiceConnectorId: "STRING_VALUE",
- *       TransactionId: "STRING_VALUE",
- *       IsCaller: true || false,
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     StartedTimestamp: new Date("TIMESTAMP"),
- *     StatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // GetVoiceToneAnalysisTaskResponse
+ * //   VoiceToneAnalysisTask: { // VoiceToneAnalysisTask
+ * //     VoiceToneAnalysisTaskId: "STRING_VALUE",
+ * //     VoiceToneAnalysisTaskStatus: "STRING_VALUE",
+ * //     CallDetails: { // CallDetails
+ * //       VoiceConnectorId: "STRING_VALUE",
+ * //       TransactionId: "STRING_VALUE",
+ * //       IsCaller: true || false,
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     StartedTimestamp: new Date("TIMESTAMP"),
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

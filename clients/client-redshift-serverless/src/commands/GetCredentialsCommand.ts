@@ -64,13 +64,12 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCredentialsResponse
- *   dbUser: "STRING_VALUE",
- *   dbPassword: "STRING_VALUE",
- *   expiration: new Date("TIMESTAMP"),
- *   nextRefreshTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetCredentialsResponse
+ * //   dbUser: "STRING_VALUE",
+ * //   dbPassword: "STRING_VALUE",
+ * //   expiration: new Date("TIMESTAMP"),
+ * //   nextRefreshTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

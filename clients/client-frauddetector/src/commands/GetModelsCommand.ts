@@ -53,21 +53,20 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelsResult
- *   nextToken: "STRING_VALUE",
- *   models: [ // modelList
- *     { // Model
- *       modelId: "STRING_VALUE",
- *       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
- *       description: "STRING_VALUE",
- *       eventTypeName: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetModelsResult
+ * //   nextToken: "STRING_VALUE",
+ * //   models: [ // modelList
+ * //     { // Model
+ * //       modelId: "STRING_VALUE",
+ * //       modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ * //       description: "STRING_VALUE",
+ * //       eventTypeName: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

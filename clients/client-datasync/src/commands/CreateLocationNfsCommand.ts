@@ -60,10 +60,9 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * };
  * const command = new CreateLocationNfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationNfsResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationNfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

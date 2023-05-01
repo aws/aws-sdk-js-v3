@@ -55,8 +55,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  * };
  * const command = new UpdateEmergencyContactSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

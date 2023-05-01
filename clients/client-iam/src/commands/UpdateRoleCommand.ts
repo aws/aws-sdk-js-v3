@@ -46,8 +46,7 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * };
  * const command = new UpdateRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

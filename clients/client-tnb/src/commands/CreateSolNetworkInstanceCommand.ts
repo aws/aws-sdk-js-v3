@@ -56,16 +56,15 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * };
  * const command = new CreateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSolNetworkInstanceOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsdInfoId: "STRING_VALUE", // required
- *   nsInstanceName: "STRING_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSolNetworkInstanceOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdInfoId: "STRING_VALUE", // required
+ * //   nsInstanceName: "STRING_VALUE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

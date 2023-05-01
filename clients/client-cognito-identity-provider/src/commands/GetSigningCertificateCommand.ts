@@ -51,10 +51,9 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * };
  * const command = new GetSigningCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSigningCertificateResponse
- *   Certificate: "STRING_VALUE",
- * };
+ * // { // GetSigningCertificateResponse
+ * //   Certificate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

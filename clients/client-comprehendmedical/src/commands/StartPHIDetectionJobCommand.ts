@@ -61,10 +61,9 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * };
  * const command = new StartPHIDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPHIDetectionJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartPHIDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

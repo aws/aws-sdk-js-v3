@@ -47,25 +47,24 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * };
  * const command = new ListAssessmentFrameworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentFrameworksResponse
- *   frameworkMetadataList: [ // FrameworkMetadataList
- *     { // AssessmentFrameworkMetadata
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       type: "Standard" || "Custom",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       logo: "STRING_VALUE",
- *       complianceType: "STRING_VALUE",
- *       controlsCount: Number("int"),
- *       controlSetsCount: Number("int"),
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentFrameworksResponse
+ * //   frameworkMetadataList: [ // FrameworkMetadataList
+ * //     { // AssessmentFrameworkMetadata
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       type: "Standard" || "Custom",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       logo: "STRING_VALUE",
+ * //       complianceType: "STRING_VALUE",
+ * //       controlsCount: Number("int"),
+ * //       controlSetsCount: Number("int"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

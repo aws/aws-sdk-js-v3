@@ -56,8 +56,7 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatasetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

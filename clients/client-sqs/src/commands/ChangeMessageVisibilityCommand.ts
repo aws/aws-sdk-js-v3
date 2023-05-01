@@ -79,8 +79,7 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * };
  * const command = new ChangeMessageVisibilityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

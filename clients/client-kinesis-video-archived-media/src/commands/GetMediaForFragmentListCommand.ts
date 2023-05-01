@@ -97,11 +97,10 @@ export interface GetMediaForFragmentListCommandOutput
  * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMediaForFragmentListOutput
- *   ContentType: "STRING_VALUE",
- *   Payload: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetMediaForFragmentListOutput
+ * //   ContentType: "STRING_VALUE",
+ * //   Payload: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

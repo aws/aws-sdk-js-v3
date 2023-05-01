@@ -55,8 +55,7 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * };
  * const command = new DeleteCustomMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

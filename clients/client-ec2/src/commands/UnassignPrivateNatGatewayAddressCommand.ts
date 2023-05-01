@@ -62,22 +62,21 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * };
  * const command = new UnassignPrivateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnassignPrivateNatGatewayAddressResult
- *   NatGatewayId: "STRING_VALUE",
- *   NatGatewayAddresses: [ // NatGatewayAddressList
- *     { // NatGatewayAddress
- *       AllocationId: "STRING_VALUE",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       PrivateIp: "STRING_VALUE",
- *       PublicIp: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       IsPrimary: true || false,
- *       FailureMessage: "STRING_VALUE",
- *       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
- *     },
- *   ],
- * };
+ * // { // UnassignPrivateNatGatewayAddressResult
+ * //   NatGatewayId: "STRING_VALUE",
+ * //   NatGatewayAddresses: [ // NatGatewayAddressList
+ * //     { // NatGatewayAddress
+ * //       AllocationId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       PrivateIp: "STRING_VALUE",
+ * //       PublicIp: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       IsPrimary: true || false,
+ * //       FailureMessage: "STRING_VALUE",
+ * //       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

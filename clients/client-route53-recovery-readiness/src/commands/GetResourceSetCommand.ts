@@ -48,39 +48,38 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceSetResponse
- *   ResourceSetArn: "STRING_VALUE",
- *   ResourceSetName: "STRING_VALUE",
- *   ResourceSetType: "STRING_VALUE",
- *   Resources: [ // __listOfResource
- *     { // Resource
- *       ComponentId: "STRING_VALUE",
- *       DnsTargetResource: { // DNSTargetResource
- *         DomainName: "STRING_VALUE",
- *         HostedZoneArn: "STRING_VALUE",
- *         RecordSetId: "STRING_VALUE",
- *         RecordType: "STRING_VALUE",
- *         TargetResource: { // TargetResource
- *           NLBResource: { // NLBResource
- *             Arn: "STRING_VALUE",
- *           },
- *           R53Resource: { // R53ResourceRecord
- *             DomainName: "STRING_VALUE",
- *             RecordSetId: "STRING_VALUE",
- *           },
- *         },
- *       },
- *       ReadinessScopes: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *       ResourceArn: "STRING_VALUE",
- *     },
- *   ],
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetResourceSetResponse
+ * //   ResourceSetArn: "STRING_VALUE",
+ * //   ResourceSetName: "STRING_VALUE",
+ * //   ResourceSetType: "STRING_VALUE",
+ * //   Resources: [ // __listOfResource
+ * //     { // Resource
+ * //       ComponentId: "STRING_VALUE",
+ * //       DnsTargetResource: { // DNSTargetResource
+ * //         DomainName: "STRING_VALUE",
+ * //         HostedZoneArn: "STRING_VALUE",
+ * //         RecordSetId: "STRING_VALUE",
+ * //         RecordType: "STRING_VALUE",
+ * //         TargetResource: { // TargetResource
+ * //           NLBResource: { // NLBResource
+ * //             Arn: "STRING_VALUE",
+ * //           },
+ * //           R53Resource: { // R53ResourceRecord
+ * //             DomainName: "STRING_VALUE",
+ * //             RecordSetId: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       ReadinessScopes: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ResourceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

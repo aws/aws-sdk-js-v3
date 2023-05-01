@@ -77,8 +77,7 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * };
  * const command = new DeleteCanaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

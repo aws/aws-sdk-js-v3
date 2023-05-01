@@ -53,22 +53,21 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * };
  * const command = new ListPermissionAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionAssociationsResponse
- *   permissions: [ // AssociatedPermissionList
- *     { // AssociatedPermission
- *       arn: "STRING_VALUE",
- *       permissionVersion: "STRING_VALUE",
- *       defaultVersion: true || false,
- *       resourceType: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       resourceShareArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionAssociationsResponse
+ * //   permissions: [ // AssociatedPermissionList
+ * //     { // AssociatedPermission
+ * //       arn: "STRING_VALUE",
+ * //       permissionVersion: "STRING_VALUE",
+ * //       defaultVersion: true || false,
+ * //       resourceType: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       resourceShareArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,8 +55,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityMailFromAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

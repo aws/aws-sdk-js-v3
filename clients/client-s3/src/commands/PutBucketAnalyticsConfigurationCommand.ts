@@ -185,8 +185,7 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketAnalyticsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

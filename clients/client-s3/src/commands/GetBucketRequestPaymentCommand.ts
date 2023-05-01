@@ -54,10 +54,9 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * };
  * const command = new GetBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketRequestPaymentOutput
- *   Payer: "Requester" || "BucketOwner",
- * };
+ * // { // GetBucketRequestPaymentOutput
+ * //   Payer: "Requester" || "BucketOwner",
+ * // };
  *
  * ```
  *

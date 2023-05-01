@@ -48,8 +48,7 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

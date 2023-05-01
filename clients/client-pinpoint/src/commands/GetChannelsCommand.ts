@@ -44,24 +44,23 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * };
  * const command = new GetChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelsResponse
- *   ChannelsResponse: { // ChannelsResponse
- *     Channels: { // MapOfChannelResponse // required
- *       "<keys>": { // ChannelResponse
- *         ApplicationId: "STRING_VALUE",
- *         CreationDate: "STRING_VALUE",
- *         Enabled: true || false,
- *         HasCredential: true || false,
- *         Id: "STRING_VALUE",
- *         IsArchived: true || false,
- *         LastModifiedBy: "STRING_VALUE",
- *         LastModifiedDate: "STRING_VALUE",
- *         Version: Number("int"),
- *       },
- *     },
- *   },
- * };
+ * // { // GetChannelsResponse
+ * //   ChannelsResponse: { // ChannelsResponse
+ * //     Channels: { // MapOfChannelResponse // required
+ * //       "<keys>": { // ChannelResponse
+ * //         ApplicationId: "STRING_VALUE",
+ * //         CreationDate: "STRING_VALUE",
+ * //         Enabled: true || false,
+ * //         HasCredential: true || false,
+ * //         Id: "STRING_VALUE",
+ * //         IsArchived: true || false,
+ * //         LastModifiedBy: "STRING_VALUE",
+ * //         LastModifiedDate: "STRING_VALUE",
+ * //         Version: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

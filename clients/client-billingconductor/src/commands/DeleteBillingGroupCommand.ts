@@ -46,10 +46,9 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBillingGroupOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeleteBillingGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

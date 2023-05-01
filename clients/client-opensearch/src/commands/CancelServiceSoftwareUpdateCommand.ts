@@ -51,19 +51,18 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * };
  * const command = new CancelServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelServiceSoftwareUpdateResponse
- *   ServiceSoftwareOptions: { // ServiceSoftwareOptions
- *     CurrentVersion: "STRING_VALUE",
- *     NewVersion: "STRING_VALUE",
- *     UpdateAvailable: true || false,
- *     Cancellable: true || false,
- *     UpdateStatus: "PENDING_UPDATE" || "IN_PROGRESS" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
- *     Description: "STRING_VALUE",
- *     AutomatedUpdateDate: new Date("TIMESTAMP"),
- *     OptionalDeployment: true || false,
- *   },
- * };
+ * // { // CancelServiceSoftwareUpdateResponse
+ * //   ServiceSoftwareOptions: { // ServiceSoftwareOptions
+ * //     CurrentVersion: "STRING_VALUE",
+ * //     NewVersion: "STRING_VALUE",
+ * //     UpdateAvailable: true || false,
+ * //     Cancellable: true || false,
+ * //     UpdateStatus: "PENDING_UPDATE" || "IN_PROGRESS" || "COMPLETED" || "NOT_ELIGIBLE" || "ELIGIBLE",
+ * //     Description: "STRING_VALUE",
+ * //     AutomatedUpdateDate: new Date("TIMESTAMP"),
+ * //     OptionalDeployment: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

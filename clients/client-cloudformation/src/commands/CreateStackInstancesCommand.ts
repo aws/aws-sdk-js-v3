@@ -83,10 +83,9 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * };
  * const command = new CreateStackInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStackInstancesOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // CreateStackInstancesOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

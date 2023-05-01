@@ -59,46 +59,45 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRealtimeContactAnalysisSegmentsResponse
- *   Segments: [ // RealtimeContactAnalysisSegments // required
- *     { // RealtimeContactAnalysisSegment
- *       Transcript: { // Transcript
- *         Id: "STRING_VALUE", // required
- *         ParticipantId: "STRING_VALUE", // required
- *         ParticipantRole: "STRING_VALUE", // required
- *         Content: "STRING_VALUE", // required
- *         BeginOffsetMillis: Number("int"), // required
- *         EndOffsetMillis: Number("int"), // required
- *         Sentiment: "STRING_VALUE", // required
- *         IssuesDetected: [ // IssuesDetected
- *           { // IssueDetected
- *             CharacterOffsets: { // CharacterOffsets
- *               BeginOffsetChar: Number("int"), // required
- *               EndOffsetChar: Number("int"), // required
- *             },
- *           },
- *         ],
- *       },
- *       Categories: { // Categories
- *         MatchedCategories: [ // MatchedCategories // required
- *           "STRING_VALUE",
- *         ],
- *         MatchedDetails: { // MatchedDetails // required
- *           "<keys>": { // CategoryDetails
- *             PointsOfInterest: [ // PointsOfInterest // required
- *               { // PointOfInterest
- *                 BeginOffsetMillis: Number("int"), // required
- *                 EndOffsetMillis: Number("int"), // required
- *               },
- *             ],
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRealtimeContactAnalysisSegmentsResponse
+ * //   Segments: [ // RealtimeContactAnalysisSegments // required
+ * //     { // RealtimeContactAnalysisSegment
+ * //       Transcript: { // Transcript
+ * //         Id: "STRING_VALUE", // required
+ * //         ParticipantId: "STRING_VALUE", // required
+ * //         ParticipantRole: "STRING_VALUE", // required
+ * //         Content: "STRING_VALUE", // required
+ * //         BeginOffsetMillis: Number("int"), // required
+ * //         EndOffsetMillis: Number("int"), // required
+ * //         Sentiment: "STRING_VALUE", // required
+ * //         IssuesDetected: [ // IssuesDetected
+ * //           { // IssueDetected
+ * //             CharacterOffsets: { // CharacterOffsets
+ * //               BeginOffsetChar: Number("int"), // required
+ * //               EndOffsetChar: Number("int"), // required
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       Categories: { // Categories
+ * //         MatchedCategories: [ // MatchedCategories // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MatchedDetails: { // MatchedDetails // required
+ * //           "<keys>": { // CategoryDetails
+ * //             PointsOfInterest: [ // PointsOfInterest // required
+ * //               { // PointOfInterest
+ * //                 BeginOffsetMillis: Number("int"), // required
+ * //                 EndOffsetMillis: Number("int"), // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

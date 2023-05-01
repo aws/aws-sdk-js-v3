@@ -46,13 +46,12 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * };
  * const command = new CancelIngestionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelIngestionResponse
- *   Arn: "STRING_VALUE",
- *   IngestionId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CancelIngestionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

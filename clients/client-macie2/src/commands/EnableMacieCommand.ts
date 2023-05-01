@@ -46,8 +46,7 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * };
  * const command = new EnableMacieCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

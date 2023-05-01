@@ -90,34 +90,33 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * };
  * const command = new ReceiveMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReceiveMessageResult
- *   Messages: [ // MessageList
- *     { // Message
- *       MessageId: "STRING_VALUE",
- *       ReceiptHandle: "STRING_VALUE",
- *       MD5OfBody: "STRING_VALUE",
- *       Body: "STRING_VALUE",
- *       Attributes: { // MessageSystemAttributeMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       MD5OfMessageAttributes: "STRING_VALUE",
- *       MessageAttributes: { // MessageBodyAttributeMap
- *         "<keys>": { // MessageAttributeValue
- *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
- *           StringListValues: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *           BinaryListValues: [ // BinaryList
- *             "BLOB_VALUE",
- *           ],
- *           DataType: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // ReceiveMessageResult
+ * //   Messages: [ // MessageList
+ * //     { // Message
+ * //       MessageId: "STRING_VALUE",
+ * //       ReceiptHandle: "STRING_VALUE",
+ * //       MD5OfBody: "STRING_VALUE",
+ * //       Body: "STRING_VALUE",
+ * //       Attributes: { // MessageSystemAttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       MD5OfMessageAttributes: "STRING_VALUE",
+ * //       MessageAttributes: { // MessageBodyAttributeMap
+ * //         "<keys>": { // MessageAttributeValue
+ * //           StringValue: "STRING_VALUE",
+ * //           BinaryValue: "BLOB_VALUE",
+ * //           StringListValues: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           BinaryListValues: [ // BinaryList
+ * //             "BLOB_VALUE",
+ * //           ],
+ * //           DataType: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

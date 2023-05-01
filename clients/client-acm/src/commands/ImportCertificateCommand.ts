@@ -124,10 +124,9 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportCertificateResponse
- *   CertificateArn: "STRING_VALUE",
- * };
+ * // { // ImportCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

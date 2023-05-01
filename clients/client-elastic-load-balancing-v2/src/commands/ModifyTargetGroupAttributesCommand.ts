@@ -54,15 +54,14 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * };
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyTargetGroupAttributesOutput
- *   Attributes: [ // TargetGroupAttributes
- *     { // TargetGroupAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ModifyTargetGroupAttributesOutput
+ * //   Attributes: [ // TargetGroupAttributes
+ * //     { // TargetGroupAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

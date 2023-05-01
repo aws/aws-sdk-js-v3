@@ -73,8 +73,7 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
  * };
  * const command = new NotifyProvisionProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

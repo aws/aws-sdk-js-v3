@@ -46,15 +46,14 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndpointsResponse
- *   Endpoints: [ // __listOfEndpoint
- *     { // Endpoint
- *       Url: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEndpointsResponse
+ * //   Endpoints: [ // __listOfEndpoint
+ * //     { // Endpoint
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

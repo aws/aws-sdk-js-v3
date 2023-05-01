@@ -60,14 +60,13 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * };
  * const command = new CreateChannelBanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelBanResponse
- *   ChannelArn: "STRING_VALUE",
- *   Member: { // Identity
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateChannelBanResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   Member: { // Identity
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

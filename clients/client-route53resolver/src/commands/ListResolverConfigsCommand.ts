@@ -46,18 +46,17 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  * };
  * const command = new ListResolverConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverConfigsResponse
- *   NextToken: "STRING_VALUE",
- *   ResolverConfigs: [ // ResolverConfigList
- *     { // ResolverConfig
- *       Id: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       AutodefinedReverse: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
- *     },
- *   ],
- * };
+ * // { // ListResolverConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ResolverConfigs: [ // ResolverConfigList
+ * //     { // ResolverConfig
+ * //       Id: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       AutodefinedReverse: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

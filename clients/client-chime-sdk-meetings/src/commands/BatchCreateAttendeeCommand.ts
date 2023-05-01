@@ -60,28 +60,27 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * };
  * const command = new BatchCreateAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateAttendeeResponse
- *   Attendees: [ // AttendeeList
- *     { // Attendee
- *       ExternalUserId: "STRING_VALUE",
- *       AttendeeId: "STRING_VALUE",
- *       JoinToken: "STRING_VALUE",
- *       Capabilities: { // AttendeeCapabilities
- *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
- *       },
- *     },
- *   ],
- *   Errors: [ // BatchCreateAttendeeErrorList
- *     { // CreateAttendeeError
- *       ExternalUserId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateAttendeeResponse
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //       Capabilities: { // AttendeeCapabilities
+ * //         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchCreateAttendeeErrorList
+ * //     { // CreateAttendeeError
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

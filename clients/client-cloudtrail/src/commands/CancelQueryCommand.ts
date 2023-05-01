@@ -50,11 +50,10 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelQueryResponse
- *   QueryId: "STRING_VALUE", // required
- *   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT", // required
- * };
+ * // { // CancelQueryResponse
+ * //   QueryId: "STRING_VALUE", // required
+ * //   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT", // required
+ * // };
  *
  * ```
  *

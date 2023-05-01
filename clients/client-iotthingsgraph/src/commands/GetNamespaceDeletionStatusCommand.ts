@@ -44,14 +44,13 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
  * const input = {};
  * const command = new GetNamespaceDeletionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNamespaceDeletionStatusResponse
- *   namespaceArn: "STRING_VALUE",
- *   namespaceName: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   errorCode: "STRING_VALUE",
- *   errorMessage: "STRING_VALUE",
- * };
+ * // { // GetNamespaceDeletionStatusResponse
+ * //   namespaceArn: "STRING_VALUE",
+ * //   namespaceName: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   errorCode: "STRING_VALUE",
+ * //   errorMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

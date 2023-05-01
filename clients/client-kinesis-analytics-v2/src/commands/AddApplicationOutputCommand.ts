@@ -76,32 +76,31 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * };
  * const command = new AddApplicationOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddApplicationOutputResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- *   OutputDescriptions: [ // OutputDescriptions
- *     { // OutputDescription
- *       OutputId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE",
- *       },
- *       KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE",
- *       },
- *       LambdaOutputDescription: { // LambdaOutputDescription
- *         ResourceARN: "STRING_VALUE", // required
- *         RoleARN: "STRING_VALUE",
- *       },
- *       DestinationSchema: { // DestinationSchema
- *         RecordFormatType: "JSON" || "CSV", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // AddApplicationOutputResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * //   OutputDescriptions: [ // OutputDescriptions
+ * //     { // OutputDescription
+ * //       OutputId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       KinesisStreamsOutputDescription: { // KinesisStreamsOutputDescription
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //       },
+ * //       KinesisFirehoseOutputDescription: { // KinesisFirehoseOutputDescription
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //       },
+ * //       LambdaOutputDescription: { // LambdaOutputDescription
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //       },
+ * //       DestinationSchema: { // DestinationSchema
+ * //         RecordFormatType: "JSON" || "CSV", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

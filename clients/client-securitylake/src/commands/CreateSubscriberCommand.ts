@@ -57,15 +57,14 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSubscriberResponse
- *   subscriptionId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   snsArn: "STRING_VALUE",
- *   s3BucketArn: "STRING_VALUE",
- *   resourceShareArn: "STRING_VALUE",
- *   resourceShareName: "STRING_VALUE",
- * };
+ * // { // CreateSubscriberResponse
+ * //   subscriptionId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE",
+ * //   snsArn: "STRING_VALUE",
+ * //   s3BucketArn: "STRING_VALUE",
+ * //   resourceShareArn: "STRING_VALUE",
+ * //   resourceShareName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

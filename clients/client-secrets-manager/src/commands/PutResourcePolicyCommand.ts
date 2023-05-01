@@ -57,11 +57,10 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResourcePolicyResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // PutResourcePolicyResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

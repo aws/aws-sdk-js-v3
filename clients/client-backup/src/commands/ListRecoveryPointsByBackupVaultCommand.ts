@@ -57,47 +57,46 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * };
  * const command = new ListRecoveryPointsByBackupVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecoveryPointsByBackupVaultOutput
- *   NextToken: "STRING_VALUE",
- *   RecoveryPoints: [ // RecoveryPointByBackupVaultList
- *     { // RecoveryPointByBackupVault
- *       RecoveryPointArn: "STRING_VALUE",
- *       BackupVaultName: "STRING_VALUE",
- *       BackupVaultArn: "STRING_VALUE",
- *       SourceBackupVaultArn: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       CreatedBy: { // RecoveryPointCreator
- *         BackupPlanId: "STRING_VALUE",
- *         BackupPlanArn: "STRING_VALUE",
- *         BackupPlanVersion: "STRING_VALUE",
- *         BackupRuleId: "STRING_VALUE",
- *       },
- *       IamRoleArn: "STRING_VALUE",
- *       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
- *       StatusMessage: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       CompletionDate: new Date("TIMESTAMP"),
- *       BackupSizeInBytes: Number("long"),
- *       CalculatedLifecycle: { // CalculatedLifecycle
- *         MoveToColdStorageAt: new Date("TIMESTAMP"),
- *         DeleteAt: new Date("TIMESTAMP"),
- *       },
- *       Lifecycle: { // Lifecycle
- *         MoveToColdStorageAfterDays: Number("long"),
- *         DeleteAfterDays: Number("long"),
- *       },
- *       EncryptionKeyArn: "STRING_VALUE",
- *       IsEncrypted: true || false,
- *       LastRestoreTime: new Date("TIMESTAMP"),
- *       ParentRecoveryPointArn: "STRING_VALUE",
- *       CompositeMemberIdentifier: "STRING_VALUE",
- *       IsParent: true || false,
- *       ResourceName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListRecoveryPointsByBackupVaultOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   RecoveryPoints: [ // RecoveryPointByBackupVaultList
+ * //     { // RecoveryPointByBackupVault
+ * //       RecoveryPointArn: "STRING_VALUE",
+ * //       BackupVaultName: "STRING_VALUE",
+ * //       BackupVaultArn: "STRING_VALUE",
+ * //       SourceBackupVaultArn: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       CreatedBy: { // RecoveryPointCreator
+ * //         BackupPlanId: "STRING_VALUE",
+ * //         BackupPlanArn: "STRING_VALUE",
+ * //         BackupPlanVersion: "STRING_VALUE",
+ * //         BackupRuleId: "STRING_VALUE",
+ * //       },
+ * //       IamRoleArn: "STRING_VALUE",
+ * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CompletionDate: new Date("TIMESTAMP"),
+ * //       BackupSizeInBytes: Number("long"),
+ * //       CalculatedLifecycle: { // CalculatedLifecycle
+ * //         MoveToColdStorageAt: new Date("TIMESTAMP"),
+ * //         DeleteAt: new Date("TIMESTAMP"),
+ * //       },
+ * //       Lifecycle: { // Lifecycle
+ * //         MoveToColdStorageAfterDays: Number("long"),
+ * //         DeleteAfterDays: Number("long"),
+ * //       },
+ * //       EncryptionKeyArn: "STRING_VALUE",
+ * //       IsEncrypted: true || false,
+ * //       LastRestoreTime: new Date("TIMESTAMP"),
+ * //       ParentRecoveryPointArn: "STRING_VALUE",
+ * //       CompositeMemberIdentifier: "STRING_VALUE",
+ * //       IsParent: true || false,
+ * //       ResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

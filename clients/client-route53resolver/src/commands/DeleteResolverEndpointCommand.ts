@@ -56,26 +56,25 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * };
  * const command = new DeleteResolverEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResolverEndpointResponse
- *   ResolverEndpoint: { // ResolverEndpoint
- *     Id: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     SecurityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
- *     ],
- *     Direction: "INBOUND" || "OUTBOUND",
- *     IpAddressCount: Number("int"),
- *     HostVPCId: "STRING_VALUE",
- *     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",
- *     StatusMessage: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
- *   },
- * };
+ * // { // DeleteResolverEndpointResponse
+ * //   ResolverEndpoint: { // ResolverEndpoint
+ * //     Id: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Direction: "INBOUND" || "OUTBOUND",
+ * //     IpAddressCount: Number("int"),
+ * //     HostVPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "OPERATIONAL" || "UPDATING" || "AUTO_RECOVERING" || "ACTION_NEEDED" || "DELETING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,21 +45,20 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * };
  * const command = new ListLegalHoldsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLegalHoldsOutput
- *   NextToken: "STRING_VALUE",
- *   LegalHolds: [ // LegalHoldsList
- *     { // LegalHold
- *       Title: "STRING_VALUE",
- *       Status: "CREATING" || "ACTIVE" || "CANCELING" || "CANCELED",
- *       Description: "STRING_VALUE",
- *       LegalHoldId: "STRING_VALUE",
- *       LegalHoldArn: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       CancellationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListLegalHoldsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   LegalHolds: [ // LegalHoldsList
+ * //     { // LegalHold
+ * //       Title: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "CANCELING" || "CANCELED",
+ * //       Description: "STRING_VALUE",
+ * //       LegalHoldId: "STRING_VALUE",
+ * //       LegalHoldArn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CancellationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

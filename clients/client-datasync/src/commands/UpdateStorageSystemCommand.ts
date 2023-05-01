@@ -62,8 +62,7 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * };
  * const command = new UpdateStorageSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

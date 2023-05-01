@@ -56,24 +56,23 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProjectResult
- *   project: { // Project
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     defaultJobTimeoutMinutes: Number("int"),
- *     created: new Date("TIMESTAMP"),
- *     vpcConfig: { // VpcConfig
- *       securityGroupIds: [ // VpcSecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       subnetIds: [ // VpcSubnetIds // required
- *         "STRING_VALUE",
- *       ],
- *       vpcId: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // UpdateProjectResult
+ * //   project: { // Project
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     defaultJobTimeoutMinutes: Number("int"),
+ * //     created: new Date("TIMESTAMP"),
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // VpcSubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

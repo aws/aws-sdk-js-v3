@@ -58,8 +58,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * const input = {};
  * const command = new DisableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

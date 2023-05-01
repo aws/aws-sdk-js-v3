@@ -57,8 +57,7 @@ export interface ModifySelfservicePermissionsCommandOutput
  * };
  * const command = new ModifySelfservicePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

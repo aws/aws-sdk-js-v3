@@ -59,8 +59,7 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

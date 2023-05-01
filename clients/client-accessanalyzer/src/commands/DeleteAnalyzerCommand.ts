@@ -47,8 +47,7 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAnalyzerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

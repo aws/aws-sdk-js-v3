@@ -53,8 +53,7 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * };
  * const command = new DeleteApplicationFromEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

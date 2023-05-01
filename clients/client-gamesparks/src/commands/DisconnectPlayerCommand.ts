@@ -49,15 +49,14 @@ export interface DisconnectPlayerCommandOutput extends DisconnectPlayerResult, _
  * };
  * const command = new DisconnectPlayerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisconnectPlayerResult
- *   DisconnectSuccesses: [ // ConnectionIdList
- *     "STRING_VALUE",
- *   ],
- *   DisconnectFailures: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DisconnectPlayerResult
+ * //   DisconnectSuccesses: [ // ConnectionIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DisconnectFailures: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

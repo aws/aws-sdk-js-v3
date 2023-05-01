@@ -55,23 +55,22 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * };
  * const command = new DisassociateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateUserResponse
- *   InstanceUserSummary: { // InstanceUserSummary
- *     Username: "STRING_VALUE", // required
- *     InstanceId: "STRING_VALUE", // required
- *     IdentityProvider: { // IdentityProvider Union: only one key present
- *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *         DirectoryId: "STRING_VALUE",
- *       },
- *     },
- *     Status: "STRING_VALUE", // required
- *     StatusMessage: "STRING_VALUE",
- *     Domain: "STRING_VALUE",
- *     AssociationDate: "STRING_VALUE",
- *     DisassociationDate: "STRING_VALUE",
- *   },
- * };
+ * // { // DisassociateUserResponse
+ * //   InstanceUserSummary: { // InstanceUserSummary
+ * //     Username: "STRING_VALUE", // required
+ * //     InstanceId: "STRING_VALUE", // required
+ * //     IdentityProvider: { // IdentityProvider Union: only one key present
+ * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //         DirectoryId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: "STRING_VALUE", // required
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Domain: "STRING_VALUE",
+ * //     AssociationDate: "STRING_VALUE",
+ * //     DisassociationDate: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

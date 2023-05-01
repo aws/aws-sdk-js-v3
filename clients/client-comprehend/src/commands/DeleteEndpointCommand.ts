@@ -46,8 +46,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

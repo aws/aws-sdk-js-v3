@@ -58,13 +58,12 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  * };
  * const command = new ListLunaClientsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLunaClientsResponse
- *   ClientList: [ // ClientList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLunaClientsResponse
+ * //   ClientList: [ // ClientList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

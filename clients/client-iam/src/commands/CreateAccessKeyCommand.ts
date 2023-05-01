@@ -61,16 +61,15 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * };
  * const command = new CreateAccessKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessKeyResponse
- *   AccessKey: { // AccessKey
- *     UserName: "STRING_VALUE", // required
- *     AccessKeyId: "STRING_VALUE", // required
- *     Status: "Active" || "Inactive", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateAccessKeyResponse
+ * //   AccessKey: { // AccessKey
+ * //     UserName: "STRING_VALUE", // required
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

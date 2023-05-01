@@ -52,17 +52,16 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * };
  * const command = new DeleteAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAttributesResponse
- *   attributes: [ // Attributes
- *     { // Attribute
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
- *       targetType: "container-instance",
- *       targetId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteAttributesResponse
+ * //   attributes: [ // Attributes
+ * //     { // Attribute
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //       targetType: "container-instance",
+ * //       targetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -78,10 +78,9 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  * };
  * const command = new UpdateTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrialComponentResponse
- *   TrialComponentArn: "STRING_VALUE",
- * };
+ * // { // UpdateTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

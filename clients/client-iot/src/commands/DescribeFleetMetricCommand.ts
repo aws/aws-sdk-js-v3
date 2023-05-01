@@ -45,27 +45,26 @@ export interface DescribeFleetMetricCommandOutput extends DescribeFleetMetricRes
  * };
  * const command = new DescribeFleetMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetMetricResponse
- *   metricName: "STRING_VALUE",
- *   queryString: "STRING_VALUE",
- *   aggregationType: { // AggregationType
- *     name: "Statistics" || "Percentiles" || "Cardinality", // required
- *     values: [ // AggregationTypeValues
- *       "STRING_VALUE",
- *     ],
- *   },
- *   period: Number("int"),
- *   aggregationField: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
- *   indexName: "STRING_VALUE",
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *   version: Number("long"),
- *   metricArn: "STRING_VALUE",
- * };
+ * // { // DescribeFleetMetricResponse
+ * //   metricName: "STRING_VALUE",
+ * //   queryString: "STRING_VALUE",
+ * //   aggregationType: { // AggregationType
+ * //     name: "Statistics" || "Percentiles" || "Cardinality", // required
+ * //     values: [ // AggregationTypeValues
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   period: Number("int"),
+ * //   aggregationField: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   queryVersion: "STRING_VALUE",
+ * //   indexName: "STRING_VALUE",
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //   version: Number("long"),
+ * //   metricArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

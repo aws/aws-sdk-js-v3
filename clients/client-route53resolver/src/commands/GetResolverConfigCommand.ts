@@ -45,15 +45,14 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  * };
  * const command = new GetResolverConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverConfigResponse
- *   ResolverConfig: { // ResolverConfig
- *     Id: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     AutodefinedReverse: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
- *   },
- * };
+ * // { // GetResolverConfigResponse
+ * //   ResolverConfig: { // ResolverConfig
+ * //     Id: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     AutodefinedReverse: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" || "USE_LOCAL_RESOURCE_SETTING",
+ * //   },
+ * // };
  *
  * ```
  *

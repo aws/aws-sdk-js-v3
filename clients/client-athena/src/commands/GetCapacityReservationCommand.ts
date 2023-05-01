@@ -44,23 +44,22 @@ export interface GetCapacityReservationCommandOutput extends GetCapacityReservat
  * };
  * const command = new GetCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCapacityReservationOutput
- *   CapacityReservation: { // CapacityReservation
- *     Name: "STRING_VALUE", // required
- *     Status: "PENDING" || "ACTIVE" || "CANCELLING" || "CANCELLED" || "FAILED" || "UPDATE_PENDING", // required
- *     TargetDpus: Number("int"), // required
- *     AllocatedDpus: Number("int"), // required
- *     LastAllocation: { // CapacityAllocation
- *       Status: "PENDING" || "SUCCEEDED" || "FAILED", // required
- *       StatusMessage: "STRING_VALUE",
- *       RequestTime: new Date("TIMESTAMP"), // required
- *       RequestCompletionTime: new Date("TIMESTAMP"),
- *     },
- *     LastSuccessfulAllocationTime: new Date("TIMESTAMP"),
- *     CreationTime: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // GetCapacityReservationOutput
+ * //   CapacityReservation: { // CapacityReservation
+ * //     Name: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "ACTIVE" || "CANCELLING" || "CANCELLED" || "FAILED" || "UPDATE_PENDING", // required
+ * //     TargetDpus: Number("int"), // required
+ * //     AllocatedDpus: Number("int"), // required
+ * //     LastAllocation: { // CapacityAllocation
+ * //       Status: "PENDING" || "SUCCEEDED" || "FAILED", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       RequestTime: new Date("TIMESTAMP"), // required
+ * //       RequestCompletionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     LastSuccessfulAllocationTime: new Date("TIMESTAMP"),
+ * //     CreationTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

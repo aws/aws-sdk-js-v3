@@ -45,13 +45,12 @@ export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBe
  * };
  * const command = new GetUsagePlanKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UsagePlanKey
- *   id: "STRING_VALUE",
- *   type: "STRING_VALUE",
- *   value: "STRING_VALUE",
- *   name: "STRING_VALUE",
- * };
+ * // { // UsagePlanKey
+ * //   id: "STRING_VALUE",
+ * //   type: "STRING_VALUE",
+ * //   value: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

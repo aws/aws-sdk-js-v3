@@ -48,8 +48,7 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutDestinationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

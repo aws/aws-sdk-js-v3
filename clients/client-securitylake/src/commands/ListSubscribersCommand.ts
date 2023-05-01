@@ -46,38 +46,37 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * };
  * const command = new ListSubscribersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscribersResponse
- *   subscribers: [ // SubscriberList // required
- *     { // SubscriberResource
- *       subscriptionId: "STRING_VALUE", // required
- *       sourceTypes: [ // SourceTypeList // required
- *         { // SourceType Union: only one key present
- *           awsSourceType: "STRING_VALUE",
- *           customSourceType: "STRING_VALUE",
- *         },
- *       ],
- *       accountId: "STRING_VALUE", // required
- *       subscriberName: "STRING_VALUE",
- *       subscriberDescription: "STRING_VALUE",
- *       subscriptionStatus: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *       snsArn: "STRING_VALUE",
- *       s3BucketArn: "STRING_VALUE",
- *       accessTypes: [ // AccessTypeList
- *         "STRING_VALUE",
- *       ],
- *       subscriptionEndpoint: "STRING_VALUE",
- *       subscriptionProtocol: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *       resourceShareArn: "STRING_VALUE",
- *       resourceShareName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSubscribersResponse
+ * //   subscribers: [ // SubscriberList // required
+ * //     { // SubscriberResource
+ * //       subscriptionId: "STRING_VALUE", // required
+ * //       sourceTypes: [ // SourceTypeList // required
+ * //         { // SourceType Union: only one key present
+ * //           awsSourceType: "STRING_VALUE",
+ * //           customSourceType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       accountId: "STRING_VALUE", // required
+ * //       subscriberName: "STRING_VALUE",
+ * //       subscriberDescription: "STRING_VALUE",
+ * //       subscriptionStatus: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       snsArn: "STRING_VALUE",
+ * //       s3BucketArn: "STRING_VALUE",
+ * //       accessTypes: [ // AccessTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subscriptionEndpoint: "STRING_VALUE",
+ * //       subscriptionProtocol: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       resourceShareName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

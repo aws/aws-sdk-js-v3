@@ -129,8 +129,7 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

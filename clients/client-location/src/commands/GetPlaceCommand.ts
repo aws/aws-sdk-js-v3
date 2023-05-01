@@ -62,32 +62,31 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * };
  * const command = new GetPlaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPlaceResponse
- *   Place: { // Place
- *     Label: "STRING_VALUE",
- *     Geometry: { // PlaceGeometry
- *       Point: [ // Position
- *         Number("double"),
- *       ],
- *     },
- *     AddressNumber: "STRING_VALUE",
- *     Street: "STRING_VALUE",
- *     Neighborhood: "STRING_VALUE",
- *     Municipality: "STRING_VALUE",
- *     SubRegion: "STRING_VALUE",
- *     Region: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE",
- *     Interpolated: true || false,
- *     TimeZone: { // TimeZone
- *       Name: "STRING_VALUE", // required
- *       Offset: Number("int"),
- *     },
- *     UnitType: "STRING_VALUE",
- *     UnitNumber: "STRING_VALUE",
- *   },
- * };
+ * // { // GetPlaceResponse
+ * //   Place: { // Place
+ * //     Label: "STRING_VALUE",
+ * //     Geometry: { // PlaceGeometry
+ * //       Point: [ // Position
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //     AddressNumber: "STRING_VALUE",
+ * //     Street: "STRING_VALUE",
+ * //     Neighborhood: "STRING_VALUE",
+ * //     Municipality: "STRING_VALUE",
+ * //     SubRegion: "STRING_VALUE",
+ * //     Region: "STRING_VALUE",
+ * //     Country: "STRING_VALUE",
+ * //     PostalCode: "STRING_VALUE",
+ * //     Interpolated: true || false,
+ * //     TimeZone: { // TimeZone
+ * //       Name: "STRING_VALUE", // required
+ * //       Offset: Number("int"),
+ * //     },
+ * //     UnitType: "STRING_VALUE",
+ * //     UnitNumber: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

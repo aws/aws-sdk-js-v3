@@ -55,23 +55,22 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * };
  * const command = new CreatePortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePortfolioOutput
- *   PortfolioDetail: { // PortfolioDetail
- *     Id: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     ProviderName: "STRING_VALUE",
- *   },
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreatePortfolioOutput
+ * //   PortfolioDetail: { // PortfolioDetail
+ * //     Id: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     ProviderName: "STRING_VALUE",
+ * //   },
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

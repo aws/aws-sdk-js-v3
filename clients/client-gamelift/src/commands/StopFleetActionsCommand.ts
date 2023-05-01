@@ -74,11 +74,10 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * };
  * const command = new StopFleetActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopFleetActionsOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // StopFleetActionsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -65,8 +65,7 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

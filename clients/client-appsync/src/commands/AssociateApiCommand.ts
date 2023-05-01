@@ -45,15 +45,14 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * };
  * const command = new AssociateApiCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateApiResponse
- *   apiAssociation: { // ApiAssociation
- *     domainName: "STRING_VALUE",
- *     apiId: "STRING_VALUE",
- *     associationStatus: "PROCESSING" || "FAILED" || "SUCCESS",
- *     deploymentDetail: "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateApiResponse
+ * //   apiAssociation: { // ApiAssociation
+ * //     domainName: "STRING_VALUE",
+ * //     apiId: "STRING_VALUE",
+ * //     associationStatus: "PROCESSING" || "FAILED" || "SUCCESS",
+ * //     deploymentDetail: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

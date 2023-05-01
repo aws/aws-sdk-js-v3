@@ -59,22 +59,21 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrailResponse
- *   Name: "STRING_VALUE",
- *   S3BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   SnsTopicName: "STRING_VALUE",
- *   SnsTopicARN: "STRING_VALUE",
- *   IncludeGlobalServiceEvents: true || false,
- *   IsMultiRegionTrail: true || false,
- *   TrailARN: "STRING_VALUE",
- *   LogFileValidationEnabled: true || false,
- *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
- *   CloudWatchLogsRoleArn: "STRING_VALUE",
- *   KmsKeyId: "STRING_VALUE",
- *   IsOrganizationTrail: true || false,
- * };
+ * // { // UpdateTrailResponse
+ * //   Name: "STRING_VALUE",
+ * //   S3BucketName: "STRING_VALUE",
+ * //   S3KeyPrefix: "STRING_VALUE",
+ * //   SnsTopicName: "STRING_VALUE",
+ * //   SnsTopicARN: "STRING_VALUE",
+ * //   IncludeGlobalServiceEvents: true || false,
+ * //   IsMultiRegionTrail: true || false,
+ * //   TrailARN: "STRING_VALUE",
+ * //   LogFileValidationEnabled: true || false,
+ * //   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ * //   CloudWatchLogsRoleArn: "STRING_VALUE",
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   IsOrganizationTrail: true || false,
+ * // };
  *
  * ```
  *

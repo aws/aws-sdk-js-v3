@@ -46,12 +46,11 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Application
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // Application
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

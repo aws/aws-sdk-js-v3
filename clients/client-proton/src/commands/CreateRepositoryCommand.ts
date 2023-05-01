@@ -58,16 +58,15 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRepositoryOutput
- *   repository: { // Repository
- *     arn: "STRING_VALUE", // required
- *     provider: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     connectionArn: "STRING_VALUE", // required
- *     encryptionKey: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRepositoryOutput
+ * //   repository: { // Repository
+ * //     arn: "STRING_VALUE", // required
+ * //     provider: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     connectionArn: "STRING_VALUE", // required
+ * //     encryptionKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

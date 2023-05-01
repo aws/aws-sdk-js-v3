@@ -68,12 +68,11 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImageResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   imageBuildVersionArn: "STRING_VALUE",
- * };
+ * // { // CreateImageResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

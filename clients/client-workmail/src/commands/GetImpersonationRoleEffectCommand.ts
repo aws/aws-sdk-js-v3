@@ -46,17 +46,16 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * };
  * const command = new GetImpersonationRoleEffectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImpersonationRoleEffectResponse
- *   Type: "FULL_ACCESS" || "READ_ONLY",
- *   Effect: "ALLOW" || "DENY",
- *   MatchedRules: [ // ImpersonationMatchedRuleList
- *     { // ImpersonationMatchedRule
- *       ImpersonationRuleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetImpersonationRoleEffectResponse
+ * //   Type: "FULL_ACCESS" || "READ_ONLY",
+ * //   Effect: "ALLOW" || "DENY",
+ * //   MatchedRules: [ // ImpersonationMatchedRuleList
+ * //     { // ImpersonationMatchedRule
+ * //       ImpersonationRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

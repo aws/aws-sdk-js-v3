@@ -62,8 +62,7 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * };
  * const command = new StopMatchmakingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

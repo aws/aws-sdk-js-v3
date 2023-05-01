@@ -44,8 +44,7 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * };
  * const command = new DeleteControlCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

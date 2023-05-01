@@ -46,42 +46,41 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * };
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFolderOutput
- *   commitId: "STRING_VALUE", // required
- *   folderPath: "STRING_VALUE", // required
- *   treeId: "STRING_VALUE",
- *   subFolders: [ // FolderList
- *     { // Folder
- *       treeId: "STRING_VALUE",
- *       absolutePath: "STRING_VALUE",
- *       relativePath: "STRING_VALUE",
- *     },
- *   ],
- *   files: [ // FileList
- *     { // File
- *       blobId: "STRING_VALUE",
- *       absolutePath: "STRING_VALUE",
- *       relativePath: "STRING_VALUE",
- *       fileMode: "STRING_VALUE",
- *     },
- *   ],
- *   symbolicLinks: [ // SymbolicLinkList
- *     { // SymbolicLink
- *       blobId: "STRING_VALUE",
- *       absolutePath: "STRING_VALUE",
- *       relativePath: "STRING_VALUE",
- *       fileMode: "STRING_VALUE",
- *     },
- *   ],
- *   subModules: [ // SubModuleList
- *     { // SubModule
- *       commitId: "STRING_VALUE",
- *       absolutePath: "STRING_VALUE",
- *       relativePath: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetFolderOutput
+ * //   commitId: "STRING_VALUE", // required
+ * //   folderPath: "STRING_VALUE", // required
+ * //   treeId: "STRING_VALUE",
+ * //   subFolders: [ // FolderList
+ * //     { // Folder
+ * //       treeId: "STRING_VALUE",
+ * //       absolutePath: "STRING_VALUE",
+ * //       relativePath: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   files: [ // FileList
+ * //     { // File
+ * //       blobId: "STRING_VALUE",
+ * //       absolutePath: "STRING_VALUE",
+ * //       relativePath: "STRING_VALUE",
+ * //       fileMode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   symbolicLinks: [ // SymbolicLinkList
+ * //     { // SymbolicLink
+ * //       blobId: "STRING_VALUE",
+ * //       absolutePath: "STRING_VALUE",
+ * //       relativePath: "STRING_VALUE",
+ * //       fileMode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   subModules: [ // SubModuleList
+ * //     { // SubModule
+ * //       commitId: "STRING_VALUE",
+ * //       absolutePath: "STRING_VALUE",
+ * //       relativePath: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

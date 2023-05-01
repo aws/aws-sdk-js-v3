@@ -52,10 +52,9 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * };
  * const command = new GetSourceRepositoryCloneUrlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSourceRepositoryCloneUrlsResponse
- *   https: "STRING_VALUE", // required
- * };
+ * // { // GetSourceRepositoryCloneUrlsResponse
+ * //   https: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

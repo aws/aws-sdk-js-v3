@@ -49,24 +49,23 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * };
  * const command = new BatchStartCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchStartResponse
- *   Failed: [ // __listOfBatchFailedResultModel
- *     { // BatchFailedResultModel
- *       Arn: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- *   Successful: [ // __listOfBatchSuccessfulResultModel
- *     { // BatchSuccessfulResultModel
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchStartResponse
+ * //   Failed: [ // __listOfBatchFailedResultModel
+ * //     { // BatchFailedResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Successful: [ // __listOfBatchSuccessfulResultModel
+ * //     { // BatchSuccessfulResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

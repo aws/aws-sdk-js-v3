@@ -52,20 +52,19 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * };
  * const command = new ListHostedConfigurationVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // HostedConfigurationVersions
- *   Items: [ // HostedConfigurationVersionSummaryList
- *     { // HostedConfigurationVersionSummary
- *       ApplicationId: "STRING_VALUE",
- *       ConfigurationProfileId: "STRING_VALUE",
- *       VersionNumber: Number("int"),
- *       Description: "STRING_VALUE",
- *       ContentType: "STRING_VALUE",
- *       VersionLabel: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // HostedConfigurationVersions
+ * //   Items: [ // HostedConfigurationVersionSummaryList
+ * //     { // HostedConfigurationVersionSummary
+ * //       ApplicationId: "STRING_VALUE",
+ * //       ConfigurationProfileId: "STRING_VALUE",
+ * //       VersionNumber: Number("int"),
+ * //       Description: "STRING_VALUE",
+ * //       ContentType: "STRING_VALUE",
+ * //       VersionLabel: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

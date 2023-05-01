@@ -57,14 +57,13 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * };
  * const command = new DescribeCustomRoutingAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomRoutingAcceleratorAttributesResponse
- *   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
- *     FlowLogsEnabled: true || false,
- *     FlowLogsS3Bucket: "STRING_VALUE",
- *     FlowLogsS3Prefix: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeCustomRoutingAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // CustomRoutingAcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,24 +45,23 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * };
  * const command = new GetCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoreDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // CoreDefinitionVersion
- *     Cores: [ // __listOfCore
- *       { // Core
- *         CertificateArn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
- *         SyncShadow: true || false,
- *         ThingArn: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetCoreDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // CoreDefinitionVersion
+ * //     Cores: [ // __listOfCore
+ * //       { // Core
+ * //         CertificateArn: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         SyncShadow: true || false,
+ * //         ThingArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

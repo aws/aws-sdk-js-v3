@@ -47,8 +47,7 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ApplyArchiveRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

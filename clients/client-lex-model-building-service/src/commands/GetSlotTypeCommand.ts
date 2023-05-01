@@ -53,32 +53,31 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * };
  * const command = new GetSlotTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSlotTypeResponse
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   enumerationValues: [ // EnumerationValues
- *     { // EnumerationValue
- *       value: "STRING_VALUE", // required
- *       synonyms: [ // SynonymList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   lastUpdatedDate: new Date("TIMESTAMP"),
- *   createdDate: new Date("TIMESTAMP"),
- *   version: "STRING_VALUE",
- *   checksum: "STRING_VALUE",
- *   valueSelectionStrategy: "STRING_VALUE",
- *   parentSlotTypeSignature: "STRING_VALUE",
- *   slotTypeConfigurations: [ // SlotTypeConfigurations
- *     { // SlotTypeConfiguration
- *       regexConfiguration: { // SlotTypeRegexConfiguration
- *         pattern: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // GetSlotTypeResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   enumerationValues: [ // EnumerationValues
+ * //     { // EnumerationValue
+ * //       value: "STRING_VALUE", // required
+ * //       synonyms: [ // SynonymList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   version: "STRING_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   valueSelectionStrategy: "STRING_VALUE",
+ * //   parentSlotTypeSignature: "STRING_VALUE",
+ * //   slotTypeConfigurations: [ // SlotTypeConfigurations
+ * //     { // SlotTypeConfiguration
+ * //       regexConfiguration: { // SlotTypeRegexConfiguration
+ * //         pattern: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

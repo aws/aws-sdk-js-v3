@@ -51,22 +51,21 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
  * };
  * const command = new BatchGetCustomDataIdentifiersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetCustomDataIdentifiersResponse
- *   customDataIdentifiers: [ // __listOfBatchGetCustomDataIdentifierSummary
- *     { // BatchGetCustomDataIdentifierSummary
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       deleted: true || false,
- *       description: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   notFoundIdentifierIds: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // BatchGetCustomDataIdentifiersResponse
+ * //   customDataIdentifiers: [ // __listOfBatchGetCustomDataIdentifierSummary
+ * //     { // BatchGetCustomDataIdentifierSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       deleted: true || false,
+ * //       description: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   notFoundIdentifierIds: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

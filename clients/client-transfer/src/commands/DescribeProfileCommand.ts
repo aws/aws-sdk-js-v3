@@ -44,24 +44,23 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * };
  * const command = new DescribeProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProfileResponse
- *   Profile: { // DescribedProfile
- *     Arn: "STRING_VALUE", // required
- *     ProfileId: "STRING_VALUE",
- *     ProfileType: "LOCAL" || "PARTNER",
- *     As2Id: "STRING_VALUE",
- *     CertificateIds: [ // CertificateIds
- *       "STRING_VALUE",
- *     ],
- *     Tags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeProfileResponse
+ * //   Profile: { // DescribedProfile
+ * //     Arn: "STRING_VALUE", // required
+ * //     ProfileId: "STRING_VALUE",
+ * //     ProfileType: "LOCAL" || "PARTNER",
+ * //     As2Id: "STRING_VALUE",
+ * //     CertificateIds: [ // CertificateIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

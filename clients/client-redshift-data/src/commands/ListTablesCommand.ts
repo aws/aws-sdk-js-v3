@@ -90,17 +90,16 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTablesResponse
- *   Tables: [ // TableList
- *     { // TableMember
- *       name: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       schema: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTablesResponse
+ * //   Tables: [ // TableList
+ * //     { // TableMember
+ * //       name: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       schema: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

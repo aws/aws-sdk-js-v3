@@ -60,27 +60,26 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * };
  * const command = new DescribeOrderableClusterOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OrderableClusterOptionsMessage
- *   OrderableClusterOptions: [ // OrderableClusterOptionsList
- *     { // OrderableClusterOption
- *       ClusterVersion: "STRING_VALUE",
- *       ClusterType: "STRING_VALUE",
- *       NodeType: "STRING_VALUE",
- *       AvailabilityZones: [ // AvailabilityZoneList
- *         { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *           SupportedPlatforms: [ // SupportedPlatformsList
- *             { // SupportedPlatform
- *               Name: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // OrderableClusterOptionsMessage
+ * //   OrderableClusterOptions: [ // OrderableClusterOptionsList
+ * //     { // OrderableClusterOption
+ * //       ClusterVersion: "STRING_VALUE",
+ * //       ClusterType: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       AvailabilityZones: [ // AvailabilityZoneList
+ * //         { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //           SupportedPlatforms: [ // SupportedPlatformsList
+ * //             { // SupportedPlatform
+ * //               Name: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

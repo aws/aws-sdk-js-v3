@@ -52,10 +52,9 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
  * };
  * const command = new CreateGatewayGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGatewayGroupResponse
- *   GatewayGroupArn: "STRING_VALUE",
- * };
+ * // { // CreateGatewayGroupResponse
+ * //   GatewayGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

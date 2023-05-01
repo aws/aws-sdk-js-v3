@@ -54,26 +54,25 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * };
  * const command = new DescribeHapgCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHapgResponse
- *   HapgArn: "STRING_VALUE",
- *   HapgSerial: "STRING_VALUE",
- *   HsmsLastActionFailed: [ // HsmList
- *     "STRING_VALUE",
- *   ],
- *   HsmsPendingDeletion: [
- *     "STRING_VALUE",
- *   ],
- *   HsmsPendingRegistration: [
- *     "STRING_VALUE",
- *   ],
- *   Label: "STRING_VALUE",
- *   LastModifiedTimestamp: "STRING_VALUE",
- *   PartitionSerialList: [ // PartitionSerialList
- *     "STRING_VALUE",
- *   ],
- *   State: "STRING_VALUE",
- * };
+ * // { // DescribeHapgResponse
+ * //   HapgArn: "STRING_VALUE",
+ * //   HapgSerial: "STRING_VALUE",
+ * //   HsmsLastActionFailed: [ // HsmList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HsmsPendingDeletion: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HsmsPendingRegistration: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Label: "STRING_VALUE",
+ * //   LastModifiedTimestamp: "STRING_VALUE",
+ * //   PartitionSerialList: [ // PartitionSerialList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,14 +45,13 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * };
  * const command = new GetLFTagCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLFTagResponse
- *   CatalogId: "STRING_VALUE",
- *   TagKey: "STRING_VALUE",
- *   TagValues: [ // TagValueList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetLFTagResponse
+ * //   CatalogId: "STRING_VALUE",
+ * //   TagKey: "STRING_VALUE",
+ * //   TagValues: [ // TagValueList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

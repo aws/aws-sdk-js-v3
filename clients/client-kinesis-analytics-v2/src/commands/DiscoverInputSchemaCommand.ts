@@ -67,42 +67,41 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * };
  * const command = new DiscoverInputSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DiscoverInputSchemaResponse
- *   InputSchema: { // SourceSchema
- *     RecordFormat: { // RecordFormat
- *       RecordFormatType: "JSON" || "CSV", // required
- *       MappingParameters: { // MappingParameters
- *         JSONMappingParameters: { // JSONMappingParameters
- *           RecordRowPath: "STRING_VALUE", // required
- *         },
- *         CSVMappingParameters: { // CSVMappingParameters
- *           RecordRowDelimiter: "STRING_VALUE", // required
- *           RecordColumnDelimiter: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *     RecordEncoding: "STRING_VALUE",
- *     RecordColumns: [ // RecordColumns // required
- *       { // RecordColumn
- *         Name: "STRING_VALUE", // required
- *         Mapping: "STRING_VALUE",
- *         SqlType: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ParsedInputRecords: [ // ParsedInputRecords
- *     [ // ParsedInputRecord
- *       "STRING_VALUE",
- *     ],
- *   ],
- *   ProcessedInputRecords: [ // ProcessedInputRecords
- *     "STRING_VALUE",
- *   ],
- *   RawInputRecords: [ // RawInputRecords
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DiscoverInputSchemaResponse
+ * //   InputSchema: { // SourceSchema
+ * //     RecordFormat: { // RecordFormat
+ * //       RecordFormatType: "JSON" || "CSV", // required
+ * //       MappingParameters: { // MappingParameters
+ * //         JSONMappingParameters: { // JSONMappingParameters
+ * //           RecordRowPath: "STRING_VALUE", // required
+ * //         },
+ * //         CSVMappingParameters: { // CSVMappingParameters
+ * //           RecordRowDelimiter: "STRING_VALUE", // required
+ * //           RecordColumnDelimiter: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     RecordEncoding: "STRING_VALUE",
+ * //     RecordColumns: [ // RecordColumns // required
+ * //       { // RecordColumn
+ * //         Name: "STRING_VALUE", // required
+ * //         Mapping: "STRING_VALUE",
+ * //         SqlType: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ParsedInputRecords: [ // ParsedInputRecords
+ * //     [ // ParsedInputRecord
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * //   ProcessedInputRecords: [ // ProcessedInputRecords
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RawInputRecords: [ // RawInputRecords
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

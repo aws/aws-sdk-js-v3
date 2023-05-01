@@ -46,8 +46,7 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * };
  * const command = new DeleteDetectorVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

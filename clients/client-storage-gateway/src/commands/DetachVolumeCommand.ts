@@ -49,10 +49,9 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachVolumeOutput
- *   VolumeARN: "STRING_VALUE",
- * };
+ * // { // DetachVolumeOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

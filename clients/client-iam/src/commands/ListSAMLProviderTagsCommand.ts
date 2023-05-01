@@ -50,17 +50,16 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * };
  * const command = new ListSAMLProviderTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSAMLProviderTagsResponse
- *   Tags: [ // tagListType // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListSAMLProviderTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

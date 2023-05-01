@@ -56,23 +56,22 @@ export interface ListAppInstanceUserEndpointsCommandOutput
  * };
  * const command = new ListAppInstanceUserEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInstanceUserEndpointsResponse
- *   AppInstanceUserEndpoints: [ // AppInstanceUserEndpointSummaryList
- *     { // AppInstanceUserEndpointSummary
- *       AppInstanceUserArn: "STRING_VALUE",
- *       EndpointId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "APNS" || "APNS_SANDBOX" || "GCM",
- *       AllowMessages: "ALL" || "NONE",
- *       EndpointState: { // EndpointState
- *         Status: "ACTIVE" || "INACTIVE", // required
- *         StatusReason: "INVALID_DEVICE_TOKEN" || "INVALID_PINPOINT_ARN",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInstanceUserEndpointsResponse
+ * //   AppInstanceUserEndpoints: [ // AppInstanceUserEndpointSummaryList
+ * //     { // AppInstanceUserEndpointSummary
+ * //       AppInstanceUserArn: "STRING_VALUE",
+ * //       EndpointId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "APNS" || "APNS_SANDBOX" || "GCM",
+ * //       AllowMessages: "ALL" || "NONE",
+ * //       EndpointState: { // EndpointState
+ * //         Status: "ACTIVE" || "INACTIVE", // required
+ * //         StatusReason: "INVALID_DEVICE_TOKEN" || "INVALID_PINPOINT_ARN",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

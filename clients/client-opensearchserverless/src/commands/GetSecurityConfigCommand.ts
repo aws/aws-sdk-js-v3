@@ -50,23 +50,22 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * };
  * const command = new GetSecurityConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSecurityConfigResponse
- *   securityConfigDetail: { // SecurityConfigDetail
- *     id: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     configVersion: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     samlOptions: { // SamlConfigOptions
- *       metadata: "STRING_VALUE", // required
- *       userAttribute: "STRING_VALUE",
- *       groupAttribute: "STRING_VALUE",
- *       sessionTimeout: Number("int"),
- *     },
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // GetSecurityConfigResponse
+ * //   securityConfigDetail: { // SecurityConfigDetail
+ * //     id: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     configVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     samlOptions: { // SamlConfigOptions
+ * //       metadata: "STRING_VALUE", // required
+ * //       userAttribute: "STRING_VALUE",
+ * //       groupAttribute: "STRING_VALUE",
+ * //       sessionTimeout: Number("int"),
+ * //     },
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

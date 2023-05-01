@@ -61,38 +61,37 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryResultsOutput
- *   UpdateCount: Number("long"),
- *   ResultSet: { // ResultSet
- *     Rows: [ // RowList
- *       { // Row
- *         Data: [ // datumList
- *           { // Datum
- *             VarCharValue: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     ResultSetMetadata: { // ResultSetMetadata
- *       ColumnInfo: [ // ColumnInfoList
- *         { // ColumnInfo
- *           CatalogName: "STRING_VALUE",
- *           SchemaName: "STRING_VALUE",
- *           TableName: "STRING_VALUE",
- *           Name: "STRING_VALUE", // required
- *           Label: "STRING_VALUE",
- *           Type: "STRING_VALUE", // required
- *           Precision: Number("int"),
- *           Scale: Number("int"),
- *           Nullable: "NOT_NULL" || "NULLABLE" || "UNKNOWN",
- *           CaseSensitive: true || false,
- *         },
- *       ],
- *     },
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetQueryResultsOutput
+ * //   UpdateCount: Number("long"),
+ * //   ResultSet: { // ResultSet
+ * //     Rows: [ // RowList
+ * //       { // Row
+ * //         Data: [ // datumList
+ * //           { // Datum
+ * //             VarCharValue: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     ResultSetMetadata: { // ResultSetMetadata
+ * //       ColumnInfo: [ // ColumnInfoList
+ * //         { // ColumnInfo
+ * //           CatalogName: "STRING_VALUE",
+ * //           SchemaName: "STRING_VALUE",
+ * //           TableName: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
+ * //           Label: "STRING_VALUE",
+ * //           Type: "STRING_VALUE", // required
+ * //           Precision: Number("int"),
+ * //           Scale: Number("int"),
+ * //           Nullable: "NOT_NULL" || "NULLABLE" || "UNKNOWN",
+ * //           CaseSensitive: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

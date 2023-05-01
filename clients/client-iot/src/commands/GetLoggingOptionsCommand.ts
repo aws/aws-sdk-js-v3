@@ -45,11 +45,10 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLoggingOptionsResponse
- *   roleArn: "STRING_VALUE",
- *   logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
- * };
+ * // { // GetLoggingOptionsResponse
+ * //   roleArn: "STRING_VALUE",
+ * //   logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ * // };
  *
  * ```
  *

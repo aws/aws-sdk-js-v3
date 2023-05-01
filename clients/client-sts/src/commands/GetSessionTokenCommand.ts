@@ -105,15 +105,14 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSessionTokenResponse
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     SessionToken: "STRING_VALUE", // required
- *     Expiration: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // GetSessionTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

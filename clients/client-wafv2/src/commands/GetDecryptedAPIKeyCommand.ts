@@ -48,13 +48,12 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  * };
  * const command = new GetDecryptedAPIKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDecryptedAPIKeyResponse
- *   TokenDomains: [ // TokenDomains
- *     "STRING_VALUE",
- *   ],
- *   CreationTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetDecryptedAPIKeyResponse
+ * //   TokenDomains: [ // TokenDomains
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

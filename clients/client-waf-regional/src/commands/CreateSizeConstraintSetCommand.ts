@@ -76,25 +76,24 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * };
  * const command = new CreateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSizeConstraintSetResponse
- *   SizeConstraintSet: { // SizeConstraintSet
- *     SizeConstraintSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     SizeConstraints: [ // SizeConstraints // required
- *       { // SizeConstraint
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         ComparisonOperator: "STRING_VALUE", // required
- *         Size: Number("long"), // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateSizeConstraintSetResponse
+ * //   SizeConstraintSet: { // SizeConstraintSet
+ * //     SizeConstraintSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     SizeConstraints: [ // SizeConstraints // required
+ * //       { // SizeConstraint
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         ComparisonOperator: "STRING_VALUE", // required
+ * //         Size: Number("long"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

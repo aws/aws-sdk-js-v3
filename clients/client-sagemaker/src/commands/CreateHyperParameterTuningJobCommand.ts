@@ -406,10 +406,9 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * };
  * const command = new CreateHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHyperParameterTuningJobResponse
- *   HyperParameterTuningJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateHyperParameterTuningJobResponse
+ * //   HyperParameterTuningJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

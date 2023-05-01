@@ -60,10 +60,9 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * };
  * const command = new GetMetricWidgetImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricWidgetImageOutput
- *   MetricWidgetImage: "BLOB_VALUE",
- * };
+ * // { // GetMetricWidgetImageOutput
+ * //   MetricWidgetImage: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

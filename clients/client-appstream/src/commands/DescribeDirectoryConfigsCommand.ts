@@ -54,27 +54,26 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  * };
  * const command = new DescribeDirectoryConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDirectoryConfigsResult
- *   DirectoryConfigs: [ // DirectoryConfigList
- *     { // DirectoryConfig
- *       DirectoryName: "STRING_VALUE", // required
- *       OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
- *         "STRING_VALUE",
- *       ],
- *       ServiceAccountCredentials: { // ServiceAccountCredentials
- *         AccountName: "STRING_VALUE", // required
- *         AccountPassword: "STRING_VALUE", // required
- *       },
- *       CreatedTime: new Date("TIMESTAMP"),
- *       CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
- *         Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
- *         CertificateAuthorityArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDirectoryConfigsResult
+ * //   DirectoryConfigs: [ // DirectoryConfigList
+ * //     { // DirectoryConfig
+ * //       DirectoryName: "STRING_VALUE", // required
+ * //       OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ServiceAccountCredentials: { // ServiceAccountCredentials
+ * //         AccountName: "STRING_VALUE", // required
+ * //         AccountPassword: "STRING_VALUE", // required
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ * //         Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ * //         CertificateAuthorityArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

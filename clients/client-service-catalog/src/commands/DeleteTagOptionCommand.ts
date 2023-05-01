@@ -45,8 +45,7 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * };
  * const command = new DeleteTagOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

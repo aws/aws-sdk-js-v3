@@ -48,15 +48,14 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
  * };
  * const command = new UpdateLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLaunchProfileMemberResponse
- *   member: { // LaunchProfileMembership
- *     identityStoreId: "STRING_VALUE",
- *     persona: "USER",
- *     principalId: "STRING_VALUE",
- *     sid: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateLaunchProfileMemberResponse
+ * //   member: { // LaunchProfileMembership
+ * //     identityStoreId: "STRING_VALUE",
+ * //     persona: "USER",
+ * //     principalId: "STRING_VALUE",
+ * //     sid: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

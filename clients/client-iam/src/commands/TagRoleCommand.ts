@@ -94,8 +94,7 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

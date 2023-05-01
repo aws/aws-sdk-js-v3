@@ -50,13 +50,12 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * };
  * const command = new CreateLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationOutput
- *   Location: { // LocationModel
- *     LocationName: "STRING_VALUE",
- *     LocationArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateLocationOutput
+ * //   Location: { // LocationModel
+ * //     LocationName: "STRING_VALUE",
+ * //     LocationArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

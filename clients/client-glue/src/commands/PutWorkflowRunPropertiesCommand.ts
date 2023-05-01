@@ -48,8 +48,7 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * };
  * const command = new PutWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

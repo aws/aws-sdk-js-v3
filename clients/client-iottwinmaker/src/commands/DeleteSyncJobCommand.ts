@@ -45,10 +45,9 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * };
  * const command = new DeleteSyncJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSyncJobResponse
- *   state: "STRING_VALUE", // required
- * };
+ * // { // DeleteSyncJobResponse
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

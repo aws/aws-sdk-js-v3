@@ -60,38 +60,37 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * };
  * const command = new ListHyperParameterTuningJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHyperParameterTuningJobsResponse
- *   HyperParameterTuningJobSummaries: [ // HyperParameterTuningJobSummaries // required
- *     { // HyperParameterTuningJobSummary
- *       HyperParameterTuningJobName: "STRING_VALUE", // required
- *       HyperParameterTuningJobArn: "STRING_VALUE", // required
- *       HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
- *       Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       HyperParameterTuningEndTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       TrainingJobStatusCounters: { // TrainingJobStatusCounters
- *         Completed: Number("int"),
- *         InProgress: Number("int"),
- *         RetryableError: Number("int"),
- *         NonRetryableError: Number("int"),
- *         Stopped: Number("int"),
- *       },
- *       ObjectiveStatusCounters: { // ObjectiveStatusCounters
- *         Succeeded: Number("int"),
- *         Pending: Number("int"),
- *         Failed: Number("int"),
- *       },
- *       ResourceLimits: { // ResourceLimits
- *         MaxNumberOfTrainingJobs: Number("int"),
- *         MaxParallelTrainingJobs: Number("int"), // required
- *         MaxRuntimeInSeconds: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHyperParameterTuningJobsResponse
+ * //   HyperParameterTuningJobSummaries: [ // HyperParameterTuningJobSummaries // required
+ * //     { // HyperParameterTuningJobSummary
+ * //       HyperParameterTuningJobName: "STRING_VALUE", // required
+ * //       HyperParameterTuningJobArn: "STRING_VALUE", // required
+ * //       HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
+ * //       Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       HyperParameterTuningEndTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       TrainingJobStatusCounters: { // TrainingJobStatusCounters
+ * //         Completed: Number("int"),
+ * //         InProgress: Number("int"),
+ * //         RetryableError: Number("int"),
+ * //         NonRetryableError: Number("int"),
+ * //         Stopped: Number("int"),
+ * //       },
+ * //       ObjectiveStatusCounters: { // ObjectiveStatusCounters
+ * //         Succeeded: Number("int"),
+ * //         Pending: Number("int"),
+ * //         Failed: Number("int"),
+ * //       },
+ * //       ResourceLimits: { // ResourceLimits
+ * //         MaxNumberOfTrainingJobs: Number("int"),
+ * //         MaxParallelTrainingJobs: Number("int"), // required
+ * //         MaxRuntimeInSeconds: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

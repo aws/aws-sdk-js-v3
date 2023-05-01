@@ -89,42 +89,41 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  * };
  * const command = new ListBucketInventoryConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBucketInventoryConfigurationsOutput
- *   ContinuationToken: "STRING_VALUE",
- *   InventoryConfigurationList: [ // InventoryConfigurationList
- *     { // InventoryConfiguration
- *       Destination: { // InventoryDestination
- *         S3BucketDestination: { // InventoryS3BucketDestination
- *           AccountId: "STRING_VALUE",
- *           Bucket: "STRING_VALUE", // required
- *           Format: "CSV" || "ORC" || "Parquet", // required
- *           Prefix: "STRING_VALUE",
- *           Encryption: { // InventoryEncryption
- *             SSES3: {},
- *             SSEKMS: { // SSEKMS
- *               KeyId: "STRING_VALUE", // required
- *             },
- *           },
- *         },
- *       },
- *       IsEnabled: true || false, // required
- *       Filter: { // InventoryFilter
- *         Prefix: "STRING_VALUE", // required
- *       },
- *       Id: "STRING_VALUE", // required
- *       IncludedObjectVersions: "All" || "Current", // required
- *       OptionalFields: [ // InventoryOptionalFields
- *         "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm",
- *       ],
- *       Schedule: { // InventorySchedule
- *         Frequency: "Daily" || "Weekly", // required
- *       },
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   NextContinuationToken: "STRING_VALUE",
- * };
+ * // { // ListBucketInventoryConfigurationsOutput
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   InventoryConfigurationList: [ // InventoryConfigurationList
+ * //     { // InventoryConfiguration
+ * //       Destination: { // InventoryDestination
+ * //         S3BucketDestination: { // InventoryS3BucketDestination
+ * //           AccountId: "STRING_VALUE",
+ * //           Bucket: "STRING_VALUE", // required
+ * //           Format: "CSV" || "ORC" || "Parquet", // required
+ * //           Prefix: "STRING_VALUE",
+ * //           Encryption: { // InventoryEncryption
+ * //             SSES3: {},
+ * //             SSEKMS: { // SSEKMS
+ * //               KeyId: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       IsEnabled: true || false, // required
+ * //       Filter: { // InventoryFilter
+ * //         Prefix: "STRING_VALUE", // required
+ * //       },
+ * //       Id: "STRING_VALUE", // required
+ * //       IncludedObjectVersions: "All" || "Current", // required
+ * //       OptionalFields: [ // InventoryOptionalFields
+ * //         "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm",
+ * //       ],
+ * //       Schedule: { // InventorySchedule
+ * //         Frequency: "Daily" || "Weekly", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   NextContinuationToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  * };
  * const command = new DeleteWirelessGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

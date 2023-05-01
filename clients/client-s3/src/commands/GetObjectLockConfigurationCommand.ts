@@ -56,19 +56,18 @@ export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockCo
  * };
  * const command = new GetObjectLockConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectLockConfigurationOutput
- *   ObjectLockConfiguration: { // ObjectLockConfiguration
- *     ObjectLockEnabled: "Enabled",
- *     Rule: { // ObjectLockRule
- *       DefaultRetention: { // DefaultRetention
- *         Mode: "GOVERNANCE" || "COMPLIANCE",
- *         Days: Number("int"),
- *         Years: Number("int"),
- *       },
- *     },
- *   },
- * };
+ * // { // GetObjectLockConfigurationOutput
+ * //   ObjectLockConfiguration: { // ObjectLockConfiguration
+ * //     ObjectLockEnabled: "Enabled",
+ * //     Rule: { // ObjectLockRule
+ * //       DefaultRetention: { // DefaultRetention
+ * //         Mode: "GOVERNANCE" || "COMPLIANCE",
+ * //         Days: Number("int"),
+ * //         Years: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

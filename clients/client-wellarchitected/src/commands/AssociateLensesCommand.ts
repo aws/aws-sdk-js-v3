@@ -57,8 +57,7 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateLensesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

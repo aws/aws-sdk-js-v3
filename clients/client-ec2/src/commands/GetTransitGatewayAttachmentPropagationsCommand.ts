@@ -64,16 +64,15 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
  * };
  * const command = new GetTransitGatewayAttachmentPropagationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayAttachmentPropagationsResult
- *   TransitGatewayAttachmentPropagations: [ // TransitGatewayAttachmentPropagationList
- *     { // TransitGatewayAttachmentPropagation
- *       TransitGatewayRouteTableId: "STRING_VALUE",
- *       State: "enabling" || "enabled" || "disabling" || "disabled",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayAttachmentPropagationsResult
+ * //   TransitGatewayAttachmentPropagations: [ // TransitGatewayAttachmentPropagationList
+ * //     { // TransitGatewayAttachmentPropagation
+ * //       TransitGatewayRouteTableId: "STRING_VALUE",
+ * //       State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,18 +58,17 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * };
  * const command = new ModifyInstanceMetadataOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstanceMetadataOptionsResult
- *   InstanceId: "STRING_VALUE",
- *   InstanceMetadataOptions: { // InstanceMetadataOptionsResponse
- *     State: "pending" || "applied",
- *     HttpTokens: "optional" || "required",
- *     HttpPutResponseHopLimit: Number("int"),
- *     HttpEndpoint: "disabled" || "enabled",
- *     HttpProtocolIpv6: "disabled" || "enabled",
- *     InstanceMetadataTags: "disabled" || "enabled",
- *   },
- * };
+ * // { // ModifyInstanceMetadataOptionsResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   InstanceMetadataOptions: { // InstanceMetadataOptionsResponse
+ * //     State: "pending" || "applied",
+ * //     HttpTokens: "optional" || "required",
+ * //     HttpPutResponseHopLimit: Number("int"),
+ * //     HttpEndpoint: "disabled" || "enabled",
+ * //     HttpProtocolIpv6: "disabled" || "enabled",
+ * //     InstanceMetadataTags: "disabled" || "enabled",
+ * //   },
+ * // };
  *
  * ```
  *

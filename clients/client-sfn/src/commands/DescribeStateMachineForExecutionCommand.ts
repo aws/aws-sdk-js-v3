@@ -57,30 +57,29 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * };
  * const command = new DescribeStateMachineForExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStateMachineForExecutionOutput
- *   stateMachineArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   definition: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   updateDate: new Date("TIMESTAMP"), // required
- *   loggingConfiguration: { // LoggingConfiguration
- *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
- *     includeExecutionData: true || false,
- *     destinations: [ // LogDestinationList
- *       { // LogDestination
- *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
- *           logGroupArn: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- *   tracingConfiguration: { // TracingConfiguration
- *     enabled: true || false,
- *   },
- *   mapRunArn: "STRING_VALUE",
- *   label: "STRING_VALUE",
- * };
+ * // { // DescribeStateMachineForExecutionOutput
+ * //   stateMachineArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   definition: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   updateDate: new Date("TIMESTAMP"), // required
+ * //   loggingConfiguration: { // LoggingConfiguration
+ * //     level: "ALL" || "ERROR" || "FATAL" || "OFF",
+ * //     includeExecutionData: true || false,
+ * //     destinations: [ // LogDestinationList
+ * //       { // LogDestination
+ * //         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ * //           logGroupArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   tracingConfiguration: { // TracingConfiguration
+ * //     enabled: true || false,
+ * //   },
+ * //   mapRunArn: "STRING_VALUE",
+ * //   label: "STRING_VALUE",
+ * // };
  *
  * ```
  *

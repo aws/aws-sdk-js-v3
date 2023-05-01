@@ -65,12 +65,11 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * };
  * const command = new GetContextKeysForPrincipalPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContextKeysForPolicyResponse
- *   ContextKeyNames: [ // ContextKeyNamesResultListType
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetContextKeysForPolicyResponse
+ * //   ContextKeyNames: [ // ContextKeyNamesResultListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

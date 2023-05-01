@@ -44,19 +44,18 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
  * };
  * const command = new GetSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSubscriptionDefinitionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   LastUpdatedTimestamp: "STRING_VALUE",
- *   LatestVersion: "STRING_VALUE",
- *   LatestVersionArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSubscriptionDefinitionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LastUpdatedTimestamp: "STRING_VALUE",
+ * //   LatestVersion: "STRING_VALUE",
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

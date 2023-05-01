@@ -55,8 +55,7 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * };
  * const command = new SetIdentityMailFromDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

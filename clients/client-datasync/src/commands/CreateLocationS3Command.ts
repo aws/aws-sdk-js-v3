@@ -75,10 +75,9 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * };
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationS3Response
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationS3Response
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

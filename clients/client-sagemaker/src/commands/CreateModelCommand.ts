@@ -124,10 +124,9 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelOutput
- *   ModelArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelOutput
+ * //   ModelArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

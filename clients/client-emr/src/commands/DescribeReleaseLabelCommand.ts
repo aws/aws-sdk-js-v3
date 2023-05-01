@@ -48,22 +48,21 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * };
  * const command = new DescribeReleaseLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReleaseLabelOutput
- *   ReleaseLabel: "STRING_VALUE",
- *   Applications: [ // SimplifiedApplicationList
- *     { // SimplifiedApplication
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   AvailableOSReleases: [ // OSReleaseList
- *     { // OSRelease
- *       Label: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeReleaseLabelOutput
+ * //   ReleaseLabel: "STRING_VALUE",
+ * //   Applications: [ // SimplifiedApplicationList
+ * //     { // SimplifiedApplication
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   AvailableOSReleases: [ // OSReleaseList
+ * //     { // OSRelease
+ * //       Label: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

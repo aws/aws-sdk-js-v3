@@ -44,10 +44,9 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  * };
  * const command = new RemoveBackendConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveBackendConfigResponse
- *   Error: "STRING_VALUE",
- * };
+ * // { // RemoveBackendConfigResponse
+ * //   Error: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,22 +56,21 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
  * };
  * const command = new ListServiceQuotaIncreaseRequestsInTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceQuotaIncreaseRequestsInTemplateResponse
- *   ServiceQuotaIncreaseRequestInTemplateList: [ // ServiceQuotaIncreaseRequestInTemplateList
- *     { // ServiceQuotaIncreaseRequestInTemplate
- *       ServiceCode: "STRING_VALUE",
- *       ServiceName: "STRING_VALUE",
- *       QuotaCode: "STRING_VALUE",
- *       QuotaName: "STRING_VALUE",
- *       DesiredValue: Number("double"),
- *       AwsRegion: "STRING_VALUE",
- *       Unit: "STRING_VALUE",
- *       GlobalQuota: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListServiceQuotaIncreaseRequestsInTemplateResponse
+ * //   ServiceQuotaIncreaseRequestInTemplateList: [ // ServiceQuotaIncreaseRequestInTemplateList
+ * //     { // ServiceQuotaIncreaseRequestInTemplate
+ * //       ServiceCode: "STRING_VALUE",
+ * //       ServiceName: "STRING_VALUE",
+ * //       QuotaCode: "STRING_VALUE",
+ * //       QuotaName: "STRING_VALUE",
+ * //       DesiredValue: Number("double"),
+ * //       AwsRegion: "STRING_VALUE",
+ * //       Unit: "STRING_VALUE",
+ * //       GlobalQuota: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

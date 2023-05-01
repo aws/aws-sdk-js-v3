@@ -63,16 +63,15 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * };
  * const command = new RegisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterTransitGatewayMulticastGroupMembersResult
- *   RegisteredMulticastGroupMembers: { // TransitGatewayMulticastRegisteredGroupMembers
- *     TransitGatewayMulticastDomainId: "STRING_VALUE",
- *     RegisteredNetworkInterfaceIds: [ // ValueStringList
- *       "STRING_VALUE",
- *     ],
- *     GroupIpAddress: "STRING_VALUE",
- *   },
- * };
+ * // { // RegisterTransitGatewayMulticastGroupMembersResult
+ * //   RegisteredMulticastGroupMembers: { // TransitGatewayMulticastRegisteredGroupMembers
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     RegisteredNetworkInterfaceIds: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     GroupIpAddress: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

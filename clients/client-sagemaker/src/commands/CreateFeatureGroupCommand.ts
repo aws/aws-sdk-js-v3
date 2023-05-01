@@ -92,10 +92,9 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * };
  * const command = new CreateFeatureGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFeatureGroupResponse
- *   FeatureGroupArn: "STRING_VALUE", // required
- * };
+ * // { // CreateFeatureGroupResponse
+ * //   FeatureGroupArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

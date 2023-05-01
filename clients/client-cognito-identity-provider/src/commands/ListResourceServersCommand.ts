@@ -51,23 +51,22 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * };
  * const command = new ListResourceServersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceServersResponse
- *   ResourceServers: [ // ResourceServersListType // required
- *     { // ResourceServerType
- *       UserPoolId: "STRING_VALUE",
- *       Identifier: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Scopes: [ // ResourceServerScopeListType
- *         { // ResourceServerScopeType
- *           ScopeName: "STRING_VALUE", // required
- *           ScopeDescription: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceServersResponse
+ * //   ResourceServers: [ // ResourceServersListType // required
+ * //     { // ResourceServerType
+ * //       UserPoolId: "STRING_VALUE",
+ * //       Identifier: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Scopes: [ // ResourceServerScopeListType
+ * //         { // ResourceServerScopeType
+ * //           ScopeName: "STRING_VALUE", // required
+ * //           ScopeDescription: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

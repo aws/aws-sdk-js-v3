@@ -46,11 +46,10 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * };
  * const command = new UpdateTrustCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrustResult
- *   RequestId: "STRING_VALUE",
- *   TrustId: "STRING_VALUE",
- * };
+ * // { // UpdateTrustResult
+ * //   RequestId: "STRING_VALUE",
+ * //   TrustId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatasetImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  * };
  * const command = new RunStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RunStatementResponse
- *   Id: Number("int"),
- * };
+ * // { // RunStatementResponse
+ * //   Id: Number("int"),
+ * // };
  *
  * ```
  *

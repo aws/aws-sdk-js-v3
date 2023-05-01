@@ -44,11 +44,10 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * };
  * const command = new GetArtifactUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetArtifactUrlResult
- *   artifactId: "STRING_VALUE", // required
- *   artifactUrl: "STRING_VALUE", // required
- * };
+ * // { // GetArtifactUrlResult
+ * //   artifactId: "STRING_VALUE", // required
+ * //   artifactUrl: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

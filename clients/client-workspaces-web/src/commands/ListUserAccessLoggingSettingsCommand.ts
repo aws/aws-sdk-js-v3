@@ -50,16 +50,15 @@ export interface ListUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new ListUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserAccessLoggingSettingsResponse
- *   userAccessLoggingSettings: [ // UserAccessLoggingSettingsList
- *     { // UserAccessLoggingSettingsSummary
- *       userAccessLoggingSettingsArn: "STRING_VALUE",
- *       kinesisStreamArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUserAccessLoggingSettingsResponse
+ * //   userAccessLoggingSettings: [ // UserAccessLoggingSettingsList
+ * //     { // UserAccessLoggingSettingsSummary
+ * //       userAccessLoggingSettingsArn: "STRING_VALUE",
+ * //       kinesisStreamArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

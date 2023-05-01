@@ -49,23 +49,22 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReplaysResponse
- *   Replays: [ // ReplayList
- *     { // Replay
- *       ReplayName: "STRING_VALUE",
- *       EventSourceArn: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       StateReason: "STRING_VALUE",
- *       EventStartTime: new Date("TIMESTAMP"),
- *       EventEndTime: new Date("TIMESTAMP"),
- *       EventLastReplayedTime: new Date("TIMESTAMP"),
- *       ReplayStartTime: new Date("TIMESTAMP"),
- *       ReplayEndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListReplaysResponse
+ * //   Replays: [ // ReplayList
+ * //     { // Replay
+ * //       ReplayName: "STRING_VALUE",
+ * //       EventSourceArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
+ * //       EventStartTime: new Date("TIMESTAMP"),
+ * //       EventEndTime: new Date("TIMESTAMP"),
+ * //       EventLastReplayedTime: new Date("TIMESTAMP"),
+ * //       ReplayStartTime: new Date("TIMESTAMP"),
+ * //       ReplayEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

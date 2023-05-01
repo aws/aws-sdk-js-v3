@@ -50,27 +50,26 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * };
  * const command = new PutSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSolNetworkPackageContentOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsdId: "STRING_VALUE", // required
- *   nsdName: "STRING_VALUE", // required
- *   nsdVersion: "STRING_VALUE", // required
- *   vnfPkgIds: [ // VnfPkgIdList // required
- *     "STRING_VALUE",
- *   ],
- *   metadata: { // PutSolNetworkPackageContentMetadata
- *     nsd: { // NetworkArtifactMeta
- *       overrides: [ // OverrideList
- *         { // ToscaOverride
- *           name: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // PutSolNetworkPackageContentOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdId: "STRING_VALUE", // required
+ * //   nsdName: "STRING_VALUE", // required
+ * //   nsdVersion: "STRING_VALUE", // required
+ * //   vnfPkgIds: [ // VnfPkgIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   metadata: { // PutSolNetworkPackageContentMetadata
+ * //     nsd: { // NetworkArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

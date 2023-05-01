@@ -45,8 +45,7 @@ export interface DeleteResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

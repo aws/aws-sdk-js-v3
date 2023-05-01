@@ -55,13 +55,12 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  * };
  * const command = new UpdateFirewallDeleteProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallDeleteProtectionResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   DeleteProtection: true || false,
- *   UpdateToken: "STRING_VALUE",
- * };
+ * // { // UpdateFirewallDeleteProtectionResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   DeleteProtection: true || false,
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

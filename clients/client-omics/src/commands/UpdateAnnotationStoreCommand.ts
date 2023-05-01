@@ -45,32 +45,31 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * };
  * const command = new UpdateAnnotationStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnnotationStoreResponse
- *   id: "STRING_VALUE", // required
- *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   updateTime: new Date("TIMESTAMP"), // required
- *   storeOptions: { // StoreOptions Union: only one key present
- *     tsvStoreOptions: { // TsvStoreOptions
- *       annotationType: "STRING_VALUE",
- *       formatToHeader: { // FormatToHeader
- *         "<keys>": "STRING_VALUE",
- *       },
- *       schema: [ // Schema
- *         { // SchemaItem
- *           "<keys>": "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- *   storeFormat: "STRING_VALUE",
- * };
+ * // { // UpdateAnnotationStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   storeOptions: { // StoreOptions Union: only one key present
+ * //     tsvStoreOptions: { // TsvStoreOptions
+ * //       annotationType: "STRING_VALUE",
+ * //       formatToHeader: { // FormatToHeader
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       schema: [ // Schema
+ * //         { // SchemaItem
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   storeFormat: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,10 +50,9 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * };
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetryStageExecutionOutput
- *   pipelineExecutionId: "STRING_VALUE",
- * };
+ * // { // RetryStageExecutionOutput
+ * //   pipelineExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -89,30 +89,29 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * };
  * const command = new GetResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcesOutput
- *   PaginationToken: "STRING_VALUE",
- *   ResourceTagMappingList: [ // ResourceTagMappingList
- *     { // ResourceTagMapping
- *       ResourceARN: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       ComplianceDetails: { // ComplianceDetails
- *         NoncompliantKeys: [ // TagKeyList
- *           "STRING_VALUE",
- *         ],
- *         KeysWithNoncompliantValues: [
- *           "STRING_VALUE",
- *         ],
- *         ComplianceStatus: true || false,
- *       },
- *     },
- *   ],
- * };
+ * // { // GetResourcesOutput
+ * //   PaginationToken: "STRING_VALUE",
+ * //   ResourceTagMappingList: [ // ResourceTagMappingList
+ * //     { // ResourceTagMapping
+ * //       ResourceARN: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       ComplianceDetails: { // ComplianceDetails
+ * //         NoncompliantKeys: [ // TagKeyList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         KeysWithNoncompliantValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ComplianceStatus: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

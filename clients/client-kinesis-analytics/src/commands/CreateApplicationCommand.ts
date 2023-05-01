@@ -148,14 +148,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationResponse
- *   ApplicationSummary: { // ApplicationSummary
- *     ApplicationName: "STRING_VALUE", // required
- *     ApplicationARN: "STRING_VALUE", // required
- *     ApplicationStatus: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreateApplicationResponse
+ * //   ApplicationSummary: { // ApplicationSummary
+ * //     ApplicationName: "STRING_VALUE", // required
+ * //     ApplicationARN: "STRING_VALUE", // required
+ * //     ApplicationStatus: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

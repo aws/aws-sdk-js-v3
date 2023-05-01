@@ -46,51 +46,50 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * };
  * const command = new GetInsightCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightResult
- *   Insight: { // Insight
- *     InsightId: "STRING_VALUE",
- *     GroupARN: "STRING_VALUE",
- *     GroupName: "STRING_VALUE",
- *     RootCauseServiceId: { // ServiceId
- *       Name: "STRING_VALUE",
- *       Names: [ // ServiceNames
- *         "STRING_VALUE",
- *       ],
- *       AccountId: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *     },
- *     Categories: [ // InsightCategoryList
- *       "FAULT",
- *     ],
- *     State: "ACTIVE" || "CLOSED",
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     Summary: "STRING_VALUE",
- *     ClientRequestImpactStatistics: { // RequestImpactStatistics
- *       FaultCount: Number("long"),
- *       OkCount: Number("long"),
- *       TotalCount: Number("long"),
- *     },
- *     RootCauseServiceRequestImpactStatistics: {
- *       FaultCount: Number("long"),
- *       OkCount: Number("long"),
- *       TotalCount: Number("long"),
- *     },
- *     TopAnomalousServices: [ // AnomalousServiceList
- *       { // AnomalousService
- *         ServiceId: {
- *           Name: "STRING_VALUE",
- *           Names: [
- *             "STRING_VALUE",
- *           ],
- *           AccountId: "STRING_VALUE",
- *           Type: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // GetInsightResult
+ * //   Insight: { // Insight
+ * //     InsightId: "STRING_VALUE",
+ * //     GroupARN: "STRING_VALUE",
+ * //     GroupName: "STRING_VALUE",
+ * //     RootCauseServiceId: { // ServiceId
+ * //       Name: "STRING_VALUE",
+ * //       Names: [ // ServiceNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AccountId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //     Categories: [ // InsightCategoryList
+ * //       "FAULT",
+ * //     ],
+ * //     State: "ACTIVE" || "CLOSED",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     Summary: "STRING_VALUE",
+ * //     ClientRequestImpactStatistics: { // RequestImpactStatistics
+ * //       FaultCount: Number("long"),
+ * //       OkCount: Number("long"),
+ * //       TotalCount: Number("long"),
+ * //     },
+ * //     RootCauseServiceRequestImpactStatistics: {
+ * //       FaultCount: Number("long"),
+ * //       OkCount: Number("long"),
+ * //       TotalCount: Number("long"),
+ * //     },
+ * //     TopAnomalousServices: [ // AnomalousServiceList
+ * //       { // AnomalousService
+ * //         ServiceId: {
+ * //           Name: "STRING_VALUE",
+ * //           Names: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           AccountId: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupResult
- *   Group: { // Group
- *     GroupName: "STRING_VALUE",
- *     GroupARN: "STRING_VALUE",
- *     FilterExpression: "STRING_VALUE",
- *     InsightsConfiguration: { // InsightsConfiguration
- *       InsightsEnabled: true || false,
- *       NotificationsEnabled: true || false,
- *     },
- *   },
- * };
+ * // { // CreateGroupResult
+ * //   Group: { // Group
+ * //     GroupName: "STRING_VALUE",
+ * //     GroupARN: "STRING_VALUE",
+ * //     FilterExpression: "STRING_VALUE",
+ * //     InsightsConfiguration: { // InsightsConfiguration
+ * //       InsightsEnabled: true || false,
+ * //       NotificationsEnabled: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

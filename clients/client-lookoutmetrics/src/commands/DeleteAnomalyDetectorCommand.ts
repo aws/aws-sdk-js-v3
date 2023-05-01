@@ -45,8 +45,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * };
  * const command = new DeleteAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

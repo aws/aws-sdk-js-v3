@@ -56,16 +56,15 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  * };
  * const command = new ListGroupsOlderThanOrderingIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupsOlderThanOrderingIdResponse
- *   GroupsSummaries: [ // ListOfGroupSummaries
- *     { // GroupSummary
- *       GroupId: "STRING_VALUE",
- *       OrderingId: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupsOlderThanOrderingIdResponse
+ * //   GroupsSummaries: [ // ListOfGroupSummaries
+ * //     { // GroupSummary
+ * //       GroupId: "STRING_VALUE",
+ * //       OrderingId: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

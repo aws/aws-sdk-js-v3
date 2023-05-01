@@ -52,14 +52,13 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * };
  * const command = new StartReadSetExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReadSetExportJobResponse
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   destination: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // StartReadSetExportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   destination: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

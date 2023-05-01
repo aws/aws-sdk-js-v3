@@ -60,10 +60,9 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * };
  * const command = new ExportLensCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportLensOutput
- *   LensJSON: "STRING_VALUE",
- * };
+ * // { // ExportLensOutput
+ * //   LensJSON: "STRING_VALUE",
+ * // };
  *
  * ```
  *

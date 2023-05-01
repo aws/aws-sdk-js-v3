@@ -50,8 +50,7 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * };
  * const command = new DisassociatePhoneNumberFromUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

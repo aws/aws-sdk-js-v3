@@ -46,10 +46,9 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * };
  * const command = new DeleteActionTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteActionTargetResponse
- *   ActionTargetArn: "STRING_VALUE", // required
- * };
+ * // { // DeleteActionTargetResponse
+ * //   ActionTargetArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

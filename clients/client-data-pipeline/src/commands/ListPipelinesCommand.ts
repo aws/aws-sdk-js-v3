@@ -75,17 +75,16 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelinesOutput
- *   pipelineIdList: [ // pipelineList // required
- *     { // PipelineIdName
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   marker: "STRING_VALUE",
- *   hasMoreResults: true || false,
- * };
+ * // { // ListPipelinesOutput
+ * //   pipelineIdList: [ // pipelineList // required
+ * //     { // PipelineIdName
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteCacheSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

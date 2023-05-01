@@ -44,25 +44,24 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * };
  * const command = new DeleteCommentContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCommentContentOutput
- *   comment: { // Comment
- *     commentId: "STRING_VALUE",
- *     content: "STRING_VALUE",
- *     inReplyTo: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     authorArn: "STRING_VALUE",
- *     deleted: true || false,
- *     clientRequestToken: "STRING_VALUE",
- *     callerReactions: [ // CallerReactions
- *       "STRING_VALUE",
- *     ],
- *     reactionCounts: { // ReactionCountsMap
- *       "<keys>": Number("int"),
- *     },
- *   },
- * };
+ * // { // DeleteCommentContentOutput
+ * //   comment: { // Comment
+ * //     commentId: "STRING_VALUE",
+ * //     content: "STRING_VALUE",
+ * //     inReplyTo: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     authorArn: "STRING_VALUE",
+ * //     deleted: true || false,
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     callerReactions: [ // CallerReactions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     reactionCounts: { // ReactionCountsMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

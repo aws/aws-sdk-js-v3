@@ -55,25 +55,24 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * };
  * const command = new CreateWorldGenerationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorldGenerationJobResponse
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   failureCode: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
- *   template: "STRING_VALUE",
- *   worldCount: { // WorldCount
- *     floorplanCount: Number("int"),
- *     interiorCountPerFloorplan: Number("int"),
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   worldTags: {
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateWorldGenerationJobResponse
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   failureCode: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   template: "STRING_VALUE",
+ * //   worldCount: { // WorldCount
+ * //     floorplanCount: Number("int"),
+ * //     interiorCountPerFloorplan: Number("int"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   worldTags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

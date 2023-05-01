@@ -51,19 +51,18 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * };
  * const command = new ListTrafficDistributionGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrafficDistributionGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   TrafficDistributionGroupSummaryList: [ // TrafficDistributionGroupSummaryList
- *     { // TrafficDistributionGroupSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       InstanceArn: "STRING_VALUE",
- *       Status: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "PENDING_DELETION" || "DELETION_FAILED" || "UPDATE_IN_PROGRESS",
- *     },
- *   ],
- * };
+ * // { // ListTrafficDistributionGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TrafficDistributionGroupSummaryList: [ // TrafficDistributionGroupSummaryList
+ * //     { // TrafficDistributionGroupSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       InstanceArn: "STRING_VALUE",
+ * //       Status: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "PENDING_DELETION" || "DELETION_FAILED" || "UPDATE_IN_PROGRESS",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

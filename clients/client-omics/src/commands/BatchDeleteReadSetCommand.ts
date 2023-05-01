@@ -47,16 +47,15 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * };
  * const command = new BatchDeleteReadSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteReadSetResponse
- *   errors: [ // ReadSetBatchErrorList
- *     { // ReadSetBatchError
- *       id: "STRING_VALUE", // required
- *       code: "STRING_VALUE", // required
- *       message: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchDeleteReadSetResponse
+ * //   errors: [ // ReadSetBatchErrorList
+ * //     { // ReadSetBatchError
+ * //       id: "STRING_VALUE", // required
+ * //       code: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

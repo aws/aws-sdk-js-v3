@@ -67,11 +67,10 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * };
  * const command = new GetBucketVersioningCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketVersioningOutput
- *   Status: "Enabled" || "Suspended",
- *   MFADelete: "Enabled" || "Disabled",
- * };
+ * // { // GetBucketVersioningOutput
+ * //   Status: "Enabled" || "Suspended",
+ * //   MFADelete: "Enabled" || "Disabled",
+ * // };
  *
  * ```
  *

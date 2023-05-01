@@ -53,15 +53,14 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * };
  * const command = new AddAttributesToFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddAttributesToFindingsResponse
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // AddAttributesToFindingsResponse
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

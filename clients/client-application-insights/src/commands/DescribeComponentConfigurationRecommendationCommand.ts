@@ -59,10 +59,9 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  * };
  * const command = new DescribeComponentConfigurationRecommendationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeComponentConfigurationRecommendationResponse
- *   ComponentConfiguration: "STRING_VALUE",
- * };
+ * // { // DescribeComponentConfigurationRecommendationResponse
+ * //   ComponentConfiguration: "STRING_VALUE",
+ * // };
  *
  * ```
  *

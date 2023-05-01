@@ -127,10 +127,9 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * };
  * const command = new PutOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutOrganizationConfigRuleResponse
- *   OrganizationConfigRuleArn: "STRING_VALUE",
- * };
+ * // { // PutOrganizationConfigRuleResponse
+ * //   OrganizationConfigRuleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

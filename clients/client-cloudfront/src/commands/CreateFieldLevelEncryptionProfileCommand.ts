@@ -68,35 +68,34 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * };
  * const command = new CreateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFieldLevelEncryptionProfileResult
- *   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
- *       Name: "STRING_VALUE", // required
- *       CallerReference: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *       EncryptionEntities: { // EncryptionEntities
- *         Quantity: Number("int"), // required
- *         Items: [ // EncryptionEntityList
- *           { // EncryptionEntity
- *             PublicKeyId: "STRING_VALUE", // required
- *             ProviderId: "STRING_VALUE", // required
- *             FieldPatterns: { // FieldPatterns
- *               Quantity: Number("int"), // required
- *               Items: [ // FieldPatternList
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           },
- *         ],
- *       },
- *     },
- *   },
- *   Location: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- * };
+ * // { // CreateFieldLevelEncryptionProfileResult
+ * //   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       EncryptionEntities: { // EncryptionEntities
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // EncryptionEntityList
+ * //           { // EncryptionEntity
+ * //             PublicKeyId: "STRING_VALUE", // required
+ * //             ProviderId: "STRING_VALUE", // required
+ * //             FieldPatterns: { // FieldPatterns
+ * //               Quantity: Number("int"), // required
+ * //               Items: [ // FieldPatternList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

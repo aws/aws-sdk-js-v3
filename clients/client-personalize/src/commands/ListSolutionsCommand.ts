@@ -49,20 +49,19 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * };
  * const command = new ListSolutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSolutionsResponse
- *   solutions: [ // Solutions
- *     { // SolutionSummary
- *       name: "STRING_VALUE",
- *       solutionArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       recipeArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSolutionsResponse
+ * //   solutions: [ // Solutions
+ * //     { // SolutionSummary
+ * //       name: "STRING_VALUE",
+ * //       solutionArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       recipeArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

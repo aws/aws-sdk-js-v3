@@ -53,12 +53,11 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVocabularyResponse
- *   VocabularyArn: "STRING_VALUE", // required
- *   VocabularyId: "STRING_VALUE", // required
- *   State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
- * };
+ * // { // CreateVocabularyResponse
+ * //   VocabularyArn: "STRING_VALUE", // required
+ * //   VocabularyId: "STRING_VALUE", // required
+ * //   State: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "DELETE_IN_PROGRESS", // required
+ * // };
  *
  * ```
  *

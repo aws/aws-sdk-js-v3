@@ -64,8 +64,7 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

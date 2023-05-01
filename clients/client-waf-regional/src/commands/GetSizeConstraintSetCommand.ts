@@ -52,24 +52,23 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * };
  * const command = new GetSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSizeConstraintSetResponse
- *   SizeConstraintSet: { // SizeConstraintSet
- *     SizeConstraintSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     SizeConstraints: [ // SizeConstraints // required
- *       { // SizeConstraint
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         ComparisonOperator: "STRING_VALUE", // required
- *         Size: Number("long"), // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetSizeConstraintSetResponse
+ * //   SizeConstraintSet: { // SizeConstraintSet
+ * //     SizeConstraintSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     SizeConstraints: [ // SizeConstraints // required
+ * //       { // SizeConstraint
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         ComparisonOperator: "STRING_VALUE", // required
+ * //         Size: Number("long"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

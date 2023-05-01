@@ -54,17 +54,16 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * };
  * const command = new CreateRobotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRobotResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   greengrassGroupId: "STRING_VALUE",
- *   architecture: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRobotResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   greengrassGroupId: "STRING_VALUE",
+ * //   architecture: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -54,18 +54,17 @@ export interface DescribeAggregationAuthorizationsCommandOutput
  * };
  * const command = new DescribeAggregationAuthorizationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAggregationAuthorizationsResponse
- *   AggregationAuthorizations: [ // AggregationAuthorizationList
- *     { // AggregationAuthorization
- *       AggregationAuthorizationArn: "STRING_VALUE",
- *       AuthorizedAccountId: "STRING_VALUE",
- *       AuthorizedAwsRegion: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAggregationAuthorizationsResponse
+ * //   AggregationAuthorizations: [ // AggregationAuthorizationList
+ * //     { // AggregationAuthorization
+ * //       AggregationAuthorizationArn: "STRING_VALUE",
+ * //       AuthorizedAccountId: "STRING_VALUE",
+ * //       AuthorizedAwsRegion: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

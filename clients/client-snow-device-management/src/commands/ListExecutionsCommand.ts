@@ -51,18 +51,17 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExecutionsOutput
- *   executions: [ // ExecutionSummaryList
- *     { // ExecutionSummary
- *       taskId: "STRING_VALUE",
- *       executionId: "STRING_VALUE",
- *       managedDeviceId: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExecutionsOutput
+ * //   executions: [ // ExecutionSummaryList
+ * //     { // ExecutionSummary
+ * //       taskId: "STRING_VALUE",
+ * //       executionId: "STRING_VALUE",
+ * //       managedDeviceId: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

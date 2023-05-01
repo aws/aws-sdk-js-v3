@@ -46,13 +46,12 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * };
  * const command = new PutAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAlertManagerDefinitionResponse
- *   status: { // AlertManagerDefinitionStatus
- *     statusCode: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *   },
- * };
+ * // { // PutAlertManagerDefinitionResponse
+ * //   status: { // AlertManagerDefinitionStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

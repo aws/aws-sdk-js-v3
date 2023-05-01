@@ -51,8 +51,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

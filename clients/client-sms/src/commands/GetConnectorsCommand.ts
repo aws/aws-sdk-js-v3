@@ -45,26 +45,25 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * };
  * const command = new GetConnectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectorsResponse
- *   connectorList: [ // ConnectorList
- *     { // Connector
- *       connectorId: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       status: "HEALTHY" || "UNHEALTHY",
- *       capabilityList: [ // ConnectorCapabilityList
- *         "VSPHERE" || "SCVMM" || "HYPERV-MANAGER" || "SNAPSHOT_BATCHING" || "SMS_OPTIMIZED",
- *       ],
- *       vmManagerName: "STRING_VALUE",
- *       vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
- *       vmManagerId: "STRING_VALUE",
- *       ipAddress: "STRING_VALUE",
- *       macAddress: "STRING_VALUE",
- *       associatedOn: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetConnectorsResponse
+ * //   connectorList: [ // ConnectorList
+ * //     { // Connector
+ * //       connectorId: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       status: "HEALTHY" || "UNHEALTHY",
+ * //       capabilityList: [ // ConnectorCapabilityList
+ * //         "VSPHERE" || "SCVMM" || "HYPERV-MANAGER" || "SNAPSHOT_BATCHING" || "SMS_OPTIMIZED",
+ * //       ],
+ * //       vmManagerName: "STRING_VALUE",
+ * //       vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ * //       vmManagerId: "STRING_VALUE",
+ * //       ipAddress: "STRING_VALUE",
+ * //       macAddress: "STRING_VALUE",
+ * //       associatedOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

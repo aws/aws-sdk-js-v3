@@ -51,24 +51,23 @@ export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTem
  * };
  * const command = new ListServiceTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceTemplateVersionsOutput
- *   nextToken: "STRING_VALUE",
- *   templateVersions: [ // ServiceTemplateVersionSummaryList // required
- *     { // ServiceTemplateVersionSummary
- *       templateName: "STRING_VALUE", // required
- *       majorVersion: "STRING_VALUE", // required
- *       minorVersion: "STRING_VALUE", // required
- *       recommendedMinorVersion: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListServiceTemplateVersionsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templateVersions: [ // ServiceTemplateVersionSummaryList // required
+ * //     { // ServiceTemplateVersionSummary
+ * //       templateName: "STRING_VALUE", // required
+ * //       majorVersion: "STRING_VALUE", // required
+ * //       minorVersion: "STRING_VALUE", // required
+ * //       recommendedMinorVersion: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

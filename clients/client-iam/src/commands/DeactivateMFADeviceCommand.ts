@@ -49,8 +49,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeactivateMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

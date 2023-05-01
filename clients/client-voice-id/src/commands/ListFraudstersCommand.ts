@@ -47,20 +47,19 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  * };
  * const command = new ListFraudstersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFraudstersResponse
- *   FraudsterSummaries: [ // FraudsterSummaries
- *     { // FraudsterSummary
- *       DomainId: "STRING_VALUE",
- *       GeneratedFraudsterId: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       WatchlistIds: [ // ResponseWatchlistIds
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFraudstersResponse
+ * //   FraudsterSummaries: [ // FraudsterSummaries
+ * //     { // FraudsterSummary
+ * //       DomainId: "STRING_VALUE",
+ * //       GeneratedFraudsterId: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       WatchlistIds: [ // ResponseWatchlistIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

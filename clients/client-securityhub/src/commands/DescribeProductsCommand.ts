@@ -50,27 +50,26 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * };
  * const command = new DescribeProductsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProductsResponse
- *   Products: [ // ProductsList // required
- *     { // Product
- *       ProductArn: "STRING_VALUE", // required
- *       ProductName: "STRING_VALUE",
- *       CompanyName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Categories: [ // CategoryList
- *         "STRING_VALUE",
- *       ],
- *       IntegrationTypes: [ // IntegrationTypeList
- *         "SEND_FINDINGS_TO_SECURITY_HUB" || "RECEIVE_FINDINGS_FROM_SECURITY_HUB" || "UPDATE_FINDINGS_IN_SECURITY_HUB",
- *       ],
- *       MarketplaceUrl: "STRING_VALUE",
- *       ActivationUrl: "STRING_VALUE",
- *       ProductSubscriptionResourcePolicy: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeProductsResponse
+ * //   Products: [ // ProductsList // required
+ * //     { // Product
+ * //       ProductArn: "STRING_VALUE", // required
+ * //       ProductName: "STRING_VALUE",
+ * //       CompanyName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Categories: [ // CategoryList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IntegrationTypes: [ // IntegrationTypeList
+ * //         "SEND_FINDINGS_TO_SECURITY_HUB" || "RECEIVE_FINDINGS_FROM_SECURITY_HUB" || "UPDATE_FINDINGS_IN_SECURITY_HUB",
+ * //       ],
+ * //       MarketplaceUrl: "STRING_VALUE",
+ * //       ActivationUrl: "STRING_VALUE",
+ * //       ProductSubscriptionResourcePolicy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

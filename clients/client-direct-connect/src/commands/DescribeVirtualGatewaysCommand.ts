@@ -43,15 +43,14 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * const input = {};
  * const command = new DescribeVirtualGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VirtualGateways
- *   virtualGateways: [ // VirtualGatewayList
- *     { // VirtualGateway
- *       virtualGatewayId: "STRING_VALUE",
- *       virtualGatewayState: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // VirtualGateways
+ * //   virtualGateways: [ // VirtualGatewayList
+ * //     { // VirtualGateway
+ * //       virtualGatewayId: "STRING_VALUE",
+ * //       virtualGatewayState: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

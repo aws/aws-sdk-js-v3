@@ -50,8 +50,7 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * };
  * const command = new UpdateEventSourcesConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

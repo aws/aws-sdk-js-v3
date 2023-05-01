@@ -45,21 +45,20 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  * };
  * const command = new DescribeMailboxExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMailboxExportJobResponse
- *   EntityId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   KmsKeyArn: "STRING_VALUE",
- *   S3BucketName: "STRING_VALUE",
- *   S3Prefix: "STRING_VALUE",
- *   S3Path: "STRING_VALUE",
- *   EstimatedProgress: Number("int"),
- *   State: "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
- *   ErrorInfo: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeMailboxExportJobResponse
+ * //   EntityId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   S3BucketName: "STRING_VALUE",
+ * //   S3Prefix: "STRING_VALUE",
+ * //   S3Path: "STRING_VALUE",
+ * //   EstimatedProgress: Number("int"),
+ * //   State: "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
+ * //   ErrorInfo: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

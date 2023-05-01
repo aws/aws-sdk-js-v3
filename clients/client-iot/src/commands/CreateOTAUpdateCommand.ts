@@ -139,14 +139,13 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * };
  * const command = new CreateOTAUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOTAUpdateResponse
- *   otaUpdateId: "STRING_VALUE",
- *   awsIotJobId: "STRING_VALUE",
- *   otaUpdateArn: "STRING_VALUE",
- *   awsIotJobArn: "STRING_VALUE",
- *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
- * };
+ * // { // CreateOTAUpdateResponse
+ * //   otaUpdateId: "STRING_VALUE",
+ * //   awsIotJobId: "STRING_VALUE",
+ * //   otaUpdateArn: "STRING_VALUE",
+ * //   awsIotJobArn: "STRING_VALUE",
+ * //   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
+ * // };
  *
  * ```
  *

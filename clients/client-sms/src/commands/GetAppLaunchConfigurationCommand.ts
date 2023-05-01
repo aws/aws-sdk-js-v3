@@ -44,57 +44,56 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  * };
  * const command = new GetAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppLaunchConfigurationResponse
- *   appId: "STRING_VALUE",
- *   roleName: "STRING_VALUE",
- *   autoLaunch: true || false,
- *   serverGroupLaunchConfigurations: [ // ServerGroupLaunchConfigurations
- *     { // ServerGroupLaunchConfiguration
- *       serverGroupId: "STRING_VALUE",
- *       launchOrder: Number("int"),
- *       serverLaunchConfigurations: [ // ServerLaunchConfigurations
- *         { // ServerLaunchConfiguration
- *           server: { // Server
- *             serverId: "STRING_VALUE",
- *             serverType: "VIRTUAL_MACHINE",
- *             vmServer: { // VmServer
- *               vmServerAddress: { // VmServerAddress
- *                 vmManagerId: "STRING_VALUE",
- *                 vmId: "STRING_VALUE",
- *               },
- *               vmName: "STRING_VALUE",
- *               vmManagerName: "STRING_VALUE",
- *               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
- *               vmPath: "STRING_VALUE",
- *             },
- *             replicationJobId: "STRING_VALUE",
- *             replicationJobTerminated: true || false,
- *           },
- *           logicalId: "STRING_VALUE",
- *           vpc: "STRING_VALUE",
- *           subnet: "STRING_VALUE",
- *           securityGroup: "STRING_VALUE",
- *           ec2KeyName: "STRING_VALUE",
- *           userData: { // UserData
- *             s3Location: { // S3Location
- *               bucket: "STRING_VALUE",
- *               key: "STRING_VALUE",
- *             },
- *           },
- *           instanceType: "STRING_VALUE",
- *           associatePublicIpAddress: true || false,
- *           iamInstanceProfileName: "STRING_VALUE",
- *           configureScript: {
- *             bucket: "STRING_VALUE",
- *             key: "STRING_VALUE",
- *           },
- *           configureScriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetAppLaunchConfigurationResponse
+ * //   appId: "STRING_VALUE",
+ * //   roleName: "STRING_VALUE",
+ * //   autoLaunch: true || false,
+ * //   serverGroupLaunchConfigurations: [ // ServerGroupLaunchConfigurations
+ * //     { // ServerGroupLaunchConfiguration
+ * //       serverGroupId: "STRING_VALUE",
+ * //       launchOrder: Number("int"),
+ * //       serverLaunchConfigurations: [ // ServerLaunchConfigurations
+ * //         { // ServerLaunchConfiguration
+ * //           server: { // Server
+ * //             serverId: "STRING_VALUE",
+ * //             serverType: "VIRTUAL_MACHINE",
+ * //             vmServer: { // VmServer
+ * //               vmServerAddress: { // VmServerAddress
+ * //                 vmManagerId: "STRING_VALUE",
+ * //                 vmId: "STRING_VALUE",
+ * //               },
+ * //               vmName: "STRING_VALUE",
+ * //               vmManagerName: "STRING_VALUE",
+ * //               vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ * //               vmPath: "STRING_VALUE",
+ * //             },
+ * //             replicationJobId: "STRING_VALUE",
+ * //             replicationJobTerminated: true || false,
+ * //           },
+ * //           logicalId: "STRING_VALUE",
+ * //           vpc: "STRING_VALUE",
+ * //           subnet: "STRING_VALUE",
+ * //           securityGroup: "STRING_VALUE",
+ * //           ec2KeyName: "STRING_VALUE",
+ * //           userData: { // UserData
+ * //             s3Location: { // S3Location
+ * //               bucket: "STRING_VALUE",
+ * //               key: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           instanceType: "STRING_VALUE",
+ * //           associatePublicIpAddress: true || false,
+ * //           iamInstanceProfileName: "STRING_VALUE",
+ * //           configureScript: {
+ * //             bucket: "STRING_VALUE",
+ * //             key: "STRING_VALUE",
+ * //           },
+ * //           configureScriptType: "SHELL_SCRIPT" || "POWERSHELL_SCRIPT",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

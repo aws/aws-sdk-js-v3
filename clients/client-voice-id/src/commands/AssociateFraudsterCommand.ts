@@ -50,17 +50,16 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * };
  * const command = new AssociateFraudsterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateFraudsterResponse
- *   Fraudster: { // Fraudster
- *     DomainId: "STRING_VALUE",
- *     GeneratedFraudsterId: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     WatchlistIds: [ // ResponseWatchlistIds
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // AssociateFraudsterResponse
+ * //   Fraudster: { // Fraudster
+ * //     DomainId: "STRING_VALUE",
+ * //     GeneratedFraudsterId: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     WatchlistIds: [ // ResponseWatchlistIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

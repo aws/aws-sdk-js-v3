@@ -112,12 +112,11 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * };
  * const command = new CreateConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigIdResponse
- *   configId: "STRING_VALUE",
- *   configType: "STRING_VALUE",
- *   configArn: "STRING_VALUE",
- * };
+ * // { // ConfigIdResponse
+ * //   configId: "STRING_VALUE",
+ * //   configType: "STRING_VALUE",
+ * //   configArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

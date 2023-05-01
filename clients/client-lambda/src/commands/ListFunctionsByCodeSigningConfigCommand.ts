@@ -52,13 +52,12 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * };
  * const command = new ListFunctionsByCodeSigningConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFunctionsByCodeSigningConfigResponse
- *   NextMarker: "STRING_VALUE",
- *   FunctionArns: [ // FunctionArnList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListFunctionsByCodeSigningConfigResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   FunctionArns: [ // FunctionArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

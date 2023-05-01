@@ -51,39 +51,38 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * };
  * const command = new ListContactReferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactReferencesResponse
- *   ReferenceSummaryList: [ // ReferenceSummaryList
- *     { // ReferenceSummary Union: only one key present
- *       Url: { // UrlReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *       Attachment: { // AttachmentReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *         Status: "APPROVED" || "REJECTED",
- *       },
- *       String: { // StringReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *       Number: { // NumberReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *       Date: { // DateReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *       Email: { // EmailReference
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContactReferencesResponse
+ * //   ReferenceSummaryList: [ // ReferenceSummaryList
+ * //     { // ReferenceSummary Union: only one key present
+ * //       Url: { // UrlReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Attachment: { // AttachmentReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //         Status: "APPROVED" || "REJECTED",
+ * //       },
+ * //       String: { // StringReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Number: { // NumberReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Date: { // DateReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       Email: { // EmailReference
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

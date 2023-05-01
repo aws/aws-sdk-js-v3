@@ -45,17 +45,16 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * };
  * const command = new ListEntitlementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEntitlementsResponse
- *   Entitlements: [ // __listOfListedEntitlement
- *     { // ListedEntitlement
- *       DataTransferSubscriberFeePercent: Number("int"),
- *       EntitlementArn: "STRING_VALUE", // required
- *       EntitlementName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEntitlementsResponse
+ * //   Entitlements: [ // __listOfListedEntitlement
+ * //     { // ListedEntitlement
+ * //       DataTransferSubscriberFeePercent: Number("int"),
+ * //       EntitlementArn: "STRING_VALUE", // required
+ * //       EntitlementName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

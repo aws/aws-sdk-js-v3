@@ -44,32 +44,31 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImportResponse
- *   ImportId: "STRING_VALUE",
- *   Destinations: [ // ImportDestinations
- *     "STRING_VALUE",
- *   ],
- *   ImportSource: { // ImportSource
- *     S3: { // S3ImportSource
- *       S3LocationUri: "STRING_VALUE", // required
- *       S3BucketRegion: "STRING_VALUE", // required
- *       S3BucketAccessRoleArn: "STRING_VALUE", // required
- *     },
- *   },
- *   StartEventTime: new Date("TIMESTAMP"),
- *   EndEventTime: new Date("TIMESTAMP"),
- *   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- *   UpdatedTimestamp: new Date("TIMESTAMP"),
- *   ImportStatistics: { // ImportStatistics
- *     PrefixesFound: Number("long"),
- *     PrefixesCompleted: Number("long"),
- *     FilesCompleted: Number("long"),
- *     EventsCompleted: Number("long"),
- *     FailedEntries: Number("long"),
- *   },
- * };
+ * // { // GetImportResponse
+ * //   ImportId: "STRING_VALUE",
+ * //   Destinations: [ // ImportDestinations
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ImportSource: { // ImportSource
+ * //     S3: { // S3ImportSource
+ * //       S3LocationUri: "STRING_VALUE", // required
+ * //       S3BucketRegion: "STRING_VALUE", // required
+ * //       S3BucketAccessRoleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   StartEventTime: new Date("TIMESTAMP"),
+ * //   EndEventTime: new Date("TIMESTAMP"),
+ * //   ImportStatus: "INITIALIZING" || "IN_PROGRESS" || "FAILED" || "STOPPED" || "COMPLETED",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   ImportStatistics: { // ImportStatistics
+ * //     PrefixesFound: Number("long"),
+ * //     PrefixesCompleted: Number("long"),
+ * //     FilesCompleted: Number("long"),
+ * //     EventsCompleted: Number("long"),
+ * //     FailedEntries: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,26 +47,25 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * };
  * const command = new DescribeEntitlementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEntitlementsResult
- *   Entitlements: [ // EntitlementList
- *     { // Entitlement
- *       Name: "STRING_VALUE", // required
- *       StackName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       AppVisibility: "ALL" || "ASSOCIATED", // required
- *       Attributes: [ // EntitlementAttributeList // required
- *         { // EntitlementAttribute
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEntitlementsResult
+ * //   Entitlements: [ // EntitlementList
+ * //     { // Entitlement
+ * //       Name: "STRING_VALUE", // required
+ * //       StackName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       AppVisibility: "ALL" || "ASSOCIATED", // required
+ * //       Attributes: [ // EntitlementAttributeList // required
+ * //         { // EntitlementAttribute
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

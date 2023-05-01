@@ -58,19 +58,18 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplicateSecretToRegionsResponse
- *   ARN: "STRING_VALUE",
- *   ReplicationStatus: [ // ReplicationStatusListType
- *     { // ReplicationStatusType
- *       Region: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Status: "InSync" || "Failed" || "InProgress",
- *       StatusMessage: "STRING_VALUE",
- *       LastAccessedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ReplicateSecretToRegionsResponse
+ * //   ARN: "STRING_VALUE",
+ * //   ReplicationStatus: [ // ReplicationStatusListType
+ * //     { // ReplicationStatusType
+ * //       Region: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

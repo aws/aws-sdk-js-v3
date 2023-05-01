@@ -52,16 +52,15 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * };
  * const command = new GetCredentialsForIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCredentialsForIdentityResponse
- *   IdentityId: "STRING_VALUE",
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE",
- *     SecretKey: "STRING_VALUE",
- *     SessionToken: "STRING_VALUE",
- *     Expiration: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetCredentialsForIdentityResponse
+ * //   IdentityId: "STRING_VALUE",
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE",
+ * //     SecretKey: "STRING_VALUE",
+ * //     SessionToken: "STRING_VALUE",
+ * //     Expiration: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

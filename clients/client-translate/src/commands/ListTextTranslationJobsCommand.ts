@@ -51,51 +51,50 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * };
  * const command = new ListTextTranslationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTextTranslationJobsResponse
- *   TextTranslationJobPropertiesList: [ // TextTranslationJobPropertiesList
- *     { // TextTranslationJobProperties
- *       JobId: "STRING_VALUE",
- *       JobName: "STRING_VALUE",
- *       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *       JobDetails: { // JobDetails
- *         TranslatedDocumentsCount: Number("int"),
- *         DocumentsWithErrorsCount: Number("int"),
- *         InputDocumentsCount: Number("int"),
- *       },
- *       SourceLanguageCode: "STRING_VALUE",
- *       TargetLanguageCodes: [ // TargetLanguageCodeStringList
- *         "STRING_VALUE",
- *       ],
- *       TerminologyNames: [ // ResourceNameList
- *         "STRING_VALUE",
- *       ],
- *       ParallelDataNames: [
- *         "STRING_VALUE",
- *       ],
- *       Message: "STRING_VALUE",
- *       SubmittedTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       InputDataConfig: { // InputDataConfig
- *         S3Uri: "STRING_VALUE", // required
- *         ContentType: "STRING_VALUE", // required
- *       },
- *       OutputDataConfig: { // OutputDataConfig
- *         S3Uri: "STRING_VALUE", // required
- *         EncryptionKey: { // EncryptionKey
- *           Type: "KMS", // required
- *           Id: "STRING_VALUE", // required
- *         },
- *       },
- *       DataAccessRoleArn: "STRING_VALUE",
- *       Settings: { // TranslationSettings
- *         Formality: "FORMAL" || "INFORMAL",
- *         Profanity: "MASK",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTextTranslationJobsResponse
+ * //   TextTranslationJobPropertiesList: [ // TextTranslationJobPropertiesList
+ * //     { // TextTranslationJobProperties
+ * //       JobId: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //       JobDetails: { // JobDetails
+ * //         TranslatedDocumentsCount: Number("int"),
+ * //         DocumentsWithErrorsCount: Number("int"),
+ * //         InputDocumentsCount: Number("int"),
+ * //       },
+ * //       SourceLanguageCode: "STRING_VALUE",
+ * //       TargetLanguageCodes: [ // TargetLanguageCodeStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TerminologyNames: [ // ResourceNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ParallelDataNames: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Message: "STRING_VALUE",
+ * //       SubmittedTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       InputDataConfig: { // InputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         ContentType: "STRING_VALUE", // required
+ * //       },
+ * //       OutputDataConfig: { // OutputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         EncryptionKey: { // EncryptionKey
+ * //           Type: "KMS", // required
+ * //           Id: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       Settings: { // TranslationSettings
+ * //         Formality: "FORMAL" || "INFORMAL",
+ * //         Profanity: "MASK",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

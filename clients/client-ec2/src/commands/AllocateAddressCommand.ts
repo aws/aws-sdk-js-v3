@@ -75,17 +75,16 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * };
  * const command = new AllocateAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AllocateAddressResult
- *   PublicIp: "STRING_VALUE",
- *   AllocationId: "STRING_VALUE",
- *   PublicIpv4Pool: "STRING_VALUE",
- *   NetworkBorderGroup: "STRING_VALUE",
- *   Domain: "vpc" || "standard",
- *   CustomerOwnedIp: "STRING_VALUE",
- *   CustomerOwnedIpv4Pool: "STRING_VALUE",
- *   CarrierIp: "STRING_VALUE",
- * };
+ * // { // AllocateAddressResult
+ * //   PublicIp: "STRING_VALUE",
+ * //   AllocationId: "STRING_VALUE",
+ * //   PublicIpv4Pool: "STRING_VALUE",
+ * //   NetworkBorderGroup: "STRING_VALUE",
+ * //   Domain: "vpc" || "standard",
+ * //   CustomerOwnedIp: "STRING_VALUE",
+ * //   CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //   CarrierIp: "STRING_VALUE",
+ * // };
  *
  * ```
  *

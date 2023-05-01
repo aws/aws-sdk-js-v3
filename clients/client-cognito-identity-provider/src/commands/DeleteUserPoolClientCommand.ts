@@ -50,8 +50,7 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUserPoolClientCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

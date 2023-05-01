@@ -60,16 +60,15 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * };
  * const command = new BatchSuspendUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchSuspendUserResponse
- *   UserErrors: [ // UserErrorList
- *     { // UserError
- *       UserId: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchSuspendUserResponse
+ * //   UserErrors: [ // UserErrorList
+ * //     { // UserError
+ * //       UserId: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

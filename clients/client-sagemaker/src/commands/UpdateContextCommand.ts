@@ -51,10 +51,9 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * };
  * const command = new UpdateContextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateContextResponse
- *   ContextArn: "STRING_VALUE",
- * };
+ * // { // UpdateContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

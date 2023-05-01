@@ -44,8 +44,7 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

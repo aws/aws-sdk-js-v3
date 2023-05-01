@@ -42,10 +42,9 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * const input = {};
  * const command = new GetAccountStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountStatusResponse
- *   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
- * };
+ * // { // GetAccountStatusResponse
+ * //   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * // };
  *
  * ```
  *

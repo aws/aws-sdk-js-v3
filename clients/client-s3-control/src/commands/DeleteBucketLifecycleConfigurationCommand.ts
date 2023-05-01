@@ -77,8 +77,7 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * };
  * const command = new DeleteBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

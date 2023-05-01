@@ -68,20 +68,19 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * };
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssignPrivateIpAddressesResult
- *   NetworkInterfaceId: "STRING_VALUE",
- *   AssignedPrivateIpAddresses: [ // AssignedPrivateIpAddressList
- *     { // AssignedPrivateIpAddress
- *       PrivateIpAddress: "STRING_VALUE",
- *     },
- *   ],
- *   AssignedIpv4Prefixes: [ // Ipv4PrefixesList
- *     { // Ipv4PrefixSpecification
- *       Ipv4Prefix: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssignPrivateIpAddressesResult
+ * //   NetworkInterfaceId: "STRING_VALUE",
+ * //   AssignedPrivateIpAddresses: [ // AssignedPrivateIpAddressList
+ * //     { // AssignedPrivateIpAddress
+ * //       PrivateIpAddress: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   AssignedIpv4Prefixes: [ // Ipv4PrefixesList
+ * //     { // Ipv4PrefixSpecification
+ * //       Ipv4Prefix: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -59,8 +59,7 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * };
  * const command = new CreateLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

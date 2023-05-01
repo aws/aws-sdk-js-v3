@@ -65,10 +65,9 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDatasetEntriesResponse
- *   Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED_ROLLBACK_IN_PROGRESS" || "UPDATE_FAILED_ROLLBACK_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
- * };
+ * // { // UpdateDatasetEntriesResponse
+ * //   Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED_ROLLBACK_IN_PROGRESS" || "UPDATE_FAILED_ROLLBACK_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED",
+ * // };
  *
  * ```
  *

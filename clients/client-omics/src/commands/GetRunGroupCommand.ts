@@ -44,19 +44,18 @@ export interface GetRunGroupCommandOutput extends GetRunGroupResponse, __Metadat
  * };
  * const command = new GetRunGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRunGroupResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   maxCpus: Number("int"),
- *   maxRuns: Number("int"),
- *   maxDuration: Number("int"),
- *   creationTime: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetRunGroupResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   maxCpus: Number("int"),
+ * //   maxRuns: Number("int"),
+ * //   maxDuration: Number("int"),
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

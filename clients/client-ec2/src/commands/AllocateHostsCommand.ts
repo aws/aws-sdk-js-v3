@@ -65,12 +65,11 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * };
  * const command = new AllocateHostsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AllocateHostsResult
- *   HostIds: [ // ResponseHostIdList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AllocateHostsResult
+ * //   HostIds: [ // ResponseHostIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

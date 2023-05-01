@@ -45,8 +45,7 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * };
  * const command = new DeleteEntitlementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

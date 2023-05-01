@@ -46,16 +46,15 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  * };
  * const command = new DescribeLabelGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLabelGroupResponse
- *   LabelGroupName: "STRING_VALUE",
- *   LabelGroupArn: "STRING_VALUE",
- *   FaultCodes: [ // FaultCodes
- *     "STRING_VALUE",
- *   ],
- *   CreatedAt: new Date("TIMESTAMP"),
- *   UpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLabelGroupResponse
+ * //   LabelGroupName: "STRING_VALUE",
+ * //   LabelGroupArn: "STRING_VALUE",
+ * //   FaultCodes: [ // FaultCodes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

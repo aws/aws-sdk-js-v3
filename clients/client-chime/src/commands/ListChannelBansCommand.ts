@@ -57,19 +57,18 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * };
  * const command = new ListChannelBansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelBansResponse
- *   ChannelArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   ChannelBans: [ // ChannelBanSummaryList
- *     { // ChannelBanSummary
- *       Member: { // Identity
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListChannelBansResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   ChannelBans: [ // ChannelBanSummaryList
+ * //     { // ChannelBanSummary
+ * //       Member: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

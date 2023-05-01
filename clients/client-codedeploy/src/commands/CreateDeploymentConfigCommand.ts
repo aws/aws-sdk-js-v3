@@ -60,10 +60,9 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * };
  * const command = new CreateDeploymentConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeploymentConfigOutput
- *   deploymentConfigId: "STRING_VALUE",
- * };
+ * // { // CreateDeploymentConfigOutput
+ * //   deploymentConfigId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

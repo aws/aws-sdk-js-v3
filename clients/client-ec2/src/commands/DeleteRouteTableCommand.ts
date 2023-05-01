@@ -45,8 +45,7 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

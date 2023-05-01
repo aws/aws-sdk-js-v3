@@ -53,25 +53,24 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  * };
  * const command = new DeregisterIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterIdentityProviderResponse
- *   IdentityProviderSummary: { // IdentityProviderSummary
- *     IdentityProvider: { // IdentityProvider Union: only one key present
- *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *         DirectoryId: "STRING_VALUE",
- *       },
- *     },
- *     Settings: { // Settings
- *       Subnets: [ // Subnets // required
- *         "STRING_VALUE",
- *       ],
- *       SecurityGroupId: "STRING_VALUE", // required
- *     },
- *     Product: "STRING_VALUE", // required
- *     Status: "STRING_VALUE", // required
- *     FailureMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // DeregisterIdentityProviderResponse
+ * //   IdentityProviderSummary: { // IdentityProviderSummary
+ * //     IdentityProvider: { // IdentityProvider Union: only one key present
+ * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //         DirectoryId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Settings: { // Settings
+ * //       Subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SecurityGroupId: "STRING_VALUE", // required
+ * //     },
+ * //     Product: "STRING_VALUE", // required
+ * //     Status: "STRING_VALUE", // required
+ * //     FailureMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

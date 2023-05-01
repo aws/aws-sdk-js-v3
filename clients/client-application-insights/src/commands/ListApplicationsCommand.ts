@@ -49,22 +49,21 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   ApplicationInfoList: [ // ApplicationInfoList
- *     { // ApplicationInfo
- *       ResourceGroupName: "STRING_VALUE",
- *       LifeCycle: "STRING_VALUE",
- *       OpsItemSNSTopicArn: "STRING_VALUE",
- *       OpsCenterEnabled: true || false,
- *       CWEMonitorEnabled: true || false,
- *       Remarks: "STRING_VALUE",
- *       AutoConfigEnabled: true || false,
- *       DiscoveryType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   ApplicationInfoList: [ // ApplicationInfoList
+ * //     { // ApplicationInfo
+ * //       ResourceGroupName: "STRING_VALUE",
+ * //       LifeCycle: "STRING_VALUE",
+ * //       OpsItemSNSTopicArn: "STRING_VALUE",
+ * //       OpsCenterEnabled: true || false,
+ * //       CWEMonitorEnabled: true || false,
+ * //       Remarks: "STRING_VALUE",
+ * //       AutoConfigEnabled: true || false,
+ * //       DiscoveryType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

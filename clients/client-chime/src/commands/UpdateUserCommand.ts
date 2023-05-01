@@ -56,27 +56,26 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserResponse
- *   User: { // User
- *     UserId: "STRING_VALUE", // required
- *     AccountId: "STRING_VALUE",
- *     PrimaryEmail: "STRING_VALUE",
- *     PrimaryProvisionedNumber: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
- *     UserType: "PrivateUser" || "SharedDevice",
- *     UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
- *     UserInvitationStatus: "Pending" || "Accepted" || "Failed",
- *     RegisteredOn: new Date("TIMESTAMP"),
- *     InvitedOn: new Date("TIMESTAMP"),
- *     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
- *       IsAlexaForBusinessEnabled: true || false,
- *       AlexaForBusinessRoomArn: "STRING_VALUE",
- *     },
- *     PersonalPIN: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateUserResponse
+ * //   User: { // User
+ * //     UserId: "STRING_VALUE", // required
+ * //     AccountId: "STRING_VALUE",
+ * //     PrimaryEmail: "STRING_VALUE",
+ * //     PrimaryProvisionedNumber: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //     UserType: "PrivateUser" || "SharedDevice",
+ * //     UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
+ * //     UserInvitationStatus: "Pending" || "Accepted" || "Failed",
+ * //     RegisteredOn: new Date("TIMESTAMP"),
+ * //     InvitedOn: new Date("TIMESTAMP"),
+ * //     AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ * //       IsAlexaForBusinessEnabled: true || false,
+ * //       AlexaForBusinessRoomArn: "STRING_VALUE",
+ * //     },
+ * //     PersonalPIN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

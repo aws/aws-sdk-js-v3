@@ -53,15 +53,14 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceResponse
- *   deviceArn: "STRING_VALUE", // required
- *   deviceName: "STRING_VALUE", // required
- *   providerName: "STRING_VALUE", // required
- *   deviceType: "STRING_VALUE", // required
- *   deviceStatus: "STRING_VALUE", // required
- *   deviceCapabilities: "STRING_VALUE", // required
- * };
+ * // { // GetDeviceResponse
+ * //   deviceArn: "STRING_VALUE", // required
+ * //   deviceName: "STRING_VALUE", // required
+ * //   providerName: "STRING_VALUE", // required
+ * //   deviceType: "STRING_VALUE", // required
+ * //   deviceStatus: "STRING_VALUE", // required
+ * //   deviceCapabilities: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

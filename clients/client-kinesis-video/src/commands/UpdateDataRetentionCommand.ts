@@ -72,8 +72,7 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * };
  * const command = new UpdateDataRetentionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

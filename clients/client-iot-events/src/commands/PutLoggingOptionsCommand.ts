@@ -58,8 +58,7 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

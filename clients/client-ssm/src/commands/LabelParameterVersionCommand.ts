@@ -84,13 +84,12 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * };
  * const command = new LabelParameterVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LabelParameterVersionResult
- *   InvalidLabels: [ // ParameterLabelList
- *     "STRING_VALUE",
- *   ],
- *   ParameterVersion: Number("long"),
- * };
+ * // { // LabelParameterVersionResult
+ * //   InvalidLabels: [ // ParameterLabelList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ParameterVersion: Number("long"),
+ * // };
  *
  * ```
  *

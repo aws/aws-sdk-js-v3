@@ -74,51 +74,50 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  * };
  * const command = new MergePullRequestByThreeWayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergePullRequestByThreeWayOutput
- *   pullRequest: { // PullRequest
- *     pullRequestId: "STRING_VALUE",
- *     title: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     lastActivityDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *     pullRequestStatus: "STRING_VALUE",
- *     authorArn: "STRING_VALUE",
- *     pullRequestTargets: [ // PullRequestTargetList
- *       { // PullRequestTarget
- *         repositoryName: "STRING_VALUE",
- *         sourceReference: "STRING_VALUE",
- *         destinationReference: "STRING_VALUE",
- *         destinationCommit: "STRING_VALUE",
- *         sourceCommit: "STRING_VALUE",
- *         mergeBase: "STRING_VALUE",
- *         mergeMetadata: { // MergeMetadata
- *           isMerged: true || false,
- *           mergedBy: "STRING_VALUE",
- *           mergeCommitId: "STRING_VALUE",
- *           mergeOption: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     clientRequestToken: "STRING_VALUE",
- *     revisionId: "STRING_VALUE",
- *     approvalRules: [ // ApprovalRulesList
- *       { // ApprovalRule
- *         approvalRuleId: "STRING_VALUE",
- *         approvalRuleName: "STRING_VALUE",
- *         approvalRuleContent: "STRING_VALUE",
- *         ruleContentSha256: "STRING_VALUE",
- *         lastModifiedDate: new Date("TIMESTAMP"),
- *         creationDate: new Date("TIMESTAMP"),
- *         lastModifiedUser: "STRING_VALUE",
- *         originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
- *           approvalRuleTemplateId: "STRING_VALUE",
- *           approvalRuleTemplateName: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // MergePullRequestByThreeWayOutput
+ * //   pullRequest: { // PullRequest
+ * //     pullRequestId: "STRING_VALUE",
+ * //     title: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     lastActivityDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     pullRequestStatus: "STRING_VALUE",
+ * //     authorArn: "STRING_VALUE",
+ * //     pullRequestTargets: [ // PullRequestTargetList
+ * //       { // PullRequestTarget
+ * //         repositoryName: "STRING_VALUE",
+ * //         sourceReference: "STRING_VALUE",
+ * //         destinationReference: "STRING_VALUE",
+ * //         destinationCommit: "STRING_VALUE",
+ * //         sourceCommit: "STRING_VALUE",
+ * //         mergeBase: "STRING_VALUE",
+ * //         mergeMetadata: { // MergeMetadata
+ * //           isMerged: true || false,
+ * //           mergedBy: "STRING_VALUE",
+ * //           mergeCommitId: "STRING_VALUE",
+ * //           mergeOption: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     revisionId: "STRING_VALUE",
+ * //     approvalRules: [ // ApprovalRulesList
+ * //       { // ApprovalRule
+ * //         approvalRuleId: "STRING_VALUE",
+ * //         approvalRuleName: "STRING_VALUE",
+ * //         approvalRuleContent: "STRING_VALUE",
+ * //         ruleContentSha256: "STRING_VALUE",
+ * //         lastModifiedDate: new Date("TIMESTAMP"),
+ * //         creationDate: new Date("TIMESTAMP"),
+ * //         lastModifiedUser: "STRING_VALUE",
+ * //         originApprovalRuleTemplate: { // OriginApprovalRuleTemplate
+ * //           approvalRuleTemplateId: "STRING_VALUE",
+ * //           approvalRuleTemplateName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

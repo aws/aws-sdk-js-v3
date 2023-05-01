@@ -55,18 +55,17 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  * };
  * const command = new UpdateSecurityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecurityPolicyResponse
- *   securityPolicyDetail: { // SecurityPolicyDetail
- *     type: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     policyVersion: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     policy: "DOCUMENT_VALUE",
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // UpdateSecurityPolicyResponse
+ * //   securityPolicyDetail: { // SecurityPolicyDetail
+ * //     type: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     policyVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     policy: "DOCUMENT_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

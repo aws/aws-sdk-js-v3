@@ -55,16 +55,15 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * };
  * const command = new ListThirdPartyFirewallFirewallPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThirdPartyFirewallFirewallPoliciesResponse
- *   ThirdPartyFirewallFirewallPolicies: [ // ThirdPartyFirewallFirewallPolicies
- *     { // ThirdPartyFirewallFirewallPolicy
- *       FirewallPolicyId: "STRING_VALUE",
- *       FirewallPolicyName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListThirdPartyFirewallFirewallPoliciesResponse
+ * //   ThirdPartyFirewallFirewallPolicies: [ // ThirdPartyFirewallFirewallPolicies
+ * //     { // ThirdPartyFirewallFirewallPolicy
+ * //       FirewallPolicyId: "STRING_VALUE",
+ * //       FirewallPolicyName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

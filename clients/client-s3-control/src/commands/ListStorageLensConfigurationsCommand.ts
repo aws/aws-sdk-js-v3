@@ -60,18 +60,17 @@ export interface ListStorageLensConfigurationsCommandOutput
  * };
  * const command = new ListStorageLensConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStorageLensConfigurationsResult
- *   NextToken: "STRING_VALUE",
- *   StorageLensConfigurationList: [ // StorageLensConfigurationList
- *     { // ListStorageLensConfigurationEntry
- *       Id: "STRING_VALUE", // required
- *       StorageLensArn: "STRING_VALUE", // required
- *       HomeRegion: "STRING_VALUE", // required
- *       IsEnabled: true || false,
- *     },
- *   ],
- * };
+ * // { // ListStorageLensConfigurationsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   StorageLensConfigurationList: [ // StorageLensConfigurationList
+ * //     { // ListStorageLensConfigurationEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       StorageLensArn: "STRING_VALUE", // required
+ * //       HomeRegion: "STRING_VALUE", // required
+ * //       IsEnabled: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

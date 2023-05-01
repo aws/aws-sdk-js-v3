@@ -51,10 +51,9 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * const input = {};
  * const command = new GetSMSSandboxAccountStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSMSSandboxAccountStatusResult
- *   IsInSandbox: true || false, // required
- * };
+ * // { // GetSMSSandboxAccountStatusResult
+ * //   IsInSandbox: true || false, // required
+ * // };
  *
  * ```
  *

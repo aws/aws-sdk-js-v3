@@ -48,21 +48,20 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
  * };
  * const command = new GetSipMediaApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSipMediaApplicationResponse
- *   SipMediaApplication: { // SipMediaApplication
- *     SipMediaApplicationId: "STRING_VALUE",
- *     AwsRegion: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Endpoints: [ // SipMediaApplicationEndpointList
- *       { // SipMediaApplicationEndpoint
- *         LambdaArn: "STRING_VALUE",
- *       },
- *     ],
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetSipMediaApplicationResponse
+ * //   SipMediaApplication: { // SipMediaApplication
+ * //     SipMediaApplicationId: "STRING_VALUE",
+ * //     AwsRegion: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Endpoints: [ // SipMediaApplicationEndpointList
+ * //       { // SipMediaApplicationEndpoint
+ * //         LambdaArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

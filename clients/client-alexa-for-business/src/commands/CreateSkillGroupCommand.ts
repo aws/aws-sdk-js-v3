@@ -52,10 +52,9 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * };
  * const command = new CreateSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSkillGroupResponse
- *   SkillGroupArn: "STRING_VALUE",
- * };
+ * // { // CreateSkillGroupResponse
+ * //   SkillGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

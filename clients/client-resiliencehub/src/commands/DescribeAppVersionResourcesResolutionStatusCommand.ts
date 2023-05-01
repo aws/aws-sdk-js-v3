@@ -57,14 +57,13 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * };
  * const command = new DescribeAppVersionResourcesResolutionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppVersionResourcesResolutionStatusResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   resolutionId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   errorMessage: "STRING_VALUE",
- * };
+ * // { // DescribeAppVersionResourcesResolutionStatusResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   resolutionId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   errorMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

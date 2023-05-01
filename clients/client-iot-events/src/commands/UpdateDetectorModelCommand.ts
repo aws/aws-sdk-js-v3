@@ -422,21 +422,20 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  * };
  * const command = new UpdateDetectorModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDetectorModelResponse
- *   detectorModelConfiguration: { // DetectorModelConfiguration
- *     detectorModelName: "STRING_VALUE",
- *     detectorModelVersion: "STRING_VALUE",
- *     detectorModelDescription: "STRING_VALUE",
- *     detectorModelArn: "STRING_VALUE",
- *     roleArn: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *     status: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *     evaluationMethod: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateDetectorModelResponse
+ * //   detectorModelConfiguration: { // DetectorModelConfiguration
+ * //     detectorModelName: "STRING_VALUE",
+ * //     detectorModelVersion: "STRING_VALUE",
+ * //     detectorModelDescription: "STRING_VALUE",
+ * //     detectorModelArn: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     status: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     evaluationMethod: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

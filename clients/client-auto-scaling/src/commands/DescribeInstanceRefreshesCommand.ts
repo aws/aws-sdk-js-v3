@@ -58,159 +58,158 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * };
  * const command = new DescribeInstanceRefreshesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceRefreshesAnswer
- *   InstanceRefreshes: [ // InstanceRefreshes
- *     { // InstanceRefresh
- *       InstanceRefreshId: "STRING_VALUE",
- *       AutoScalingGroupName: "STRING_VALUE",
- *       Status: "Pending" || "InProgress" || "Successful" || "Failed" || "Cancelling" || "Cancelled" || "RollbackInProgress" || "RollbackFailed" || "RollbackSuccessful",
- *       StatusReason: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       PercentageComplete: Number("int"),
- *       InstancesToUpdate: Number("int"),
- *       ProgressDetails: { // InstanceRefreshProgressDetails
- *         LivePoolProgress: { // InstanceRefreshLivePoolProgress
- *           PercentageComplete: Number("int"),
- *           InstancesToUpdate: Number("int"),
- *         },
- *         WarmPoolProgress: { // InstanceRefreshWarmPoolProgress
- *           PercentageComplete: Number("int"),
- *           InstancesToUpdate: Number("int"),
- *         },
- *       },
- *       Preferences: { // RefreshPreferences
- *         MinHealthyPercentage: Number("int"),
- *         InstanceWarmup: Number("int"),
- *         CheckpointPercentages: [ // CheckpointPercentages
- *           Number("int"),
- *         ],
- *         CheckpointDelay: Number("int"),
- *         SkipMatching: true || false,
- *         AutoRollback: true || false,
- *         ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
- *         StandbyInstances: "Terminate" || "Ignore" || "Wait",
- *       },
- *       DesiredConfiguration: { // DesiredConfiguration
- *         LaunchTemplate: { // LaunchTemplateSpecification
- *           LaunchTemplateId: "STRING_VALUE",
- *           LaunchTemplateName: "STRING_VALUE",
- *           Version: "STRING_VALUE",
- *         },
- *         MixedInstancesPolicy: { // MixedInstancesPolicy
- *           LaunchTemplate: { // LaunchTemplate
- *             LaunchTemplateSpecification: {
- *               LaunchTemplateId: "STRING_VALUE",
- *               LaunchTemplateName: "STRING_VALUE",
- *               Version: "STRING_VALUE",
- *             },
- *             Overrides: [ // Overrides
- *               { // LaunchTemplateOverrides
- *                 InstanceType: "STRING_VALUE",
- *                 WeightedCapacity: "STRING_VALUE",
- *                 LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
- *                 InstanceRequirements: { // InstanceRequirements
- *                   VCpuCount: { // VCpuCountRequest
- *                     Min: Number("int"), // required
- *                     Max: Number("int"),
- *                   },
- *                   MemoryMiB: { // MemoryMiBRequest
- *                     Min: Number("int"), // required
- *                     Max: Number("int"),
- *                   },
- *                   CpuManufacturers: [ // CpuManufacturers
- *                     "intel" || "amd" || "amazon-web-services",
- *                   ],
- *                   MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
- *                     Min: Number("double"),
- *                     Max: Number("double"),
- *                   },
- *                   ExcludedInstanceTypes: [ // ExcludedInstanceTypes
- *                     "STRING_VALUE",
- *                   ],
- *                   InstanceGenerations: [ // InstanceGenerations
- *                     "current" || "previous",
- *                   ],
- *                   SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *                   OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
- *                   BareMetal: "included" || "excluded" || "required",
- *                   BurstablePerformance: "included" || "excluded" || "required",
- *                   RequireHibernateSupport: true || false,
- *                   NetworkInterfaceCount: { // NetworkInterfaceCountRequest
- *                     Min: Number("int"),
- *                     Max: Number("int"),
- *                   },
- *                   LocalStorage: "included" || "excluded" || "required",
- *                   LocalStorageTypes: [ // LocalStorageTypes
- *                     "hdd" || "ssd",
- *                   ],
- *                   TotalLocalStorageGB: { // TotalLocalStorageGBRequest
- *                     Min: Number("double"),
- *                     Max: Number("double"),
- *                   },
- *                   BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
- *                     Min: Number("int"),
- *                     Max: Number("int"),
- *                   },
- *                   AcceleratorTypes: [ // AcceleratorTypes
- *                     "gpu" || "fpga" || "inference",
- *                   ],
- *                   AcceleratorCount: { // AcceleratorCountRequest
- *                     Min: Number("int"),
- *                     Max: Number("int"),
- *                   },
- *                   AcceleratorManufacturers: [ // AcceleratorManufacturers
- *                     "nvidia" || "amd" || "amazon-web-services" || "xilinx",
- *                   ],
- *                   AcceleratorNames: [ // AcceleratorNames
- *                     "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
- *                   ],
- *                   AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
- *                     Min: Number("int"),
- *                     Max: Number("int"),
- *                   },
- *                   NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
- *                     Min: Number("double"),
- *                     Max: Number("double"),
- *                   },
- *                   AllowedInstanceTypes: [ // AllowedInstanceTypes
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *               },
- *             ],
- *           },
- *           InstancesDistribution: { // InstancesDistribution
- *             OnDemandAllocationStrategy: "STRING_VALUE",
- *             OnDemandBaseCapacity: Number("int"),
- *             OnDemandPercentageAboveBaseCapacity: Number("int"),
- *             SpotAllocationStrategy: "STRING_VALUE",
- *             SpotInstancePools: Number("int"),
- *             SpotMaxPrice: "STRING_VALUE",
- *           },
- *         },
- *       },
- *       RollbackDetails: { // RollbackDetails
- *         RollbackReason: "STRING_VALUE",
- *         RollbackStartTime: new Date("TIMESTAMP"),
- *         PercentageCompleteOnRollback: Number("int"),
- *         InstancesToUpdateOnRollback: Number("int"),
- *         ProgressDetailsOnRollback: {
- *           LivePoolProgress: {
- *             PercentageComplete: Number("int"),
- *             InstancesToUpdate: Number("int"),
- *           },
- *           WarmPoolProgress: {
- *             PercentageComplete: Number("int"),
- *             InstancesToUpdate: Number("int"),
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInstanceRefreshesAnswer
+ * //   InstanceRefreshes: [ // InstanceRefreshes
+ * //     { // InstanceRefresh
+ * //       InstanceRefreshId: "STRING_VALUE",
+ * //       AutoScalingGroupName: "STRING_VALUE",
+ * //       Status: "Pending" || "InProgress" || "Successful" || "Failed" || "Cancelling" || "Cancelled" || "RollbackInProgress" || "RollbackFailed" || "RollbackSuccessful",
+ * //       StatusReason: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       PercentageComplete: Number("int"),
+ * //       InstancesToUpdate: Number("int"),
+ * //       ProgressDetails: { // InstanceRefreshProgressDetails
+ * //         LivePoolProgress: { // InstanceRefreshLivePoolProgress
+ * //           PercentageComplete: Number("int"),
+ * //           InstancesToUpdate: Number("int"),
+ * //         },
+ * //         WarmPoolProgress: { // InstanceRefreshWarmPoolProgress
+ * //           PercentageComplete: Number("int"),
+ * //           InstancesToUpdate: Number("int"),
+ * //         },
+ * //       },
+ * //       Preferences: { // RefreshPreferences
+ * //         MinHealthyPercentage: Number("int"),
+ * //         InstanceWarmup: Number("int"),
+ * //         CheckpointPercentages: [ // CheckpointPercentages
+ * //           Number("int"),
+ * //         ],
+ * //         CheckpointDelay: Number("int"),
+ * //         SkipMatching: true || false,
+ * //         AutoRollback: true || false,
+ * //         ScaleInProtectedInstances: "Refresh" || "Ignore" || "Wait",
+ * //         StandbyInstances: "Terminate" || "Ignore" || "Wait",
+ * //       },
+ * //       DesiredConfiguration: { // DesiredConfiguration
+ * //         LaunchTemplate: { // LaunchTemplateSpecification
+ * //           LaunchTemplateId: "STRING_VALUE",
+ * //           LaunchTemplateName: "STRING_VALUE",
+ * //           Version: "STRING_VALUE",
+ * //         },
+ * //         MixedInstancesPolicy: { // MixedInstancesPolicy
+ * //           LaunchTemplate: { // LaunchTemplate
+ * //             LaunchTemplateSpecification: {
+ * //               LaunchTemplateId: "STRING_VALUE",
+ * //               LaunchTemplateName: "STRING_VALUE",
+ * //               Version: "STRING_VALUE",
+ * //             },
+ * //             Overrides: [ // Overrides
+ * //               { // LaunchTemplateOverrides
+ * //                 InstanceType: "STRING_VALUE",
+ * //                 WeightedCapacity: "STRING_VALUE",
+ * //                 LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ * //                 InstanceRequirements: { // InstanceRequirements
+ * //                   VCpuCount: { // VCpuCountRequest
+ * //                     Min: Number("int"), // required
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   MemoryMiB: { // MemoryMiBRequest
+ * //                     Min: Number("int"), // required
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   CpuManufacturers: [ // CpuManufacturers
+ * //                     "intel" || "amd" || "amazon-web-services",
+ * //                   ],
+ * //                   MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ * //                     Min: Number("double"),
+ * //                     Max: Number("double"),
+ * //                   },
+ * //                   ExcludedInstanceTypes: [ // ExcludedInstanceTypes
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   InstanceGenerations: [ // InstanceGenerations
+ * //                     "current" || "previous",
+ * //                   ],
+ * //                   SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ * //                   OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ * //                   BareMetal: "included" || "excluded" || "required",
+ * //                   BurstablePerformance: "included" || "excluded" || "required",
+ * //                   RequireHibernateSupport: true || false,
+ * //                   NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ * //                     Min: Number("int"),
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   LocalStorage: "included" || "excluded" || "required",
+ * //                   LocalStorageTypes: [ // LocalStorageTypes
+ * //                     "hdd" || "ssd",
+ * //                   ],
+ * //                   TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ * //                     Min: Number("double"),
+ * //                     Max: Number("double"),
+ * //                   },
+ * //                   BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ * //                     Min: Number("int"),
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   AcceleratorTypes: [ // AcceleratorTypes
+ * //                     "gpu" || "fpga" || "inference",
+ * //                   ],
+ * //                   AcceleratorCount: { // AcceleratorCountRequest
+ * //                     Min: Number("int"),
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   AcceleratorManufacturers: [ // AcceleratorManufacturers
+ * //                     "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ * //                   ],
+ * //                   AcceleratorNames: [ // AcceleratorNames
+ * //                     "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ * //                   ],
+ * //                   AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ * //                     Min: Number("int"),
+ * //                     Max: Number("int"),
+ * //                   },
+ * //                   NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ * //                     Min: Number("double"),
+ * //                     Max: Number("double"),
+ * //                   },
+ * //                   AllowedInstanceTypes: [ // AllowedInstanceTypes
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           InstancesDistribution: { // InstancesDistribution
+ * //             OnDemandAllocationStrategy: "STRING_VALUE",
+ * //             OnDemandBaseCapacity: Number("int"),
+ * //             OnDemandPercentageAboveBaseCapacity: Number("int"),
+ * //             SpotAllocationStrategy: "STRING_VALUE",
+ * //             SpotInstancePools: Number("int"),
+ * //             SpotMaxPrice: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       RollbackDetails: { // RollbackDetails
+ * //         RollbackReason: "STRING_VALUE",
+ * //         RollbackStartTime: new Date("TIMESTAMP"),
+ * //         PercentageCompleteOnRollback: Number("int"),
+ * //         InstancesToUpdateOnRollback: Number("int"),
+ * //         ProgressDetailsOnRollback: {
+ * //           LivePoolProgress: {
+ * //             PercentageComplete: Number("int"),
+ * //             InstancesToUpdate: Number("int"),
+ * //           },
+ * //           WarmPoolProgress: {
+ * //             PercentageComplete: Number("int"),
+ * //             InstancesToUpdate: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

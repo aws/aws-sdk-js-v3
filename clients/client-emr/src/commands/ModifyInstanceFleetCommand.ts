@@ -63,8 +63,7 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyInstanceFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

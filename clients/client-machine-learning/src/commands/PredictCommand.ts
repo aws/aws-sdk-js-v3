@@ -52,19 +52,18 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * };
  * const command = new PredictCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PredictOutput
- *   Prediction: { // Prediction
- *     predictedLabel: "STRING_VALUE",
- *     predictedValue: Number("float"),
- *     predictedScores: { // ScoreValuePerLabelMap
- *       "<keys>": Number("float"),
- *     },
- *     details: { // DetailsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // PredictOutput
+ * //   Prediction: { // Prediction
+ * //     predictedLabel: "STRING_VALUE",
+ * //     predictedValue: Number("float"),
+ * //     predictedScores: { // ScoreValuePerLabelMap
+ * //       "<keys>": Number("float"),
+ * //     },
+ * //     details: { // DetailsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,15 +47,14 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * };
  * const command = new DescribeIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IdentityDescription
- *   IdentityId: "STRING_VALUE",
- *   Logins: [ // LoginsList
- *     "STRING_VALUE",
- *   ],
- *   CreationDate: new Date("TIMESTAMP"),
- *   LastModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // IdentityDescription
+ * //   IdentityId: "STRING_VALUE",
+ * //   Logins: [ // LoginsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

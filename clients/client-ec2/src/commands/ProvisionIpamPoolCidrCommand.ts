@@ -54,19 +54,18 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  * };
  * const command = new ProvisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionIpamPoolCidrResult
- *   IpamPoolCidr: { // IpamPoolCidr
- *     Cidr: "STRING_VALUE",
- *     State: "pending-provision" || "provisioned" || "failed-provision" || "pending-deprovision" || "deprovisioned" || "failed-deprovision" || "pending-import" || "failed-import",
- *     FailureReason: { // IpamPoolCidrFailureReason
- *       Code: "cidr-not-available" || "limit-exceeded",
- *       Message: "STRING_VALUE",
- *     },
- *     IpamPoolCidrId: "STRING_VALUE",
- *     NetmaskLength: Number("int"),
- *   },
- * };
+ * // { // ProvisionIpamPoolCidrResult
+ * //   IpamPoolCidr: { // IpamPoolCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     State: "pending-provision" || "provisioned" || "failed-provision" || "pending-deprovision" || "deprovisioned" || "failed-deprovision" || "pending-import" || "failed-import",
+ * //     FailureReason: { // IpamPoolCidrFailureReason
+ * //       Code: "cidr-not-available" || "limit-exceeded",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     IpamPoolCidrId: "STRING_VALUE",
+ * //     NetmaskLength: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

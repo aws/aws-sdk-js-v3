@@ -44,18 +44,17 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  * };
  * const command = new DescribeDiscovererCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDiscovererResponse
- *   Description: "STRING_VALUE",
- *   DiscovererArn: "STRING_VALUE",
- *   DiscovererId: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   CrossAccount: true || false,
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeDiscovererResponse
+ * //   Description: "STRING_VALUE",
+ * //   DiscovererArn: "STRING_VALUE",
+ * //   DiscovererId: "STRING_VALUE",
+ * //   SourceArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CrossAccount: true || false,
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

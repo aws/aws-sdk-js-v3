@@ -71,10 +71,9 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * };
  * const command = new UpdateUserPoolDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserPoolDomainResponse
- *   CloudFrontDomain: "STRING_VALUE",
- * };
+ * // { // UpdateUserPoolDomainResponse
+ * //   CloudFrontDomain: "STRING_VALUE",
+ * // };
  *
  * ```
  *

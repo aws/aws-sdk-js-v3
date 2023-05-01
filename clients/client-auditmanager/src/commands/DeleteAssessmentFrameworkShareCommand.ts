@@ -50,8 +50,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
  * };
  * const command = new DeleteAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

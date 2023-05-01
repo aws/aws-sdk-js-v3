@@ -51,10 +51,9 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * };
  * const command = new CreateScheduleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScheduleGroupOutput
- *   ScheduleGroupArn: "STRING_VALUE", // required
- * };
+ * // { // CreateScheduleGroupOutput
+ * //   ScheduleGroupArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

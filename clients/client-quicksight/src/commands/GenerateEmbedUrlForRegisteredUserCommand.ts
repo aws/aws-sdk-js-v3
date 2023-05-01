@@ -106,12 +106,11 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * };
  * const command = new GenerateEmbedUrlForRegisteredUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateEmbedUrlForRegisteredUserResponse
- *   EmbedUrl: "STRING_VALUE", // required
- *   Status: Number("int"), // required
- *   RequestId: "STRING_VALUE", // required
- * };
+ * // { // GenerateEmbedUrlForRegisteredUserResponse
+ * //   EmbedUrl: "STRING_VALUE", // required
+ * //   Status: Number("int"), // required
+ * //   RequestId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

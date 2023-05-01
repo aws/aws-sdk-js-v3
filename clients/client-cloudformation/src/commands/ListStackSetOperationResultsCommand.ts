@@ -56,23 +56,22 @@ export interface ListStackSetOperationResultsCommandOutput
  * };
  * const command = new ListStackSetOperationResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStackSetOperationResultsOutput
- *   Summaries: [ // StackSetOperationResultSummaries
- *     { // StackSetOperationResultSummary
- *       Account: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       Status: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED",
- *       StatusReason: "STRING_VALUE",
- *       AccountGateResult: { // AccountGateResult
- *         Status: "SUCCEEDED" || "FAILED" || "SKIPPED",
- *         StatusReason: "STRING_VALUE",
- *       },
- *       OrganizationalUnitId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStackSetOperationResultsOutput
+ * //   Summaries: [ // StackSetOperationResultSummaries
+ * //     { // StackSetOperationResultSummary
+ * //       Account: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       Status: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED",
+ * //       StatusReason: "STRING_VALUE",
+ * //       AccountGateResult: { // AccountGateResult
+ * //         Status: "SUCCEEDED" || "FAILED" || "SKIPPED",
+ * //         StatusReason: "STRING_VALUE",
+ * //       },
+ * //       OrganizationalUnitId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

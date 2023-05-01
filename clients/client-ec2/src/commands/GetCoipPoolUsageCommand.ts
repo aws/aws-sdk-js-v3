@@ -55,19 +55,18 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  * };
  * const command = new GetCoipPoolUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoipPoolUsageResult
- *   CoipPoolId: "STRING_VALUE",
- *   CoipAddressUsages: [ // CoipAddressUsageSet
- *     { // CoipAddressUsage
- *       AllocationId: "STRING_VALUE",
- *       AwsAccountId: "STRING_VALUE",
- *       AwsService: "STRING_VALUE",
- *       CoIp: "STRING_VALUE",
- *     },
- *   ],
- *   LocalGatewayRouteTableId: "STRING_VALUE",
- * };
+ * // { // GetCoipPoolUsageResult
+ * //   CoipPoolId: "STRING_VALUE",
+ * //   CoipAddressUsages: [ // CoipAddressUsageSet
+ * //     { // CoipAddressUsage
+ * //       AllocationId: "STRING_VALUE",
+ * //       AwsAccountId: "STRING_VALUE",
+ * //       AwsService: "STRING_VALUE",
+ * //       CoIp: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LocalGatewayRouteTableId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

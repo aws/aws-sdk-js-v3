@@ -49,16 +49,15 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * };
  * const command = new ListEnvironmentOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentOutputsOutput
- *   nextToken: "STRING_VALUE",
- *   outputs: [ // OutputsList // required
- *     { // Output
- *       key: "STRING_VALUE",
- *       valueString: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListEnvironmentOutputsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   outputs: [ // OutputsList // required
+ * //     { // Output
+ * //       key: "STRING_VALUE",
+ * //       valueString: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

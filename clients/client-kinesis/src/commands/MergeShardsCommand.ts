@@ -87,8 +87,7 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new MergeShardsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

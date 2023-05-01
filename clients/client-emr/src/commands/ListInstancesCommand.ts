@@ -56,42 +56,41 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstancesOutput
- *   Instances: [ // InstanceList
- *     { // Instance
- *       Id: "STRING_VALUE",
- *       Ec2InstanceId: "STRING_VALUE",
- *       PublicDnsName: "STRING_VALUE",
- *       PublicIpAddress: "STRING_VALUE",
- *       PrivateDnsName: "STRING_VALUE",
- *       PrivateIpAddress: "STRING_VALUE",
- *       Status: { // InstanceStatus
- *         State: "AWAITING_FULFILLMENT" || "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "TERMINATED",
- *         StateChangeReason: { // InstanceStateChangeReason
- *           Code: "INTERNAL_ERROR" || "VALIDATION_ERROR" || "INSTANCE_FAILURE" || "BOOTSTRAP_FAILURE" || "CLUSTER_TERMINATED",
- *           Message: "STRING_VALUE",
- *         },
- *         Timeline: { // InstanceTimeline
- *           CreationDateTime: new Date("TIMESTAMP"),
- *           ReadyDateTime: new Date("TIMESTAMP"),
- *           EndDateTime: new Date("TIMESTAMP"),
- *         },
- *       },
- *       InstanceGroupId: "STRING_VALUE",
- *       InstanceFleetId: "STRING_VALUE",
- *       Market: "ON_DEMAND" || "SPOT",
- *       InstanceType: "STRING_VALUE",
- *       EbsVolumes: [ // EbsVolumeList
- *         { // EbsVolume
- *           Device: "STRING_VALUE",
- *           VolumeId: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListInstancesOutput
+ * //   Instances: [ // InstanceList
+ * //     { // Instance
+ * //       Id: "STRING_VALUE",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       PublicDnsName: "STRING_VALUE",
+ * //       PublicIpAddress: "STRING_VALUE",
+ * //       PrivateDnsName: "STRING_VALUE",
+ * //       PrivateIpAddress: "STRING_VALUE",
+ * //       Status: { // InstanceStatus
+ * //         State: "AWAITING_FULFILLMENT" || "PROVISIONING" || "BOOTSTRAPPING" || "RUNNING" || "TERMINATED",
+ * //         StateChangeReason: { // InstanceStateChangeReason
+ * //           Code: "INTERNAL_ERROR" || "VALIDATION_ERROR" || "INSTANCE_FAILURE" || "BOOTSTRAP_FAILURE" || "CLUSTER_TERMINATED",
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //         Timeline: { // InstanceTimeline
+ * //           CreationDateTime: new Date("TIMESTAMP"),
+ * //           ReadyDateTime: new Date("TIMESTAMP"),
+ * //           EndDateTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //       InstanceGroupId: "STRING_VALUE",
+ * //       InstanceFleetId: "STRING_VALUE",
+ * //       Market: "ON_DEMAND" || "SPOT",
+ * //       InstanceType: "STRING_VALUE",
+ * //       EbsVolumes: [ // EbsVolumeList
+ * //         { // EbsVolume
+ * //           Device: "STRING_VALUE",
+ * //           VolumeId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,11 +45,10 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * };
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopDeploymentOutput
- *   status: "Pending" || "Succeeded",
- *   statusMessage: "STRING_VALUE",
- * };
+ * // { // StopDeploymentOutput
+ * //   status: "Pending" || "Succeeded",
+ * //   statusMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

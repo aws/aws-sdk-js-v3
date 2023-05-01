@@ -47,8 +47,7 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * };
  * const command = new DeleteSystemTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

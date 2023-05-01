@@ -58,17 +58,16 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * };
  * const command = new UpdateContinuousBackupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateContinuousBackupsOutput
- *   ContinuousBackupsDescription: { // ContinuousBackupsDescription
- *     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
- *     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
- *       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
- *       EarliestRestorableDateTime: new Date("TIMESTAMP"),
- *       LatestRestorableDateTime: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // UpdateContinuousBackupsOutput
+ * //   ContinuousBackupsDescription: { // ContinuousBackupsDescription
+ * //     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
+ * //     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
+ * //       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
+ * //       EarliestRestorableDateTime: new Date("TIMESTAMP"),
+ * //       LatestRestorableDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

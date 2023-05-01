@@ -47,27 +47,26 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectorsResponse
- *   connectors: [ // ConnectorList
- *     { // ConnectorDetail
- *       connectorDescription: "STRING_VALUE",
- *       connectorName: "STRING_VALUE",
- *       connectorOwner: "STRING_VALUE",
- *       connectorVersion: "STRING_VALUE",
- *       applicationType: "STRING_VALUE",
- *       connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
- *       connectorLabel: "STRING_VALUE",
- *       registeredAt: new Date("TIMESTAMP"),
- *       registeredBy: "STRING_VALUE",
- *       connectorProvisioningType: "LAMBDA",
- *       connectorModes: [ // ConnectorModeList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectorsResponse
+ * //   connectors: [ // ConnectorList
+ * //     { // ConnectorDetail
+ * //       connectorDescription: "STRING_VALUE",
+ * //       connectorName: "STRING_VALUE",
+ * //       connectorOwner: "STRING_VALUE",
+ * //       connectorVersion: "STRING_VALUE",
+ * //       applicationType: "STRING_VALUE",
+ * //       connectorType: "Salesforce" || "Singular" || "Slack" || "Redshift" || "S3" || "Marketo" || "Googleanalytics" || "Zendesk" || "Servicenow" || "Datadog" || "Trendmicro" || "Snowflake" || "Dynatrace" || "Infornexus" || "Amplitude" || "Veeva" || "EventBridge" || "LookoutMetrics" || "Upsolver" || "Honeycode" || "CustomerProfiles" || "SAPOData" || "CustomConnector" || "Pardot",
+ * //       connectorLabel: "STRING_VALUE",
+ * //       registeredAt: new Date("TIMESTAMP"),
+ * //       registeredBy: "STRING_VALUE",
+ * //       connectorProvisioningType: "LAMBDA",
+ * //       connectorModes: [ // ConnectorModeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

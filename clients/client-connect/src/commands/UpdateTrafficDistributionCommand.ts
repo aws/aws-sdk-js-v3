@@ -55,8 +55,7 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * };
  * const command = new UpdateTrafficDistributionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

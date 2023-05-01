@@ -67,8 +67,7 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  * };
  * const command = new AssociatePrincipalWithPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

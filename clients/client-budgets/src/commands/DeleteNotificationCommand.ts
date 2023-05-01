@@ -55,8 +55,7 @@ export interface DeleteNotificationCommandOutput extends DeleteNotificationRespo
  * };
  * const command = new DeleteNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

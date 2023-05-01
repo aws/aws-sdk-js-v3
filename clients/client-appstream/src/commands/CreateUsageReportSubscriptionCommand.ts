@@ -47,11 +47,10 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * const input = {};
  * const command = new CreateUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUsageReportSubscriptionResult
- *   S3BucketName: "STRING_VALUE",
- *   Schedule: "DAILY",
- * };
+ * // { // CreateUsageReportSubscriptionResult
+ * //   S3BucketName: "STRING_VALUE",
+ * //   Schedule: "DAILY",
+ * // };
  *
  * ```
  *

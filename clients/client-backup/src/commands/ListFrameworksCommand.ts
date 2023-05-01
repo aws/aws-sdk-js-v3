@@ -45,20 +45,19 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * };
  * const command = new ListFrameworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFrameworksOutput
- *   Frameworks: [ // FrameworkList
- *     { // Framework
- *       FrameworkName: "STRING_VALUE",
- *       FrameworkArn: "STRING_VALUE",
- *       FrameworkDescription: "STRING_VALUE",
- *       NumberOfControls: Number("int"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       DeploymentStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFrameworksOutput
+ * //   Frameworks: [ // FrameworkList
+ * //     { // Framework
+ * //       FrameworkName: "STRING_VALUE",
+ * //       FrameworkArn: "STRING_VALUE",
+ * //       FrameworkDescription: "STRING_VALUE",
+ * //       NumberOfControls: Number("int"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       DeploymentStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

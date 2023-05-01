@@ -44,19 +44,18 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * };
  * const command = new DescribeWorkspaceSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspaceSnapshotsResult
- *   RebuildSnapshots: [ // SnapshotList
- *     { // Snapshot
- *       SnapshotTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   RestoreSnapshots: [
- *     {
- *       SnapshotTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeWorkspaceSnapshotsResult
+ * //   RebuildSnapshots: [ // SnapshotList
+ * //     { // Snapshot
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   RestoreSnapshots: [
+ * //     {
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,20 +50,19 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * };
  * const command = new DescribeResourceServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourceServerResponse
- *   ResourceServer: { // ResourceServerType
- *     UserPoolId: "STRING_VALUE",
- *     Identifier: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Scopes: [ // ResourceServerScopeListType
- *       { // ResourceServerScopeType
- *         ScopeName: "STRING_VALUE", // required
- *         ScopeDescription: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeResourceServerResponse
+ * //   ResourceServer: { // ResourceServerType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Scopes: [ // ResourceServerScopeListType
+ * //       { // ResourceServerScopeType
+ * //         ScopeName: "STRING_VALUE", // required
+ * //         ScopeDescription: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

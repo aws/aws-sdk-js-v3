@@ -48,8 +48,7 @@ export interface AssociateDelegateToResourceCommandOutput
  * };
  * const command = new AssociateDelegateToResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

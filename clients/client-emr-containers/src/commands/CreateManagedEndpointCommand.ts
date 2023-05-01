@@ -88,13 +88,12 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * };
  * const command = new CreateManagedEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateManagedEndpointResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   virtualClusterId: "STRING_VALUE",
- * };
+ * // { // CreateManagedEndpointResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

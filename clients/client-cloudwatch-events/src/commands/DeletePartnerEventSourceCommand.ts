@@ -49,8 +49,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeletePartnerEventSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

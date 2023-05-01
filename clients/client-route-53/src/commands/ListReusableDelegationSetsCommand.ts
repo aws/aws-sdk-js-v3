@@ -46,22 +46,21 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * };
  * const command = new ListReusableDelegationSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReusableDelegationSetsResponse
- *   DelegationSets: [ // DelegationSets // required
- *     { // DelegationSet
- *       Id: "STRING_VALUE",
- *       CallerReference: "STRING_VALUE",
- *       NameServers: [ // DelegationSetNameServers // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE", // required
- *   IsTruncated: true || false, // required
- *   NextMarker: "STRING_VALUE",
- *   MaxItems: Number("int"), // required
- * };
+ * // { // ListReusableDelegationSetsResponse
+ * //   DelegationSets: [ // DelegationSets // required
+ * //     { // DelegationSet
+ * //       Id: "STRING_VALUE",
+ * //       CallerReference: "STRING_VALUE",
+ * //       NameServers: [ // DelegationSetNameServers // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE", // required
+ * //   IsTruncated: true || false, // required
+ * //   NextMarker: "STRING_VALUE",
+ * //   MaxItems: Number("int"), // required
+ * // };
  *
  * ```
  *

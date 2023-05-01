@@ -47,12 +47,11 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * };
  * const command = new GetDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDashboardOutput
- *   DashboardArn: "STRING_VALUE",
- *   DashboardBody: "STRING_VALUE",
- *   DashboardName: "STRING_VALUE",
- * };
+ * // { // GetDashboardOutput
+ * //   DashboardArn: "STRING_VALUE",
+ * //   DashboardBody: "STRING_VALUE",
+ * //   DashboardName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

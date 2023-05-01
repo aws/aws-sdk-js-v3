@@ -58,14 +58,13 @@ export interface PutImageScanningConfigurationCommandOutput
  * };
  * const command = new PutImageScanningConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutImageScanningConfigurationResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   imageScanningConfiguration: { // ImageScanningConfiguration
- *     scanOnPush: true || false,
- *   },
- * };
+ * // { // PutImageScanningConfigurationResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   imageScanningConfiguration: { // ImageScanningConfiguration
+ * //     scanOnPush: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

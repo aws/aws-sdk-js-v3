@@ -44,8 +44,7 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
  * };
  * const command = new DeleteGraphqlApiCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

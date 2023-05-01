@@ -48,16 +48,15 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * };
  * const command = new ListLocationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLocationsOutput
- *   Locations: [ // LocationModelList
- *     { // LocationModel
- *       LocationName: "STRING_VALUE",
- *       LocationArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLocationsOutput
+ * //   Locations: [ // LocationModelList
+ * //     { // LocationModel
+ * //       LocationName: "STRING_VALUE",
+ * //       LocationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

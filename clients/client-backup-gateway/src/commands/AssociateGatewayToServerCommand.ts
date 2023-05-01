@@ -46,10 +46,9 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * };
  * const command = new AssociateGatewayToServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateGatewayToServerOutput
- *   GatewayArn: "STRING_VALUE",
- * };
+ * // { // AssociateGatewayToServerOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

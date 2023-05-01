@@ -81,14 +81,13 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * };
  * const command = new GetUserAttributeVerificationCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserAttributeVerificationCodeResponse
- *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
- *     Destination: "STRING_VALUE",
- *     DeliveryMedium: "SMS" || "EMAIL",
- *     AttributeName: "STRING_VALUE",
- *   },
- * };
+ * // { // GetUserAttributeVerificationCodeResponse
+ * //   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ * //     Destination: "STRING_VALUE",
+ * //     DeliveryMedium: "SMS" || "EMAIL",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

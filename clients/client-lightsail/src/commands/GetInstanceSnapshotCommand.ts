@@ -44,73 +44,72 @@ export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotRes
  * };
  * const command = new GetInstanceSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceSnapshotResult
- *   instanceSnapshot: { // InstanceSnapshot
- *     name: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     supportCode: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     location: { // ResourceLocation
- *       availabilityZone: "STRING_VALUE",
- *       regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
- *     },
- *     resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
- *     tags: [ // TagList
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     state: "pending" || "error" || "available",
- *     progress: "STRING_VALUE",
- *     fromAttachedDisks: [ // DiskList
- *       { // Disk
- *         name: "STRING_VALUE",
- *         arn: "STRING_VALUE",
- *         supportCode: "STRING_VALUE",
- *         createdAt: new Date("TIMESTAMP"),
- *         location: {
- *           availabilityZone: "STRING_VALUE",
- *           regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
- *         },
- *         resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
- *         tags: [
- *           {
- *             key: "STRING_VALUE",
- *             value: "STRING_VALUE",
- *           },
- *         ],
- *         addOns: [ // AddOnList
- *           { // AddOn
- *             name: "STRING_VALUE",
- *             status: "STRING_VALUE",
- *             snapshotTimeOfDay: "STRING_VALUE",
- *             nextSnapshotTimeOfDay: "STRING_VALUE",
- *             threshold: "STRING_VALUE",
- *             duration: "STRING_VALUE",
- *           },
- *         ],
- *         sizeInGb: Number("int"),
- *         isSystemDisk: true || false,
- *         iops: Number("int"),
- *         path: "STRING_VALUE",
- *         state: "pending" || "error" || "available" || "in-use" || "unknown",
- *         attachedTo: "STRING_VALUE",
- *         isAttached: true || false,
- *         attachmentState: "STRING_VALUE",
- *         gbInUse: Number("int"),
- *         autoMountStatus: "Failed" || "Pending" || "Mounted" || "NotMounted",
- *       },
- *     ],
- *     fromInstanceName: "STRING_VALUE",
- *     fromInstanceArn: "STRING_VALUE",
- *     fromBlueprintId: "STRING_VALUE",
- *     fromBundleId: "STRING_VALUE",
- *     isFromAutoSnapshot: true || false,
- *     sizeInGb: Number("int"),
- *   },
- * };
+ * // { // GetInstanceSnapshotResult
+ * //   instanceSnapshot: { // InstanceSnapshot
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     supportCode: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     location: { // ResourceLocation
+ * //       availabilityZone: "STRING_VALUE",
+ * //       regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //     },
+ * //     resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     state: "pending" || "error" || "available",
+ * //     progress: "STRING_VALUE",
+ * //     fromAttachedDisks: [ // DiskList
+ * //       { // Disk
+ * //         name: "STRING_VALUE",
+ * //         arn: "STRING_VALUE",
+ * //         supportCode: "STRING_VALUE",
+ * //         createdAt: new Date("TIMESTAMP"),
+ * //         location: {
+ * //           availabilityZone: "STRING_VALUE",
+ * //           regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //         },
+ * //         resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //         tags: [
+ * //           {
+ * //             key: "STRING_VALUE",
+ * //             value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         addOns: [ // AddOnList
+ * //           { // AddOn
+ * //             name: "STRING_VALUE",
+ * //             status: "STRING_VALUE",
+ * //             snapshotTimeOfDay: "STRING_VALUE",
+ * //             nextSnapshotTimeOfDay: "STRING_VALUE",
+ * //             threshold: "STRING_VALUE",
+ * //             duration: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         sizeInGb: Number("int"),
+ * //         isSystemDisk: true || false,
+ * //         iops: Number("int"),
+ * //         path: "STRING_VALUE",
+ * //         state: "pending" || "error" || "available" || "in-use" || "unknown",
+ * //         attachedTo: "STRING_VALUE",
+ * //         isAttached: true || false,
+ * //         attachmentState: "STRING_VALUE",
+ * //         gbInUse: Number("int"),
+ * //         autoMountStatus: "Failed" || "Pending" || "Mounted" || "NotMounted",
+ * //       },
+ * //     ],
+ * //     fromInstanceName: "STRING_VALUE",
+ * //     fromInstanceArn: "STRING_VALUE",
+ * //     fromBlueprintId: "STRING_VALUE",
+ * //     fromBundleId: "STRING_VALUE",
+ * //     isFromAutoSnapshot: true || false,
+ * //     sizeInGb: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

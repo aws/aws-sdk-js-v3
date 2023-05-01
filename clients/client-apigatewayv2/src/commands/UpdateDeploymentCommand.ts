@@ -46,15 +46,14 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDeploymentResponse
- *   AutoDeployed: true || false,
- *   CreatedDate: new Date("TIMESTAMP"),
- *   DeploymentId: "STRING_VALUE",
- *   DeploymentStatus: "STRING_VALUE",
- *   DeploymentStatusMessage: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // UpdateDeploymentResponse
+ * //   AutoDeployed: true || false,
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   DeploymentId: "STRING_VALUE",
+ * //   DeploymentStatus: "STRING_VALUE",
+ * //   DeploymentStatusMessage: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

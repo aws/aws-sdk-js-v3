@@ -47,16 +47,15 @@ export interface ListThingGroupsForThingCommandOutput extends ListThingGroupsFor
  * };
  * const command = new ListThingGroupsForThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingGroupsForThingResponse
- *   thingGroups: [ // ThingGroupNameAndArnList
- *     { // GroupNameAndArn
- *       groupName: "STRING_VALUE",
- *       groupArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingGroupsForThingResponse
+ * //   thingGroups: [ // ThingGroupNameAndArnList
+ * //     { // GroupNameAndArn
+ * //       groupName: "STRING_VALUE",
+ * //       groupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

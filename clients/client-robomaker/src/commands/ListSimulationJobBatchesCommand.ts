@@ -54,21 +54,20 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * };
  * const command = new ListSimulationJobBatchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSimulationJobBatchesResponse
- *   simulationJobBatchSummaries: [ // SimulationJobBatchSummaries
- *     { // SimulationJobBatchSummary
- *       arn: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       createdAt: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       failedRequestCount: Number("int"),
- *       pendingRequestCount: Number("int"),
- *       createdRequestCount: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSimulationJobBatchesResponse
+ * //   simulationJobBatchSummaries: [ // SimulationJobBatchSummaries
+ * //     { // SimulationJobBatchSummary
+ * //       arn: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       failedRequestCount: Number("int"),
+ * //       pendingRequestCount: Number("int"),
+ * //       createdRequestCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

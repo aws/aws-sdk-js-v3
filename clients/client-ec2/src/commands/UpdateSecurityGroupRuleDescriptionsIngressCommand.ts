@@ -100,10 +100,9 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
  * };
  * const command = new UpdateSecurityGroupRuleDescriptionsIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecurityGroupRuleDescriptionsIngressResult
- *   Return: true || false,
- * };
+ * // { // UpdateSecurityGroupRuleDescriptionsIngressResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

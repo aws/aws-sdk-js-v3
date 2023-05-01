@@ -54,8 +54,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

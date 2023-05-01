@@ -71,10 +71,9 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * };
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateExperimentResponse
- *   ExperimentArn: "STRING_VALUE",
- * };
+ * // { // CreateExperimentResponse
+ * //   ExperimentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -72,10 +72,9 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRateBasedRuleResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteRateBasedRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

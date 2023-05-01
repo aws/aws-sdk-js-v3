@@ -77,10 +77,9 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * };
  * const command = new CreateLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationFsxOpenZfsResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationFsxOpenZfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -97,25 +97,24 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * };
  * const command = new AdminInitiateAuthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AdminInitiateAuthResponse
- *   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
- *   Session: "STRING_VALUE",
- *   ChallengeParameters: { // ChallengeParametersType
- *     "<keys>": "STRING_VALUE",
- *   },
- *   AuthenticationResult: { // AuthenticationResultType
- *     AccessToken: "STRING_VALUE",
- *     ExpiresIn: Number("int"),
- *     TokenType: "STRING_VALUE",
- *     RefreshToken: "STRING_VALUE",
- *     IdToken: "STRING_VALUE",
- *     NewDeviceMetadata: { // NewDeviceMetadataType
- *       DeviceKey: "STRING_VALUE",
- *       DeviceGroupKey: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // AdminInitiateAuthResponse
+ * //   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
+ * //   Session: "STRING_VALUE",
+ * //   ChallengeParameters: { // ChallengeParametersType
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   AuthenticationResult: { // AuthenticationResultType
+ * //     AccessToken: "STRING_VALUE",
+ * //     ExpiresIn: Number("int"),
+ * //     TokenType: "STRING_VALUE",
+ * //     RefreshToken: "STRING_VALUE",
+ * //     IdToken: "STRING_VALUE",
+ * //     NewDeviceMetadata: { // NewDeviceMetadataType
+ * //       DeviceKey: "STRING_VALUE",
+ * //       DeviceGroupKey: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

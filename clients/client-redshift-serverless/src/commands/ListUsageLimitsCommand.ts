@@ -51,21 +51,20 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * };
  * const command = new ListUsageLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsageLimitsResponse
- *   usageLimits: [ // UsageLimits
- *     { // UsageLimit
- *       usageLimitId: "STRING_VALUE",
- *       usageLimitArn: "STRING_VALUE",
- *       resourceArn: "STRING_VALUE",
- *       usageType: "STRING_VALUE",
- *       amount: Number("long"),
- *       period: "STRING_VALUE",
- *       breachAction: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUsageLimitsResponse
+ * //   usageLimits: [ // UsageLimits
+ * //     { // UsageLimit
+ * //       usageLimitId: "STRING_VALUE",
+ * //       usageLimitArn: "STRING_VALUE",
+ * //       resourceArn: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       amount: Number("long"),
+ * //       period: "STRING_VALUE",
+ * //       breachAction: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

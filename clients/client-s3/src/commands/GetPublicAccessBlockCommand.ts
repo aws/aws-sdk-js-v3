@@ -81,15 +81,14 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * };
  * const command = new GetPublicAccessBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPublicAccessBlockOutput
- *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
- *     BlockPublicAcls: true || false,
- *     IgnorePublicAcls: true || false,
- *     BlockPublicPolicy: true || false,
- *     RestrictPublicBuckets: true || false,
- *   },
- * };
+ * // { // GetPublicAccessBlockOutput
+ * //   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ * //     BlockPublicAcls: true || false,
+ * //     IgnorePublicAcls: true || false,
+ * //     BlockPublicPolicy: true || false,
+ * //     RestrictPublicBuckets: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

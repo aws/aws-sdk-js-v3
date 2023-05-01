@@ -45,13 +45,12 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBranchesOutput
- *   branches: [ // BranchNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBranchesOutput
+ * //   branches: [ // BranchNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

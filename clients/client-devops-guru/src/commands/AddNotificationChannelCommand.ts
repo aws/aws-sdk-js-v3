@@ -65,10 +65,9 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * };
  * const command = new AddNotificationChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddNotificationChannelResponse
- *   Id: "STRING_VALUE", // required
- * };
+ * // { // AddNotificationChannelResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

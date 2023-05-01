@@ -101,10 +101,9 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEnvironmentOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateEnvironmentOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,17 +53,16 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * };
  * const command = new CreateControlPanelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateControlPanelResponse
- *   ControlPanel: { // ControlPanel
- *     ClusterArn: "STRING_VALUE",
- *     ControlPanelArn: "STRING_VALUE",
- *     DefaultControlPanel: true || false,
- *     Name: "STRING_VALUE",
- *     RoutingControlCount: Number("int"),
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // CreateControlPanelResponse
+ * //   ControlPanel: { // ControlPanel
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     DefaultControlPanel: true || false,
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlCount: Number("int"),
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

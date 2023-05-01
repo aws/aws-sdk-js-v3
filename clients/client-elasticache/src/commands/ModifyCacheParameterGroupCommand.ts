@@ -52,10 +52,9 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CacheParameterGroupNameMessage
- *   CacheParameterGroupName: "STRING_VALUE",
- * };
+ * // { // CacheParameterGroupNameMessage
+ * //   CacheParameterGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -74,28 +74,27 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  * };
  * const command = new DescribeOrganizationConformancePacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConformancePacksResponse
- *   OrganizationConformancePacks: [ // OrganizationConformancePacks
- *     { // OrganizationConformancePack
- *       OrganizationConformancePackName: "STRING_VALUE", // required
- *       OrganizationConformancePackArn: "STRING_VALUE", // required
- *       DeliveryS3Bucket: "STRING_VALUE",
- *       DeliveryS3KeyPrefix: "STRING_VALUE",
- *       ConformancePackInputParameters: [ // ConformancePackInputParameters
- *         { // ConformancePackInputParameter
- *           ParameterName: "STRING_VALUE", // required
- *           ParameterValue: "STRING_VALUE", // required
- *         },
- *       ],
- *       ExcludedAccounts: [ // ExcludedAccounts
- *         "STRING_VALUE",
- *       ],
- *       LastUpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOrganizationConformancePacksResponse
+ * //   OrganizationConformancePacks: [ // OrganizationConformancePacks
+ * //     { // OrganizationConformancePack
+ * //       OrganizationConformancePackName: "STRING_VALUE", // required
+ * //       OrganizationConformancePackArn: "STRING_VALUE", // required
+ * //       DeliveryS3Bucket: "STRING_VALUE",
+ * //       DeliveryS3KeyPrefix: "STRING_VALUE",
+ * //       ConformancePackInputParameters: [ // ConformancePackInputParameters
+ * //         { // ConformancePackInputParameter
+ * //           ParameterName: "STRING_VALUE", // required
+ * //           ParameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       ExcludedAccounts: [ // ExcludedAccounts
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

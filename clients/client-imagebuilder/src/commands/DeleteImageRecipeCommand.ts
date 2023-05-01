@@ -44,11 +44,10 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * };
  * const command = new DeleteImageRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteImageRecipeResponse
- *   requestId: "STRING_VALUE",
- *   imageRecipeArn: "STRING_VALUE",
- * };
+ * // { // DeleteImageRecipeResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageRecipeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

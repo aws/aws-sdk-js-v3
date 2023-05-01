@@ -48,17 +48,16 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  * };
  * const command = new UpdateBackendJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackendJobResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   CreateTime: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   UpdateTime: "STRING_VALUE",
- * };
+ * // { // UpdateBackendJobResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   CreateTime: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   UpdateTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

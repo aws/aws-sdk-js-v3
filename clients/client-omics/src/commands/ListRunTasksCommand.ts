@@ -47,22 +47,21 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * };
  * const command = new ListRunTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRunTasksResponse
- *   items: [ // TaskList
- *     { // TaskListItem
- *       taskId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       cpus: Number("int"),
- *       memory: Number("int"),
- *       creationTime: new Date("TIMESTAMP"),
- *       startTime: new Date("TIMESTAMP"),
- *       stopTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRunTasksResponse
+ * //   items: [ // TaskList
+ * //     { // TaskListItem
+ * //       taskId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       cpus: Number("int"),
+ * //       memory: Number("int"),
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       stopTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -120,24 +120,23 @@ export interface DescribeEventsForOrganizationCommandOutput
  * };
  * const command = new DescribeEventsForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventsForOrganizationResponse
- *   events: [ // OrganizationEventList
- *     { // OrganizationEvent
- *       arn: "STRING_VALUE",
- *       service: "STRING_VALUE",
- *       eventTypeCode: "STRING_VALUE",
- *       eventTypeCategory: "STRING_VALUE",
- *       eventScopeCode: "STRING_VALUE",
- *       region: "STRING_VALUE",
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       statusCode: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEventsForOrganizationResponse
+ * //   events: [ // OrganizationEventList
+ * //     { // OrganizationEvent
+ * //       arn: "STRING_VALUE",
+ * //       service: "STRING_VALUE",
+ * //       eventTypeCode: "STRING_VALUE",
+ * //       eventTypeCategory: "STRING_VALUE",
+ * //       eventScopeCode: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       statusCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,17 +48,16 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * };
  * const command = new DescribeActionTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeActionTargetsResponse
- *   ActionTargets: [ // ActionTargetList // required
- *     { // ActionTarget
- *       ActionTargetArn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeActionTargetsResponse
+ * //   ActionTargets: [ // ActionTargetList // required
+ * //     { // ActionTarget
+ * //       ActionTargetArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

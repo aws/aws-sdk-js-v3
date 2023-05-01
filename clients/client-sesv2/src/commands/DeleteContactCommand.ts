@@ -45,8 +45,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

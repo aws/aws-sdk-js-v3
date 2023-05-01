@@ -90,11 +90,10 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * };
  * const command = new GetPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPlanResponse
- *   PythonScript: "STRING_VALUE",
- *   ScalaCode: "STRING_VALUE",
- * };
+ * // { // GetPlanResponse
+ * //   PythonScript: "STRING_VALUE",
+ * //   ScalaCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

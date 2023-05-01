@@ -63,16 +63,15 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * };
  * const command = new RescoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RescoreResult
- *   RescoreId: "STRING_VALUE",
- *   ResultItems: [ // RescoreResultItemList
- *     { // RescoreResultItem
- *       DocumentId: "STRING_VALUE",
- *       Score: Number("float"),
- *     },
- *   ],
- * };
+ * // { // RescoreResult
+ * //   RescoreId: "STRING_VALUE",
+ * //   ResultItems: [ // RescoreResultItemList
+ * //     { // RescoreResultItem
+ * //       DocumentId: "STRING_VALUE",
+ * //       Score: Number("float"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

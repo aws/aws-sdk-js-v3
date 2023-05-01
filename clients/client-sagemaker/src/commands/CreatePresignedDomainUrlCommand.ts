@@ -64,10 +64,9 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * };
  * const command = new CreatePresignedDomainUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePresignedDomainUrlResponse
- *   AuthorizedUrl: "STRING_VALUE",
- * };
+ * // { // CreatePresignedDomainUrlResponse
+ * //   AuthorizedUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

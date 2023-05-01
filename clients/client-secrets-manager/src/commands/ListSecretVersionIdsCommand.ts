@@ -57,25 +57,24 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * };
  * const command = new ListSecretVersionIdsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecretVersionIdsResponse
- *   Versions: [ // SecretVersionsListType
- *     { // SecretVersionsListEntry
- *       VersionId: "STRING_VALUE",
- *       VersionStages: [ // SecretVersionStagesType
- *         "STRING_VALUE",
- *       ],
- *       LastAccessedDate: new Date("TIMESTAMP"),
- *       CreatedDate: new Date("TIMESTAMP"),
- *       KmsKeyIds: [ // KmsKeyIdListType
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // ListSecretVersionIdsResponse
+ * //   Versions: [ // SecretVersionsListType
+ * //     { // SecretVersionsListEntry
+ * //       VersionId: "STRING_VALUE",
+ * //       VersionStages: [ // SecretVersionStagesType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       KmsKeyIds: [ // KmsKeyIdListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

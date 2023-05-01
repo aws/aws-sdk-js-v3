@@ -54,19 +54,18 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  * };
  * const command = new DisassociateS3ResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateS3ResourcesResult
- *   failedS3Resources: [ // FailedS3Resources
- *     { // FailedS3Resource
- *       failedItem: { // S3Resource
- *         bucketName: "STRING_VALUE", // required
- *         prefix: "STRING_VALUE",
- *       },
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DisassociateS3ResourcesResult
+ * //   failedS3Resources: [ // FailedS3Resources
+ * //     { // FailedS3Resource
+ * //       failedItem: { // S3Resource
+ * //         bucketName: "STRING_VALUE", // required
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

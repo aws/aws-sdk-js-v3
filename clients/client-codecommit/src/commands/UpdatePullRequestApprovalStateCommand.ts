@@ -49,8 +49,7 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * };
  * const command = new UpdatePullRequestApprovalStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

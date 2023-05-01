@@ -62,8 +62,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScriptCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * };
  * const command = new UpdateThreatIntelSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

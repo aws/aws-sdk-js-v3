@@ -49,10 +49,9 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * };
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMLTransformResponse
- *   TransformId: "STRING_VALUE",
- * };
+ * // { // DeleteMLTransformResponse
+ * //   TransformId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

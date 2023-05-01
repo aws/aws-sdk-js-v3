@@ -61,13 +61,12 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * };
  * const command = new ImportFirewallDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportFirewallDomainsResponse
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
- *   StatusMessage: "STRING_VALUE",
- * };
+ * // { // ImportFirewallDomainsResponse
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ * //   StatusMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

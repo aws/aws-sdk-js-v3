@@ -44,29 +44,28 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * const input = {};
  * const command = new DescribeAttackStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAttackStatisticsResponse
- *   TimeRange: { // TimeRange
- *     FromInclusive: new Date("TIMESTAMP"),
- *     ToExclusive: new Date("TIMESTAMP"),
- *   },
- *   DataItems: [ // AttackStatisticsDataList // required
- *     { // AttackStatisticsDataItem
- *       AttackVolume: { // AttackVolume
- *         BitsPerSecond: { // AttackVolumeStatistics
- *           Max: Number("double"), // required
- *         },
- *         PacketsPerSecond: {
- *           Max: Number("double"), // required
- *         },
- *         RequestsPerSecond: {
- *           Max: Number("double"), // required
- *         },
- *       },
- *       AttackCount: Number("long"), // required
- *     },
- *   ],
- * };
+ * // { // DescribeAttackStatisticsResponse
+ * //   TimeRange: { // TimeRange
+ * //     FromInclusive: new Date("TIMESTAMP"),
+ * //     ToExclusive: new Date("TIMESTAMP"),
+ * //   },
+ * //   DataItems: [ // AttackStatisticsDataList // required
+ * //     { // AttackStatisticsDataItem
+ * //       AttackVolume: { // AttackVolume
+ * //         BitsPerSecond: { // AttackVolumeStatistics
+ * //           Max: Number("double"), // required
+ * //         },
+ * //         PacketsPerSecond: {
+ * //           Max: Number("double"), // required
+ * //         },
+ * //         RequestsPerSecond: {
+ * //           Max: Number("double"), // required
+ * //         },
+ * //       },
+ * //       AttackCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

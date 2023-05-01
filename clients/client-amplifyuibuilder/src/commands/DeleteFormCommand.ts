@@ -46,8 +46,7 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFormCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

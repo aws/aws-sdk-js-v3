@@ -78,36 +78,35 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplicationConfiguration
- *   sourceServerID: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   stagingAreaSubnetId: "STRING_VALUE",
- *   associateDefaultSecurityGroup: true || false,
- *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
- *     "STRING_VALUE",
- *   ],
- *   replicationServerInstanceType: "STRING_VALUE",
- *   useDedicatedReplicationServer: true || false,
- *   defaultLargeStagingDiskType: "STRING_VALUE",
- *   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
- *     { // ReplicationConfigurationReplicatedDisk
- *       deviceName: "STRING_VALUE",
- *       isBootDisk: true || false,
- *       stagingDiskType: "STRING_VALUE",
- *       iops: Number("long"),
- *       throughput: Number("long"),
- *     },
- *   ],
- *   ebsEncryption: "STRING_VALUE",
- *   ebsEncryptionKeyArn: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"),
- *   dataPlaneRouting: "STRING_VALUE",
- *   createPublicIP: true || false,
- *   stagingAreaTags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ReplicationConfiguration
+ * //   sourceServerID: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   stagingAreaSubnetId: "STRING_VALUE",
+ * //   associateDefaultSecurityGroup: true || false,
+ * //   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   replicationServerInstanceType: "STRING_VALUE",
+ * //   useDedicatedReplicationServer: true || false,
+ * //   defaultLargeStagingDiskType: "STRING_VALUE",
+ * //   replicatedDisks: [ // ReplicationConfigurationReplicatedDisks
+ * //     { // ReplicationConfigurationReplicatedDisk
+ * //       deviceName: "STRING_VALUE",
+ * //       isBootDisk: true || false,
+ * //       stagingDiskType: "STRING_VALUE",
+ * //       iops: Number("long"),
+ * //       throughput: Number("long"),
+ * //     },
+ * //   ],
+ * //   ebsEncryption: "STRING_VALUE",
+ * //   ebsEncryptionKeyArn: "STRING_VALUE",
+ * //   bandwidthThrottling: Number("long"),
+ * //   dataPlaneRouting: "STRING_VALUE",
+ * //   createPublicIP: true || false,
+ * //   stagingAreaTags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

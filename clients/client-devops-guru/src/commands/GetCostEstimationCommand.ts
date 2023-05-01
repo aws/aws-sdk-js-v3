@@ -48,40 +48,39 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * };
  * const command = new GetCostEstimationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCostEstimationResponse
- *   ResourceCollection: { // CostEstimationResourceCollectionFilter
- *     CloudFormation: { // CloudFormationCostEstimationResourceCollectionFilter
- *       StackNames: [ // CostEstimationStackNames
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Tags: [ // TagCostEstimationResourceCollectionFilters
- *       { // TagCostEstimationResourceCollectionFilter
- *         AppBoundaryKey: "STRING_VALUE", // required
- *         TagValues: [ // CostEstimationTagValues // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- *   Status: "ONGOING" || "COMPLETED",
- *   Costs: [ // ServiceResourceCosts
- *     { // ServiceResourceCost
- *       Type: "STRING_VALUE",
- *       State: "ACTIVE" || "INACTIVE",
- *       Count: Number("int"),
- *       UnitCost: Number("double"),
- *       Cost: Number("double"),
- *     },
- *   ],
- *   TimeRange: { // CostEstimationTimeRange
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *   },
- *   TotalCost: Number("double"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCostEstimationResponse
+ * //   ResourceCollection: { // CostEstimationResourceCollectionFilter
+ * //     CloudFormation: { // CloudFormationCostEstimationResourceCollectionFilter
+ * //       StackNames: [ // CostEstimationStackNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagCostEstimationResourceCollectionFilters
+ * //       { // TagCostEstimationResourceCollectionFilter
+ * //         AppBoundaryKey: "STRING_VALUE", // required
+ * //         TagValues: [ // CostEstimationTagValues // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   Status: "ONGOING" || "COMPLETED",
+ * //   Costs: [ // ServiceResourceCosts
+ * //     { // ServiceResourceCost
+ * //       Type: "STRING_VALUE",
+ * //       State: "ACTIVE" || "INACTIVE",
+ * //       Count: Number("int"),
+ * //       UnitCost: Number("double"),
+ * //       Cost: Number("double"),
+ * //     },
+ * //   ],
+ * //   TimeRange: { // CostEstimationTimeRange
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   TotalCost: Number("double"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,25 +46,24 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMembersResponse
- *   members: [ // __listOfMember
- *     { // Member
- *       accountId: "STRING_VALUE",
- *       administratorAccountId: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       email: "STRING_VALUE",
- *       invitedAt: new Date("TIMESTAMP"),
- *       masterAccountId: "STRING_VALUE",
- *       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMembersResponse
+ * //   members: [ // __listOfMember
+ * //     { // Member
+ * //       accountId: "STRING_VALUE",
+ * //       administratorAccountId: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       email: "STRING_VALUE",
+ * //       invitedAt: new Date("TIMESTAMP"),
+ * //       masterAccountId: "STRING_VALUE",
+ * //       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

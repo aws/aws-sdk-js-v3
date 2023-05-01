@@ -69,12 +69,11 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * };
  * const command = new UpdateFrameworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFrameworkOutput
- *   FrameworkName: "STRING_VALUE",
- *   FrameworkArn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateFrameworkOutput
+ * //   FrameworkName: "STRING_VALUE",
+ * //   FrameworkArn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

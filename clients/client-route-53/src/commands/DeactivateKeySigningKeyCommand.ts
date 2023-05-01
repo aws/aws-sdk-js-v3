@@ -47,15 +47,14 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * };
  * const command = new DeactivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeactivateKeySigningKeyResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // DeactivateKeySigningKeyResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

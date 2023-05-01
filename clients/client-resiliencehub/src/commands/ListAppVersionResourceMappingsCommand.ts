@@ -54,27 +54,26 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * };
  * const command = new ListAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppVersionResourceMappingsResponse
- *   resourceMappings: [ // ResourceMappingList // required
- *     { // ResourceMapping
- *       resourceName: "STRING_VALUE",
- *       logicalStackName: "STRING_VALUE",
- *       appRegistryAppName: "STRING_VALUE",
- *       resourceGroupName: "STRING_VALUE",
- *       mappingType: "STRING_VALUE", // required
- *       physicalResourceId: { // PhysicalResourceId
- *         identifier: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *         awsRegion: "STRING_VALUE",
- *         awsAccountId: "STRING_VALUE",
- *       },
- *       terraformSourceName: "STRING_VALUE",
- *       eksSourceName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppVersionResourceMappingsResponse
+ * //   resourceMappings: [ // ResourceMappingList // required
+ * //     { // ResourceMapping
+ * //       resourceName: "STRING_VALUE",
+ * //       logicalStackName: "STRING_VALUE",
+ * //       appRegistryAppName: "STRING_VALUE",
+ * //       resourceGroupName: "STRING_VALUE",
+ * //       mappingType: "STRING_VALUE", // required
+ * //       physicalResourceId: { // PhysicalResourceId
+ * //         identifier: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //         awsRegion: "STRING_VALUE",
+ * //         awsAccountId: "STRING_VALUE",
+ * //       },
+ * //       terraformSourceName: "STRING_VALUE",
+ * //       eksSourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

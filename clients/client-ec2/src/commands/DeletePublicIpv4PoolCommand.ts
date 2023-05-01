@@ -45,10 +45,9 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  * };
  * const command = new DeletePublicIpv4PoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePublicIpv4PoolResult
- *   ReturnValue: true || false,
- * };
+ * // { // DeletePublicIpv4PoolResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

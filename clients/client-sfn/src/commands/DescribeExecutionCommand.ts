@@ -52,27 +52,26 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExecutionOutput
- *   executionArn: "STRING_VALUE", // required
- *   stateMachineArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
- *   startDate: new Date("TIMESTAMP"), // required
- *   stopDate: new Date("TIMESTAMP"),
- *   input: "STRING_VALUE",
- *   inputDetails: { // CloudWatchEventsExecutionDataDetails
- *     included: true || false,
- *   },
- *   output: "STRING_VALUE",
- *   outputDetails: {
- *     included: true || false,
- *   },
- *   traceHeader: "STRING_VALUE",
- *   mapRunArn: "STRING_VALUE",
- *   error: "STRING_VALUE",
- *   cause: "STRING_VALUE",
- * };
+ * // { // DescribeExecutionOutput
+ * //   executionArn: "STRING_VALUE", // required
+ * //   stateMachineArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
+ * //   startDate: new Date("TIMESTAMP"), // required
+ * //   stopDate: new Date("TIMESTAMP"),
+ * //   input: "STRING_VALUE",
+ * //   inputDetails: { // CloudWatchEventsExecutionDataDetails
+ * //     included: true || false,
+ * //   },
+ * //   output: "STRING_VALUE",
+ * //   outputDetails: {
+ * //     included: true || false,
+ * //   },
+ * //   traceHeader: "STRING_VALUE",
+ * //   mapRunArn: "STRING_VALUE",
+ * //   error: "STRING_VALUE",
+ * //   cause: "STRING_VALUE",
+ * // };
  *
  * ```
  *

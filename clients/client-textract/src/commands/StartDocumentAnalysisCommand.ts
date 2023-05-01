@@ -91,10 +91,9 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * };
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDocumentAnalysisResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartDocumentAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * };
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelinesResponse
- *   NextToken: "STRING_VALUE",
- *   Pipelines: [ // PipelineSummaryList
- *     { // PipelineSummary
- *       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "STARTING" || "START_FAILED" || "STOPPING" || "STOPPED",
- *       StatusReason: { // PipelineStatusReason
- *         Description: "STRING_VALUE",
- *       },
- *       PipelineName: "STRING_VALUE",
- *       PipelineArn: "STRING_VALUE",
- *       MinUnits: Number("int"),
- *       MaxUnits: Number("int"),
- *       CreatedAt: new Date("TIMESTAMP"),
- *       LastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListPipelinesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Pipelines: [ // PipelineSummaryList
+ * //     { // PipelineSummary
+ * //       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "STARTING" || "START_FAILED" || "STOPPING" || "STOPPED",
+ * //       StatusReason: { // PipelineStatusReason
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //       PipelineName: "STRING_VALUE",
+ * //       PipelineArn: "STRING_VALUE",
+ * //       MinUnits: Number("int"),
+ * //       MaxUnits: Number("int"),
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

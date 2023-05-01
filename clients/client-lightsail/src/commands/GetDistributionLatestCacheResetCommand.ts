@@ -50,11 +50,10 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * };
  * const command = new GetDistributionLatestCacheResetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDistributionLatestCacheResetResult
- *   status: "STRING_VALUE",
- *   createTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetDistributionLatestCacheResetResult
+ * //   status: "STRING_VALUE",
+ * //   createTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

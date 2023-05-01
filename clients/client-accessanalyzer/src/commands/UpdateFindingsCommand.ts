@@ -50,8 +50,7 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

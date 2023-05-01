@@ -48,12 +48,11 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSchemaResponse
- *   SchemaArn: "STRING_VALUE",
- *   SchemaName: "STRING_VALUE",
- *   Status: "AVAILABLE" || "PENDING" || "DELETING",
- * };
+ * // { // DeleteSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "PENDING" || "DELETING",
+ * // };
  *
  * ```
  *

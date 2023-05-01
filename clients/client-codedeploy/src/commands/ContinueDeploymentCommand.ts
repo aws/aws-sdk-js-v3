@@ -49,8 +49,7 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ContinueDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

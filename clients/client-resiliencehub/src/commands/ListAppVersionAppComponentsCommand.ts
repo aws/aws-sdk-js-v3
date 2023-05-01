@@ -52,24 +52,23 @@ export interface ListAppVersionAppComponentsCommandOutput
  * };
  * const command = new ListAppVersionAppComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppVersionAppComponentsResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appComponents: [ // AppComponentList
- *     { // AppComponent
- *       name: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       id: "STRING_VALUE",
- *       additionalInfo: { // AdditionalInfoMap
- *         "<keys>": [ // AdditionalInfoValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppVersionAppComponentsResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appComponents: [ // AppComponentList
+ * //     { // AppComponent
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE",
+ * //       additionalInfo: { // AdditionalInfoMap
+ * //         "<keys>": [ // AdditionalInfoValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

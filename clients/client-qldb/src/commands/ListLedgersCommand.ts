@@ -48,17 +48,16 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * };
  * const command = new ListLedgersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLedgersResponse
- *   Ledgers: [ // LedgerList
- *     { // LedgerSummary
- *       Name: "STRING_VALUE",
- *       State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
- *       CreationDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLedgersResponse
+ * //   Ledgers: [ // LedgerList
+ * //     { // LedgerSummary
+ * //       Name: "STRING_VALUE",
+ * //       State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //       CreationDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

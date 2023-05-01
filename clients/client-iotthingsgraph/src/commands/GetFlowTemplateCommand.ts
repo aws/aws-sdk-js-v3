@@ -47,22 +47,21 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * };
  * const command = new GetFlowTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFlowTemplateResponse
- *   description: { // FlowTemplateDescription
- *     summary: { // FlowTemplateSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       revisionNumber: Number("long"),
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *     definition: { // DefinitionDocument
- *       language: "STRING_VALUE", // required
- *       text: "STRING_VALUE", // required
- *     },
- *     validatedNamespaceVersion: Number("long"),
- *   },
- * };
+ * // { // GetFlowTemplateResponse
+ * //   description: { // FlowTemplateDescription
+ * //     summary: { // FlowTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     definition: { // DefinitionDocument
+ * //       language: "STRING_VALUE", // required
+ * //       text: "STRING_VALUE", // required
+ * //     },
+ * //     validatedNamespaceVersion: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

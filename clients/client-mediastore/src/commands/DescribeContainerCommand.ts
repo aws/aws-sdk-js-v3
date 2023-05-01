@@ -50,17 +50,16 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * };
  * const command = new DescribeContainerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContainerOutput
- *   Container: { // Container
- *     Endpoint: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     ARN: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     AccessLoggingEnabled: true || false,
- *   },
- * };
+ * // { // DescribeContainerOutput
+ * //   Container: { // Container
+ * //     Endpoint: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ARN: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AccessLoggingEnabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

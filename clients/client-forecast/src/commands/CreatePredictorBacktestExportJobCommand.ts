@@ -82,10 +82,9 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  * };
  * const command = new CreatePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePredictorBacktestExportJobResponse
- *   PredictorBacktestExportJobArn: "STRING_VALUE",
- * };
+ * // { // CreatePredictorBacktestExportJobResponse
+ * //   PredictorBacktestExportJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

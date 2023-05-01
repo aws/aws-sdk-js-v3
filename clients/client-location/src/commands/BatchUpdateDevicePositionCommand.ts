@@ -81,19 +81,18 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * };
  * const command = new BatchUpdateDevicePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateDevicePositionResponse
- *   Errors: [ // BatchUpdateDevicePositionErrorList // required
- *     { // BatchUpdateDevicePositionError
- *       DeviceId: "STRING_VALUE", // required
- *       SampleTime: new Date("TIMESTAMP"), // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchUpdateDevicePositionResponse
+ * //   Errors: [ // BatchUpdateDevicePositionErrorList // required
+ * //     { // BatchUpdateDevicePositionError
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

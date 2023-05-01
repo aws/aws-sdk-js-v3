@@ -113,8 +113,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

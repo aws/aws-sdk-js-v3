@@ -55,17 +55,16 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * };
  * const command = new ListAgentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAgentsResponse
- *   Agents: [ // AgentList
- *     { // AgentListEntry
- *       AgentArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "ONLINE" || "OFFLINE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAgentsResponse
+ * //   Agents: [ // AgentList
+ * //     { // AgentListEntry
+ * //       AgentArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ONLINE" || "OFFLINE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

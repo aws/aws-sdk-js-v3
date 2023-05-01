@@ -55,14 +55,13 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  * };
  * const command = new DeleteKeywordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteKeywordResult
- *   OriginationIdentityArn: "STRING_VALUE",
- *   OriginationIdentity: "STRING_VALUE",
- *   Keyword: "STRING_VALUE",
- *   KeywordMessage: "STRING_VALUE",
- *   KeywordAction: "STRING_VALUE",
- * };
+ * // { // DeleteKeywordResult
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   Keyword: "STRING_VALUE",
+ * //   KeywordMessage: "STRING_VALUE",
+ * //   KeywordAction: "STRING_VALUE",
+ * // };
  *
  * ```
  *

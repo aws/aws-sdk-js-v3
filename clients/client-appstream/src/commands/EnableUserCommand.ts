@@ -45,8 +45,7 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

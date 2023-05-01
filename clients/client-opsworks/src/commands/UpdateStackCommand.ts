@@ -81,8 +81,7 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

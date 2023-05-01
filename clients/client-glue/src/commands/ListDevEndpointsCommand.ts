@@ -53,13 +53,12 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * };
  * const command = new ListDevEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevEndpointsResponse
- *   DevEndpointNames: [ // DevEndpointNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDevEndpointsResponse
+ * //   DevEndpointNames: [ // DevEndpointNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -75,8 +75,7 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

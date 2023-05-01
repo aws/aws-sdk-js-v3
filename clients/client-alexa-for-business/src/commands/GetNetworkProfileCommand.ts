@@ -48,23 +48,22 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkProfileResponse
- *   NetworkProfile: { // NetworkProfile
- *     NetworkProfileArn: "STRING_VALUE",
- *     NetworkProfileName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Ssid: "STRING_VALUE",
- *     SecurityType: "STRING_VALUE",
- *     EapMethod: "STRING_VALUE",
- *     CurrentPassword: "STRING_VALUE",
- *     NextPassword: "STRING_VALUE",
- *     CertificateAuthorityArn: "STRING_VALUE",
- *     TrustAnchors: [ // TrustAnchorList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetNetworkProfileResponse
+ * //   NetworkProfile: { // NetworkProfile
+ * //     NetworkProfileArn: "STRING_VALUE",
+ * //     NetworkProfileName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Ssid: "STRING_VALUE",
+ * //     SecurityType: "STRING_VALUE",
+ * //     EapMethod: "STRING_VALUE",
+ * //     CurrentPassword: "STRING_VALUE",
+ * //     NextPassword: "STRING_VALUE",
+ * //     CertificateAuthorityArn: "STRING_VALUE",
+ * //     TrustAnchors: [ // TrustAnchorList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

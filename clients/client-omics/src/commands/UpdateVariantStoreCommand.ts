@@ -45,18 +45,17 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * };
  * const command = new UpdateVariantStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVariantStoreResponse
- *   id: "STRING_VALUE", // required
- *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   updateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateVariantStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

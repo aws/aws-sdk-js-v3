@@ -52,8 +52,7 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  * };
  * const command = new UpdateThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

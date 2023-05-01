@@ -61,20 +61,19 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * };
  * const command = new UpdateResourceServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateResourceServerResponse
- *   ResourceServer: { // ResourceServerType
- *     UserPoolId: "STRING_VALUE",
- *     Identifier: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Scopes: [ // ResourceServerScopeListType
- *       { // ResourceServerScopeType
- *         ScopeName: "STRING_VALUE", // required
- *         ScopeDescription: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateResourceServerResponse
+ * //   ResourceServer: { // ResourceServerType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Scopes: [ // ResourceServerScopeListType
+ * //       { // ResourceServerScopeType
+ * //         ScopeName: "STRING_VALUE", // required
+ * //         ScopeDescription: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

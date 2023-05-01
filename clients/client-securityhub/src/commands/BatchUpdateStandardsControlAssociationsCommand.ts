@@ -62,21 +62,20 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * };
  * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateStandardsControlAssociationsResponse
- *   UnprocessedAssociationUpdates: [ // UnprocessedStandardsControlAssociationUpdates
- *     { // UnprocessedStandardsControlAssociationUpdate
- *       StandardsControlAssociationUpdate: { // StandardsControlAssociationUpdate
- *         StandardsArn: "STRING_VALUE", // required
- *         SecurityControlId: "STRING_VALUE", // required
- *         AssociationStatus: "ENABLED" || "DISABLED", // required
- *         UpdatedReason: "STRING_VALUE",
- *       },
- *       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
- *       ErrorReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchUpdateStandardsControlAssociationsResponse
+ * //   UnprocessedAssociationUpdates: [ // UnprocessedStandardsControlAssociationUpdates
+ * //     { // UnprocessedStandardsControlAssociationUpdate
+ * //       StandardsControlAssociationUpdate: { // StandardsControlAssociationUpdate
+ * //         StandardsArn: "STRING_VALUE", // required
+ * //         SecurityControlId: "STRING_VALUE", // required
+ * //         AssociationStatus: "ENABLED" || "DISABLED", // required
+ * //         UpdatedReason: "STRING_VALUE",
+ * //       },
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

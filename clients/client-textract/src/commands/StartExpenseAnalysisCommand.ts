@@ -75,10 +75,9 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * };
  * const command = new StartExpenseAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExpenseAnalysisResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartExpenseAnalysisResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

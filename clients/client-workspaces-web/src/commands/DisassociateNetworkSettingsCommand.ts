@@ -49,8 +49,7 @@ export interface DisassociateNetworkSettingsCommandOutput
  * };
  * const command = new DisassociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

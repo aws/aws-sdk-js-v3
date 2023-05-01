@@ -55,27 +55,26 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSSLPoliciesOutput
- *   SslPolicies: [ // SslPolicies
- *     { // SslPolicy
- *       SslProtocols: [ // SslProtocols
- *         "STRING_VALUE",
- *       ],
- *       Ciphers: [ // Ciphers
- *         { // Cipher
- *           Name: "STRING_VALUE",
- *           Priority: Number("int"),
- *         },
- *       ],
- *       Name: "STRING_VALUE",
- *       SupportedLoadBalancerTypes: [ // ListOfString
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeSSLPoliciesOutput
+ * //   SslPolicies: [ // SslPolicies
+ * //     { // SslPolicy
+ * //       SslProtocols: [ // SslProtocols
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Ciphers: [ // Ciphers
+ * //         { // Cipher
+ * //           Name: "STRING_VALUE",
+ * //           Priority: Number("int"),
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       SupportedLoadBalancerTypes: [ // ListOfString
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

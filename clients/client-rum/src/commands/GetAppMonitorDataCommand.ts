@@ -59,13 +59,12 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * };
  * const command = new GetAppMonitorDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppMonitorDataResponse
- *   Events: [ // EventDataList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAppMonitorDataResponse
+ * //   Events: [ // EventDataList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

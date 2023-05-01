@@ -46,20 +46,19 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * };
  * const command = new GetReportGroupTrendCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReportGroupTrendOutput
- *   stats: { // ReportGroupTrendStats
- *     average: "STRING_VALUE",
- *     max: "STRING_VALUE",
- *     min: "STRING_VALUE",
- *   },
- *   rawData: [ // ReportGroupTrendRawDataList
- *     { // ReportWithRawData
- *       reportArn: "STRING_VALUE",
- *       data: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetReportGroupTrendOutput
+ * //   stats: { // ReportGroupTrendStats
+ * //     average: "STRING_VALUE",
+ * //     max: "STRING_VALUE",
+ * //     min: "STRING_VALUE",
+ * //   },
+ * //   rawData: [ // ReportGroupTrendRawDataList
+ * //     { // ReportWithRawData
+ * //       reportArn: "STRING_VALUE",
+ * //       data: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

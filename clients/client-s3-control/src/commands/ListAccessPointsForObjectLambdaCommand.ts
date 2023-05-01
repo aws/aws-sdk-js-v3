@@ -73,20 +73,19 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  * };
  * const command = new ListAccessPointsForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessPointsForObjectLambdaResult
- *   ObjectLambdaAccessPointList: [ // ObjectLambdaAccessPointList
- *     { // ObjectLambdaAccessPoint
- *       Name: "STRING_VALUE", // required
- *       ObjectLambdaAccessPointArn: "STRING_VALUE",
- *       Alias: { // ObjectLambdaAccessPointAlias
- *         Value: "STRING_VALUE",
- *         Status: "PROVISIONING" || "READY",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessPointsForObjectLambdaResult
+ * //   ObjectLambdaAccessPointList: [ // ObjectLambdaAccessPointList
+ * //     { // ObjectLambdaAccessPoint
+ * //       Name: "STRING_VALUE", // required
+ * //       ObjectLambdaAccessPointArn: "STRING_VALUE",
+ * //       Alias: { // ObjectLambdaAccessPointAlias
+ * //         Value: "STRING_VALUE",
+ * //         Status: "PROVISIONING" || "READY",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

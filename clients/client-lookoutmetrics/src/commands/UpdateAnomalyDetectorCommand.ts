@@ -49,10 +49,9 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  * };
  * const command = new UpdateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnomalyDetectorResponse
- *   AnomalyDetectorArn: "STRING_VALUE",
- * };
+ * // { // UpdateAnomalyDetectorResponse
+ * //   AnomalyDetectorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

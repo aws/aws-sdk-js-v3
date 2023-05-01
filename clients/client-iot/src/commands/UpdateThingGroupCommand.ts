@@ -55,10 +55,9 @@ export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse,
  * };
  * const command = new UpdateThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateThingGroupResponse
- *   version: Number("long"),
- * };
+ * // { // UpdateThingGroupResponse
+ * //   version: Number("long"),
+ * // };
  *
  * ```
  *

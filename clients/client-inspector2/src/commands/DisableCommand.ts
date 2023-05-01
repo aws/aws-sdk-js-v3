@@ -50,33 +50,32 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * };
  * const command = new DisableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableResponse
- *   accounts: [ // AccountList // required
- *     { // Account
- *       accountId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       resourceStatus: { // ResourceStatus
- *         ec2: "STRING_VALUE", // required
- *         ecr: "STRING_VALUE", // required
- *         lambda: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   failedAccounts: [ // FailedAccountList
- *     { // FailedAccount
- *       accountId: "STRING_VALUE", // required
- *       status: "STRING_VALUE",
- *       resourceStatus: {
- *         ec2: "STRING_VALUE", // required
- *         ecr: "STRING_VALUE", // required
- *         lambda: "STRING_VALUE",
- *       },
- *       errorCode: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // DisableResponse
+ * //   accounts: [ // AccountList // required
+ * //     { // Account
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       resourceStatus: { // ResourceStatus
+ * //         ec2: "STRING_VALUE", // required
+ * //         ecr: "STRING_VALUE", // required
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   failedAccounts: [ // FailedAccountList
+ * //     { // FailedAccount
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE",
+ * //       resourceStatus: {
+ * //         ec2: "STRING_VALUE", // required
+ * //         ecr: "STRING_VALUE", // required
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

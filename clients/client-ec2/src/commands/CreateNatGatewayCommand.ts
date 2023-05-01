@@ -76,46 +76,45 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * };
  * const command = new CreateNatGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNatGatewayResult
- *   ClientToken: "STRING_VALUE",
- *   NatGateway: { // NatGateway
- *     CreateTime: new Date("TIMESTAMP"),
- *     DeleteTime: new Date("TIMESTAMP"),
- *     FailureCode: "STRING_VALUE",
- *     FailureMessage: "STRING_VALUE",
- *     NatGatewayAddresses: [ // NatGatewayAddressList
- *       { // NatGatewayAddress
- *         AllocationId: "STRING_VALUE",
- *         NetworkInterfaceId: "STRING_VALUE",
- *         PrivateIp: "STRING_VALUE",
- *         PublicIp: "STRING_VALUE",
- *         AssociationId: "STRING_VALUE",
- *         IsPrimary: true || false,
- *         FailureMessage: "STRING_VALUE",
- *         Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
- *       },
- *     ],
- *     NatGatewayId: "STRING_VALUE",
- *     ProvisionedBandwidth: { // ProvisionedBandwidth
- *       ProvisionTime: new Date("TIMESTAMP"),
- *       Provisioned: "STRING_VALUE",
- *       RequestTime: new Date("TIMESTAMP"),
- *       Requested: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *     },
- *     State: "pending" || "failed" || "available" || "deleting" || "deleted",
- *     SubnetId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     ConnectivityType: "private" || "public",
- *   },
- * };
+ * // { // CreateNatGatewayResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   NatGateway: { // NatGateway
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     DeleteTime: new Date("TIMESTAMP"),
+ * //     FailureCode: "STRING_VALUE",
+ * //     FailureMessage: "STRING_VALUE",
+ * //     NatGatewayAddresses: [ // NatGatewayAddressList
+ * //       { // NatGatewayAddress
+ * //         AllocationId: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         PrivateIp: "STRING_VALUE",
+ * //         PublicIp: "STRING_VALUE",
+ * //         AssociationId: "STRING_VALUE",
+ * //         IsPrimary: true || false,
+ * //         FailureMessage: "STRING_VALUE",
+ * //         Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //       },
+ * //     ],
+ * //     NatGatewayId: "STRING_VALUE",
+ * //     ProvisionedBandwidth: { // ProvisionedBandwidth
+ * //       ProvisionTime: new Date("TIMESTAMP"),
+ * //       Provisioned: "STRING_VALUE",
+ * //       RequestTime: new Date("TIMESTAMP"),
+ * //       Requested: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //     State: "pending" || "failed" || "available" || "deleting" || "deleted",
+ * //     SubnetId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ConnectivityType: "private" || "public",
+ * //   },
+ * // };
  *
  * ```
  *

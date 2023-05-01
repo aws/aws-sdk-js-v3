@@ -86,10 +86,9 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * };
  * const command = new GetBucketPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketPolicyResult
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetBucketPolicyResult
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

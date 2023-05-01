@@ -603,8 +603,7 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

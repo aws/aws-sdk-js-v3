@@ -45,8 +45,7 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  * };
  * const command = new FlushStageCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

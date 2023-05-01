@@ -43,45 +43,44 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountResponse
- *   DedicatedIpAutoWarmupEnabled: true || false,
- *   EnforcementStatus: "STRING_VALUE",
- *   ProductionAccessEnabled: true || false,
- *   SendQuota: { // SendQuota
- *     Max24HourSend: Number("double"),
- *     MaxSendRate: Number("double"),
- *     SentLast24Hours: Number("double"),
- *   },
- *   SendingEnabled: true || false,
- *   SuppressionAttributes: { // SuppressionAttributes
- *     SuppressedReasons: [ // SuppressionListReasons
- *       "BOUNCE" || "COMPLAINT",
- *     ],
- *   },
- *   Details: { // AccountDetails
- *     MailType: "MARKETING" || "TRANSACTIONAL",
- *     WebsiteURL: "STRING_VALUE",
- *     ContactLanguage: "EN" || "JA",
- *     UseCaseDescription: "STRING_VALUE",
- *     AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
- *       "STRING_VALUE",
- *     ],
- *     ReviewDetails: { // ReviewDetails
- *       Status: "PENDING" || "FAILED" || "GRANTED" || "DENIED",
- *       CaseId: "STRING_VALUE",
- *     },
- *   },
- *   VdmAttributes: { // VdmAttributes
- *     VdmEnabled: "ENABLED" || "DISABLED", // required
- *     DashboardAttributes: { // DashboardAttributes
- *       EngagementMetrics: "ENABLED" || "DISABLED",
- *     },
- *     GuardianAttributes: { // GuardianAttributes
- *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
- *     },
- *   },
- * };
+ * // { // GetAccountResponse
+ * //   DedicatedIpAutoWarmupEnabled: true || false,
+ * //   EnforcementStatus: "STRING_VALUE",
+ * //   ProductionAccessEnabled: true || false,
+ * //   SendQuota: { // SendQuota
+ * //     Max24HourSend: Number("double"),
+ * //     MaxSendRate: Number("double"),
+ * //     SentLast24Hours: Number("double"),
+ * //   },
+ * //   SendingEnabled: true || false,
+ * //   SuppressionAttributes: { // SuppressionAttributes
+ * //     SuppressedReasons: [ // SuppressionListReasons
+ * //       "BOUNCE" || "COMPLAINT",
+ * //     ],
+ * //   },
+ * //   Details: { // AccountDetails
+ * //     MailType: "MARKETING" || "TRANSACTIONAL",
+ * //     WebsiteURL: "STRING_VALUE",
+ * //     ContactLanguage: "EN" || "JA",
+ * //     UseCaseDescription: "STRING_VALUE",
+ * //     AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ReviewDetails: { // ReviewDetails
+ * //       Status: "PENDING" || "FAILED" || "GRANTED" || "DENIED",
+ * //       CaseId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   VdmAttributes: { // VdmAttributes
+ * //     VdmEnabled: "ENABLED" || "DISABLED", // required
+ * //     DashboardAttributes: { // DashboardAttributes
+ * //       EngagementMetrics: "ENABLED" || "DISABLED",
+ * //     },
+ * //     GuardianAttributes: { // GuardianAttributes
+ * //       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

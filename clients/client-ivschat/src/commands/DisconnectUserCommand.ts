@@ -48,8 +48,7 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * };
  * const command = new DisconnectUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

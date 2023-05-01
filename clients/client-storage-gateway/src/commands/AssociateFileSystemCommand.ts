@@ -70,10 +70,9 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  * };
  * const command = new AssociateFileSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateFileSystemOutput
- *   FileSystemAssociationARN: "STRING_VALUE",
- * };
+ * // { // AssociateFileSystemOutput
+ * //   FileSystemAssociationARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

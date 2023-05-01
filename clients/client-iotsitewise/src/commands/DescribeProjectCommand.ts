@@ -44,16 +44,15 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProjectResponse
- *   projectId: "STRING_VALUE", // required
- *   projectArn: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   portalId: "STRING_VALUE", // required
- *   projectDescription: "STRING_VALUE",
- *   projectCreationDate: new Date("TIMESTAMP"), // required
- *   projectLastUpdateDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeProjectResponse
+ * //   projectId: "STRING_VALUE", // required
+ * //   projectArn: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   portalId: "STRING_VALUE", // required
+ * //   projectDescription: "STRING_VALUE",
+ * //   projectCreationDate: new Date("TIMESTAMP"), // required
+ * //   projectLastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

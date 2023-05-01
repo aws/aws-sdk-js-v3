@@ -52,8 +52,7 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * };
  * const command = new UpdateDatasetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

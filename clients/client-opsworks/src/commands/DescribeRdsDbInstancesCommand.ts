@@ -53,22 +53,21 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * };
  * const command = new DescribeRdsDbInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRdsDbInstancesResult
- *   RdsDbInstances: [ // RdsDbInstances
- *     { // RdsDbInstance
- *       RdsDbInstanceArn: "STRING_VALUE",
- *       DbInstanceIdentifier: "STRING_VALUE",
- *       DbUser: "STRING_VALUE",
- *       DbPassword: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       Address: "STRING_VALUE",
- *       Engine: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       MissingOnRds: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeRdsDbInstancesResult
+ * //   RdsDbInstances: [ // RdsDbInstances
+ * //     { // RdsDbInstance
+ * //       RdsDbInstanceArn: "STRING_VALUE",
+ * //       DbInstanceIdentifier: "STRING_VALUE",
+ * //       DbUser: "STRING_VALUE",
+ * //       DbPassword: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       Address: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       MissingOnRds: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -206,8 +206,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

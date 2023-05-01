@@ -67,8 +67,7 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * };
  * const command = new AddFacetToObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

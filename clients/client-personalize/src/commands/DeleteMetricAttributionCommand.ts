@@ -44,8 +44,7 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteMetricAttributionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,19 +48,18 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * };
  * const command = new ListMailboxPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMailboxPermissionsResponse
- *   Permissions: [ // Permissions
- *     { // Permission
- *       GranteeId: "STRING_VALUE", // required
- *       GranteeType: "GROUP" || "USER", // required
- *       PermissionValues: [ // PermissionValues // required
- *         "FULL_ACCESS" || "SEND_AS" || "SEND_ON_BEHALF",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMailboxPermissionsResponse
+ * //   Permissions: [ // Permissions
+ * //     { // Permission
+ * //       GranteeId: "STRING_VALUE", // required
+ * //       GranteeType: "GROUP" || "USER", // required
+ * //       PermissionValues: [ // PermissionValues // required
+ * //         "FULL_ACCESS" || "SEND_AS" || "SEND_ON_BEHALF",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * };
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

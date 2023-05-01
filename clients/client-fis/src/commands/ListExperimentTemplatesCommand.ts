@@ -45,21 +45,20 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * };
  * const command = new ListExperimentTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExperimentTemplatesResponse
- *   experimentTemplates: [ // ExperimentTemplateSummaryList
- *     { // ExperimentTemplateSummary
- *       id: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExperimentTemplatesResponse
+ * //   experimentTemplates: [ // ExperimentTemplateSummaryList
+ * //     { // ExperimentTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

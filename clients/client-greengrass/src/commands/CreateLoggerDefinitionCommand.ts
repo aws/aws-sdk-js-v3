@@ -59,16 +59,15 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * };
  * const command = new CreateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLoggerDefinitionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   LastUpdatedTimestamp: "STRING_VALUE",
- *   LatestVersion: "STRING_VALUE",
- *   LatestVersionArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateLoggerDefinitionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LastUpdatedTimestamp: "STRING_VALUE",
+ * //   LatestVersion: "STRING_VALUE",
+ * //   LatestVersionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

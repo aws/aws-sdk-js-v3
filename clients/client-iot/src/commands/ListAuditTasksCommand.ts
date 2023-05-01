@@ -51,17 +51,16 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * };
  * const command = new ListAuditTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAuditTasksResponse
- *   tasks: [ // AuditTaskMetadataList
- *     { // AuditTaskMetadata
- *       taskId: "STRING_VALUE",
- *       taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
- *       taskType: "ON_DEMAND_AUDIT_TASK" || "SCHEDULED_AUDIT_TASK",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAuditTasksResponse
+ * //   tasks: [ // AuditTaskMetadataList
+ * //     { // AuditTaskMetadata
+ * //       taskId: "STRING_VALUE",
+ * //       taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ * //       taskType: "ON_DEMAND_AUDIT_TASK" || "SCHEDULED_AUDIT_TASK",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

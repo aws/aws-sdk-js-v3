@@ -52,8 +52,7 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

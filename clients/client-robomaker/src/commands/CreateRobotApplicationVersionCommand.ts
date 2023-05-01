@@ -54,29 +54,28 @@ export interface CreateRobotApplicationVersionCommandOutput
  * };
  * const command = new CreateRobotApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRobotApplicationVersionResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   sources: [ // Sources
- *     { // Source
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       etag: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
- *     },
- *   ],
- *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   revisionId: "STRING_VALUE",
- *   environment: { // Environment
- *     uri: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRobotApplicationVersionResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   sources: [ // Sources
+ * //     { // Source
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Key: "STRING_VALUE",
+ * //       etag: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   robotSoftwareSuite: { // RobotSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   revisionId: "STRING_VALUE",
+ * //   environment: { // Environment
+ * //     uri: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

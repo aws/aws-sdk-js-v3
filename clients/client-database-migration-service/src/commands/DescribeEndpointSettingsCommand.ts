@@ -51,25 +51,24 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * };
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndpointSettingsResponse
- *   Marker: "STRING_VALUE",
- *   EndpointSettings: [ // EndpointSettingsList
- *     { // EndpointSetting
- *       Name: "STRING_VALUE",
- *       Type: "string" || "boolean" || "integer" || "enum",
- *       EnumValues: [ // EndpointSettingEnumValues
- *         "STRING_VALUE",
- *       ],
- *       Sensitive: true || false,
- *       Units: "STRING_VALUE",
- *       Applicability: "STRING_VALUE",
- *       IntValueMin: Number("int"),
- *       IntValueMax: Number("int"),
- *       DefaultValue: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeEndpointSettingsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   EndpointSettings: [ // EndpointSettingsList
+ * //     { // EndpointSetting
+ * //       Name: "STRING_VALUE",
+ * //       Type: "string" || "boolean" || "integer" || "enum",
+ * //       EnumValues: [ // EndpointSettingEnumValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Sensitive: true || false,
+ * //       Units: "STRING_VALUE",
+ * //       Applicability: "STRING_VALUE",
+ * //       IntValueMin: Number("int"),
+ * //       IntValueMax: Number("int"),
+ * //       DefaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -49,21 +49,20 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobsResult
- *   JobListEntries: [ // JobListEntryList
- *     { // JobListEntry
- *       JobId: "STRING_VALUE",
- *       JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
- *       IsMaster: true || false,
- *       JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
- *       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
- *       CreationDate: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListJobsResult
+ * //   JobListEntries: [ // JobListEntryList
+ * //     { // JobListEntry
+ * //       JobId: "STRING_VALUE",
+ * //       JobState: "New" || "PreparingAppliance" || "PreparingShipment" || "InTransitToCustomer" || "WithCustomer" || "InTransitToAWS" || "WithAWSSortingFacility" || "WithAWS" || "InProgress" || "Complete" || "Cancelled" || "Listing" || "Pending",
+ * //       IsMaster: true || false,
+ * //       JobType: "IMPORT" || "EXPORT" || "LOCAL_USE",
+ * //       SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

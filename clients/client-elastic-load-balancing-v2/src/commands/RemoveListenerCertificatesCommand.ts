@@ -55,8 +55,7 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * };
  * const command = new RemoveListenerCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

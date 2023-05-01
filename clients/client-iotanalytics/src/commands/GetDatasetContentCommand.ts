@@ -45,20 +45,19 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
  * };
  * const command = new GetDatasetContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatasetContentResponse
- *   entries: [ // DatasetEntries
- *     { // DatasetEntry
- *       entryName: "STRING_VALUE",
- *       dataURI: "STRING_VALUE",
- *     },
- *   ],
- *   timestamp: new Date("TIMESTAMP"),
- *   status: { // DatasetContentStatus
- *     state: "STRING_VALUE",
- *     reason: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDatasetContentResponse
+ * //   entries: [ // DatasetEntries
+ * //     { // DatasetEntry
+ * //       entryName: "STRING_VALUE",
+ * //       dataURI: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   timestamp: new Date("TIMESTAMP"),
+ * //   status: { // DatasetContentStatus
+ * //     state: "STRING_VALUE",
+ * //     reason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

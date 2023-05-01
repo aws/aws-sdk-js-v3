@@ -45,8 +45,7 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFaqCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

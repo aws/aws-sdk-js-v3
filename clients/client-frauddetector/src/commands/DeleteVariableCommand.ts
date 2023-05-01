@@ -47,8 +47,7 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * };
  * const command = new DeleteVariableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

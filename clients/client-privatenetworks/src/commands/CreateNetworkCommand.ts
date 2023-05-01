@@ -54,20 +54,19 @@ export interface CreateNetworkCommandOutput extends CreateNetworkResponse, __Met
  * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkResponse
- *   network: { // Network
- *     networkArn: "STRING_VALUE", // required
- *     networkName: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     status: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateNetworkResponse
+ * //   network: { // Network
+ * //     networkArn: "STRING_VALUE", // required
+ * //     networkName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

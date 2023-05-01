@@ -48,17 +48,16 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * };
  * const command = new DescribeDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatabaseResponse
- *   Database: { // Database
- *     Arn: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     TableCount: Number("long"),
- *     KmsKeyId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeDatabaseResponse
+ * //   Database: { // Database
+ * //     Arn: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableCount: Number("long"),
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

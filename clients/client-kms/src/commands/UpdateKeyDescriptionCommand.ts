@@ -66,8 +66,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

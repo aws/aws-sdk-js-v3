@@ -54,10 +54,9 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * };
  * const command = new CreateTapePoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTapePoolOutput
- *   PoolARN: "STRING_VALUE",
- * };
+ * // { // CreateTapePoolOutput
+ * //   PoolARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

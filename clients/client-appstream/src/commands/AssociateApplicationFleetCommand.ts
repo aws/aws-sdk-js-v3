@@ -45,13 +45,12 @@ export interface AssociateApplicationFleetCommandOutput extends AssociateApplica
  * };
  * const command = new AssociateApplicationFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateApplicationFleetResult
- *   ApplicationFleetAssociation: { // ApplicationFleetAssociation
- *     FleetName: "STRING_VALUE", // required
- *     ApplicationArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // AssociateApplicationFleetResult
+ * //   ApplicationFleetAssociation: { // ApplicationFleetAssociation
+ * //     FleetName: "STRING_VALUE", // required
+ * //     ApplicationArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

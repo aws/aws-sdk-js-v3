@@ -54,13 +54,12 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * };
  * const command = new StartDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDevEnvironmentResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- * };
+ * // { // StartDevEnvironmentResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

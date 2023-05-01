@@ -48,8 +48,7 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * };
  * const command = new DeleteServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

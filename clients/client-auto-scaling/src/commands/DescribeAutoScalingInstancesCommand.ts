@@ -48,28 +48,27 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * };
  * const command = new DescribeAutoScalingInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AutoScalingInstancesType
- *   AutoScalingInstances: [ // AutoScalingInstances
- *     { // AutoScalingInstanceDetails
- *       InstanceId: "STRING_VALUE", // required
- *       InstanceType: "STRING_VALUE",
- *       AutoScalingGroupName: "STRING_VALUE", // required
- *       AvailabilityZone: "STRING_VALUE", // required
- *       LifecycleState: "STRING_VALUE", // required
- *       HealthStatus: "STRING_VALUE", // required
- *       LaunchConfigurationName: "STRING_VALUE",
- *       LaunchTemplate: { // LaunchTemplateSpecification
- *         LaunchTemplateId: "STRING_VALUE",
- *         LaunchTemplateName: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *       ProtectedFromScaleIn: true || false, // required
- *       WeightedCapacity: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // AutoScalingInstancesType
+ * //   AutoScalingInstances: [ // AutoScalingInstances
+ * //     { // AutoScalingInstanceDetails
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       InstanceType: "STRING_VALUE",
+ * //       AutoScalingGroupName: "STRING_VALUE", // required
+ * //       AvailabilityZone: "STRING_VALUE", // required
+ * //       LifecycleState: "STRING_VALUE", // required
+ * //       HealthStatus: "STRING_VALUE", // required
+ * //       LaunchConfigurationName: "STRING_VALUE",
+ * //       LaunchTemplate: { // LaunchTemplateSpecification
+ * //         LaunchTemplateId: "STRING_VALUE",
+ * //         LaunchTemplateName: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       ProtectedFromScaleIn: true || false, // required
+ * //       WeightedCapacity: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

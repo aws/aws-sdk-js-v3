@@ -61,8 +61,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateUserIdentityInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

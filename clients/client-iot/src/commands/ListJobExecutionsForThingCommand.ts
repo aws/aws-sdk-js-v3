@@ -50,23 +50,22 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  * };
  * const command = new ListJobExecutionsForThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobExecutionsForThingResponse
- *   executionSummaries: [ // JobExecutionSummaryForThingList
- *     { // JobExecutionSummaryForThing
- *       jobId: "STRING_VALUE",
- *       jobExecutionSummary: { // JobExecutionSummary
- *         status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
- *         queuedAt: new Date("TIMESTAMP"),
- *         startedAt: new Date("TIMESTAMP"),
- *         lastUpdatedAt: new Date("TIMESTAMP"),
- *         executionNumber: Number("long"),
- *         retryAttempt: Number("int"),
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListJobExecutionsForThingResponse
+ * //   executionSummaries: [ // JobExecutionSummaryForThingList
+ * //     { // JobExecutionSummaryForThing
+ * //       jobId: "STRING_VALUE",
+ * //       jobExecutionSummary: { // JobExecutionSummary
+ * //         status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
+ * //         queuedAt: new Date("TIMESTAMP"),
+ * //         startedAt: new Date("TIMESTAMP"),
+ * //         lastUpdatedAt: new Date("TIMESTAMP"),
+ * //         executionNumber: Number("long"),
+ * //         retryAttempt: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

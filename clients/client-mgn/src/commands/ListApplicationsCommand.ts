@@ -58,31 +58,30 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   items: [ // ApplicationsList
- *     { // Application
- *       applicationID: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       isArchived: true || false,
- *       applicationAggregatedStatus: { // ApplicationAggregatedStatus
- *         lastUpdateDateTime: "STRING_VALUE",
- *         healthStatus: "STRING_VALUE",
- *         progressStatus: "STRING_VALUE",
- *         totalSourceServers: Number("long"),
- *       },
- *       creationDateTime: "STRING_VALUE",
- *       lastModifiedDateTime: "STRING_VALUE",
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       waveID: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   items: [ // ApplicationsList
+ * //     { // Application
+ * //       applicationID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       isArchived: true || false,
+ * //       applicationAggregatedStatus: { // ApplicationAggregatedStatus
+ * //         lastUpdateDateTime: "STRING_VALUE",
+ * //         healthStatus: "STRING_VALUE",
+ * //         progressStatus: "STRING_VALUE",
+ * //         totalSourceServers: Number("long"),
+ * //       },
+ * //       creationDateTime: "STRING_VALUE",
+ * //       lastModifiedDateTime: "STRING_VALUE",
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       waveID: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

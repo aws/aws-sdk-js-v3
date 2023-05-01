@@ -56,20 +56,19 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * };
  * const command = new UpdateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIAMPolicyAssignmentResponse
- *   AssignmentName: "STRING_VALUE",
- *   AssignmentId: "STRING_VALUE",
- *   PolicyArn: "STRING_VALUE",
- *   Identities: { // IdentityMap
- *     "<keys>": [ // IdentityNameList
- *       "STRING_VALUE",
- *     ],
- *   },
- *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateIAMPolicyAssignmentResponse
+ * //   AssignmentName: "STRING_VALUE",
+ * //   AssignmentId: "STRING_VALUE",
+ * //   PolicyArn: "STRING_VALUE",
+ * //   Identities: { // IdentityMap
+ * //     "<keys>": [ // IdentityNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

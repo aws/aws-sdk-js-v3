@@ -70,8 +70,7 @@ export interface PutBucketOwnershipControlsCommandOutput extends __MetadataBeare
  * };
  * const command = new PutBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

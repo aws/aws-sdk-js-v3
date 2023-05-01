@@ -49,22 +49,21 @@ export interface ListSlackChannelConfigurationsCommandOutput
  * };
  * const command = new ListSlackChannelConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSlackChannelConfigurationsResult
- *   nextToken: "STRING_VALUE",
- *   slackChannelConfigurations: [ // slackChannelConfigurationList // required
- *     { // SlackChannelConfiguration
- *       teamId: "STRING_VALUE", // required
- *       channelId: "STRING_VALUE", // required
- *       channelName: "STRING_VALUE",
- *       notifyOnCreateOrReopenCase: true || false,
- *       notifyOnAddCorrespondenceToCase: true || false,
- *       notifyOnResolveCase: true || false,
- *       notifyOnCaseSeverity: "STRING_VALUE",
- *       channelRoleArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListSlackChannelConfigurationsResult
+ * //   nextToken: "STRING_VALUE",
+ * //   slackChannelConfigurations: [ // slackChannelConfigurationList // required
+ * //     { // SlackChannelConfiguration
+ * //       teamId: "STRING_VALUE", // required
+ * //       channelId: "STRING_VALUE", // required
+ * //       channelName: "STRING_VALUE",
+ * //       notifyOnCreateOrReopenCase: true || false,
+ * //       notifyOnAddCorrespondenceToCase: true || false,
+ * //       notifyOnResolveCase: true || false,
+ * //       notifyOnCaseSeverity: "STRING_VALUE",
+ * //       channelRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

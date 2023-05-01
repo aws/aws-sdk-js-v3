@@ -45,8 +45,7 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteQuickConnectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,13 +45,12 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * };
  * const command = new DeleteSmsTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSmsTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteSmsTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

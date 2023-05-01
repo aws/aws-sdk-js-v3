@@ -68,28 +68,27 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * };
  * const command = new ModifyTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyTrafficMirrorFilterRuleResult
- *   TrafficMirrorFilterRule: { // TrafficMirrorFilterRule
- *     TrafficMirrorFilterRuleId: "STRING_VALUE",
- *     TrafficMirrorFilterId: "STRING_VALUE",
- *     TrafficDirection: "ingress" || "egress",
- *     RuleNumber: Number("int"),
- *     RuleAction: "accept" || "reject",
- *     Protocol: Number("int"),
- *     DestinationPortRange: { // TrafficMirrorPortRange
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
- *     },
- *     SourcePortRange: {
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
- *     },
- *     DestinationCidrBlock: "STRING_VALUE",
- *     SourceCidrBlock: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // ModifyTrafficMirrorFilterRuleResult
+ * //   TrafficMirrorFilterRule: { // TrafficMirrorFilterRule
+ * //     TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //     TrafficMirrorFilterId: "STRING_VALUE",
+ * //     TrafficDirection: "ingress" || "egress",
+ * //     RuleNumber: Number("int"),
+ * //     RuleAction: "accept" || "reject",
+ * //     Protocol: Number("int"),
+ * //     DestinationPortRange: { // TrafficMirrorPortRange
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //     },
+ * //     SourcePortRange: {
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //     },
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     SourceCidrBlock: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -57,13 +57,12 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * };
  * const command = new GetObjectRetentionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectRetentionOutput
- *   Retention: { // ObjectLockRetention
- *     Mode: "GOVERNANCE" || "COMPLIANCE",
- *     RetainUntilDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetObjectRetentionOutput
+ * //   Retention: { // ObjectLockRetention
+ * //     Mode: "GOVERNANCE" || "COMPLIANCE",
+ * //     RetainUntilDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

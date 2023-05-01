@@ -75,15 +75,14 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * };
  * const command = new CreateAwsLogSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAwsLogSourceResponse
- *   processing: [ // AccountList
- *     "STRING_VALUE",
- *   ],
- *   failed: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // CreateAwsLogSourceResponse
+ * //   processing: [ // AccountList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   failed: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,27 +47,26 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   UserList: [ // UserList
- *     { // User
- *       Arn: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
- *       IdentityType: "IAM" || "QUICKSIGHT",
- *       Active: true || false,
- *       PrincipalId: "STRING_VALUE",
- *       CustomPermissionsName: "STRING_VALUE",
- *       ExternalLoginFederationProviderType: "STRING_VALUE",
- *       ExternalLoginFederationProviderUrl: "STRING_VALUE",
- *       ExternalLoginId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // ListUsersResponse
+ * //   UserList: [ // UserList
+ * //     { // User
+ * //       Arn: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
+ * //       IdentityType: "IAM" || "QUICKSIGHT",
+ * //       Active: true || false,
+ * //       PrincipalId: "STRING_VALUE",
+ * //       CustomPermissionsName: "STRING_VALUE",
+ * //       ExternalLoginFederationProviderType: "STRING_VALUE",
+ * //       ExternalLoginFederationProviderUrl: "STRING_VALUE",
+ * //       ExternalLoginId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

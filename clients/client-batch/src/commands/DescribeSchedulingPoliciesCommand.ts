@@ -46,28 +46,27 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * };
  * const command = new DescribeSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSchedulingPoliciesResponse
- *   schedulingPolicies: [ // SchedulingPolicyDetailList
- *     { // SchedulingPolicyDetail
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       fairsharePolicy: { // FairsharePolicy
- *         shareDecaySeconds: Number("int"),
- *         computeReservation: Number("int"),
- *         shareDistribution: [ // ShareAttributesList
- *           { // ShareAttributes
- *             shareIdentifier: "STRING_VALUE", // required
- *             weightFactor: Number("float"),
- *           },
- *         ],
- *       },
- *       tags: { // TagrisTagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeSchedulingPoliciesResponse
+ * //   schedulingPolicies: [ // SchedulingPolicyDetailList
+ * //     { // SchedulingPolicyDetail
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       fairsharePolicy: { // FairsharePolicy
+ * //         shareDecaySeconds: Number("int"),
+ * //         computeReservation: Number("int"),
+ * //         shareDistribution: [ // ShareAttributesList
+ * //           { // ShareAttributes
+ * //             shareIdentifier: "STRING_VALUE", // required
+ * //             weightFactor: Number("float"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       tags: { // TagrisTagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

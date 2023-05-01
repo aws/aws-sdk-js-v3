@@ -46,8 +46,7 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeactivateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

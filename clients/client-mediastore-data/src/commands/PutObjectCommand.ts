@@ -58,12 +58,11 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectResponse
- *   ContentSHA256: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- *   StorageClass: "STRING_VALUE",
- * };
+ * // { // PutObjectResponse
+ * //   ContentSHA256: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   StorageClass: "STRING_VALUE",
+ * // };
  *
  * ```
  *

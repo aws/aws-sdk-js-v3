@@ -49,15 +49,14 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * };
  * const command = new UpdateRoutingControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRoutingControlResponse
- *   RoutingControl: { // RoutingControl
- *     ControlPanelArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RoutingControlArn: "STRING_VALUE",
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // UpdateRoutingControlResponse
+ * //   RoutingControl: { // RoutingControl
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlArn: "STRING_VALUE",
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

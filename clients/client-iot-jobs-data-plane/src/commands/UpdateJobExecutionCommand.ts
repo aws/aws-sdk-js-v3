@@ -54,17 +54,16 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * };
  * const command = new UpdateJobExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateJobExecutionResponse
- *   executionState: { // JobExecutionState
- *     status: "STRING_VALUE",
- *     statusDetails: { // DetailsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     versionNumber: Number("long"),
- *   },
- *   jobDocument: "STRING_VALUE",
- * };
+ * // { // UpdateJobExecutionResponse
+ * //   executionState: { // JobExecutionState
+ * //     status: "STRING_VALUE",
+ * //     statusDetails: { // DetailsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     versionNumber: Number("long"),
+ * //   },
+ * //   jobDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

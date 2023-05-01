@@ -66,31 +66,30 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * };
  * const command = new CreateInstanceExportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInstanceExportTaskResult
- *   ExportTask: { // ExportTask
- *     Description: "STRING_VALUE",
- *     ExportTaskId: "STRING_VALUE",
- *     ExportToS3Task: { // ExportToS3Task
- *       ContainerFormat: "ova",
- *       DiskImageFormat: "VMDK" || "RAW" || "VHD",
- *       S3Bucket: "STRING_VALUE",
- *       S3Key: "STRING_VALUE",
- *     },
- *     InstanceExportDetails: { // InstanceExportDetails
- *       InstanceId: "STRING_VALUE",
- *       TargetEnvironment: "citrix" || "vmware" || "microsoft",
- *     },
- *     State: "active" || "cancelling" || "cancelled" || "completed",
- *     StatusMessage: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateInstanceExportTaskResult
+ * //   ExportTask: { // ExportTask
+ * //     Description: "STRING_VALUE",
+ * //     ExportTaskId: "STRING_VALUE",
+ * //     ExportToS3Task: { // ExportToS3Task
+ * //       ContainerFormat: "ova",
+ * //       DiskImageFormat: "VMDK" || "RAW" || "VHD",
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //     },
+ * //     InstanceExportDetails: { // InstanceExportDetails
+ * //       InstanceId: "STRING_VALUE",
+ * //       TargetEnvironment: "citrix" || "vmware" || "microsoft",
+ * //     },
+ * //     State: "active" || "cancelling" || "cancelled" || "completed",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -59,20 +59,19 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * };
  * const command = new ListMigrationTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMigrationTasksResult
- *   NextToken: "STRING_VALUE",
- *   MigrationTaskSummaryList: [ // MigrationTaskSummaryList
- *     { // MigrationTaskSummary
- *       ProgressUpdateStream: "STRING_VALUE",
- *       MigrationTaskName: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       ProgressPercent: Number("int"),
- *       StatusDetail: "STRING_VALUE",
- *       UpdateDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListMigrationTasksResult
+ * //   NextToken: "STRING_VALUE",
+ * //   MigrationTaskSummaryList: [ // MigrationTaskSummaryList
+ * //     { // MigrationTaskSummary
+ * //       ProgressUpdateStream: "STRING_VALUE",
+ * //       MigrationTaskName: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ProgressPercent: Number("int"),
+ * //       StatusDetail: "STRING_VALUE",
+ * //       UpdateDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

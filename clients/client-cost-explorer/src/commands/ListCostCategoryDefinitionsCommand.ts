@@ -54,29 +54,28 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * };
  * const command = new ListCostCategoryDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCostCategoryDefinitionsResponse
- *   CostCategoryReferences: [ // CostCategoryReferencesList
- *     { // CostCategoryReference
- *       CostCategoryArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       EffectiveStart: "STRING_VALUE",
- *       EffectiveEnd: "STRING_VALUE",
- *       NumberOfRules: Number("int"),
- *       ProcessingStatus: [ // CostCategoryProcessingStatusList
- *         { // CostCategoryProcessingStatus
- *           Component: "COST_EXPLORER",
- *           Status: "PROCESSING" || "APPLIED",
- *         },
- *       ],
- *       Values: [ // CostCategoryValuesList
- *         "STRING_VALUE",
- *       ],
- *       DefaultValue: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCostCategoryDefinitionsResponse
+ * //   CostCategoryReferences: [ // CostCategoryReferencesList
+ * //     { // CostCategoryReference
+ * //       CostCategoryArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       EffectiveStart: "STRING_VALUE",
+ * //       EffectiveEnd: "STRING_VALUE",
+ * //       NumberOfRules: Number("int"),
+ * //       ProcessingStatus: [ // CostCategoryProcessingStatusList
+ * //         { // CostCategoryProcessingStatus
+ * //           Component: "COST_EXPLORER",
+ * //           Status: "PROCESSING" || "APPLIED",
+ * //         },
+ * //       ],
+ * //       Values: [ // CostCategoryValuesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DefaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

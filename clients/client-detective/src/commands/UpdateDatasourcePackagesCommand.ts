@@ -47,8 +47,7 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateDatasourcePackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

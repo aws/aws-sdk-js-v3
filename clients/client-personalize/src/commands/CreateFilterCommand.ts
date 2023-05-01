@@ -52,10 +52,9 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFilterResponse
- *   filterArn: "STRING_VALUE",
- * };
+ * // { // CreateFilterResponse
+ * //   filterArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

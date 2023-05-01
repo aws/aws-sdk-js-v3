@@ -47,37 +47,36 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * };
  * const command = new BatchGetCommitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetCommitsOutput
- *   commits: [ // CommitObjectsList
- *     { // Commit
- *       commitId: "STRING_VALUE",
- *       treeId: "STRING_VALUE",
- *       parents: [ // ParentList
- *         "STRING_VALUE",
- *       ],
- *       message: "STRING_VALUE",
- *       author: { // UserInfo
- *         name: "STRING_VALUE",
- *         email: "STRING_VALUE",
- *         date: "STRING_VALUE",
- *       },
- *       committer: {
- *         name: "STRING_VALUE",
- *         email: "STRING_VALUE",
- *         date: "STRING_VALUE",
- *       },
- *       additionalData: "STRING_VALUE",
- *     },
- *   ],
- *   errors: [ // BatchGetCommitsErrorsList
- *     { // BatchGetCommitsError
- *       commitId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetCommitsOutput
+ * //   commits: [ // CommitObjectsList
+ * //     { // Commit
+ * //       commitId: "STRING_VALUE",
+ * //       treeId: "STRING_VALUE",
+ * //       parents: [ // ParentList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       message: "STRING_VALUE",
+ * //       author: { // UserInfo
+ * //         name: "STRING_VALUE",
+ * //         email: "STRING_VALUE",
+ * //         date: "STRING_VALUE",
+ * //       },
+ * //       committer: {
+ * //         name: "STRING_VALUE",
+ * //         email: "STRING_VALUE",
+ * //         date: "STRING_VALUE",
+ * //       },
+ * //       additionalData: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchGetCommitsErrorsList
+ * //     { // BatchGetCommitsError
+ * //       commitId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

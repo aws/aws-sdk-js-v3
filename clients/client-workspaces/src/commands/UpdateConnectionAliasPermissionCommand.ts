@@ -74,8 +74,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * };
  * const command = new UpdateConnectionAliasPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -85,13 +85,12 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartChatContactResponse
- *   ContactId: "STRING_VALUE",
- *   ParticipantId: "STRING_VALUE",
- *   ParticipantToken: "STRING_VALUE",
- *   ContinuedFromContactId: "STRING_VALUE",
- * };
+ * // { // StartChatContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * //   ParticipantId: "STRING_VALUE",
+ * //   ParticipantToken: "STRING_VALUE",
+ * //   ContinuedFromContactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

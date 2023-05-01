@@ -49,42 +49,41 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * };
  * const command = new ListTranscriptionJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTranscriptionJobsResponse
- *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *   NextToken: "STRING_VALUE",
- *   TranscriptionJobSummaries: [ // TranscriptionJobSummaries
- *     { // TranscriptionJobSummary
- *       TranscriptionJobName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       StartTime: new Date("TIMESTAMP"),
- *       CompletionTime: new Date("TIMESTAMP"),
- *       LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
- *       TranscriptionJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *       FailureReason: "STRING_VALUE",
- *       OutputLocationType: "CUSTOMER_BUCKET" || "SERVICE_BUCKET",
- *       ContentRedaction: { // ContentRedaction
- *         RedactionType: "PII", // required
- *         RedactionOutput: "redacted" || "redacted_and_unredacted", // required
- *         PiiEntityTypes: [ // PiiEntityTypes
- *           "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
- *         ],
- *       },
- *       ModelSettings: { // ModelSettings
- *         LanguageModelName: "STRING_VALUE",
- *       },
- *       IdentifyLanguage: true || false,
- *       IdentifyMultipleLanguages: true || false,
- *       IdentifiedLanguageScore: Number("float"),
- *       LanguageCodes: [ // LanguageCodeList
- *         { // LanguageCodeItem
- *           LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
- *           DurationInSeconds: Number("float"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListTranscriptionJobsResponse
+ * //   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //   NextToken: "STRING_VALUE",
+ * //   TranscriptionJobSummaries: [ // TranscriptionJobSummaries
+ * //     { // TranscriptionJobSummary
+ * //       TranscriptionJobName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       CompletionTime: new Date("TIMESTAMP"),
+ * //       LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ * //       TranscriptionJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //       FailureReason: "STRING_VALUE",
+ * //       OutputLocationType: "CUSTOMER_BUCKET" || "SERVICE_BUCKET",
+ * //       ContentRedaction: { // ContentRedaction
+ * //         RedactionType: "PII", // required
+ * //         RedactionOutput: "redacted" || "redacted_and_unredacted", // required
+ * //         PiiEntityTypes: [ // PiiEntityTypes
+ * //           "BANK_ACCOUNT_NUMBER" || "BANK_ROUTING" || "CREDIT_DEBIT_NUMBER" || "CREDIT_DEBIT_CVV" || "CREDIT_DEBIT_EXPIRY" || "PIN" || "EMAIL" || "ADDRESS" || "NAME" || "PHONE" || "SSN" || "ALL",
+ * //         ],
+ * //       },
+ * //       ModelSettings: { // ModelSettings
+ * //         LanguageModelName: "STRING_VALUE",
+ * //       },
+ * //       IdentifyLanguage: true || false,
+ * //       IdentifyMultipleLanguages: true || false,
+ * //       IdentifiedLanguageScore: Number("float"),
+ * //       LanguageCodes: [ // LanguageCodeList
+ * //         { // LanguageCodeItem
+ * //           LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ * //           DurationInSeconds: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * };
  * const command = new StopQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopQueryResponse
- *   success: true || false,
- * };
+ * // { // StopQueryResponse
+ * //   success: true || false,
+ * // };
  *
  * ```
  *

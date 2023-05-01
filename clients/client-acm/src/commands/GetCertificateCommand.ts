@@ -47,11 +47,10 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * };
  * const command = new GetCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCertificateResponse
- *   Certificate: "STRING_VALUE",
- *   CertificateChain: "STRING_VALUE",
- * };
+ * // { // GetCertificateResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CertificateChain: "STRING_VALUE",
+ * // };
  *
  * ```
  *

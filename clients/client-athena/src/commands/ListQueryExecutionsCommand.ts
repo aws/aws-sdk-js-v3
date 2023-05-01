@@ -52,13 +52,12 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * };
  * const command = new ListQueryExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueryExecutionsOutput
- *   QueryExecutionIds: [ // QueryExecutionIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQueryExecutionsOutput
+ * //   QueryExecutionIds: [ // QueryExecutionIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

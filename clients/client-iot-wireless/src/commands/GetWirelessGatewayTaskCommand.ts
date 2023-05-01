@@ -44,14 +44,13 @@ export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayT
  * };
  * const command = new GetWirelessGatewayTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayTaskResponse
- *   WirelessGatewayId: "STRING_VALUE",
- *   WirelessGatewayTaskDefinitionId: "STRING_VALUE",
- *   LastUplinkReceivedAt: "STRING_VALUE",
- *   TaskCreatedAt: "STRING_VALUE",
- *   Status: "PENDING" || "IN_PROGRESS" || "FIRST_RETRY" || "SECOND_RETRY" || "COMPLETED" || "FAILED",
- * };
+ * // { // GetWirelessGatewayTaskResponse
+ * //   WirelessGatewayId: "STRING_VALUE",
+ * //   WirelessGatewayTaskDefinitionId: "STRING_VALUE",
+ * //   LastUplinkReceivedAt: "STRING_VALUE",
+ * //   TaskCreatedAt: "STRING_VALUE",
+ * //   Status: "PENDING" || "IN_PROGRESS" || "FIRST_RETRY" || "SECOND_RETRY" || "COMPLETED" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteProtocolsListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

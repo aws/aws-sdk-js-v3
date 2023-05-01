@@ -46,18 +46,17 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * };
  * const command = new ListJobTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobTemplatesResponse
- *   jobTemplates: [ // JobTemplateSummaryList
- *     { // JobTemplateSummary
- *       jobTemplateArn: "STRING_VALUE",
- *       jobTemplateId: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListJobTemplatesResponse
+ * //   jobTemplates: [ // JobTemplateSummaryList
+ * //     { // JobTemplateSummary
+ * //       jobTemplateArn: "STRING_VALUE",
+ * //       jobTemplateId: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

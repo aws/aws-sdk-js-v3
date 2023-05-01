@@ -45,20 +45,19 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsOutput
- *   Applications: [ // ApplicationSummaryList
- *     { // ApplicationSummary
- *       Id: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsOutput
+ * //   Applications: [ // ApplicationSummaryList
+ * //     { // ApplicationSummary
+ * //       Id: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

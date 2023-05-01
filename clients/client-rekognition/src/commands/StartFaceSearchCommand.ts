@@ -68,10 +68,9 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * };
  * const command = new StartFaceSearchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFaceSearchResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartFaceSearchResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

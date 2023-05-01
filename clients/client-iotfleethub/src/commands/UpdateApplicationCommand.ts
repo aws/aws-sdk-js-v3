@@ -50,8 +50,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

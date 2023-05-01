@@ -46,34 +46,33 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * };
  * const command = new ListScheduledQueriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScheduledQueriesResponse
- *   ScheduledQueries: [ // ScheduledQueryList // required
- *     { // ScheduledQuery
- *       Arn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"),
- *       State: "STRING_VALUE", // required
- *       PreviousInvocationTime: new Date("TIMESTAMP"),
- *       NextInvocationTime: new Date("TIMESTAMP"),
- *       ErrorReportConfiguration: { // ErrorReportConfiguration
- *         S3Configuration: { // S3Configuration
- *           BucketName: "STRING_VALUE", // required
- *           ObjectKeyPrefix: "STRING_VALUE",
- *           EncryptionOption: "STRING_VALUE",
- *         },
- *       },
- *       TargetDestination: { // TargetDestination
- *         TimestreamDestination: { // TimestreamDestination
- *           DatabaseName: "STRING_VALUE",
- *           TableName: "STRING_VALUE",
- *         },
- *       },
- *       LastRunStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListScheduledQueriesResponse
+ * //   ScheduledQueries: [ // ScheduledQueryList // required
+ * //     { // ScheduledQuery
+ * //       Arn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       State: "STRING_VALUE", // required
+ * //       PreviousInvocationTime: new Date("TIMESTAMP"),
+ * //       NextInvocationTime: new Date("TIMESTAMP"),
+ * //       ErrorReportConfiguration: { // ErrorReportConfiguration
+ * //         S3Configuration: { // S3Configuration
+ * //           BucketName: "STRING_VALUE", // required
+ * //           ObjectKeyPrefix: "STRING_VALUE",
+ * //           EncryptionOption: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       TargetDestination: { // TargetDestination
+ * //         TimestreamDestination: { // TimestreamDestination
+ * //           DatabaseName: "STRING_VALUE",
+ * //           TableName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       LastRunStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

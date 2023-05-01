@@ -45,8 +45,7 @@ export interface RemoveStorageSystemCommandOutput extends RemoveStorageSystemRes
  * };
  * const command = new RemoveStorageSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

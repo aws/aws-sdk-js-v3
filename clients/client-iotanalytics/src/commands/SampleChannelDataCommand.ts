@@ -48,12 +48,11 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * };
  * const command = new SampleChannelDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SampleChannelDataResponse
- *   payloads: [ // MessagePayloads
- *     "BLOB_VALUE",
- *   ],
- * };
+ * // { // SampleChannelDataResponse
+ * //   payloads: [ // MessagePayloads
+ * //     "BLOB_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

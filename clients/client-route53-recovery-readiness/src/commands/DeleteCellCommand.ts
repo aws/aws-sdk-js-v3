@@ -48,8 +48,7 @@ export interface DeleteCellCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCellCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

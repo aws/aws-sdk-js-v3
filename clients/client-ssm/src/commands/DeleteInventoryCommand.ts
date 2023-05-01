@@ -48,22 +48,21 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * };
  * const command = new DeleteInventoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInventoryResult
- *   DeletionId: "STRING_VALUE",
- *   TypeName: "STRING_VALUE",
- *   DeletionSummary: { // InventoryDeletionSummary
- *     TotalCount: Number("int"),
- *     RemainingCount: Number("int"),
- *     SummaryItems: [ // InventoryDeletionSummaryItems
- *       { // InventoryDeletionSummaryItem
- *         Version: "STRING_VALUE",
- *         Count: Number("int"),
- *         RemainingCount: Number("int"),
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteInventoryResult
+ * //   DeletionId: "STRING_VALUE",
+ * //   TypeName: "STRING_VALUE",
+ * //   DeletionSummary: { // InventoryDeletionSummary
+ * //     TotalCount: Number("int"),
+ * //     RemainingCount: Number("int"),
+ * //     SummaryItems: [ // InventoryDeletionSummaryItems
+ * //       { // InventoryDeletionSummaryItem
+ * //         Version: "STRING_VALUE",
+ * //         Count: Number("int"),
+ * //         RemainingCount: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

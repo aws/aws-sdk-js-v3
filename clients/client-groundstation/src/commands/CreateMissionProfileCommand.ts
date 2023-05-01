@@ -64,10 +64,9 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * };
  * const command = new CreateMissionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MissionProfileIdResponse
- *   missionProfileId: "STRING_VALUE",
- * };
+ * // { // MissionProfileIdResponse
+ * //   missionProfileId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

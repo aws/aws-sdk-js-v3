@@ -51,8 +51,7 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * };
  * const command = new DeleteDataIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

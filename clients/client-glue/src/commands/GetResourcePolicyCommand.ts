@@ -44,13 +44,12 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePolicyResponse
- *   PolicyInJson: "STRING_VALUE",
- *   PolicyHash: "STRING_VALUE",
- *   CreateTime: new Date("TIMESTAMP"),
- *   UpdateTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetResourcePolicyResponse
+ * //   PolicyInJson: "STRING_VALUE",
+ * //   PolicyHash: "STRING_VALUE",
+ * //   CreateTime: new Date("TIMESTAMP"),
+ * //   UpdateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -108,8 +108,7 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * };
  * const command = new RevokePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

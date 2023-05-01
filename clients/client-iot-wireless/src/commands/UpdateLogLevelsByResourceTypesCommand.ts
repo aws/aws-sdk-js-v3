@@ -74,8 +74,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * };
  * const command = new UpdateLogLevelsByResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

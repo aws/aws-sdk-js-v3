@@ -51,17 +51,16 @@ export interface ListAdminAccountsForOrganizationCommandOutput
  * };
  * const command = new ListAdminAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAdminAccountsForOrganizationResponse
- *   AdminAccounts: [ // AdminAccountSummaryList
- *     { // AdminAccountSummary
- *       AdminAccount: "STRING_VALUE",
- *       DefaultAdmin: true || false,
- *       Status: "ONBOARDING" || "ONBOARDING_COMPLETE" || "OFFBOARDING" || "OFFBOARDING_COMPLETE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAdminAccountsForOrganizationResponse
+ * //   AdminAccounts: [ // AdminAccountSummaryList
+ * //     { // AdminAccountSummary
+ * //       AdminAccount: "STRING_VALUE",
+ * //       DefaultAdmin: true || false,
+ * //       Status: "ONBOARDING" || "ONBOARDING_COMPLETE" || "OFFBOARDING" || "OFFBOARDING_COMPLETE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

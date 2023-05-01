@@ -78,11 +78,10 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
  * };
  * const command = new CreateWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWirelessGatewayTaskDefinitionResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateWirelessGatewayTaskDefinitionResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

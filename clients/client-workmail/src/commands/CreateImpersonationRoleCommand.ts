@@ -67,10 +67,9 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * };
  * const command = new CreateImpersonationRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImpersonationRoleResponse
- *   ImpersonationRoleId: "STRING_VALUE",
- * };
+ * // { // CreateImpersonationRoleResponse
+ * //   ImpersonationRoleId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

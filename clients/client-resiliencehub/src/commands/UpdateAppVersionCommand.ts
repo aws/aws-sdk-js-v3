@@ -54,16 +54,15 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * };
  * const command = new UpdateAppVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppVersionResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   additionalInfo: { // AdditionalInfoMap
- *     "<keys>": [ // AdditionalInfoValueList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // UpdateAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   additionalInfo: { // AdditionalInfoMap
+ * //     "<keys>": [ // AdditionalInfoValueList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

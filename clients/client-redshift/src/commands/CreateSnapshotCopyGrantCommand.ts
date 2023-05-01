@@ -58,19 +58,18 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * };
  * const command = new CreateSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSnapshotCopyGrantResult
- *   SnapshotCopyGrant: { // SnapshotCopyGrant
- *     SnapshotCopyGrantName: "STRING_VALUE",
- *     KmsKeyId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateSnapshotCopyGrantResult
+ * //   SnapshotCopyGrant: { // SnapshotCopyGrant
+ * //     SnapshotCopyGrantName: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

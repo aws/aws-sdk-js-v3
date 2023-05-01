@@ -46,8 +46,7 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  * };
  * const command = new UnregisterConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

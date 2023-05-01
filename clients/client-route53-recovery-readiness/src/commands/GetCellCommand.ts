@@ -48,20 +48,19 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  * };
  * const command = new GetCellCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCellResponse
- *   CellArn: "STRING_VALUE",
- *   CellName: "STRING_VALUE",
- *   Cells: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   ParentReadinessScopes: [
- *     "STRING_VALUE",
- *   ],
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetCellResponse
+ * //   CellArn: "STRING_VALUE",
+ * //   CellName: "STRING_VALUE",
+ * //   Cells: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ParentReadinessScopes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

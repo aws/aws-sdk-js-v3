@@ -53,13 +53,12 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * };
  * const command = new ListDeliveryStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeliveryStreamsOutput
- *   DeliveryStreamNames: [ // DeliveryStreamNameList // required
- *     "STRING_VALUE",
- *   ],
- *   HasMoreDeliveryStreams: true || false, // required
- * };
+ * // { // ListDeliveryStreamsOutput
+ * //   DeliveryStreamNames: [ // DeliveryStreamNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HasMoreDeliveryStreams: true || false, // required
+ * // };
  *
  * ```
  *

@@ -49,17 +49,16 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * };
  * const command = new ListUserHierarchyGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserHierarchyGroupsResponse
- *   UserHierarchyGroupSummaryList: [ // HierarchyGroupSummaryList
- *     { // HierarchyGroupSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUserHierarchyGroupsResponse
+ * //   UserHierarchyGroupSummaryList: [ // HierarchyGroupSummaryList
+ * //     { // HierarchyGroupSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

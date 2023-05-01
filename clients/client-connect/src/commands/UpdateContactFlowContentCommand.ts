@@ -48,8 +48,7 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * };
  * const command = new UpdateContactFlowContentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

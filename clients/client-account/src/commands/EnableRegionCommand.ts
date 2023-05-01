@@ -45,8 +45,7 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

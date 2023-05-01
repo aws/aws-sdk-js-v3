@@ -46,27 +46,26 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeviceResponse
- *   DeviceArn: "STRING_VALUE",
- *   DeviceName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   DeviceFleetName: "STRING_VALUE", // required
- *   IotThingName: "STRING_VALUE",
- *   RegistrationTime: new Date("TIMESTAMP"), // required
- *   LatestHeartbeat: new Date("TIMESTAMP"),
- *   Models: [ // EdgeModels
- *     { // EdgeModel
- *       ModelName: "STRING_VALUE", // required
- *       ModelVersion: "STRING_VALUE", // required
- *       LatestSampleTime: new Date("TIMESTAMP"),
- *       LatestInference: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   MaxModels: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   AgentVersion: "STRING_VALUE",
- * };
+ * // { // DescribeDeviceResponse
+ * //   DeviceArn: "STRING_VALUE",
+ * //   DeviceName: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   DeviceFleetName: "STRING_VALUE", // required
+ * //   IotThingName: "STRING_VALUE",
+ * //   RegistrationTime: new Date("TIMESTAMP"), // required
+ * //   LatestHeartbeat: new Date("TIMESTAMP"),
+ * //   Models: [ // EdgeModels
+ * //     { // EdgeModel
+ * //       ModelName: "STRING_VALUE", // required
+ * //       ModelVersion: "STRING_VALUE", // required
+ * //       LatestSampleTime: new Date("TIMESTAMP"),
+ * //       LatestInference: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   MaxModels: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   AgentVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

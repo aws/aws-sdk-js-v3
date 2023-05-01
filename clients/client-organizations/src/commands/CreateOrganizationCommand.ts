@@ -58,23 +58,22 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOrganizationResponse
- *   Organization: { // Organization
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     FeatureSet: "ALL" || "CONSOLIDATED_BILLING",
- *     MasterAccountArn: "STRING_VALUE",
- *     MasterAccountId: "STRING_VALUE",
- *     MasterAccountEmail: "STRING_VALUE",
- *     AvailablePolicyTypes: [ // PolicyTypes
- *       { // PolicyTypeSummary
- *         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
- *         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateOrganizationResponse
+ * //   Organization: { // Organization
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     FeatureSet: "ALL" || "CONSOLIDATED_BILLING",
+ * //     MasterAccountArn: "STRING_VALUE",
+ * //     MasterAccountId: "STRING_VALUE",
+ * //     MasterAccountEmail: "STRING_VALUE",
+ * //     AvailablePolicyTypes: [ // PolicyTypes
+ * //       { // PolicyTypeSummary
+ * //         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

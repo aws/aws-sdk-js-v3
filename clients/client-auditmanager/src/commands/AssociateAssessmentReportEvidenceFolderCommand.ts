@@ -55,8 +55,7 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * };
  * const command = new AssociateAssessmentReportEvidenceFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

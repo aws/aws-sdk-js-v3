@@ -46,18 +46,17 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * };
  * const command = new ListInputDeviceTransfersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInputDeviceTransfersResponse
- *   InputDeviceTransfers: [ // __listOfTransferringInputDeviceSummary
- *     { // TransferringInputDeviceSummary
- *       Id: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       TargetCustomerId: "STRING_VALUE",
- *       TransferType: "OUTGOING" || "INCOMING",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInputDeviceTransfersResponse
+ * //   InputDeviceTransfers: [ // __listOfTransferringInputDeviceSummary
+ * //     { // TransferringInputDeviceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       TargetCustomerId: "STRING_VALUE",
+ * //       TransferType: "OUTGOING" || "INCOMING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

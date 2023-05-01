@@ -59,11 +59,10 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChapCredentialsOutput
- *   TargetARN: "STRING_VALUE",
- *   InitiatorName: "STRING_VALUE",
- * };
+ * // { // UpdateChapCredentialsOutput
+ * //   TargetARN: "STRING_VALUE",
+ * //   InitiatorName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

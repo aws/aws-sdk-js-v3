@@ -46,8 +46,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

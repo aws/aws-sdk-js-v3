@@ -44,8 +44,7 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * };
  * const command = new DeleteAssistantCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

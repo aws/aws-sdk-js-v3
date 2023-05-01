@@ -57,26 +57,25 @@ export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
  * };
  * const command = new AcceptInboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptInboundCrossClusterSearchConnectionResponse
- *   CrossClusterSearchConnection: { // InboundCrossClusterSearchConnection
- *     SourceDomainInfo: { // DomainInformation
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *     DestinationDomainInfo: {
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *     CrossClusterSearchConnectionId: "STRING_VALUE",
- *     ConnectionStatus: { // InboundCrossClusterSearchConnectionStatus
- *       StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
- *       Message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // AcceptInboundCrossClusterSearchConnectionResponse
+ * //   CrossClusterSearchConnection: { // InboundCrossClusterSearchConnection
+ * //     SourceDomainInfo: { // DomainInformation
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     DestinationDomainInfo: {
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     CrossClusterSearchConnectionId: "STRING_VALUE",
+ * //     ConnectionStatus: { // InboundCrossClusterSearchConnectionStatus
+ * //       StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

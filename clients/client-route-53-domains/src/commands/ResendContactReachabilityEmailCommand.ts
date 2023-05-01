@@ -51,12 +51,11 @@ export interface ResendContactReachabilityEmailCommandOutput
  * };
  * const command = new ResendContactReachabilityEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResendContactReachabilityEmailResponse
- *   domainName: "STRING_VALUE",
- *   emailAddress: "STRING_VALUE",
- *   isAlreadyVerified: true || false,
- * };
+ * // { // ResendContactReachabilityEmailResponse
+ * //   domainName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   isAlreadyVerified: true || false,
+ * // };
  *
  * ```
  *

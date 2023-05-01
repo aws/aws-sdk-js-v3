@@ -46,21 +46,20 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * };
  * const command = new ListFaqsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFaqsResponse
- *   NextToken: "STRING_VALUE",
- *   FaqSummaryItems: [ // FaqSummaryItems
- *     { // FaqSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
- *       LanguageCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFaqsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FaqSummaryItems: [ // FaqSummaryItems
+ * //     { // FaqSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       FileFormat: "CSV" || "CSV_WITH_HEADER" || "JSON",
+ * //       LanguageCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,17 +46,16 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * };
  * const command = new GetBasePathMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BasePathMappings
- *   items: [ // ListOfBasePathMapping
- *     { // BasePathMapping
- *       basePath: "STRING_VALUE",
- *       restApiId: "STRING_VALUE",
- *       stage: "STRING_VALUE",
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // BasePathMappings
+ * //   items: [ // ListOfBasePathMapping
+ * //     { // BasePathMapping
+ * //       basePath: "STRING_VALUE",
+ * //       restApiId: "STRING_VALUE",
+ * //       stage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

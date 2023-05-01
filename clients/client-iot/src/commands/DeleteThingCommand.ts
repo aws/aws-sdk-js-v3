@@ -47,8 +47,7 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * };
  * const command = new DeleteThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

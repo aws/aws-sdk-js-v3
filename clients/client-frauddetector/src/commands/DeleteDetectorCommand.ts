@@ -45,8 +45,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

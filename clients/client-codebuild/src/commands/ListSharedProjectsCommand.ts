@@ -47,13 +47,12 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * };
  * const command = new ListSharedProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSharedProjectsOutput
- *   nextToken: "STRING_VALUE",
- *   projects: [ // ProjectArns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListSharedProjectsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   projects: [ // ProjectArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

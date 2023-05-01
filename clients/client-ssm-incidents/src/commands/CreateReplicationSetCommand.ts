@@ -53,10 +53,9 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * };
  * const command = new CreateReplicationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReplicationSetOutput
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateReplicationSetOutput
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

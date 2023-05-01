@@ -44,8 +44,7 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,17 +48,16 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * };
  * const command = new ListDomainConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainConfigurationsResponse
- *   domainConfigurations: [ // DomainConfigurations
- *     { // DomainConfigurationSummary
- *       domainConfigurationName: "STRING_VALUE",
- *       domainConfigurationArn: "STRING_VALUE",
- *       serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListDomainConfigurationsResponse
+ * //   domainConfigurations: [ // DomainConfigurations
+ * //     { // DomainConfigurationSummary
+ * //       domainConfigurationName: "STRING_VALUE",
+ * //       domainConfigurationArn: "STRING_VALUE",
+ * //       serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

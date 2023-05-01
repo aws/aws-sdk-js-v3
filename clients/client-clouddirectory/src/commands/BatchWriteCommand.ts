@@ -251,67 +251,66 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * };
  * const command = new BatchWriteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchWriteResponse
- *   Responses: [ // BatchWriteOperationResponseList
- *     { // BatchWriteOperationResponse
- *       CreateObject: { // BatchCreateObjectResponse
- *         ObjectIdentifier: "STRING_VALUE",
- *       },
- *       AttachObject: { // BatchAttachObjectResponse
- *         attachedObjectIdentifier: "STRING_VALUE",
- *       },
- *       DetachObject: { // BatchDetachObjectResponse
- *         detachedObjectIdentifier: "STRING_VALUE",
- *       },
- *       UpdateObjectAttributes: { // BatchUpdateObjectAttributesResponse
- *         ObjectIdentifier: "STRING_VALUE",
- *       },
- *       DeleteObject: {},
- *       AddFacetToObject: {},
- *       RemoveFacetFromObject: {},
- *       AttachPolicy: {},
- *       DetachPolicy: {},
- *       CreateIndex: { // BatchCreateIndexResponse
- *         ObjectIdentifier: "STRING_VALUE",
- *       },
- *       AttachToIndex: { // BatchAttachToIndexResponse
- *         AttachedObjectIdentifier: "STRING_VALUE",
- *       },
- *       DetachFromIndex: { // BatchDetachFromIndexResponse
- *         DetachedObjectIdentifier: "STRING_VALUE",
- *       },
- *       AttachTypedLink: { // BatchAttachTypedLinkResponse
- *         TypedLinkSpecifier: { // TypedLinkSpecifier
- *           TypedLinkFacet: { // TypedLinkSchemaAndFacetName
- *             SchemaArn: "STRING_VALUE", // required
- *             TypedLinkName: "STRING_VALUE", // required
- *           },
- *           SourceObjectReference: { // ObjectReference
- *             Selector: "STRING_VALUE",
- *           },
- *           TargetObjectReference: {
- *             Selector: "STRING_VALUE",
- *           },
- *           IdentityAttributeValues: [ // AttributeNameAndValueList // required
- *             { // AttributeNameAndValue
- *               AttributeName: "STRING_VALUE", // required
- *               Value: { // TypedAttributeValue Union: only one key present
- *                 StringValue: "STRING_VALUE",
- *                 BinaryValue: "BLOB_VALUE",
- *                 BooleanValue: true || false,
- *                 NumberValue: "STRING_VALUE",
- *                 DatetimeValue: new Date("TIMESTAMP"),
- *               },
- *             },
- *           ],
- *         },
- *       },
- *       DetachTypedLink: {},
- *       UpdateLinkAttributes: {},
- *     },
- *   ],
- * };
+ * // { // BatchWriteResponse
+ * //   Responses: [ // BatchWriteOperationResponseList
+ * //     { // BatchWriteOperationResponse
+ * //       CreateObject: { // BatchCreateObjectResponse
+ * //         ObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       AttachObject: { // BatchAttachObjectResponse
+ * //         attachedObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       DetachObject: { // BatchDetachObjectResponse
+ * //         detachedObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       UpdateObjectAttributes: { // BatchUpdateObjectAttributesResponse
+ * //         ObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       DeleteObject: {},
+ * //       AddFacetToObject: {},
+ * //       RemoveFacetFromObject: {},
+ * //       AttachPolicy: {},
+ * //       DetachPolicy: {},
+ * //       CreateIndex: { // BatchCreateIndexResponse
+ * //         ObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       AttachToIndex: { // BatchAttachToIndexResponse
+ * //         AttachedObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       DetachFromIndex: { // BatchDetachFromIndexResponse
+ * //         DetachedObjectIdentifier: "STRING_VALUE",
+ * //       },
+ * //       AttachTypedLink: { // BatchAttachTypedLinkResponse
+ * //         TypedLinkSpecifier: { // TypedLinkSpecifier
+ * //           TypedLinkFacet: { // TypedLinkSchemaAndFacetName
+ * //             SchemaArn: "STRING_VALUE", // required
+ * //             TypedLinkName: "STRING_VALUE", // required
+ * //           },
+ * //           SourceObjectReference: { // ObjectReference
+ * //             Selector: "STRING_VALUE",
+ * //           },
+ * //           TargetObjectReference: {
+ * //             Selector: "STRING_VALUE",
+ * //           },
+ * //           IdentityAttributeValues: [ // AttributeNameAndValueList // required
+ * //             { // AttributeNameAndValue
+ * //               AttributeName: "STRING_VALUE", // required
+ * //               Value: { // TypedAttributeValue Union: only one key present
+ * //                 StringValue: "STRING_VALUE",
+ * //                 BinaryValue: "BLOB_VALUE",
+ * //                 BooleanValue: true || false,
+ * //                 NumberValue: "STRING_VALUE",
+ * //                 DatetimeValue: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       DetachTypedLink: {},
+ * //       UpdateLinkAttributes: {},
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

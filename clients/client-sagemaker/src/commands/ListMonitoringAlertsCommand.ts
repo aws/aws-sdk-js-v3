@@ -46,25 +46,24 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * };
  * const command = new ListMonitoringAlertsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMonitoringAlertsResponse
- *   MonitoringAlertSummaries: [ // MonitoringAlertSummaryList
- *     { // MonitoringAlertSummary
- *       MonitoringAlertName: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       AlertStatus: "InAlert" || "OK", // required
- *       DatapointsToAlert: Number("int"), // required
- *       EvaluationPeriod: Number("int"), // required
- *       Actions: { // MonitoringAlertActions
- *         ModelDashboardIndicator: { // ModelDashboardIndicatorAction
- *           Enabled: true || false,
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMonitoringAlertsResponse
+ * //   MonitoringAlertSummaries: [ // MonitoringAlertSummaryList
+ * //     { // MonitoringAlertSummary
+ * //       MonitoringAlertName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       AlertStatus: "InAlert" || "OK", // required
+ * //       DatapointsToAlert: Number("int"), // required
+ * //       EvaluationPeriod: Number("int"), // required
+ * //       Actions: { // MonitoringAlertActions
+ * //         ModelDashboardIndicator: { // ModelDashboardIndicatorAction
+ * //           Enabled: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -42,10 +42,9 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
  * const input = {};
  * const command = new GetHealthCheckCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHealthCheckCountResponse
- *   HealthCheckCount: Number("long"), // required
- * };
+ * // { // GetHealthCheckCountResponse
+ * //   HealthCheckCount: Number("long"), // required
+ * // };
  *
  * ```
  *

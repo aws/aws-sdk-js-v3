@@ -72,10 +72,9 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTableResponse
- *   resourceArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateTableResponse
+ * //   resourceArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

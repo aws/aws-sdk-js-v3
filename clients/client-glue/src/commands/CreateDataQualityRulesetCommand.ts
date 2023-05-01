@@ -55,10 +55,9 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * };
  * const command = new CreateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataQualityRulesetResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateDataQualityRulesetResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

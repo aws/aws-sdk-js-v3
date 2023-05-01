@@ -47,8 +47,7 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * };
  * const command = new TransferInputDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

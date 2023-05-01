@@ -106,10 +106,9 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * };
  * const command = new CreateDocumentClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDocumentClassifierResponse
- *   DocumentClassifierArn: "STRING_VALUE",
- * };
+ * // { // CreateDocumentClassifierResponse
+ * //   DocumentClassifierArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

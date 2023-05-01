@@ -47,17 +47,16 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * };
  * const command = new BatchAssociateScramSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchAssociateScramSecretResponse
- *   ClusterArn: "STRING_VALUE",
- *   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
- *     { // UnprocessedScramSecret
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       SecretArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchAssociateScramSecretResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
+ * //     { // UnprocessedScramSecret
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

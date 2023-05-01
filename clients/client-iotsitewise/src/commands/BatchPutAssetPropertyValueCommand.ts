@@ -90,26 +90,25 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * };
  * const command = new BatchPutAssetPropertyValueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutAssetPropertyValueResponse
- *   errorEntries: [ // BatchPutAssetPropertyErrorEntries // required
- *     { // BatchPutAssetPropertyErrorEntry
- *       entryId: "STRING_VALUE", // required
- *       errors: [ // BatchPutAssetPropertyErrors // required
- *         { // BatchPutAssetPropertyError
- *           errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException" || "LimitExceededException" || "ConflictingOperationException" || "TimestampOutOfRangeException" || "AccessDeniedException", // required
- *           errorMessage: "STRING_VALUE", // required
- *           timestamps: [ // Timestamps // required
- *             { // TimeInNanos
- *               timeInSeconds: Number("long"), // required
- *               offsetInNanos: Number("int"),
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // BatchPutAssetPropertyValueResponse
+ * //   errorEntries: [ // BatchPutAssetPropertyErrorEntries // required
+ * //     { // BatchPutAssetPropertyErrorEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       errors: [ // BatchPutAssetPropertyErrors // required
+ * //         { // BatchPutAssetPropertyError
+ * //           errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "InternalFailureException" || "ServiceUnavailableException" || "ThrottlingException" || "LimitExceededException" || "ConflictingOperationException" || "TimestampOutOfRangeException" || "AccessDeniedException", // required
+ * //           errorMessage: "STRING_VALUE", // required
+ * //           timestamps: [ // Timestamps // required
+ * //             { // TimeInNanos
+ * //               timeInSeconds: Number("long"), // required
+ * //               offsetInNanos: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

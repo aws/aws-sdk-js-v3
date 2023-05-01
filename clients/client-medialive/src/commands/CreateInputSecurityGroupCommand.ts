@@ -51,25 +51,24 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * };
  * const command = new CreateInputSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInputSecurityGroupResponse
- *   SecurityGroup: { // InputSecurityGroup
- *     Arn: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Inputs: [ // __listOf__string
- *       "STRING_VALUE",
- *     ],
- *     State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
- *     Tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     WhitelistRules: [ // __listOfInputWhitelistRule
- *       { // InputWhitelistRule
- *         Cidr: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateInputSecurityGroupResponse
+ * //   SecurityGroup: { // InputSecurityGroup
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Inputs: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
+ * //     Tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     WhitelistRules: [ // __listOfInputWhitelistRule
+ * //       { // InputWhitelistRule
+ * //         Cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * };
  * const command = new DeleteEventDataStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

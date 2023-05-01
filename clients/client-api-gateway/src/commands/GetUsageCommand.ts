@@ -49,20 +49,19 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
  * };
  * const command = new GetUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Usage
- *   usagePlanId: "STRING_VALUE",
- *   startDate: "STRING_VALUE",
- *   endDate: "STRING_VALUE",
- *   items: { // MapOfKeyUsages
- *     "<keys>": [ // ListOfUsage
- *       [ // ListOfLong
- *         Number("long"),
- *       ],
- *     ],
- *   },
- *   position: "STRING_VALUE",
- * };
+ * // { // Usage
+ * //   usagePlanId: "STRING_VALUE",
+ * //   startDate: "STRING_VALUE",
+ * //   endDate: "STRING_VALUE",
+ * //   items: { // MapOfKeyUsages
+ * //     "<keys>": [ // ListOfUsage
+ * //       [ // ListOfLong
+ * //         Number("long"),
+ * //       ],
+ * //     ],
+ * //   },
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

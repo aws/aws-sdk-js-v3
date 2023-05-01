@@ -48,10 +48,9 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveTagsFromResourceOutput
- *   ResourceARN: "STRING_VALUE",
- * };
+ * // { // RemoveTagsFromResourceOutput
+ * //   ResourceARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

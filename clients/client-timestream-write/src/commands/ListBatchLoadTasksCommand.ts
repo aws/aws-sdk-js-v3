@@ -49,21 +49,20 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * };
  * const command = new ListBatchLoadTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBatchLoadTasksResponse
- *   NextToken: "STRING_VALUE",
- *   BatchLoadTasks: [ // BatchLoadTaskList
- *     { // BatchLoadTask
- *       TaskId: "STRING_VALUE",
- *       TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
- *       DatabaseName: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *       ResumableUntil: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListBatchLoadTasksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   BatchLoadTasks: [ // BatchLoadTaskList
+ * //     { // BatchLoadTask
+ * //       TaskId: "STRING_VALUE",
+ * //       TaskStatus: "CREATED" || "IN_PROGRESS" || "FAILED" || "SUCCEEDED" || "PROGRESS_STOPPED" || "PENDING_RESUME",
+ * //       DatabaseName: "STRING_VALUE",
+ * //       TableName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       ResumableUntil: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

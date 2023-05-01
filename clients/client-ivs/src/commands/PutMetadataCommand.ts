@@ -49,8 +49,7 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

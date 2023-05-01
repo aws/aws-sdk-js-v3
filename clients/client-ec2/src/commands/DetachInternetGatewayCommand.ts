@@ -48,8 +48,7 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

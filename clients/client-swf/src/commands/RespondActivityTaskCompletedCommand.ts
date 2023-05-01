@@ -87,8 +87,7 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * };
  * const command = new RespondActivityTaskCompletedCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

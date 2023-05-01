@@ -45,54 +45,53 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelResponse
- *   ChannelArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Source: "STRING_VALUE",
- *   SourceConfig: { // SourceConfig
- *     ApplyToAllRegions: true || false,
- *     AdvancedEventSelectors: [ // AdvancedEventSelectors
- *       { // AdvancedEventSelector
- *         Name: "STRING_VALUE",
- *         FieldSelectors: [ // AdvancedFieldSelectors // required
- *           { // AdvancedFieldSelector
- *             Field: "STRING_VALUE", // required
- *             Equals: [ // Operator
- *               "STRING_VALUE",
- *             ],
- *             StartsWith: [
- *               "STRING_VALUE",
- *             ],
- *             EndsWith: [
- *               "STRING_VALUE",
- *             ],
- *             NotEquals: [
- *               "STRING_VALUE",
- *             ],
- *             NotStartsWith: [
- *               "STRING_VALUE",
- *             ],
- *             NotEndsWith: "<Operator>",
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   Destinations: [ // Destinations
- *     { // Destination
- *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
- *       Location: "STRING_VALUE", // required
- *     },
- *   ],
- *   IngestionStatus: { // IngestionStatus
- *     LatestIngestionSuccessTime: new Date("TIMESTAMP"),
- *     LatestIngestionSuccessEventID: "STRING_VALUE",
- *     LatestIngestionErrorCode: "STRING_VALUE",
- *     LatestIngestionAttemptTime: new Date("TIMESTAMP"),
- *     LatestIngestionAttemptEventID: "STRING_VALUE",
- *   },
- * };
+ * // { // GetChannelResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Source: "STRING_VALUE",
+ * //   SourceConfig: { // SourceConfig
+ * //     ApplyToAllRegions: true || false,
+ * //     AdvancedEventSelectors: [ // AdvancedEventSelectors
+ * //       { // AdvancedEventSelector
+ * //         Name: "STRING_VALUE",
+ * //         FieldSelectors: [ // AdvancedFieldSelectors // required
+ * //           { // AdvancedFieldSelector
+ * //             Field: "STRING_VALUE", // required
+ * //             Equals: [ // Operator
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             StartsWith: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             EndsWith: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             NotEquals: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             NotStartsWith: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             NotEndsWith: "<Operator>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   Destinations: [ // Destinations
+ * //     { // Destination
+ * //       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ * //       Location: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IngestionStatus: { // IngestionStatus
+ * //     LatestIngestionSuccessTime: new Date("TIMESTAMP"),
+ * //     LatestIngestionSuccessEventID: "STRING_VALUE",
+ * //     LatestIngestionErrorCode: "STRING_VALUE",
+ * //     LatestIngestionAttemptTime: new Date("TIMESTAMP"),
+ * //     LatestIngestionAttemptEventID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

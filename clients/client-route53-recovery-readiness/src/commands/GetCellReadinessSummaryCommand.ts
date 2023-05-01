@@ -50,17 +50,16 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  * };
  * const command = new GetCellReadinessSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCellReadinessSummaryResponse
- *   NextToken: "STRING_VALUE",
- *   Readiness: "STRING_VALUE",
- *   ReadinessChecks: [ // __listOfReadinessCheckSummary
- *     { // ReadinessCheckSummary
- *       Readiness: "STRING_VALUE",
- *       ReadinessCheckName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetCellReadinessSummaryResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Readiness: "STRING_VALUE",
+ * //   ReadinessChecks: [ // __listOfReadinessCheckSummary
+ * //     { // ReadinessCheckSummary
+ * //       Readiness: "STRING_VALUE",
+ * //       ReadinessCheckName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

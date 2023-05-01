@@ -57,10 +57,9 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * };
  * const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableReachabilityAnalyzerOrganizationSharingResult
- *   ReturnValue: true || false,
- * };
+ * // { // EnableReachabilityAnalyzerOrganizationSharingResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

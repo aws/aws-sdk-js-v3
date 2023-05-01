@@ -50,8 +50,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * };
  * const command = new NotifyApplicationStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,13 +59,12 @@ export interface CreateLoggerDefinitionVersionCommandOutput
  * };
  * const command = new CreateLoggerDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLoggerDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateLoggerDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * };
  * const command = new CancelSimulationJobBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

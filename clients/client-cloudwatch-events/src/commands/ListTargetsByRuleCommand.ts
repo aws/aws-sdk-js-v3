@@ -47,132 +47,131 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * };
  * const command = new ListTargetsByRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetsByRuleResponse
- *   Targets: [ // TargetList
- *     { // Target
- *       Id: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE",
- *       Input: "STRING_VALUE",
- *       InputPath: "STRING_VALUE",
- *       InputTransformer: { // InputTransformer
- *         InputPathsMap: { // TransformerPaths
- *           "<keys>": "STRING_VALUE",
- *         },
- *         InputTemplate: "STRING_VALUE", // required
- *       },
- *       KinesisParameters: { // KinesisParameters
- *         PartitionKeyPath: "STRING_VALUE", // required
- *       },
- *       RunCommandParameters: { // RunCommandParameters
- *         RunCommandTargets: [ // RunCommandTargets // required
- *           { // RunCommandTarget
- *             Key: "STRING_VALUE", // required
- *             Values: [ // RunCommandTargetValues // required
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *       EcsParameters: { // EcsParameters
- *         TaskDefinitionArn: "STRING_VALUE", // required
- *         TaskCount: Number("int"),
- *         LaunchType: "STRING_VALUE",
- *         NetworkConfiguration: { // NetworkConfiguration
- *           awsvpcConfiguration: { // AwsVpcConfiguration
- *             Subnets: [ // StringList // required
- *               "STRING_VALUE",
- *             ],
- *             SecurityGroups: [
- *               "STRING_VALUE",
- *             ],
- *             AssignPublicIp: "STRING_VALUE",
- *           },
- *         },
- *         PlatformVersion: "STRING_VALUE",
- *         Group: "STRING_VALUE",
- *         CapacityProviderStrategy: [ // CapacityProviderStrategy
- *           { // CapacityProviderStrategyItem
- *             capacityProvider: "STRING_VALUE", // required
- *             weight: Number("int"),
- *             base: Number("int"),
- *           },
- *         ],
- *         EnableECSManagedTags: true || false,
- *         EnableExecuteCommand: true || false,
- *         PlacementConstraints: [ // PlacementConstraints
- *           { // PlacementConstraint
- *             type: "STRING_VALUE",
- *             expression: "STRING_VALUE",
- *           },
- *         ],
- *         PlacementStrategy: [ // PlacementStrategies
- *           { // PlacementStrategy
- *             type: "STRING_VALUE",
- *             field: "STRING_VALUE",
- *           },
- *         ],
- *         PropagateTags: "STRING_VALUE",
- *         ReferenceId: "STRING_VALUE",
- *         Tags: [ // TagList
- *           { // Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       BatchParameters: { // BatchParameters
- *         JobDefinition: "STRING_VALUE", // required
- *         JobName: "STRING_VALUE", // required
- *         ArrayProperties: { // BatchArrayProperties
- *           Size: Number("int"),
- *         },
- *         RetryStrategy: { // BatchRetryStrategy
- *           Attempts: Number("int"),
- *         },
- *       },
- *       SqsParameters: { // SqsParameters
- *         MessageGroupId: "STRING_VALUE",
- *       },
- *       HttpParameters: { // HttpParameters
- *         PathParameterValues: [ // PathParameterList
- *           "STRING_VALUE",
- *         ],
- *         HeaderParameters: { // HeaderParametersMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         QueryStringParameters: { // QueryStringParametersMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       RedshiftDataParameters: { // RedshiftDataParameters
- *         SecretManagerArn: "STRING_VALUE",
- *         Database: "STRING_VALUE", // required
- *         DbUser: "STRING_VALUE",
- *         Sql: "STRING_VALUE", // required
- *         StatementName: "STRING_VALUE",
- *         WithEvent: true || false,
- *       },
- *       SageMakerPipelineParameters: { // SageMakerPipelineParameters
- *         PipelineParameterList: [ // SageMakerPipelineParameterList
- *           { // SageMakerPipelineParameter
- *             Name: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       DeadLetterConfig: { // DeadLetterConfig
- *         Arn: "STRING_VALUE",
- *       },
- *       RetryPolicy: { // RetryPolicy
- *         MaximumRetryAttempts: Number("int"),
- *         MaximumEventAgeInSeconds: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetsByRuleResponse
+ * //   Targets: [ // TargetList
+ * //     { // Target
+ * //       Id: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE",
+ * //       Input: "STRING_VALUE",
+ * //       InputPath: "STRING_VALUE",
+ * //       InputTransformer: { // InputTransformer
+ * //         InputPathsMap: { // TransformerPaths
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         InputTemplate: "STRING_VALUE", // required
+ * //       },
+ * //       KinesisParameters: { // KinesisParameters
+ * //         PartitionKeyPath: "STRING_VALUE", // required
+ * //       },
+ * //       RunCommandParameters: { // RunCommandParameters
+ * //         RunCommandTargets: [ // RunCommandTargets // required
+ * //           { // RunCommandTarget
+ * //             Key: "STRING_VALUE", // required
+ * //             Values: [ // RunCommandTargetValues // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       EcsParameters: { // EcsParameters
+ * //         TaskDefinitionArn: "STRING_VALUE", // required
+ * //         TaskCount: Number("int"),
+ * //         LaunchType: "STRING_VALUE",
+ * //         NetworkConfiguration: { // NetworkConfiguration
+ * //           awsvpcConfiguration: { // AwsVpcConfiguration
+ * //             Subnets: [ // StringList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SecurityGroups: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AssignPublicIp: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         PlatformVersion: "STRING_VALUE",
+ * //         Group: "STRING_VALUE",
+ * //         CapacityProviderStrategy: [ // CapacityProviderStrategy
+ * //           { // CapacityProviderStrategyItem
+ * //             capacityProvider: "STRING_VALUE", // required
+ * //             weight: Number("int"),
+ * //             base: Number("int"),
+ * //           },
+ * //         ],
+ * //         EnableECSManagedTags: true || false,
+ * //         EnableExecuteCommand: true || false,
+ * //         PlacementConstraints: [ // PlacementConstraints
+ * //           { // PlacementConstraint
+ * //             type: "STRING_VALUE",
+ * //             expression: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         PlacementStrategy: [ // PlacementStrategies
+ * //           { // PlacementStrategy
+ * //             type: "STRING_VALUE",
+ * //             field: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         PropagateTags: "STRING_VALUE",
+ * //         ReferenceId: "STRING_VALUE",
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       BatchParameters: { // BatchParameters
+ * //         JobDefinition: "STRING_VALUE", // required
+ * //         JobName: "STRING_VALUE", // required
+ * //         ArrayProperties: { // BatchArrayProperties
+ * //           Size: Number("int"),
+ * //         },
+ * //         RetryStrategy: { // BatchRetryStrategy
+ * //           Attempts: Number("int"),
+ * //         },
+ * //       },
+ * //       SqsParameters: { // SqsParameters
+ * //         MessageGroupId: "STRING_VALUE",
+ * //       },
+ * //       HttpParameters: { // HttpParameters
+ * //         PathParameterValues: [ // PathParameterList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         HeaderParameters: { // HeaderParametersMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         QueryStringParameters: { // QueryStringParametersMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       RedshiftDataParameters: { // RedshiftDataParameters
+ * //         SecretManagerArn: "STRING_VALUE",
+ * //         Database: "STRING_VALUE", // required
+ * //         DbUser: "STRING_VALUE",
+ * //         Sql: "STRING_VALUE", // required
+ * //         StatementName: "STRING_VALUE",
+ * //         WithEvent: true || false,
+ * //       },
+ * //       SageMakerPipelineParameters: { // SageMakerPipelineParameters
+ * //         PipelineParameterList: [ // SageMakerPipelineParameterList
+ * //           { // SageMakerPipelineParameter
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       DeadLetterConfig: { // DeadLetterConfig
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       RetryPolicy: { // RetryPolicy
+ * //         MaximumRetryAttempts: Number("int"),
+ * //         MaximumEventAgeInSeconds: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

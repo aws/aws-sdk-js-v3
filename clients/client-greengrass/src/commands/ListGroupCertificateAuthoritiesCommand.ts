@@ -49,15 +49,14 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * };
  * const command = new ListGroupCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupCertificateAuthoritiesResponse
- *   GroupCertificateAuthorities: [ // __listOfGroupCertificateAuthorityProperties
- *     { // GroupCertificateAuthorityProperties
- *       GroupCertificateAuthorityArn: "STRING_VALUE",
- *       GroupCertificateAuthorityId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListGroupCertificateAuthoritiesResponse
+ * //   GroupCertificateAuthorities: [ // __listOfGroupCertificateAuthorityProperties
+ * //     { // GroupCertificateAuthorityProperties
+ * //       GroupCertificateAuthorityArn: "STRING_VALUE",
+ * //       GroupCertificateAuthorityId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

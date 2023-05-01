@@ -75,12 +75,11 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * };
  * const command = new CreateReportPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReportPlanOutput
- *   ReportPlanName: "STRING_VALUE",
- *   ReportPlanArn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateReportPlanOutput
+ * //   ReportPlanName: "STRING_VALUE",
+ * //   ReportPlanArn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

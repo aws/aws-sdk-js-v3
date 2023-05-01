@@ -71,39 +71,38 @@ export interface StartFraudsterRegistrationJobCommandOutput
  * };
  * const command = new StartFraudsterRegistrationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFraudsterRegistrationJobResponse
- *   Job: { // FraudsterRegistrationJob
- *     JobName: "STRING_VALUE",
- *     JobId: "STRING_VALUE",
- *     JobStatus: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     DataAccessRoleArn: "STRING_VALUE",
- *     RegistrationConfig: { // RegistrationConfig
- *       DuplicateRegistrationAction: "STRING_VALUE",
- *       FraudsterSimilarityThreshold: Number("int"),
- *       WatchlistIds: [ // RegistrationConfigWatchlistIds
- *         "STRING_VALUE",
- *       ],
- *     },
- *     InputDataConfig: { // InputDataConfig
- *       S3Uri: "STRING_VALUE", // required
- *     },
- *     OutputDataConfig: { // OutputDataConfig
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
- *     },
- *     CreatedAt: new Date("TIMESTAMP"),
- *     EndedAt: new Date("TIMESTAMP"),
- *     FailureDetails: { // FailureDetails
- *       StatusCode: Number("int"),
- *       Message: "STRING_VALUE",
- *     },
- *     JobProgress: { // JobProgress
- *       PercentComplete: Number("int"),
- *     },
- *   },
- * };
+ * // { // StartFraudsterRegistrationJobResponse
+ * //   Job: { // FraudsterRegistrationJob
+ * //     JobName: "STRING_VALUE",
+ * //     JobId: "STRING_VALUE",
+ * //     JobStatus: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     DataAccessRoleArn: "STRING_VALUE",
+ * //     RegistrationConfig: { // RegistrationConfig
+ * //       DuplicateRegistrationAction: "STRING_VALUE",
+ * //       FraudsterSimilarityThreshold: Number("int"),
+ * //       WatchlistIds: [ // RegistrationConfigWatchlistIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     InputDataConfig: { // InputDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //     },
+ * //     OutputDataConfig: { // OutputDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     EndedAt: new Date("TIMESTAMP"),
+ * //     FailureDetails: { // FailureDetails
+ * //       StatusCode: Number("int"),
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     JobProgress: { // JobProgress
+ * //       PercentComplete: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

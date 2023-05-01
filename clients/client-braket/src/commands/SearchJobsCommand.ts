@@ -54,24 +54,23 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * };
  * const command = new SearchJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchJobsResponse
- *   jobs: [ // JobSummaryList // required
- *     { // JobSummary
- *       status: "STRING_VALUE", // required
- *       jobArn: "STRING_VALUE", // required
- *       jobName: "STRING_VALUE", // required
- *       device: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       startedAt: new Date("TIMESTAMP"),
- *       endedAt: new Date("TIMESTAMP"),
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchJobsResponse
+ * //   jobs: [ // JobSummaryList // required
+ * //     { // JobSummary
+ * //       status: "STRING_VALUE", // required
+ * //       jobArn: "STRING_VALUE", // required
+ * //       jobName: "STRING_VALUE", // required
+ * //       device: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       startedAt: new Date("TIMESTAMP"),
+ * //       endedAt: new Date("TIMESTAMP"),
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

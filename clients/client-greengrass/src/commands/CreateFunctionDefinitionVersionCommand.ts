@@ -93,13 +93,12 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  * };
  * const command = new CreateFunctionDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFunctionDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateFunctionDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

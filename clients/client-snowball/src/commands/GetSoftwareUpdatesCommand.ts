@@ -45,10 +45,9 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * };
  * const command = new GetSoftwareUpdatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSoftwareUpdatesResult
- *   UpdatesURI: "STRING_VALUE",
- * };
+ * // { // GetSoftwareUpdatesResult
+ * //   UpdatesURI: "STRING_VALUE",
+ * // };
  *
  * ```
  *

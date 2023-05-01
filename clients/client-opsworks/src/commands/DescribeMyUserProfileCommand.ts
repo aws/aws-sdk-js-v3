@@ -47,15 +47,14 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * const input = {};
  * const command = new DescribeMyUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMyUserProfileResult
- *   UserProfile: { // SelfUserProfile
- *     IamUserArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     SshUsername: "STRING_VALUE",
- *     SshPublicKey: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeMyUserProfileResult
+ * //   UserProfile: { // SelfUserProfile
+ * //     IamUserArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     SshUsername: "STRING_VALUE",
+ * //     SshPublicKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,24 +52,23 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * };
  * const command = new GetByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetByteMatchSetResponse
- *   ByteMatchSet: { // ByteMatchSet
- *     ByteMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     ByteMatchTuples: [ // ByteMatchTuples // required
- *       { // ByteMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TargetString: "BLOB_VALUE", // required
- *         TextTransformation: "STRING_VALUE", // required
- *         PositionalConstraint: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetByteMatchSetResponse
+ * //   ByteMatchSet: { // ByteMatchSet
+ * //     ByteMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     ByteMatchTuples: [ // ByteMatchTuples // required
+ * //       { // ByteMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TargetString: "BLOB_VALUE", // required
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         PositionalConstraint: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

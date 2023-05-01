@@ -45,32 +45,31 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
  * };
  * const command = new GetSecurityConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSecurityConfigurationsResponse
- *   SecurityConfigurations: [ // SecurityConfigurationList
- *     { // SecurityConfiguration
- *       Name: "STRING_VALUE",
- *       CreatedTimeStamp: new Date("TIMESTAMP"),
- *       EncryptionConfiguration: { // EncryptionConfiguration
- *         S3Encryption: [ // S3EncryptionList
- *           { // S3Encryption
- *             S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
- *             KmsKeyArn: "STRING_VALUE",
- *           },
- *         ],
- *         CloudWatchEncryption: { // CloudWatchEncryption
- *           CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
- *           KmsKeyArn: "STRING_VALUE",
- *         },
- *         JobBookmarksEncryption: { // JobBookmarksEncryption
- *           JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
- *           KmsKeyArn: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSecurityConfigurationsResponse
+ * //   SecurityConfigurations: [ // SecurityConfigurationList
+ * //     { // SecurityConfiguration
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTimeStamp: new Date("TIMESTAMP"),
+ * //       EncryptionConfiguration: { // EncryptionConfiguration
+ * //         S3Encryption: [ // S3EncryptionList
+ * //           { // S3Encryption
+ * //             S3EncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-S3",
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         CloudWatchEncryption: { // CloudWatchEncryption
+ * //           CloudWatchEncryptionMode: "DISABLED" || "SSE-KMS",
+ * //           KmsKeyArn: "STRING_VALUE",
+ * //         },
+ * //         JobBookmarksEncryption: { // JobBookmarksEncryption
+ * //           JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
+ * //           KmsKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

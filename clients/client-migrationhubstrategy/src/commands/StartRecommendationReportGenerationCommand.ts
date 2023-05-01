@@ -62,10 +62,9 @@ export interface StartRecommendationReportGenerationCommandOutput
  * };
  * const command = new StartRecommendationReportGenerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRecommendationReportGenerationResponse
- *   id: "STRING_VALUE",
- * };
+ * // { // StartRecommendationReportGenerationResponse
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

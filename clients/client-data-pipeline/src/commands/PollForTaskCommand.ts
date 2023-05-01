@@ -127,27 +127,26 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * };
  * const command = new PollForTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PollForTaskOutput
- *   taskObject: { // TaskObject
- *     taskId: "STRING_VALUE",
- *     pipelineId: "STRING_VALUE",
- *     attemptId: "STRING_VALUE",
- *     objects: { // PipelineObjectMap
- *       "<keys>": { // PipelineObject
- *         id: "STRING_VALUE", // required
- *         name: "STRING_VALUE", // required
- *         fields: [ // fieldList // required
- *           { // Field
- *             key: "STRING_VALUE", // required
- *             stringValue: "STRING_VALUE",
- *             refValue: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     },
- *   },
- * };
+ * // { // PollForTaskOutput
+ * //   taskObject: { // TaskObject
+ * //     taskId: "STRING_VALUE",
+ * //     pipelineId: "STRING_VALUE",
+ * //     attemptId: "STRING_VALUE",
+ * //     objects: { // PipelineObjectMap
+ * //       "<keys>": { // PipelineObject
+ * //         id: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE", // required
+ * //         fields: [ // fieldList // required
+ * //           { // Field
+ * //             key: "STRING_VALUE", // required
+ * //             stringValue: "STRING_VALUE",
+ * //             refValue: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

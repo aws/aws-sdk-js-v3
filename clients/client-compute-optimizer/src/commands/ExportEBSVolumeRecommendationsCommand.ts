@@ -73,15 +73,14 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * };
  * const command = new ExportEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportEBSVolumeRecommendationsResponse
- *   jobId: "STRING_VALUE",
- *   s3Destination: { // S3Destination
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *     metadataKey: "STRING_VALUE",
- *   },
- * };
+ * // { // ExportEBSVolumeRecommendationsResponse
+ * //   jobId: "STRING_VALUE",
+ * //   s3Destination: { // S3Destination
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     metadataKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

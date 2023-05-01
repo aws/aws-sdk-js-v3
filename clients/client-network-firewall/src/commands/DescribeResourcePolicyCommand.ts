@@ -44,10 +44,9 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * };
  * const command = new DescribeResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourcePolicyResponse
- *   Policy: "STRING_VALUE",
- * };
+ * // { // DescribeResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

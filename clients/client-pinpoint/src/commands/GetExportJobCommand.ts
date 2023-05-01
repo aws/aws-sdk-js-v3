@@ -45,31 +45,30 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * };
  * const command = new GetExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExportJobResponse
- *   ExportJobResponse: { // ExportJobResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     CompletedPieces: Number("int"),
- *     CompletionDate: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE", // required
- *     Definition: { // ExportJobResource
- *       RoleArn: "STRING_VALUE", // required
- *       S3UrlPrefix: "STRING_VALUE", // required
- *       SegmentId: "STRING_VALUE",
- *       SegmentVersion: Number("int"),
- *     },
- *     FailedPieces: Number("int"),
- *     Failures: [ // ListOf__string
- *       "STRING_VALUE",
- *     ],
- *     Id: "STRING_VALUE", // required
- *     JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
- *     TotalFailures: Number("int"),
- *     TotalPieces: Number("int"),
- *     TotalProcessed: Number("int"),
- *     Type: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetExportJobResponse
+ * //   ExportJobResponse: { // ExportJobResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     CompletedPieces: Number("int"),
+ * //     CompletionDate: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     Definition: { // ExportJobResource
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       S3UrlPrefix: "STRING_VALUE", // required
+ * //       SegmentId: "STRING_VALUE",
+ * //       SegmentVersion: Number("int"),
+ * //     },
+ * //     FailedPieces: Number("int"),
+ * //     Failures: [ // ListOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Id: "STRING_VALUE", // required
+ * //     JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
+ * //     TotalFailures: Number("int"),
+ * //     TotalPieces: Number("int"),
+ * //     TotalProcessed: Number("int"),
+ * //     Type: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

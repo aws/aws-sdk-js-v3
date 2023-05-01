@@ -45,10 +45,9 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndpointResponse
- *   endpointAddress: "STRING_VALUE",
- * };
+ * // { // DescribeEndpointResponse
+ * //   endpointAddress: "STRING_VALUE",
+ * // };
  *
  * ```
  *

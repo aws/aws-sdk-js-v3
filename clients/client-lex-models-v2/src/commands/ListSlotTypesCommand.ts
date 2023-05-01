@@ -61,23 +61,22 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  * };
  * const command = new ListSlotTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSlotTypesResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   slotTypeSummaries: [ // SlotTypeSummaryList
- *     { // SlotTypeSummary
- *       slotTypeId: "STRING_VALUE",
- *       slotTypeName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       parentSlotTypeSignature: "STRING_VALUE",
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       slotTypeCategory: "Custom" || "Extended" || "ExternalGrammar" || "Composite",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSlotTypesResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   slotTypeSummaries: [ // SlotTypeSummaryList
+ * //     { // SlotTypeSummary
+ * //       slotTypeId: "STRING_VALUE",
+ * //       slotTypeName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       parentSlotTypeSignature: "STRING_VALUE",
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       slotTypeCategory: "Custom" || "Extended" || "ExternalGrammar" || "Composite",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

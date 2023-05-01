@@ -44,12 +44,11 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * };
  * const command = new IndexDocumentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IndexDocumentsResponse
- *   FieldNames: [ // FieldNameList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // IndexDocumentsResponse
+ * //   FieldNames: [ // FieldNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

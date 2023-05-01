@@ -44,16 +44,15 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  * };
  * const command = new GetMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMulticastGroupSessionResponse
- *   LoRaWAN: { // LoRaWANMulticastSession
- *     DlDr: Number("int"),
- *     DlFreq: Number("int"),
- *     SessionStartTime: new Date("TIMESTAMP"),
- *     SessionTimeout: Number("int"),
- *     PingSlotPeriod: Number("int"),
- *   },
- * };
+ * // { // GetMulticastGroupSessionResponse
+ * //   LoRaWAN: { // LoRaWANMulticastSession
+ * //     DlDr: Number("int"),
+ * //     DlFreq: Number("int"),
+ * //     SessionStartTime: new Date("TIMESTAMP"),
+ * //     SessionTimeout: Number("int"),
+ * //     PingSlotPeriod: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

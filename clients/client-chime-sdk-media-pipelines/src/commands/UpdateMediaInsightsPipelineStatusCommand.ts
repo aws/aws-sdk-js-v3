@@ -52,8 +52,7 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  * };
  * const command = new UpdateMediaInsightsPipelineStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,16 +49,15 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * };
  * const command = new ListVpcIngressConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVpcIngressConnectionsResponse
- *   VpcIngressConnectionSummaryList: [ // VpcIngressConnectionSummaryList // required
- *     { // VpcIngressConnectionSummary
- *       VpcIngressConnectionArn: "STRING_VALUE",
- *       ServiceArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVpcIngressConnectionsResponse
+ * //   VpcIngressConnectionSummaryList: [ // VpcIngressConnectionSummaryList // required
+ * //     { // VpcIngressConnectionSummary
+ * //       VpcIngressConnectionArn: "STRING_VALUE",
+ * //       ServiceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

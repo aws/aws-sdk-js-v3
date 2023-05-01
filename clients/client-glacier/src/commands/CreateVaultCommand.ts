@@ -68,10 +68,9 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * };
  * const command = new CreateVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVaultOutput
- *   location: "STRING_VALUE",
- * };
+ * // { // CreateVaultOutput
+ * //   location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

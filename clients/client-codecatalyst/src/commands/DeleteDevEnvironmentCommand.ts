@@ -46,12 +46,11 @@ export interface DeleteDevEnvironmentCommandOutput extends DeleteDevEnvironmentR
  * };
  * const command = new DeleteDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDevEnvironmentResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- * };
+ * // { // DeleteDevEnvironmentResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,20 +51,19 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VpcLink
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   targetArns: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   status: "AVAILABLE" || "PENDING" || "DELETING" || "FAILED",
- *   statusMessage: "STRING_VALUE",
- *   tags: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // VpcLink
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   targetArns: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "AVAILABLE" || "PENDING" || "DELETING" || "FAILED",
+ * //   statusMessage: "STRING_VALUE",
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

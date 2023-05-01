@@ -48,19 +48,18 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * };
  * const command = new ListAttachedLinksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttachedLinksOutput
- *   Items: [ // ListAttachedLinksItems // required
- *     { // ListAttachedLinksItem
- *       Label: "STRING_VALUE",
- *       LinkArn: "STRING_VALUE",
- *       ResourceTypes: [ // ResourceTypesOutput
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAttachedLinksOutput
+ * //   Items: [ // ListAttachedLinksItems // required
+ * //     { // ListAttachedLinksItem
+ * //       Label: "STRING_VALUE",
+ * //       LinkArn: "STRING_VALUE",
+ * //       ResourceTypes: [ // ResourceTypesOutput
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

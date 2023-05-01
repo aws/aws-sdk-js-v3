@@ -59,8 +59,7 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * };
  * const command = new TagDeliveryStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

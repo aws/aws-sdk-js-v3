@@ -52,8 +52,7 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * };
  * const command = new AssociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

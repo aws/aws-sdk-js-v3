@@ -54,22 +54,21 @@ export interface DescribeImageReplicationStatusCommandOutput
  * };
  * const command = new DescribeImageReplicationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeImageReplicationStatusResponse
- *   repositoryName: "STRING_VALUE",
- *   imageId: { // ImageIdentifier
- *     imageDigest: "STRING_VALUE",
- *     imageTag: "STRING_VALUE",
- *   },
- *   replicationStatuses: [ // ImageReplicationStatusList
- *     { // ImageReplicationStatus
- *       region: "STRING_VALUE",
- *       registryId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       failureCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeImageReplicationStatusResponse
+ * //   repositoryName: "STRING_VALUE",
+ * //   imageId: { // ImageIdentifier
+ * //     imageDigest: "STRING_VALUE",
+ * //     imageTag: "STRING_VALUE",
+ * //   },
+ * //   replicationStatuses: [ // ImageReplicationStatusList
+ * //     { // ImageReplicationStatus
+ * //       region: "STRING_VALUE",
+ * //       registryId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

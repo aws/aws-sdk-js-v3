@@ -101,12 +101,11 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIndexOutput
- *   Arn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // CreateIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

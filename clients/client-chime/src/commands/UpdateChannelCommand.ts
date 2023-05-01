@@ -59,10 +59,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelResponse
- *   ChannelArn: "STRING_VALUE",
- * };
+ * // { // UpdateChannelResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

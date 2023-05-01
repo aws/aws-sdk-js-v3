@@ -55,16 +55,15 @@ export interface GetClusterSessionCredentialsCommandOutput
  * };
  * const command = new GetClusterSessionCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClusterSessionCredentialsOutput
- *   Credentials: { // Credentials Union: only one key present
- *     UsernamePassword: { // UsernamePassword
- *       Username: "STRING_VALUE",
- *       Password: "STRING_VALUE",
- *     },
- *   },
- *   ExpiresAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetClusterSessionCredentialsOutput
+ * //   Credentials: { // Credentials Union: only one key present
+ * //     UsernamePassword: { // UsernamePassword
+ * //       Username: "STRING_VALUE",
+ * //       Password: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ExpiresAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

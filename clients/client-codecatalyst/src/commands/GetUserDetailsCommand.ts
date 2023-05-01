@@ -45,17 +45,16 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * };
  * const command = new GetUserDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserDetailsResponse
- *   userId: "STRING_VALUE",
- *   userName: "STRING_VALUE",
- *   displayName: "STRING_VALUE",
- *   primaryEmail: { // EmailAddress
- *     email: "STRING_VALUE",
- *     verified: true || false,
- *   },
- *   version: "STRING_VALUE",
- * };
+ * // { // GetUserDetailsResponse
+ * //   userId: "STRING_VALUE",
+ * //   userName: "STRING_VALUE",
+ * //   displayName: "STRING_VALUE",
+ * //   primaryEmail: { // EmailAddress
+ * //     email: "STRING_VALUE",
+ * //     verified: true || false,
+ * //   },
+ * //   version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

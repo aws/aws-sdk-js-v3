@@ -54,17 +54,16 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * };
  * const command = new DescribeNotificationConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotificationConfigurationsAnswer
- *   NotificationConfigurations: [ // NotificationConfigurations // required
- *     { // NotificationConfiguration
- *       AutoScalingGroupName: "STRING_VALUE",
- *       TopicARN: "STRING_VALUE",
- *       NotificationType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNotificationConfigurationsAnswer
+ * //   NotificationConfigurations: [ // NotificationConfigurations // required
+ * //     { // NotificationConfiguration
+ * //       AutoScalingGroupName: "STRING_VALUE",
+ * //       TopicARN: "STRING_VALUE",
+ * //       NotificationType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

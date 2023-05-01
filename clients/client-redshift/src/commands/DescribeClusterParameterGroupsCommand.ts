@@ -71,23 +71,22 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * };
  * const command = new DescribeClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterParameterGroupsMessage
- *   Marker: "STRING_VALUE",
- *   ParameterGroups: [ // ParameterGroupList
- *     { // ClusterParameterGroup
- *       ParameterGroupName: "STRING_VALUE",
- *       ParameterGroupFamily: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ClusterParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ParameterGroups: [ // ParameterGroupList
+ * //     { // ClusterParameterGroup
+ * //       ParameterGroupName: "STRING_VALUE",
+ * //       ParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

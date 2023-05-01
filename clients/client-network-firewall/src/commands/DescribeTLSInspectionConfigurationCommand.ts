@@ -53,77 +53,76 @@ export interface DescribeTLSInspectionConfigurationCommandOutput
  * };
  * const command = new DescribeTLSInspectionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTLSInspectionConfigurationResponse
- *   UpdateToken: "STRING_VALUE", // required
- *   TLSInspectionConfiguration: { // TLSInspectionConfiguration
- *     ServerCertificateConfigurations: [ // ServerCertificateConfigurations
- *       { // ServerCertificateConfiguration
- *         ServerCertificates: [ // ServerCertificates
- *           { // ServerCertificate
- *             ResourceArn: "STRING_VALUE",
- *           },
- *         ],
- *         Scopes: [ // ServerCertificateScopes
- *           { // ServerCertificateScope
- *             Sources: [ // Addresses
- *               { // Address
- *                 AddressDefinition: "STRING_VALUE", // required
- *               },
- *             ],
- *             Destinations: [
- *               {
- *                 AddressDefinition: "STRING_VALUE", // required
- *               },
- *             ],
- *             SourcePorts: [ // PortRanges
- *               { // PortRange
- *                 FromPort: Number("int"), // required
- *                 ToPort: Number("int"), // required
- *               },
- *             ],
- *             DestinationPorts: [
- *               {
- *                 FromPort: Number("int"), // required
- *                 ToPort: Number("int"), // required
- *               },
- *             ],
- *             Protocols: [ // ProtocolNumbers
- *               Number("int"),
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   TLSInspectionConfigurationResponse: { // TLSInspectionConfigurationResponse
- *     TLSInspectionConfigurationArn: "STRING_VALUE", // required
- *     TLSInspectionConfigurationName: "STRING_VALUE", // required
- *     TLSInspectionConfigurationId: "STRING_VALUE", // required
- *     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     NumberOfAssociations: Number("int"),
- *     EncryptionConfiguration: { // EncryptionConfiguration
- *       KeyId: "STRING_VALUE",
- *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
- *     },
- *     Certificates: [ // Certificates
- *       { // TlsCertificateData
- *         CertificateArn: "STRING_VALUE",
- *         CertificateSerial: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         StatusMessage: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeTLSInspectionConfigurationResponse
+ * //   UpdateToken: "STRING_VALUE", // required
+ * //   TLSInspectionConfiguration: { // TLSInspectionConfiguration
+ * //     ServerCertificateConfigurations: [ // ServerCertificateConfigurations
+ * //       { // ServerCertificateConfiguration
+ * //         ServerCertificates: [ // ServerCertificates
+ * //           { // ServerCertificate
+ * //             ResourceArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         Scopes: [ // ServerCertificateScopes
+ * //           { // ServerCertificateScope
+ * //             Sources: [ // Addresses
+ * //               { // Address
+ * //                 AddressDefinition: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             Destinations: [
+ * //               {
+ * //                 AddressDefinition: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             SourcePorts: [ // PortRanges
+ * //               { // PortRange
+ * //                 FromPort: Number("int"), // required
+ * //                 ToPort: Number("int"), // required
+ * //               },
+ * //             ],
+ * //             DestinationPorts: [
+ * //               {
+ * //                 FromPort: Number("int"), // required
+ * //                 ToPort: Number("int"), // required
+ * //               },
+ * //             ],
+ * //             Protocols: [ // ProtocolNumbers
+ * //               Number("int"),
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   TLSInspectionConfigurationResponse: { // TLSInspectionConfigurationResponse
+ * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     NumberOfAssociations: Number("int"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //     Certificates: [ // Certificates
+ * //       { // TlsCertificateData
+ * //         CertificateArn: "STRING_VALUE",
+ * //         CertificateSerial: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

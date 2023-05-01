@@ -50,18 +50,17 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   Versions: [ // __listOfVersionSummary
- *     { // VersionSummary
- *       ApplicationId: "STRING_VALUE", // required
- *       CreationTime: "STRING_VALUE", // required
- *       SemanticVersion: "STRING_VALUE", // required
- *       SourceCodeUrl: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListApplicationVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionSummary
+ * //     { // VersionSummary
+ * //       ApplicationId: "STRING_VALUE", // required
+ * //       CreationTime: "STRING_VALUE", // required
+ * //       SemanticVersion: "STRING_VALUE", // required
+ * //       SourceCodeUrl: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,13 +48,12 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentitiesResponse
- *   Identities: [ // IdentityList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentitiesResponse
+ * //   Identities: [ // IdentityList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

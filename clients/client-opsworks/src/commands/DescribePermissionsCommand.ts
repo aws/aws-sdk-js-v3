@@ -50,18 +50,17 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * };
  * const command = new DescribePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePermissionsResult
- *   Permissions: [ // Permissions
- *     { // Permission
- *       StackId: "STRING_VALUE",
- *       IamUserArn: "STRING_VALUE",
- *       AllowSsh: true || false,
- *       AllowSudo: true || false,
- *       Level: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribePermissionsResult
+ * //   Permissions: [ // Permissions
+ * //     { // Permission
+ * //       StackId: "STRING_VALUE",
+ * //       IamUserArn: "STRING_VALUE",
+ * //       AllowSsh: true || false,
+ * //       AllowSudo: true || false,
+ * //       Level: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

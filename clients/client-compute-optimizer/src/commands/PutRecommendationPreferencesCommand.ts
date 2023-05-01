@@ -62,8 +62,7 @@ export interface PutRecommendationPreferencesCommandOutput
  * };
  * const command = new PutRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

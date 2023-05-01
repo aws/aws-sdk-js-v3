@@ -45,13 +45,12 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * };
  * const command = new DeleteInAppTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInAppTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteInAppTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

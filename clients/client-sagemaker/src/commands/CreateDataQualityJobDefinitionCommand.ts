@@ -150,10 +150,9 @@ export interface CreateDataQualityJobDefinitionCommandOutput
  * };
  * const command = new CreateDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataQualityJobDefinitionResponse
- *   JobDefinitionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateDataQualityJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

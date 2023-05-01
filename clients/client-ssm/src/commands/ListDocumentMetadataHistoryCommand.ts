@@ -50,29 +50,28 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * };
  * const command = new ListDocumentMetadataHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDocumentMetadataHistoryResponse
- *   Name: "STRING_VALUE",
- *   DocumentVersion: "STRING_VALUE",
- *   Author: "STRING_VALUE",
- *   Metadata: { // DocumentMetadataResponseInfo
- *     ReviewerResponse: [ // DocumentReviewerResponseList
- *       { // DocumentReviewerResponseSource
- *         CreateTime: new Date("TIMESTAMP"),
- *         UpdatedTime: new Date("TIMESTAMP"),
- *         ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
- *         Comment: [ // DocumentReviewCommentList
- *           { // DocumentReviewCommentSource
- *             Type: "Comment",
- *             Content: "STRING_VALUE",
- *           },
- *         ],
- *         Reviewer: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDocumentMetadataHistoryResponse
+ * //   Name: "STRING_VALUE",
+ * //   DocumentVersion: "STRING_VALUE",
+ * //   Author: "STRING_VALUE",
+ * //   Metadata: { // DocumentMetadataResponseInfo
+ * //     ReviewerResponse: [ // DocumentReviewerResponseList
+ * //       { // DocumentReviewerResponseSource
+ * //         CreateTime: new Date("TIMESTAMP"),
+ * //         UpdatedTime: new Date("TIMESTAMP"),
+ * //         ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
+ * //         Comment: [ // DocumentReviewCommentList
+ * //           { // DocumentReviewCommentSource
+ * //             Type: "Comment",
+ * //             Content: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         Reviewer: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

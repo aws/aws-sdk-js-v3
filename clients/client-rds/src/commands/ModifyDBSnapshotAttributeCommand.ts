@@ -67,20 +67,19 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyDBSnapshotAttributeResult
- *   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
- *     DBSnapshotIdentifier: "STRING_VALUE",
- *     DBSnapshotAttributes: [ // DBSnapshotAttributeList
- *       { // DBSnapshotAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeValues: [ // AttributeValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyDBSnapshotAttributeResult
+ * //   DBSnapshotAttributesResult: { // DBSnapshotAttributesResult
+ * //     DBSnapshotIdentifier: "STRING_VALUE",
+ * //     DBSnapshotAttributes: [ // DBSnapshotAttributeList
+ * //       { // DBSnapshotAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeValues: [ // AttributeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

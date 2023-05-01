@@ -42,8 +42,7 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  * const input = {};
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

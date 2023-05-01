@@ -77,8 +77,7 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new UpdateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,22 +49,21 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * };
  * const command = new ListRecoveryGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecoveryGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   RecoveryGroups: [ // __listOfRecoveryGroupOutput
- *     { // RecoveryGroupOutput
- *       Cells: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       RecoveryGroupArn: "STRING_VALUE", // required
- *       RecoveryGroupName: "STRING_VALUE", // required
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListRecoveryGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   RecoveryGroups: [ // __listOfRecoveryGroupOutput
+ * //     { // RecoveryGroupOutput
+ * //       Cells: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       RecoveryGroupArn: "STRING_VALUE", // required
+ * //       RecoveryGroupName: "STRING_VALUE", // required
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

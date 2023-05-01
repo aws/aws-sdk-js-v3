@@ -49,8 +49,7 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetV2LoggingLevelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

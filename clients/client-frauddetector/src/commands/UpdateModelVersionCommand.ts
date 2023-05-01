@@ -62,13 +62,12 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * };
  * const command = new UpdateModelVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateModelVersionResult
- *   modelId: "STRING_VALUE",
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
- *   modelVersionNumber: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // UpdateModelVersionResult
+ * //   modelId: "STRING_VALUE",
+ * //   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ * //   modelVersionNumber: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

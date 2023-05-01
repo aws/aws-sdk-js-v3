@@ -45,8 +45,7 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * };
  * const command = new PutSuppressedDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

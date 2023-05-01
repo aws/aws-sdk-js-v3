@@ -71,12 +71,11 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * };
  * const command = new StartEventsDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartEventsDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartEventsDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

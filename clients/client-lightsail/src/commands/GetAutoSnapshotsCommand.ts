@@ -45,24 +45,23 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * };
  * const command = new GetAutoSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAutoSnapshotsResult
- *   resourceName: "STRING_VALUE",
- *   resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
- *   autoSnapshots: [ // AutoSnapshotDetailsList
- *     { // AutoSnapshotDetails
- *       date: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       status: "Success" || "Failed" || "InProgress" || "NotFound",
- *       fromAttachedDisks: [ // AttachedDiskList
- *         { // AttachedDisk
- *           path: "STRING_VALUE",
- *           sizeInGb: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetAutoSnapshotsResult
+ * //   resourceName: "STRING_VALUE",
+ * //   resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //   autoSnapshots: [ // AutoSnapshotDetailsList
+ * //     { // AutoSnapshotDetails
+ * //       date: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "Success" || "Failed" || "InProgress" || "NotFound",
+ * //       fromAttachedDisks: [ // AttachedDiskList
+ * //         { // AttachedDisk
+ * //           path: "STRING_VALUE",
+ * //           sizeInGb: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

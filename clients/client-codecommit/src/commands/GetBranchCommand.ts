@@ -45,13 +45,12 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * };
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBranchOutput
- *   branch: { // BranchInfo
- *     branchName: "STRING_VALUE",
- *     commitId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetBranchOutput
+ * //   branch: { // BranchInfo
+ * //     branchName: "STRING_VALUE",
+ * //     commitId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

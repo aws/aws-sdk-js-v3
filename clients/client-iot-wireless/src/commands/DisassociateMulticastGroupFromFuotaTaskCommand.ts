@@ -54,8 +54,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
  * };
  * const command = new DisassociateMulticastGroupFromFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

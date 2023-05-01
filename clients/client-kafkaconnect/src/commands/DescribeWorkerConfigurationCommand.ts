@@ -53,19 +53,18 @@ export interface DescribeWorkerConfigurationCommandOutput
  * };
  * const command = new DescribeWorkerConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkerConfigurationResponse
- *   creationTime: new Date("TIMESTAMP"),
- *   description: "STRING_VALUE",
- *   latestRevision: { // WorkerConfigurationRevisionDescription
- *     creationTime: new Date("TIMESTAMP"),
- *     description: "STRING_VALUE",
- *     propertiesFileContent: "STRING_VALUE",
- *     revision: Number("long"),
- *   },
- *   name: "STRING_VALUE",
- *   workerConfigurationArn: "STRING_VALUE",
- * };
+ * // { // DescribeWorkerConfigurationResponse
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
+ * //   latestRevision: { // WorkerConfigurationRevisionDescription
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     description: "STRING_VALUE",
+ * //     propertiesFileContent: "STRING_VALUE",
+ * //     revision: Number("long"),
+ * //   },
+ * //   name: "STRING_VALUE",
+ * //   workerConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,27 +46,26 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  * };
  * const command = new ListSolFunctionPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSolFunctionPackagesOutput
- *   nextToken: "STRING_VALUE",
- *   functionPackages: [ // ListSolFunctionPackageResources // required
- *     { // ListSolFunctionPackageInfo
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
- *       operationalState: "ENABLED" || "DISABLED", // required
- *       usageState: "IN_USE" || "NOT_IN_USE", // required
- *       vnfdId: "STRING_VALUE",
- *       vnfProvider: "STRING_VALUE",
- *       vnfProductName: "STRING_VALUE",
- *       vnfdVersion: "STRING_VALUE",
- *       metadata: { // ListSolFunctionPackageMetadata
- *         createdAt: new Date("TIMESTAMP"), // required
- *         lastModified: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- * };
+ * // { // ListSolFunctionPackagesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   functionPackages: [ // ListSolFunctionPackageResources // required
+ * //     { // ListSolFunctionPackageInfo
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //       operationalState: "ENABLED" || "DISABLED", // required
+ * //       usageState: "IN_USE" || "NOT_IN_USE", // required
+ * //       vnfdId: "STRING_VALUE",
+ * //       vnfProvider: "STRING_VALUE",
+ * //       vnfProductName: "STRING_VALUE",
+ * //       vnfdVersion: "STRING_VALUE",
+ * //       metadata: { // ListSolFunctionPackageMetadata
+ * //         createdAt: new Date("TIMESTAMP"), // required
+ * //         lastModified: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

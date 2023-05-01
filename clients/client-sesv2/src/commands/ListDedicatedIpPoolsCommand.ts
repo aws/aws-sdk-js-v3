@@ -46,13 +46,12 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * };
  * const command = new ListDedicatedIpPoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDedicatedIpPoolsResponse
- *   DedicatedIpPools: [ // ListOfDedicatedIpPools
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDedicatedIpPoolsResponse
+ * //   DedicatedIpPools: [ // ListOfDedicatedIpPools
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -102,37 +102,36 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * };
  * const command = new GetServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceLastAccessedDetailsResponse
- *   JobStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
- *   JobType: "SERVICE_LEVEL" || "ACTION_LEVEL",
- *   JobCreationDate: new Date("TIMESTAMP"), // required
- *   ServicesLastAccessed: [ // ServicesLastAccessed // required
- *     { // ServiceLastAccessed
- *       ServiceName: "STRING_VALUE", // required
- *       LastAuthenticated: new Date("TIMESTAMP"),
- *       ServiceNamespace: "STRING_VALUE", // required
- *       LastAuthenticatedEntity: "STRING_VALUE",
- *       LastAuthenticatedRegion: "STRING_VALUE",
- *       TotalAuthenticatedEntities: Number("int"),
- *       TrackedActionsLastAccessed: [ // TrackedActionsLastAccessed
- *         { // TrackedActionLastAccessed
- *           ActionName: "STRING_VALUE",
- *           LastAccessedEntity: "STRING_VALUE",
- *           LastAccessedTime: new Date("TIMESTAMP"),
- *           LastAccessedRegion: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   JobCompletionDate: new Date("TIMESTAMP"), // required
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- *   Error: { // ErrorDetails
- *     Message: "STRING_VALUE", // required
- *     Code: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetServiceLastAccessedDetailsResponse
+ * //   JobStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
+ * //   JobType: "SERVICE_LEVEL" || "ACTION_LEVEL",
+ * //   JobCreationDate: new Date("TIMESTAMP"), // required
+ * //   ServicesLastAccessed: [ // ServicesLastAccessed // required
+ * //     { // ServiceLastAccessed
+ * //       ServiceName: "STRING_VALUE", // required
+ * //       LastAuthenticated: new Date("TIMESTAMP"),
+ * //       ServiceNamespace: "STRING_VALUE", // required
+ * //       LastAuthenticatedEntity: "STRING_VALUE",
+ * //       LastAuthenticatedRegion: "STRING_VALUE",
+ * //       TotalAuthenticatedEntities: Number("int"),
+ * //       TrackedActionsLastAccessed: [ // TrackedActionsLastAccessed
+ * //         { // TrackedActionLastAccessed
+ * //           ActionName: "STRING_VALUE",
+ * //           LastAccessedEntity: "STRING_VALUE",
+ * //           LastAccessedTime: new Date("TIMESTAMP"),
+ * //           LastAccessedRegion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   JobCompletionDate: new Date("TIMESTAMP"), // required
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * //   Error: { // ErrorDetails
+ * //     Message: "STRING_VALUE", // required
+ * //     Code: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,25 +47,24 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  * };
  * const command = new BatchStopJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchStopJobRunResponse
- *   SuccessfulSubmissions: [ // BatchStopJobRunSuccessfulSubmissionList
- *     { // BatchStopJobRunSuccessfulSubmission
- *       JobName: "STRING_VALUE",
- *       JobRunId: "STRING_VALUE",
- *     },
- *   ],
- *   Errors: [ // BatchStopJobRunErrorList
- *     { // BatchStopJobRunError
- *       JobName: "STRING_VALUE",
- *       JobRunId: "STRING_VALUE",
- *       ErrorDetail: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchStopJobRunResponse
+ * //   SuccessfulSubmissions: [ // BatchStopJobRunSuccessfulSubmissionList
+ * //     { // BatchStopJobRunSuccessfulSubmission
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchStopJobRunErrorList
+ * //     { // BatchStopJobRunError
+ * //       JobName: "STRING_VALUE",
+ * //       JobRunId: "STRING_VALUE",
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

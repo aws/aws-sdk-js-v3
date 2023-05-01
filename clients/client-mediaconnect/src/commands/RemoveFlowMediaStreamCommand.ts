@@ -45,11 +45,10 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  * };
  * const command = new RemoveFlowMediaStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveFlowMediaStreamResponse
- *   FlowArn: "STRING_VALUE",
- *   MediaStreamName: "STRING_VALUE",
- * };
+ * // { // RemoveFlowMediaStreamResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   MediaStreamName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

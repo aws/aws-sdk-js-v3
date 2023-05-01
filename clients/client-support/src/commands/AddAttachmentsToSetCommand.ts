@@ -67,11 +67,10 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddAttachmentsToSetResponse
- *   attachmentSetId: "STRING_VALUE",
- *   expiryTime: "STRING_VALUE",
- * };
+ * // { // AddAttachmentsToSetResponse
+ * //   attachmentSetId: "STRING_VALUE",
+ * //   expiryTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

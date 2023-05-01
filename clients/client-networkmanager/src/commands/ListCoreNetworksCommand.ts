@@ -45,26 +45,25 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * };
  * const command = new ListCoreNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoreNetworksResponse
- *   CoreNetworks: [ // CoreNetworkSummaryList
- *     { // CoreNetworkSummary
- *       CoreNetworkId: "STRING_VALUE",
- *       CoreNetworkArn: "STRING_VALUE",
- *       GlobalNetworkId: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       State: "CREATING" || "UPDATING" || "AVAILABLE" || "DELETING",
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCoreNetworksResponse
+ * //   CoreNetworks: [ // CoreNetworkSummaryList
+ * //     { // CoreNetworkSummary
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       CoreNetworkArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       State: "CREATING" || "UPDATING" || "AVAILABLE" || "DELETING",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

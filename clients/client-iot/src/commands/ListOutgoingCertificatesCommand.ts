@@ -47,20 +47,19 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * };
  * const command = new ListOutgoingCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOutgoingCertificatesResponse
- *   outgoingCertificates: [ // OutgoingCertificates
- *     { // OutgoingCertificate
- *       certificateArn: "STRING_VALUE",
- *       certificateId: "STRING_VALUE",
- *       transferredTo: "STRING_VALUE",
- *       transferDate: new Date("TIMESTAMP"),
- *       transferMessage: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListOutgoingCertificatesResponse
+ * //   outgoingCertificates: [ // OutgoingCertificates
+ * //     { // OutgoingCertificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       transferredTo: "STRING_VALUE",
+ * //       transferDate: new Date("TIMESTAMP"),
+ * //       transferMessage: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

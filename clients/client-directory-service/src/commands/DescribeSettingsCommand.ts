@@ -46,28 +46,27 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * };
  * const command = new DescribeSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSettingsResult
- *   DirectoryId: "STRING_VALUE",
- *   SettingEntries: [ // SettingEntries
- *     { // SettingEntry
- *       Type: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       AppliedValue: "STRING_VALUE",
- *       RequestedValue: "STRING_VALUE",
- *       RequestStatus: "Requested" || "Updating" || "Updated" || "Failed" || "Default",
- *       RequestDetailedStatus: { // DirectoryConfigurationSettingRequestDetailedStatus
- *         "<keys>": "Requested" || "Updating" || "Updated" || "Failed" || "Default",
- *       },
- *       RequestStatusMessage: "STRING_VALUE",
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *       LastRequestedDateTime: new Date("TIMESTAMP"),
- *       DataType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSettingsResult
+ * //   DirectoryId: "STRING_VALUE",
+ * //   SettingEntries: [ // SettingEntries
+ * //     { // SettingEntry
+ * //       Type: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       AppliedValue: "STRING_VALUE",
+ * //       RequestedValue: "STRING_VALUE",
+ * //       RequestStatus: "Requested" || "Updating" || "Updated" || "Failed" || "Default",
+ * //       RequestDetailedStatus: { // DirectoryConfigurationSettingRequestDetailedStatus
+ * //         "<keys>": "Requested" || "Updating" || "Updated" || "Failed" || "Default",
+ * //       },
+ * //       RequestStatusMessage: "STRING_VALUE",
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       LastRequestedDateTime: new Date("TIMESTAMP"),
+ * //       DataType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

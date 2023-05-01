@@ -49,8 +49,7 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  * };
  * const command = new DeleteWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

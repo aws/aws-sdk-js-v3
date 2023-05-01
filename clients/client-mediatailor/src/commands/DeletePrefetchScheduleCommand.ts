@@ -45,8 +45,7 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * };
  * const command = new DeletePrefetchScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

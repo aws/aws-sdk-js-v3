@@ -64,19 +64,18 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * };
  * const command = new DescribeOrganizationConformancePackStatusesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConformancePackStatusesResponse
- *   OrganizationConformancePackStatuses: [ // OrganizationConformancePackStatuses
- *     { // OrganizationConformancePackStatus
- *       OrganizationConformancePackName: "STRING_VALUE", // required
- *       Status: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       LastUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOrganizationConformancePackStatusesResponse
+ * //   OrganizationConformancePackStatuses: [ // OrganizationConformancePackStatuses
+ * //     { // OrganizationConformancePackStatus
+ * //       OrganizationConformancePackName: "STRING_VALUE", // required
+ * //       Status: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,18 +45,17 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRepositoriesOutput
- *   nextToken: "STRING_VALUE",
- *   repositories: [ // RepositorySummaryList // required
- *     { // RepositorySummary
- *       arn: "STRING_VALUE", // required
- *       provider: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       connectionArn: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRepositoriesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   repositories: [ // RepositorySummaryList // required
+ * //     { // RepositorySummary
+ * //       arn: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       connectionArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,13 +50,12 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * };
  * const command = new GetDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDefaultCreditSpecificationResult
- *   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
- *     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
- *     CpuCredits: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDefaultCreditSpecificationResult
+ * //   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
+ * //     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
+ * //     CpuCredits: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

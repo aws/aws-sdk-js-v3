@@ -53,16 +53,15 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * };
  * const command = new ListNetworkAnalyzerConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNetworkAnalyzerConfigurationsResponse
- *   NextToken: "STRING_VALUE",
- *   NetworkAnalyzerConfigurationList: [ // NetworkAnalyzerConfigurationList
- *     { // NetworkAnalyzerConfigurations
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListNetworkAnalyzerConfigurationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NetworkAnalyzerConfigurationList: [ // NetworkAnalyzerConfigurationList
+ * //     { // NetworkAnalyzerConfigurations
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

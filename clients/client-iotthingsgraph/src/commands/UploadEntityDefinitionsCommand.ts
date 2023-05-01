@@ -61,10 +61,9 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * };
  * const command = new UploadEntityDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadEntityDefinitionsResponse
- *   uploadId: "STRING_VALUE", // required
- * };
+ * // { // UploadEntityDefinitionsResponse
+ * //   uploadId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

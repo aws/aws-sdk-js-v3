@@ -51,31 +51,30 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * };
  * const command = new ListAnnotationStoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnnotationStoresResponse
- *   annotationStores: [ // AnnotationStoreItems
- *     { // AnnotationStoreItem
- *       id: "STRING_VALUE", // required
- *       reference: { // ReferenceItem Union: only one key present
- *         referenceArn: "STRING_VALUE",
- *       },
- *       status: "STRING_VALUE", // required
- *       storeArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       storeFormat: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       sseConfig: { // SseConfig
- *         type: "STRING_VALUE", // required
- *         keyArn: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       statusMessage: "STRING_VALUE", // required
- *       storeSizeBytes: Number("long"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAnnotationStoresResponse
+ * //   annotationStores: [ // AnnotationStoreItems
+ * //     { // AnnotationStoreItem
+ * //       id: "STRING_VALUE", // required
+ * //       reference: { // ReferenceItem Union: only one key present
+ * //         referenceArn: "STRING_VALUE",
+ * //       },
+ * //       status: "STRING_VALUE", // required
+ * //       storeArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       storeFormat: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       sseConfig: { // SseConfig
+ * //         type: "STRING_VALUE", // required
+ * //         keyArn: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       statusMessage: "STRING_VALUE", // required
+ * //       storeSizeBytes: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

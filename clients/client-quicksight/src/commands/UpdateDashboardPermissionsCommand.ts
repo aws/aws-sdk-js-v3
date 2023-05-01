@@ -77,31 +77,30 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * };
  * const command = new UpdateDashboardPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDashboardPermissionsResponse
- *   DashboardArn: "STRING_VALUE",
- *   DashboardId: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- *   LinkSharingConfiguration: { // LinkSharingConfiguration
- *     Permissions: [
- *       {
- *         Principal: "STRING_VALUE", // required
- *         Actions: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateDashboardPermissionsResponse
+ * //   DashboardArn: "STRING_VALUE",
+ * //   DashboardId: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   LinkSharingConfiguration: { // LinkSharingConfiguration
+ * //     Permissions: [
+ * //       {
+ * //         Principal: "STRING_VALUE", // required
+ * //         Actions: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

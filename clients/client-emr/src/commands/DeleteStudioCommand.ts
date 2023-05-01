@@ -44,8 +44,7 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStudioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

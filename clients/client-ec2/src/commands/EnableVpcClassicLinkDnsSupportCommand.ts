@@ -58,10 +58,9 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * };
  * const command = new EnableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableVpcClassicLinkDnsSupportResult
- *   Return: true || false,
- * };
+ * // { // EnableVpcClassicLinkDnsSupportResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

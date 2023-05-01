@@ -52,39 +52,38 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * };
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTableDataImportJobResult
- *   jobStatus: "STRING_VALUE", // required
- *   message: "STRING_VALUE", // required
- *   jobMetadata: { // TableDataImportJobMetadata
- *     submitter: { // ImportJobSubmitter
- *       email: "STRING_VALUE",
- *       userArn: "STRING_VALUE",
- *     },
- *     submitTime: new Date("TIMESTAMP"), // required
- *     importOptions: { // ImportOptions
- *       destinationOptions: { // DestinationOptions
- *         columnMap: { // ImportColumnMap
- *           "<keys>": { // SourceDataColumnProperties
- *             columnIndex: Number("int"),
- *           },
- *         },
- *       },
- *       delimitedTextOptions: { // DelimitedTextImportOptions
- *         delimiter: "STRING_VALUE", // required
- *         hasHeaderRow: true || false,
- *         ignoreEmptyRows: true || false,
- *         dataCharacterEncoding: "STRING_VALUE",
- *       },
- *     },
- *     dataSource: { // ImportDataSource
- *       dataSourceConfig: { // ImportDataSourceConfig
- *         dataSourceUrl: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   errorCode: "STRING_VALUE",
- * };
+ * // { // DescribeTableDataImportJobResult
+ * //   jobStatus: "STRING_VALUE", // required
+ * //   message: "STRING_VALUE", // required
+ * //   jobMetadata: { // TableDataImportJobMetadata
+ * //     submitter: { // ImportJobSubmitter
+ * //       email: "STRING_VALUE",
+ * //       userArn: "STRING_VALUE",
+ * //     },
+ * //     submitTime: new Date("TIMESTAMP"), // required
+ * //     importOptions: { // ImportOptions
+ * //       destinationOptions: { // DestinationOptions
+ * //         columnMap: { // ImportColumnMap
+ * //           "<keys>": { // SourceDataColumnProperties
+ * //             columnIndex: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //       delimitedTextOptions: { // DelimitedTextImportOptions
+ * //         delimiter: "STRING_VALUE", // required
+ * //         hasHeaderRow: true || false,
+ * //         ignoreEmptyRows: true || false,
+ * //         dataCharacterEncoding: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     dataSource: { // ImportDataSource
+ * //       dataSourceConfig: { // ImportDataSourceConfig
+ * //         dataSourceUrl: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   errorCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

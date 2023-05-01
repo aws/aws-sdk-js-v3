@@ -44,8 +44,7 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * };
  * const command = new GetStackPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStackPolicyOutput
- *   StackPolicyBody: "STRING_VALUE",
- * };
+ * // { // GetStackPolicyOutput
+ * //   StackPolicyBody: "STRING_VALUE",
+ * // };
  *
  * ```
  *

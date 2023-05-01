@@ -57,8 +57,7 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * };
  * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

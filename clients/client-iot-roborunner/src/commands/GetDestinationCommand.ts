@@ -44,17 +44,16 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * };
  * const command = new GetDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDestinationResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   site: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- *   additionalFixedProperties: "STRING_VALUE",
- * };
+ * // { // GetDestinationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   site: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * //   additionalFixedProperties: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,16 +49,15 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * };
  * const command = new ListLexBotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLexBotsResponse
- *   LexBots: [ // LexBotsList
- *     { // LexBot
- *       Name: "STRING_VALUE", // required
- *       LexRegion: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLexBotsResponse
+ * //   LexBots: [ // LexBotsList
+ * //     { // LexBot
+ * //       Name: "STRING_VALUE", // required
+ * //       LexRegion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

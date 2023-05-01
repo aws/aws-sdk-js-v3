@@ -44,18 +44,17 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * };
  * const command = new DeleteWebhookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteWebhookResult
- *   webhook: { // Webhook
- *     webhookArn: "STRING_VALUE", // required
- *     webhookId: "STRING_VALUE", // required
- *     webhookUrl: "STRING_VALUE", // required
- *     branchName: "STRING_VALUE", // required
- *     description: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // DeleteWebhookResult
+ * //   webhook: { // Webhook
+ * //     webhookArn: "STRING_VALUE", // required
+ * //     webhookId: "STRING_VALUE", // required
+ * //     webhookUrl: "STRING_VALUE", // required
+ * //     branchName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

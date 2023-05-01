@@ -45,8 +45,7 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * };
  * const command = new DeleteTimelineEventCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

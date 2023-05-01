@@ -51,11 +51,10 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * };
  * const command = new PurchaseReservedInstanceOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseReservedInstanceOfferingResponse
- *   ReservedInstanceId: "STRING_VALUE",
- *   ReservationName: "STRING_VALUE",
- * };
+ * // { // PurchaseReservedInstanceOfferingResponse
+ * //   ReservedInstanceId: "STRING_VALUE",
+ * //   ReservationName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

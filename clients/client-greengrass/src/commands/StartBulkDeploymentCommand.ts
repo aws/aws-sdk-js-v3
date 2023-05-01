@@ -49,11 +49,10 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * };
  * const command = new StartBulkDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartBulkDeploymentResponse
- *   BulkDeploymentArn: "STRING_VALUE",
- *   BulkDeploymentId: "STRING_VALUE",
- * };
+ * // { // StartBulkDeploymentResponse
+ * //   BulkDeploymentArn: "STRING_VALUE",
+ * //   BulkDeploymentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

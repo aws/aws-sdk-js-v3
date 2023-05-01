@@ -57,11 +57,10 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * };
  * const command = new CreateDimensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDimensionResponse
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // CreateDimensionResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

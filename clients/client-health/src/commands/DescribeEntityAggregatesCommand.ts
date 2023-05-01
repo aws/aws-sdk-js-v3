@@ -46,15 +46,14 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * };
  * const command = new DescribeEntityAggregatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEntityAggregatesResponse
- *   entityAggregates: [ // EntityAggregateList
- *     { // EntityAggregate
- *       eventArn: "STRING_VALUE",
- *       count: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeEntityAggregatesResponse
+ * //   entityAggregates: [ // EntityAggregateList
+ * //     { // EntityAggregate
+ * //       eventArn: "STRING_VALUE",
+ * //       count: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,21 +47,20 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * };
  * const command = new UpdateVoiceChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVoiceChannelResponse
- *   VoiceChannelResponse: { // VoiceChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // UpdateVoiceChannelResponse
+ * //   VoiceChannelResponse: { // VoiceChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

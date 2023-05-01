@@ -50,16 +50,15 @@ export interface GetContainerImagesCommandOutput extends GetContainerImagesResul
  * };
  * const command = new GetContainerImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerImagesResult
- *   containerImages: [ // ContainerImageList
- *     { // ContainerImage
- *       image: "STRING_VALUE",
- *       digest: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // GetContainerImagesResult
+ * //   containerImages: [ // ContainerImageList
+ * //     { // ContainerImage
+ * //       image: "STRING_VALUE",
+ * //       digest: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

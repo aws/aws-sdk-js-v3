@@ -46,10 +46,9 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * };
  * const command = new StartTriggerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTriggerResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // StartTriggerResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

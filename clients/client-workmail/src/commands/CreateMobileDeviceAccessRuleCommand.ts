@@ -77,10 +77,9 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
  * };
  * const command = new CreateMobileDeviceAccessRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMobileDeviceAccessRuleResponse
- *   MobileDeviceAccessRuleId: "STRING_VALUE",
- * };
+ * // { // CreateMobileDeviceAccessRuleResponse
+ * //   MobileDeviceAccessRuleId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

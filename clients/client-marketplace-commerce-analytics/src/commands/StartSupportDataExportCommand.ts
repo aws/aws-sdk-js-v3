@@ -63,10 +63,9 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * };
  * const command = new StartSupportDataExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSupportDataExportResult
- *   dataSetRequestId: "STRING_VALUE",
- * };
+ * // { // StartSupportDataExportResult
+ * //   dataSetRequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

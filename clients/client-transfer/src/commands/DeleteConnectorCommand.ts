@@ -44,8 +44,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

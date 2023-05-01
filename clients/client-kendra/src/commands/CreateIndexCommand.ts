@@ -87,10 +87,9 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * };
  * const command = new CreateIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIndexResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateIndexResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

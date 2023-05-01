@@ -42,18 +42,17 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Account
- *   cloudwatchRoleArn: "STRING_VALUE",
- *   throttleSettings: { // ThrottleSettings
- *     burstLimit: Number("int"),
- *     rateLimit: Number("double"),
- *   },
- *   features: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   apiKeyVersion: "STRING_VALUE",
- * };
+ * // { // Account
+ * //   cloudwatchRoleArn: "STRING_VALUE",
+ * //   throttleSettings: { // ThrottleSettings
+ * //     burstLimit: Number("int"),
+ * //     rateLimit: Number("double"),
+ * //   },
+ * //   features: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   apiKeyVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

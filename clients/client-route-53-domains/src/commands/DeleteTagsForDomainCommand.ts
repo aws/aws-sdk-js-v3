@@ -49,8 +49,7 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * };
  * const command = new DeleteTagsForDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

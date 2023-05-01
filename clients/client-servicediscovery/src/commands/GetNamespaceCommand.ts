@@ -44,30 +44,29 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNamespaceResponse
- *   Namespace: { // Namespace
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
- *     Description: "STRING_VALUE",
- *     ServiceCount: Number("int"),
- *     Properties: { // NamespaceProperties
- *       DnsProperties: { // DnsProperties
- *         HostedZoneId: "STRING_VALUE",
- *         SOA: { // SOA
- *           TTL: Number("long"), // required
- *         },
- *       },
- *       HttpProperties: { // HttpProperties
- *         HttpName: "STRING_VALUE",
- *       },
- *     },
- *     CreateDate: new Date("TIMESTAMP"),
- *     CreatorRequestId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetNamespaceResponse
+ * //   Namespace: { // Namespace
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
+ * //     Description: "STRING_VALUE",
+ * //     ServiceCount: Number("int"),
+ * //     Properties: { // NamespaceProperties
+ * //       DnsProperties: { // DnsProperties
+ * //         HostedZoneId: "STRING_VALUE",
+ * //         SOA: { // SOA
+ * //           TTL: Number("long"), // required
+ * //         },
+ * //       },
+ * //       HttpProperties: { // HttpProperties
+ * //         HttpName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

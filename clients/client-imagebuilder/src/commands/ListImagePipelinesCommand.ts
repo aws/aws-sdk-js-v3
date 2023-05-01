@@ -53,50 +53,49 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  * };
  * const command = new ListImagePipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagePipelinesResponse
- *   requestId: "STRING_VALUE",
- *   imagePipelineList: [ // ImagePipelineList
- *     { // ImagePipeline
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       enhancedImageMetadataEnabled: true || false,
- *       imageRecipeArn: "STRING_VALUE",
- *       containerRecipeArn: "STRING_VALUE",
- *       infrastructureConfigurationArn: "STRING_VALUE",
- *       distributionConfigurationArn: "STRING_VALUE",
- *       imageTestsConfiguration: { // ImageTestsConfiguration
- *         imageTestsEnabled: true || false,
- *         timeoutMinutes: Number("int"),
- *       },
- *       schedule: { // Schedule
- *         scheduleExpression: "STRING_VALUE",
- *         timezone: "STRING_VALUE",
- *         pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
- *       },
- *       status: "DISABLED" || "ENABLED",
- *       dateCreated: "STRING_VALUE",
- *       dateUpdated: "STRING_VALUE",
- *       dateLastRun: "STRING_VALUE",
- *       dateNextRun: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       imageScanningConfiguration: { // ImageScanningConfiguration
- *         imageScanningEnabled: true || false,
- *         ecrConfiguration: { // EcrConfiguration
- *           repositoryName: "STRING_VALUE",
- *           containerTags: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImagePipelinesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imagePipelineList: [ // ImagePipelineList
+ * //     { // ImagePipeline
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       enhancedImageMetadataEnabled: true || false,
+ * //       imageRecipeArn: "STRING_VALUE",
+ * //       containerRecipeArn: "STRING_VALUE",
+ * //       infrastructureConfigurationArn: "STRING_VALUE",
+ * //       distributionConfigurationArn: "STRING_VALUE",
+ * //       imageTestsConfiguration: { // ImageTestsConfiguration
+ * //         imageTestsEnabled: true || false,
+ * //         timeoutMinutes: Number("int"),
+ * //       },
+ * //       schedule: { // Schedule
+ * //         scheduleExpression: "STRING_VALUE",
+ * //         timezone: "STRING_VALUE",
+ * //         pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ * //       },
+ * //       status: "DISABLED" || "ENABLED",
+ * //       dateCreated: "STRING_VALUE",
+ * //       dateUpdated: "STRING_VALUE",
+ * //       dateLastRun: "STRING_VALUE",
+ * //       dateNextRun: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       imageScanningConfiguration: { // ImageScanningConfiguration
+ * //         imageScanningEnabled: true || false,
+ * //         ecrConfiguration: { // EcrConfiguration
+ * //           repositoryName: "STRING_VALUE",
+ * //           containerTags: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

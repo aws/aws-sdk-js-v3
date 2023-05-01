@@ -64,10 +64,9 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectorResponse
- *   ConnectorId: "STRING_VALUE", // required
- * };
+ * // { // CreateConnectorResponse
+ * //   ConnectorId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
  * };
  * const command = new DeleteDynamicThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

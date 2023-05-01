@@ -45,8 +45,7 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * };
  * const command = new DeletePermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

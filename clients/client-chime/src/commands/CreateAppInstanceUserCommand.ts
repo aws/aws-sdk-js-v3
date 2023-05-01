@@ -59,10 +59,9 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * };
  * const command = new CreateAppInstanceUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppInstanceUserResponse
- *   AppInstanceUserArn: "STRING_VALUE",
- * };
+ * // { // CreateAppInstanceUserResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

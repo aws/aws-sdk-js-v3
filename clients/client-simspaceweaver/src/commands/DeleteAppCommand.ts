@@ -46,8 +46,7 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * };
  * const command = new DeleteAppCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,24 +44,23 @@ export interface DescribeVpcConnectionCommandOutput extends DescribeVpcConnectio
  * };
  * const command = new DescribeVpcConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcConnectionResponse
- *   VpcConnectionArn: "STRING_VALUE",
- *   TargetClusterArn: "STRING_VALUE",
- *   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
- *   Authentication: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- *   Subnets: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   SecurityGroups: [
- *     "STRING_VALUE",
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeVpcConnectionResponse
+ * //   VpcConnectionArn: "STRING_VALUE",
+ * //   TargetClusterArn: "STRING_VALUE",
+ * //   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ * //   Authentication: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * //   Subnets: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SecurityGroups: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

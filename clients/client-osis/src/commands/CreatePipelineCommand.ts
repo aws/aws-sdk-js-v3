@@ -67,45 +67,44 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePipelineResponse
- *   Pipeline: { // Pipeline
- *     PipelineName: "STRING_VALUE",
- *     PipelineArn: "STRING_VALUE",
- *     MinUnits: Number("int"),
- *     MaxUnits: Number("int"),
- *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "STARTING" || "START_FAILED" || "STOPPING" || "STOPPED",
- *     StatusReason: { // PipelineStatusReason
- *       Description: "STRING_VALUE",
- *     },
- *     PipelineConfigurationBody: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     IngestEndpointUrls: [ // IngestEndpointUrlsList
- *       "STRING_VALUE",
- *     ],
- *     LogPublishingOptions: { // LogPublishingOptions
- *       IsLoggingEnabled: true || false,
- *       CloudWatchLogDestination: { // CloudWatchLogDestination
- *         LogGroup: "STRING_VALUE", // required
- *       },
- *     },
- *     VpcEndpoints: [ // VpcEndpointsList
- *       { // VpcEndpoint
- *         VpcEndpointId: "STRING_VALUE",
- *         VpcId: "STRING_VALUE",
- *         VpcOptions: { // VpcOptions
- *           SubnetIds: [ // SubnetIds // required
- *             "STRING_VALUE",
- *           ],
- *           SecurityGroupIds: [ // SecurityGroupIds
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // CreatePipelineResponse
+ * //   Pipeline: { // Pipeline
+ * //     PipelineName: "STRING_VALUE",
+ * //     PipelineArn: "STRING_VALUE",
+ * //     MinUnits: Number("int"),
+ * //     MaxUnits: Number("int"),
+ * //     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "STARTING" || "START_FAILED" || "STOPPING" || "STOPPED",
+ * //     StatusReason: { // PipelineStatusReason
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //     PipelineConfigurationBody: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     IngestEndpointUrls: [ // IngestEndpointUrlsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LogPublishingOptions: { // LogPublishingOptions
+ * //       IsLoggingEnabled: true || false,
+ * //       CloudWatchLogDestination: { // CloudWatchLogDestination
+ * //         LogGroup: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     VpcEndpoints: [ // VpcEndpointsList
+ * //       { // VpcEndpoint
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //         VpcId: "STRING_VALUE",
+ * //         VpcOptions: { // VpcOptions
+ * //           SubnetIds: [ // SubnetIds // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SecurityGroupIds: [ // SecurityGroupIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

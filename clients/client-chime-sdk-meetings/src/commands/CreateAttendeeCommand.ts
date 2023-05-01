@@ -60,19 +60,18 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAttendeeResponse
- *   Attendee: { // Attendee
- *     ExternalUserId: "STRING_VALUE",
- *     AttendeeId: "STRING_VALUE",
- *     JoinToken: "STRING_VALUE",
- *     Capabilities: { // AttendeeCapabilities
- *       Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *       Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *       Content: "SendReceive" || "Send" || "Receive" || "None", // required
- *     },
- *   },
- * };
+ * // { // CreateAttendeeResponse
+ * //   Attendee: { // Attendee
+ * //     ExternalUserId: "STRING_VALUE",
+ * //     AttendeeId: "STRING_VALUE",
+ * //     JoinToken: "STRING_VALUE",
+ * //     Capabilities: { // AttendeeCapabilities
+ * //       Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

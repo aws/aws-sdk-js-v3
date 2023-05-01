@@ -45,19 +45,18 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * };
  * const command = new DescribeEngagementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEngagementResult
- *   ContactArn: "STRING_VALUE", // required
- *   EngagementArn: "STRING_VALUE", // required
- *   Sender: "STRING_VALUE", // required
- *   Subject: "STRING_VALUE", // required
- *   Content: "STRING_VALUE", // required
- *   PublicSubject: "STRING_VALUE",
- *   PublicContent: "STRING_VALUE",
- *   IncidentId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   StopTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeEngagementResult
+ * //   ContactArn: "STRING_VALUE", // required
+ * //   EngagementArn: "STRING_VALUE", // required
+ * //   Sender: "STRING_VALUE", // required
+ * //   Subject: "STRING_VALUE", // required
+ * //   Content: "STRING_VALUE", // required
+ * //   PublicSubject: "STRING_VALUE",
+ * //   PublicContent: "STRING_VALUE",
+ * //   IncidentId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   StopTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

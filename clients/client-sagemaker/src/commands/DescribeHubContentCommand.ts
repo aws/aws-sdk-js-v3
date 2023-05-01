@@ -50,32 +50,31 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * };
  * const command = new DescribeHubContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHubContentResponse
- *   HubContentName: "STRING_VALUE", // required
- *   HubContentArn: "STRING_VALUE", // required
- *   HubContentVersion: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
- *   DocumentSchemaVersion: "STRING_VALUE", // required
- *   HubName: "STRING_VALUE", // required
- *   HubArn: "STRING_VALUE", // required
- *   HubContentDisplayName: "STRING_VALUE",
- *   HubContentDescription: "STRING_VALUE",
- *   HubContentMarkdown: "STRING_VALUE",
- *   HubContentDocument: "STRING_VALUE", // required
- *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
- *     "STRING_VALUE",
- *   ],
- *   HubContentDependencies: [ // HubContentDependencyList
- *     { // HubContentDependency
- *       DependencyOriginPath: "STRING_VALUE",
- *       DependencyCopyPath: "STRING_VALUE",
- *     },
- *   ],
- *   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
- *   FailureReason: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeHubContentResponse
+ * //   HubContentName: "STRING_VALUE", // required
+ * //   HubContentArn: "STRING_VALUE", // required
+ * //   HubContentVersion: "STRING_VALUE", // required
+ * //   HubContentType: "Model" || "Notebook", // required
+ * //   DocumentSchemaVersion: "STRING_VALUE", // required
+ * //   HubName: "STRING_VALUE", // required
+ * //   HubArn: "STRING_VALUE", // required
+ * //   HubContentDisplayName: "STRING_VALUE",
+ * //   HubContentDescription: "STRING_VALUE",
+ * //   HubContentMarkdown: "STRING_VALUE",
+ * //   HubContentDocument: "STRING_VALUE", // required
+ * //   HubContentSearchKeywords: [ // HubContentSearchKeywordList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HubContentDependencies: [ // HubContentDependencyList
+ * //     { // HubContentDependency
+ * //       DependencyOriginPath: "STRING_VALUE",
+ * //       DependencyCopyPath: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
+ * //   FailureReason: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

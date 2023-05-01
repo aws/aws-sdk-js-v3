@@ -44,8 +44,7 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * };
  * const command = new StopBulkDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

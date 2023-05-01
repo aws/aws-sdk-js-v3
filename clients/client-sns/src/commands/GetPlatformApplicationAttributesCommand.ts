@@ -51,12 +51,11 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * };
  * const command = new GetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPlatformApplicationAttributesResponse
- *   Attributes: { // MapStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetPlatformApplicationAttributesResponse
+ * //   Attributes: { // MapStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

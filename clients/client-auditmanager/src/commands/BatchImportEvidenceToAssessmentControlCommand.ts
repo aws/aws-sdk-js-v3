@@ -81,18 +81,17 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * };
  * const command = new BatchImportEvidenceToAssessmentControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchImportEvidenceToAssessmentControlResponse
- *   errors: [ // BatchImportEvidenceToAssessmentControlErrors
- *     { // BatchImportEvidenceToAssessmentControlError
- *       manualEvidence: { // ManualEvidence
- *         s3ResourcePath: "STRING_VALUE",
- *       },
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchImportEvidenceToAssessmentControlResponse
+ * //   errors: [ // BatchImportEvidenceToAssessmentControlErrors
+ * //     { // BatchImportEvidenceToAssessmentControlError
+ * //       manualEvidence: { // ManualEvidence
+ * //         s3ResourcePath: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

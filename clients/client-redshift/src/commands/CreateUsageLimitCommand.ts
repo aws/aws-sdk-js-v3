@@ -56,22 +56,21 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UsageLimit
- *   UsageLimitId: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE",
- *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
- *   LimitType: "time" || "data-scanned",
- *   Amount: Number("long"),
- *   Period: "daily" || "weekly" || "monthly",
- *   BreachAction: "log" || "emit-metric" || "disable",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UsageLimit
+ * //   UsageLimitId: "STRING_VALUE",
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing",
+ * //   LimitType: "time" || "data-scanned",
+ * //   Amount: Number("long"),
+ * //   Period: "daily" || "weekly" || "monthly",
+ * //   BreachAction: "log" || "emit-metric" || "disable",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

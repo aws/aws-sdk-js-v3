@@ -63,27 +63,26 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventSubscriptionsResponse
- *   Marker: "STRING_VALUE",
- *   EventSubscriptionsList: [ // EventSubscriptionsList
- *     { // EventSubscription
- *       CustomerAwsId: "STRING_VALUE",
- *       CustSubscriptionId: "STRING_VALUE",
- *       SnsTopicArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       SubscriptionCreationTime: "STRING_VALUE",
- *       SourceType: "STRING_VALUE",
- *       SourceIdsList: [ // SourceIdsList
- *         "STRING_VALUE",
- *       ],
- *       EventCategoriesList: [ // EventCategoriesList
- *         "STRING_VALUE",
- *       ],
- *       Enabled: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeEventSubscriptionsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   EventSubscriptionsList: [ // EventSubscriptionsList
+ * //     { // EventSubscription
+ * //       CustomerAwsId: "STRING_VALUE",
+ * //       CustSubscriptionId: "STRING_VALUE",
+ * //       SnsTopicArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       SubscriptionCreationTime: "STRING_VALUE",
+ * //       SourceType: "STRING_VALUE",
+ * //       SourceIdsList: [ // SourceIdsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EventCategoriesList: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Enabled: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

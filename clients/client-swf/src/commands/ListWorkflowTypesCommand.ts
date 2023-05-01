@@ -73,22 +73,21 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * };
  * const command = new ListWorkflowTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WorkflowTypeInfos
- *   typeInfos: [ // WorkflowTypeInfoList // required
- *     { // WorkflowTypeInfo
- *       workflowType: { // WorkflowType
- *         name: "STRING_VALUE", // required
- *         version: "STRING_VALUE", // required
- *       },
- *       status: "REGISTERED" || "DEPRECATED", // required
- *       description: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"), // required
- *       deprecationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // WorkflowTypeInfos
+ * //   typeInfos: [ // WorkflowTypeInfoList // required
+ * //     { // WorkflowTypeInfo
+ * //       workflowType: { // WorkflowType
+ * //         name: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       status: "REGISTERED" || "DEPRECATED", // required
+ * //       description: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //       deprecationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

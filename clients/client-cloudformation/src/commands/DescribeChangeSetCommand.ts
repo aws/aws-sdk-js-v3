@@ -47,84 +47,83 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * };
  * const command = new DescribeChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChangeSetOutput
- *   ChangeSetName: "STRING_VALUE",
- *   ChangeSetId: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
- *   StackName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Parameters: [ // Parameters
- *     { // Parameter
- *       ParameterKey: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       UsePreviousValue: true || false,
- *       ResolvedValue: "STRING_VALUE",
- *     },
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- *   ExecutionStatus: "UNAVAILABLE" || "AVAILABLE" || "EXECUTE_IN_PROGRESS" || "EXECUTE_COMPLETE" || "EXECUTE_FAILED" || "OBSOLETE",
- *   Status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "FAILED",
- *   StatusReason: "STRING_VALUE",
- *   NotificationARNs: [ // NotificationARNs
- *     "STRING_VALUE",
- *   ],
- *   RollbackConfiguration: { // RollbackConfiguration
- *     RollbackTriggers: [ // RollbackTriggers
- *       { // RollbackTrigger
- *         Arn: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
- *       },
- *     ],
- *     MonitoringTimeInMinutes: Number("int"),
- *   },
- *   Capabilities: [ // Capabilities
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
- *   ],
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   Changes: [ // Changes
- *     { // Change
- *       Type: "Resource",
- *       HookInvocationCount: Number("int"),
- *       ResourceChange: { // ResourceChange
- *         Action: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
- *         LogicalResourceId: "STRING_VALUE",
- *         PhysicalResourceId: "STRING_VALUE",
- *         ResourceType: "STRING_VALUE",
- *         Replacement: "True" || "False" || "Conditional",
- *         Scope: [ // Scope
- *           "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
- *         ],
- *         Details: [ // ResourceChangeDetails
- *           { // ResourceChangeDetail
- *             Target: { // ResourceTargetDefinition
- *               Attribute: "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
- *               Name: "STRING_VALUE",
- *               RequiresRecreation: "Never" || "Conditionally" || "Always",
- *             },
- *             Evaluation: "Static" || "Dynamic",
- *             ChangeSource: "ResourceReference" || "ParameterReference" || "ResourceAttribute" || "DirectModification" || "Automatic",
- *             CausingEntity: "STRING_VALUE",
- *           },
- *         ],
- *         ChangeSetId: "STRING_VALUE",
- *         ModuleInfo: { // ModuleInfo
- *           TypeHierarchy: "STRING_VALUE",
- *           LogicalIdHierarchy: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   IncludeNestedStacks: true || false,
- *   ParentChangeSetId: "STRING_VALUE",
- *   RootChangeSetId: "STRING_VALUE",
- * };
+ * // { // DescribeChangeSetOutput
+ * //   ChangeSetName: "STRING_VALUE",
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * //   StackName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Parameters: [ // Parameters
+ * //     { // Parameter
+ * //       ParameterKey: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       UsePreviousValue: true || false,
+ * //       ResolvedValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ExecutionStatus: "UNAVAILABLE" || "AVAILABLE" || "EXECUTE_IN_PROGRESS" || "EXECUTE_COMPLETE" || "EXECUTE_FAILED" || "OBSOLETE",
+ * //   Status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "FAILED",
+ * //   StatusReason: "STRING_VALUE",
+ * //   NotificationARNs: [ // NotificationARNs
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RollbackConfiguration: { // RollbackConfiguration
+ * //     RollbackTriggers: [ // RollbackTriggers
+ * //       { // RollbackTrigger
+ * //         Arn: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     MonitoringTimeInMinutes: Number("int"),
+ * //   },
+ * //   Capabilities: [ // Capabilities
+ * //     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ * //   ],
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   Changes: [ // Changes
+ * //     { // Change
+ * //       Type: "Resource",
+ * //       HookInvocationCount: Number("int"),
+ * //       ResourceChange: { // ResourceChange
+ * //         Action: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
+ * //         LogicalResourceId: "STRING_VALUE",
+ * //         PhysicalResourceId: "STRING_VALUE",
+ * //         ResourceType: "STRING_VALUE",
+ * //         Replacement: "True" || "False" || "Conditional",
+ * //         Scope: [ // Scope
+ * //           "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
+ * //         ],
+ * //         Details: [ // ResourceChangeDetails
+ * //           { // ResourceChangeDetail
+ * //             Target: { // ResourceTargetDefinition
+ * //               Attribute: "Properties" || "Metadata" || "CreationPolicy" || "UpdatePolicy" || "DeletionPolicy" || "Tags",
+ * //               Name: "STRING_VALUE",
+ * //               RequiresRecreation: "Never" || "Conditionally" || "Always",
+ * //             },
+ * //             Evaluation: "Static" || "Dynamic",
+ * //             ChangeSource: "ResourceReference" || "ParameterReference" || "ResourceAttribute" || "DirectModification" || "Automatic",
+ * //             CausingEntity: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ChangeSetId: "STRING_VALUE",
+ * //         ModuleInfo: { // ModuleInfo
+ * //           TypeHierarchy: "STRING_VALUE",
+ * //           LogicalIdHierarchy: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   IncludeNestedStacks: true || false,
+ * //   ParentChangeSetId: "STRING_VALUE",
+ * //   RootChangeSetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

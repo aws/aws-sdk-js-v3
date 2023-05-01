@@ -50,25 +50,24 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new GetWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessDeviceImportTaskResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   DestinationName: "STRING_VALUE",
- *   Sidewalk: { // SidewalkGetStartImportInfo
- *     DeviceCreationFileList: [ // DeviceCreationFileList
- *       "STRING_VALUE",
- *     ],
- *     Role: "STRING_VALUE",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   Status: "INITIALIZING" || "INITIALIZED" || "PENDING" || "COMPLETE" || "FAILED" || "DELETING",
- *   StatusReason: "STRING_VALUE",
- *   InitializedImportedDeviceCount: Number("long"),
- *   PendingImportedDeviceCount: Number("long"),
- *   OnboardedImportedDeviceCount: Number("long"),
- *   FailedImportedDeviceCount: Number("long"),
- * };
+ * // { // GetWirelessDeviceImportTaskResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   DestinationName: "STRING_VALUE",
+ * //   Sidewalk: { // SidewalkGetStartImportInfo
+ * //     DeviceCreationFileList: [ // DeviceCreationFileList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Role: "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Status: "INITIALIZING" || "INITIALIZED" || "PENDING" || "COMPLETE" || "FAILED" || "DELETING",
+ * //   StatusReason: "STRING_VALUE",
+ * //   InitializedImportedDeviceCount: Number("long"),
+ * //   PendingImportedDeviceCount: Number("long"),
+ * //   OnboardedImportedDeviceCount: Number("long"),
+ * //   FailedImportedDeviceCount: Number("long"),
+ * // };
  *
  * ```
  *

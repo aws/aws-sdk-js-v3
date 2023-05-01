@@ -68,13 +68,12 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFindingsResponse
- *   findingIds: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFindingsResponse
+ * //   findingIds: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

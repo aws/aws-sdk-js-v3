@@ -48,13 +48,12 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  * };
  * const command = new DeprovisionPublicIpv4PoolCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeprovisionPublicIpv4PoolCidrResult
- *   PoolId: "STRING_VALUE",
- *   DeprovisionedAddresses: [ // DeprovisionedAddressSet
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DeprovisionPublicIpv4PoolCidrResult
+ * //   PoolId: "STRING_VALUE",
+ * //   DeprovisionedAddresses: [ // DeprovisionedAddressSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

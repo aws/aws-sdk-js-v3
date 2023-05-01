@@ -54,14 +54,13 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * };
  * const command = new CreateVoiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVoiceTemplateResponse
- *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
- *     Arn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateVoiceTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

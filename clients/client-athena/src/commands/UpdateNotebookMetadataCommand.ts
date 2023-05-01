@@ -46,8 +46,7 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * };
  * const command = new UpdateNotebookMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

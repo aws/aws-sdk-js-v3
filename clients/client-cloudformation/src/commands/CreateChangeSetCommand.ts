@@ -114,11 +114,10 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * };
  * const command = new CreateChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChangeSetOutput
- *   Id: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
- * };
+ * // { // CreateChangeSetOutput
+ * //   Id: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

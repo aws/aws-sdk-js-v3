@@ -49,14 +49,13 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * };
  * const command = new GetSchemaByDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaByDefinitionResponse
- *   SchemaVersionId: "STRING_VALUE",
- *   SchemaArn: "STRING_VALUE",
- *   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
- *   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
- *   CreatedTime: "STRING_VALUE",
- * };
+ * // { // GetSchemaByDefinitionResponse
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   SchemaArn: "STRING_VALUE",
+ * //   DataFormat: "AVRO" || "JSON" || "PROTOBUF",
+ * //   Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * //   CreatedTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

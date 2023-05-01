@@ -56,8 +56,7 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * };
  * const command = new RemoveThingFromBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

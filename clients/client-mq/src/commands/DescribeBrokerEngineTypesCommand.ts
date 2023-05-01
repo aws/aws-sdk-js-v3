@@ -46,21 +46,20 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * };
  * const command = new DescribeBrokerEngineTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBrokerEngineTypesResponse
- *   BrokerEngineTypes: [ // __listOfBrokerEngineType
- *     { // BrokerEngineType
- *       EngineType: "STRING_VALUE",
- *       EngineVersions: [ // __listOfEngineVersion
- *         { // EngineVersion
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeBrokerEngineTypesResponse
+ * //   BrokerEngineTypes: [ // __listOfBrokerEngineType
+ * //     { // BrokerEngineType
+ * //       EngineType: "STRING_VALUE",
+ * //       EngineVersions: [ // __listOfEngineVersion
+ * //         { // EngineVersion
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

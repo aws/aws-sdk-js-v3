@@ -48,10 +48,9 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * };
  * const command = new CreateLongTermPricingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLongTermPricingResult
- *   LongTermPricingId: "STRING_VALUE",
- * };
+ * // { // CreateLongTermPricingResult
+ * //   LongTermPricingId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

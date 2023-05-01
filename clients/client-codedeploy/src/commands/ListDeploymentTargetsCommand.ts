@@ -50,13 +50,12 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * };
  * const command = new ListDeploymentTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentTargetsOutput
- *   targetIds: [ // TargetIdList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentTargetsOutput
+ * //   targetIds: [ // TargetIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

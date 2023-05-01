@@ -57,13 +57,12 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * };
  * const command = new UpdateBackendStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackendStorageResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // UpdateBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

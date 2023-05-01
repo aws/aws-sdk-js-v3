@@ -46,25 +46,24 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * };
  * const command = new GetBackendStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBackendStorageResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   ResourceConfig: { // GetBackendStorageResourceConfig
- *     BucketName: "STRING_VALUE",
- *     Imported: true || false, // required
- *     Permissions: { // BackendStoragePermissions
- *       Authenticated: [ // ListOfAuthenticatedElement // required
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
- *       ],
- *       UnAuthenticated: [ // ListOfUnAuthenticatedElement
- *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
- *       ],
- *     },
- *     ServiceName: "S3", // required
- *   },
- *   ResourceName: "STRING_VALUE",
- * };
+ * // { // GetBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   ResourceConfig: { // GetBackendStorageResourceConfig
+ * //     BucketName: "STRING_VALUE",
+ * //     Imported: true || false, // required
+ * //     Permissions: { // BackendStoragePermissions
+ * //       Authenticated: [ // ListOfAuthenticatedElement // required
+ * //         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ * //       ],
+ * //       UnAuthenticated: [ // ListOfUnAuthenticatedElement
+ * //         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ * //       ],
+ * //     },
+ * //     ServiceName: "S3", // required
+ * //   },
+ * //   ResourceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

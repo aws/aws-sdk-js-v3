@@ -45,16 +45,15 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * };
  * const command = new ListNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNetworkSettingsResponse
- *   networkSettings: [ // NetworkSettingsList
- *     { // NetworkSettingsSummary
- *       networkSettingsArn: "STRING_VALUE",
- *       vpcId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListNetworkSettingsResponse
+ * //   networkSettings: [ // NetworkSettingsList
+ * //     { // NetworkSettingsSummary
+ * //       networkSettingsArn: "STRING_VALUE",
+ * //       vpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

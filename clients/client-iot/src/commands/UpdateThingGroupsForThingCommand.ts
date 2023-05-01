@@ -52,8 +52,7 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
  * };
  * const command = new UpdateThingGroupsForThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

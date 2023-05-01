@@ -48,25 +48,24 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * };
  * const command = new GetServerStrategiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServerStrategiesResponse
- *   serverStrategies: [ // ServerStrategies
- *     { // ServerStrategy
- *       recommendation: { // RecommendationSet
- *         transformationTool: { // TransformationTool
- *           name: "STRING_VALUE",
- *           description: "STRING_VALUE",
- *           tranformationToolInstallationLink: "STRING_VALUE",
- *         },
- *         targetDestination: "STRING_VALUE",
- *         strategy: "STRING_VALUE",
- *       },
- *       status: "STRING_VALUE",
- *       numberOfApplicationComponents: Number("int"),
- *       isPreferred: true || false,
- *     },
- *   ],
- * };
+ * // { // GetServerStrategiesResponse
+ * //   serverStrategies: [ // ServerStrategies
+ * //     { // ServerStrategy
+ * //       recommendation: { // RecommendationSet
+ * //         transformationTool: { // TransformationTool
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           tranformationToolInstallationLink: "STRING_VALUE",
+ * //         },
+ * //         targetDestination: "STRING_VALUE",
+ * //         strategy: "STRING_VALUE",
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       numberOfApplicationComponents: Number("int"),
+ * //       isPreferred: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

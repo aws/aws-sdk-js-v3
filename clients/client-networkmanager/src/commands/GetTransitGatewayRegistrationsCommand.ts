@@ -55,20 +55,19 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * };
  * const command = new GetTransitGatewayRegistrationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayRegistrationsResponse
- *   TransitGatewayRegistrations: [ // TransitGatewayRegistrationList
- *     { // TransitGatewayRegistration
- *       GlobalNetworkId: "STRING_VALUE",
- *       TransitGatewayArn: "STRING_VALUE",
- *       State: { // TransitGatewayRegistrationStateReason
- *         Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayRegistrationsResponse
+ * //   TransitGatewayRegistrations: [ // TransitGatewayRegistrationList
+ * //     { // TransitGatewayRegistration
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       TransitGatewayArn: "STRING_VALUE",
+ * //       State: { // TransitGatewayRegistrationStateReason
+ * //         Code: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED" || "FAILED",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

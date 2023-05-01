@@ -47,8 +47,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * };
  * const command = new DeleteContactChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

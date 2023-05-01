@@ -93,10 +93,9 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * };
  * const command = new UpdateStackInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStackInstancesOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateStackInstancesOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

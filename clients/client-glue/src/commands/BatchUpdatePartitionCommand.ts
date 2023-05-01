@@ -119,20 +119,19 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * };
  * const command = new BatchUpdatePartitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdatePartitionResponse
- *   Errors: [ // BatchUpdatePartitionFailureList
- *     { // BatchUpdatePartitionFailureEntry
- *       PartitionValueList: [ // BoundedPartitionValueList
- *         "STRING_VALUE",
- *       ],
- *       ErrorDetail: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchUpdatePartitionResponse
+ * //   Errors: [ // BatchUpdatePartitionFailureList
+ * //     { // BatchUpdatePartitionFailureEntry
+ * //       PartitionValueList: [ // BoundedPartitionValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

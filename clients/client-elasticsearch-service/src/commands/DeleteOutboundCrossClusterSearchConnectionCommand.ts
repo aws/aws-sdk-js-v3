@@ -57,27 +57,26 @@ export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
  * };
  * const command = new DeleteOutboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteOutboundCrossClusterSearchConnectionResponse
- *   CrossClusterSearchConnection: { // OutboundCrossClusterSearchConnection
- *     SourceDomainInfo: { // DomainInformation
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *     DestinationDomainInfo: {
- *       OwnerId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *     },
- *     CrossClusterSearchConnectionId: "STRING_VALUE",
- *     ConnectionAlias: "STRING_VALUE",
- *     ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
- *       StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
- *       Message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeleteOutboundCrossClusterSearchConnectionResponse
+ * //   CrossClusterSearchConnection: { // OutboundCrossClusterSearchConnection
+ * //     SourceDomainInfo: { // DomainInformation
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     DestinationDomainInfo: {
+ * //       OwnerId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     CrossClusterSearchConnectionId: "STRING_VALUE",
+ * //     ConnectionAlias: "STRING_VALUE",
+ * //     ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ * //       StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

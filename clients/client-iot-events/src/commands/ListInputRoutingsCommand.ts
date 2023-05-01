@@ -58,16 +58,15 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * };
  * const command = new ListInputRoutingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInputRoutingsResponse
- *   routedResources: [ // RoutedResources
- *     { // RoutedResource
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListInputRoutingsResponse
+ * //   routedResources: [ // RoutedResources
+ * //     { // RoutedResource
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

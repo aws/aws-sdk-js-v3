@@ -49,40 +49,39 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * };
  * const command = new DescribeTunnelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTunnelResponse
- *   tunnel: { // Tunnel
- *     tunnelId: "STRING_VALUE",
- *     tunnelArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     sourceConnectionState: { // ConnectionState
- *       status: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *     destinationConnectionState: {
- *       status: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *     description: "STRING_VALUE",
- *     destinationConfig: { // DestinationConfig
- *       thingName: "STRING_VALUE",
- *       services: [ // ServiceList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *     timeoutConfig: { // TimeoutConfig
- *       maxLifetimeTimeoutMinutes: Number("int"),
- *     },
- *     tags: [ // TagList
- *       { // Tag
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *     createdAt: new Date("TIMESTAMP"),
- *     lastUpdatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeTunnelResponse
+ * //   tunnel: { // Tunnel
+ * //     tunnelId: "STRING_VALUE",
+ * //     tunnelArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     sourceConnectionState: { // ConnectionState
+ * //       status: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     destinationConnectionState: {
+ * //       status: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     description: "STRING_VALUE",
+ * //     destinationConfig: { // DestinationConfig
+ * //       thingName: "STRING_VALUE",
+ * //       services: [ // ServiceList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     timeoutConfig: { // TimeoutConfig
+ * //       maxLifetimeTimeoutMinutes: Number("int"),
+ * //     },
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

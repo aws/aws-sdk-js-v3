@@ -46,37 +46,36 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * };
  * const command = new DescribeBotLocaleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBotLocaleResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   localeName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   nluIntentConfidenceThreshold: Number("double"),
- *   voiceSettings: { // VoiceSettings
- *     voiceId: "STRING_VALUE", // required
- *     engine: "standard" || "neural",
- *   },
- *   intentsCount: Number("int"),
- *   slotTypesCount: Number("int"),
- *   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
- *   failureReasons: [ // FailureReasons
- *     "STRING_VALUE",
- *   ],
- *   creationDateTime: new Date("TIMESTAMP"),
- *   lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
- *   botLocaleHistoryEvents: [ // BotLocaleHistoryEventsList
- *     { // BotLocaleHistoryEvent
- *       event: "STRING_VALUE", // required
- *       eventDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   recommendedActions: [ // RecommendedActions
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeBotLocaleResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   localeName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   nluIntentConfidenceThreshold: Number("double"),
+ * //   voiceSettings: { // VoiceSettings
+ * //     voiceId: "STRING_VALUE", // required
+ * //     engine: "standard" || "neural",
+ * //   },
+ * //   intentsCount: Number("int"),
+ * //   slotTypesCount: Number("int"),
+ * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
+ * //   botLocaleHistoryEvents: [ // BotLocaleHistoryEventsList
+ * //     { // BotLocaleHistoryEvent
+ * //       event: "STRING_VALUE", // required
+ * //       eventDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   recommendedActions: [ // RecommendedActions
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

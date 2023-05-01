@@ -44,23 +44,22 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * };
  * const command = new GetQuantumTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQuantumTaskResponse
- *   quantumTaskArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   failureReason: "STRING_VALUE",
- *   deviceArn: "STRING_VALUE", // required
- *   deviceParameters: "STRING_VALUE", // required
- *   shots: Number("long"), // required
- *   outputS3Bucket: "STRING_VALUE", // required
- *   outputS3Directory: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   endedAt: new Date("TIMESTAMP"),
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   jobArn: "STRING_VALUE",
- * };
+ * // { // GetQuantumTaskResponse
+ * //   quantumTaskArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   failureReason: "STRING_VALUE",
+ * //   deviceArn: "STRING_VALUE", // required
+ * //   deviceParameters: "STRING_VALUE", // required
+ * //   shots: Number("long"), // required
+ * //   outputS3Bucket: "STRING_VALUE", // required
+ * //   outputS3Directory: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   endedAt: new Date("TIMESTAMP"),
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   jobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

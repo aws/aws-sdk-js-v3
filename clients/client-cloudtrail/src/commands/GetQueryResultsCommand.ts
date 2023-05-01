@@ -49,24 +49,23 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryResultsResponse
- *   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
- *   QueryStatistics: { // QueryStatistics
- *     ResultsCount: Number("int"),
- *     TotalResultsCount: Number("int"),
- *     BytesScanned: Number("long"),
- *   },
- *   QueryResultRows: [ // QueryResultRows
- *     [ // QueryResultRow
- *       { // QueryResultColumn
- *         "<keys>": "STRING_VALUE",
- *       },
- *     ],
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- * };
+ * // { // GetQueryResultsResponse
+ * //   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * //   QueryStatistics: { // QueryStatistics
+ * //     ResultsCount: Number("int"),
+ * //     TotalResultsCount: Number("int"),
+ * //     BytesScanned: Number("long"),
+ * //   },
+ * //   QueryResultRows: [ // QueryResultRows
+ * //     [ // QueryResultRow
+ * //       { // QueryResultColumn
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

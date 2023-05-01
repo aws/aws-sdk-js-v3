@@ -61,17 +61,16 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   ApplicationSummaries: [ // ApplicationSummaries // required
- *     { // ApplicationSummary
- *       ApplicationName: "STRING_VALUE", // required
- *       ApplicationARN: "STRING_VALUE", // required
- *       ApplicationStatus: "STRING_VALUE", // required
- *     },
- *   ],
- *   HasMoreApplications: true || false, // required
- * };
+ * // { // ListApplicationsResponse
+ * //   ApplicationSummaries: [ // ApplicationSummaries // required
+ * //     { // ApplicationSummary
+ * //       ApplicationName: "STRING_VALUE", // required
+ * //       ApplicationARN: "STRING_VALUE", // required
+ * //       ApplicationStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   HasMoreApplications: true || false, // required
+ * // };
  *
  * ```
  *

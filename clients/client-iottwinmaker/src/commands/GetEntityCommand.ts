@@ -45,123 +45,122 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * };
  * const command = new GetEntityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEntityResponse
- *   entityId: "STRING_VALUE", // required
- *   entityName: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   status: { // Status
- *     state: "STRING_VALUE",
- *     error: { // ErrorDetails
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   },
- *   workspaceId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   components: { // ComponentsMap
- *     "<keys>": { // ComponentResponse
- *       componentName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       componentTypeId: "STRING_VALUE",
- *       status: {
- *         state: "STRING_VALUE",
- *         error: {
- *           code: "STRING_VALUE",
- *           message: "STRING_VALUE",
- *         },
- *       },
- *       definedIn: "STRING_VALUE",
- *       properties: { // PropertyResponses
- *         "<keys>": { // PropertyResponse
- *           definition: { // PropertyDefinitionResponse
- *             dataType: { // DataType
- *               type: "STRING_VALUE", // required
- *               nestedType: {
- *                 type: "STRING_VALUE", // required
- *                 nestedType: "<DataType>",
- *                 allowedValues: [ // DataValueList
- *                   { // DataValue
- *                     booleanValue: true || false,
- *                     doubleValue: Number("double"),
- *                     integerValue: Number("int"),
- *                     longValue: Number("long"),
- *                     stringValue: "STRING_VALUE",
- *                     listValue: [
- *                       {
- *                         booleanValue: true || false,
- *                         doubleValue: Number("double"),
- *                         integerValue: Number("int"),
- *                         longValue: Number("long"),
- *                         stringValue: "STRING_VALUE",
- *                         listValue: "<DataValueList>",
- *                         mapValue: { // DataValueMap
- *                           "<keys>": "<DataValue>",
- *                         },
- *                         relationshipValue: { // RelationshipValue
- *                           targetEntityId: "STRING_VALUE",
- *                           targetComponentName: "STRING_VALUE",
- *                         },
- *                         expression: "STRING_VALUE",
- *                       },
- *                     ],
- *                     mapValue: {
- *                       "<keys>": "<DataValue>",
- *                     },
- *                     relationshipValue: {
- *                       targetEntityId: "STRING_VALUE",
- *                       targetComponentName: "STRING_VALUE",
- *                     },
- *                     expression: "STRING_VALUE",
- *                   },
- *                 ],
- *                 unitOfMeasure: "STRING_VALUE",
- *                 relationship: { // Relationship
- *                   targetComponentTypeId: "STRING_VALUE",
- *                   relationshipType: "STRING_VALUE",
- *                 },
- *               },
- *               allowedValues: "<DataValueList>",
- *               unitOfMeasure: "STRING_VALUE",
- *               relationship: {
- *                 targetComponentTypeId: "STRING_VALUE",
- *                 relationshipType: "STRING_VALUE",
- *               },
- *             },
- *             isTimeSeries: true || false, // required
- *             isRequiredInEntity: true || false, // required
- *             isExternalId: true || false, // required
- *             isStoredExternally: true || false, // required
- *             isImported: true || false, // required
- *             isFinal: true || false, // required
- *             isInherited: true || false, // required
- *             defaultValue: "<DataValue>",
- *             configuration: { // Configuration
- *               "<keys>": "STRING_VALUE",
- *             },
- *             displayName: "STRING_VALUE",
- *           },
- *           value: "<DataValue>",
- *         },
- *       },
- *       propertyGroups: { // ComponentPropertyGroupResponses
- *         "<keys>": { // ComponentPropertyGroupResponse
- *           groupType: "STRING_VALUE", // required
- *           propertyNames: [ // PropertyNames // required
- *             "STRING_VALUE",
- *           ],
- *           isInherited: true || false, // required
- *         },
- *       },
- *       syncSource: "STRING_VALUE",
- *     },
- *   },
- *   parentEntityId: "STRING_VALUE", // required
- *   hasChildEntities: true || false, // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- *   updateDateTime: new Date("TIMESTAMP"), // required
- *   syncSource: "STRING_VALUE",
- * };
+ * // { // GetEntityResponse
+ * //   entityId: "STRING_VALUE", // required
+ * //   entityName: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   status: { // Status
+ * //     state: "STRING_VALUE",
+ * //     error: { // ErrorDetails
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   components: { // ComponentsMap
+ * //     "<keys>": { // ComponentResponse
+ * //       componentName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       componentTypeId: "STRING_VALUE",
+ * //       status: {
+ * //         state: "STRING_VALUE",
+ * //         error: {
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       definedIn: "STRING_VALUE",
+ * //       properties: { // PropertyResponses
+ * //         "<keys>": { // PropertyResponse
+ * //           definition: { // PropertyDefinitionResponse
+ * //             dataType: { // DataType
+ * //               type: "STRING_VALUE", // required
+ * //               nestedType: {
+ * //                 type: "STRING_VALUE", // required
+ * //                 nestedType: "<DataType>",
+ * //                 allowedValues: [ // DataValueList
+ * //                   { // DataValue
+ * //                     booleanValue: true || false,
+ * //                     doubleValue: Number("double"),
+ * //                     integerValue: Number("int"),
+ * //                     longValue: Number("long"),
+ * //                     stringValue: "STRING_VALUE",
+ * //                     listValue: [
+ * //                       {
+ * //                         booleanValue: true || false,
+ * //                         doubleValue: Number("double"),
+ * //                         integerValue: Number("int"),
+ * //                         longValue: Number("long"),
+ * //                         stringValue: "STRING_VALUE",
+ * //                         listValue: "<DataValueList>",
+ * //                         mapValue: { // DataValueMap
+ * //                           "<keys>": "<DataValue>",
+ * //                         },
+ * //                         relationshipValue: { // RelationshipValue
+ * //                           targetEntityId: "STRING_VALUE",
+ * //                           targetComponentName: "STRING_VALUE",
+ * //                         },
+ * //                         expression: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     mapValue: {
+ * //                       "<keys>": "<DataValue>",
+ * //                     },
+ * //                     relationshipValue: {
+ * //                       targetEntityId: "STRING_VALUE",
+ * //                       targetComponentName: "STRING_VALUE",
+ * //                     },
+ * //                     expression: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //                 unitOfMeasure: "STRING_VALUE",
+ * //                 relationship: { // Relationship
+ * //                   targetComponentTypeId: "STRING_VALUE",
+ * //                   relationshipType: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               allowedValues: "<DataValueList>",
+ * //               unitOfMeasure: "STRING_VALUE",
+ * //               relationship: {
+ * //                 targetComponentTypeId: "STRING_VALUE",
+ * //                 relationshipType: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             isTimeSeries: true || false, // required
+ * //             isRequiredInEntity: true || false, // required
+ * //             isExternalId: true || false, // required
+ * //             isStoredExternally: true || false, // required
+ * //             isImported: true || false, // required
+ * //             isFinal: true || false, // required
+ * //             isInherited: true || false, // required
+ * //             defaultValue: "<DataValue>",
+ * //             configuration: { // Configuration
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             displayName: "STRING_VALUE",
+ * //           },
+ * //           value: "<DataValue>",
+ * //         },
+ * //       },
+ * //       propertyGroups: { // ComponentPropertyGroupResponses
+ * //         "<keys>": { // ComponentPropertyGroupResponse
+ * //           groupType: "STRING_VALUE", // required
+ * //           propertyNames: [ // PropertyNames // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           isInherited: true || false, // required
+ * //         },
+ * //       },
+ * //       syncSource: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   parentEntityId: "STRING_VALUE", // required
+ * //   hasChildEntities: true || false, // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * //   syncSource: "STRING_VALUE",
+ * // };
  *
  * ```
  *

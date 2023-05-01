@@ -42,12 +42,11 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoggingOptionsResponse
- *   loggingOptions: { // LoggingOptions
- *     level: "ERROR" || "INFO" || "OFF", // required
- *   },
- * };
+ * // { // DescribeLoggingOptionsResponse
+ * //   loggingOptions: { // LoggingOptions
+ * //     level: "ERROR" || "INFO" || "OFF", // required
+ * //   },
+ * // };
  *
  * ```
  *

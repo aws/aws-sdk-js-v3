@@ -61,8 +61,7 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

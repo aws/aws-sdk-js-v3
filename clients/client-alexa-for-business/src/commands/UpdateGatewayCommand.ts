@@ -48,8 +48,7 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * };
  * const command = new UpdateGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

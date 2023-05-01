@@ -47,15 +47,14 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UntagResourceResponse
- *   TagList: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UntagResourceResponse
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

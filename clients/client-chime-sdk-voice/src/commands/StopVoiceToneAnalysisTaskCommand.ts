@@ -45,8 +45,7 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * };
  * const command = new StopVoiceToneAnalysisTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

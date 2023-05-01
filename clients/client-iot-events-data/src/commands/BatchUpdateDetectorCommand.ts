@@ -66,16 +66,15 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * };
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateDetectorResponse
- *   batchUpdateDetectorErrorEntries: [ // BatchUpdateDetectorErrorEntries
- *     { // BatchUpdateDetectorErrorEntry
- *       messageId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchUpdateDetectorResponse
+ * //   batchUpdateDetectorErrorEntries: [ // BatchUpdateDetectorErrorEntries
+ * //     { // BatchUpdateDetectorErrorEntry
+ * //       messageId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

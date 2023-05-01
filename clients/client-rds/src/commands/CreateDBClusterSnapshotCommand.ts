@@ -56,41 +56,40 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDBClusterSnapshotResult
- *   DBClusterSnapshot: { // DBClusterSnapshot
- *     AvailabilityZones: [ // AvailabilityZones
- *       "STRING_VALUE",
- *     ],
- *     DBClusterSnapshotIdentifier: "STRING_VALUE",
- *     DBClusterIdentifier: "STRING_VALUE",
- *     SnapshotCreateTime: new Date("TIMESTAMP"),
- *     Engine: "STRING_VALUE",
- *     EngineMode: "STRING_VALUE",
- *     AllocatedStorage: Number("int"),
- *     Status: "STRING_VALUE",
- *     Port: Number("int"),
- *     VpcId: "STRING_VALUE",
- *     ClusterCreateTime: new Date("TIMESTAMP"),
- *     MasterUsername: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     LicenseModel: "STRING_VALUE",
- *     SnapshotType: "STRING_VALUE",
- *     PercentProgress: Number("int"),
- *     StorageEncrypted: true || false,
- *     KmsKeyId: "STRING_VALUE",
- *     DBClusterSnapshotArn: "STRING_VALUE",
- *     SourceDBClusterSnapshotArn: "STRING_VALUE",
- *     IAMDatabaseAuthenticationEnabled: true || false,
- *     TagList: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     DBSystemId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateDBClusterSnapshotResult
+ * //   DBClusterSnapshot: { // DBClusterSnapshot
+ * //     AvailabilityZones: [ // AvailabilityZones
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Engine: "STRING_VALUE",
+ * //     EngineMode: "STRING_VALUE",
+ * //     AllocatedStorage: Number("int"),
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     VpcId: "STRING_VALUE",
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     LicenseModel: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     PercentProgress: Number("int"),
+ * //     StorageEncrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DBClusterSnapshotArn: "STRING_VALUE",
+ * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DBSystemId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

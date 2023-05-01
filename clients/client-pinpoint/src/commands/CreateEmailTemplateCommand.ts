@@ -55,14 +55,13 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEmailTemplateResponse
- *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
- *     Arn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateEmailTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

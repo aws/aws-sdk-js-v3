@@ -47,12 +47,11 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * };
  * const command = new ListTagsForVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForVaultOutput
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListTagsForVaultOutput
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,42 +55,41 @@ export interface GetSubnetCidrReservationsCommandOutput extends GetSubnetCidrRes
  * };
  * const command = new GetSubnetCidrReservationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSubnetCidrReservationsResult
- *   SubnetIpv4CidrReservations: [ // SubnetCidrReservationList
- *     { // SubnetCidrReservation
- *       SubnetCidrReservationId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       Cidr: "STRING_VALUE",
- *       ReservationType: "prefix" || "explicit",
- *       OwnerId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   SubnetIpv6CidrReservations: [
- *     {
- *       SubnetCidrReservationId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       Cidr: "STRING_VALUE",
- *       ReservationType: "prefix" || "explicit",
- *       OwnerId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Tags: [
- *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSubnetCidrReservationsResult
+ * //   SubnetIpv4CidrReservations: [ // SubnetCidrReservationList
+ * //     { // SubnetCidrReservation
+ * //       SubnetCidrReservationId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       Cidr: "STRING_VALUE",
+ * //       ReservationType: "prefix" || "explicit",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   SubnetIpv6CidrReservations: [
+ * //     {
+ * //       SubnetCidrReservationId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       Cidr: "STRING_VALUE",
+ * //       ReservationType: "prefix" || "explicit",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

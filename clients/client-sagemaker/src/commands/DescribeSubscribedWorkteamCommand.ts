@@ -45,16 +45,15 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * };
  * const command = new DescribeSubscribedWorkteamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSubscribedWorkteamResponse
- *   SubscribedWorkteam: { // SubscribedWorkteam
- *     WorkteamArn: "STRING_VALUE", // required
- *     MarketplaceTitle: "STRING_VALUE",
- *     SellerName: "STRING_VALUE",
- *     MarketplaceDescription: "STRING_VALUE",
- *     ListingId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeSubscribedWorkteamResponse
+ * //   SubscribedWorkteam: { // SubscribedWorkteam
+ * //     WorkteamArn: "STRING_VALUE", // required
+ * //     MarketplaceTitle: "STRING_VALUE",
+ * //     SellerName: "STRING_VALUE",
+ * //     MarketplaceDescription: "STRING_VALUE",
+ * //     ListingId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

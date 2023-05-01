@@ -46,8 +46,7 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  * };
  * const command = new DeleteSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

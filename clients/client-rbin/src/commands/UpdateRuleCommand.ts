@@ -59,25 +59,24 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuleResponse
- *   Identifier: "STRING_VALUE",
- *   RetentionPeriod: { // RetentionPeriod
- *     RetentionPeriodValue: Number("int"), // required
- *     RetentionPeriodUnit: "DAYS", // required
- *   },
- *   Description: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
- *   ResourceTags: [ // ResourceTags
- *     { // ResourceTag
- *       ResourceTagKey: "STRING_VALUE", // required
- *       ResourceTagValue: "STRING_VALUE",
- *     },
- *   ],
- *   Status: "pending" || "available",
- *   LockState: "locked" || "pending_unlock" || "unlocked",
- *   LockEndTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateRuleResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   RetentionPeriod: { // RetentionPeriod
+ * //     RetentionPeriodValue: Number("int"), // required
+ * //     RetentionPeriodUnit: "DAYS", // required
+ * //   },
+ * //   Description: "STRING_VALUE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   ResourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Status: "pending" || "available",
+ * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * //   LockEndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

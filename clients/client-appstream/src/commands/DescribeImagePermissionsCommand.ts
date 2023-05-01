@@ -49,20 +49,19 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * };
  * const command = new DescribeImagePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeImagePermissionsResult
- *   Name: "STRING_VALUE",
- *   SharedImagePermissionsList: [ // SharedImagePermissionsList
- *     { // SharedImagePermissions
- *       sharedAccountId: "STRING_VALUE", // required
- *       imagePermissions: { // ImagePermissions
- *         allowFleet: true || false,
- *         allowImageBuilder: true || false,
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeImagePermissionsResult
+ * //   Name: "STRING_VALUE",
+ * //   SharedImagePermissionsList: [ // SharedImagePermissionsList
+ * //     { // SharedImagePermissions
+ * //       sharedAccountId: "STRING_VALUE", // required
+ * //       imagePermissions: { // ImagePermissions
+ * //         allowFleet: true || false,
+ * //         allowImageBuilder: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

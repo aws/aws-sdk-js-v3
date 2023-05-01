@@ -56,18 +56,17 @@ export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
  * };
  * const command = new DeleteVpcEndpointConnectionNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcEndpointConnectionNotificationsResult
- *   Unsuccessful: [ // UnsuccessfulItemSet
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteVpcEndpointConnectionNotificationsResult
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

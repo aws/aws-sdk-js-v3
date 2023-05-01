@@ -63,30 +63,29 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * };
  * const command = new ListCustomRoutingPortMappingsByDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomRoutingPortMappingsByDestinationResponse
- *   DestinationPortMappings: [ // DestinationPortMappings
- *     { // DestinationPortMapping
- *       AcceleratorArn: "STRING_VALUE",
- *       AcceleratorSocketAddresses: [ // SocketAddresses
- *         { // SocketAddress
- *           IpAddress: "STRING_VALUE",
- *           Port: Number("int"),
- *         },
- *       ],
- *       EndpointGroupArn: "STRING_VALUE",
- *       EndpointId: "STRING_VALUE",
- *       EndpointGroupRegion: "STRING_VALUE",
- *       DestinationSocketAddress: {
- *         IpAddress: "STRING_VALUE",
- *         Port: Number("int"),
- *       },
- *       IpAddressType: "IPV4" || "DUAL_STACK",
- *       DestinationTrafficState: "ALLOW" || "DENY",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomRoutingPortMappingsByDestinationResponse
+ * //   DestinationPortMappings: [ // DestinationPortMappings
+ * //     { // DestinationPortMapping
+ * //       AcceleratorArn: "STRING_VALUE",
+ * //       AcceleratorSocketAddresses: [ // SocketAddresses
+ * //         { // SocketAddress
+ * //           IpAddress: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //         },
+ * //       ],
+ * //       EndpointGroupArn: "STRING_VALUE",
+ * //       EndpointId: "STRING_VALUE",
+ * //       EndpointGroupRegion: "STRING_VALUE",
+ * //       DestinationSocketAddress: {
+ * //         IpAddress: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
+ * //       DestinationTrafficState: "ALLOW" || "DENY",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

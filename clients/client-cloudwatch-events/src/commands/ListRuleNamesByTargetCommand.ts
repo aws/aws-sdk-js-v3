@@ -48,13 +48,12 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * };
  * const command = new ListRuleNamesByTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRuleNamesByTargetResponse
- *   RuleNames: [ // RuleNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRuleNamesByTargetResponse
+ * //   RuleNames: [ // RuleNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

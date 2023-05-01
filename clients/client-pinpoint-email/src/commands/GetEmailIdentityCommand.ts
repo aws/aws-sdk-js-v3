@@ -46,30 +46,29 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * };
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEmailIdentityResponse
- *   IdentityType: "STRING_VALUE",
- *   FeedbackForwardingStatus: true || false,
- *   VerifiedForSendingStatus: true || false,
- *   DkimAttributes: { // DkimAttributes
- *     SigningEnabled: true || false,
- *     Status: "STRING_VALUE",
- *     Tokens: [ // DnsTokenList
- *       "STRING_VALUE",
- *     ],
- *   },
- *   MailFromAttributes: { // MailFromAttributes
- *     MailFromDomain: "STRING_VALUE", // required
- *     MailFromDomainStatus: "STRING_VALUE", // required
- *     BehaviorOnMxFailure: "STRING_VALUE", // required
- *   },
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetEmailIdentityResponse
+ * //   IdentityType: "STRING_VALUE",
+ * //   FeedbackForwardingStatus: true || false,
+ * //   VerifiedForSendingStatus: true || false,
+ * //   DkimAttributes: { // DkimAttributes
+ * //     SigningEnabled: true || false,
+ * //     Status: "STRING_VALUE",
+ * //     Tokens: [ // DnsTokenList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   MailFromAttributes: { // MailFromAttributes
+ * //     MailFromDomain: "STRING_VALUE", // required
+ * //     MailFromDomainStatus: "STRING_VALUE", // required
+ * //     BehaviorOnMxFailure: "STRING_VALUE", // required
+ * //   },
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

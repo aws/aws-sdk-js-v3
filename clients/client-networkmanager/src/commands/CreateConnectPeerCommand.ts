@@ -60,39 +60,38 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * };
  * const command = new CreateConnectPeerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectPeerResponse
- *   ConnectPeer: { // ConnectPeer
- *     CoreNetworkId: "STRING_VALUE",
- *     ConnectAttachmentId: "STRING_VALUE",
- *     ConnectPeerId: "STRING_VALUE",
- *     EdgeLocation: "STRING_VALUE",
- *     State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     Configuration: { // ConnectPeerConfiguration
- *       CoreNetworkAddress: "STRING_VALUE",
- *       PeerAddress: "STRING_VALUE",
- *       InsideCidrBlocks: [ // ConstrainedStringList
- *         "STRING_VALUE",
- *       ],
- *       Protocol: "GRE",
- *       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
- *         { // ConnectPeerBgpConfiguration
- *           CoreNetworkAsn: Number("long"),
- *           PeerAsn: Number("long"),
- *           CoreNetworkAddress: "STRING_VALUE",
- *           PeerAddress: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateConnectPeerResponse
+ * //   ConnectPeer: { // ConnectPeer
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     ConnectAttachmentId: "STRING_VALUE",
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     EdgeLocation: "STRING_VALUE",
+ * //     State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     Configuration: { // ConnectPeerConfiguration
+ * //       CoreNetworkAddress: "STRING_VALUE",
+ * //       PeerAddress: "STRING_VALUE",
+ * //       InsideCidrBlocks: [ // ConstrainedStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Protocol: "GRE",
+ * //       BgpConfigurations: [ // ConnectPeerBgpConfigurationList
+ * //         { // ConnectPeerBgpConfiguration
+ * //           CoreNetworkAsn: Number("long"),
+ * //           PeerAsn: Number("long"),
+ * //           CoreNetworkAddress: "STRING_VALUE",
+ * //           PeerAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

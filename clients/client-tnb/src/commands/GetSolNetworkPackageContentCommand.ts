@@ -49,11 +49,10 @@ export interface GetSolNetworkPackageContentCommandOutput extends GetSolNetworkP
  * };
  * const command = new GetSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolNetworkPackageContentOutput
- *   contentType: "application/zip",
- *   nsdContent: "BLOB_VALUE",
- * };
+ * // { // GetSolNetworkPackageContentOutput
+ * //   contentType: "application/zip",
+ * //   nsdContent: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

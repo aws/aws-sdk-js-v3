@@ -45,11 +45,10 @@ export interface AssociateUserSettingsCommandOutput extends AssociateUserSetting
  * };
  * const command = new AssociateUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateUserSettingsResponse
- *   portalArn: "STRING_VALUE", // required
- *   userSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // AssociateUserSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   userSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

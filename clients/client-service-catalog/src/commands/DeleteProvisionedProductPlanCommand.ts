@@ -51,8 +51,7 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * };
  * const command = new DeleteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

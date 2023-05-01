@@ -50,23 +50,22 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * };
  * const command = new GetContactInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactInformationResponse
- *   ContactInformation: { // ContactInformation
- *     FullName: "STRING_VALUE", // required
- *     AddressLine1: "STRING_VALUE", // required
- *     AddressLine2: "STRING_VALUE",
- *     AddressLine3: "STRING_VALUE",
- *     City: "STRING_VALUE", // required
- *     StateOrRegion: "STRING_VALUE",
- *     DistrictOrCounty: "STRING_VALUE",
- *     PostalCode: "STRING_VALUE", // required
- *     CountryCode: "STRING_VALUE", // required
- *     PhoneNumber: "STRING_VALUE", // required
- *     CompanyName: "STRING_VALUE",
- *     WebsiteUrl: "STRING_VALUE",
- *   },
- * };
+ * // { // GetContactInformationResponse
+ * //   ContactInformation: { // ContactInformation
+ * //     FullName: "STRING_VALUE", // required
+ * //     AddressLine1: "STRING_VALUE", // required
+ * //     AddressLine2: "STRING_VALUE",
+ * //     AddressLine3: "STRING_VALUE",
+ * //     City: "STRING_VALUE", // required
+ * //     StateOrRegion: "STRING_VALUE",
+ * //     DistrictOrCounty: "STRING_VALUE",
+ * //     PostalCode: "STRING_VALUE", // required
+ * //     CountryCode: "STRING_VALUE", // required
+ * //     PhoneNumber: "STRING_VALUE", // required
+ * //     CompanyName: "STRING_VALUE",
+ * //     WebsiteUrl: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

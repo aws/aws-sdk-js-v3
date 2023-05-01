@@ -52,8 +52,7 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new DeleteEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

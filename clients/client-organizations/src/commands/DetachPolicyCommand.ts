@@ -59,8 +59,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

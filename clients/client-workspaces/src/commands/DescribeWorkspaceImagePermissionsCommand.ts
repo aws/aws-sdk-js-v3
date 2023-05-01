@@ -51,16 +51,15 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * };
  * const command = new DescribeWorkspaceImagePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspaceImagePermissionsResult
- *   ImageId: "STRING_VALUE",
- *   ImagePermissions: [ // ImagePermissions
- *     { // ImagePermission
- *       SharedAccountId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeWorkspaceImagePermissionsResult
+ * //   ImageId: "STRING_VALUE",
+ * //   ImagePermissions: [ // ImagePermissions
+ * //     { // ImagePermission
+ * //       SharedAccountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

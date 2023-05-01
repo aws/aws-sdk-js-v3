@@ -45,8 +45,7 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNetworkInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

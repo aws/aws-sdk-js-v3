@@ -54,10 +54,9 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
  * };
  * const command = new AssociateWirelessGatewayWithCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateWirelessGatewayWithCertificateResponse
- *   IotCertificateId: "STRING_VALUE",
- * };
+ * // { // AssociateWirelessGatewayWithCertificateResponse
+ * //   IotCertificateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

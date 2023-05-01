@@ -67,12 +67,11 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * };
  * const command = new RotateTunnelAccessTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RotateTunnelAccessTokenResponse
- *   tunnelArn: "STRING_VALUE",
- *   sourceAccessToken: "STRING_VALUE",
- *   destinationAccessToken: "STRING_VALUE",
- * };
+ * // { // RotateTunnelAccessTokenResponse
+ * //   tunnelArn: "STRING_VALUE",
+ * //   sourceAccessToken: "STRING_VALUE",
+ * //   destinationAccessToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

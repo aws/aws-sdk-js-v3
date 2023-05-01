@@ -69,8 +69,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * };
  * const command = new CreateVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

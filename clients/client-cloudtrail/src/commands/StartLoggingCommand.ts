@@ -47,8 +47,7 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * };
  * const command = new StartLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

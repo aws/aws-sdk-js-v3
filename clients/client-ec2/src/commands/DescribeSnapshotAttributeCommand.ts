@@ -48,22 +48,21 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSnapshotAttributeResult
- *   CreateVolumePermissions: [ // CreateVolumePermissionList
- *     { // CreateVolumePermission
- *       Group: "all",
- *       UserId: "STRING_VALUE",
- *     },
- *   ],
- *   ProductCodes: [ // ProductCodeList
- *     { // ProductCode
- *       ProductCodeId: "STRING_VALUE",
- *       ProductCodeType: "devpay" || "marketplace",
- *     },
- *   ],
- *   SnapshotId: "STRING_VALUE",
- * };
+ * // { // DescribeSnapshotAttributeResult
+ * //   CreateVolumePermissions: [ // CreateVolumePermissionList
+ * //     { // CreateVolumePermission
+ * //       Group: "all",
+ * //       UserId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   SnapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

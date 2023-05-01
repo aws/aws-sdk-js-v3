@@ -52,12 +52,11 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * };
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMapSpritesResponse
- *   Blob: "BLOB_VALUE",
- *   ContentType: "STRING_VALUE",
- *   CacheControl: "STRING_VALUE",
- * };
+ * // { // GetMapSpritesResponse
+ * //   Blob: "BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   CacheControl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

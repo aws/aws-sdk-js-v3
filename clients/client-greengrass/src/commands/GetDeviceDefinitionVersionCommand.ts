@@ -46,24 +46,23 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  * };
  * const command = new GetDeviceDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // DeviceDefinitionVersion
- *     Devices: [ // __listOfDevice
- *       { // Device
- *         CertificateArn: "STRING_VALUE", // required
- *         Id: "STRING_VALUE", // required
- *         SyncShadow: true || false,
- *         ThingArn: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetDeviceDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // DeviceDefinitionVersion
+ * //     Devices: [ // __listOfDevice
+ * //       { // Device
+ * //         CertificateArn: "STRING_VALUE", // required
+ * //         Id: "STRING_VALUE", // required
+ * //         SyncShadow: true || false,
+ * //         ThingArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

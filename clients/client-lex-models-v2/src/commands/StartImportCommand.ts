@@ -78,44 +78,43 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartImportResponse
- *   importId: "STRING_VALUE",
- *   resourceSpecification: { // ImportResourceSpecification
- *     botImportSpecification: { // BotImportSpecification
- *       botName: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *       dataPrivacy: { // DataPrivacy
- *         childDirected: true || false, // required
- *       },
- *       idleSessionTTLInSeconds: Number("int"),
- *       botTags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       testBotAliasTags: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     botLocaleImportSpecification: { // BotLocaleImportSpecification
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
- *       localeId: "STRING_VALUE", // required
- *       nluIntentConfidenceThreshold: Number("double"),
- *       voiceSettings: { // VoiceSettings
- *         voiceId: "STRING_VALUE", // required
- *         engine: "standard" || "neural",
- *       },
- *     },
- *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
- *       localeId: "STRING_VALUE", // required
- *     },
- *   },
- *   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
- *   importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- *   creationDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartImportResponse
+ * //   importId: "STRING_VALUE",
+ * //   resourceSpecification: { // ImportResourceSpecification
+ * //     botImportSpecification: { // BotImportSpecification
+ * //       botName: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //       dataPrivacy: { // DataPrivacy
+ * //         childDirected: true || false, // required
+ * //       },
+ * //       idleSessionTTLInSeconds: Number("int"),
+ * //       botTags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       testBotAliasTags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     botLocaleImportSpecification: { // BotLocaleImportSpecification
+ * //       botId: "STRING_VALUE", // required
+ * //       botVersion: "STRING_VALUE", // required
+ * //       localeId: "STRING_VALUE", // required
+ * //       nluIntentConfidenceThreshold: Number("double"),
+ * //       voiceSettings: { // VoiceSettings
+ * //         voiceId: "STRING_VALUE", // required
+ * //         engine: "standard" || "neural",
+ * //       },
+ * //     },
+ * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
+ * //       botId: "STRING_VALUE", // required
+ * //       botVersion: "STRING_VALUE", // required
+ * //       localeId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append",
+ * //   importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

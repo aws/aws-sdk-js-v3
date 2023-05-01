@@ -50,10 +50,9 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * };
  * const command = new UpdateSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSettingsResult
- *   DirectoryId: "STRING_VALUE",
- * };
+ * // { // UpdateSettingsResult
+ * //   DirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

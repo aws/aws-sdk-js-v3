@@ -56,10 +56,9 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * };
  * const command = new CreateImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImportJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // CreateImportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

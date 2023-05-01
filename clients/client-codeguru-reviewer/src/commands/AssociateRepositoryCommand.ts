@@ -92,35 +92,34 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * };
  * const command = new AssociateRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateRepositoryResponse
- *   RepositoryAssociation: { // RepositoryAssociation
- *     AssociationId: "STRING_VALUE",
- *     AssociationArn: "STRING_VALUE",
- *     ConnectionArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     ProviderType: "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
- *     State: "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
- *     StateReason: "STRING_VALUE",
- *     LastUpdatedTimeStamp: new Date("TIMESTAMP"),
- *     CreatedTimeStamp: new Date("TIMESTAMP"),
- *     KMSKeyDetails: { // KMSKeyDetails
- *       KMSKeyId: "STRING_VALUE",
- *       EncryptionOption: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
- *     },
- *     S3RepositoryDetails: { // S3RepositoryDetails
- *       BucketName: "STRING_VALUE",
- *       CodeArtifacts: { // CodeArtifacts
- *         SourceCodeArtifactsObjectKey: "STRING_VALUE", // required
- *         BuildArtifactsObjectKey: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateRepositoryResponse
+ * //   RepositoryAssociation: { // RepositoryAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     AssociationArn: "STRING_VALUE",
+ * //     ConnectionArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ProviderType: "CodeCommit" || "GitHub" || "Bitbucket" || "GitHubEnterpriseServer" || "S3Bucket",
+ * //     State: "Associated" || "Associating" || "Failed" || "Disassociating" || "Disassociated",
+ * //     StateReason: "STRING_VALUE",
+ * //     LastUpdatedTimeStamp: new Date("TIMESTAMP"),
+ * //     CreatedTimeStamp: new Date("TIMESTAMP"),
+ * //     KMSKeyDetails: { // KMSKeyDetails
+ * //       KMSKeyId: "STRING_VALUE",
+ * //       EncryptionOption: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
+ * //     },
+ * //     S3RepositoryDetails: { // S3RepositoryDetails
+ * //       BucketName: "STRING_VALUE",
+ * //       CodeArtifacts: { // CodeArtifacts
+ * //         SourceCodeArtifactsObjectKey: "STRING_VALUE", // required
+ * //         BuildArtifactsObjectKey: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

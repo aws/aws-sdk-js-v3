@@ -62,10 +62,9 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOrganizationResponse
- *   OrganizationId: "STRING_VALUE",
- * };
+ * // { // CreateOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

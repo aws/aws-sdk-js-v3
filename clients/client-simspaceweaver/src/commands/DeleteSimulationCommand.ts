@@ -48,8 +48,7 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * };
  * const command = new DeleteSimulationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

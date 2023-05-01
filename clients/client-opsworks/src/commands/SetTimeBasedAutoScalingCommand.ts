@@ -70,8 +70,7 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * };
  * const command = new SetTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

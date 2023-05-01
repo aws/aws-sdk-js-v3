@@ -67,39 +67,38 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * };
  * const command = new CreateVirtualMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVirtualMFADeviceResponse
- *   VirtualMFADevice: { // VirtualMFADevice
- *     SerialNumber: "STRING_VALUE", // required
- *     Base32StringSeed: "BLOB_VALUE",
- *     QRCodePNG: "BLOB_VALUE",
- *     User: { // User
- *       Path: "STRING_VALUE", // required
- *       UserName: "STRING_VALUE", // required
- *       UserId: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       CreateDate: new Date("TIMESTAMP"), // required
- *       PasswordLastUsed: new Date("TIMESTAMP"),
- *       PermissionsBoundary: { // AttachedPermissionsBoundary
- *         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *         PermissionsBoundaryArn: "STRING_VALUE",
- *       },
- *       Tags: [ // tagListType
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *     EnableDate: new Date("TIMESTAMP"),
- *     Tags: [
- *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateVirtualMFADeviceResponse
+ * //   VirtualMFADevice: { // VirtualMFADevice
+ * //     SerialNumber: "STRING_VALUE", // required
+ * //     Base32StringSeed: "BLOB_VALUE",
+ * //     QRCodePNG: "BLOB_VALUE",
+ * //     User: { // User
+ * //       Path: "STRING_VALUE", // required
+ * //       UserName: "STRING_VALUE", // required
+ * //       UserId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //       PasswordLastUsed: new Date("TIMESTAMP"),
+ * //       PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //         PermissionsBoundaryArn: "STRING_VALUE",
+ * //       },
+ * //       Tags: [ // tagListType
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     EnableDate: new Date("TIMESTAMP"),
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

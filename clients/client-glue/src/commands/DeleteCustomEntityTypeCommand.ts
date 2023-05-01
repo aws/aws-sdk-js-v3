@@ -44,10 +44,9 @@ export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityT
  * };
  * const command = new DeleteCustomEntityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCustomEntityTypeResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // DeleteCustomEntityTypeResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

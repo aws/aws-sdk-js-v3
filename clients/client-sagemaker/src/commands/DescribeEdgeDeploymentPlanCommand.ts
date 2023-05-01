@@ -46,48 +46,47 @@ export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDep
  * };
  * const command = new DescribeEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEdgeDeploymentPlanResponse
- *   EdgeDeploymentPlanArn: "STRING_VALUE", // required
- *   EdgeDeploymentPlanName: "STRING_VALUE", // required
- *   ModelConfigs: [ // EdgeDeploymentModelConfigs // required
- *     { // EdgeDeploymentModelConfig
- *       ModelHandle: "STRING_VALUE", // required
- *       EdgePackagingJobName: "STRING_VALUE", // required
- *     },
- *   ],
- *   DeviceFleetName: "STRING_VALUE", // required
- *   EdgeDeploymentSuccess: Number("int"),
- *   EdgeDeploymentPending: Number("int"),
- *   EdgeDeploymentFailed: Number("int"),
- *   Stages: [ // DeploymentStageStatusSummaries // required
- *     { // DeploymentStageStatusSummary
- *       StageName: "STRING_VALUE", // required
- *       DeviceSelectionConfig: { // DeviceSelectionConfig
- *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
- *         Percentage: Number("int"),
- *         DeviceNames: [ // DeviceNames
- *           "STRING_VALUE",
- *         ],
- *         DeviceNameContains: "STRING_VALUE",
- *       },
- *       DeploymentConfig: { // EdgeDeploymentConfig
- *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
- *       },
- *       DeploymentStatus: { // EdgeDeploymentStatus
- *         StageStatus: "CREATING" || "READYTODEPLOY" || "STARTING" || "INPROGRESS" || "DEPLOYED" || "FAILED" || "STOPPING" || "STOPPED", // required
- *         EdgeDeploymentSuccessInStage: Number("int"), // required
- *         EdgeDeploymentPendingInStage: Number("int"), // required
- *         EdgeDeploymentFailedInStage: Number("int"), // required
- *         EdgeDeploymentStatusMessage: "STRING_VALUE",
- *         EdgeDeploymentStageStartTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeEdgeDeploymentPlanResponse
+ * //   EdgeDeploymentPlanArn: "STRING_VALUE", // required
+ * //   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ * //   ModelConfigs: [ // EdgeDeploymentModelConfigs // required
+ * //     { // EdgeDeploymentModelConfig
+ * //       ModelHandle: "STRING_VALUE", // required
+ * //       EdgePackagingJobName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   DeviceFleetName: "STRING_VALUE", // required
+ * //   EdgeDeploymentSuccess: Number("int"),
+ * //   EdgeDeploymentPending: Number("int"),
+ * //   EdgeDeploymentFailed: Number("int"),
+ * //   Stages: [ // DeploymentStageStatusSummaries // required
+ * //     { // DeploymentStageStatusSummary
+ * //       StageName: "STRING_VALUE", // required
+ * //       DeviceSelectionConfig: { // DeviceSelectionConfig
+ * //         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
+ * //         Percentage: Number("int"),
+ * //         DeviceNames: [ // DeviceNames
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         DeviceNameContains: "STRING_VALUE",
+ * //       },
+ * //       DeploymentConfig: { // EdgeDeploymentConfig
+ * //         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ * //       },
+ * //       DeploymentStatus: { // EdgeDeploymentStatus
+ * //         StageStatus: "CREATING" || "READYTODEPLOY" || "STARTING" || "INPROGRESS" || "DEPLOYED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //         EdgeDeploymentSuccessInStage: Number("int"), // required
+ * //         EdgeDeploymentPendingInStage: Number("int"), // required
+ * //         EdgeDeploymentFailedInStage: Number("int"), // required
+ * //         EdgeDeploymentStatusMessage: "STRING_VALUE",
+ * //         EdgeDeploymentStageStartTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

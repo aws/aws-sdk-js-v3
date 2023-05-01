@@ -56,22 +56,21 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOperationsResponse
- *   Operations: [ // OperationSummaryList
- *     { // OperationSummary
- *       OperationId: "STRING_VALUE",
- *       Status: "SUBMITTED" || "IN_PROGRESS" || "ERROR" || "SUCCESSFUL" || "FAILED",
- *       Type: "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
- *       SubmittedDate: new Date("TIMESTAMP"),
- *       DomainName: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       StatusFlag: "PENDING_ACCEPTANCE" || "PENDING_CUSTOMER_ACTION" || "PENDING_AUTHORIZATION" || "PENDING_PAYMENT_VERIFICATION" || "PENDING_SUPPORT_CASE",
- *       LastUpdatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextPageMarker: "STRING_VALUE",
- * };
+ * // { // ListOperationsResponse
+ * //   Operations: [ // OperationSummaryList
+ * //     { // OperationSummary
+ * //       OperationId: "STRING_VALUE",
+ * //       Status: "SUBMITTED" || "IN_PROGRESS" || "ERROR" || "SUCCESSFUL" || "FAILED",
+ * //       Type: "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN",
+ * //       SubmittedDate: new Date("TIMESTAMP"),
+ * //       DomainName: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       StatusFlag: "PENDING_ACCEPTANCE" || "PENDING_CUSTOMER_ACTION" || "PENDING_AUTHORIZATION" || "PENDING_PAYMENT_VERIFICATION" || "PENDING_SUPPORT_CASE",
+ * //       LastUpdatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextPageMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

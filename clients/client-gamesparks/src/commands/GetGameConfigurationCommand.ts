@@ -47,20 +47,19 @@ export interface GetGameConfigurationCommandOutput extends GetGameConfigurationR
  * };
  * const command = new GetGameConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGameConfigurationResult
- *   GameConfiguration: { // GameConfigurationDetails
- *     Sections: { // Sections
- *       "<keys>": { // Section
- *         Name: "STRING_VALUE",
- *         Size: Number("int"),
- *         Attributes: "DOCUMENT_VALUE",
- *       },
- *     },
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetGameConfigurationResult
+ * //   GameConfiguration: { // GameConfigurationDetails
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

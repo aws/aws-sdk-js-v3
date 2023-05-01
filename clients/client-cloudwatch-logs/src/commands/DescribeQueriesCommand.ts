@@ -49,19 +49,18 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeQueriesResponse
- *   queries: [ // QueryInfoList
- *     { // QueryInfo
- *       queryId: "STRING_VALUE",
- *       queryString: "STRING_VALUE",
- *       status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
- *       createTime: Number("long"),
- *       logGroupName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeQueriesResponse
+ * //   queries: [ // QueryInfoList
+ * //     { // QueryInfo
+ * //       queryId: "STRING_VALUE",
+ * //       queryString: "STRING_VALUE",
+ * //       status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ * //       createTime: Number("long"),
+ * //       logGroupName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

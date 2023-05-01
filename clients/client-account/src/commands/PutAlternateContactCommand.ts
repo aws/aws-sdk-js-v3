@@ -57,8 +57,7 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAlternateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

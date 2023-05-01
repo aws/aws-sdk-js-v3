@@ -44,8 +44,7 @@ export interface DeleteRunGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRunGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

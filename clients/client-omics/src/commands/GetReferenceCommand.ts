@@ -53,10 +53,9 @@ export interface GetReferenceCommandOutput
  * };
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReferenceResponse
- *   payload: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetReferenceResponse
+ * //   payload: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

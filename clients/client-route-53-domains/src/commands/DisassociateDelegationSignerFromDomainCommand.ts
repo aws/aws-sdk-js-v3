@@ -55,10 +55,9 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  * };
  * const command = new DisassociateDelegationSignerFromDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateDelegationSignerFromDomainResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // DisassociateDelegationSignerFromDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

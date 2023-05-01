@@ -53,8 +53,7 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * };
  * const command = new UpdateContactListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

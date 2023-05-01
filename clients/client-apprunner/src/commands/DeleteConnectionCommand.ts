@@ -45,16 +45,15 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteConnectionResponse
- *   Connection: { // Connection
- *     ConnectionName: "STRING_VALUE",
- *     ConnectionArn: "STRING_VALUE",
- *     ProviderType: "GITHUB",
- *     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
- *     CreatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteConnectionResponse
+ * //   Connection: { // Connection
+ * //     ConnectionName: "STRING_VALUE",
+ * //     ConnectionArn: "STRING_VALUE",
+ * //     ProviderType: "GITHUB",
+ * //     Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

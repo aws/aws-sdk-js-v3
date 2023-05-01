@@ -48,18 +48,17 @@ export interface ListContactFlowModulesCommandOutput extends ListContactFlowModu
  * };
  * const command = new ListContactFlowModulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactFlowModulesResponse
- *   ContactFlowModulesSummaryList: [ // ContactFlowModulesSummaryList
- *     { // ContactFlowModuleSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       State: "ACTIVE" || "ARCHIVED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContactFlowModulesResponse
+ * //   ContactFlowModulesSummaryList: [ // ContactFlowModulesSummaryList
+ * //     { // ContactFlowModuleSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "ACTIVE" || "ARCHIVED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

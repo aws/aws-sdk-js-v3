@@ -45,22 +45,21 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicesOutput
- *   nextToken: "STRING_VALUE",
- *   services: [ // ServiceSummaryList // required
- *     { // ServiceSummary
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE", // required
- *       templateName: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServicesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   services: [ // ServiceSummaryList // required
+ * //     { // ServiceSummary
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       templateName: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

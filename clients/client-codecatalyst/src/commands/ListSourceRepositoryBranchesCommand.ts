@@ -53,18 +53,17 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * };
  * const command = new ListSourceRepositoryBranchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSourceRepositoryBranchesResponse
- *   nextToken: "STRING_VALUE",
- *   items: [ // ListSourceRepositoryBranchesItems // required
- *     { // ListSourceRepositoryBranchesItem
- *       ref: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       headCommitId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListSourceRepositoryBranchesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   items: [ // ListSourceRepositoryBranchesItems // required
+ * //     { // ListSourceRepositoryBranchesItem
+ * //       ref: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       headCommitId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

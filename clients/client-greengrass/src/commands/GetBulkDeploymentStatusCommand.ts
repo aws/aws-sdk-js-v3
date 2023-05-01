@@ -44,26 +44,25 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * };
  * const command = new GetBulkDeploymentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBulkDeploymentStatusResponse
- *   BulkDeploymentMetrics: { // BulkDeploymentMetrics
- *     InvalidInputRecords: Number("int"),
- *     RecordsProcessed: Number("int"),
- *     RetryAttempts: Number("int"),
- *   },
- *   BulkDeploymentStatus: "Initializing" || "Running" || "Completed" || "Stopping" || "Stopped" || "Failed",
- *   CreatedAt: "STRING_VALUE",
- *   ErrorDetails: [ // ErrorDetails
- *     { // ErrorDetail
- *       DetailedErrorCode: "STRING_VALUE",
- *       DetailedErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   ErrorMessage: "STRING_VALUE",
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetBulkDeploymentStatusResponse
+ * //   BulkDeploymentMetrics: { // BulkDeploymentMetrics
+ * //     InvalidInputRecords: Number("int"),
+ * //     RecordsProcessed: Number("int"),
+ * //     RetryAttempts: Number("int"),
+ * //   },
+ * //   BulkDeploymentStatus: "Initializing" || "Running" || "Completed" || "Stopping" || "Stopped" || "Failed",
+ * //   CreatedAt: "STRING_VALUE",
+ * //   ErrorDetails: [ // ErrorDetails
+ * //     { // ErrorDetail
+ * //       DetailedErrorCode: "STRING_VALUE",
+ * //       DetailedErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

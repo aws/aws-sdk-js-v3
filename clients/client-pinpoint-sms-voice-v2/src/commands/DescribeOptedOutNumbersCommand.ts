@@ -68,19 +68,18 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * };
  * const command = new DescribeOptedOutNumbersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOptedOutNumbersResult
- *   OptOutListArn: "STRING_VALUE",
- *   OptOutListName: "STRING_VALUE",
- *   OptedOutNumbers: [ // OptedOutNumberInformationList
- *     { // OptedOutNumberInformation
- *       OptedOutNumber: "STRING_VALUE", // required
- *       OptedOutTimestamp: new Date("TIMESTAMP"), // required
- *       EndUserOptedOut: true || false, // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOptedOutNumbersResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   OptedOutNumbers: [ // OptedOutNumberInformationList
+ * //     { // OptedOutNumberInformation
+ * //       OptedOutNumber: "STRING_VALUE", // required
+ * //       OptedOutTimestamp: new Date("TIMESTAMP"), // required
+ * //       EndUserOptedOut: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

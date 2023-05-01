@@ -54,20 +54,19 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * };
  * const command = new ListGroupMembershipsForMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupMembershipsForMemberResponse
- *   GroupMemberships: [ // GroupMemberships // required
- *     { // GroupMembership
- *       IdentityStoreId: "STRING_VALUE", // required
- *       MembershipId: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *       MemberId: { // MemberId Union: only one key present
- *         UserId: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupMembershipsForMemberResponse
+ * //   GroupMemberships: [ // GroupMemberships // required
+ * //     { // GroupMembership
+ * //       IdentityStoreId: "STRING_VALUE", // required
+ * //       MembershipId: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       MemberId: { // MemberId Union: only one key present
+ * //         UserId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

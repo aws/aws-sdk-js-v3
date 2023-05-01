@@ -45,41 +45,40 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   datasets: [ // DatasetList
- *     { // Dataset
- *       datasetId: "STRING_VALUE",
- *       datasetArn: "STRING_VALUE",
- *       datasetTitle: "STRING_VALUE",
- *       kind: "STRING_VALUE",
- *       datasetDescription: "STRING_VALUE",
- *       ownerInfo: { // DatasetOwnerInfo
- *         name: "STRING_VALUE",
- *         phoneNumber: "STRING_VALUE",
- *         email: "STRING_VALUE",
- *       },
- *       createTime: Number("long"),
- *       lastModifiedTime: Number("long"),
- *       schemaDefinition: { // SchemaUnion
- *         tabularSchemaConfig: { // SchemaDefinition
- *           columns: [ // ColumnList
- *             { // ColumnDefinition
- *               dataType: "STRING_VALUE",
- *               columnName: "STRING_VALUE",
- *               columnDescription: "STRING_VALUE",
- *             },
- *           ],
- *           primaryKeyColumns: [ // ColumnNameList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *       alias: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetsResponse
+ * //   datasets: [ // DatasetList
+ * //     { // Dataset
+ * //       datasetId: "STRING_VALUE",
+ * //       datasetArn: "STRING_VALUE",
+ * //       datasetTitle: "STRING_VALUE",
+ * //       kind: "STRING_VALUE",
+ * //       datasetDescription: "STRING_VALUE",
+ * //       ownerInfo: { // DatasetOwnerInfo
+ * //         name: "STRING_VALUE",
+ * //         phoneNumber: "STRING_VALUE",
+ * //         email: "STRING_VALUE",
+ * //       },
+ * //       createTime: Number("long"),
+ * //       lastModifiedTime: Number("long"),
+ * //       schemaDefinition: { // SchemaUnion
+ * //         tabularSchemaConfig: { // SchemaDefinition
+ * //           columns: [ // ColumnList
+ * //             { // ColumnDefinition
+ * //               dataType: "STRING_VALUE",
+ * //               columnName: "STRING_VALUE",
+ * //               columnDescription: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           primaryKeyColumns: [ // ColumnNameList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       alias: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

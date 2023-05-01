@@ -44,8 +44,7 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

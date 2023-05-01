@@ -48,10 +48,9 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  * };
  * const command = new DeleteProfileObjectTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProfileObjectTypeResponse
- *   Message: "STRING_VALUE", // required
- * };
+ * // { // DeleteProfileObjectTypeResponse
+ * //   Message: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

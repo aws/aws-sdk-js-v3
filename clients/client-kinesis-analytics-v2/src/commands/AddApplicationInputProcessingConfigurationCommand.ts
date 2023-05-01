@@ -66,18 +66,17 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new AddApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddApplicationInputProcessingConfigurationResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- *   InputId: "STRING_VALUE",
- *   InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
- *     InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
- *       ResourceARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // AddApplicationInputProcessingConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * //   InputId: "STRING_VALUE",
+ * //   InputProcessingConfigurationDescription: { // InputProcessingConfigurationDescription
+ * //     InputLambdaProcessorDescription: { // InputLambdaProcessorDescription
+ * //       ResourceARN: "STRING_VALUE", // required
+ * //       RoleARN: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,15 +45,14 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * };
  * const command = new ListFindingAggregatorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFindingAggregatorsResponse
- *   FindingAggregators: [ // FindingAggregatorList
- *     { // FindingAggregator
- *       FindingAggregatorArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFindingAggregatorsResponse
+ * //   FindingAggregators: [ // FindingAggregatorList
+ * //     { // FindingAggregator
+ * //       FindingAggregatorArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

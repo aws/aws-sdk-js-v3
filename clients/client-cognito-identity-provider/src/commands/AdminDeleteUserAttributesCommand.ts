@@ -59,8 +59,7 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * };
  * const command = new AdminDeleteUserAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

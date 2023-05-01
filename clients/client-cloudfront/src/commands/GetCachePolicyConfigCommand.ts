@@ -49,48 +49,47 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * };
  * const command = new GetCachePolicyConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCachePolicyConfigResult
- *   CachePolicyConfig: { // CachePolicyConfig
- *     Comment: "STRING_VALUE",
- *     Name: "STRING_VALUE", // required
- *     DefaultTTL: Number("long"),
- *     MaxTTL: Number("long"),
- *     MinTTL: Number("long"), // required
- *     ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
- *       EnableAcceptEncodingGzip: true || false, // required
- *       EnableAcceptEncodingBrotli: true || false,
- *       HeadersConfig: { // CachePolicyHeadersConfig
- *         HeaderBehavior: "none" || "whitelist", // required
- *         Headers: { // Headers
- *           Quantity: Number("int"), // required
- *           Items: [ // HeaderList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *       CookiesConfig: { // CachePolicyCookiesConfig
- *         CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
- *         Cookies: { // CookieNames
- *           Quantity: Number("int"), // required
- *           Items: [ // CookieNameList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *       QueryStringsConfig: { // CachePolicyQueryStringsConfig
- *         QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
- *         QueryStrings: { // QueryStringNames
- *           Quantity: Number("int"), // required
- *           Items: [ // QueryStringNamesList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetCachePolicyConfigResult
+ * //   CachePolicyConfig: { // CachePolicyConfig
+ * //     Comment: "STRING_VALUE",
+ * //     Name: "STRING_VALUE", // required
+ * //     DefaultTTL: Number("long"),
+ * //     MaxTTL: Number("long"),
+ * //     MinTTL: Number("long"), // required
+ * //     ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
+ * //       EnableAcceptEncodingGzip: true || false, // required
+ * //       EnableAcceptEncodingBrotli: true || false,
+ * //       HeadersConfig: { // CachePolicyHeadersConfig
+ * //         HeaderBehavior: "none" || "whitelist", // required
+ * //         Headers: { // Headers
+ * //           Quantity: Number("int"), // required
+ * //           Items: [ // HeaderList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       CookiesConfig: { // CachePolicyCookiesConfig
+ * //         CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //         Cookies: { // CookieNames
+ * //           Quantity: Number("int"), // required
+ * //           Items: [ // CookieNameList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       QueryStringsConfig: { // CachePolicyQueryStringsConfig
+ * //         QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //         QueryStrings: { // QueryStringNames
+ * //           Quantity: Number("int"), // required
+ * //           Items: [ // QueryStringNamesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

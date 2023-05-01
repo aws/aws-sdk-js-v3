@@ -80,10 +80,9 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * };
  * const command = new PutObjectLockConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectLockConfigurationOutput
- *   RequestCharged: "requester",
- * };
+ * // { // PutObjectLockConfigurationOutput
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

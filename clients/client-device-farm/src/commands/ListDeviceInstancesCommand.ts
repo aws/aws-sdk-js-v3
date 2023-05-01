@@ -46,31 +46,30 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * };
  * const command = new ListDeviceInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceInstancesResult
- *   deviceInstances: [ // DeviceInstances
- *     { // DeviceInstance
- *       arn: "STRING_VALUE",
- *       deviceArn: "STRING_VALUE",
- *       labels: [ // InstanceLabels
- *         "STRING_VALUE",
- *       ],
- *       status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
- *       udid: "STRING_VALUE",
- *       instanceProfile: { // InstanceProfile
- *         arn: "STRING_VALUE",
- *         packageCleanup: true || false,
- *         excludeAppPackagesFromCleanup: [ // PackageIds
- *           "STRING_VALUE",
- *         ],
- *         rebootAfterUse: true || false,
- *         name: "STRING_VALUE",
- *         description: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeviceInstancesResult
+ * //   deviceInstances: [ // DeviceInstances
+ * //     { // DeviceInstance
+ * //       arn: "STRING_VALUE",
+ * //       deviceArn: "STRING_VALUE",
+ * //       labels: [ // InstanceLabels
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
+ * //       udid: "STRING_VALUE",
+ * //       instanceProfile: { // InstanceProfile
+ * //         arn: "STRING_VALUE",
+ * //         packageCleanup: true || false,
+ * //         excludeAppPackagesFromCleanup: [ // PackageIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         rebootAfterUse: true || false,
+ * //         name: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

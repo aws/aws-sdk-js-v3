@@ -44,21 +44,20 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * };
  * const command = new DescribeTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrackerResponse
- *   TrackerName: "STRING_VALUE", // required
- *   TrackerArn: "STRING_VALUE", // required
- *   Description: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   PricingPlanDataSource: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- *   KmsKeyId: "STRING_VALUE",
- *   PositionFiltering: "STRING_VALUE",
- * };
+ * // { // DescribeTrackerResponse
+ * //   TrackerName: "STRING_VALUE", // required
+ * //   TrackerArn: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE", // required
+ * //   PricingPlan: "STRING_VALUE",
+ * //   PricingPlanDataSource: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   PositionFiltering: "STRING_VALUE",
+ * // };
  *
  * ```
  *

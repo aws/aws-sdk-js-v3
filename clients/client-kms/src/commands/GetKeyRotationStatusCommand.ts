@@ -96,10 +96,9 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * };
  * const command = new GetKeyRotationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKeyRotationStatusResponse
- *   KeyRotationEnabled: true || false,
- * };
+ * // { // GetKeyRotationStatusResponse
+ * //   KeyRotationEnabled: true || false,
+ * // };
  *
  * ```
  *

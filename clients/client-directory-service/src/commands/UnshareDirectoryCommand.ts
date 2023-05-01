@@ -48,10 +48,9 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * };
  * const command = new UnshareDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnshareDirectoryResult
- *   SharedDirectoryId: "STRING_VALUE",
- * };
+ * // { // UnshareDirectoryResult
+ * //   SharedDirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

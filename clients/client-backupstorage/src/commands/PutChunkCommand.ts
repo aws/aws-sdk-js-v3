@@ -59,11 +59,10 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * };
  * const command = new PutChunkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutChunkOutput
- *   ChunkChecksum: "STRING_VALUE", // required
- *   ChunkChecksumAlgorithm: "STRING_VALUE", // required
- * };
+ * // { // PutChunkOutput
+ * //   ChunkChecksum: "STRING_VALUE", // required
+ * //   ChunkChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

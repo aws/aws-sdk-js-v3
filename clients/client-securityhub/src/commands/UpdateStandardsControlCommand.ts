@@ -47,8 +47,7 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * };
  * const command = new UpdateStandardsControlCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

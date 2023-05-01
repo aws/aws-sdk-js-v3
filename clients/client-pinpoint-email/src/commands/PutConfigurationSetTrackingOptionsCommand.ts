@@ -54,8 +54,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

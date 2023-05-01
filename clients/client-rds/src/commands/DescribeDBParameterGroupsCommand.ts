@@ -55,18 +55,17 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBParameterGroupsMessage
- *   Marker: "STRING_VALUE",
- *   DBParameterGroups: [ // DBParameterGroupList
- *     { // DBParameterGroup
- *       DBParameterGroupName: "STRING_VALUE",
- *       DBParameterGroupFamily: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DBParameterGroupArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DBParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBParameterGroups: [ // DBParameterGroupList
+ * //     { // DBParameterGroup
+ * //       DBParameterGroupName: "STRING_VALUE",
+ * //       DBParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DBParameterGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

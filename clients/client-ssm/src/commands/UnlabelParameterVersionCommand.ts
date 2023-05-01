@@ -48,15 +48,14 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * };
  * const command = new UnlabelParameterVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnlabelParameterVersionResult
- *   RemovedLabels: [ // ParameterLabelList
- *     "STRING_VALUE",
- *   ],
- *   InvalidLabels: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UnlabelParameterVersionResult
+ * //   RemovedLabels: [ // ParameterLabelList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidLabels: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

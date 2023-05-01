@@ -54,14 +54,13 @@ export interface GetObjectMetadataCommandOutput
  * };
  * const command = new GetObjectMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectMetadataOutput
- *   MetadataString: "STRING_VALUE",
- *   MetadataBlob: "STREAMING_BLOB_VALUE",
- *   MetadataBlobLength: Number("long"),
- *   MetadataBlobChecksum: "STRING_VALUE",
- *   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
- * };
+ * // { // GetObjectMetadataOutput
+ * //   MetadataString: "STRING_VALUE",
+ * //   MetadataBlob: "STREAMING_BLOB_VALUE",
+ * //   MetadataBlobLength: Number("long"),
+ * //   MetadataBlobChecksum: "STRING_VALUE",
+ * //   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
+ * // };
  *
  * ```
  *

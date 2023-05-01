@@ -61,11 +61,10 @@ export interface StopTargetedSentimentDetectionJobCommandOutput
  * };
  * const command = new StopTargetedSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopTargetedSentimentDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopTargetedSentimentDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

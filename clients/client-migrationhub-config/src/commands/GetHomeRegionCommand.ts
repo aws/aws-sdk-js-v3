@@ -50,10 +50,9 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * const input = {};
  * const command = new GetHomeRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHomeRegionResult
- *   HomeRegion: "STRING_VALUE",
- * };
+ * // { // GetHomeRegionResult
+ * //   HomeRegion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

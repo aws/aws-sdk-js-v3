@@ -81,12 +81,11 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  * };
  * const command = new StartKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartKeyPhrasesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartKeyPhrasesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

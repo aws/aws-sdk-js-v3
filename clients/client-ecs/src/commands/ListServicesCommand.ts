@@ -49,13 +49,12 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicesResponse
- *   serviceArns: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListServicesResponse
+ * //   serviceArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

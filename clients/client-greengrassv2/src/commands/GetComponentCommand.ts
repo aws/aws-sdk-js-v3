@@ -45,14 +45,13 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComponentResponse
- *   recipeOutputFormat: "JSON" || "YAML", // required
- *   recipe: "BLOB_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetComponentResponse
+ * //   recipeOutputFormat: "JSON" || "YAML", // required
+ * //   recipe: "BLOB_VALUE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

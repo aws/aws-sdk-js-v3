@@ -59,15 +59,14 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * };
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPercentilesResponse
- *   percentiles: [ // Percentiles
- *     { // PercentPair
- *       percent: Number("double"),
- *       value: Number("double"),
- *     },
- *   ],
- * };
+ * // { // GetPercentilesResponse
+ * //   percentiles: [ // Percentiles
+ * //     { // PercentPair
+ * //       percent: Number("double"),
+ * //       value: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

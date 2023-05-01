@@ -58,11 +58,10 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * };
  * const command = new CreateModelManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

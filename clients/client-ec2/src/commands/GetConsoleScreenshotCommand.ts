@@ -48,11 +48,10 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * };
  * const command = new GetConsoleScreenshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConsoleScreenshotResult
- *   ImageData: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- * };
+ * // { // GetConsoleScreenshotResult
+ * //   ImageData: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

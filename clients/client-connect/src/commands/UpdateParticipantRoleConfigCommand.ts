@@ -81,8 +81,7 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * };
  * const command = new UpdateParticipantRoleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

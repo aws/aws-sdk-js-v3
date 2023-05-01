@@ -46,8 +46,7 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * };
  * const command = new DeleteConnectClientAddInCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

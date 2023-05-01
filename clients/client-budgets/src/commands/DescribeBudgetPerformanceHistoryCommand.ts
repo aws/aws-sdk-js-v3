@@ -56,49 +56,48 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * };
  * const command = new DescribeBudgetPerformanceHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBudgetPerformanceHistoryResponse
- *   BudgetPerformanceHistory: { // BudgetPerformanceHistory
- *     BudgetName: "STRING_VALUE",
- *     BudgetType: "STRING_VALUE",
- *     CostFilters: { // CostFilters
- *       "<keys>": [ // DimensionValues
- *         "STRING_VALUE",
- *       ],
- *     },
- *     CostTypes: { // CostTypes
- *       IncludeTax: true || false,
- *       IncludeSubscription: true || false,
- *       UseBlended: true || false,
- *       IncludeRefund: true || false,
- *       IncludeCredit: true || false,
- *       IncludeUpfront: true || false,
- *       IncludeRecurring: true || false,
- *       IncludeOtherSubscription: true || false,
- *       IncludeSupport: true || false,
- *       IncludeDiscount: true || false,
- *       UseAmortized: true || false,
- *     },
- *     TimeUnit: "STRING_VALUE",
- *     BudgetedAndActualAmountsList: [ // BudgetedAndActualAmountsList
- *       { // BudgetedAndActualAmounts
- *         BudgetedAmount: { // Spend
- *           Amount: "STRING_VALUE", // required
- *           Unit: "STRING_VALUE", // required
- *         },
- *         ActualAmount: {
- *           Amount: "STRING_VALUE", // required
- *           Unit: "STRING_VALUE", // required
- *         },
- *         TimePeriod: { // TimePeriod
- *           Start: new Date("TIMESTAMP"),
- *           End: new Date("TIMESTAMP"),
- *         },
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeBudgetPerformanceHistoryResponse
+ * //   BudgetPerformanceHistory: { // BudgetPerformanceHistory
+ * //     BudgetName: "STRING_VALUE",
+ * //     BudgetType: "STRING_VALUE",
+ * //     CostFilters: { // CostFilters
+ * //       "<keys>": [ // DimensionValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CostTypes: { // CostTypes
+ * //       IncludeTax: true || false,
+ * //       IncludeSubscription: true || false,
+ * //       UseBlended: true || false,
+ * //       IncludeRefund: true || false,
+ * //       IncludeCredit: true || false,
+ * //       IncludeUpfront: true || false,
+ * //       IncludeRecurring: true || false,
+ * //       IncludeOtherSubscription: true || false,
+ * //       IncludeSupport: true || false,
+ * //       IncludeDiscount: true || false,
+ * //       UseAmortized: true || false,
+ * //     },
+ * //     TimeUnit: "STRING_VALUE",
+ * //     BudgetedAndActualAmountsList: [ // BudgetedAndActualAmountsList
+ * //       { // BudgetedAndActualAmounts
+ * //         BudgetedAmount: { // Spend
+ * //           Amount: "STRING_VALUE", // required
+ * //           Unit: "STRING_VALUE", // required
+ * //         },
+ * //         ActualAmount: {
+ * //           Amount: "STRING_VALUE", // required
+ * //           Unit: "STRING_VALUE", // required
+ * //         },
+ * //         TimePeriod: { // TimePeriod
+ * //           Start: new Date("TIMESTAMP"),
+ * //           End: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

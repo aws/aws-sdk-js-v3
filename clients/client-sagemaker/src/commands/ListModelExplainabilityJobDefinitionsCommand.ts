@@ -60,18 +60,17 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * };
  * const command = new ListModelExplainabilityJobDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelExplainabilityJobDefinitionsResponse
- *   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
- *     { // MonitoringJobDefinitionSummary
- *       MonitoringJobDefinitionName: "STRING_VALUE", // required
- *       MonitoringJobDefinitionArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       EndpointName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelExplainabilityJobDefinitionsResponse
+ * //   JobDefinitionSummaries: [ // MonitoringJobDefinitionSummaryList // required
+ * //     { // MonitoringJobDefinitionSummary
+ * //       MonitoringJobDefinitionName: "STRING_VALUE", // required
+ * //       MonitoringJobDefinitionArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       EndpointName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

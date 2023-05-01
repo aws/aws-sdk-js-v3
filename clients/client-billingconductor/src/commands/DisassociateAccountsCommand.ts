@@ -47,10 +47,9 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * };
  * const command = new DisassociateAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateAccountsOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DisassociateAccountsOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

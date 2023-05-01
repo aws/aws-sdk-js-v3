@@ -48,10 +48,9 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateSessionResponse
- *   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
- * };
+ * // { // TerminateSessionResponse
+ * //   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -46,31 +46,30 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProjectResult
- *   deletedResources: [ // Resources
- *     { // Resource
- *       type: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       feature: "STRING_VALUE",
- *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   orphanedResources: [
- *     {
- *       type: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       feature: "STRING_VALUE",
- *       attributes: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DeleteProjectResult
+ * //   deletedResources: [ // Resources
+ * //     { // Resource
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       feature: "STRING_VALUE",
+ * //       attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   orphanedResources: [
+ * //     {
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       feature: "STRING_VALUE",
+ * //       attributes: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

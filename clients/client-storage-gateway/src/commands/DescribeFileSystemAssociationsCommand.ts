@@ -52,37 +52,36 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * };
  * const command = new DescribeFileSystemAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFileSystemAssociationsOutput
- *   FileSystemAssociationInfoList: [ // FileSystemAssociationInfoList
- *     { // FileSystemAssociationInfo
- *       FileSystemAssociationARN: "STRING_VALUE",
- *       LocationARN: "STRING_VALUE",
- *       FileSystemAssociationStatus: "STRING_VALUE",
- *       AuditDestinationARN: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       Tags: [ // Tags
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       CacheAttributes: { // CacheAttributes
- *         CacheStaleTimeoutInSeconds: Number("int"),
- *       },
- *       EndpointNetworkConfiguration: { // EndpointNetworkConfiguration
- *         IpAddresses: [ // IpAddressList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       FileSystemAssociationStatusDetails: [ // FileSystemAssociationStatusDetails
- *         { // FileSystemAssociationStatusDetail
- *           ErrorCode: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeFileSystemAssociationsOutput
+ * //   FileSystemAssociationInfoList: [ // FileSystemAssociationInfoList
+ * //     { // FileSystemAssociationInfo
+ * //       FileSystemAssociationARN: "STRING_VALUE",
+ * //       LocationARN: "STRING_VALUE",
+ * //       FileSystemAssociationStatus: "STRING_VALUE",
+ * //       AuditDestinationARN: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       CacheAttributes: { // CacheAttributes
+ * //         CacheStaleTimeoutInSeconds: Number("int"),
+ * //       },
+ * //       EndpointNetworkConfiguration: { // EndpointNetworkConfiguration
+ * //         IpAddresses: [ // IpAddressList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       FileSystemAssociationStatusDetails: [ // FileSystemAssociationStatusDetails
+ * //         { // FileSystemAssociationStatusDetail
+ * //           ErrorCode: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

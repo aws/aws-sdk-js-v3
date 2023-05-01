@@ -52,10 +52,9 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * };
  * const command = new AssociateConnectionAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateConnectionAliasResult
- *   ConnectionIdentifier: "STRING_VALUE",
- * };
+ * // { // AssociateConnectionAliasResult
+ * //   ConnectionIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

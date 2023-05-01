@@ -54,16 +54,15 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * };
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityProfilesResponse
- *   securityProfileIdentifiers: [ // SecurityProfileIdentifiers
- *     { // SecurityProfileIdentifier
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityProfilesResponse
+ * //   securityProfileIdentifiers: [ // SecurityProfileIdentifiers
+ * //     { // SecurityProfileIdentifier
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface CreateDatalakeAutoEnableCommandOutput extends CreateDatalakeAut
  * };
  * const command = new CreateDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

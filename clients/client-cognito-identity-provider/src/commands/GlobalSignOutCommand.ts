@@ -55,8 +55,7 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * };
  * const command = new GlobalSignOutCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

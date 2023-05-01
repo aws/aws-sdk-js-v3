@@ -67,14 +67,13 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKeyPoliciesResponse
- *   PolicyNames: [ // PolicyNameList
- *     "STRING_VALUE",
- *   ],
- *   NextMarker: "STRING_VALUE",
- *   Truncated: true || false,
- * };
+ * // { // ListKeyPoliciesResponse
+ * //   PolicyNames: [ // PolicyNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
  *
  * ```
  *

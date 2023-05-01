@@ -56,10 +56,9 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * };
  * const command = new StartGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartGatewayOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // StartGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

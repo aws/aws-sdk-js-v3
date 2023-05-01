@@ -124,10 +124,9 @@ export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataB
  * };
  * const command = new CreateLayerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLayerResult
- *   LayerId: "STRING_VALUE",
- * };
+ * // { // CreateLayerResult
+ * //   LayerId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

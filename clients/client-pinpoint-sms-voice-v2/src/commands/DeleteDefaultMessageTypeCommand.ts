@@ -53,12 +53,11 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * };
  * const command = new DeleteDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDefaultMessageTypeResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- * };
+ * // { // DeleteDefaultMessageTypeResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

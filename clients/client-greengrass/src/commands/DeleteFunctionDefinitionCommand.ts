@@ -44,8 +44,7 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * };
  * const command = new DeleteFunctionDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

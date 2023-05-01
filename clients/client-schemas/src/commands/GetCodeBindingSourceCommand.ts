@@ -47,10 +47,9 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  * };
  * const command = new GetCodeBindingSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCodeBindingSourceResponse
- *   Body: "BLOB_VALUE",
- * };
+ * // { // GetCodeBindingSourceResponse
+ * //   Body: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

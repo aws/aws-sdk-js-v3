@@ -50,37 +50,36 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  * };
  * const command = new ListEndpointGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEndpointGroupsResponse
- *   EndpointGroups: [ // EndpointGroups
- *     { // EndpointGroup
- *       EndpointGroupArn: "STRING_VALUE",
- *       EndpointGroupRegion: "STRING_VALUE",
- *       EndpointDescriptions: [ // EndpointDescriptions
- *         { // EndpointDescription
- *           EndpointId: "STRING_VALUE",
- *           Weight: Number("int"),
- *           HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
- *           HealthReason: "STRING_VALUE",
- *           ClientIPPreservationEnabled: true || false,
- *         },
- *       ],
- *       TrafficDialPercentage: Number("float"),
- *       HealthCheckPort: Number("int"),
- *       HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
- *       HealthCheckPath: "STRING_VALUE",
- *       HealthCheckIntervalSeconds: Number("int"),
- *       ThresholdCount: Number("int"),
- *       PortOverrides: [ // PortOverrides
- *         { // PortOverride
- *           ListenerPort: Number("int"),
- *           EndpointPort: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEndpointGroupsResponse
+ * //   EndpointGroups: [ // EndpointGroups
+ * //     { // EndpointGroup
+ * //       EndpointGroupArn: "STRING_VALUE",
+ * //       EndpointGroupRegion: "STRING_VALUE",
+ * //       EndpointDescriptions: [ // EndpointDescriptions
+ * //         { // EndpointDescription
+ * //           EndpointId: "STRING_VALUE",
+ * //           Weight: Number("int"),
+ * //           HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
+ * //           HealthReason: "STRING_VALUE",
+ * //           ClientIPPreservationEnabled: true || false,
+ * //         },
+ * //       ],
+ * //       TrafficDialPercentage: Number("float"),
+ * //       HealthCheckPort: Number("int"),
+ * //       HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
+ * //       HealthCheckPath: "STRING_VALUE",
+ * //       HealthCheckIntervalSeconds: Number("int"),
+ * //       ThresholdCount: Number("int"),
+ * //       PortOverrides: [ // PortOverrides
+ * //         { // PortOverride
+ * //           ListenerPort: Number("int"),
+ * //           EndpointPort: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

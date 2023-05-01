@@ -57,19 +57,18 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * };
  * const command = new ListChannelModeratorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelModeratorsResponse
- *   ChannelArn: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   ChannelModerators: [ // ChannelModeratorSummaryList
- *     { // ChannelModeratorSummary
- *       Moderator: { // Identity
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListChannelModeratorsResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   ChannelModerators: [ // ChannelModeratorSummaryList
+ * //     { // ChannelModeratorSummary
+ * //       Moderator: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

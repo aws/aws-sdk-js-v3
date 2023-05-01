@@ -50,10 +50,9 @@ export interface EnableDelegatedAdminAccountCommandOutput
  * };
  * const command = new EnableDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableDelegatedAdminAccountResponse
- *   delegatedAdminAccountId: "STRING_VALUE", // required
- * };
+ * // { // EnableDelegatedAdminAccountResponse
+ * //   delegatedAdminAccountId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

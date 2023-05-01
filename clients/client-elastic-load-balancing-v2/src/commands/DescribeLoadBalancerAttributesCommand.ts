@@ -75,15 +75,14 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancerAttributesOutput
- *   Attributes: [ // LoadBalancerAttributes
- *     { // LoadBalancerAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeLoadBalancerAttributesOutput
+ * //   Attributes: [ // LoadBalancerAttributes
+ * //     { // LoadBalancerAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMembersOutput
- *   nextToken: "STRING_VALUE",
- *   memberSummaries: [ // MemberSummaryList // required
- *     { // MemberSummary
- *       accountId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       displayName: "STRING_VALUE", // required
- *       abilities: [ // MemberAbilities // required
- *         "STRING_VALUE",
- *       ],
- *       createTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       membershipId: "STRING_VALUE",
- *       membershipArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListMembersOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   memberSummaries: [ // MemberSummaryList // required
+ * //     { // MemberSummary
+ * //       accountId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE", // required
+ * //       abilities: [ // MemberAbilities // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       membershipId: "STRING_VALUE",
+ * //       membershipArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

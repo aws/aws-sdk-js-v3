@@ -44,25 +44,24 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * };
  * const command = new DeleteClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteClusterSnapshotOutput
- *   snapshot: { // ClusterSnapshot
- *     subnetIds: [ // StringList // required
- *       "STRING_VALUE",
- *     ],
- *     snapshotName: "STRING_VALUE", // required
- *     snapshotArn: "STRING_VALUE", // required
- *     snapshotCreationTime: "STRING_VALUE", // required
- *     clusterArn: "STRING_VALUE", // required
- *     clusterCreationTime: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     vpcSecurityGroupIds: [ // required
- *       "STRING_VALUE",
- *     ],
- *     adminUserName: "STRING_VALUE", // required
- *     kmsKeyId: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DeleteClusterSnapshotOutput
+ * //   snapshot: { // ClusterSnapshot
+ * //     subnetIds: [ // StringList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     snapshotName: "STRING_VALUE", // required
+ * //     snapshotArn: "STRING_VALUE", // required
+ * //     snapshotCreationTime: "STRING_VALUE", // required
+ * //     clusterArn: "STRING_VALUE", // required
+ * //     clusterCreationTime: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     vpcSecurityGroupIds: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     adminUserName: "STRING_VALUE", // required
+ * //     kmsKeyId: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

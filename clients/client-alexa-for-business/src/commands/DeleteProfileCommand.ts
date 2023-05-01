@@ -44,8 +44,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

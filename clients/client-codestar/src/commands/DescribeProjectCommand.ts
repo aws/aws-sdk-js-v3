@@ -48,21 +48,20 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProjectResult
- *   name: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
- *   createdTimeStamp: new Date("TIMESTAMP"),
- *   stackId: "STRING_VALUE",
- *   projectTemplateId: "STRING_VALUE",
- *   status: { // ProjectStatus
- *     state: "STRING_VALUE", // required
- *     reason: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeProjectResult
+ * //   name: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   createdTimeStamp: new Date("TIMESTAMP"),
+ * //   stackId: "STRING_VALUE",
+ * //   projectTemplateId: "STRING_VALUE",
+ * //   status: { // ProjectStatus
+ * //     state: "STRING_VALUE", // required
+ * //     reason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

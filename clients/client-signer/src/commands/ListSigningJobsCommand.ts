@@ -58,41 +58,40 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * };
  * const command = new ListSigningJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSigningJobsResponse
- *   jobs: [ // SigningJobs
- *     { // SigningJob
- *       jobId: "STRING_VALUE",
- *       source: { // Source
- *         s3: { // S3Source
- *           bucketName: "STRING_VALUE", // required
- *           key: "STRING_VALUE", // required
- *           version: "STRING_VALUE", // required
- *         },
- *       },
- *       signedObject: { // SignedObject
- *         s3: { // S3SignedObject
- *           bucketName: "STRING_VALUE",
- *           key: "STRING_VALUE",
- *         },
- *       },
- *       signingMaterial: { // SigningMaterial
- *         certificateArn: "STRING_VALUE", // required
- *       },
- *       createdAt: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       isRevoked: true || false,
- *       profileName: "STRING_VALUE",
- *       profileVersion: "STRING_VALUE",
- *       platformId: "STRING_VALUE",
- *       platformDisplayName: "STRING_VALUE",
- *       signatureExpiresAt: new Date("TIMESTAMP"),
- *       jobOwner: "STRING_VALUE",
- *       jobInvoker: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSigningJobsResponse
+ * //   jobs: [ // SigningJobs
+ * //     { // SigningJob
+ * //       jobId: "STRING_VALUE",
+ * //       source: { // Source
+ * //         s3: { // S3Source
+ * //           bucketName: "STRING_VALUE", // required
+ * //           key: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       signedObject: { // SignedObject
+ * //         s3: { // S3SignedObject
+ * //           bucketName: "STRING_VALUE",
+ * //           key: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       signingMaterial: { // SigningMaterial
+ * //         certificateArn: "STRING_VALUE", // required
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       isRevoked: true || false,
+ * //       profileName: "STRING_VALUE",
+ * //       profileVersion: "STRING_VALUE",
+ * //       platformId: "STRING_VALUE",
+ * //       platformDisplayName: "STRING_VALUE",
+ * //       signatureExpiresAt: new Date("TIMESTAMP"),
+ * //       jobOwner: "STRING_VALUE",
+ * //       jobInvoker: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,10 +54,9 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * };
  * const command = new DeleteNetworkInsightsAccessScopeAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNetworkInsightsAccessScopeAnalysisResult
- *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
- * };
+ * // { // DeleteNetworkInsightsAccessScopeAnalysisResult
+ * //   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

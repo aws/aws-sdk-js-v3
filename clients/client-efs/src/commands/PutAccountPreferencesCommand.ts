@@ -54,15 +54,14 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * };
  * const command = new PutAccountPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAccountPreferencesResponse
- *   ResourceIdPreference: { // ResourceIdPreference
- *     ResourceIdType: "LONG_ID" || "SHORT_ID",
- *     Resources: [ // Resources
- *       "FILE_SYSTEM" || "MOUNT_TARGET",
- *     ],
- *   },
- * };
+ * // { // PutAccountPreferencesResponse
+ * //   ResourceIdPreference: { // ResourceIdPreference
+ * //     ResourceIdType: "LONG_ID" || "SHORT_ID",
+ * //     Resources: [ // Resources
+ * //       "FILE_SYSTEM" || "MOUNT_TARGET",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

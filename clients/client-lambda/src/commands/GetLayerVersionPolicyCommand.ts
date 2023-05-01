@@ -46,11 +46,10 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * };
  * const command = new GetLayerVersionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLayerVersionPolicyResponse
- *   Policy: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
- * };
+ * // { // GetLayerVersionPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * //   RevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

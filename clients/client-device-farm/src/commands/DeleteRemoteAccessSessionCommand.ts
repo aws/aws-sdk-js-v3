@@ -44,8 +44,7 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * };
  * const command = new DeleteRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,17 +60,16 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * };
  * const command = new StartAttachmentUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAttachmentUploadResponse
- *   AttachmentId: "STRING_VALUE",
- *   UploadMetadata: { // UploadMetadata
- *     Url: "STRING_VALUE",
- *     UrlExpiry: "STRING_VALUE",
- *     HeadersToInclude: { // UploadMetadataSignedHeaders
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // StartAttachmentUploadResponse
+ * //   AttachmentId: "STRING_VALUE",
+ * //   UploadMetadata: { // UploadMetadata
+ * //     Url: "STRING_VALUE",
+ * //     UrlExpiry: "STRING_VALUE",
+ * //     HeadersToInclude: { // UploadMetadataSignedHeaders
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

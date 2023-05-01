@@ -50,61 +50,60 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * };
  * const command = new GetWorkflowStepCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowStepResponse
- *   name: "STRING_VALUE",
- *   stepGroupId: "STRING_VALUE",
- *   workflowId: "STRING_VALUE",
- *   stepId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   stepActionType: "STRING_VALUE",
- *   owner: "STRING_VALUE",
- *   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
- *     scriptLocationS3Bucket: "STRING_VALUE",
- *     scriptLocationS3Key: { // PlatformScriptKey
- *       linux: "STRING_VALUE",
- *       windows: "STRING_VALUE",
- *     },
- *     command: { // PlatformCommand
- *       linux: "STRING_VALUE",
- *       windows: "STRING_VALUE",
- *     },
- *     runEnvironment: "STRING_VALUE",
- *     targetType: "STRING_VALUE",
- *   },
- *   stepTarget: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   outputs: [ // WorkflowStepOutputList
- *     { // WorkflowStepOutput
- *       name: "STRING_VALUE",
- *       dataType: "STRING_VALUE",
- *       required: true || false,
- *       value: { // WorkflowStepOutputUnion Union: only one key present
- *         integerValue: Number("int"),
- *         stringValue: "STRING_VALUE",
- *         listOfStringValue: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   previous: [
- *     "STRING_VALUE",
- *   ],
- *   next: [
- *     "STRING_VALUE",
- *   ],
- *   status: "STRING_VALUE",
- *   statusMessage: "STRING_VALUE",
- *   scriptOutputLocation: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- *   lastStartTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   noOfSrvCompleted: Number("int"),
- *   noOfSrvFailed: Number("int"),
- *   totalNoOfSrv: Number("int"),
- * };
+ * // { // GetWorkflowStepResponse
+ * //   name: "STRING_VALUE",
+ * //   stepGroupId: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   stepId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   stepActionType: "STRING_VALUE",
+ * //   owner: "STRING_VALUE",
+ * //   workflowStepAutomationConfiguration: { // WorkflowStepAutomationConfiguration
+ * //     scriptLocationS3Bucket: "STRING_VALUE",
+ * //     scriptLocationS3Key: { // PlatformScriptKey
+ * //       linux: "STRING_VALUE",
+ * //       windows: "STRING_VALUE",
+ * //     },
+ * //     command: { // PlatformCommand
+ * //       linux: "STRING_VALUE",
+ * //       windows: "STRING_VALUE",
+ * //     },
+ * //     runEnvironment: "STRING_VALUE",
+ * //     targetType: "STRING_VALUE",
+ * //   },
+ * //   stepTarget: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   outputs: [ // WorkflowStepOutputList
+ * //     { // WorkflowStepOutput
+ * //       name: "STRING_VALUE",
+ * //       dataType: "STRING_VALUE",
+ * //       required: true || false,
+ * //       value: { // WorkflowStepOutputUnion Union: only one key present
+ * //         integerValue: Number("int"),
+ * //         stringValue: "STRING_VALUE",
+ * //         listOfStringValue: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   previous: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   next: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   scriptOutputLocation: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastStartTime: new Date("TIMESTAMP"),
+ * //   endTime: new Date("TIMESTAMP"),
+ * //   noOfSrvCompleted: Number("int"),
+ * //   noOfSrvFailed: Number("int"),
+ * //   totalNoOfSrv: Number("int"),
+ * // };
  *
  * ```
  *

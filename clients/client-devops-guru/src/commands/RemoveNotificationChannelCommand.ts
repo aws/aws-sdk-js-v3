@@ -46,8 +46,7 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

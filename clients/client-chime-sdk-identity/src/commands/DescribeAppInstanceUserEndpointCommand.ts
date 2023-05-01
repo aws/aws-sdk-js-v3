@@ -55,27 +55,26 @@ export interface DescribeAppInstanceUserEndpointCommandOutput
  * };
  * const command = new DescribeAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppInstanceUserEndpointResponse
- *   AppInstanceUserEndpoint: { // AppInstanceUserEndpoint
- *     AppInstanceUserArn: "STRING_VALUE",
- *     EndpointId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Type: "APNS" || "APNS_SANDBOX" || "GCM",
- *     ResourceArn: "STRING_VALUE",
- *     EndpointAttributes: { // EndpointAttributes
- *       DeviceToken: "STRING_VALUE", // required
- *       VoipDeviceToken: "STRING_VALUE",
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     AllowMessages: "ALL" || "NONE",
- *     EndpointState: { // EndpointState
- *       Status: "ACTIVE" || "INACTIVE", // required
- *       StatusReason: "INVALID_DEVICE_TOKEN" || "INVALID_PINPOINT_ARN",
- *     },
- *   },
- * };
+ * // { // DescribeAppInstanceUserEndpointResponse
+ * //   AppInstanceUserEndpoint: { // AppInstanceUserEndpoint
+ * //     AppInstanceUserArn: "STRING_VALUE",
+ * //     EndpointId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Type: "APNS" || "APNS_SANDBOX" || "GCM",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     EndpointAttributes: { // EndpointAttributes
+ * //       DeviceToken: "STRING_VALUE", // required
+ * //       VoipDeviceToken: "STRING_VALUE",
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     AllowMessages: "ALL" || "NONE",
+ * //     EndpointState: { // EndpointState
+ * //       Status: "ACTIVE" || "INACTIVE", // required
+ * //       StatusReason: "INVALID_DEVICE_TOKEN" || "INVALID_PINPOINT_ARN",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

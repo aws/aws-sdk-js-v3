@@ -42,8 +42,7 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
  * const input = {};
  * const command = new DisableProactiveEngagementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,20 +51,19 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * };
  * const command = new ListModelCardVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelCardVersionsResponse
- *   ModelCardVersionSummaryList: [ // ModelCardVersionSummaryList // required
- *     { // ModelCardVersionSummary
- *       ModelCardName: "STRING_VALUE", // required
- *       ModelCardArn: "STRING_VALUE", // required
- *       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
- *       ModelCardVersion: Number("int"), // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelCardVersionsResponse
+ * //   ModelCardVersionSummaryList: [ // ModelCardVersionSummaryList // required
+ * //     { // ModelCardVersionSummary
+ * //       ModelCardName: "STRING_VALUE", // required
+ * //       ModelCardArn: "STRING_VALUE", // required
+ * //       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ * //       ModelCardVersion: Number("int"), // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

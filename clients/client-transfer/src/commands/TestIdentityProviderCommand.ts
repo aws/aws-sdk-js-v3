@@ -90,13 +90,12 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * };
  * const command = new TestIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestIdentityProviderResponse
- *   Response: "STRING_VALUE",
- *   StatusCode: Number("int"), // required
- *   Message: "STRING_VALUE",
- *   Url: "STRING_VALUE", // required
- * };
+ * // { // TestIdentityProviderResponse
+ * //   Response: "STRING_VALUE",
+ * //   StatusCode: Number("int"), // required
+ * //   Message: "STRING_VALUE",
+ * //   Url: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

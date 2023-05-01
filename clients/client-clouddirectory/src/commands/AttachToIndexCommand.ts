@@ -50,10 +50,9 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * };
  * const command = new AttachToIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachToIndexResponse
- *   AttachedObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // AttachToIndexResponse
+ * //   AttachedObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

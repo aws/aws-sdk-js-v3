@@ -54,8 +54,7 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * };
  * const command = new DeleteCustomMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

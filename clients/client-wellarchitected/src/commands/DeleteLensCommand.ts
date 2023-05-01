@@ -60,8 +60,7 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLensCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

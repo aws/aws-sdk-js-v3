@@ -52,18 +52,17 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * };
  * const command = new ListRepositorySyncDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRepositorySyncDefinitionsOutput
- *   nextToken: "STRING_VALUE",
- *   syncDefinitions: [ // RepositorySyncDefinitionList // required
- *     { // RepositorySyncDefinition
- *       target: "STRING_VALUE", // required
- *       parent: "STRING_VALUE", // required
- *       branch: "STRING_VALUE", // required
- *       directory: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRepositorySyncDefinitionsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   syncDefinitions: [ // RepositorySyncDefinitionList // required
+ * //     { // RepositorySyncDefinition
+ * //       target: "STRING_VALUE", // required
+ * //       parent: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //       directory: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

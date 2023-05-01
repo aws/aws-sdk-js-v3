@@ -49,8 +49,7 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
  * };
  * const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

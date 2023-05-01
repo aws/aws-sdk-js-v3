@@ -51,17 +51,16 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * };
  * const command = new ListAppInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInstancesResponse
- *   AppInstances: [ // AppInstanceList
- *     { // AppInstanceSummary
- *       AppInstanceArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInstancesResponse
+ * //   AppInstances: [ // AppInstanceList
+ * //     { // AppInstanceSummary
+ * //       AppInstanceArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

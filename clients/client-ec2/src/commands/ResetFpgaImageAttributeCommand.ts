@@ -47,10 +47,9 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * };
  * const command = new ResetFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetFpgaImageAttributeResult
- *   Return: true || false,
- * };
+ * // { // ResetFpgaImageAttributeResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

@@ -74,18 +74,17 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * };
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackupOutput
- *   BackupDetails: { // BackupDetails
- *     BackupArn: "STRING_VALUE", // required
- *     BackupName: "STRING_VALUE", // required
- *     BackupSizeBytes: Number("long"),
- *     BackupStatus: "CREATING" || "DELETED" || "AVAILABLE", // required
- *     BackupType: "USER" || "SYSTEM" || "AWS_BACKUP", // required
- *     BackupCreationDateTime: new Date("TIMESTAMP"), // required
- *     BackupExpiryDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateBackupOutput
+ * //   BackupDetails: { // BackupDetails
+ * //     BackupArn: "STRING_VALUE", // required
+ * //     BackupName: "STRING_VALUE", // required
+ * //     BackupSizeBytes: Number("long"),
+ * //     BackupStatus: "CREATING" || "DELETED" || "AVAILABLE", // required
+ * //     BackupType: "USER" || "SYSTEM" || "AWS_BACKUP", // required
+ * //     BackupCreationDateTime: new Date("TIMESTAMP"), // required
+ * //     BackupExpiryDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

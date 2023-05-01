@@ -45,10 +45,9 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * };
  * const command = new DeleteVariantStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVariantStoreResponse
- *   status: "STRING_VALUE", // required
- * };
+ * // { // DeleteVariantStoreResponse
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

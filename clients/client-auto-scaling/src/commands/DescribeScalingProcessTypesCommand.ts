@@ -43,14 +43,13 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * const input = {};
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProcessesType
- *   Processes: [ // Processes
- *     { // ProcessType
- *       ProcessName: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ProcessesType
+ * //   Processes: [ // Processes
+ * //     { // ProcessType
+ * //       ProcessName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

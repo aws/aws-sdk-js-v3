@@ -44,8 +44,7 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteReportPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,11 +57,10 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * };
  * const command = new CreateTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrafficDistributionGroupResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateTrafficDistributionGroupResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

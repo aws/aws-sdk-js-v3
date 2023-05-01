@@ -159,10 +159,9 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * };
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMetricSetResponse
- *   MetricSetArn: "STRING_VALUE",
- * };
+ * // { // CreateMetricSetResponse
+ * //   MetricSetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

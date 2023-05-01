@@ -59,25 +59,24 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrderableReplicationInstancesResponse
- *   OrderableReplicationInstances: [ // OrderableReplicationInstanceList
- *     { // OrderableReplicationInstance
- *       EngineVersion: "STRING_VALUE",
- *       ReplicationInstanceClass: "STRING_VALUE",
- *       StorageType: "STRING_VALUE",
- *       MinAllocatedStorage: Number("int"),
- *       MaxAllocatedStorage: Number("int"),
- *       DefaultAllocatedStorage: Number("int"),
- *       IncludedAllocatedStorage: Number("int"),
- *       AvailabilityZones: [ // AvailabilityZonesList
- *         "STRING_VALUE",
- *       ],
- *       ReleaseStatus: "beta" || "prod",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeOrderableReplicationInstancesResponse
+ * //   OrderableReplicationInstances: [ // OrderableReplicationInstanceList
+ * //     { // OrderableReplicationInstance
+ * //       EngineVersion: "STRING_VALUE",
+ * //       ReplicationInstanceClass: "STRING_VALUE",
+ * //       StorageType: "STRING_VALUE",
+ * //       MinAllocatedStorage: Number("int"),
+ * //       MaxAllocatedStorage: Number("int"),
+ * //       DefaultAllocatedStorage: Number("int"),
+ * //       IncludedAllocatedStorage: Number("int"),
+ * //       AvailabilityZones: [ // AvailabilityZonesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ReleaseStatus: "beta" || "prod",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

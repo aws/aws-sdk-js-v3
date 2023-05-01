@@ -50,13 +50,12 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * };
  * const command = new ListTaskDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTaskDefinitionsResponse
- *   taskDefinitionArns: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTaskDefinitionsResponse
+ * //   taskDefinitionArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

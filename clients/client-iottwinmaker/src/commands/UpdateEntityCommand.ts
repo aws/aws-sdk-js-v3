@@ -137,11 +137,10 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * };
  * const command = new UpdateEntityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEntityResponse
- *   updateDateTime: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- * };
+ * // { // UpdateEntityResponse
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

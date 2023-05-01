@@ -52,13 +52,12 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * };
  * const command = new AddProfileKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddProfileKeyResponse
- *   KeyName: "STRING_VALUE",
- *   Values: [ // requestValueList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AddProfileKeyResponse
+ * //   KeyName: "STRING_VALUE",
+ * //   Values: [ // requestValueList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

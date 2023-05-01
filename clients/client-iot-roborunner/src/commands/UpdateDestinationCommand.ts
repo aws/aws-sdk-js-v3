@@ -47,15 +47,14 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDestinationResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- *   additionalFixedProperties: "STRING_VALUE",
- * };
+ * // { // UpdateDestinationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * //   additionalFixedProperties: "STRING_VALUE",
+ * // };
  *
  * ```
  *

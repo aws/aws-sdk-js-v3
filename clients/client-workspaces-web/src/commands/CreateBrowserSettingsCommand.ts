@@ -61,10 +61,9 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * };
  * const command = new CreateBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBrowserSettingsResponse
- *   browserSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // CreateBrowserSettingsResponse
+ * //   browserSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

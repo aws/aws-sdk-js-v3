@@ -42,18 +42,17 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * const input = {};
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightsResponse
- *   insights: { // Insights
- *     activeAssessmentsCount: Number("int"),
- *     noncompliantEvidenceCount: Number("int"),
- *     compliantEvidenceCount: Number("int"),
- *     inconclusiveEvidenceCount: Number("int"),
- *     assessmentControlsCountByNoncompliantEvidence: Number("int"),
- *     totalAssessmentControlsCount: Number("int"),
- *     lastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetInsightsResponse
+ * //   insights: { // Insights
+ * //     activeAssessmentsCount: Number("int"),
+ * //     noncompliantEvidenceCount: Number("int"),
+ * //     compliantEvidenceCount: Number("int"),
+ * //     inconclusiveEvidenceCount: Number("int"),
+ * //     assessmentControlsCountByNoncompliantEvidence: Number("int"),
+ * //     totalAssessmentControlsCount: Number("int"),
+ * //     lastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -62,13 +62,12 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * };
  * const command = new StartReplayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReplayResponse
- *   ReplayArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- *   ReplayStartTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartReplayResponse
+ * //   ReplayArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   ReplayStartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -64,11 +64,10 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * };
  * const command = new CreateHoursOfOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHoursOfOperationResponse
- *   HoursOfOperationId: "STRING_VALUE",
- *   HoursOfOperationArn: "STRING_VALUE",
- * };
+ * // { // CreateHoursOfOperationResponse
+ * //   HoursOfOperationId: "STRING_VALUE",
+ * //   HoursOfOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

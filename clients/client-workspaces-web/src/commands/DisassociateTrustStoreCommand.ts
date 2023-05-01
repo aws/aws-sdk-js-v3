@@ -44,8 +44,7 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * };
  * const command = new DisassociateTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * };
  * const command = new UpdateResourceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

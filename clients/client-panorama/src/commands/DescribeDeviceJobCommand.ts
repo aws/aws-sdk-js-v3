@@ -44,18 +44,17 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * };
  * const command = new DescribeDeviceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeviceJobResponse
- *   JobId: "STRING_VALUE",
- *   DeviceId: "STRING_VALUE",
- *   DeviceArn: "STRING_VALUE",
- *   DeviceName: "STRING_VALUE",
- *   DeviceType: "STRING_VALUE",
- *   ImageVersion: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreatedTime: new Date("TIMESTAMP"),
- *   JobType: "STRING_VALUE",
- * };
+ * // { // DescribeDeviceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   DeviceId: "STRING_VALUE",
+ * //   DeviceArn: "STRING_VALUE",
+ * //   DeviceName: "STRING_VALUE",
+ * //   DeviceType: "STRING_VALUE",
+ * //   ImageVersion: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   JobType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

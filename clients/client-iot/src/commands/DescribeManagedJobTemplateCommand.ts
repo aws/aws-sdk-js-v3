@@ -45,26 +45,25 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * };
  * const command = new DescribeManagedJobTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeManagedJobTemplateResponse
- *   templateName: "STRING_VALUE",
- *   templateArn: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   templateVersion: "STRING_VALUE",
- *   environments: [ // Environments
- *     "STRING_VALUE",
- *   ],
- *   documentParameters: [ // DocumentParameters
- *     { // DocumentParameter
- *       key: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       regex: "STRING_VALUE",
- *       example: "STRING_VALUE",
- *       optional: true || false,
- *     },
- *   ],
- *   document: "STRING_VALUE",
- * };
+ * // { // DescribeManagedJobTemplateResponse
+ * //   templateName: "STRING_VALUE",
+ * //   templateArn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   templateVersion: "STRING_VALUE",
+ * //   environments: [ // Environments
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   documentParameters: [ // DocumentParameters
+ * //     { // DocumentParameter
+ * //       key: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       regex: "STRING_VALUE",
+ * //       example: "STRING_VALUE",
+ * //       optional: true || false,
+ * //     },
+ * //   ],
+ * //   document: "STRING_VALUE",
+ * // };
  *
  * ```
  *

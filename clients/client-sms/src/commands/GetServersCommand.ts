@@ -52,30 +52,29 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * };
  * const command = new GetServersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServersResponse
- *   lastModifiedOn: new Date("TIMESTAMP"),
- *   serverCatalogStatus: "NOT_IMPORTED" || "IMPORTING" || "AVAILABLE" || "DELETED" || "EXPIRED",
- *   serverList: [ // ServerList
- *     { // Server
- *       serverId: "STRING_VALUE",
- *       serverType: "VIRTUAL_MACHINE",
- *       vmServer: { // VmServer
- *         vmServerAddress: { // VmServerAddress
- *           vmManagerId: "STRING_VALUE",
- *           vmId: "STRING_VALUE",
- *         },
- *         vmName: "STRING_VALUE",
- *         vmManagerName: "STRING_VALUE",
- *         vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
- *         vmPath: "STRING_VALUE",
- *       },
- *       replicationJobId: "STRING_VALUE",
- *       replicationJobTerminated: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetServersResponse
+ * //   lastModifiedOn: new Date("TIMESTAMP"),
+ * //   serverCatalogStatus: "NOT_IMPORTED" || "IMPORTING" || "AVAILABLE" || "DELETED" || "EXPIRED",
+ * //   serverList: [ // ServerList
+ * //     { // Server
+ * //       serverId: "STRING_VALUE",
+ * //       serverType: "VIRTUAL_MACHINE",
+ * //       vmServer: { // VmServer
+ * //         vmServerAddress: { // VmServerAddress
+ * //           vmManagerId: "STRING_VALUE",
+ * //           vmId: "STRING_VALUE",
+ * //         },
+ * //         vmName: "STRING_VALUE",
+ * //         vmManagerName: "STRING_VALUE",
+ * //         vmManagerType: "VSPHERE" || "SCVMM" || "HYPERV-MANAGER",
+ * //         vmPath: "STRING_VALUE",
+ * //       },
+ * //       replicationJobId: "STRING_VALUE",
+ * //       replicationJobTerminated: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

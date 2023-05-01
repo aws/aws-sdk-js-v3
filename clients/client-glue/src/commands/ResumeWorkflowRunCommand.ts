@@ -48,13 +48,12 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * };
  * const command = new ResumeWorkflowRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResumeWorkflowRunResponse
- *   RunId: "STRING_VALUE",
- *   NodeIds: [ // NodeIdList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ResumeWorkflowRunResponse
+ * //   RunId: "STRING_VALUE",
+ * //   NodeIds: [ // NodeIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

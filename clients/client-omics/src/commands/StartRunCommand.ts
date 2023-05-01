@@ -58,15 +58,14 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRunResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // StartRunResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

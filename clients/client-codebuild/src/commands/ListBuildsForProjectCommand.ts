@@ -47,13 +47,12 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * };
  * const command = new ListBuildsForProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuildsForProjectOutput
- *   ids: [ // BuildIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBuildsForProjectOutput
+ * //   ids: [ // BuildIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

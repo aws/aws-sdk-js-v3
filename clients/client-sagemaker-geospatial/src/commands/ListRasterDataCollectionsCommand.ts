@@ -54,30 +54,29 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * };
  * const command = new ListRasterDataCollectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRasterDataCollectionsOutput
- *   RasterDataCollectionSummaries: [ // DataCollectionsList // required
- *     { // RasterDataCollectionMetadata
- *       Name: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       DescriptionPageUrl: "STRING_VALUE",
- *       SupportedFilters: [ // FilterList // required
- *         { // Filter
- *           Name: "STRING_VALUE", // required
- *           Type: "STRING_VALUE", // required
- *           Minimum: Number("float"),
- *           Maximum: Number("float"),
- *         },
- *       ],
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRasterDataCollectionsOutput
+ * //   RasterDataCollectionSummaries: [ // DataCollectionsList // required
+ * //     { // RasterDataCollectionMetadata
+ * //       Name: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DescriptionPageUrl: "STRING_VALUE",
+ * //       SupportedFilters: [ // FilterList // required
+ * //         { // Filter
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE", // required
+ * //           Minimum: Number("float"),
+ * //           Maximum: Number("float"),
+ * //         },
+ * //       ],
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

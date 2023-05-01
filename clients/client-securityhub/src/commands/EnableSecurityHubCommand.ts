@@ -67,8 +67,7 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * };
  * const command = new EnableSecurityHubCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

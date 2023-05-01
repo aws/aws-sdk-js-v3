@@ -42,13 +42,12 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  * const input = {};
  * const command = new DescribeDRTAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDRTAccessResponse
- *   RoleArn: "STRING_VALUE",
- *   LogBucketList: [ // LogBucketList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeDRTAccessResponse
+ * //   RoleArn: "STRING_VALUE",
+ * //   LogBucketList: [ // LogBucketList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

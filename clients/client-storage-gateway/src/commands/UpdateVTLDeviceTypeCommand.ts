@@ -48,10 +48,9 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * };
  * const command = new UpdateVTLDeviceTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVTLDeviceTypeOutput
- *   VTLDeviceARN: "STRING_VALUE",
- * };
+ * // { // UpdateVTLDeviceTypeOutput
+ * //   VTLDeviceARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

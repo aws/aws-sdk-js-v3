@@ -51,23 +51,22 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobsResponse
- *   jobs: [ // JobSummaryList
- *     { // JobSummary
- *       jobArn: "STRING_VALUE",
- *       jobId: "STRING_VALUE",
- *       thingGroupId: "STRING_VALUE",
- *       targetSelection: "CONTINUOUS" || "SNAPSHOT",
- *       status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       completedAt: new Date("TIMESTAMP"),
- *       isConcurrent: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListJobsResponse
+ * //   jobs: [ // JobSummaryList
+ * //     { // JobSummary
+ * //       jobArn: "STRING_VALUE",
+ * //       jobId: "STRING_VALUE",
+ * //       thingGroupId: "STRING_VALUE",
+ * //       targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ * //       status: "IN_PROGRESS" || "CANCELED" || "COMPLETED" || "DELETION_IN_PROGRESS" || "SCHEDULED",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       completedAt: new Date("TIMESTAMP"),
+ * //       isConcurrent: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

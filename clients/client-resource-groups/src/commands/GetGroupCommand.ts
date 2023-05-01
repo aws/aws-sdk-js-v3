@@ -56,14 +56,13 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupOutput
- *   Group: { // Group
- *     GroupArn: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGroupOutput
+ * //   Group: { // Group
+ * //     GroupArn: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

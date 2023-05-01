@@ -48,8 +48,7 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * };
  * const command = new DeleteAccessControlRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * };
  * const command = new ListEventTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEventTypesResult
- *   EventTypes: [ // EventTypeBatch
- *     { // EventTypeSummary
- *       EventTypeId: "STRING_VALUE",
- *       ServiceName: "STRING_VALUE",
- *       EventTypeName: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEventTypesResult
+ * //   EventTypes: [ // EventTypeBatch
+ * //     { // EventTypeSummary
+ * //       EventTypeId: "STRING_VALUE",
+ * //       ServiceName: "STRING_VALUE",
+ * //       EventTypeName: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

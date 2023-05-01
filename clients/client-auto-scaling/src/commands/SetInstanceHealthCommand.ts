@@ -48,8 +48,7 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetInstanceHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

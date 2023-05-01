@@ -60,11 +60,10 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new DeleteApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationReferenceDataSourceResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- * };
+ * // { // DeleteApplicationReferenceDataSourceResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
  *
  * ```
  *

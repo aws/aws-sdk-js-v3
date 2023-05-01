@@ -46,25 +46,24 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  * };
  * const command = new GetDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Deployments
- *   items: [ // ListOfDeployment
- *     { // Deployment
- *       id: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdDate: new Date("TIMESTAMP"),
- *       apiSummary: { // PathToMapOfMethodSnapshot
- *         "<keys>": { // MapOfMethodSnapshot
- *           "<keys>": { // MethodSnapshot
- *             authorizationType: "STRING_VALUE",
- *             apiKeyRequired: true || false,
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // Deployments
+ * //   items: [ // ListOfDeployment
+ * //     { // Deployment
+ * //       id: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       apiSummary: { // PathToMapOfMethodSnapshot
+ * //         "<keys>": { // MapOfMethodSnapshot
+ * //           "<keys>": { // MethodSnapshot
+ * //             authorizationType: "STRING_VALUE",
+ * //             apiKeyRequired: true || false,
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

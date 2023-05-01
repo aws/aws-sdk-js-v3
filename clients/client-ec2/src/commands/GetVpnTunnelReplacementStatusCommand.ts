@@ -48,19 +48,18 @@ export interface GetVpnTunnelReplacementStatusCommandOutput
  * };
  * const command = new GetVpnTunnelReplacementStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVpnTunnelReplacementStatusResult
- *   VpnConnectionId: "STRING_VALUE",
- *   TransitGatewayId: "STRING_VALUE",
- *   CustomerGatewayId: "STRING_VALUE",
- *   VpnGatewayId: "STRING_VALUE",
- *   VpnTunnelOutsideIpAddress: "STRING_VALUE",
- *   MaintenanceDetails: { // MaintenanceDetails
- *     PendingMaintenance: "STRING_VALUE",
- *     MaintenanceAutoAppliedAfter: new Date("TIMESTAMP"),
- *     LastMaintenanceApplied: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetVpnTunnelReplacementStatusResult
+ * //   VpnConnectionId: "STRING_VALUE",
+ * //   TransitGatewayId: "STRING_VALUE",
+ * //   CustomerGatewayId: "STRING_VALUE",
+ * //   VpnGatewayId: "STRING_VALUE",
+ * //   VpnTunnelOutsideIpAddress: "STRING_VALUE",
+ * //   MaintenanceDetails: { // MaintenanceDetails
+ * //     PendingMaintenance: "STRING_VALUE",
+ * //     MaintenanceAutoAppliedAfter: new Date("TIMESTAMP"),
+ * //     LastMaintenanceApplied: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

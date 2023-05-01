@@ -48,11 +48,10 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * };
  * const command = new DeleteModelManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteModelManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // DeleteModelManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

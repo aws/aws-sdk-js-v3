@@ -47,13 +47,12 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * };
  * const command = new DescribeCodeBindingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCodeBindingResponse
- *   CreationDate: new Date("TIMESTAMP"),
- *   LastModified: new Date("TIMESTAMP"),
- *   SchemaVersion: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // DescribeCodeBindingResponse
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

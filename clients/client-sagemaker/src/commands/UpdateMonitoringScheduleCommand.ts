@@ -149,10 +149,9 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
  * };
  * const command = new UpdateMonitoringScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMonitoringScheduleResponse
- *   MonitoringScheduleArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateMonitoringScheduleResponse
+ * //   MonitoringScheduleArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -49,13 +49,12 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClustersResponse
- *   clusters: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListClustersResponse
+ * //   clusters: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

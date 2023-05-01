@@ -70,20 +70,19 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * };
  * const command = new ListAssociatedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedResourcesResponse
- *   resources: [ // Resources
- *     { // ResourceInfo
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE",
- *       resourceDetails: { // ResourceDetails
- *         tagValue: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedResourcesResponse
+ * //   resources: [ // Resources
+ * //     { // ResourceInfo
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE",
+ * //       resourceDetails: { // ResourceDetails
+ * //         tagValue: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

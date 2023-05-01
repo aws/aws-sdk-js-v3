@@ -54,23 +54,22 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * };
  * const command = new ListModelPackagingJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelPackagingJobsResponse
- *   ModelPackagingJobs: [ // ModelPackagingJobsList
- *     { // ModelPackagingJobMetadata
- *       JobName: "STRING_VALUE",
- *       ProjectName: "STRING_VALUE",
- *       ModelVersion: "STRING_VALUE",
- *       ModelPackagingJobDescription: "STRING_VALUE",
- *       ModelPackagingMethod: "STRING_VALUE",
- *       Status: "CREATED" || "RUNNING" || "SUCCEEDED" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelPackagingJobsResponse
+ * //   ModelPackagingJobs: [ // ModelPackagingJobsList
+ * //     { // ModelPackagingJobMetadata
+ * //       JobName: "STRING_VALUE",
+ * //       ProjectName: "STRING_VALUE",
+ * //       ModelVersion: "STRING_VALUE",
+ * //       ModelPackagingJobDescription: "STRING_VALUE",
+ * //       ModelPackagingMethod: "STRING_VALUE",
+ * //       Status: "CREATED" || "RUNNING" || "SUCCEEDED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

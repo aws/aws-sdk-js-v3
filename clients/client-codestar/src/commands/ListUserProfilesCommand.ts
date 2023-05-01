@@ -49,18 +49,17 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserProfilesResult
- *   userProfiles: [ // UserProfilesList // required
- *     { // UserProfileSummary
- *       userArn: "STRING_VALUE",
- *       displayName: "STRING_VALUE",
- *       emailAddress: "STRING_VALUE",
- *       sshPublicKey: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUserProfilesResult
+ * //   userProfiles: [ // UserProfilesList // required
+ * //     { // UserProfileSummary
+ * //       userArn: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //       sshPublicKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

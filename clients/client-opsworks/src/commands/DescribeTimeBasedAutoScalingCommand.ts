@@ -59,33 +59,32 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * };
  * const command = new DescribeTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTimeBasedAutoScalingResult
- *   TimeBasedAutoScalingConfigurations: [ // TimeBasedAutoScalingConfigurations
- *     { // TimeBasedAutoScalingConfiguration
- *       InstanceId: "STRING_VALUE",
- *       AutoScalingSchedule: { // WeeklyAutoScalingSchedule
- *         Monday: { // DailyAutoScalingSchedule
- *           "<keys>": "STRING_VALUE",
- *         },
- *         Tuesday: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *         Wednesday: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *         Thursday: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *         Friday: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *         Saturday: "<DailyAutoScalingSchedule>",
- *         Sunday: "<DailyAutoScalingSchedule>",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeTimeBasedAutoScalingResult
+ * //   TimeBasedAutoScalingConfigurations: [ // TimeBasedAutoScalingConfigurations
+ * //     { // TimeBasedAutoScalingConfiguration
+ * //       InstanceId: "STRING_VALUE",
+ * //       AutoScalingSchedule: { // WeeklyAutoScalingSchedule
+ * //         Monday: { // DailyAutoScalingSchedule
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Tuesday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Wednesday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Thursday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Friday: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Saturday: "<DailyAutoScalingSchedule>",
+ * //         Sunday: "<DailyAutoScalingSchedule>",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

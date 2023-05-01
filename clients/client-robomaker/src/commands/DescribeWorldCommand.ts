@@ -44,17 +44,16 @@ export interface DescribeWorldCommandOutput extends DescribeWorldResponse, __Met
  * };
  * const command = new DescribeWorldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorldResponse
- *   arn: "STRING_VALUE",
- *   generationJob: "STRING_VALUE",
- *   template: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   worldDescriptionBody: "STRING_VALUE",
- * };
+ * // { // DescribeWorldResponse
+ * //   arn: "STRING_VALUE",
+ * //   generationJob: "STRING_VALUE",
+ * //   template: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   worldDescriptionBody: "STRING_VALUE",
+ * // };
  *
  * ```
  *

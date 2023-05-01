@@ -49,15 +49,14 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * };
  * const command = new UpdateReadinessCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateReadinessCheckResponse
- *   ReadinessCheckArn: "STRING_VALUE",
- *   ReadinessCheckName: "STRING_VALUE",
- *   ResourceSet: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateReadinessCheckResponse
+ * //   ReadinessCheckArn: "STRING_VALUE",
+ * //   ReadinessCheckName: "STRING_VALUE",
+ * //   ResourceSet: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

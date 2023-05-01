@@ -49,24 +49,23 @@ export interface GetServiceNetworkVpcAssociationCommandOutput
  * };
  * const command = new GetServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceNetworkVpcAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   createdBy: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   serviceNetworkId: "STRING_VALUE",
- *   serviceNetworkName: "STRING_VALUE",
- *   serviceNetworkArn: "STRING_VALUE",
- *   vpcId: "STRING_VALUE",
- *   securityGroupIds: [ // SecurityGroupList
- *     "STRING_VALUE",
- *   ],
- *   failureMessage: "STRING_VALUE",
- *   failureCode: "STRING_VALUE",
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetServiceNetworkVpcAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   serviceNetworkId: "STRING_VALUE",
+ * //   serviceNetworkName: "STRING_VALUE",
+ * //   serviceNetworkArn: "STRING_VALUE",
+ * //   vpcId: "STRING_VALUE",
+ * //   securityGroupIds: [ // SecurityGroupList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   failureMessage: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

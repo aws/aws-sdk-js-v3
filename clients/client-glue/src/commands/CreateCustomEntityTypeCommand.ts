@@ -49,10 +49,9 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomEntityTypeResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateCustomEntityTypeResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

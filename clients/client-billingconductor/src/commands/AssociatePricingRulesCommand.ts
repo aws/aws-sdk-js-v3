@@ -48,10 +48,9 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * };
  * const command = new AssociatePricingRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociatePricingRulesOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // AssociatePricingRulesOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

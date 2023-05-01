@@ -53,8 +53,7 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * };
  * const command = new PutAccountVdmAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

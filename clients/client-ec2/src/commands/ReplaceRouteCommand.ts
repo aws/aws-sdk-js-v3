@@ -65,8 +65,7 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

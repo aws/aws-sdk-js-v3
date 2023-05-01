@@ -49,8 +49,7 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * };
  * const command = new DeleteScalingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

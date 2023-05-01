@@ -75,22 +75,21 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAliasOutput
- *   Alias: { // Alias
- *     AliasId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     AliasArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     RoutingStrategy: { // RoutingStrategy
- *       Type: "SIMPLE" || "TERMINAL",
- *       FleetId: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateAliasOutput
+ * //   Alias: { // Alias
+ * //     AliasId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AliasArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoutingStrategy: { // RoutingStrategy
+ * //       Type: "SIMPLE" || "TERMINAL",
+ * //       FleetId: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

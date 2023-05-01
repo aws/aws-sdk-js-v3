@@ -55,22 +55,21 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplyPendingMaintenanceActionResponse
- *   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
- *     ResourceIdentifier: "STRING_VALUE",
- *     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
- *       { // PendingMaintenanceAction
- *         Action: "STRING_VALUE",
- *         AutoAppliedAfterDate: new Date("TIMESTAMP"),
- *         ForcedApplyDate: new Date("TIMESTAMP"),
- *         OptInStatus: "STRING_VALUE",
- *         CurrentApplyDate: new Date("TIMESTAMP"),
- *         Description: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ApplyPendingMaintenanceActionResponse
+ * //   ResourcePendingMaintenanceActions: { // ResourcePendingMaintenanceActions
+ * //     ResourceIdentifier: "STRING_VALUE",
+ * //     PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ * //       { // PendingMaintenanceAction
+ * //         Action: "STRING_VALUE",
+ * //         AutoAppliedAfterDate: new Date("TIMESTAMP"),
+ * //         ForcedApplyDate: new Date("TIMESTAMP"),
+ * //         OptInStatus: "STRING_VALUE",
+ * //         CurrentApplyDate: new Date("TIMESTAMP"),
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

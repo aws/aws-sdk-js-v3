@@ -63,29 +63,28 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetResponse
- *   DatasetArn: "STRING_VALUE",
- *   DatasetName: "STRING_VALUE",
- *   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS",
- *   DatasetType: "TARGET_TIME_SERIES" || "RELATED_TIME_SERIES" || "ITEM_METADATA",
- *   DataFrequency: "STRING_VALUE",
- *   Schema: { // Schema
- *     Attributes: [ // SchemaAttributes
- *       { // SchemaAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
- *       },
- *     ],
- *   },
- *   EncryptionConfig: { // EncryptionConfig
- *     RoleArn: "STRING_VALUE", // required
- *     KMSKeyArn: "STRING_VALUE", // required
- *   },
- *   Status: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeDatasetResponse
+ * //   DatasetArn: "STRING_VALUE",
+ * //   DatasetName: "STRING_VALUE",
+ * //   Domain: "RETAIL" || "CUSTOM" || "INVENTORY_PLANNING" || "EC2_CAPACITY" || "WORK_FORCE" || "WEB_TRAFFIC" || "METRICS",
+ * //   DatasetType: "TARGET_TIME_SERIES" || "RELATED_TIME_SERIES" || "ITEM_METADATA",
+ * //   DataFrequency: "STRING_VALUE",
+ * //   Schema: { // Schema
+ * //     Attributes: [ // SchemaAttributes
+ * //       { // SchemaAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ * //       },
+ * //     ],
+ * //   },
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     KMSKeyArn: "STRING_VALUE", // required
+ * //   },
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

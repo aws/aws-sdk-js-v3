@@ -46,19 +46,18 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectionsResponse
- *   ConnectionSummaryList: [ // ConnectionSummaryList // required
- *     { // ConnectionSummary
- *       ConnectionName: "STRING_VALUE",
- *       ConnectionArn: "STRING_VALUE",
- *       ProviderType: "GITHUB",
- *       Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectionsResponse
+ * //   ConnectionSummaryList: [ // ConnectionSummaryList // required
+ * //     { // ConnectionSummary
+ * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionArn: "STRING_VALUE",
+ * //       ProviderType: "GITHUB",
+ * //       Status: "PENDING_HANDSHAKE" || "AVAILABLE" || "ERROR" || "DELETED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

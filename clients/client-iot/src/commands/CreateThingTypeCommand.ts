@@ -57,12 +57,11 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * };
  * const command = new CreateThingTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateThingTypeResponse
- *   thingTypeName: "STRING_VALUE",
- *   thingTypeArn: "STRING_VALUE",
- *   thingTypeId: "STRING_VALUE",
- * };
+ * // { // CreateThingTypeResponse
+ * //   thingTypeName: "STRING_VALUE",
+ * //   thingTypeArn: "STRING_VALUE",
+ * //   thingTypeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

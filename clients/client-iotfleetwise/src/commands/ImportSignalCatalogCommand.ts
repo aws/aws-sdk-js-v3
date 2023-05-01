@@ -55,11 +55,10 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * };
  * const command = new ImportSignalCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportSignalCatalogResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // ImportSignalCatalogResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

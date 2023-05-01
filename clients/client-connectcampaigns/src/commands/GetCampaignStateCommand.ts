@@ -44,10 +44,9 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * };
  * const command = new GetCampaignStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCampaignStateResponse
- *   state: "STRING_VALUE",
- * };
+ * // { // GetCampaignStateResponse
+ * //   state: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,30 +51,29 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * };
  * const command = new DescribeStackEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStackEventsOutput
- *   StackEvents: [ // StackEvents
- *     { // StackEvent
- *       StackId: "STRING_VALUE", // required
- *       EventId: "STRING_VALUE", // required
- *       StackName: "STRING_VALUE", // required
- *       LogicalResourceId: "STRING_VALUE",
- *       PhysicalResourceId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Timestamp: new Date("TIMESTAMP"), // required
- *       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED",
- *       ResourceStatusReason: "STRING_VALUE",
- *       ResourceProperties: "STRING_VALUE",
- *       ClientRequestToken: "STRING_VALUE",
- *       HookType: "STRING_VALUE",
- *       HookStatus: "HOOK_IN_PROGRESS" || "HOOK_COMPLETE_SUCCEEDED" || "HOOK_COMPLETE_FAILED" || "HOOK_FAILED",
- *       HookStatusReason: "STRING_VALUE",
- *       HookInvocationPoint: "PRE_PROVISION",
- *       HookFailureMode: "FAIL" || "WARN",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeStackEventsOutput
+ * //   StackEvents: [ // StackEvents
+ * //     { // StackEvent
+ * //       StackId: "STRING_VALUE", // required
+ * //       EventId: "STRING_VALUE", // required
+ * //       StackName: "STRING_VALUE", // required
+ * //       LogicalResourceId: "STRING_VALUE",
+ * //       PhysicalResourceId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"), // required
+ * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED",
+ * //       ResourceStatusReason: "STRING_VALUE",
+ * //       ResourceProperties: "STRING_VALUE",
+ * //       ClientRequestToken: "STRING_VALUE",
+ * //       HookType: "STRING_VALUE",
+ * //       HookStatus: "HOOK_IN_PROGRESS" || "HOOK_COMPLETE_SUCCEEDED" || "HOOK_COMPLETE_FAILED" || "HOOK_FAILED",
+ * //       HookStatusReason: "STRING_VALUE",
+ * //       HookInvocationPoint: "PRE_PROVISION",
+ * //       HookFailureMode: "FAIL" || "WARN",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

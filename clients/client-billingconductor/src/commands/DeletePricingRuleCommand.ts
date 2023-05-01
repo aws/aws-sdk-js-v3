@@ -44,10 +44,9 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  * };
  * const command = new DeletePricingRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePricingRuleOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeletePricingRuleOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVoiceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

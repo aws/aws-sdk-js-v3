@@ -52,8 +52,7 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * };
  * const command = new DeleteChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

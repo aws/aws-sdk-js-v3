@@ -75,10 +75,9 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * };
  * const command = new PutMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutMultiRegionAccessPointPolicyResult
- *   RequestTokenARN: "STRING_VALUE",
- * };
+ * // { // PutMultiRegionAccessPointPolicyResult
+ * //   RequestTokenARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,12 +53,11 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * };
  * const command = new GetSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSipMediaApplicationLoggingConfigurationResponse
- *   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
- *     EnableSipMediaApplicationMessageLogs: true || false,
- *   },
- * };
+ * // { // GetSipMediaApplicationLoggingConfigurationResponse
+ * //   SipMediaApplicationLoggingConfiguration: { // SipMediaApplicationLoggingConfiguration
+ * //     EnableSipMediaApplicationMessageLogs: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

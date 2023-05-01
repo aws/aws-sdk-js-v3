@@ -45,8 +45,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * };
  * const command = new UpdateJobShipmentStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

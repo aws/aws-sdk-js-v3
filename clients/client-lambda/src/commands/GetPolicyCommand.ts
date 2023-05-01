@@ -45,11 +45,10 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyResponse
- *   Policy: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
- * };
+ * // { // GetPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * //   RevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

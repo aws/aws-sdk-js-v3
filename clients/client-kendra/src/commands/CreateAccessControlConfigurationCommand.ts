@@ -90,10 +90,9 @@ export interface CreateAccessControlConfigurationCommandOutput
  * };
  * const command = new CreateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessControlConfigurationResponse
- *   Id: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessControlConfigurationResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

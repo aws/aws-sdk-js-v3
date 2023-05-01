@@ -48,10 +48,9 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * };
  * const command = new PutMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutMaintenanceStartTimeOutput
- *   GatewayArn: "STRING_VALUE",
- * };
+ * // { // PutMaintenanceStartTimeOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

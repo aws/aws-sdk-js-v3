@@ -48,20 +48,19 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDomainResult
- *   domain: { // DomainDescription
- *     name: "STRING_VALUE",
- *     owner: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     status: "Active" || "Deleted",
- *     createdTime: new Date("TIMESTAMP"),
- *     encryptionKey: "STRING_VALUE",
- *     repositoryCount: Number("int"),
- *     assetSizeBytes: Number("long"),
- *     s3BucketArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteDomainResult
+ * //   domain: { // DomainDescription
+ * //     name: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "Active" || "Deleted",
+ * //     createdTime: new Date("TIMESTAMP"),
+ * //     encryptionKey: "STRING_VALUE",
+ * //     repositoryCount: Number("int"),
+ * //     assetSizeBytes: Number("long"),
+ * //     s3BucketArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

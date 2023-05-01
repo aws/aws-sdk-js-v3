@@ -60,8 +60,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

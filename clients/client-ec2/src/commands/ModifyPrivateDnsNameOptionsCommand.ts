@@ -48,10 +48,9 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * };
  * const command = new ModifyPrivateDnsNameOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyPrivateDnsNameOptionsResult
- *   Return: true || false,
- * };
+ * // { // ModifyPrivateDnsNameOptionsResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

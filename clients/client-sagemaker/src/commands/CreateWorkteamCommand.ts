@@ -72,10 +72,9 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * };
  * const command = new CreateWorkteamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkteamResponse
- *   WorkteamArn: "STRING_VALUE",
- * };
+ * // { // CreateWorkteamResponse
+ * //   WorkteamArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

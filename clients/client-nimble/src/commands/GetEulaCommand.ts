@@ -44,16 +44,15 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * };
  * const command = new GetEulaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEulaResponse
- *   eula: { // Eula
- *     content: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     eulaId: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     updatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetEulaResponse
+ * //   eula: { // Eula
+ * //     content: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     eulaId: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

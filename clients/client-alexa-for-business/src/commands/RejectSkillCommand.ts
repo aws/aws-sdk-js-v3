@@ -46,8 +46,7 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * };
  * const command = new RejectSkillCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

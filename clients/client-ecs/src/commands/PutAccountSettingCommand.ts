@@ -77,14 +77,13 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * };
  * const command = new PutAccountSettingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAccountSettingResponse
- *   setting: { // Setting
- *     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
- *     value: "STRING_VALUE",
- *     principalArn: "STRING_VALUE",
- *   },
- * };
+ * // { // PutAccountSettingResponse
+ * //   setting: { // Setting
+ * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //     value: "STRING_VALUE",
+ * //     principalArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

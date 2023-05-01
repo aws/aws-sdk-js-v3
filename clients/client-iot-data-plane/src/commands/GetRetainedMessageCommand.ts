@@ -50,14 +50,13 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * };
  * const command = new GetRetainedMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRetainedMessageResponse
- *   topic: "STRING_VALUE",
- *   payload: "BLOB_VALUE",
- *   qos: Number("int"),
- *   lastModifiedTime: Number("long"),
- *   userProperties: "BLOB_VALUE",
- * };
+ * // { // GetRetainedMessageResponse
+ * //   topic: "STRING_VALUE",
+ * //   payload: "BLOB_VALUE",
+ * //   qos: Number("int"),
+ * //   lastModifiedTime: Number("long"),
+ * //   userProperties: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

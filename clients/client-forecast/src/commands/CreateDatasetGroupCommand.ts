@@ -67,10 +67,9 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetGroupResponse
- *   DatasetGroupArn: "STRING_VALUE",
- * };
+ * // { // CreateDatasetGroupResponse
+ * //   DatasetGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

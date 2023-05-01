@@ -61,12 +61,11 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * };
  * const command = new ResolveCustomerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveCustomerResult
- *   CustomerIdentifier: "STRING_VALUE",
- *   ProductCode: "STRING_VALUE",
- *   CustomerAWSAccountId: "STRING_VALUE",
- * };
+ * // { // ResolveCustomerResult
+ * //   CustomerIdentifier: "STRING_VALUE",
+ * //   ProductCode: "STRING_VALUE",
+ * //   CustomerAWSAccountId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

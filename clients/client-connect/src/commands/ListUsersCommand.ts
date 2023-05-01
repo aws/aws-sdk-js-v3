@@ -47,17 +47,16 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   UserSummaryList: [ // UserSummaryList
- *     { // UserSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Username: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersResponse
+ * //   UserSummaryList: [ // UserSummaryList
+ * //     { // UserSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Username: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

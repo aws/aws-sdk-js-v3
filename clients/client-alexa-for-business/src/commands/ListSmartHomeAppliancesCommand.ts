@@ -46,17 +46,16 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * };
  * const command = new ListSmartHomeAppliancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSmartHomeAppliancesResponse
- *   SmartHomeAppliances: [ // SmartHomeApplianceList
- *     { // SmartHomeAppliance
- *       FriendlyName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ManufacturerName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSmartHomeAppliancesResponse
+ * //   SmartHomeAppliances: [ // SmartHomeApplianceList
+ * //     { // SmartHomeAppliance
+ * //       FriendlyName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ManufacturerName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

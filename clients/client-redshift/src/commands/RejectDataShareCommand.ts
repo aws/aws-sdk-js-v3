@@ -45,22 +45,21 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * };
  * const command = new RejectDataShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DataShare
- *   DataShareArn: "STRING_VALUE",
- *   ProducerArn: "STRING_VALUE",
- *   AllowPubliclyAccessibleConsumers: true || false,
- *   DataShareAssociations: [ // DataShareAssociationList
- *     { // DataShareAssociation
- *       ConsumerIdentifier: "STRING_VALUE",
- *       Status: "ACTIVE" || "PENDING_AUTHORIZATION" || "AUTHORIZED" || "DEAUTHORIZED" || "REJECTED" || "AVAILABLE",
- *       ConsumerRegion: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       StatusChangeDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   ManagedBy: "STRING_VALUE",
- * };
+ * // { // DataShare
+ * //   DataShareArn: "STRING_VALUE",
+ * //   ProducerArn: "STRING_VALUE",
+ * //   AllowPubliclyAccessibleConsumers: true || false,
+ * //   DataShareAssociations: [ // DataShareAssociationList
+ * //     { // DataShareAssociation
+ * //       ConsumerIdentifier: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "PENDING_AUTHORIZATION" || "AUTHORIZED" || "DEAUTHORIZED" || "REJECTED" || "AVAILABLE",
+ * //       ConsumerRegion: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       StatusChangeDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   ManagedBy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

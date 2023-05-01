@@ -52,11 +52,10 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * };
  * const command = new MonitorContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MonitorContactResponse
- *   ContactId: "STRING_VALUE",
- *   ContactArn: "STRING_VALUE",
- * };
+ * // { // MonitorContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * //   ContactArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

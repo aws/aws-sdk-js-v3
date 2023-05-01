@@ -218,15 +218,14 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDataSetResponse
- *   Arn: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE",
- *   IngestionArn: "STRING_VALUE",
- *   IngestionId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateDataSetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   DataSetId: "STRING_VALUE",
+ * //   IngestionArn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

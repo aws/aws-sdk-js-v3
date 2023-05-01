@@ -50,15 +50,14 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceStartTimeOutput
- *   GatewayARN: "STRING_VALUE",
- *   HourOfDay: Number("int"),
- *   MinuteOfHour: Number("int"),
- *   DayOfWeek: Number("int"),
- *   DayOfMonth: Number("int"),
- *   Timezone: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceStartTimeOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   HourOfDay: Number("int"),
+ * //   MinuteOfHour: Number("int"),
+ * //   DayOfWeek: Number("int"),
+ * //   DayOfMonth: Number("int"),
+ * //   Timezone: "STRING_VALUE",
+ * // };
  *
  * ```
  *

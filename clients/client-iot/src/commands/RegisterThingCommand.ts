@@ -51,13 +51,12 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * };
  * const command = new RegisterThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterThingResponse
- *   certificatePem: "STRING_VALUE",
- *   resourceArns: { // ResourceArns
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // RegisterThingResponse
+ * //   certificatePem: "STRING_VALUE",
+ * //   resourceArns: { // ResourceArns
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

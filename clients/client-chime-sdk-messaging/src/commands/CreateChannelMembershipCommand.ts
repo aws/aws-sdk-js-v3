@@ -89,15 +89,14 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * };
  * const command = new CreateChannelMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelMembershipResponse
- *   ChannelArn: "STRING_VALUE",
- *   Member: { // Identity
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- *   SubChannelId: "STRING_VALUE",
- * };
+ * // { // CreateChannelMembershipResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   Member: { // Identity
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * //   SubChannelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,8 +55,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * };
  * const command = new UpdateLocationNfsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,19 +49,18 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * };
  * const command = new ListSpacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSpacesResponse
- *   Spaces: [ // SpaceList
- *     { // SpaceDetails
- *       DomainId: "STRING_VALUE",
- *       SpaceName: "STRING_VALUE",
- *       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSpacesResponse
+ * //   Spaces: [ // SpaceList
+ * //     { // SpaceDetails
+ * //       DomainId: "STRING_VALUE",
+ * //       SpaceName: "STRING_VALUE",
+ * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

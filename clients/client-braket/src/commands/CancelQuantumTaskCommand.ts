@@ -45,11 +45,10 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * };
  * const command = new CancelQuantumTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelQuantumTaskResponse
- *   quantumTaskArn: "STRING_VALUE", // required
- *   cancellationStatus: "STRING_VALUE", // required
- * };
+ * // { // CancelQuantumTaskResponse
+ * //   quantumTaskArn: "STRING_VALUE", // required
+ * //   cancellationStatus: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

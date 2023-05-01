@@ -47,18 +47,17 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamsResponse
- *   streams: [ // StreamsSummary
- *     { // StreamSummary
- *       streamId: "STRING_VALUE",
- *       streamArn: "STRING_VALUE",
- *       streamVersion: Number("int"),
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStreamsResponse
+ * //   streams: [ // StreamsSummary
+ * //     { // StreamSummary
+ * //       streamId: "STRING_VALUE",
+ * //       streamArn: "STRING_VALUE",
+ * //       streamVersion: Number("int"),
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

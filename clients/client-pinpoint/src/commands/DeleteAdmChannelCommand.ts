@@ -44,21 +44,20 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  * };
  * const command = new DeleteAdmChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAdmChannelResponse
- *   ADMChannelResponse: { // ADMChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteAdmChannelResponse
+ * //   ADMChannelResponse: { // ADMChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

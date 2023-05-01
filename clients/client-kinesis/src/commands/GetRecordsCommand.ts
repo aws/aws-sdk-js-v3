@@ -97,32 +97,31 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecordsOutput
- *   Records: [ // RecordList // required
- *     { // Record
- *       SequenceNumber: "STRING_VALUE", // required
- *       ApproximateArrivalTimestamp: new Date("TIMESTAMP"),
- *       Data: "BLOB_VALUE", // required
- *       PartitionKey: "STRING_VALUE", // required
- *       EncryptionType: "NONE" || "KMS",
- *     },
- *   ],
- *   NextShardIterator: "STRING_VALUE",
- *   MillisBehindLatest: Number("long"),
- *   ChildShards: [ // ChildShardList
- *     { // ChildShard
- *       ShardId: "STRING_VALUE", // required
- *       ParentShards: [ // ShardIdList // required
- *         "STRING_VALUE",
- *       ],
- *       HashKeyRange: { // HashKeyRange
- *         StartingHashKey: "STRING_VALUE", // required
- *         EndingHashKey: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // GetRecordsOutput
+ * //   Records: [ // RecordList // required
+ * //     { // Record
+ * //       SequenceNumber: "STRING_VALUE", // required
+ * //       ApproximateArrivalTimestamp: new Date("TIMESTAMP"),
+ * //       Data: "BLOB_VALUE", // required
+ * //       PartitionKey: "STRING_VALUE", // required
+ * //       EncryptionType: "NONE" || "KMS",
+ * //     },
+ * //   ],
+ * //   NextShardIterator: "STRING_VALUE",
+ * //   MillisBehindLatest: Number("long"),
+ * //   ChildShards: [ // ChildShardList
+ * //     { // ChildShard
+ * //       ShardId: "STRING_VALUE", // required
+ * //       ParentShards: [ // ShardIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       HashKeyRange: { // HashKeyRange
+ * //         StartingHashKey: "STRING_VALUE", // required
+ * //         EndingHashKey: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

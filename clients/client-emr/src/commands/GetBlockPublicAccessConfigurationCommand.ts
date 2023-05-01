@@ -49,41 +49,40 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  * const input = {};
  * const command = new GetBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBlockPublicAccessConfigurationOutput
- *   BlockPublicAccessConfiguration: { // BlockPublicAccessConfiguration
- *     BlockPublicSecurityGroupRules: true || false, // required
- *     PermittedPublicSecurityGroupRuleRanges: [ // PortRanges
- *       { // PortRange
- *         MinRange: Number("int"), // required
- *         MaxRange: Number("int"),
- *       },
- *     ],
- *     Classification: "STRING_VALUE",
- *     Configurations: [ // ConfigurationList
- *       { // Configuration
- *         Classification: "STRING_VALUE",
- *         Configurations: [
- *           {
- *             Classification: "STRING_VALUE",
- *             Configurations: "<ConfigurationList>",
- *             Properties: { // StringMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *         ],
- *         Properties: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     Properties: "<StringMap>",
- *   },
- *   BlockPublicAccessConfigurationMetadata: { // BlockPublicAccessConfigurationMetadata
- *     CreationDateTime: new Date("TIMESTAMP"), // required
- *     CreatedByArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetBlockPublicAccessConfigurationOutput
+ * //   BlockPublicAccessConfiguration: { // BlockPublicAccessConfiguration
+ * //     BlockPublicSecurityGroupRules: true || false, // required
+ * //     PermittedPublicSecurityGroupRuleRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         MinRange: Number("int"), // required
+ * //         MaxRange: Number("int"),
+ * //       },
+ * //     ],
+ * //     Classification: "STRING_VALUE",
+ * //     Configurations: [ // ConfigurationList
+ * //       { // Configuration
+ * //         Classification: "STRING_VALUE",
+ * //         Configurations: [
+ * //           {
+ * //             Classification: "STRING_VALUE",
+ * //             Configurations: "<ConfigurationList>",
+ * //             Properties: { // StringMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         Properties: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     Properties: "<StringMap>",
+ * //   },
+ * //   BlockPublicAccessConfigurationMetadata: { // BlockPublicAccessConfigurationMetadata
+ * //     CreationDateTime: new Date("TIMESTAMP"), // required
+ * //     CreatedByArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,13 +48,12 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * };
  * const command = new ListThreatIntelSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThreatIntelSetsResponse
- *   ThreatIntelSetIds: [ // ThreatIntelSetIds // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListThreatIntelSetsResponse
+ * //   ThreatIntelSetIds: [ // ThreatIntelSetIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

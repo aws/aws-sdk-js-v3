@@ -61,10 +61,9 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAgreementResponse
- *   AgreementId: "STRING_VALUE", // required
- * };
+ * // { // CreateAgreementResponse
+ * //   AgreementId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

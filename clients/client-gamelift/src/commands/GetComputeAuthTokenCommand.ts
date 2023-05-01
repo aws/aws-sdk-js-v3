@@ -48,15 +48,14 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * };
  * const command = new GetComputeAuthTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComputeAuthTokenOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- *   ComputeName: "STRING_VALUE",
- *   ComputeArn: "STRING_VALUE",
- *   AuthToken: "STRING_VALUE",
- *   ExpirationTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetComputeAuthTokenOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   ComputeName: "STRING_VALUE",
+ * //   ComputeArn: "STRING_VALUE",
+ * //   AuthToken: "STRING_VALUE",
+ * //   ExpirationTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

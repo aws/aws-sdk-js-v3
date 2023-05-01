@@ -56,22 +56,21 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * };
  * const command = new SearchAnalysesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchAnalysesResponse
- *   AnalysisSummaryList: [ // AnalysisSummaryList
- *     { // AnalysisSummary
- *       Arn: "STRING_VALUE",
- *       AnalysisId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // SearchAnalysesResponse
+ * //   AnalysisSummaryList: [ // AnalysisSummaryList
+ * //     { // AnalysisSummary
+ * //       Arn: "STRING_VALUE",
+ * //       AnalysisId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,31 +54,30 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * };
  * const command = new DescribeSnapshotTierStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSnapshotTierStatusResult
- *   SnapshotTierStatuses: [ // snapshotTierStatusSet
- *     { // SnapshotTierStatus
- *       SnapshotId: "STRING_VALUE",
- *       VolumeId: "STRING_VALUE",
- *       Status: "pending" || "completed" || "error" || "recoverable" || "recovering",
- *       OwnerId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       StorageTier: "archive" || "standard",
- *       LastTieringStartTime: new Date("TIMESTAMP"),
- *       LastTieringProgress: Number("int"),
- *       LastTieringOperationStatus: "archival-in-progress" || "archival-completed" || "archival-failed" || "temporary-restore-in-progress" || "temporary-restore-completed" || "temporary-restore-failed" || "permanent-restore-in-progress" || "permanent-restore-completed" || "permanent-restore-failed",
- *       LastTieringOperationStatusDetail: "STRING_VALUE",
- *       ArchivalCompleteTime: new Date("TIMESTAMP"),
- *       RestoreExpiryTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSnapshotTierStatusResult
+ * //   SnapshotTierStatuses: [ // snapshotTierStatusSet
+ * //     { // SnapshotTierStatus
+ * //       SnapshotId: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //       Status: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       StorageTier: "archive" || "standard",
+ * //       LastTieringStartTime: new Date("TIMESTAMP"),
+ * //       LastTieringProgress: Number("int"),
+ * //       LastTieringOperationStatus: "archival-in-progress" || "archival-completed" || "archival-failed" || "temporary-restore-in-progress" || "temporary-restore-completed" || "temporary-restore-failed" || "permanent-restore-in-progress" || "permanent-restore-completed" || "permanent-restore-failed",
+ * //       LastTieringOperationStatusDetail: "STRING_VALUE",
+ * //       ArchivalCompleteTime: new Date("TIMESTAMP"),
+ * //       RestoreExpiryTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

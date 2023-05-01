@@ -77,8 +77,7 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * };
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

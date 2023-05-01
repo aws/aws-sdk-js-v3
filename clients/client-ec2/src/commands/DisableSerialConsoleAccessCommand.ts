@@ -47,10 +47,9 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  * };
  * const command = new DisableSerialConsoleAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableSerialConsoleAccessResult
- *   SerialConsoleAccessEnabled: true || false,
- * };
+ * // { // DisableSerialConsoleAccessResult
+ * //   SerialConsoleAccessEnabled: true || false,
+ * // };
  *
  * ```
  *

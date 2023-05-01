@@ -64,8 +64,7 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * };
  * const command = new UpdateMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

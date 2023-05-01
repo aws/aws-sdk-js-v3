@@ -46,8 +46,7 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

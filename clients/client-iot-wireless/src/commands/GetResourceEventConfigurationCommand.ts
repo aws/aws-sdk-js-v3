@@ -51,39 +51,38 @@ export interface GetResourceEventConfigurationCommandOutput
  * };
  * const command = new GetResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceEventConfigurationResponse
- *   DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
- *     Sidewalk: { // SidewalkEventNotificationConfigurations
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
- *   },
- *   Proximity: { // ProximityEventConfiguration
- *     Sidewalk: {
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
- *   },
- *   Join: { // JoinEventConfiguration
- *     LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
- *       DevEuiEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
- *   },
- *   ConnectionStatus: { // ConnectionStatusEventConfiguration
- *     LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
- *       GatewayEuiEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
- *   },
- *   MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
- *     Sidewalk: {
- *       AmazonIdEventTopic: "Enabled" || "Disabled",
- *     },
- *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
- *   },
- * };
+ * // { // GetResourceEventConfigurationResponse
+ * //   DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
+ * //     Sidewalk: { // SidewalkEventNotificationConfigurations
+ * //       AmazonIdEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ * //   },
+ * //   Proximity: { // ProximityEventConfiguration
+ * //     Sidewalk: {
+ * //       AmazonIdEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ * //   },
+ * //   Join: { // JoinEventConfiguration
+ * //     LoRaWAN: { // LoRaWANJoinEventNotificationConfigurations
+ * //       DevEuiEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ * //   },
+ * //   ConnectionStatus: { // ConnectionStatusEventConfiguration
+ * //     LoRaWAN: { // LoRaWANConnectionStatusEventNotificationConfigurations
+ * //       GatewayEuiEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //     WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
+ * //   },
+ * //   MessageDeliveryStatus: { // MessageDeliveryStatusEventConfiguration
+ * //     Sidewalk: {
+ * //       AmazonIdEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ * //   },
+ * // };
  *
  * ```
  *

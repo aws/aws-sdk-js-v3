@@ -48,8 +48,7 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * };
  * const command = new UpdateDomainMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

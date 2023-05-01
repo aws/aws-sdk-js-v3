@@ -44,21 +44,20 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  * };
  * const command = new DeleteVoiceChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVoiceChannelResponse
- *   VoiceChannelResponse: { // VoiceChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteVoiceChannelResponse
+ * //   VoiceChannelResponse: { // VoiceChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,16 +50,15 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * };
  * const command = new UnassignIpv6AddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnassignIpv6AddressesResult
- *   NetworkInterfaceId: "STRING_VALUE",
- *   UnassignedIpv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
- *   UnassignedIpv6Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UnassignIpv6AddressesResult
+ * //   NetworkInterfaceId: "STRING_VALUE",
+ * //   UnassignedIpv6Addresses: [ // Ipv6AddressList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   UnassignedIpv6Prefixes: [ // IpPrefixList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

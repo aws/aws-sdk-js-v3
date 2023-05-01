@@ -47,16 +47,15 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * };
  * const command = new ListPrincipalsForPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPrincipalsForPortfolioOutput
- *   Principals: [ // Principals
- *     { // Principal
- *       PrincipalARN: "STRING_VALUE",
- *       PrincipalType: "IAM" || "IAM_PATTERN",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListPrincipalsForPortfolioOutput
+ * //   Principals: [ // Principals
+ * //     { // Principal
+ * //       PrincipalARN: "STRING_VALUE",
+ * //       PrincipalType: "IAM" || "IAM_PATTERN",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

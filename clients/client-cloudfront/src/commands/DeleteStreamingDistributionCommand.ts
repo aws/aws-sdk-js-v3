@@ -93,8 +93,7 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteStreamingDistributionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,11 +52,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBackupResponse
- *   BackupId: "STRING_VALUE",
- *   Lifecycle: "AVAILABLE" || "CREATING" || "TRANSFERRING" || "DELETED" || "FAILED" || "PENDING" || "COPYING",
- * };
+ * // { // DeleteBackupResponse
+ * //   BackupId: "STRING_VALUE",
+ * //   Lifecycle: "AVAILABLE" || "CREATING" || "TRANSFERRING" || "DELETED" || "FAILED" || "PENDING" || "COPYING",
+ * // };
  *
  * ```
  *

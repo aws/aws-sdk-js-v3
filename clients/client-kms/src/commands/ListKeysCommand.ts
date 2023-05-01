@@ -74,17 +74,16 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKeysResponse
- *   Keys: [ // KeyList
- *     { // KeyListEntry
- *       KeyId: "STRING_VALUE",
- *       KeyArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- *   Truncated: true || false,
- * };
+ * // { // ListKeysResponse
+ * //   Keys: [ // KeyList
+ * //     { // KeyListEntry
+ * //       KeyId: "STRING_VALUE",
+ * //       KeyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
  *
  * ```
  *

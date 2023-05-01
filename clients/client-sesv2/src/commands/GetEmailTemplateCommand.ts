@@ -46,15 +46,14 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEmailTemplateResponse
- *   TemplateName: "STRING_VALUE", // required
- *   TemplateContent: { // EmailTemplateContent
- *     Subject: "STRING_VALUE",
- *     Text: "STRING_VALUE",
- *     Html: "STRING_VALUE",
- *   },
- * };
+ * // { // GetEmailTemplateResponse
+ * //   TemplateName: "STRING_VALUE", // required
+ * //   TemplateContent: { // EmailTemplateContent
+ * //     Subject: "STRING_VALUE",
+ * //     Text: "STRING_VALUE",
+ * //     Html: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

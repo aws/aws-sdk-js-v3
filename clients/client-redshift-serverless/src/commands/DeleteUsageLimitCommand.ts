@@ -48,18 +48,17 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteUsageLimitResponse
- *   usageLimit: { // UsageLimit
- *     usageLimitId: "STRING_VALUE",
- *     usageLimitArn: "STRING_VALUE",
- *     resourceArn: "STRING_VALUE",
- *     usageType: "STRING_VALUE",
- *     amount: Number("long"),
- *     period: "STRING_VALUE",
- *     breachAction: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteUsageLimitResponse
+ * //   usageLimit: { // UsageLimit
+ * //     usageLimitId: "STRING_VALUE",
+ * //     usageLimitArn: "STRING_VALUE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     usageType: "STRING_VALUE",
+ * //     amount: Number("long"),
+ * //     period: "STRING_VALUE",
+ * //     breachAction: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

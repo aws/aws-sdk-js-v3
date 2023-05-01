@@ -45,16 +45,15 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
  * };
  * const command = new ListContactListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactListsResponse
- *   ContactLists: [ // ListOfContactLists
- *     { // ContactList
- *       ContactListName: "STRING_VALUE",
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContactListsResponse
+ * //   ContactLists: [ // ListOfContactLists
+ * //     { // ContactList
+ * //       ContactListName: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

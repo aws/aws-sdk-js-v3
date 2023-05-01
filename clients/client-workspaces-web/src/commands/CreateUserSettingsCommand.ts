@@ -63,10 +63,9 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserSettingsResponse
- *   userSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // CreateUserSettingsResponse
+ * //   userSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

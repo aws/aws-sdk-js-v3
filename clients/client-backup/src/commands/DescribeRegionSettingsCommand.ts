@@ -46,15 +46,14 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * const input = {};
  * const command = new DescribeRegionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRegionSettingsOutput
- *   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
- *     "<keys>": true || false,
- *   },
- *   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
- *     "<keys>": true || false,
- *   },
- * };
+ * // { // DescribeRegionSettingsOutput
+ * //   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
+ * //     "<keys>": true || false,
+ * //   },
+ * //   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
+ * //     "<keys>": true || false,
+ * //   },
+ * // };
  *
  * ```
  *

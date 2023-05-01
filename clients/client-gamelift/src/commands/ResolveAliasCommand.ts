@@ -50,11 +50,10 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * };
  * const command = new ResolveAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveAliasOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // ResolveAliasOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

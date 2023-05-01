@@ -48,11 +48,10 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * };
  * const command = new UpdateResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateResourcePolicyResponse
- *   resourceArn: "STRING_VALUE",
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // UpdateResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

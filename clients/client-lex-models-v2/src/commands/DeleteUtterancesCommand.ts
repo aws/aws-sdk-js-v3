@@ -57,8 +57,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

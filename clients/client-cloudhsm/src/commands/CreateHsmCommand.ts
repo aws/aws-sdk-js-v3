@@ -70,10 +70,9 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHsmResponse
- *   HsmArn: "STRING_VALUE",
- * };
+ * // { // CreateHsmResponse
+ * //   HsmArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

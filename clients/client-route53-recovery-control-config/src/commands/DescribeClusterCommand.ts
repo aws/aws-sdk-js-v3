@@ -48,20 +48,19 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * };
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClusterResponse
- *   Cluster: { // Cluster
- *     ClusterArn: "STRING_VALUE",
- *     ClusterEndpoints: [ // __listOfClusterEndpoint
- *       { // ClusterEndpoint
- *         Endpoint: "STRING_VALUE",
- *         Region: "STRING_VALUE",
- *       },
- *     ],
- *     Name: "STRING_VALUE",
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // DescribeClusterResponse
+ * //   Cluster: { // Cluster
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ClusterEndpoints: [ // __listOfClusterEndpoint
+ * //       { // ClusterEndpoint
+ * //         Endpoint: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

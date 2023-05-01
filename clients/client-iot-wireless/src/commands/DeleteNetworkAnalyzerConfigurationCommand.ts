@@ -52,8 +52,7 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * };
  * const command = new DeleteNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

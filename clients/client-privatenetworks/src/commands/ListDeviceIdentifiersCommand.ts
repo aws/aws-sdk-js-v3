@@ -59,23 +59,22 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * };
  * const command = new ListDeviceIdentifiersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceIdentifiersResponse
- *   deviceIdentifiers: [ // DeviceIdentifierList
- *     { // DeviceIdentifier
- *       deviceIdentifierArn: "STRING_VALUE",
- *       trafficGroupArn: "STRING_VALUE",
- *       networkArn: "STRING_VALUE",
- *       imsi: "STRING_VALUE",
- *       iccid: "STRING_VALUE",
- *       vendor: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       orderArn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeviceIdentifiersResponse
+ * //   deviceIdentifiers: [ // DeviceIdentifierList
+ * //     { // DeviceIdentifier
+ * //       deviceIdentifierArn: "STRING_VALUE",
+ * //       trafficGroupArn: "STRING_VALUE",
+ * //       networkArn: "STRING_VALUE",
+ * //       imsi: "STRING_VALUE",
+ * //       iccid: "STRING_VALUE",
+ * //       vendor: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       orderArn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

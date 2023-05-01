@@ -47,17 +47,16 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * };
  * const command = new DisableInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableInsightRulesOutput
- *   Failures: [ // BatchFailures
- *     { // PartialFailure
- *       FailureResource: "STRING_VALUE",
- *       ExceptionType: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DisableInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

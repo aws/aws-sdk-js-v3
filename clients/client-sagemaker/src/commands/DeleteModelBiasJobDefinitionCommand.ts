@@ -47,8 +47,7 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

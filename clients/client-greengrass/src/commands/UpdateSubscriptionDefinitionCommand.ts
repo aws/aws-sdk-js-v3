@@ -50,8 +50,7 @@ export interface UpdateSubscriptionDefinitionCommandOutput
  * };
  * const command = new UpdateSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

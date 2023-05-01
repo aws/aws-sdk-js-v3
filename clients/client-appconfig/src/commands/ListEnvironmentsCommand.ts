@@ -46,25 +46,24 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Environments
- *   Items: [ // EnvironmentList
- *     { // Environment
- *       ApplicationId: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
- *       Monitors: [ // MonitorList
- *         { // Monitor
- *           AlarmArn: "STRING_VALUE", // required
- *           AlarmRoleArn: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // Environments
+ * //   Items: [ // EnvironmentList
+ * //     { // Environment
+ * //       ApplicationId: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //       Monitors: [ // MonitorList
+ * //         { // Monitor
+ * //           AlarmArn: "STRING_VALUE", // required
+ * //           AlarmRoleArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

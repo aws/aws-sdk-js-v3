@@ -56,22 +56,21 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * };
  * const command = new PutAuditEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAuditEventsResponse
- *   successful: [ // AuditEventResultEntries // required
- *     { // AuditEventResultEntry
- *       id: "STRING_VALUE", // required
- *       eventID: "STRING_VALUE", // required
- *     },
- *   ],
- *   failed: [ // ResultErrorEntries // required
- *     { // ResultErrorEntry
- *       id: "STRING_VALUE", // required
- *       errorCode: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // PutAuditEventsResponse
+ * //   successful: [ // AuditEventResultEntries // required
+ * //     { // AuditEventResultEntry
+ * //       id: "STRING_VALUE", // required
+ * //       eventID: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   failed: [ // ResultErrorEntries // required
+ * //     { // ResultErrorEntry
+ * //       id: "STRING_VALUE", // required
+ * //       errorCode: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

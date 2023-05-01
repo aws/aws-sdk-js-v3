@@ -52,14 +52,13 @@ export interface ListThingRegistrationTaskReportsCommandOutput
  * };
  * const command = new ListThingRegistrationTaskReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingRegistrationTaskReportsResponse
- *   resourceLinks: [ // S3FileUrlList
- *     "STRING_VALUE",
- *   ],
- *   reportType: "ERRORS" || "RESULTS",
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingRegistrationTaskReportsResponse
+ * //   resourceLinks: [ // S3FileUrlList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   reportType: "ERRORS" || "RESULTS",
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

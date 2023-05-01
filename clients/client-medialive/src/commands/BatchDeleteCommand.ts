@@ -55,24 +55,23 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  * };
  * const command = new BatchDeleteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteResponse
- *   Failed: [ // __listOfBatchFailedResultModel
- *     { // BatchFailedResultModel
- *       Arn: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- *   Successful: [ // __listOfBatchSuccessfulResultModel
- *     { // BatchSuccessfulResultModel
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteResponse
+ * //   Failed: [ // __listOfBatchFailedResultModel
+ * //     { // BatchFailedResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Successful: [ // __listOfBatchSuccessfulResultModel
+ * //     { // BatchSuccessfulResultModel
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

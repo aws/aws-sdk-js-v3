@@ -134,8 +134,7 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * };
  * const command = new CreateCrawlerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteKeyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

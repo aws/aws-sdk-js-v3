@@ -55,22 +55,21 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * };
  * const command = new GetEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEnvironmentTemplateVersionOutput
- *   environmentTemplateVersion: { // EnvironmentTemplateVersion
- *     templateName: "STRING_VALUE", // required
- *     majorVersion: "STRING_VALUE", // required
- *     minorVersion: "STRING_VALUE", // required
- *     recommendedMinorVersion: "STRING_VALUE",
- *     status: "STRING_VALUE", // required
- *     statusMessage: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     schema: "STRING_VALUE",
- *   },
- * };
+ * // { // GetEnvironmentTemplateVersionOutput
+ * //   environmentTemplateVersion: { // EnvironmentTemplateVersion
+ * //     templateName: "STRING_VALUE", // required
+ * //     majorVersion: "STRING_VALUE", // required
+ * //     minorVersion: "STRING_VALUE", // required
+ * //     recommendedMinorVersion: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusMessage: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     schema: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

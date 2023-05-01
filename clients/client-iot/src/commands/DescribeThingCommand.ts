@@ -45,19 +45,18 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  * };
  * const command = new DescribeThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeThingResponse
- *   defaultClientId: "STRING_VALUE",
- *   thingName: "STRING_VALUE",
- *   thingId: "STRING_VALUE",
- *   thingArn: "STRING_VALUE",
- *   thingTypeName: "STRING_VALUE",
- *   attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
- *   },
- *   version: Number("long"),
- *   billingGroupName: "STRING_VALUE",
- * };
+ * // { // DescribeThingResponse
+ * //   defaultClientId: "STRING_VALUE",
+ * //   thingName: "STRING_VALUE",
+ * //   thingId: "STRING_VALUE",
+ * //   thingArn: "STRING_VALUE",
+ * //   thingTypeName: "STRING_VALUE",
+ * //   attributes: { // Attributes
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   version: Number("long"),
+ * //   billingGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

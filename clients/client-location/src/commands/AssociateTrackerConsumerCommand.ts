@@ -51,8 +51,7 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * };
  * const command = new AssociateTrackerConsumerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

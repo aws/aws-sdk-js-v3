@@ -58,21 +58,20 @@ export interface ListResolverRuleAssociationsCommandOutput
  * };
  * const command = new ListResolverRuleAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverRuleAssociationsResponse
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ResolverRuleAssociations: [ // ResolverRuleAssociations
- *     { // ResolverRuleAssociation
- *       Id: "STRING_VALUE",
- *       ResolverRuleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       VPCId: "STRING_VALUE",
- *       Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListResolverRuleAssociationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   ResolverRuleAssociations: [ // ResolverRuleAssociations
+ * //     { // ResolverRuleAssociation
+ * //       Id: "STRING_VALUE",
+ * //       ResolverRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VPCId: "STRING_VALUE",
+ * //       Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

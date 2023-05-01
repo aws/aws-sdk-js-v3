@@ -56,8 +56,7 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  * };
  * const command = new UpdateIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

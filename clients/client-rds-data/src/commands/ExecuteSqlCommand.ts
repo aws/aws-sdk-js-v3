@@ -54,74 +54,73 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * };
  * const command = new ExecuteSqlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExecuteSqlResponse
- *   sqlStatementResults: [ // SqlStatementResults
- *     { // SqlStatementResult
- *       resultFrame: { // ResultFrame
- *         resultSetMetadata: { // ResultSetMetadata
- *           columnCount: Number("long"),
- *           columnMetadata: [ // Metadata
- *             { // ColumnMetadata
- *               name: "STRING_VALUE",
- *               type: Number("int"),
- *               typeName: "STRING_VALUE",
- *               label: "STRING_VALUE",
- *               schemaName: "STRING_VALUE",
- *               tableName: "STRING_VALUE",
- *               isAutoIncrement: true || false,
- *               isSigned: true || false,
- *               isCurrency: true || false,
- *               isCaseSensitive: true || false,
- *               nullable: Number("int"),
- *               precision: Number("int"),
- *               scale: Number("int"),
- *               arrayBaseColumnType: Number("int"),
- *             },
- *           ],
- *         },
- *         records: [ // Records
- *           { // Record
- *             values: [ // Row
- *               { // Value Union: only one key present
- *                 isNull: true || false,
- *                 bitValue: true || false,
- *                 bigIntValue: Number("long"),
- *                 intValue: Number("int"),
- *                 doubleValue: Number("double"),
- *                 realValue: Number("float"),
- *                 stringValue: "STRING_VALUE",
- *                 blobValue: "BLOB_VALUE",
- *                 arrayValues: [ // ArrayValueList
- *                   {//  Union: only one key present
- *                     isNull: true || false,
- *                     bitValue: true || false,
- *                     bigIntValue: Number("long"),
- *                     intValue: Number("int"),
- *                     doubleValue: Number("double"),
- *                     realValue: Number("float"),
- *                     stringValue: "STRING_VALUE",
- *                     blobValue: "BLOB_VALUE",
- *                     arrayValues: [
- *                       "<Value>",
- *                     ],
- *                     structValue: { // StructValue
- *                       attributes: "<ArrayValueList>",
- *                     },
- *                   },
- *                 ],
- *                 structValue: {
- *                   attributes: "<ArrayValueList>",
- *                 },
- *               },
- *             ],
- *           },
- *         ],
- *       },
- *       numberOfRecordsUpdated: Number("long"),
- *     },
- *   ],
- * };
+ * // { // ExecuteSqlResponse
+ * //   sqlStatementResults: [ // SqlStatementResults
+ * //     { // SqlStatementResult
+ * //       resultFrame: { // ResultFrame
+ * //         resultSetMetadata: { // ResultSetMetadata
+ * //           columnCount: Number("long"),
+ * //           columnMetadata: [ // Metadata
+ * //             { // ColumnMetadata
+ * //               name: "STRING_VALUE",
+ * //               type: Number("int"),
+ * //               typeName: "STRING_VALUE",
+ * //               label: "STRING_VALUE",
+ * //               schemaName: "STRING_VALUE",
+ * //               tableName: "STRING_VALUE",
+ * //               isAutoIncrement: true || false,
+ * //               isSigned: true || false,
+ * //               isCurrency: true || false,
+ * //               isCaseSensitive: true || false,
+ * //               nullable: Number("int"),
+ * //               precision: Number("int"),
+ * //               scale: Number("int"),
+ * //               arrayBaseColumnType: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //         records: [ // Records
+ * //           { // Record
+ * //             values: [ // Row
+ * //               { // Value Union: only one key present
+ * //                 isNull: true || false,
+ * //                 bitValue: true || false,
+ * //                 bigIntValue: Number("long"),
+ * //                 intValue: Number("int"),
+ * //                 doubleValue: Number("double"),
+ * //                 realValue: Number("float"),
+ * //                 stringValue: "STRING_VALUE",
+ * //                 blobValue: "BLOB_VALUE",
+ * //                 arrayValues: [ // ArrayValueList
+ * //                   {//  Union: only one key present
+ * //                     isNull: true || false,
+ * //                     bitValue: true || false,
+ * //                     bigIntValue: Number("long"),
+ * //                     intValue: Number("int"),
+ * //                     doubleValue: Number("double"),
+ * //                     realValue: Number("float"),
+ * //                     stringValue: "STRING_VALUE",
+ * //                     blobValue: "BLOB_VALUE",
+ * //                     arrayValues: [
+ * //                       "<Value>",
+ * //                     ],
+ * //                     structValue: { // StructValue
+ * //                       attributes: "<ArrayValueList>",
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //                 structValue: {
+ * //                   attributes: "<ArrayValueList>",
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       numberOfRecordsUpdated: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

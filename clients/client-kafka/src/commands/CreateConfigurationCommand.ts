@@ -49,18 +49,17 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConfigurationResponse
- *   Arn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LatestRevision: { // ConfigurationRevision
- *     CreationTime: new Date("TIMESTAMP"), // required
- *     Description: "STRING_VALUE",
- *     Revision: Number("long"), // required
- *   },
- *   Name: "STRING_VALUE",
- *   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * };
+ * // { // CreateConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LatestRevision: { // ConfigurationRevision
+ * //     CreationTime: new Date("TIMESTAMP"), // required
+ * //     Description: "STRING_VALUE",
+ * //     Revision: Number("long"), // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * // };
  *
  * ```
  *

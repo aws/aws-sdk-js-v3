@@ -50,20 +50,19 @@ export interface UpdateVoiceProfileDomainCommandOutput extends UpdateVoiceProfil
  * };
  * const command = new UpdateVoiceProfileDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVoiceProfileDomainResponse
- *   VoiceProfileDomain: { // VoiceProfileDomain
- *     VoiceProfileDomainId: "STRING_VALUE",
- *     VoiceProfileDomainArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *       KmsKeyArn: "STRING_VALUE", // required
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateVoiceProfileDomainResponse
+ * //   VoiceProfileDomain: { // VoiceProfileDomain
+ * //     VoiceProfileDomainId: "STRING_VALUE",
+ * //     VoiceProfileDomainArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

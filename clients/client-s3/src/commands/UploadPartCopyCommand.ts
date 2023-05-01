@@ -235,24 +235,23 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * };
  * const command = new UploadPartCopyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadPartCopyOutput
- *   CopySourceVersionId: "STRING_VALUE",
- *   CopyPartResult: { // CopyPartResult
- *     ETag: "STRING_VALUE",
- *     LastModified: new Date("TIMESTAMP"),
- *     ChecksumCRC32: "STRING_VALUE",
- *     ChecksumCRC32C: "STRING_VALUE",
- *     ChecksumSHA1: "STRING_VALUE",
- *     ChecksumSHA256: "STRING_VALUE",
- *   },
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   BucketKeyEnabled: true || false,
- *   RequestCharged: "requester",
- * };
+ * // { // UploadPartCopyOutput
+ * //   CopySourceVersionId: "STRING_VALUE",
+ * //   CopyPartResult: { // CopyPartResult
+ * //     ETag: "STRING_VALUE",
+ * //     LastModified: new Date("TIMESTAMP"),
+ * //     ChecksumCRC32: "STRING_VALUE",
+ * //     ChecksumCRC32C: "STRING_VALUE",
+ * //     ChecksumSHA1: "STRING_VALUE",
+ * //     ChecksumSHA256: "STRING_VALUE",
+ * //   },
+ * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   SSECustomerAlgorithm: "STRING_VALUE",
+ * //   SSECustomerKeyMD5: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

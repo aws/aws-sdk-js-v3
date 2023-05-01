@@ -61,8 +61,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

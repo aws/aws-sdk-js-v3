@@ -44,8 +44,7 @@ export interface PauseCampaignCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PauseCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,27 +47,26 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  * };
  * const command = new ListHarvestJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHarvestJobsResponse
- *   HarvestJobs: [ // __listOfHarvestJob
- *     { // HarvestJob
- *       Arn: "STRING_VALUE",
- *       ChannelId: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *       EndTime: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       OriginEndpointId: "STRING_VALUE",
- *       S3Destination: { // S3Destination
- *         BucketName: "STRING_VALUE", // required
- *         ManifestKey: "STRING_VALUE", // required
- *         RoleArn: "STRING_VALUE", // required
- *       },
- *       StartTime: "STRING_VALUE",
- *       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHarvestJobsResponse
+ * //   HarvestJobs: [ // __listOfHarvestJob
+ * //     { // HarvestJob
+ * //       Arn: "STRING_VALUE",
+ * //       ChannelId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       EndTime: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       OriginEndpointId: "STRING_VALUE",
+ * //       S3Destination: { // S3Destination
+ * //         BucketName: "STRING_VALUE", // required
+ * //         ManifestKey: "STRING_VALUE", // required
+ * //         RoleArn: "STRING_VALUE", // required
+ * //       },
+ * //       StartTime: "STRING_VALUE",
+ * //       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

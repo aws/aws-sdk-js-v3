@@ -44,14 +44,13 @@ export interface StartInferenceSchedulerCommandOutput extends StartInferenceSche
  * };
  * const command = new StartInferenceSchedulerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartInferenceSchedulerResponse
- *   ModelArn: "STRING_VALUE",
- *   ModelName: "STRING_VALUE",
- *   InferenceSchedulerName: "STRING_VALUE",
- *   InferenceSchedulerArn: "STRING_VALUE",
- *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- * };
+ * // { // StartInferenceSchedulerResponse
+ * //   ModelArn: "STRING_VALUE",
+ * //   ModelName: "STRING_VALUE",
+ * //   InferenceSchedulerName: "STRING_VALUE",
+ * //   InferenceSchedulerArn: "STRING_VALUE",
+ * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * // };
  *
  * ```
  *

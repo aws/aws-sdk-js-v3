@@ -46,13 +46,12 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * };
  * const command = new DeleteDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDashboardResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   DashboardId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DeleteDashboardResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   DashboardId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

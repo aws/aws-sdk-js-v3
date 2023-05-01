@@ -46,8 +46,7 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RebuildEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

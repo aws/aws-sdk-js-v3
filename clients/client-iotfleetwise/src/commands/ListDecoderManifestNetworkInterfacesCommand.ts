@@ -57,30 +57,29 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * };
  * const command = new ListDecoderManifestNetworkInterfacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDecoderManifestNetworkInterfacesResponse
- *   networkInterfaces: [ // NetworkInterfaces
- *     { // NetworkInterface
- *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       canInterface: { // CanInterface
- *         name: "STRING_VALUE", // required
- *         protocolName: "STRING_VALUE",
- *         protocolVersion: "STRING_VALUE",
- *       },
- *       obdInterface: { // ObdInterface
- *         name: "STRING_VALUE", // required
- *         requestMessageId: Number("int"), // required
- *         obdStandard: "STRING_VALUE",
- *         pidRequestIntervalSeconds: Number("int"),
- *         dtcRequestIntervalSeconds: Number("int"),
- *         useExtendedIds: true || false,
- *         hasTransmissionEcu: true || false,
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDecoderManifestNetworkInterfacesResponse
+ * //   networkInterfaces: [ // NetworkInterfaces
+ * //     { // NetworkInterface
+ * //       interfaceId: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       canInterface: { // CanInterface
+ * //         name: "STRING_VALUE", // required
+ * //         protocolName: "STRING_VALUE",
+ * //         protocolVersion: "STRING_VALUE",
+ * //       },
+ * //       obdInterface: { // ObdInterface
+ * //         name: "STRING_VALUE", // required
+ * //         requestMessageId: Number("int"), // required
+ * //         obdStandard: "STRING_VALUE",
+ * //         pidRequestIntervalSeconds: Number("int"),
+ * //         dtcRequestIntervalSeconds: Number("int"),
+ * //         useExtendedIds: true || false,
+ * //         hasTransmissionEcu: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

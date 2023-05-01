@@ -50,11 +50,10 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * };
  * const command = new CreateTestGridUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTestGridUrlResult
- *   url: "STRING_VALUE",
- *   expires: new Date("TIMESTAMP"),
- * };
+ * // { // CreateTestGridUrlResult
+ * //   url: "STRING_VALUE",
+ * //   expires: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

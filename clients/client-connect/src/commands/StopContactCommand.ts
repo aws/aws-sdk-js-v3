@@ -57,8 +57,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * };
  * const command = new StopContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,21 +45,20 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPackagesResponse
- *   Packages: [ // PackageList
- *     { // PackageListItem
- *       PackageId: "STRING_VALUE",
- *       PackageName: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPackagesResponse
+ * //   Packages: [ // PackageList
+ * //     { // PackageListItem
+ * //       PackageId: "STRING_VALUE",
+ * //       PackageName: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

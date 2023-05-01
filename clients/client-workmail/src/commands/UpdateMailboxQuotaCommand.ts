@@ -47,8 +47,7 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * };
  * const command = new UpdateMailboxQuotaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

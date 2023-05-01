@@ -55,8 +55,7 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * };
  * const command = new CancelDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,31 +48,30 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyDBSubnetGroupResult
- *   DBSubnetGroup: { // DBSubnetGroup
- *     DBSubnetGroupName: "STRING_VALUE",
- *     DBSubnetGroupDescription: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     SubnetGroupStatus: "STRING_VALUE",
- *     Subnets: [ // SubnetList
- *       { // Subnet
- *         SubnetIdentifier: "STRING_VALUE",
- *         SubnetAvailabilityZone: { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *         SubnetOutpost: { // Outpost
- *           Arn: "STRING_VALUE",
- *         },
- *         SubnetStatus: "STRING_VALUE",
- *       },
- *     ],
- *     DBSubnetGroupArn: "STRING_VALUE",
- *     SupportedNetworkTypes: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // ModifyDBSubnetGroupResult
+ * //   DBSubnetGroup: { // DBSubnetGroup
+ * //     DBSubnetGroupName: "STRING_VALUE",
+ * //     DBSubnetGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     SubnetGroupStatus: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         SubnetOutpost: { // Outpost
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         SubnetStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DBSubnetGroupArn: "STRING_VALUE",
+ * //     SupportedNetworkTypes: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  * };
  * const command = new ImportMigrationTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

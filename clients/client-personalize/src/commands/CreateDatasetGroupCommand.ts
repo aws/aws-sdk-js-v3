@@ -133,11 +133,10 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetGroupResponse
- *   datasetGroupArn: "STRING_VALUE",
- *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- * };
+ * // { // CreateDatasetGroupResponse
+ * //   datasetGroupArn: "STRING_VALUE",
+ * //   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * // };
  *
  * ```
  *

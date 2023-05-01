@@ -52,24 +52,23 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * };
  * const command = new ListControlDomainInsightsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListControlDomainInsightsResponse
- *   controlDomainInsights: [ // ControlDomainInsightsList
- *     { // ControlDomainInsights
- *       name: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       controlsCountByNoncompliantEvidence: Number("int"),
- *       totalControlsCount: Number("int"),
- *       evidenceInsights: { // EvidenceInsights
- *         noncompliantEvidenceCount: Number("int"),
- *         compliantEvidenceCount: Number("int"),
- *         inconclusiveEvidenceCount: Number("int"),
- *       },
- *       lastUpdated: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListControlDomainInsightsResponse
+ * //   controlDomainInsights: [ // ControlDomainInsightsList
+ * //     { // ControlDomainInsights
+ * //       name: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       controlsCountByNoncompliantEvidence: Number("int"),
+ * //       totalControlsCount: Number("int"),
+ * //       evidenceInsights: { // EvidenceInsights
+ * //         noncompliantEvidenceCount: Number("int"),
+ * //         compliantEvidenceCount: Number("int"),
+ * //         inconclusiveEvidenceCount: Number("int"),
+ * //       },
+ * //       lastUpdated: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

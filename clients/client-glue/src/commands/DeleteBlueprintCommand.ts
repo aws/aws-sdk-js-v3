@@ -44,10 +44,9 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * };
  * const command = new DeleteBlueprintCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBlueprintResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // DeleteBlueprintResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

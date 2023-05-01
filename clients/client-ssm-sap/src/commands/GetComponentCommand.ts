@@ -46,28 +46,27 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComponentOutput
- *   Component: { // Component
- *     ComponentId: "STRING_VALUE",
- *     ApplicationId: "STRING_VALUE",
- *     ComponentType: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Databases: [ // DatabaseIdList
- *       "STRING_VALUE",
- *     ],
- *     Hosts: [ // HostList
- *       { // Host
- *         HostName: "STRING_VALUE",
- *         HostRole: "STRING_VALUE",
- *         HostIp: "STRING_VALUE",
- *         InstanceId: "STRING_VALUE",
- *       },
- *     ],
- *     PrimaryHost: "STRING_VALUE",
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetComponentOutput
+ * //   Component: { // Component
+ * //     ComponentId: "STRING_VALUE",
+ * //     ApplicationId: "STRING_VALUE",
+ * //     ComponentType: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Databases: [ // DatabaseIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Hosts: [ // HostList
+ * //       { // Host
+ * //         HostName: "STRING_VALUE",
+ * //         HostRole: "STRING_VALUE",
+ * //         HostIp: "STRING_VALUE",
+ * //         InstanceId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PrimaryHost: "STRING_VALUE",
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,33 +49,32 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * };
  * const command = new GetSolFunctionPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolFunctionPackageOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
- *   operationalState: "ENABLED" || "DISABLED", // required
- *   usageState: "IN_USE" || "NOT_IN_USE", // required
- *   vnfdId: "STRING_VALUE",
- *   vnfProvider: "STRING_VALUE",
- *   vnfProductName: "STRING_VALUE",
- *   vnfdVersion: "STRING_VALUE",
- *   metadata: { // GetSolFunctionPackageMetadata
- *     vnfd: { // FunctionArtifactMeta
- *       overrides: [ // OverrideList
- *         { // ToscaOverride
- *           name: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModified: new Date("TIMESTAMP"), // required
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSolFunctionPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   operationalState: "ENABLED" || "DISABLED", // required
+ * //   usageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   vnfdId: "STRING_VALUE",
+ * //   vnfProvider: "STRING_VALUE",
+ * //   vnfProductName: "STRING_VALUE",
+ * //   vnfdVersion: "STRING_VALUE",
+ * //   metadata: { // GetSolFunctionPackageMetadata
+ * //     vnfd: { // FunctionArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

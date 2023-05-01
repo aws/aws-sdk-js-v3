@@ -48,10 +48,9 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * };
  * const command = new StopEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopEntitiesDetectionV2JobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StopEntitiesDetectionV2JobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

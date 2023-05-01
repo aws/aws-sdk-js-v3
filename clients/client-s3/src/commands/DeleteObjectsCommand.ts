@@ -110,26 +110,25 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * };
  * const command = new DeleteObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteObjectsOutput
- *   Deleted: [ // DeletedObjects
- *     { // DeletedObject
- *       Key: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       DeleteMarker: true || false,
- *       DeleteMarkerVersionId: "STRING_VALUE",
- *     },
- *   ],
- *   RequestCharged: "requester",
- *   Errors: [ // Errors
- *     { // Error
- *       Key: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteObjectsOutput
+ * //   Deleted: [ // DeletedObjects
+ * //     { // DeletedObject
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       DeleteMarker: true || false,
+ * //       DeleteMarkerVersionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   RequestCharged: "requester",
+ * //   Errors: [ // Errors
+ * //     { // Error
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

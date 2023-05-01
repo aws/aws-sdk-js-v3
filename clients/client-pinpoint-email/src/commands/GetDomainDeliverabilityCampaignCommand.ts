@@ -52,29 +52,28 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * };
  * const command = new GetDomainDeliverabilityCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainDeliverabilityCampaignResponse
- *   DomainDeliverabilityCampaign: { // DomainDeliverabilityCampaign
- *     CampaignId: "STRING_VALUE",
- *     ImageUrl: "STRING_VALUE",
- *     Subject: "STRING_VALUE",
- *     FromAddress: "STRING_VALUE",
- *     SendingIps: [ // IpList
- *       "STRING_VALUE",
- *     ],
- *     FirstSeenDateTime: new Date("TIMESTAMP"),
- *     LastSeenDateTime: new Date("TIMESTAMP"),
- *     InboxCount: Number("long"),
- *     SpamCount: Number("long"),
- *     ReadRate: Number("double"),
- *     DeleteRate: Number("double"),
- *     ReadDeleteRate: Number("double"),
- *     ProjectedVolume: Number("long"),
- *     Esps: [ // Esps
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetDomainDeliverabilityCampaignResponse
+ * //   DomainDeliverabilityCampaign: { // DomainDeliverabilityCampaign
+ * //     CampaignId: "STRING_VALUE",
+ * //     ImageUrl: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //     FromAddress: "STRING_VALUE",
+ * //     SendingIps: [ // IpList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     FirstSeenDateTime: new Date("TIMESTAMP"),
+ * //     LastSeenDateTime: new Date("TIMESTAMP"),
+ * //     InboxCount: Number("long"),
+ * //     SpamCount: Number("long"),
+ * //     ReadRate: Number("double"),
+ * //     DeleteRate: Number("double"),
+ * //     ReadDeleteRate: Number("double"),
+ * //     ProjectedVolume: Number("long"),
+ * //     Esps: [ // Esps
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

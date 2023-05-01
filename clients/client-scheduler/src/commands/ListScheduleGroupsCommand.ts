@@ -46,19 +46,18 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * };
  * const command = new ListScheduleGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScheduleGroupsOutput
- *   NextToken: "STRING_VALUE",
- *   ScheduleGroups: [ // ScheduleGroupList // required
- *     { // ScheduleGroupSummary
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       LastModificationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListScheduleGroupsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   ScheduleGroups: [ // ScheduleGroupList // required
+ * //     { // ScheduleGroupSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastModificationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

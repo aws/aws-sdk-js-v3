@@ -46,10 +46,9 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * };
  * const command = new UpdateBlueprintCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBlueprintResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // UpdateBlueprintResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

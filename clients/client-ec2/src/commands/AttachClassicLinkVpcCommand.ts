@@ -58,10 +58,9 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * };
  * const command = new AttachClassicLinkVpcCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachClassicLinkVpcResult
- *   Return: true || false,
- * };
+ * // { // AttachClassicLinkVpcResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

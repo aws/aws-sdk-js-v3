@@ -46,16 +46,15 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * };
  * const command = new GetLensReviewReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLensReviewReportOutput
- *   WorkloadId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- *   LensReviewReport: { // LensReviewReport
- *     LensAlias: "STRING_VALUE",
- *     LensArn: "STRING_VALUE",
- *     Base64String: "STRING_VALUE",
- *   },
- * };
+ * // { // GetLensReviewReportOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * //   LensReviewReport: { // LensReviewReport
+ * //     LensAlias: "STRING_VALUE",
+ * //     LensArn: "STRING_VALUE",
+ * //     Base64String: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

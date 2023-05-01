@@ -54,10 +54,9 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * };
  * const command = new DisableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableIpamOrganizationAdminAccountResult
- *   Success: true || false,
- * };
+ * // { // DisableIpamOrganizationAdminAccountResult
+ * //   Success: true || false,
+ * // };
  *
  * ```
  *

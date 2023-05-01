@@ -48,16 +48,15 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * };
  * const command = new CreateInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInvitationsResponse
- *   unprocessedAccounts: [ // __listOfUnprocessedAccount
- *     { // UnprocessedAccount
- *       accountId: "STRING_VALUE",
- *       errorCode: "ClientError" || "InternalError",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateInvitationsResponse
+ * //   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ * //     { // UnprocessedAccount
+ * //       accountId: "STRING_VALUE",
+ * //       errorCode: "ClientError" || "InternalError",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

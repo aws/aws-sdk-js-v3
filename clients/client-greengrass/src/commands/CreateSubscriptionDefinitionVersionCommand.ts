@@ -61,13 +61,12 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * };
  * const command = new CreateSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSubscriptionDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateSubscriptionDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

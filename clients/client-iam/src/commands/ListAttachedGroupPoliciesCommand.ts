@@ -56,17 +56,16 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  * };
  * const command = new ListAttachedGroupPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttachedGroupPoliciesResponse
- *   AttachedPolicies: [ // attachedPoliciesListType
- *     { // AttachedPolicy
- *       PolicyName: "STRING_VALUE",
- *       PolicyArn: "STRING_VALUE",
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListAttachedGroupPoliciesResponse
+ * //   AttachedPolicies: [ // attachedPoliciesListType
+ * //     { // AttachedPolicy
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

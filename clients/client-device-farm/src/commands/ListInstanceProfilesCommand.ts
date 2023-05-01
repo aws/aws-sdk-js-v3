@@ -45,22 +45,21 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * };
  * const command = new ListInstanceProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstanceProfilesResult
- *   instanceProfiles: [ // InstanceProfiles
- *     { // InstanceProfile
- *       arn: "STRING_VALUE",
- *       packageCleanup: true || false,
- *       excludeAppPackagesFromCleanup: [ // PackageIds
- *         "STRING_VALUE",
- *       ],
- *       rebootAfterUse: true || false,
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListInstanceProfilesResult
+ * //   instanceProfiles: [ // InstanceProfiles
+ * //     { // InstanceProfile
+ * //       arn: "STRING_VALUE",
+ * //       packageCleanup: true || false,
+ * //       excludeAppPackagesFromCleanup: [ // PackageIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       rebootAfterUse: true || false,
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

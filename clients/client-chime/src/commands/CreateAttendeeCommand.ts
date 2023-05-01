@@ -61,14 +61,13 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * };
  * const command = new CreateAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAttendeeResponse
- *   Attendee: { // Attendee
- *     ExternalUserId: "STRING_VALUE",
- *     AttendeeId: "STRING_VALUE",
- *     JoinToken: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateAttendeeResponse
+ * //   Attendee: { // Attendee
+ * //     ExternalUserId: "STRING_VALUE",
+ * //     AttendeeId: "STRING_VALUE",
+ * //     JoinToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

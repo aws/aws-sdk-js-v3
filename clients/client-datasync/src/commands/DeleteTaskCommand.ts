@@ -44,8 +44,7 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * };
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

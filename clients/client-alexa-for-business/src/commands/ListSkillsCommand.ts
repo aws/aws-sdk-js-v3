@@ -48,19 +48,18 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * };
  * const command = new ListSkillsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSkillsResponse
- *   SkillSummaries: [ // SkillSummaryList
- *     { // SkillSummary
- *       SkillId: "STRING_VALUE",
- *       SkillName: "STRING_VALUE",
- *       SupportsLinking: true || false,
- *       EnablementType: "STRING_VALUE",
- *       SkillType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSkillsResponse
+ * //   SkillSummaries: [ // SkillSummaryList
+ * //     { // SkillSummary
+ * //       SkillId: "STRING_VALUE",
+ * //       SkillName: "STRING_VALUE",
+ * //       SupportsLinking: true || false,
+ * //       EnablementType: "STRING_VALUE",
+ * //       SkillType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

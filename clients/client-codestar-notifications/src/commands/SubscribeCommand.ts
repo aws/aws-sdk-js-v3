@@ -55,10 +55,9 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * };
  * const command = new SubscribeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubscribeResult
- *   Arn: "STRING_VALUE",
- * };
+ * // { // SubscribeResult
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

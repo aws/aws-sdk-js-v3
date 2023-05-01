@@ -46,8 +46,7 @@ export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainR
  * };
  * const command = new DeregisterMailDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

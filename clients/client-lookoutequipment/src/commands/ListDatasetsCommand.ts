@@ -47,18 +47,17 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   NextToken: "STRING_VALUE",
- *   DatasetSummaries: [ // DatasetSummaries
- *     { // DatasetSummary
- *       DatasetName: "STRING_VALUE",
- *       DatasetArn: "STRING_VALUE",
- *       Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListDatasetsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DatasetSummaries: [ // DatasetSummaries
+ * //     { // DatasetSummary
+ * //       DatasetName: "STRING_VALUE",
+ * //       DatasetArn: "STRING_VALUE",
+ * //       Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

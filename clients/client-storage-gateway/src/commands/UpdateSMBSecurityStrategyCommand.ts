@@ -52,10 +52,9 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * };
  * const command = new UpdateSMBSecurityStrategyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSMBSecurityStrategyOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateSMBSecurityStrategyOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

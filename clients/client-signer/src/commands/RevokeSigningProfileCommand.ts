@@ -49,8 +49,7 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeSigningProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

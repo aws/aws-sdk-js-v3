@@ -77,10 +77,9 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * };
  * const command = new CreateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQuerySuggestionsBlockListResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateQuerySuggestionsBlockListResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

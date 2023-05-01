@@ -122,10 +122,9 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * };
  * const command = new StartModelPackagingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartModelPackagingJobResponse
- *   JobName: "STRING_VALUE",
- * };
+ * // { // StartModelPackagingJobResponse
+ * //   JobName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

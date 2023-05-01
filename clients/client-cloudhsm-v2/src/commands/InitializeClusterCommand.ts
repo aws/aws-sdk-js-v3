@@ -49,11 +49,10 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * };
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InitializeClusterResponse
- *   State: "STRING_VALUE",
- *   StateMessage: "STRING_VALUE",
- * };
+ * // { // InitializeClusterResponse
+ * //   State: "STRING_VALUE",
+ * //   StateMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

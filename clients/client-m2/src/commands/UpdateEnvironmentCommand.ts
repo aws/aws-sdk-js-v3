@@ -49,10 +49,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnvironmentResponse
- *   environmentId: "STRING_VALUE", // required
- * };
+ * // { // UpdateEnvironmentResponse
+ * //   environmentId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

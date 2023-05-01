@@ -50,34 +50,33 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  * const input = {};
  * const command = new GetEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEventConfigurationByResourceTypesResponse
- *   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration
- *     Sidewalk: { // SidewalkResourceTypeEventConfiguration
- *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- *   Proximity: { // ProximityResourceTypeEventConfiguration
- *     Sidewalk: {
- *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- *   Join: { // JoinResourceTypeEventConfiguration
- *     LoRaWAN: { // LoRaWANJoinResourceTypeEventConfiguration
- *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- *   ConnectionStatus: { // ConnectionStatusResourceTypeEventConfiguration
- *     LoRaWAN: { // LoRaWANConnectionStatusResourceTypeEventConfiguration
- *       WirelessGatewayEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- *   MessageDeliveryStatus: { // MessageDeliveryStatusResourceTypeEventConfiguration
- *     Sidewalk: {
- *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
- *     },
- *   },
- * };
+ * // { // GetEventConfigurationByResourceTypesResponse
+ * //   DeviceRegistrationState: { // DeviceRegistrationStateResourceTypeEventConfiguration
+ * //     Sidewalk: { // SidewalkResourceTypeEventConfiguration
+ * //       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //   },
+ * //   Proximity: { // ProximityResourceTypeEventConfiguration
+ * //     Sidewalk: {
+ * //       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //   },
+ * //   Join: { // JoinResourceTypeEventConfiguration
+ * //     LoRaWAN: { // LoRaWANJoinResourceTypeEventConfiguration
+ * //       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //   },
+ * //   ConnectionStatus: { // ConnectionStatusResourceTypeEventConfiguration
+ * //     LoRaWAN: { // LoRaWANConnectionStatusResourceTypeEventConfiguration
+ * //       WirelessGatewayEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //   },
+ * //   MessageDeliveryStatus: { // MessageDeliveryStatusResourceTypeEventConfiguration
+ * //     Sidewalk: {
+ * //       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * };
  * const command = new AttachSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

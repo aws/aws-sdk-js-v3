@@ -133,10 +133,9 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * };
  * const command = new CreateRecommenderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRecommenderResponse
- *   recommenderArn: "STRING_VALUE",
- * };
+ * // { // CreateRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

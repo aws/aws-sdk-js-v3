@@ -112,8 +112,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

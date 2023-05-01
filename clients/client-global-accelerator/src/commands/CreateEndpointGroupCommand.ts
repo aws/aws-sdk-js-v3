@@ -70,34 +70,33 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * };
  * const command = new CreateEndpointGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEndpointGroupResponse
- *   EndpointGroup: { // EndpointGroup
- *     EndpointGroupArn: "STRING_VALUE",
- *     EndpointGroupRegion: "STRING_VALUE",
- *     EndpointDescriptions: [ // EndpointDescriptions
- *       { // EndpointDescription
- *         EndpointId: "STRING_VALUE",
- *         Weight: Number("int"),
- *         HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
- *         HealthReason: "STRING_VALUE",
- *         ClientIPPreservationEnabled: true || false,
- *       },
- *     ],
- *     TrafficDialPercentage: Number("float"),
- *     HealthCheckPort: Number("int"),
- *     HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
- *     HealthCheckPath: "STRING_VALUE",
- *     HealthCheckIntervalSeconds: Number("int"),
- *     ThresholdCount: Number("int"),
- *     PortOverrides: [ // PortOverrides
- *       { // PortOverride
- *         ListenerPort: Number("int"),
- *         EndpointPort: Number("int"),
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateEndpointGroupResponse
+ * //   EndpointGroup: { // EndpointGroup
+ * //     EndpointGroupArn: "STRING_VALUE",
+ * //     EndpointGroupRegion: "STRING_VALUE",
+ * //     EndpointDescriptions: [ // EndpointDescriptions
+ * //       { // EndpointDescription
+ * //         EndpointId: "STRING_VALUE",
+ * //         Weight: Number("int"),
+ * //         HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
+ * //         HealthReason: "STRING_VALUE",
+ * //         ClientIPPreservationEnabled: true || false,
+ * //       },
+ * //     ],
+ * //     TrafficDialPercentage: Number("float"),
+ * //     HealthCheckPort: Number("int"),
+ * //     HealthCheckProtocol: "TCP" || "HTTP" || "HTTPS",
+ * //     HealthCheckPath: "STRING_VALUE",
+ * //     HealthCheckIntervalSeconds: Number("int"),
+ * //     ThresholdCount: Number("int"),
+ * //     PortOverrides: [ // PortOverrides
+ * //       { // PortOverride
+ * //         ListenerPort: Number("int"),
+ * //         EndpointPort: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

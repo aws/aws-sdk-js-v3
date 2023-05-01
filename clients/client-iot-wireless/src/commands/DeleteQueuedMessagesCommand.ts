@@ -46,8 +46,7 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  * };
  * const command = new DeleteQueuedMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

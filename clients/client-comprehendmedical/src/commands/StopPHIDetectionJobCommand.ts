@@ -48,10 +48,9 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * };
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopPHIDetectionJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StopPHIDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

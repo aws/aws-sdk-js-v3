@@ -53,8 +53,7 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteChannelMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

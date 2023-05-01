@@ -49,11 +49,10 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * };
  * const command = new CreateUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserHierarchyGroupResponse
- *   HierarchyGroupId: "STRING_VALUE",
- *   HierarchyGroupArn: "STRING_VALUE",
- * };
+ * // { // CreateUserHierarchyGroupResponse
+ * //   HierarchyGroupId: "STRING_VALUE",
+ * //   HierarchyGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

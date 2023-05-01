@@ -44,10 +44,9 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * };
  * const command = new DeleteMissionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MissionProfileIdResponse
- *   missionProfileId: "STRING_VALUE",
- * };
+ * // { // MissionProfileIdResponse
+ * //   missionProfileId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

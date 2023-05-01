@@ -57,15 +57,14 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * };
  * const command = new AssociatePersonasToEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociatePersonasToEntitiesResponse
- *   FailedEntityList: [ // FailedEntityList
- *     { // FailedEntity
- *       EntityId: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssociatePersonasToEntitiesResponse
+ * //   FailedEntityList: [ // FailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

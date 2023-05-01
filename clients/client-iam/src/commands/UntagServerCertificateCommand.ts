@@ -56,8 +56,7 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagServerCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

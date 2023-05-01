@@ -49,30 +49,29 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfilesResponse
- *   nextToken: "STRING_VALUE",
- *   profiles: [ // ProfileDetails
- *     { // ProfileDetail
- *       profileId: "STRING_VALUE",
- *       profileArn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       requireInstanceProperties: true || false,
- *       enabled: true || false,
- *       createdBy: "STRING_VALUE",
- *       sessionPolicy: "STRING_VALUE",
- *       roleArns: [ // RoleArnList
- *         "STRING_VALUE",
- *       ],
- *       managedPolicyArns: [ // ManagedPolicyList
- *         "STRING_VALUE",
- *       ],
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *       durationSeconds: Number("int"),
- *     },
- *   ],
- * };
+ * // { // ListProfilesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   profiles: [ // ProfileDetails
+ * //     { // ProfileDetail
+ * //       profileId: "STRING_VALUE",
+ * //       profileArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       requireInstanceProperties: true || false,
+ * //       enabled: true || false,
+ * //       createdBy: "STRING_VALUE",
+ * //       sessionPolicy: "STRING_VALUE",
+ * //       roleArns: [ // RoleArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       managedPolicyArns: [ // ManagedPolicyList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       durationSeconds: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -51,19 +51,18 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * };
  * const command = new ListAppInstanceAdminsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInstanceAdminsResponse
- *   AppInstanceArn: "STRING_VALUE",
- *   AppInstanceAdmins: [ // AppInstanceAdminList
- *     { // AppInstanceAdminSummary
- *       Admin: { // Identity
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInstanceAdminsResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * //   AppInstanceAdmins: [ // AppInstanceAdminList
+ * //     { // AppInstanceAdminSummary
+ * //       Admin: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

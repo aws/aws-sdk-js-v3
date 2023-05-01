@@ -79,12 +79,11 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  * };
  * const command = new StartSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSentimentDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartSentimentDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

@@ -50,12 +50,11 @@ export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer
  * };
  * const command = new GetExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportResponse
- *   contentType: "STRING_VALUE",
- *   contentDisposition: "STRING_VALUE",
- *   body: "BLOB_VALUE",
- * };
+ * // { // ExportResponse
+ * //   contentType: "STRING_VALUE",
+ * //   contentDisposition: "STRING_VALUE",
+ * //   body: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

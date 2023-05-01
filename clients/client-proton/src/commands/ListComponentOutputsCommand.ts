@@ -52,16 +52,15 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * };
  * const command = new ListComponentOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentOutputsOutput
- *   nextToken: "STRING_VALUE",
- *   outputs: [ // OutputsList // required
- *     { // Output
- *       key: "STRING_VALUE",
- *       valueString: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListComponentOutputsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   outputs: [ // OutputsList // required
+ * //     { // Output
+ * //       key: "STRING_VALUE",
+ * //       valueString: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

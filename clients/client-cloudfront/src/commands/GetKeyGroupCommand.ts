@@ -50,21 +50,20 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * };
  * const command = new GetKeyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKeyGroupResult
- *   KeyGroup: { // KeyGroup
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     KeyGroupConfig: { // KeyGroupConfig
- *       Name: "STRING_VALUE", // required
- *       Items: [ // PublicKeyIdList // required
- *         "STRING_VALUE",
- *       ],
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetKeyGroupResult
+ * //   KeyGroup: { // KeyGroup
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     KeyGroupConfig: { // KeyGroupConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Items: [ // PublicKeyIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

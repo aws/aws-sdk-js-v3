@@ -48,8 +48,7 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

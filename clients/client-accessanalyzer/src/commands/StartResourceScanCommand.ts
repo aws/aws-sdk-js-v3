@@ -46,8 +46,7 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,15 +46,14 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * };
  * const command = new AssociateLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateLinkResponse
- *   LinkAssociation: { // LinkAssociation
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // AssociateLinkResponse
+ * //   LinkAssociation: { // LinkAssociation
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

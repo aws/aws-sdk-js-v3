@@ -46,15 +46,14 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * };
  * const command = new GetExtensionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExtensionVersionResult
- *   ExtensionVersion: { // ExtensionVersionDetails
- *     Namespace: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Schema: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *   },
- * };
+ * // { // GetExtensionVersionResult
+ * //   ExtensionVersion: { // ExtensionVersionDetails
+ * //     Namespace: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Schema: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

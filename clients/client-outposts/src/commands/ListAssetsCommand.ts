@@ -55,24 +55,23 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetsOutput
- *   Assets: [ // AssetListDefinition
- *     { // AssetInfo
- *       AssetId: "STRING_VALUE",
- *       RackId: "STRING_VALUE",
- *       AssetType: "COMPUTE",
- *       ComputeAttributes: { // ComputeAttributes
- *         HostId: "STRING_VALUE",
- *         State: "ACTIVE" || "ISOLATED" || "RETIRING",
- *       },
- *       AssetLocation: { // AssetLocation
- *         RackElevation: Number("float"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetsOutput
+ * //   Assets: [ // AssetListDefinition
+ * //     { // AssetInfo
+ * //       AssetId: "STRING_VALUE",
+ * //       RackId: "STRING_VALUE",
+ * //       AssetType: "COMPUTE",
+ * //       ComputeAttributes: { // ComputeAttributes
+ * //         HostId: "STRING_VALUE",
+ * //         State: "ACTIVE" || "ISOLATED" || "RETIRING",
+ * //       },
+ * //       AssetLocation: { // AssetLocation
+ * //         RackElevation: Number("float"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

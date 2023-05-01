@@ -45,26 +45,25 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * };
  * const command = new GetBatchPredictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBatchPredictionOutput
- *   BatchPredictionId: "STRING_VALUE",
- *   MLModelId: "STRING_VALUE",
- *   BatchPredictionDataSourceId: "STRING_VALUE",
- *   InputDataLocationS3: "STRING_VALUE",
- *   CreatedByIamUser: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- *   Name: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   OutputUri: "STRING_VALUE",
- *   LogUri: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   ComputeTime: Number("long"),
- *   FinishedAt: new Date("TIMESTAMP"),
- *   StartedAt: new Date("TIMESTAMP"),
- *   TotalRecordCount: Number("long"),
- *   InvalidRecordCount: Number("long"),
- * };
+ * // { // GetBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * //   MLModelId: "STRING_VALUE",
+ * //   BatchPredictionDataSourceId: "STRING_VALUE",
+ * //   InputDataLocationS3: "STRING_VALUE",
+ * //   CreatedByIamUser: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   Name: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   OutputUri: "STRING_VALUE",
+ * //   LogUri: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   ComputeTime: Number("long"),
+ * //   FinishedAt: new Date("TIMESTAMP"),
+ * //   StartedAt: new Date("TIMESTAMP"),
+ * //   TotalRecordCount: Number("long"),
+ * //   InvalidRecordCount: Number("long"),
+ * // };
  *
  * ```
  *

@@ -44,11 +44,10 @@ export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolic
  * };
  * const command = new GetLineageGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLineageGroupPolicyResponse
- *   LineageGroupArn: "STRING_VALUE",
- *   ResourcePolicy: "STRING_VALUE",
- * };
+ * // { // GetLineageGroupPolicyResponse
+ * //   LineageGroupArn: "STRING_VALUE",
+ * //   ResourcePolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

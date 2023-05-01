@@ -57,16 +57,15 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * };
  * const command = new NotifyWorkersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // NotifyWorkersResponse
- *   NotifyWorkersFailureStatuses: [ // NotifyWorkersFailureStatusList
- *     { // NotifyWorkersFailureStatus
- *       NotifyWorkersFailureCode: "STRING_VALUE",
- *       NotifyWorkersFailureMessage: "STRING_VALUE",
- *       WorkerId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // NotifyWorkersResponse
+ * //   NotifyWorkersFailureStatuses: [ // NotifyWorkersFailureStatusList
+ * //     { // NotifyWorkersFailureStatus
+ * //       NotifyWorkersFailureCode: "STRING_VALUE",
+ * //       NotifyWorkersFailureMessage: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

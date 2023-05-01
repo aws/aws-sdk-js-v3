@@ -73,22 +73,21 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionsResponse
- *   Permissions: [ // PermissionList
- *     { // Permission
- *       CertificateAuthorityArn: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       Principal: "STRING_VALUE",
- *       SourceAccount: "STRING_VALUE",
- *       Actions: [ // ActionList
- *         "IssueCertificate" || "GetCertificate" || "ListPermissions",
- *       ],
- *       Policy: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionsResponse
+ * //   Permissions: [ // PermissionList
+ * //     { // Permission
+ * //       CertificateAuthorityArn: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Principal: "STRING_VALUE",
+ * //       SourceAccount: "STRING_VALUE",
+ * //       Actions: [ // ActionList
+ * //         "IssueCertificate" || "GetCertificate" || "ListPermissions",
+ * //       ],
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

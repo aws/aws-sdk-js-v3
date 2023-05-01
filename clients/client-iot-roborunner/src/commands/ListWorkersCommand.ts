@@ -47,39 +47,38 @@ export interface ListWorkersCommandOutput extends ListWorkersResponse, __Metadat
  * };
  * const command = new ListWorkersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkersResponse
- *   nextToken: "STRING_VALUE",
- *   workers: [ // Workers
- *     { // Worker
- *       arn: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       fleet: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       updatedAt: new Date("TIMESTAMP"), // required
- *       name: "STRING_VALUE", // required
- *       site: "STRING_VALUE", // required
- *       additionalTransientProperties: "STRING_VALUE",
- *       additionalFixedProperties: "STRING_VALUE",
- *       vendorProperties: { // VendorProperties
- *         vendorWorkerId: "STRING_VALUE", // required
- *         vendorWorkerIpAddress: "STRING_VALUE",
- *         vendorAdditionalTransientProperties: "STRING_VALUE",
- *         vendorAdditionalFixedProperties: "STRING_VALUE",
- *       },
- *       position: { // PositionCoordinates Union: only one key present
- *         cartesianCoordinates: { // CartesianCoordinates
- *           x: Number("double"), // required
- *           y: Number("double"), // required
- *           z: Number("double"),
- *         },
- *       },
- *       orientation: { // Orientation Union: only one key present
- *         degrees: Number("double"),
- *       },
- *     },
- *   ],
- * };
+ * // { // ListWorkersResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workers: [ // Workers
+ * //     { // Worker
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       fleet: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       name: "STRING_VALUE", // required
+ * //       site: "STRING_VALUE", // required
+ * //       additionalTransientProperties: "STRING_VALUE",
+ * //       additionalFixedProperties: "STRING_VALUE",
+ * //       vendorProperties: { // VendorProperties
+ * //         vendorWorkerId: "STRING_VALUE", // required
+ * //         vendorWorkerIpAddress: "STRING_VALUE",
+ * //         vendorAdditionalTransientProperties: "STRING_VALUE",
+ * //         vendorAdditionalFixedProperties: "STRING_VALUE",
+ * //       },
+ * //       position: { // PositionCoordinates Union: only one key present
+ * //         cartesianCoordinates: { // CartesianCoordinates
+ * //           x: Number("double"), // required
+ * //           y: Number("double"), // required
+ * //           z: Number("double"),
+ * //         },
+ * //       },
+ * //       orientation: { // Orientation Union: only one key present
+ * //         degrees: Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

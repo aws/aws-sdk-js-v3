@@ -46,12 +46,11 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * };
  * const command = new GetEndpointAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEndpointAttributesResponse
- *   Attributes: { // MapStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetEndpointAttributesResponse
+ * //   Attributes: { // MapStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

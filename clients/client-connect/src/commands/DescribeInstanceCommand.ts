@@ -53,23 +53,22 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * };
  * const command = new DescribeInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceResponse
- *   Instance: { // Instance
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY",
- *     InstanceAlias: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     ServiceRole: "STRING_VALUE",
- *     InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
- *     StatusReason: { // InstanceStatusReason
- *       Message: "STRING_VALUE",
- *     },
- *     InboundCallsEnabled: true || false,
- *     OutboundCallsEnabled: true || false,
- *   },
- * };
+ * // { // DescribeInstanceResponse
+ * //   Instance: { // Instance
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY",
+ * //     InstanceAlias: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     ServiceRole: "STRING_VALUE",
+ * //     InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
+ * //     StatusReason: { // InstanceStatusReason
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InboundCallsEnabled: true || false,
+ * //     OutboundCallsEnabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

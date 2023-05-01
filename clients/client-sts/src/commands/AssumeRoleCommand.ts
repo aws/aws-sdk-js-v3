@@ -153,21 +153,20 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssumeRoleResponse
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     SessionToken: "STRING_VALUE", // required
- *     Expiration: new Date("TIMESTAMP"), // required
- *   },
- *   AssumedRoleUser: { // AssumedRoleUser
- *     AssumedRoleId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *   },
- *   PackedPolicySize: Number("int"),
- *   SourceIdentity: "STRING_VALUE",
- * };
+ * // { // AssumeRoleResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
  *
  * ```
  *

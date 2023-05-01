@@ -45,21 +45,20 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * };
  * const command = new DescribeLocationEfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationEfsResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   Ec2Config: { // Ec2Config
- *     SubnetArn: "STRING_VALUE", // required
- *     SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   AccessPointArn: "STRING_VALUE",
- *   FileSystemAccessRoleArn: "STRING_VALUE",
- *   InTransitEncryption: "NONE" || "TLS1_2",
- * };
+ * // { // DescribeLocationEfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   Ec2Config: { // Ec2Config
+ * //     SubnetArn: "STRING_VALUE", // required
+ * //     SecurityGroupArns: [ // Ec2SecurityGroupArnList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   AccessPointArn: "STRING_VALUE",
+ * //   FileSystemAccessRoleArn: "STRING_VALUE",
+ * //   InTransitEncryption: "NONE" || "TLS1_2",
+ * // };
  *
  * ```
  *

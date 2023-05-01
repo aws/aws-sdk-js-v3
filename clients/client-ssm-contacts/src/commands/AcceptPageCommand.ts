@@ -49,8 +49,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * };
  * const command = new AcceptPageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

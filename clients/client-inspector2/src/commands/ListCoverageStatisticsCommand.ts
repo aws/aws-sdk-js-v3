@@ -96,17 +96,16 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * };
  * const command = new ListCoverageStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoverageStatisticsResponse
- *   countsByGroup: [ // CountsList
- *     { // Counts
- *       count: Number("long"),
- *       groupKey: "STRING_VALUE",
- *     },
- *   ],
- *   totalCounts: Number("long"), // required
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCoverageStatisticsResponse
+ * //   countsByGroup: [ // CountsList
+ * //     { // Counts
+ * //       count: Number("long"),
+ * //       groupKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   totalCounts: Number("long"), // required
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

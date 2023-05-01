@@ -43,12 +43,11 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * const input = {};
  * const command = new ListVerifiedEmailAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVerifiedEmailAddressesResponse
- *   VerifiedEmailAddresses: [ // AddressList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListVerifiedEmailAddressesResponse
+ * //   VerifiedEmailAddresses: [ // AddressList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

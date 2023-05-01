@@ -46,13 +46,12 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * };
  * const command = new GetRoomSkillParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoomSkillParameterResponse
- *   RoomSkillParameter: { // RoomSkillParameter
- *     ParameterKey: "STRING_VALUE", // required
- *     ParameterValue: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetRoomSkillParameterResponse
+ * //   RoomSkillParameter: { // RoomSkillParameter
+ * //     ParameterKey: "STRING_VALUE", // required
+ * //     ParameterValue: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

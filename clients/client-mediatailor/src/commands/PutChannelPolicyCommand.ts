@@ -45,8 +45,7 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * };
  * const command = new PutChannelPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

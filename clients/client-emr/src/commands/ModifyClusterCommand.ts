@@ -46,10 +46,9 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyClusterOutput
- *   StepConcurrencyLevel: Number("int"),
- * };
+ * // { // ModifyClusterOutput
+ * //   StepConcurrencyLevel: Number("int"),
+ * // };
  *
  * ```
  *

@@ -90,13 +90,12 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  * };
  * const command = new UpdateWorkflowStepCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkflowStepResponse
- *   id: "STRING_VALUE",
- *   stepGroupId: "STRING_VALUE",
- *   workflowId: "STRING_VALUE",
- *   name: "STRING_VALUE",
- * };
+ * // { // UpdateWorkflowStepResponse
+ * //   id: "STRING_VALUE",
+ * //   stepGroupId: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

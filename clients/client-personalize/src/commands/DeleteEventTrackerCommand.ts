@@ -46,8 +46,7 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEventTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface ReplaceVpnTunnelCommandOutput extends ReplaceVpnTunnelResult, _
  * };
  * const command = new ReplaceVpnTunnelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplaceVpnTunnelResult
- *   Return: true || false,
- * };
+ * // { // ReplaceVpnTunnelResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

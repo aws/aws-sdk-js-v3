@@ -44,56 +44,55 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEnvironmentResponse
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   environmentArn: "STRING_VALUE", // required
- *   environmentId: "STRING_VALUE", // required
- *   instanceType: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   engineType: "STRING_VALUE", // required
- *   engineVersion: "STRING_VALUE", // required
- *   vpcId: "STRING_VALUE", // required
- *   subnetIds: [ // String50List // required
- *     "STRING_VALUE",
- *   ],
- *   securityGroupIds: [ // required
- *     "STRING_VALUE",
- *   ],
- *   creationTime: new Date("TIMESTAMP"), // required
- *   storageConfigurations: [ // StorageConfigurationList
- *     { // StorageConfiguration Union: only one key present
- *       efs: { // EfsStorageConfiguration
- *         fileSystemId: "STRING_VALUE", // required
- *         mountPoint: "STRING_VALUE", // required
- *       },
- *       fsx: { // FsxStorageConfiguration
- *         fileSystemId: "STRING_VALUE", // required
- *         mountPoint: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   highAvailabilityConfig: { // HighAvailabilityConfig
- *     desiredCapacity: Number("int"), // required
- *   },
- *   publiclyAccessible: true || false,
- *   actualCapacity: Number("int"),
- *   loadBalancerArn: "STRING_VALUE",
- *   statusReason: "STRING_VALUE",
- *   preferredMaintenanceWindow: "STRING_VALUE",
- *   pendingMaintenance: { // PendingMaintenance
- *     schedule: { // MaintenanceSchedule
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *     },
- *     engineVersion: "STRING_VALUE",
- *   },
- *   kmsKeyId: "STRING_VALUE",
- * };
+ * // { // GetEnvironmentResponse
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   environmentArn: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE", // required
+ * //   instanceType: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   engineType: "STRING_VALUE", // required
+ * //   engineVersion: "STRING_VALUE", // required
+ * //   vpcId: "STRING_VALUE", // required
+ * //   subnetIds: [ // String50List // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   securityGroupIds: [ // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   storageConfigurations: [ // StorageConfigurationList
+ * //     { // StorageConfiguration Union: only one key present
+ * //       efs: { // EfsStorageConfiguration
+ * //         fileSystemId: "STRING_VALUE", // required
+ * //         mountPoint: "STRING_VALUE", // required
+ * //       },
+ * //       fsx: { // FsxStorageConfiguration
+ * //         fileSystemId: "STRING_VALUE", // required
+ * //         mountPoint: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   highAvailabilityConfig: { // HighAvailabilityConfig
+ * //     desiredCapacity: Number("int"), // required
+ * //   },
+ * //   publiclyAccessible: true || false,
+ * //   actualCapacity: Number("int"),
+ * //   loadBalancerArn: "STRING_VALUE",
+ * //   statusReason: "STRING_VALUE",
+ * //   preferredMaintenanceWindow: "STRING_VALUE",
+ * //   pendingMaintenance: { // PendingMaintenance
+ * //     schedule: { // MaintenanceSchedule
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     engineVersion: "STRING_VALUE",
+ * //   },
+ * //   kmsKeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

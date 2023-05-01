@@ -53,15 +53,14 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * };
  * const command = new CreateJobForDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobForDevicesResponse
- *   Jobs: [ // JobList // required
- *     { // Job
- *       JobId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateJobForDevicesResponse
+ * //   Jobs: [ // JobList // required
+ * //     { // Job
+ * //       JobId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,39 +45,38 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * };
  * const command = new DescribeBotVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBotVersionResponse
- *   botId: "STRING_VALUE",
- *   botName: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   roleArn: "STRING_VALUE",
- *   dataPrivacy: { // DataPrivacy
- *     childDirected: true || false, // required
- *   },
- *   idleSessionTTLInSeconds: Number("int"),
- *   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- *   failureReasons: [ // FailureReasons
- *     "STRING_VALUE",
- *   ],
- *   creationDateTime: new Date("TIMESTAMP"),
- *   parentBotNetworks: [ // ParentBotNetworks
- *     { // ParentBotNetwork
- *       botId: "STRING_VALUE", // required
- *       botVersion: "STRING_VALUE", // required
- *     },
- *   ],
- *   botType: "Bot" || "BotNetwork",
- *   botMembers: [ // BotMembers
- *     { // BotMember
- *       botMemberId: "STRING_VALUE", // required
- *       botMemberName: "STRING_VALUE", // required
- *       botMemberAliasId: "STRING_VALUE", // required
- *       botMemberAliasName: "STRING_VALUE", // required
- *       botMemberVersion: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // DescribeBotVersionResponse
+ * //   botId: "STRING_VALUE",
+ * //   botName: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
+ * //   dataPrivacy: { // DataPrivacy
+ * //     childDirected: true || false, // required
+ * //   },
+ * //   idleSessionTTLInSeconds: Number("int"),
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   parentBotNetworks: [ // ParentBotNetworks
+ * //     { // ParentBotNetwork
+ * //       botId: "STRING_VALUE", // required
+ * //       botVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   botType: "Bot" || "BotNetwork",
+ * //   botMembers: [ // BotMembers
+ * //     { // BotMember
+ * //       botMemberId: "STRING_VALUE", // required
+ * //       botMemberName: "STRING_VALUE", // required
+ * //       botMemberAliasId: "STRING_VALUE", // required
+ * //       botMemberAliasName: "STRING_VALUE", // required
+ * //       botMemberVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

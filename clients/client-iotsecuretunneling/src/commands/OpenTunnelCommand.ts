@@ -65,13 +65,12 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * };
  * const command = new OpenTunnelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OpenTunnelResponse
- *   tunnelId: "STRING_VALUE",
- *   tunnelArn: "STRING_VALUE",
- *   sourceAccessToken: "STRING_VALUE",
- *   destinationAccessToken: "STRING_VALUE",
- * };
+ * // { // OpenTunnelResponse
+ * //   tunnelId: "STRING_VALUE",
+ * //   tunnelArn: "STRING_VALUE",
+ * //   sourceAccessToken: "STRING_VALUE",
+ * //   destinationAccessToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

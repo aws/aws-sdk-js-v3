@@ -50,26 +50,25 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * };
  * const command = new ListOriginAccessControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOriginAccessControlsResult
- *   OriginAccessControlList: { // OriginAccessControlList
- *     Marker: "STRING_VALUE", // required
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     IsTruncated: true || false, // required
- *     Quantity: Number("int"), // required
- *     Items: [ // OriginAccessControlSummaryList
- *       { // OriginAccessControlSummary
- *         Id: "STRING_VALUE", // required
- *         Description: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *         SigningProtocol: "sigv4", // required
- *         SigningBehavior: "never" || "always" || "no-override", // required
- *         OriginAccessControlOriginType: "s3" || "mediastore", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // ListOriginAccessControlsResult
+ * //   OriginAccessControlList: { // OriginAccessControlList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // OriginAccessControlSummaryList
+ * //       { // OriginAccessControlSummary
+ * //         Id: "STRING_VALUE", // required
+ * //         Description: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         SigningProtocol: "sigv4", // required
+ * //         SigningBehavior: "never" || "always" || "no-override", // required
+ * //         OriginAccessControlOriginType: "s3" || "mediastore", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

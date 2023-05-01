@@ -52,10 +52,9 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  * };
  * const command = new TestCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestCustomDataIdentifierResponse
- *   matchCount: Number("int"),
- * };
+ * // { // TestCustomDataIdentifierResponse
+ * //   matchCount: Number("int"),
+ * // };
  *
  * ```
  *

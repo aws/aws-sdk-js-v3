@@ -91,35 +91,34 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * };
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchFacesByImageResponse
- *   SearchedFaceBoundingBox: { // BoundingBox
- *     Width: Number("float"),
- *     Height: Number("float"),
- *     Left: Number("float"),
- *     Top: Number("float"),
- *   },
- *   SearchedFaceConfidence: Number("float"),
- *   FaceMatches: [ // FaceMatchList
- *     { // FaceMatch
- *       Similarity: Number("float"),
- *       Face: { // Face
- *         FaceId: "STRING_VALUE",
- *         BoundingBox: {
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *         },
- *         ImageId: "STRING_VALUE",
- *         ExternalImageId: "STRING_VALUE",
- *         Confidence: Number("float"),
- *         IndexFacesModelVersion: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   FaceModelVersion: "STRING_VALUE",
- * };
+ * // { // SearchFacesByImageResponse
+ * //   SearchedFaceBoundingBox: { // BoundingBox
+ * //     Width: Number("float"),
+ * //     Height: Number("float"),
+ * //     Left: Number("float"),
+ * //     Top: Number("float"),
+ * //   },
+ * //   SearchedFaceConfidence: Number("float"),
+ * //   FaceMatches: [ // FaceMatchList
+ * //     { // FaceMatch
+ * //       Similarity: Number("float"),
+ * //       Face: { // Face
+ * //         FaceId: "STRING_VALUE",
+ * //         BoundingBox: {
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         ImageId: "STRING_VALUE",
+ * //         ExternalImageId: "STRING_VALUE",
+ * //         Confidence: Number("float"),
+ * //         IndexFacesModelVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

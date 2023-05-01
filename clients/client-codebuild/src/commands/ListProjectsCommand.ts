@@ -47,13 +47,12 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsOutput
- *   nextToken: "STRING_VALUE",
- *   projects: [ // ProjectNames
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListProjectsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   projects: [ // ProjectNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

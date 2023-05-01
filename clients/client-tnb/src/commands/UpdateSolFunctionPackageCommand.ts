@@ -46,10 +46,9 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * };
  * const command = new UpdateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSolFunctionPackageOutput
- *   operationalState: "ENABLED" || "DISABLED", // required
- * };
+ * // { // UpdateSolFunctionPackageOutput
+ * //   operationalState: "ENABLED" || "DISABLED", // required
+ * // };
  *
  * ```
  *

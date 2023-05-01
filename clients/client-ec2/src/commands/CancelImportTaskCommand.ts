@@ -46,12 +46,11 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
  * };
  * const command = new CancelImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelImportTaskResult
- *   ImportTaskId: "STRING_VALUE",
- *   PreviousState: "STRING_VALUE",
- *   State: "STRING_VALUE",
- * };
+ * // { // CancelImportTaskResult
+ * //   ImportTaskId: "STRING_VALUE",
+ * //   PreviousState: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

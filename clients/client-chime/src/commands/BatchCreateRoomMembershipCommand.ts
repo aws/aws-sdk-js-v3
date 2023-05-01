@@ -51,16 +51,15 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  * };
  * const command = new BatchCreateRoomMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateRoomMembershipResponse
- *   Errors: [ // MemberErrorList
- *     { // MemberError
- *       MemberId: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateRoomMembershipResponse
+ * //   Errors: [ // MemberErrorList
+ * //     { // MemberError
+ * //       MemberId: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssignVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

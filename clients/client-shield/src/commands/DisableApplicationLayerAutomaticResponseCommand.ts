@@ -54,8 +54,7 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * };
  * const command = new DisableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

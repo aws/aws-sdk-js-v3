@@ -59,42 +59,41 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * };
  * const command = new GetContainerServiceDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerServiceDeploymentsResult
- *   deployments: [ // ContainerServiceDeploymentList
- *     { // ContainerServiceDeployment
- *       version: Number("int"),
- *       state: "ACTIVATING" || "ACTIVE" || "INACTIVE" || "FAILED",
- *       containers: { // ContainerMap
- *         "<keys>": { // Container
- *           image: "STRING_VALUE",
- *           command: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *           environment: { // Environment
- *             "<keys>": "STRING_VALUE",
- *           },
- *           ports: { // PortMap
- *             "<keys>": "HTTP" || "HTTPS" || "TCP" || "UDP",
- *           },
- *         },
- *       },
- *       publicEndpoint: { // ContainerServiceEndpoint
- *         containerName: "STRING_VALUE",
- *         containerPort: Number("int"),
- *         healthCheck: { // ContainerServiceHealthCheckConfig
- *           healthyThreshold: Number("int"),
- *           unhealthyThreshold: Number("int"),
- *           timeoutSeconds: Number("int"),
- *           intervalSeconds: Number("int"),
- *           path: "STRING_VALUE",
- *           successCodes: "STRING_VALUE",
- *         },
- *       },
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // GetContainerServiceDeploymentsResult
+ * //   deployments: [ // ContainerServiceDeploymentList
+ * //     { // ContainerServiceDeployment
+ * //       version: Number("int"),
+ * //       state: "ACTIVATING" || "ACTIVE" || "INACTIVE" || "FAILED",
+ * //       containers: { // ContainerMap
+ * //         "<keys>": { // Container
+ * //           image: "STRING_VALUE",
+ * //           command: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           environment: { // Environment
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           ports: { // PortMap
+ * //             "<keys>": "HTTP" || "HTTPS" || "TCP" || "UDP",
+ * //           },
+ * //         },
+ * //       },
+ * //       publicEndpoint: { // ContainerServiceEndpoint
+ * //         containerName: "STRING_VALUE",
+ * //         containerPort: Number("int"),
+ * //         healthCheck: { // ContainerServiceHealthCheckConfig
+ * //           healthyThreshold: Number("int"),
+ * //           unhealthyThreshold: Number("int"),
+ * //           timeoutSeconds: Number("int"),
+ * //           intervalSeconds: Number("int"),
+ * //           path: "STRING_VALUE",
+ * //           successCodes: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

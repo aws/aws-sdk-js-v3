@@ -60,22 +60,21 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * };
  * const command = new ListBotLocalesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotLocalesResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   botLocaleSummaries: [ // BotLocaleSummaryList
- *     { // BotLocaleSummary
- *       localeId: "STRING_VALUE",
- *       localeName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListBotLocalesResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * //   botLocaleSummaries: [ // BotLocaleSummaryList
+ * //     { // BotLocaleSummary
+ * //       localeId: "STRING_VALUE",
+ * //       localeName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

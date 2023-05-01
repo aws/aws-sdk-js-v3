@@ -52,22 +52,21 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * };
  * const command = new GetSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSqlInjectionMatchSetResponse
- *   SqlInjectionMatchSet: { // SqlInjectionMatchSet
- *     SqlInjectionMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
- *       { // SqlInjectionMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetSqlInjectionMatchSetResponse
+ * //   SqlInjectionMatchSet: { // SqlInjectionMatchSet
+ * //     SqlInjectionMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
+ * //       { // SqlInjectionMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

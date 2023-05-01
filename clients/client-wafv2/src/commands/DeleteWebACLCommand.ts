@@ -81,8 +81,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

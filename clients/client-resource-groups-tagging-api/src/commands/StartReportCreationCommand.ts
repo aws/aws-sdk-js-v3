@@ -56,8 +56,7 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * };
  * const command = new StartReportCreationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

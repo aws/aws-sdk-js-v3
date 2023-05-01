@@ -46,8 +46,7 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

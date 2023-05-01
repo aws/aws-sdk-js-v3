@@ -55,20 +55,19 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * };
  * const command = new DiscoverInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DiscoverInstancesResponse
- *   Instances: [ // HttpInstanceSummaryList
- *     { // HttpInstanceSummary
- *       InstanceId: "STRING_VALUE",
- *       NamespaceName: "STRING_VALUE",
- *       ServiceName: "STRING_VALUE",
- *       HealthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
- *       Attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DiscoverInstancesResponse
+ * //   Instances: [ // HttpInstanceSummaryList
+ * //     { // HttpInstanceSummary
+ * //       InstanceId: "STRING_VALUE",
+ * //       NamespaceName: "STRING_VALUE",
+ * //       ServiceName: "STRING_VALUE",
+ * //       HealthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

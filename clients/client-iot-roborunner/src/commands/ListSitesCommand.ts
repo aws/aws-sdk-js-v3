@@ -45,18 +45,17 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * };
  * const command = new ListSitesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSitesResponse
- *   nextToken: "STRING_VALUE",
- *   sites: [ // Sites
- *     { // Site
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       countryCode: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListSitesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sites: [ // Sites
+ * //     { // Site
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       countryCode: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

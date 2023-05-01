@@ -46,8 +46,7 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * };
  * const command = new DeleteEntityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

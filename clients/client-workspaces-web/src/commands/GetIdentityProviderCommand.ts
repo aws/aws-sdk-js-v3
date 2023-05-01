@@ -48,17 +48,16 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * };
  * const command = new GetIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityProviderResponse
- *   identityProvider: { // IdentityProvider
- *     identityProviderArn: "STRING_VALUE", // required
- *     identityProviderName: "STRING_VALUE",
- *     identityProviderType: "STRING_VALUE",
- *     identityProviderDetails: { // IdentityProviderDetails
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetIdentityProviderResponse
+ * //   identityProvider: { // IdentityProvider
+ * //     identityProviderArn: "STRING_VALUE", // required
+ * //     identityProviderName: "STRING_VALUE",
+ * //     identityProviderType: "STRING_VALUE",
+ * //     identityProviderDetails: { // IdentityProviderDetails
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

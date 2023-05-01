@@ -57,25 +57,24 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * };
  * const command = new CreateInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInternetGatewayResult
- *   InternetGateway: { // InternetGateway
- *     Attachments: [ // InternetGatewayAttachmentList
- *       { // InternetGatewayAttachment
- *         State: "attaching" || "attached" || "detaching" || "detached",
- *         VpcId: "STRING_VALUE",
- *       },
- *     ],
- *     InternetGatewayId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateInternetGatewayResult
+ * //   InternetGateway: { // InternetGateway
+ * //     Attachments: [ // InternetGatewayAttachmentList
+ * //       { // InternetGatewayAttachment
+ * //         State: "attaching" || "attached" || "detaching" || "detached",
+ * //         VpcId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     InternetGatewayId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

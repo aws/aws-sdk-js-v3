@@ -44,12 +44,11 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * const input = {};
  * const command = new DownloadDefaultKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DownloadDefaultKeyPairResult
- *   publicKeyBase64: "STRING_VALUE",
- *   privateKeyBase64: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- * };
+ * // { // DownloadDefaultKeyPairResult
+ * //   publicKeyBase64: "STRING_VALUE",
+ * //   privateKeyBase64: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -47,11 +47,10 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * };
  * const command = new UpdateHostKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateHostKeyResponse
- *   ServerId: "STRING_VALUE", // required
- *   HostKeyId: "STRING_VALUE", // required
- * };
+ * // { // UpdateHostKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   HostKeyId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

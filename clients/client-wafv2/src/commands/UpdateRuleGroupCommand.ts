@@ -814,10 +814,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuleGroupResponse
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // UpdateRuleGroupResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

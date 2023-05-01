@@ -61,8 +61,7 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAcceleratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

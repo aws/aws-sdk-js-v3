@@ -50,8 +50,7 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * };
  * const command = new AssociateTagOptionWithResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

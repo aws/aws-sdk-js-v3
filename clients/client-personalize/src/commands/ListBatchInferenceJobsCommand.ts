@@ -47,21 +47,20 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * };
  * const command = new ListBatchInferenceJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBatchInferenceJobsResponse
- *   batchInferenceJobs: [ // BatchInferenceJobs
- *     { // BatchInferenceJobSummary
- *       batchInferenceJobArn: "STRING_VALUE",
- *       jobName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *       solutionVersionArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBatchInferenceJobsResponse
+ * //   batchInferenceJobs: [ // BatchInferenceJobs
+ * //     { // BatchInferenceJobSummary
+ * //       batchInferenceJobArn: "STRING_VALUE",
+ * //       jobName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //       solutionVersionArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

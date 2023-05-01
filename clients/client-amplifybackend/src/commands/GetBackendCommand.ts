@@ -45,18 +45,17 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * };
  * const command = new GetBackendCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBackendResponse
- *   AmplifyFeatureFlags: "STRING_VALUE",
- *   AmplifyMetaConfig: "STRING_VALUE",
- *   AppId: "STRING_VALUE",
- *   AppName: "STRING_VALUE",
- *   BackendEnvironmentList: [ // ListOf__string
- *     "STRING_VALUE",
- *   ],
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- * };
+ * // { // GetBackendResponse
+ * //   AmplifyFeatureFlags: "STRING_VALUE",
+ * //   AmplifyMetaConfig: "STRING_VALUE",
+ * //   AppId: "STRING_VALUE",
+ * //   AppName: "STRING_VALUE",
+ * //   BackendEnvironmentList: [ // ListOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * // };
  *
  * ```
  *

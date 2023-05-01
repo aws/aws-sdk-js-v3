@@ -56,10 +56,9 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVolumeOutput
- *   VolumeARN: "STRING_VALUE",
- * };
+ * // { // DeleteVolumeOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,16 +50,15 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRuleGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   RuleGroups: [ // RuleGroups
- *     { // RuleGroupMetadata
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListRuleGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   RuleGroups: [ // RuleGroups
+ * //     { // RuleGroupMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

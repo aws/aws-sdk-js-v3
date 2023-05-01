@@ -46,38 +46,37 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * };
  * const command = new DescribeBatchInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBatchInferenceJobResponse
- *   batchInferenceJob: { // BatchInferenceJob
- *     jobName: "STRING_VALUE",
- *     batchInferenceJobArn: "STRING_VALUE",
- *     filterArn: "STRING_VALUE",
- *     failureReason: "STRING_VALUE",
- *     solutionVersionArn: "STRING_VALUE",
- *     numResults: Number("int"),
- *     jobInput: { // BatchInferenceJobInput
- *       s3DataSource: { // S3DataConfig
- *         path: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *     jobOutput: { // BatchInferenceJobOutput
- *       s3DataDestination: {
- *         path: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *     batchInferenceJobConfig: { // BatchInferenceJobConfig
- *       itemExplorationConfig: { // HyperParameters
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     roleArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeBatchInferenceJobResponse
+ * //   batchInferenceJob: { // BatchInferenceJob
+ * //     jobName: "STRING_VALUE",
+ * //     batchInferenceJobArn: "STRING_VALUE",
+ * //     filterArn: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //     solutionVersionArn: "STRING_VALUE",
+ * //     numResults: Number("int"),
+ * //     jobInput: { // BatchInferenceJobInput
+ * //       s3DataSource: { // S3DataConfig
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     jobOutput: { // BatchInferenceJobOutput
+ * //       s3DataDestination: {
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     batchInferenceJobConfig: { // BatchInferenceJobConfig
+ * //       itemExplorationConfig: { // HyperParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     roleArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

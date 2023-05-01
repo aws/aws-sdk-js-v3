@@ -59,11 +59,10 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * };
  * const command = new GetRelationalDatabaseMasterUserPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseMasterUserPasswordResult
- *   masterUserPassword: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetRelationalDatabaseMasterUserPasswordResult
+ * //   masterUserPassword: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

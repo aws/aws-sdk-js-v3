@@ -55,12 +55,11 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * };
  * const command = new ListIdentityPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityPoliciesResponse
- *   PolicyNames: [ // PolicyNameList // required
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListIdentityPoliciesResponse
+ * //   PolicyNames: [ // PolicyNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

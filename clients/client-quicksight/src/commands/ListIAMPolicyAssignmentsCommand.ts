@@ -48,18 +48,17 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
  * };
  * const command = new ListIAMPolicyAssignmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIAMPolicyAssignmentsResponse
- *   IAMPolicyAssignments: [ // IAMPolicyAssignmentSummaryList
- *     { // IAMPolicyAssignmentSummary
- *       AssignmentName: "STRING_VALUE",
- *       AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // ListIAMPolicyAssignmentsResponse
+ * //   IAMPolicyAssignments: [ // IAMPolicyAssignmentSummaryList
+ * //     { // IAMPolicyAssignmentSummary
+ * //       AssignmentName: "STRING_VALUE",
+ * //       AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

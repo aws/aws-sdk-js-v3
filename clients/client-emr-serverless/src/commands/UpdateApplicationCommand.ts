@@ -87,66 +87,65 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApplicationResponse
- *   application: { // Application
- *     applicationId: "STRING_VALUE", // required
- *     name: "STRING_VALUE",
- *     arn: "STRING_VALUE", // required
- *     releaseLabel: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     state: "STRING_VALUE", // required
- *     stateDetails: "STRING_VALUE",
- *     initialCapacity: { // InitialCapacityConfigMap
- *       "<keys>": { // InitialCapacityConfig
- *         workerCount: Number("long"), // required
- *         workerConfiguration: { // WorkerResourceConfig
- *           cpu: "STRING_VALUE", // required
- *           memory: "STRING_VALUE", // required
- *           disk: "STRING_VALUE",
- *         },
- *       },
- *     },
- *     maximumCapacity: { // MaximumAllowedResources
- *       cpu: "STRING_VALUE", // required
- *       memory: "STRING_VALUE", // required
- *       disk: "STRING_VALUE",
- *     },
- *     createdAt: new Date("TIMESTAMP"), // required
- *     updatedAt: new Date("TIMESTAMP"), // required
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     autoStartConfiguration: { // AutoStartConfig
- *       enabled: true || false,
- *     },
- *     autoStopConfiguration: { // AutoStopConfig
- *       enabled: true || false,
- *       idleTimeoutMinutes: Number("int"),
- *     },
- *     networkConfiguration: { // NetworkConfiguration
- *       subnetIds: [ // SubnetIds
- *         "STRING_VALUE",
- *       ],
- *       securityGroupIds: [ // SecurityGroupIds
- *         "STRING_VALUE",
- *       ],
- *     },
- *     architecture: "STRING_VALUE",
- *     imageConfiguration: { // ImageConfiguration
- *       imageUri: "STRING_VALUE", // required
- *       resolvedImageDigest: "STRING_VALUE",
- *     },
- *     workerTypeSpecifications: { // WorkerTypeSpecificationMap
- *       "<keys>": { // WorkerTypeSpecification
- *         imageConfiguration: {
- *           imageUri: "STRING_VALUE", // required
- *           resolvedImageDigest: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // UpdateApplicationResponse
+ * //   application: { // Application
+ * //     applicationId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     releaseLabel: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     state: "STRING_VALUE", // required
+ * //     stateDetails: "STRING_VALUE",
+ * //     initialCapacity: { // InitialCapacityConfigMap
+ * //       "<keys>": { // InitialCapacityConfig
+ * //         workerCount: Number("long"), // required
+ * //         workerConfiguration: { // WorkerResourceConfig
+ * //           cpu: "STRING_VALUE", // required
+ * //           memory: "STRING_VALUE", // required
+ * //           disk: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     maximumCapacity: { // MaximumAllowedResources
+ * //       cpu: "STRING_VALUE", // required
+ * //       memory: "STRING_VALUE", // required
+ * //       disk: "STRING_VALUE",
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     autoStartConfiguration: { // AutoStartConfig
+ * //       enabled: true || false,
+ * //     },
+ * //     autoStopConfiguration: { // AutoStopConfig
+ * //       enabled: true || false,
+ * //       idleTimeoutMinutes: Number("int"),
+ * //     },
+ * //     networkConfiguration: { // NetworkConfiguration
+ * //       subnetIds: [ // SubnetIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     architecture: "STRING_VALUE",
+ * //     imageConfiguration: { // ImageConfiguration
+ * //       imageUri: "STRING_VALUE", // required
+ * //       resolvedImageDigest: "STRING_VALUE",
+ * //     },
+ * //     workerTypeSpecifications: { // WorkerTypeSpecificationMap
+ * //       "<keys>": { // WorkerTypeSpecification
+ * //         imageConfiguration: {
+ * //           imageUri: "STRING_VALUE", // required
+ * //           resolvedImageDigest: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

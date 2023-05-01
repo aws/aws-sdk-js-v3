@@ -57,10 +57,9 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * };
  * const command = new ModifyLunaClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyLunaClientResponse
- *   ClientArn: "STRING_VALUE",
- * };
+ * // { // ModifyLunaClientResponse
+ * //   ClientArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

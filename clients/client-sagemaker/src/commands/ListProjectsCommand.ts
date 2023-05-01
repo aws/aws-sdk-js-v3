@@ -50,20 +50,19 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsOutput
- *   ProjectSummaryList: [ // ProjectSummaryList // required
- *     { // ProjectSummary
- *       ProjectName: "STRING_VALUE", // required
- *       ProjectDescription: "STRING_VALUE",
- *       ProjectArn: "STRING_VALUE", // required
- *       ProjectId: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectsOutput
+ * //   ProjectSummaryList: [ // ProjectSummaryList // required
+ * //     { // ProjectSummary
+ * //       ProjectName: "STRING_VALUE", // required
+ * //       ProjectDescription: "STRING_VALUE",
+ * //       ProjectArn: "STRING_VALUE", // required
+ * //       ProjectId: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

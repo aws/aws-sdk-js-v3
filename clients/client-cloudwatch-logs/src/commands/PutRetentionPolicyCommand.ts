@@ -59,8 +59,7 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutRetentionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

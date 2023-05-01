@@ -95,25 +95,24 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * };
  * const command = new GetOpsSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpsSummaryResult
- *   Entities: [ // OpsEntityList
- *     { // OpsEntity
- *       Id: "STRING_VALUE",
- *       Data: { // OpsEntityItemMap
- *         "<keys>": { // OpsEntityItem
- *           CaptureTime: "STRING_VALUE",
- *           Content: [ // OpsEntityItemEntryList
- *             { // OpsEntityItemEntry
- *               "<keys>": "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetOpsSummaryResult
+ * //   Entities: [ // OpsEntityList
+ * //     { // OpsEntity
+ * //       Id: "STRING_VALUE",
+ * //       Data: { // OpsEntityItemMap
+ * //         "<keys>": { // OpsEntityItem
+ * //           CaptureTime: "STRING_VALUE",
+ * //           Content: [ // OpsEntityItemEntryList
+ * //             { // OpsEntityItemEntry
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

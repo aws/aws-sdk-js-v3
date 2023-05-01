@@ -53,8 +53,7 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

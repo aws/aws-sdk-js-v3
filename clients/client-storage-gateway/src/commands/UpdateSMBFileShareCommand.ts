@@ -89,10 +89,9 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * };
  * const command = new UpdateSMBFileShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSMBFileShareOutput
- *   FileShareARN: "STRING_VALUE",
- * };
+ * // { // UpdateSMBFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

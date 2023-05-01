@@ -100,13 +100,12 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * };
  * const command = new ScheduleKeyDeletionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ScheduleKeyDeletionResponse
- *   KeyId: "STRING_VALUE",
- *   DeletionDate: new Date("TIMESTAMP"),
- *   KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
- *   PendingWindowInDays: Number("int"),
- * };
+ * // { // ScheduleKeyDeletionResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   DeletionDate: new Date("TIMESTAMP"),
+ * //   KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
+ * //   PendingWindowInDays: Number("int"),
+ * // };
  *
  * ```
  *

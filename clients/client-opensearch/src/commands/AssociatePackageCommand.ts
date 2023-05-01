@@ -47,23 +47,22 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * };
  * const command = new AssociatePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociatePackageResponse
- *   DomainPackageDetails: { // DomainPackageDetails
- *     PackageID: "STRING_VALUE",
- *     PackageName: "STRING_VALUE",
- *     PackageType: "TXT-DICTIONARY",
- *     LastUpdated: new Date("TIMESTAMP"),
- *     DomainName: "STRING_VALUE",
- *     DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
- *     PackageVersion: "STRING_VALUE",
- *     ReferencePath: "STRING_VALUE",
- *     ErrorDetails: { // ErrorDetails
- *       ErrorType: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // AssociatePackageResponse
+ * //   DomainPackageDetails: { // DomainPackageDetails
+ * //     PackageID: "STRING_VALUE",
+ * //     PackageName: "STRING_VALUE",
+ * //     PackageType: "TXT-DICTIONARY",
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     DomainName: "STRING_VALUE",
+ * //     DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
+ * //     PackageVersion: "STRING_VALUE",
+ * //     ReferencePath: "STRING_VALUE",
+ * //     ErrorDetails: { // ErrorDetails
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

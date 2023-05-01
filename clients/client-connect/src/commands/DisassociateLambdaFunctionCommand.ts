@@ -47,8 +47,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * };
  * const command = new DisassociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

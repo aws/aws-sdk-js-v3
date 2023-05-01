@@ -49,17 +49,16 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * };
  * const command = new GetMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMaintenanceWindowExecutionResult
- *   WindowExecutionId: "STRING_VALUE",
- *   TaskIds: [ // MaintenanceWindowExecutionTaskIdList
- *     "STRING_VALUE",
- *   ],
- *   Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
- *   StatusDetails: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetMaintenanceWindowExecutionResult
+ * //   WindowExecutionId: "STRING_VALUE",
+ * //   TaskIds: [ // MaintenanceWindowExecutionTaskIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //   StatusDetails: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

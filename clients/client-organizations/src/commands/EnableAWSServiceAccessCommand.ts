@@ -63,8 +63,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

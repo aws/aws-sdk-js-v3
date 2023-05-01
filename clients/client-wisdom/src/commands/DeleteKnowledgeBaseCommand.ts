@@ -52,8 +52,7 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * };
  * const command = new DeleteKnowledgeBaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,17 +60,16 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * };
  * const command = new ListLinuxSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLinuxSubscriptionsResponse
- *   Subscriptions: [ // SubscriptionList
- *     { // Subscription
- *       Name: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       InstanceCount: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLinuxSubscriptionsResponse
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       InstanceCount: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

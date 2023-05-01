@@ -89,12 +89,11 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * };
  * const command = new CreateBackupSelectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackupSelectionOutput
- *   SelectionId: "STRING_VALUE",
- *   BackupPlanId: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- * };
+ * // { // CreateBackupSelectionOutput
+ * //   SelectionId: "STRING_VALUE",
+ * //   BackupPlanId: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

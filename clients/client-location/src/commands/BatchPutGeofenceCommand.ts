@@ -69,25 +69,24 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * };
  * const command = new BatchPutGeofenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutGeofenceResponse
- *   Successes: [ // BatchPutGeofenceSuccessList // required
- *     { // BatchPutGeofenceSuccess
- *       GeofenceId: "STRING_VALUE", // required
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   Errors: [ // BatchPutGeofenceErrorList // required
- *     { // BatchPutGeofenceError
- *       GeofenceId: "STRING_VALUE", // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchPutGeofenceResponse
+ * //   Successes: [ // BatchPutGeofenceSuccessList // required
+ * //     { // BatchPutGeofenceSuccess
+ * //       GeofenceId: "STRING_VALUE", // required
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchPutGeofenceErrorList // required
+ * //     { // BatchPutGeofenceError
+ * //       GeofenceId: "STRING_VALUE", // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

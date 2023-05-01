@@ -45,22 +45,21 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * };
  * const command = new ListProvisioningArtifactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisioningArtifactsOutput
- *   ProvisioningArtifactDetails: [ // ProvisioningArtifactDetails
- *     { // ProvisioningArtifactDetail
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Active: true || false,
- *       Guidance: "DEFAULT" || "DEPRECATED",
- *       SourceRevision: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListProvisioningArtifactsOutput
+ * //   ProvisioningArtifactDetails: [ // ProvisioningArtifactDetails
+ * //     { // ProvisioningArtifactDetail
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Active: true || false,
+ * //       Guidance: "DEFAULT" || "DEPRECATED",
+ * //       SourceRevision: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

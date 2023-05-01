@@ -52,20 +52,19 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * };
  * const command = new StartOrganizationServiceAccessUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartOrganizationServiceAccessUpdateResponse
- *   OrganizationStatus: { // OrganizationStatus
- *     OrganizationId: "STRING_VALUE",
- *     OrganizationAwsServiceAccessStatus: "STRING_VALUE",
- *     SLRDeploymentStatus: "STRING_VALUE",
- *     AccountStatusList: [ // AccountStatusList
- *       { // AccountStatus
- *         AccountId: "STRING_VALUE",
- *         SLRDeploymentStatus: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // StartOrganizationServiceAccessUpdateResponse
+ * //   OrganizationStatus: { // OrganizationStatus
+ * //     OrganizationId: "STRING_VALUE",
+ * //     OrganizationAwsServiceAccessStatus: "STRING_VALUE",
+ * //     SLRDeploymentStatus: "STRING_VALUE",
+ * //     AccountStatusList: [ // AccountStatusList
+ * //       { // AccountStatus
+ * //         AccountId: "STRING_VALUE",
+ * //         SLRDeploymentStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

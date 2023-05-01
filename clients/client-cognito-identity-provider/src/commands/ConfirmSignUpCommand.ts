@@ -66,8 +66,7 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

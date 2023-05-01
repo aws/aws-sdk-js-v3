@@ -53,16 +53,15 @@ export interface BatchAssociateProjectAssetsCommandOutput
  * };
  * const command = new BatchAssociateProjectAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchAssociateProjectAssetsResponse
- *   errors: [ // BatchAssociateProjectAssetsErrors
- *     { // AssetErrorDetails
- *       assetId: "STRING_VALUE", // required
- *       code: "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchAssociateProjectAssetsResponse
+ * //   errors: [ // BatchAssociateProjectAssetsErrors
+ * //     { // AssetErrorDetails
+ * //       assetId: "STRING_VALUE", // required
+ * //       code: "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,11 +45,10 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * };
  * const command = new DeleteCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCampaignResponse
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // DeleteCampaignResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

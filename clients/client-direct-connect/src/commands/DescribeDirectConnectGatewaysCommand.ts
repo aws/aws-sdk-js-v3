@@ -51,20 +51,19 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * };
  * const command = new DescribeDirectConnectGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDirectConnectGatewaysResult
- *   directConnectGateways: [ // DirectConnectGatewayList
- *     { // DirectConnectGateway
- *       directConnectGatewayId: "STRING_VALUE",
- *       directConnectGatewayName: "STRING_VALUE",
- *       amazonSideAsn: Number("long"),
- *       ownerAccount: "STRING_VALUE",
- *       directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
- *       stateChangeError: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDirectConnectGatewaysResult
+ * //   directConnectGateways: [ // DirectConnectGatewayList
+ * //     { // DirectConnectGateway
+ * //       directConnectGatewayId: "STRING_VALUE",
+ * //       directConnectGatewayName: "STRING_VALUE",
+ * //       amazonSideAsn: Number("long"),
+ * //       ownerAccount: "STRING_VALUE",
+ * //       directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
+ * //       stateChangeError: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

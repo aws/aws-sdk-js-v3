@@ -46,8 +46,7 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
  * };
  * const command = new StartMetricStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

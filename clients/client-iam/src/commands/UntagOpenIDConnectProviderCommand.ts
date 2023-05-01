@@ -50,8 +50,7 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  * };
  * const command = new UntagOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

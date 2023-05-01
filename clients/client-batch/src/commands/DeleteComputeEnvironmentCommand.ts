@@ -47,8 +47,7 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * };
  * const command = new DeleteComputeEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

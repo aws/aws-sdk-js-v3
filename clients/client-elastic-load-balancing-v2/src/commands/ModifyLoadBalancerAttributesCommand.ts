@@ -59,15 +59,14 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyLoadBalancerAttributesOutput
- *   Attributes: [ // LoadBalancerAttributes
- *     { // LoadBalancerAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ModifyLoadBalancerAttributesOutput
+ * //   Attributes: [ // LoadBalancerAttributes
+ * //     { // LoadBalancerAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

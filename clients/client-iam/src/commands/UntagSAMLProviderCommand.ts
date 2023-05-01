@@ -50,8 +50,7 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

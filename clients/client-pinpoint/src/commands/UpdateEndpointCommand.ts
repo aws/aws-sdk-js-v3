@@ -87,13 +87,12 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEndpointResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateEndpointResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

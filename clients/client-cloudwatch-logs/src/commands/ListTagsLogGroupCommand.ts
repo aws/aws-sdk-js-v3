@@ -50,12 +50,11 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * };
  * const command = new ListTagsLogGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsLogGroupResponse
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListTagsLogGroupResponse
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

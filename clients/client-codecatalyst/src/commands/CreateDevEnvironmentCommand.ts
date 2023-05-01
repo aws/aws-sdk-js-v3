@@ -69,12 +69,11 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDevEnvironmentResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- * };
+ * // { // CreateDevEnvironmentResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

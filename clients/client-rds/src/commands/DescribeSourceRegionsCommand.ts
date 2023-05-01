@@ -61,18 +61,17 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * };
  * const command = new DescribeSourceRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SourceRegionMessage
- *   Marker: "STRING_VALUE",
- *   SourceRegions: [ // SourceRegionList
- *     { // SourceRegion
- *       RegionName: "STRING_VALUE",
- *       Endpoint: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       SupportsDBInstanceAutomatedBackupsReplication: true || false,
- *     },
- *   ],
- * };
+ * // { // SourceRegionMessage
+ * //   Marker: "STRING_VALUE",
+ * //   SourceRegions: [ // SourceRegionList
+ * //     { // SourceRegion
+ * //       RegionName: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       SupportsDBInstanceAutomatedBackupsReplication: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -53,20 +53,19 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  * };
  * const command = new ListRecoveryPointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecoveryPointsResponse
- *   recoveryPoints: [ // RecoveryPointList
- *     { // RecoveryPoint
- *       recoveryPointId: "STRING_VALUE",
- *       recoveryPointCreateTime: new Date("TIMESTAMP"),
- *       totalSizeInMegaBytes: Number("double"),
- *       namespaceName: "STRING_VALUE",
- *       workgroupName: "STRING_VALUE",
- *       namespaceArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRecoveryPointsResponse
+ * //   recoveryPoints: [ // RecoveryPointList
+ * //     { // RecoveryPoint
+ * //       recoveryPointId: "STRING_VALUE",
+ * //       recoveryPointCreateTime: new Date("TIMESTAMP"),
+ * //       totalSizeInMegaBytes: Number("double"),
+ * //       namespaceName: "STRING_VALUE",
+ * //       workgroupName: "STRING_VALUE",
+ * //       namespaceArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

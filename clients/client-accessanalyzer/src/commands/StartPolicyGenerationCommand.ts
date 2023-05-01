@@ -61,10 +61,9 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * };
  * const command = new StartPolicyGenerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPolicyGenerationResponse
- *   jobId: "STRING_VALUE", // required
- * };
+ * // { // StartPolicyGenerationResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

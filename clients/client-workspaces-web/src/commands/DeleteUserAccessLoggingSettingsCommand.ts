@@ -49,8 +49,7 @@ export interface DeleteUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new DeleteUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

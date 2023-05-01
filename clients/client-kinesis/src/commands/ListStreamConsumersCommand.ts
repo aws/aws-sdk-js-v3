@@ -49,18 +49,17 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * };
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamConsumersOutput
- *   Consumers: [ // ConsumerList
- *     { // Consumer
- *       ConsumerName: "STRING_VALUE", // required
- *       ConsumerARN: "STRING_VALUE", // required
- *       ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
- *       ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStreamConsumersOutput
+ * //   Consumers: [ // ConsumerList
+ * //     { // Consumer
+ * //       ConsumerName: "STRING_VALUE", // required
+ * //       ConsumerARN: "STRING_VALUE", // required
+ * //       ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
+ * //       ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

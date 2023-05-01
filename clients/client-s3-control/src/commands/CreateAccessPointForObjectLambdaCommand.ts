@@ -91,14 +91,13 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * };
  * const command = new CreateAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPointForObjectLambdaResult
- *   ObjectLambdaAccessPointArn: "STRING_VALUE",
- *   Alias: { // ObjectLambdaAccessPointAlias
- *     Value: "STRING_VALUE",
- *     Status: "PROVISIONING" || "READY",
- *   },
- * };
+ * // { // CreateAccessPointForObjectLambdaResult
+ * //   ObjectLambdaAccessPointArn: "STRING_VALUE",
+ * //   Alias: { // ObjectLambdaAccessPointAlias
+ * //     Value: "STRING_VALUE",
+ * //     Status: "PROVISIONING" || "READY",
+ * //   },
+ * // };
  *
  * ```
  *

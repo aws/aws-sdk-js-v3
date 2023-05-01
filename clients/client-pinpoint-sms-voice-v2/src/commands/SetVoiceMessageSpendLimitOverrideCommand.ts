@@ -55,10 +55,9 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * };
  * const command = new SetVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetVoiceMessageSpendLimitOverrideResult
- *   MonthlyLimit: Number("long"),
- * };
+ * // { // SetVoiceMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
  *
  * ```
  *

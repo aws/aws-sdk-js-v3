@@ -52,15 +52,14 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * };
  * const command = new ListTargetsForSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetsForSecurityProfileResponse
- *   securityProfileTargets: [ // SecurityProfileTargets
- *     { // SecurityProfileTarget
- *       arn: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetsForSecurityProfileResponse
+ * //   securityProfileTargets: [ // SecurityProfileTargets
+ * //     { // SecurityProfileTarget
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,18 +47,17 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  * };
  * const command = new ListDefaultVocabulariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDefaultVocabulariesResponse
- *   DefaultVocabularyList: [ // DefaultVocabularyList // required
- *     { // DefaultVocabulary
- *       InstanceId: "STRING_VALUE", // required
- *       LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
- *       VocabularyId: "STRING_VALUE", // required
- *       VocabularyName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDefaultVocabulariesResponse
+ * //   DefaultVocabularyList: [ // DefaultVocabularyList // required
+ * //     { // DefaultVocabulary
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ * //       VocabularyId: "STRING_VALUE", // required
+ * //       VocabularyName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

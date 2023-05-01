@@ -60,8 +60,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutResourceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

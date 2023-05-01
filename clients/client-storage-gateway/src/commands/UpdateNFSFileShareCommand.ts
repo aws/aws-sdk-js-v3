@@ -93,10 +93,9 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * };
  * const command = new UpdateNFSFileShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateNFSFileShareOutput
- *   FileShareARN: "STRING_VALUE",
- * };
+ * // { // UpdateNFSFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

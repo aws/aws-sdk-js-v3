@@ -57,31 +57,30 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * };
  * const command = new ListUsersInGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersInGroupResponse
- *   Users: [ // UsersListType
- *     { // UserType
- *       Username: "STRING_VALUE",
- *       Attributes: [ // AttributeListType
- *         { // AttributeType
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       UserCreateDate: new Date("TIMESTAMP"),
- *       UserLastModifiedDate: new Date("TIMESTAMP"),
- *       Enabled: true || false,
- *       UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
- *       MFAOptions: [ // MFAOptionListType
- *         { // MFAOptionType
- *           DeliveryMedium: "SMS" || "EMAIL",
- *           AttributeName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersInGroupResponse
+ * //   Users: [ // UsersListType
+ * //     { // UserType
+ * //       Username: "STRING_VALUE",
+ * //       Attributes: [ // AttributeListType
+ * //         { // AttributeType
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       UserCreateDate: new Date("TIMESTAMP"),
+ * //       UserLastModifiedDate: new Date("TIMESTAMP"),
+ * //       Enabled: true || false,
+ * //       UserStatus: "UNCONFIRMED" || "CONFIRMED" || "ARCHIVED" || "COMPROMISED" || "UNKNOWN" || "RESET_REQUIRED" || "FORCE_CHANGE_PASSWORD",
+ * //       MFAOptions: [ // MFAOptionListType
+ * //         { // MFAOptionType
+ * //           DeliveryMedium: "SMS" || "EMAIL",
+ * //           AttributeName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

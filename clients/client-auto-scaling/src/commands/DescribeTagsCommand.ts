@@ -61,19 +61,18 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagsType
- *   Tags: [ // TagDescriptionList
- *     { // TagDescription
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       PropagateAtLaunch: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // TagsType
+ * //   Tags: [ // TagDescriptionList
+ * //     { // TagDescription
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       PropagateAtLaunch: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,13 +46,12 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDataSourceResponse
- *   Arn: "STRING_VALUE",
- *   DataSourceId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteDataSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

@@ -143,10 +143,9 @@ export interface CreateModelExplainabilityJobDefinitionCommandOutput
  * };
  * const command = new CreateModelExplainabilityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelExplainabilityJobDefinitionResponse
- *   JobDefinitionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelExplainabilityJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

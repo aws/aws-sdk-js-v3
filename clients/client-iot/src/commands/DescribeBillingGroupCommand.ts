@@ -45,19 +45,18 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * };
  * const command = new DescribeBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBillingGroupResponse
- *   billingGroupName: "STRING_VALUE",
- *   billingGroupId: "STRING_VALUE",
- *   billingGroupArn: "STRING_VALUE",
- *   version: Number("long"),
- *   billingGroupProperties: { // BillingGroupProperties
- *     billingGroupDescription: "STRING_VALUE",
- *   },
- *   billingGroupMetadata: { // BillingGroupMetadata
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeBillingGroupResponse
+ * //   billingGroupName: "STRING_VALUE",
+ * //   billingGroupId: "STRING_VALUE",
+ * //   billingGroupArn: "STRING_VALUE",
+ * //   version: Number("long"),
+ * //   billingGroupProperties: { // BillingGroupProperties
+ * //     billingGroupDescription: "STRING_VALUE",
+ * //   },
+ * //   billingGroupMetadata: { // BillingGroupMetadata
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

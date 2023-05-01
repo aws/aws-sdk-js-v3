@@ -63,16 +63,15 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowsForTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowsForTargetResult
- *   WindowIdentities: [ // MaintenanceWindowsForTargetList
- *     { // MaintenanceWindowIdentityForTarget
- *       WindowId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowsForTargetResult
+ * //   WindowIdentities: [ // MaintenanceWindowsForTargetList
+ * //     { // MaintenanceWindowIdentityForTarget
+ * //       WindowId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

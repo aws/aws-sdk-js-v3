@@ -82,10 +82,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePipelineOutput
- *   pipelineId: "STRING_VALUE", // required
- * };
+ * // { // CreatePipelineOutput
+ * //   pipelineId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

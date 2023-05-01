@@ -54,8 +54,7 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * };
  * const command = new CreateSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

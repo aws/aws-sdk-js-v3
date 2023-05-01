@@ -57,23 +57,22 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * };
  * const command = new ListEarthObservationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEarthObservationJobOutput
- *   EarthObservationJobSummaries: [ // EarthObservationJobList // required
- *     { // ListEarthObservationJobOutputConfig
- *       Arn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       DurationInSeconds: Number("int"), // required
- *       Status: "STRING_VALUE", // required
- *       OperationType: "STRING_VALUE", // required
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEarthObservationJobOutput
+ * //   EarthObservationJobSummaries: [ // EarthObservationJobList // required
+ * //     { // ListEarthObservationJobOutputConfig
+ * //       Arn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       DurationInSeconds: Number("int"), // required
+ * //       Status: "STRING_VALUE", // required
+ * //       OperationType: "STRING_VALUE", // required
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

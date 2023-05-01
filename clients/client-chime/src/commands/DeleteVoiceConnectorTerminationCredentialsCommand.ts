@@ -54,8 +54,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
  * };
  * const command = new DeleteVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

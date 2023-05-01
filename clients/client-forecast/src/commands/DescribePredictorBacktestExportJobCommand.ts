@@ -76,24 +76,23 @@ export interface DescribePredictorBacktestExportJobCommandOutput
  * };
  * const command = new DescribePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePredictorBacktestExportJobResponse
- *   PredictorBacktestExportJobArn: "STRING_VALUE",
- *   PredictorBacktestExportJobName: "STRING_VALUE",
- *   PredictorArn: "STRING_VALUE",
- *   Destination: { // DataDestination
- *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
- *     },
- *   },
- *   Message: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   Format: "STRING_VALUE",
- * };
+ * // { // DescribePredictorBacktestExportJobResponse
+ * //   PredictorBacktestExportJobArn: "STRING_VALUE",
+ * //   PredictorBacktestExportJobName: "STRING_VALUE",
+ * //   PredictorArn: "STRING_VALUE",
+ * //   Destination: { // DataDestination
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Format: "STRING_VALUE",
+ * // };
  *
  * ```
  *

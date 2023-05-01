@@ -50,19 +50,18 @@ export interface ListEntityRecognizerSummariesCommandOutput
  * };
  * const command = new ListEntityRecognizerSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEntityRecognizerSummariesResponse
- *   EntityRecognizerSummariesList: [ // EntityRecognizerSummariesList
- *     { // EntityRecognizerSummary
- *       RecognizerName: "STRING_VALUE",
- *       NumberOfVersions: Number("int"),
- *       LatestVersionCreatedAt: new Date("TIMESTAMP"),
- *       LatestVersionName: "STRING_VALUE",
- *       LatestVersionStatus: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEntityRecognizerSummariesResponse
+ * //   EntityRecognizerSummariesList: [ // EntityRecognizerSummariesList
+ * //     { // EntityRecognizerSummary
+ * //       RecognizerName: "STRING_VALUE",
+ * //       NumberOfVersions: Number("int"),
+ * //       LatestVersionCreatedAt: new Date("TIMESTAMP"),
+ * //       LatestVersionName: "STRING_VALUE",
+ * //       LatestVersionStatus: "SUBMITTED" || "TRAINING" || "DELETING" || "STOP_REQUESTED" || "STOPPED" || "IN_ERROR" || "TRAINED" || "TRAINED_WITH_WARNING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

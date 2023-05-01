@@ -178,267 +178,266 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * };
  * const command = new BatchUpdateScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateScheduleResponse
- *   Creates: { // BatchScheduleActionCreateResult
- *     ScheduleActions: [ // __listOfScheduleAction // required
- *       { // ScheduleAction
- *         ActionName: "STRING_VALUE", // required
- *         ScheduleActionSettings: { // ScheduleActionSettings
- *           HlsId3SegmentTaggingSettings: { // HlsId3SegmentTaggingScheduleActionSettings
- *             Tag: "STRING_VALUE",
- *             Id3: "STRING_VALUE",
- *           },
- *           HlsTimedMetadataSettings: { // HlsTimedMetadataScheduleActionSettings
- *             Id3: "STRING_VALUE", // required
- *           },
- *           InputPrepareSettings: { // InputPrepareScheduleActionSettings
- *             InputAttachmentNameReference: "STRING_VALUE",
- *             InputClippingSettings: { // InputClippingSettings
- *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
- *               StartTimecode: { // StartTimecode
- *                 Timecode: "STRING_VALUE",
- *               },
- *               StopTimecode: { // StopTimecode
- *                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
- *                 Timecode: "STRING_VALUE",
- *               },
- *             },
- *             UrlPath: [ // __listOf__string
- *               "STRING_VALUE",
- *             ],
- *           },
- *           InputSwitchSettings: { // InputSwitchScheduleActionSettings
- *             InputAttachmentNameReference: "STRING_VALUE", // required
- *             InputClippingSettings: {
- *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
- *               StartTimecode: {
- *                 Timecode: "STRING_VALUE",
- *               },
- *               StopTimecode: {
- *                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
- *                 Timecode: "STRING_VALUE",
- *               },
- *             },
- *             UrlPath: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           MotionGraphicsImageActivateSettings: { // MotionGraphicsActivateScheduleActionSettings
- *             Duration: Number("long"),
- *             PasswordParam: "STRING_VALUE",
- *             Url: "STRING_VALUE",
- *             Username: "STRING_VALUE",
- *           },
- *           MotionGraphicsImageDeactivateSettings: {},
- *           PauseStateSettings: { // PauseStateScheduleActionSettings
- *             Pipelines: [ // __listOfPipelinePauseStateSettings
- *               { // PipelinePauseStateSettings
- *                 PipelineId: "PIPELINE_0" || "PIPELINE_1", // required
- *               },
- *             ],
- *           },
- *           Scte35InputSettings: { // Scte35InputScheduleActionSettings
- *             InputAttachmentNameReference: "STRING_VALUE",
- *             Mode: "FIXED" || "FOLLOW_ACTIVE", // required
- *           },
- *           Scte35ReturnToNetworkSettings: { // Scte35ReturnToNetworkScheduleActionSettings
- *             SpliceEventId: Number("long"), // required
- *           },
- *           Scte35SpliceInsertSettings: { // Scte35SpliceInsertScheduleActionSettings
- *             Duration: Number("long"),
- *             SpliceEventId: Number("long"), // required
- *           },
- *           Scte35TimeSignalSettings: { // Scte35TimeSignalScheduleActionSettings
- *             Scte35Descriptors: [ // __listOfScte35Descriptor // required
- *               { // Scte35Descriptor
- *                 Scte35DescriptorSettings: { // Scte35DescriptorSettings
- *                   SegmentationDescriptorScte35DescriptorSettings: { // Scte35SegmentationDescriptor
- *                     DeliveryRestrictions: { // Scte35DeliveryRestrictions
- *                       ArchiveAllowedFlag: "ARCHIVE_NOT_ALLOWED" || "ARCHIVE_ALLOWED", // required
- *                       DeviceRestrictions: "NONE" || "RESTRICT_GROUP0" || "RESTRICT_GROUP1" || "RESTRICT_GROUP2", // required
- *                       NoRegionalBlackoutFlag: "REGIONAL_BLACKOUT" || "NO_REGIONAL_BLACKOUT", // required
- *                       WebDeliveryAllowedFlag: "WEB_DELIVERY_NOT_ALLOWED" || "WEB_DELIVERY_ALLOWED", // required
- *                     },
- *                     SegmentNum: Number("int"),
- *                     SegmentationCancelIndicator: "SEGMENTATION_EVENT_NOT_CANCELED" || "SEGMENTATION_EVENT_CANCELED", // required
- *                     SegmentationDuration: Number("long"),
- *                     SegmentationEventId: Number("long"), // required
- *                     SegmentationTypeId: Number("int"),
- *                     SegmentationUpid: "STRING_VALUE",
- *                     SegmentationUpidType: Number("int"),
- *                     SegmentsExpected: Number("int"),
- *                     SubSegmentNum: Number("int"),
- *                     SubSegmentsExpected: Number("int"),
- *                   },
- *                 },
- *               },
- *             ],
- *           },
- *           StaticImageActivateSettings: { // StaticImageActivateScheduleActionSettings
- *             Duration: Number("int"),
- *             FadeIn: Number("int"),
- *             FadeOut: Number("int"),
- *             Height: Number("int"),
- *             Image: { // InputLocation
- *               PasswordParam: "STRING_VALUE",
- *               Uri: "STRING_VALUE", // required
- *               Username: "STRING_VALUE",
- *             },
- *             ImageX: Number("int"),
- *             ImageY: Number("int"),
- *             Layer: Number("int"),
- *             Opacity: Number("int"),
- *             Width: Number("int"),
- *           },
- *           StaticImageDeactivateSettings: { // StaticImageDeactivateScheduleActionSettings
- *             FadeOut: Number("int"),
- *             Layer: Number("int"),
- *           },
- *         },
- *         ScheduleActionStartSettings: { // ScheduleActionStartSettings
- *           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
- *             Time: "STRING_VALUE", // required
- *           },
- *           FollowModeScheduleActionStartSettings: { // FollowModeScheduleActionStartSettings
- *             FollowPoint: "END" || "START", // required
- *             ReferenceActionName: "STRING_VALUE", // required
- *           },
- *           ImmediateModeScheduleActionStartSettings: {},
- *         },
- *       },
- *     ],
- *   },
- *   Deletes: { // BatchScheduleActionDeleteResult
- *     ScheduleActions: [ // required
- *       {
- *         ActionName: "STRING_VALUE", // required
- *         ScheduleActionSettings: {
- *           HlsId3SegmentTaggingSettings: {
- *             Tag: "STRING_VALUE",
- *             Id3: "STRING_VALUE",
- *           },
- *           HlsTimedMetadataSettings: {
- *             Id3: "STRING_VALUE", // required
- *           },
- *           InputPrepareSettings: {
- *             InputAttachmentNameReference: "STRING_VALUE",
- *             InputClippingSettings: {
- *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
- *               StartTimecode: {
- *                 Timecode: "STRING_VALUE",
- *               },
- *               StopTimecode: {
- *                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
- *                 Timecode: "STRING_VALUE",
- *               },
- *             },
- *             UrlPath: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           InputSwitchSettings: {
- *             InputAttachmentNameReference: "STRING_VALUE", // required
- *             InputClippingSettings: {
- *               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
- *               StartTimecode: {
- *                 Timecode: "STRING_VALUE",
- *               },
- *               StopTimecode: {
- *                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
- *                 Timecode: "STRING_VALUE",
- *               },
- *             },
- *             UrlPath: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *           MotionGraphicsImageActivateSettings: {
- *             Duration: Number("long"),
- *             PasswordParam: "STRING_VALUE",
- *             Url: "STRING_VALUE",
- *             Username: "STRING_VALUE",
- *           },
- *           MotionGraphicsImageDeactivateSettings: {},
- *           PauseStateSettings: {
- *             Pipelines: [
- *               {
- *                 PipelineId: "PIPELINE_0" || "PIPELINE_1", // required
- *               },
- *             ],
- *           },
- *           Scte35InputSettings: {
- *             InputAttachmentNameReference: "STRING_VALUE",
- *             Mode: "FIXED" || "FOLLOW_ACTIVE", // required
- *           },
- *           Scte35ReturnToNetworkSettings: {
- *             SpliceEventId: Number("long"), // required
- *           },
- *           Scte35SpliceInsertSettings: {
- *             Duration: Number("long"),
- *             SpliceEventId: Number("long"), // required
- *           },
- *           Scte35TimeSignalSettings: {
- *             Scte35Descriptors: [ // required
- *               {
- *                 Scte35DescriptorSettings: {
- *                   SegmentationDescriptorScte35DescriptorSettings: {
- *                     DeliveryRestrictions: {
- *                       ArchiveAllowedFlag: "ARCHIVE_NOT_ALLOWED" || "ARCHIVE_ALLOWED", // required
- *                       DeviceRestrictions: "NONE" || "RESTRICT_GROUP0" || "RESTRICT_GROUP1" || "RESTRICT_GROUP2", // required
- *                       NoRegionalBlackoutFlag: "REGIONAL_BLACKOUT" || "NO_REGIONAL_BLACKOUT", // required
- *                       WebDeliveryAllowedFlag: "WEB_DELIVERY_NOT_ALLOWED" || "WEB_DELIVERY_ALLOWED", // required
- *                     },
- *                     SegmentNum: Number("int"),
- *                     SegmentationCancelIndicator: "SEGMENTATION_EVENT_NOT_CANCELED" || "SEGMENTATION_EVENT_CANCELED", // required
- *                     SegmentationDuration: Number("long"),
- *                     SegmentationEventId: Number("long"), // required
- *                     SegmentationTypeId: Number("int"),
- *                     SegmentationUpid: "STRING_VALUE",
- *                     SegmentationUpidType: Number("int"),
- *                     SegmentsExpected: Number("int"),
- *                     SubSegmentNum: Number("int"),
- *                     SubSegmentsExpected: Number("int"),
- *                   },
- *                 },
- *               },
- *             ],
- *           },
- *           StaticImageActivateSettings: {
- *             Duration: Number("int"),
- *             FadeIn: Number("int"),
- *             FadeOut: Number("int"),
- *             Height: Number("int"),
- *             Image: {
- *               PasswordParam: "STRING_VALUE",
- *               Uri: "STRING_VALUE", // required
- *               Username: "STRING_VALUE",
- *             },
- *             ImageX: Number("int"),
- *             ImageY: Number("int"),
- *             Layer: Number("int"),
- *             Opacity: Number("int"),
- *             Width: Number("int"),
- *           },
- *           StaticImageDeactivateSettings: {
- *             FadeOut: Number("int"),
- *             Layer: Number("int"),
- *           },
- *         },
- *         ScheduleActionStartSettings: {
- *           FixedModeScheduleActionStartSettings: {
- *             Time: "STRING_VALUE", // required
- *           },
- *           FollowModeScheduleActionStartSettings: {
- *             FollowPoint: "END" || "START", // required
- *             ReferenceActionName: "STRING_VALUE", // required
- *           },
- *           ImmediateModeScheduleActionStartSettings: {},
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // BatchUpdateScheduleResponse
+ * //   Creates: { // BatchScheduleActionCreateResult
+ * //     ScheduleActions: [ // __listOfScheduleAction // required
+ * //       { // ScheduleAction
+ * //         ActionName: "STRING_VALUE", // required
+ * //         ScheduleActionSettings: { // ScheduleActionSettings
+ * //           HlsId3SegmentTaggingSettings: { // HlsId3SegmentTaggingScheduleActionSettings
+ * //             Tag: "STRING_VALUE",
+ * //             Id3: "STRING_VALUE",
+ * //           },
+ * //           HlsTimedMetadataSettings: { // HlsTimedMetadataScheduleActionSettings
+ * //             Id3: "STRING_VALUE", // required
+ * //           },
+ * //           InputPrepareSettings: { // InputPrepareScheduleActionSettings
+ * //             InputAttachmentNameReference: "STRING_VALUE",
+ * //             InputClippingSettings: { // InputClippingSettings
+ * //               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
+ * //               StartTimecode: { // StartTimecode
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //               StopTimecode: { // StopTimecode
+ * //                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             UrlPath: [ // __listOf__string
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           InputSwitchSettings: { // InputSwitchScheduleActionSettings
+ * //             InputAttachmentNameReference: "STRING_VALUE", // required
+ * //             InputClippingSettings: {
+ * //               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
+ * //               StartTimecode: {
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //               StopTimecode: {
+ * //                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             UrlPath: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           MotionGraphicsImageActivateSettings: { // MotionGraphicsActivateScheduleActionSettings
+ * //             Duration: Number("long"),
+ * //             PasswordParam: "STRING_VALUE",
+ * //             Url: "STRING_VALUE",
+ * //             Username: "STRING_VALUE",
+ * //           },
+ * //           MotionGraphicsImageDeactivateSettings: {},
+ * //           PauseStateSettings: { // PauseStateScheduleActionSettings
+ * //             Pipelines: [ // __listOfPipelinePauseStateSettings
+ * //               { // PipelinePauseStateSettings
+ * //                 PipelineId: "PIPELINE_0" || "PIPELINE_1", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           Scte35InputSettings: { // Scte35InputScheduleActionSettings
+ * //             InputAttachmentNameReference: "STRING_VALUE",
+ * //             Mode: "FIXED" || "FOLLOW_ACTIVE", // required
+ * //           },
+ * //           Scte35ReturnToNetworkSettings: { // Scte35ReturnToNetworkScheduleActionSettings
+ * //             SpliceEventId: Number("long"), // required
+ * //           },
+ * //           Scte35SpliceInsertSettings: { // Scte35SpliceInsertScheduleActionSettings
+ * //             Duration: Number("long"),
+ * //             SpliceEventId: Number("long"), // required
+ * //           },
+ * //           Scte35TimeSignalSettings: { // Scte35TimeSignalScheduleActionSettings
+ * //             Scte35Descriptors: [ // __listOfScte35Descriptor // required
+ * //               { // Scte35Descriptor
+ * //                 Scte35DescriptorSettings: { // Scte35DescriptorSettings
+ * //                   SegmentationDescriptorScte35DescriptorSettings: { // Scte35SegmentationDescriptor
+ * //                     DeliveryRestrictions: { // Scte35DeliveryRestrictions
+ * //                       ArchiveAllowedFlag: "ARCHIVE_NOT_ALLOWED" || "ARCHIVE_ALLOWED", // required
+ * //                       DeviceRestrictions: "NONE" || "RESTRICT_GROUP0" || "RESTRICT_GROUP1" || "RESTRICT_GROUP2", // required
+ * //                       NoRegionalBlackoutFlag: "REGIONAL_BLACKOUT" || "NO_REGIONAL_BLACKOUT", // required
+ * //                       WebDeliveryAllowedFlag: "WEB_DELIVERY_NOT_ALLOWED" || "WEB_DELIVERY_ALLOWED", // required
+ * //                     },
+ * //                     SegmentNum: Number("int"),
+ * //                     SegmentationCancelIndicator: "SEGMENTATION_EVENT_NOT_CANCELED" || "SEGMENTATION_EVENT_CANCELED", // required
+ * //                     SegmentationDuration: Number("long"),
+ * //                     SegmentationEventId: Number("long"), // required
+ * //                     SegmentationTypeId: Number("int"),
+ * //                     SegmentationUpid: "STRING_VALUE",
+ * //                     SegmentationUpidType: Number("int"),
+ * //                     SegmentsExpected: Number("int"),
+ * //                     SubSegmentNum: Number("int"),
+ * //                     SubSegmentsExpected: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           StaticImageActivateSettings: { // StaticImageActivateScheduleActionSettings
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: { // InputLocation
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageDeactivateSettings: { // StaticImageDeactivateScheduleActionSettings
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //           },
+ * //         },
+ * //         ScheduleActionStartSettings: { // ScheduleActionStartSettings
+ * //           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
+ * //             Time: "STRING_VALUE", // required
+ * //           },
+ * //           FollowModeScheduleActionStartSettings: { // FollowModeScheduleActionStartSettings
+ * //             FollowPoint: "END" || "START", // required
+ * //             ReferenceActionName: "STRING_VALUE", // required
+ * //           },
+ * //           ImmediateModeScheduleActionStartSettings: {},
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   Deletes: { // BatchScheduleActionDeleteResult
+ * //     ScheduleActions: [ // required
+ * //       {
+ * //         ActionName: "STRING_VALUE", // required
+ * //         ScheduleActionSettings: {
+ * //           HlsId3SegmentTaggingSettings: {
+ * //             Tag: "STRING_VALUE",
+ * //             Id3: "STRING_VALUE",
+ * //           },
+ * //           HlsTimedMetadataSettings: {
+ * //             Id3: "STRING_VALUE", // required
+ * //           },
+ * //           InputPrepareSettings: {
+ * //             InputAttachmentNameReference: "STRING_VALUE",
+ * //             InputClippingSettings: {
+ * //               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
+ * //               StartTimecode: {
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //               StopTimecode: {
+ * //                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             UrlPath: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           InputSwitchSettings: {
+ * //             InputAttachmentNameReference: "STRING_VALUE", // required
+ * //             InputClippingSettings: {
+ * //               InputTimecodeSource: "ZEROBASED" || "EMBEDDED", // required
+ * //               StartTimecode: {
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //               StopTimecode: {
+ * //                 LastFrameClippingBehavior: "EXCLUDE_LAST_FRAME" || "INCLUDE_LAST_FRAME",
+ * //                 Timecode: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             UrlPath: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           MotionGraphicsImageActivateSettings: {
+ * //             Duration: Number("long"),
+ * //             PasswordParam: "STRING_VALUE",
+ * //             Url: "STRING_VALUE",
+ * //             Username: "STRING_VALUE",
+ * //           },
+ * //           MotionGraphicsImageDeactivateSettings: {},
+ * //           PauseStateSettings: {
+ * //             Pipelines: [
+ * //               {
+ * //                 PipelineId: "PIPELINE_0" || "PIPELINE_1", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           Scte35InputSettings: {
+ * //             InputAttachmentNameReference: "STRING_VALUE",
+ * //             Mode: "FIXED" || "FOLLOW_ACTIVE", // required
+ * //           },
+ * //           Scte35ReturnToNetworkSettings: {
+ * //             SpliceEventId: Number("long"), // required
+ * //           },
+ * //           Scte35SpliceInsertSettings: {
+ * //             Duration: Number("long"),
+ * //             SpliceEventId: Number("long"), // required
+ * //           },
+ * //           Scte35TimeSignalSettings: {
+ * //             Scte35Descriptors: [ // required
+ * //               {
+ * //                 Scte35DescriptorSettings: {
+ * //                   SegmentationDescriptorScte35DescriptorSettings: {
+ * //                     DeliveryRestrictions: {
+ * //                       ArchiveAllowedFlag: "ARCHIVE_NOT_ALLOWED" || "ARCHIVE_ALLOWED", // required
+ * //                       DeviceRestrictions: "NONE" || "RESTRICT_GROUP0" || "RESTRICT_GROUP1" || "RESTRICT_GROUP2", // required
+ * //                       NoRegionalBlackoutFlag: "REGIONAL_BLACKOUT" || "NO_REGIONAL_BLACKOUT", // required
+ * //                       WebDeliveryAllowedFlag: "WEB_DELIVERY_NOT_ALLOWED" || "WEB_DELIVERY_ALLOWED", // required
+ * //                     },
+ * //                     SegmentNum: Number("int"),
+ * //                     SegmentationCancelIndicator: "SEGMENTATION_EVENT_NOT_CANCELED" || "SEGMENTATION_EVENT_CANCELED", // required
+ * //                     SegmentationDuration: Number("long"),
+ * //                     SegmentationEventId: Number("long"), // required
+ * //                     SegmentationTypeId: Number("int"),
+ * //                     SegmentationUpid: "STRING_VALUE",
+ * //                     SegmentationUpidType: Number("int"),
+ * //                     SegmentsExpected: Number("int"),
+ * //                     SubSegmentNum: Number("int"),
+ * //                     SubSegmentsExpected: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //           StaticImageActivateSettings: {
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: {
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageDeactivateSettings: {
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //           },
+ * //         },
+ * //         ScheduleActionStartSettings: {
+ * //           FixedModeScheduleActionStartSettings: {
+ * //             Time: "STRING_VALUE", // required
+ * //           },
+ * //           FollowModeScheduleActionStartSettings: {
+ * //             FollowPoint: "END" || "START", // required
+ * //             ReferenceActionName: "STRING_VALUE", // required
+ * //           },
+ * //           ImmediateModeScheduleActionStartSettings: {},
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

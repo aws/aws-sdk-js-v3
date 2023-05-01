@@ -88,8 +88,7 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVaultNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,15 +51,14 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * };
  * const command = new DisassociateMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateMembersResponse
- *   UnprocessedAccounts: [ // UnprocessedAccounts // required
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE", // required
- *       Result: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // DisassociateMembersResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,12 +48,11 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * };
  * const command = new PutRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRuntimeManagementConfigResponse
- *   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate", // required
- *   FunctionArn: "STRING_VALUE", // required
- *   RuntimeVersionArn: "STRING_VALUE",
- * };
+ * // { // PutRuntimeManagementConfigResponse
+ * //   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate", // required
+ * //   FunctionArn: "STRING_VALUE", // required
+ * //   RuntimeVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

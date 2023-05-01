@@ -44,8 +44,7 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopNotebookExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

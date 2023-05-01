@@ -45,8 +45,7 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteMonitoringScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

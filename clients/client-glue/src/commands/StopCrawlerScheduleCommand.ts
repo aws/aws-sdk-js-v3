@@ -46,8 +46,7 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * };
  * const command = new StopCrawlerScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteChannelModeratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

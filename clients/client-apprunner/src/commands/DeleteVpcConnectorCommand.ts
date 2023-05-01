@@ -45,23 +45,22 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * };
  * const command = new DeleteVpcConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcConnectorResponse
- *   VpcConnector: { // VpcConnector
- *     VpcConnectorName: "STRING_VALUE",
- *     VpcConnectorArn: "STRING_VALUE",
- *     VpcConnectorRevision: Number("int"),
- *     Subnets: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroups: [
- *       "STRING_VALUE",
- *     ],
- *     Status: "ACTIVE" || "INACTIVE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     DeletedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteVpcConnectorResponse
+ * //   VpcConnector: { // VpcConnector
+ * //     VpcConnectorName: "STRING_VALUE",
+ * //     VpcConnectorArn: "STRING_VALUE",
+ * //     VpcConnectorRevision: Number("int"),
+ * //     Subnets: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroups: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

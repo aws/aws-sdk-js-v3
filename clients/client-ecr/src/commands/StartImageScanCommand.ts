@@ -52,19 +52,18 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * };
  * const command = new StartImageScanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartImageScanResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   imageId: { // ImageIdentifier
- *     imageDigest: "STRING_VALUE",
- *     imageTag: "STRING_VALUE",
- *   },
- *   imageScanStatus: { // ImageScanStatus
- *     status: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *   },
- * };
+ * // { // StartImageScanResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   imageId: { // ImageIdentifier
+ * //     imageDigest: "STRING_VALUE",
+ * //     imageTag: "STRING_VALUE",
+ * //   },
+ * //   imageScanStatus: { // ImageScanStatus
+ * //     status: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

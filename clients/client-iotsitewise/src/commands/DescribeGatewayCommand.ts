@@ -44,28 +44,27 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * };
  * const command = new DescribeGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGatewayResponse
- *   gatewayId: "STRING_VALUE", // required
- *   gatewayName: "STRING_VALUE", // required
- *   gatewayArn: "STRING_VALUE", // required
- *   gatewayPlatform: { // GatewayPlatform
- *     greengrass: { // Greengrass
- *       groupArn: "STRING_VALUE", // required
- *     },
- *     greengrassV2: { // GreengrassV2
- *       coreDeviceThingName: "STRING_VALUE", // required
- *     },
- *   },
- *   gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries // required
- *     { // GatewayCapabilitySummary
- *       capabilityNamespace: "STRING_VALUE", // required
- *       capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
- *     },
- *   ],
- *   creationDate: new Date("TIMESTAMP"), // required
- *   lastUpdateDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeGatewayResponse
+ * //   gatewayId: "STRING_VALUE", // required
+ * //   gatewayName: "STRING_VALUE", // required
+ * //   gatewayArn: "STRING_VALUE", // required
+ * //   gatewayPlatform: { // GatewayPlatform
+ * //     greengrass: { // Greengrass
+ * //       groupArn: "STRING_VALUE", // required
+ * //     },
+ * //     greengrassV2: { // GreengrassV2
+ * //       coreDeviceThingName: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries // required
+ * //     { // GatewayCapabilitySummary
+ * //       capabilityNamespace: "STRING_VALUE", // required
+ * //       capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //     },
+ * //   ],
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * //   lastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

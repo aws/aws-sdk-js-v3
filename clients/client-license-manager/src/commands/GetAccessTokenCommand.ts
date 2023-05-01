@@ -48,10 +48,9 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * };
  * const command = new GetAccessTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessTokenResponse
- *   AccessToken: "STRING_VALUE",
- * };
+ * // { // GetAccessTokenResponse
+ * //   AccessToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

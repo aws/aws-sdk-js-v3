@@ -46,21 +46,20 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * };
  * const command = new ListListenersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListListenersResponse
- *   items: [ // ListenerSummaryList // required
- *     { // ListenerSummary
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       protocol: "STRING_VALUE",
- *       port: Number("int"),
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListListenersResponse
+ * //   items: [ // ListenerSummaryList // required
+ * //     { // ListenerSummary
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       protocol: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

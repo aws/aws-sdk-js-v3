@@ -55,20 +55,19 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * };
  * const command = new EnablePolicyTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnablePolicyTypeResponse
- *   Root: { // Root
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     PolicyTypes: [ // PolicyTypes
- *       { // PolicyTypeSummary
- *         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
- *         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
- *       },
- *     ],
- *   },
- * };
+ * // { // EnablePolicyTypeResponse
+ * //   Root: { // Root
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     PolicyTypes: [ // PolicyTypes
+ * //       { // PolicyTypeSummary
+ * //         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,19 +51,18 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * };
  * const command = new GetHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHypervisorPropertyMappingsOutput
- *   HypervisorArn: "STRING_VALUE",
- *   VmwareToAwsTagMappings: [ // VmwareToAwsTagMappings
- *     { // VmwareToAwsTagMapping
- *       VmwareCategory: "STRING_VALUE", // required
- *       VmwareTagName: "STRING_VALUE", // required
- *       AwsTagKey: "STRING_VALUE", // required
- *       AwsTagValue: "STRING_VALUE", // required
- *     },
- *   ],
- *   IamRoleArn: "STRING_VALUE",
- * };
+ * // { // GetHypervisorPropertyMappingsOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * //   VmwareToAwsTagMappings: [ // VmwareToAwsTagMappings
+ * //     { // VmwareToAwsTagMapping
+ * //       VmwareCategory: "STRING_VALUE", // required
+ * //       VmwareTagName: "STRING_VALUE", // required
+ * //       AwsTagKey: "STRING_VALUE", // required
+ * //       AwsTagValue: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IamRoleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

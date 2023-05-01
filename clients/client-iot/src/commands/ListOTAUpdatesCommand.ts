@@ -47,17 +47,16 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * };
  * const command = new ListOTAUpdatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOTAUpdatesResponse
- *   otaUpdates: [ // OTAUpdatesSummary
- *     { // OTAUpdateSummary
- *       otaUpdateId: "STRING_VALUE",
- *       otaUpdateArn: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOTAUpdatesResponse
+ * //   otaUpdates: [ // OTAUpdatesSummary
+ * //     { // OTAUpdateSummary
+ * //       otaUpdateId: "STRING_VALUE",
+ * //       otaUpdateArn: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

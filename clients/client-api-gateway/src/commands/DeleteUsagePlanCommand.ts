@@ -44,8 +44,7 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUsagePlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

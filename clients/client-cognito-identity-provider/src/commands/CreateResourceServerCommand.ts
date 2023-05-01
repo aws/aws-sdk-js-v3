@@ -57,20 +57,19 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  * };
  * const command = new CreateResourceServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResourceServerResponse
- *   ResourceServer: { // ResourceServerType
- *     UserPoolId: "STRING_VALUE",
- *     Identifier: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Scopes: [ // ResourceServerScopeListType
- *       { // ResourceServerScopeType
- *         ScopeName: "STRING_VALUE", // required
- *         ScopeDescription: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateResourceServerResponse
+ * //   ResourceServer: { // ResourceServerType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Scopes: [ // ResourceServerScopeListType
+ * //       { // ResourceServerScopeType
+ * //         ScopeName: "STRING_VALUE", // required
+ * //         ScopeDescription: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

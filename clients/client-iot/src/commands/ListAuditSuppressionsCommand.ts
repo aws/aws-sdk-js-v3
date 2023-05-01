@@ -69,37 +69,36 @@ export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppression
  * };
  * const command = new ListAuditSuppressionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAuditSuppressionsResponse
- *   suppressions: [ // AuditSuppressionList
- *     { // AuditSuppression
- *       checkName: "STRING_VALUE", // required
- *       resourceIdentifier: { // ResourceIdentifier
- *         deviceCertificateId: "STRING_VALUE",
- *         caCertificateId: "STRING_VALUE",
- *         cognitoIdentityPoolId: "STRING_VALUE",
- *         clientId: "STRING_VALUE",
- *         policyVersionIdentifier: { // PolicyVersionIdentifier
- *           policyName: "STRING_VALUE",
- *           policyVersionId: "STRING_VALUE",
- *         },
- *         account: "STRING_VALUE",
- *         iamRoleArn: "STRING_VALUE",
- *         roleAliasArn: "STRING_VALUE",
- *         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
- *           issuerCertificateSubject: "STRING_VALUE",
- *           issuerId: "STRING_VALUE",
- *           issuerCertificateSerialNumber: "STRING_VALUE",
- *         },
- *         deviceCertificateArn: "STRING_VALUE",
- *       },
- *       expirationDate: new Date("TIMESTAMP"),
- *       suppressIndefinitely: true || false,
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAuditSuppressionsResponse
+ * //   suppressions: [ // AuditSuppressionList
+ * //     { // AuditSuppression
+ * //       checkName: "STRING_VALUE", // required
+ * //       resourceIdentifier: { // ResourceIdentifier
+ * //         deviceCertificateId: "STRING_VALUE",
+ * //         caCertificateId: "STRING_VALUE",
+ * //         cognitoIdentityPoolId: "STRING_VALUE",
+ * //         clientId: "STRING_VALUE",
+ * //         policyVersionIdentifier: { // PolicyVersionIdentifier
+ * //           policyName: "STRING_VALUE",
+ * //           policyVersionId: "STRING_VALUE",
+ * //         },
+ * //         account: "STRING_VALUE",
+ * //         iamRoleArn: "STRING_VALUE",
+ * //         roleAliasArn: "STRING_VALUE",
+ * //         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ * //           issuerCertificateSubject: "STRING_VALUE",
+ * //           issuerId: "STRING_VALUE",
+ * //           issuerCertificateSerialNumber: "STRING_VALUE",
+ * //         },
+ * //         deviceCertificateArn: "STRING_VALUE",
+ * //       },
+ * //       expirationDate: new Date("TIMESTAMP"),
+ * //       suppressIndefinitely: true || false,
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

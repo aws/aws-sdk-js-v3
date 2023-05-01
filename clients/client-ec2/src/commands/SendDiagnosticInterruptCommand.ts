@@ -59,8 +59,7 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * };
  * const command = new SendDiagnosticInterruptCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

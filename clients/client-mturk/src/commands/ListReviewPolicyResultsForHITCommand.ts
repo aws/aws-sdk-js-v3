@@ -62,97 +62,96 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * };
  * const command = new ListReviewPolicyResultsForHITCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReviewPolicyResultsForHITResponse
- *   HITId: "STRING_VALUE",
- *   AssignmentReviewPolicy: { // ReviewPolicy
- *     PolicyName: "STRING_VALUE", // required
- *     Parameters: [ // PolicyParameterList
- *       { // PolicyParameter
- *         Key: "STRING_VALUE",
- *         Values: [ // StringList
- *           "STRING_VALUE",
- *         ],
- *         MapEntries: [ // ParameterMapEntryList
- *           { // ParameterMapEntry
- *             Key: "STRING_VALUE",
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   HITReviewPolicy: {
- *     PolicyName: "STRING_VALUE", // required
- *     Parameters: [
- *       {
- *         Key: "STRING_VALUE",
- *         Values: [
- *           "STRING_VALUE",
- *         ],
- *         MapEntries: [
- *           {
- *             Key: "STRING_VALUE",
- *             Values: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *   },
- *   AssignmentReviewReport: { // ReviewReport
- *     ReviewResults: [ // ReviewResultDetailList
- *       { // ReviewResultDetail
- *         ActionId: "STRING_VALUE",
- *         SubjectId: "STRING_VALUE",
- *         SubjectType: "STRING_VALUE",
- *         QuestionId: "STRING_VALUE",
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     ReviewActions: [ // ReviewActionDetailList
- *       { // ReviewActionDetail
- *         ActionId: "STRING_VALUE",
- *         ActionName: "STRING_VALUE",
- *         TargetId: "STRING_VALUE",
- *         TargetType: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         CompleteTime: new Date("TIMESTAMP"),
- *         Result: "STRING_VALUE",
- *         ErrorCode: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   HITReviewReport: {
- *     ReviewResults: [
- *       {
- *         ActionId: "STRING_VALUE",
- *         SubjectId: "STRING_VALUE",
- *         SubjectType: "STRING_VALUE",
- *         QuestionId: "STRING_VALUE",
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     ReviewActions: [
- *       {
- *         ActionId: "STRING_VALUE",
- *         ActionName: "STRING_VALUE",
- *         TargetId: "STRING_VALUE",
- *         TargetType: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         CompleteTime: new Date("TIMESTAMP"),
- *         Result: "STRING_VALUE",
- *         ErrorCode: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListReviewPolicyResultsForHITResponse
+ * //   HITId: "STRING_VALUE",
+ * //   AssignmentReviewPolicy: { // ReviewPolicy
+ * //     PolicyName: "STRING_VALUE", // required
+ * //     Parameters: [ // PolicyParameterList
+ * //       { // PolicyParameter
+ * //         Key: "STRING_VALUE",
+ * //         Values: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MapEntries: [ // ParameterMapEntryList
+ * //           { // ParameterMapEntry
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   HITReviewPolicy: {
+ * //     PolicyName: "STRING_VALUE", // required
+ * //     Parameters: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Values: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MapEntries: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   AssignmentReviewReport: { // ReviewReport
+ * //     ReviewResults: [ // ReviewResultDetailList
+ * //       { // ReviewResultDetail
+ * //         ActionId: "STRING_VALUE",
+ * //         SubjectId: "STRING_VALUE",
+ * //         SubjectType: "STRING_VALUE",
+ * //         QuestionId: "STRING_VALUE",
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ReviewActions: [ // ReviewActionDetailList
+ * //       { // ReviewActionDetail
+ * //         ActionId: "STRING_VALUE",
+ * //         ActionName: "STRING_VALUE",
+ * //         TargetId: "STRING_VALUE",
+ * //         TargetType: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         CompleteTime: new Date("TIMESTAMP"),
+ * //         Result: "STRING_VALUE",
+ * //         ErrorCode: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   HITReviewReport: {
+ * //     ReviewResults: [
+ * //       {
+ * //         ActionId: "STRING_VALUE",
+ * //         SubjectId: "STRING_VALUE",
+ * //         SubjectType: "STRING_VALUE",
+ * //         QuestionId: "STRING_VALUE",
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ReviewActions: [
+ * //       {
+ * //         ActionId: "STRING_VALUE",
+ * //         ActionName: "STRING_VALUE",
+ * //         TargetId: "STRING_VALUE",
+ * //         TargetType: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         CompleteTime: new Date("TIMESTAMP"),
+ * //         Result: "STRING_VALUE",
+ * //         ErrorCode: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

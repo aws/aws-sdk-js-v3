@@ -72,32 +72,31 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTableResponse
- *   Table: { // Table
- *     Arn: "STRING_VALUE",
- *     TableName: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     TableStatus: "ACTIVE" || "DELETING" || "RESTORING",
- *     RetentionProperties: { // RetentionProperties
- *       MemoryStoreRetentionPeriodInHours: Number("long"), // required
- *       MagneticStoreRetentionPeriodInDays: Number("long"), // required
- *     },
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *     MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
- *       EnableMagneticStoreWrites: true || false, // required
- *       MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
- *         S3Configuration: { // S3Configuration
- *           BucketName: "STRING_VALUE",
- *           ObjectKeyPrefix: "STRING_VALUE",
- *           EncryptionOption: "SSE_S3" || "SSE_KMS",
- *           KmsKeyId: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // CreateTableResponse
+ * //   Table: { // Table
+ * //     Arn: "STRING_VALUE",
+ * //     TableName: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableStatus: "ACTIVE" || "DELETING" || "RESTORING",
+ * //     RetentionProperties: { // RetentionProperties
+ * //       MemoryStoreRetentionPeriodInHours: Number("long"), // required
+ * //       MagneticStoreRetentionPeriodInDays: Number("long"), // required
+ * //     },
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     MagneticStoreWriteProperties: { // MagneticStoreWriteProperties
+ * //       EnableMagneticStoreWrites: true || false, // required
+ * //       MagneticStoreRejectedDataLocation: { // MagneticStoreRejectedDataLocation
+ * //         S3Configuration: { // S3Configuration
+ * //           BucketName: "STRING_VALUE",
+ * //           ObjectKeyPrefix: "STRING_VALUE",
+ * //           EncryptionOption: "SSE_S3" || "SSE_KMS",
+ * //           KmsKeyId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

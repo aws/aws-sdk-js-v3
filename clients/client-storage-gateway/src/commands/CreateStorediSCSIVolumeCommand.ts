@@ -68,12 +68,11 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * };
  * const command = new CreateStorediSCSIVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStorediSCSIVolumeOutput
- *   VolumeARN: "STRING_VALUE",
- *   VolumeSizeInBytes: Number("long"),
- *   TargetARN: "STRING_VALUE",
- * };
+ * // { // CreateStorediSCSIVolumeOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   VolumeSizeInBytes: Number("long"),
+ * //   TargetARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

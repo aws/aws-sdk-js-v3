@@ -55,8 +55,7 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * };
  * const command = new CreateVariableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

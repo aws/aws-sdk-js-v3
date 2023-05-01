@@ -59,8 +59,7 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * const input = {};
  * const command = new EnableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -69,21 +69,20 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * };
  * const command = new ListConflictingAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConflictingAliasesResult
- *   ConflictingAliasesList: { // ConflictingAliasesList
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"),
- *     Quantity: Number("int"),
- *     Items: [ // ConflictingAliases
- *       { // ConflictingAlias
- *         Alias: "STRING_VALUE",
- *         DistributionId: "STRING_VALUE",
- *         AccountId: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ListConflictingAliasesResult
+ * //   ConflictingAliasesList: { // ConflictingAliasesList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"),
+ * //     Quantity: Number("int"),
+ * //     Items: [ // ConflictingAliases
+ * //       { // ConflictingAlias
+ * //         Alias: "STRING_VALUE",
+ * //         DistributionId: "STRING_VALUE",
+ * //         AccountId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,42 +45,41 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * };
  * const command = new GetSigningProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSigningProfileResponse
- *   profileName: "STRING_VALUE",
- *   profileVersion: "STRING_VALUE",
- *   profileVersionArn: "STRING_VALUE",
- *   revocationRecord: { // SigningProfileRevocationRecord
- *     revocationEffectiveFrom: new Date("TIMESTAMP"),
- *     revokedAt: new Date("TIMESTAMP"),
- *     revokedBy: "STRING_VALUE",
- *   },
- *   signingMaterial: { // SigningMaterial
- *     certificateArn: "STRING_VALUE", // required
- *   },
- *   platformId: "STRING_VALUE",
- *   platformDisplayName: "STRING_VALUE",
- *   signatureValidityPeriod: { // SignatureValidityPeriod
- *     value: Number("int"),
- *     type: "STRING_VALUE",
- *   },
- *   overrides: { // SigningPlatformOverrides
- *     signingConfiguration: { // SigningConfigurationOverrides
- *       encryptionAlgorithm: "STRING_VALUE",
- *       hashAlgorithm: "STRING_VALUE",
- *     },
- *     signingImageFormat: "STRING_VALUE",
- *   },
- *   signingParameters: { // SigningParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE",
- *   statusReason: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSigningProfileResponse
+ * //   profileName: "STRING_VALUE",
+ * //   profileVersion: "STRING_VALUE",
+ * //   profileVersionArn: "STRING_VALUE",
+ * //   revocationRecord: { // SigningProfileRevocationRecord
+ * //     revocationEffectiveFrom: new Date("TIMESTAMP"),
+ * //     revokedAt: new Date("TIMESTAMP"),
+ * //     revokedBy: "STRING_VALUE",
+ * //   },
+ * //   signingMaterial: { // SigningMaterial
+ * //     certificateArn: "STRING_VALUE", // required
+ * //   },
+ * //   platformId: "STRING_VALUE",
+ * //   platformDisplayName: "STRING_VALUE",
+ * //   signatureValidityPeriod: { // SignatureValidityPeriod
+ * //     value: Number("int"),
+ * //     type: "STRING_VALUE",
+ * //   },
+ * //   overrides: { // SigningPlatformOverrides
+ * //     signingConfiguration: { // SigningConfigurationOverrides
+ * //       encryptionAlgorithm: "STRING_VALUE",
+ * //       hashAlgorithm: "STRING_VALUE",
+ * //     },
+ * //     signingImageFormat: "STRING_VALUE",
+ * //   },
+ * //   signingParameters: { // SigningParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE",
+ * //   statusReason: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

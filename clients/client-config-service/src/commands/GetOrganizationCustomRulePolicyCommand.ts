@@ -49,10 +49,9 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * };
  * const command = new GetOrganizationCustomRulePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOrganizationCustomRulePolicyResponse
- *   PolicyText: "STRING_VALUE",
- * };
+ * // { // GetOrganizationCustomRulePolicyResponse
+ * //   PolicyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * };
  * const command = new DeleteStoredQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

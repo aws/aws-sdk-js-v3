@@ -46,27 +46,26 @@ export interface ListContactEvaluationsCommandOutput extends ListContactEvaluati
  * };
  * const command = new ListContactEvaluationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactEvaluationsResponse
- *   EvaluationSummaryList: [ // EvaluationSummaryList // required
- *     { // EvaluationSummary
- *       EvaluationId: "STRING_VALUE", // required
- *       EvaluationArn: "STRING_VALUE", // required
- *       EvaluationFormTitle: "STRING_VALUE", // required
- *       EvaluationFormId: "STRING_VALUE", // required
- *       Status: "DRAFT" || "SUBMITTED", // required
- *       EvaluatorArn: "STRING_VALUE", // required
- *       Score: { // EvaluationScore
- *         Percentage: Number("double"),
- *         NotApplicable: true || false,
- *         AutomaticFail: true || false,
- *       },
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContactEvaluationsResponse
+ * //   EvaluationSummaryList: [ // EvaluationSummaryList // required
+ * //     { // EvaluationSummary
+ * //       EvaluationId: "STRING_VALUE", // required
+ * //       EvaluationArn: "STRING_VALUE", // required
+ * //       EvaluationFormTitle: "STRING_VALUE", // required
+ * //       EvaluationFormId: "STRING_VALUE", // required
+ * //       Status: "DRAFT" || "SUBMITTED", // required
+ * //       EvaluatorArn: "STRING_VALUE", // required
+ * //       Score: { // EvaluationScore
+ * //         Percentage: Number("double"),
+ * //         NotApplicable: true || false,
+ * //         AutomaticFail: true || false,
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

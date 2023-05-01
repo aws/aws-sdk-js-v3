@@ -86,51 +86,50 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * };
  * const command = new DescribeInstanceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceStatusResult
- *   InstanceStatuses: [ // InstanceStatusList
- *     { // InstanceStatus
- *       AvailabilityZone: "STRING_VALUE",
- *       OutpostArn: "STRING_VALUE",
- *       Events: [ // InstanceStatusEventList
- *         { // InstanceStatusEvent
- *           InstanceEventId: "STRING_VALUE",
- *           Code: "instance-reboot" || "system-reboot" || "system-maintenance" || "instance-retirement" || "instance-stop",
- *           Description: "STRING_VALUE",
- *           NotAfter: new Date("TIMESTAMP"),
- *           NotBefore: new Date("TIMESTAMP"),
- *           NotBeforeDeadline: new Date("TIMESTAMP"),
- *         },
- *       ],
- *       InstanceId: "STRING_VALUE",
- *       InstanceState: { // InstanceState
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *       InstanceStatus: { // InstanceStatusSummary
- *         Details: [ // InstanceStatusDetailsList
- *           { // InstanceStatusDetails
- *             ImpairedSince: new Date("TIMESTAMP"),
- *             Name: "reachability",
- *             Status: "passed" || "failed" || "insufficient-data" || "initializing",
- *           },
- *         ],
- *         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
- *       },
- *       SystemStatus: {
- *         Details: [
- *           {
- *             ImpairedSince: new Date("TIMESTAMP"),
- *             Name: "reachability",
- *             Status: "passed" || "failed" || "insufficient-data" || "initializing",
- *           },
- *         ],
- *         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInstanceStatusResult
+ * //   InstanceStatuses: [ // InstanceStatusList
+ * //     { // InstanceStatus
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       Events: [ // InstanceStatusEventList
+ * //         { // InstanceStatusEvent
+ * //           InstanceEventId: "STRING_VALUE",
+ * //           Code: "instance-reboot" || "system-reboot" || "system-maintenance" || "instance-retirement" || "instance-stop",
+ * //           Description: "STRING_VALUE",
+ * //           NotAfter: new Date("TIMESTAMP"),
+ * //           NotBefore: new Date("TIMESTAMP"),
+ * //           NotBeforeDeadline: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceState: { // InstanceState
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //       InstanceStatus: { // InstanceStatusSummary
+ * //         Details: [ // InstanceStatusDetailsList
+ * //           { // InstanceStatusDetails
+ * //             ImpairedSince: new Date("TIMESTAMP"),
+ * //             Name: "reachability",
+ * //             Status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //           },
+ * //         ],
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //       },
+ * //       SystemStatus: {
+ * //         Details: [
+ * //           {
+ * //             ImpairedSince: new Date("TIMESTAMP"),
+ * //             Name: "reachability",
+ * //             Status: "passed" || "failed" || "insufficient-data" || "initializing",
+ * //           },
+ * //         ],
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

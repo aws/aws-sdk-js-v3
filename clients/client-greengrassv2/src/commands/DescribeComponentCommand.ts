@@ -44,35 +44,34 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * };
  * const command = new DescribeComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeComponentResponse
- *   arn: "STRING_VALUE",
- *   componentName: "STRING_VALUE",
- *   componentVersion: "STRING_VALUE",
- *   creationTimestamp: new Date("TIMESTAMP"),
- *   publisher: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   status: { // CloudComponentStatus
- *     componentState: "REQUESTED" || "INITIATED" || "DEPLOYABLE" || "FAILED" || "DEPRECATED",
- *     message: "STRING_VALUE",
- *     errors: { // StringMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
- *     vendorGuidanceMessage: "STRING_VALUE",
- *   },
- *   platforms: [ // ComponentPlatformList
- *     { // ComponentPlatform
- *       name: "STRING_VALUE",
- *       attributes: { // PlatformAttributesMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeComponentResponse
+ * //   arn: "STRING_VALUE",
+ * //   componentName: "STRING_VALUE",
+ * //   componentVersion: "STRING_VALUE",
+ * //   creationTimestamp: new Date("TIMESTAMP"),
+ * //   publisher: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   status: { // CloudComponentStatus
+ * //     componentState: "REQUESTED" || "INITIATED" || "DEPLOYABLE" || "FAILED" || "DEPRECATED",
+ * //     message: "STRING_VALUE",
+ * //     errors: { // StringMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
+ * //     vendorGuidanceMessage: "STRING_VALUE",
+ * //   },
+ * //   platforms: [ // ComponentPlatformList
+ * //     { // ComponentPlatform
+ * //       name: "STRING_VALUE",
+ * //       attributes: { // PlatformAttributesMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

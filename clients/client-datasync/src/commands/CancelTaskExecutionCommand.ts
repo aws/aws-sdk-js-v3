@@ -50,8 +50,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * };
  * const command = new CancelTaskExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

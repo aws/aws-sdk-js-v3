@@ -49,54 +49,53 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * };
  * const command = new ListModelManifestNodesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelManifestNodesResponse
- *   nodes: [ // Nodes
- *     { // Node Union: only one key present
- *       branch: { // Branch
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *       },
- *       sensor: { // Sensor
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
- *         allowedValues: [ // listOfStrings
- *           "STRING_VALUE",
- *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *       },
- *       actuator: { // Actuator
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
- *         allowedValues: [
- *           "STRING_VALUE",
- *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
- *       },
- *       attribute: { // Attribute
- *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
- *         description: "STRING_VALUE",
- *         unit: "STRING_VALUE",
- *         allowedValues: [
- *           "STRING_VALUE",
- *         ],
- *         min: Number("double"),
- *         max: Number("double"),
- *         assignedValue: "STRING_VALUE",
- *         defaultValue: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListModelManifestNodesResponse
+ * //   nodes: [ // Nodes
+ * //     { // Node Union: only one key present
+ * //       branch: { // Branch
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //       sensor: { // Sensor
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         dataType: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         unit: "STRING_VALUE",
+ * //         allowedValues: [ // listOfStrings
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         min: Number("double"),
+ * //         max: Number("double"),
+ * //       },
+ * //       actuator: { // Actuator
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         dataType: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         unit: "STRING_VALUE",
+ * //         allowedValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         min: Number("double"),
+ * //         max: Number("double"),
+ * //         assignedValue: "STRING_VALUE",
+ * //       },
+ * //       attribute: { // Attribute
+ * //         fullyQualifiedName: "STRING_VALUE", // required
+ * //         dataType: "STRING_VALUE", // required
+ * //         description: "STRING_VALUE",
+ * //         unit: "STRING_VALUE",
+ * //         allowedValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         min: Number("double"),
+ * //         max: Number("double"),
+ * //         assignedValue: "STRING_VALUE",
+ * //         defaultValue: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

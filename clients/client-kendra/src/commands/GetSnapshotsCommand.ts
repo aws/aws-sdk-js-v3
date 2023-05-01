@@ -49,22 +49,21 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * };
  * const command = new GetSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSnapshotsResponse
- *   SnapShotTimeFilter: { // TimeRange
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *   },
- *   SnapshotsDataHeader: [ // SnapshotsDataHeaderFields
- *     "STRING_VALUE",
- *   ],
- *   SnapshotsData: [ // SnapshotsDataRecords
- *     [ // SnapshotsDataRecord
- *       "STRING_VALUE",
- *     ],
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSnapshotsResponse
+ * //   SnapShotTimeFilter: { // TimeRange
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   SnapshotsDataHeader: [ // SnapshotsDataHeaderFields
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SnapshotsData: [ // SnapshotsDataRecords
+ * //     [ // SnapshotsDataRecord
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

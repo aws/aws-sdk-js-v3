@@ -59,23 +59,22 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * };
  * const command = new CreateProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProvisioningArtifactOutput
- *   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     Active: true || false,
- *     Guidance: "DEFAULT" || "DEPRECATED",
- *     SourceRevision: "STRING_VALUE",
- *   },
- *   Info: { // ProvisioningArtifactInfo
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Status: "AVAILABLE" || "CREATING" || "FAILED",
- * };
+ * // { // CreateProvisioningArtifactOutput
+ * //   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     Active: true || false,
+ * //     Guidance: "DEFAULT" || "DEPRECATED",
+ * //     SourceRevision: "STRING_VALUE",
+ * //   },
+ * //   Info: { // ProvisioningArtifactInfo
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * // };
  *
  * ```
  *

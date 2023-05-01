@@ -52,20 +52,19 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * };
  * const command = new ListDeliverabilityTestReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeliverabilityTestReportsResponse
- *   DeliverabilityTestReports: [ // DeliverabilityTestReports // required
- *     { // DeliverabilityTestReport
- *       ReportId: "STRING_VALUE",
- *       ReportName: "STRING_VALUE",
- *       Subject: "STRING_VALUE",
- *       FromEmailAddress: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       DeliverabilityTestStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDeliverabilityTestReportsResponse
+ * //   DeliverabilityTestReports: [ // DeliverabilityTestReports // required
+ * //     { // DeliverabilityTestReport
+ * //       ReportId: "STRING_VALUE",
+ * //       ReportName: "STRING_VALUE",
+ * //       Subject: "STRING_VALUE",
+ * //       FromEmailAddress: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       DeliverabilityTestStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

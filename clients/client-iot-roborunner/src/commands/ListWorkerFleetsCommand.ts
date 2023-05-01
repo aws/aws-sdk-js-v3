@@ -46,21 +46,20 @@ export interface ListWorkerFleetsCommandOutput extends ListWorkerFleetsResponse,
  * };
  * const command = new ListWorkerFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkerFleetsResponse
- *   nextToken: "STRING_VALUE",
- *   workerFleets: [ // WorkerFleets
- *     { // WorkerFleet
- *       arn: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       site: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       updatedAt: new Date("TIMESTAMP"), // required
- *       additionalFixedProperties: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWorkerFleetsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workerFleets: [ // WorkerFleets
+ * //     { // WorkerFleet
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       site: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       additionalFixedProperties: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

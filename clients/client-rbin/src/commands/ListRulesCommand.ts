@@ -53,21 +53,20 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRulesResponse
- *   Rules: [ // RuleSummaryList
- *     { // RuleSummary
- *       Identifier: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       RetentionPeriod: { // RetentionPeriod
- *         RetentionPeriodValue: Number("int"), // required
- *         RetentionPeriodUnit: "DAYS", // required
- *       },
- *       LockState: "locked" || "pending_unlock" || "unlocked",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRulesResponse
+ * //   Rules: [ // RuleSummaryList
+ * //     { // RuleSummary
+ * //       Identifier: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       RetentionPeriod: { // RetentionPeriod
+ * //         RetentionPeriodValue: Number("int"), // required
+ * //         RetentionPeriodUnit: "DAYS", // required
+ * //       },
+ * //       LockState: "locked" || "pending_unlock" || "unlocked",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

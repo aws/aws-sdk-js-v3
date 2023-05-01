@@ -54,8 +54,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * };
  * const command = new StopApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

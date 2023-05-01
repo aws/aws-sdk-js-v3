@@ -56,10 +56,9 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * };
  * const command = new RetrieveTapeRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetrieveTapeRecoveryPointOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // RetrieveTapeRecoveryPointOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

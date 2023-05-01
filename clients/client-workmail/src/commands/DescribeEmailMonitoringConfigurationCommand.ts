@@ -52,11 +52,10 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * };
  * const command = new DescribeEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEmailMonitoringConfigurationResponse
- *   RoleArn: "STRING_VALUE",
- *   LogGroupArn: "STRING_VALUE",
- * };
+ * // { // DescribeEmailMonitoringConfigurationResponse
+ * //   RoleArn: "STRING_VALUE",
+ * //   LogGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,11 +45,10 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * };
  * const command = new GetDeviceRegistrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceRegistrationResult
- *   DeviceRegistration: "STRING_VALUE",
- *   CacheTTL: "STRING_VALUE",
- * };
+ * // { // GetDeviceRegistrationResult
+ * //   DeviceRegistration: "STRING_VALUE",
+ * //   CacheTTL: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * };
  * const command = new UpdateServiceIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

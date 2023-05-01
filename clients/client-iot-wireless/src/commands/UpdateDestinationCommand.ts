@@ -48,8 +48,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

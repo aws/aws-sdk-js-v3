@@ -48,11 +48,10 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * };
  * const command = new CreateWebLoginTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWebLoginTokenResponse
- *   WebToken: "STRING_VALUE",
- *   WebServerHostname: "STRING_VALUE",
- * };
+ * // { // CreateWebLoginTokenResponse
+ * //   WebToken: "STRING_VALUE",
+ * //   WebServerHostname: "STRING_VALUE",
+ * // };
  *
  * ```
  *

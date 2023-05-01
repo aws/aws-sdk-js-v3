@@ -158,27 +158,26 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * };
  * const command = new GetSavingsPlansCoverageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSavingsPlansCoverageResponse
- *   SavingsPlansCoverages: [ // SavingsPlansCoverages // required
- *     { // SavingsPlansCoverage
- *       Attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Coverage: { // SavingsPlansCoverageData
- *         SpendCoveredBySavingsPlans: "STRING_VALUE",
- *         OnDemandCost: "STRING_VALUE",
- *         TotalCost: "STRING_VALUE",
- *         CoveragePercentage: "STRING_VALUE",
- *       },
- *       TimePeriod: { // DateInterval
- *         Start: "STRING_VALUE", // required
- *         End: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSavingsPlansCoverageResponse
+ * //   SavingsPlansCoverages: [ // SavingsPlansCoverages // required
+ * //     { // SavingsPlansCoverage
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Coverage: { // SavingsPlansCoverageData
+ * //         SpendCoveredBySavingsPlans: "STRING_VALUE",
+ * //         OnDemandCost: "STRING_VALUE",
+ * //         TotalCost: "STRING_VALUE",
+ * //         CoveragePercentage: "STRING_VALUE",
+ * //       },
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

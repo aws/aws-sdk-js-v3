@@ -48,10 +48,9 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * };
  * const command = new DeleteQueryDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteQueryDefinitionResponse
- *   success: true || false,
- * };
+ * // { // DeleteQueryDefinitionResponse
+ * //   success: true || false,
+ * // };
  *
  * ```
  *

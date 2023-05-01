@@ -114,8 +114,7 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * };
  * const command = new UpdateScalingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

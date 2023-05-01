@@ -56,8 +56,7 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

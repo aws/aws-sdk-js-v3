@@ -47,13 +47,12 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * };
  * const command = new GetPipelineBlueprintCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPipelineBlueprintResponse
- *   Blueprint: { // PipelineBlueprint
- *     BlueprintName: "STRING_VALUE",
- *     PipelineConfigurationBody: "STRING_VALUE",
- *   },
- * };
+ * // { // GetPipelineBlueprintResponse
+ * //   Blueprint: { // PipelineBlueprint
+ * //     BlueprintName: "STRING_VALUE",
+ * //     PipelineConfigurationBody: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

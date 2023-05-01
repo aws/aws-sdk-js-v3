@@ -122,11 +122,10 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGrantResponse
- *   GrantToken: "STRING_VALUE",
- *   GrantId: "STRING_VALUE",
- * };
+ * // { // CreateGrantResponse
+ * //   GrantToken: "STRING_VALUE",
+ * //   GrantId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

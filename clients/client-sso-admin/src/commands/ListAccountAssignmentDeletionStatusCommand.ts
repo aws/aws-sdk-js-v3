@@ -58,17 +58,16 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * };
  * const command = new ListAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountAssignmentDeletionStatusResponse
- *   AccountAssignmentsDeletionStatus: [ // AccountAssignmentOperationStatusList
- *     { // AccountAssignmentOperationStatusMetadata
- *       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
- *       RequestId: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountAssignmentDeletionStatusResponse
+ * //   AccountAssignmentsDeletionStatus: [ // AccountAssignmentOperationStatusList
+ * //     { // AccountAssignmentOperationStatusMetadata
+ * //       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       RequestId: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

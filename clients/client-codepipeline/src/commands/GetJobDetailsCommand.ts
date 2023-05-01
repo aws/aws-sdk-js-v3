@@ -50,74 +50,73 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * };
  * const command = new GetJobDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobDetailsOutput
- *   jobDetails: { // JobDetails
- *     id: "STRING_VALUE",
- *     data: { // JobData
- *       actionTypeId: { // ActionTypeId
- *         category: "STRING_VALUE", // required
- *         owner: "STRING_VALUE", // required
- *         provider: "STRING_VALUE", // required
- *         version: "STRING_VALUE", // required
- *       },
- *       actionConfiguration: { // ActionConfiguration
- *         configuration: { // ActionConfigurationMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       pipelineContext: { // PipelineContext
- *         pipelineName: "STRING_VALUE",
- *         stage: { // StageContext
- *           name: "STRING_VALUE",
- *         },
- *         action: { // ActionContext
- *           name: "STRING_VALUE",
- *           actionExecutionId: "STRING_VALUE",
- *         },
- *         pipelineArn: "STRING_VALUE",
- *         pipelineExecutionId: "STRING_VALUE",
- *       },
- *       inputArtifacts: [ // ArtifactList
- *         { // Artifact
- *           name: "STRING_VALUE",
- *           revision: "STRING_VALUE",
- *           location: { // ArtifactLocation
- *             type: "STRING_VALUE",
- *             s3Location: { // S3ArtifactLocation
- *               bucketName: "STRING_VALUE", // required
- *               objectKey: "STRING_VALUE", // required
- *             },
- *           },
- *         },
- *       ],
- *       outputArtifacts: [
- *         {
- *           name: "STRING_VALUE",
- *           revision: "STRING_VALUE",
- *           location: {
- *             type: "STRING_VALUE",
- *             s3Location: {
- *               bucketName: "STRING_VALUE", // required
- *               objectKey: "STRING_VALUE", // required
- *             },
- *           },
- *         },
- *       ],
- *       artifactCredentials: { // AWSSessionCredentials
- *         accessKeyId: "STRING_VALUE", // required
- *         secretAccessKey: "STRING_VALUE", // required
- *         sessionToken: "STRING_VALUE", // required
- *       },
- *       continuationToken: "STRING_VALUE",
- *       encryptionKey: { // EncryptionKey
- *         id: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *       },
- *     },
- *     accountId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetJobDetailsOutput
+ * //   jobDetails: { // JobDetails
+ * //     id: "STRING_VALUE",
+ * //     data: { // JobData
+ * //       actionTypeId: { // ActionTypeId
+ * //         category: "STRING_VALUE", // required
+ * //         owner: "STRING_VALUE", // required
+ * //         provider: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       actionConfiguration: { // ActionConfiguration
+ * //         configuration: { // ActionConfigurationMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       pipelineContext: { // PipelineContext
+ * //         pipelineName: "STRING_VALUE",
+ * //         stage: { // StageContext
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //         action: { // ActionContext
+ * //           name: "STRING_VALUE",
+ * //           actionExecutionId: "STRING_VALUE",
+ * //         },
+ * //         pipelineArn: "STRING_VALUE",
+ * //         pipelineExecutionId: "STRING_VALUE",
+ * //       },
+ * //       inputArtifacts: [ // ArtifactList
+ * //         { // Artifact
+ * //           name: "STRING_VALUE",
+ * //           revision: "STRING_VALUE",
+ * //           location: { // ArtifactLocation
+ * //             type: "STRING_VALUE",
+ * //             s3Location: { // S3ArtifactLocation
+ * //               bucketName: "STRING_VALUE", // required
+ * //               objectKey: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       outputArtifacts: [
+ * //         {
+ * //           name: "STRING_VALUE",
+ * //           revision: "STRING_VALUE",
+ * //           location: {
+ * //             type: "STRING_VALUE",
+ * //             s3Location: {
+ * //               bucketName: "STRING_VALUE", // required
+ * //               objectKey: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       artifactCredentials: { // AWSSessionCredentials
+ * //         accessKeyId: "STRING_VALUE", // required
+ * //         secretAccessKey: "STRING_VALUE", // required
+ * //         sessionToken: "STRING_VALUE", // required
+ * //       },
+ * //       continuationToken: "STRING_VALUE",
+ * //       encryptionKey: { // EncryptionKey
+ * //         id: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     accountId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

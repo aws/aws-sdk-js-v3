@@ -61,8 +61,7 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * };
  * const command = new DeregisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,22 +54,21 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * };
  * const command = new ListAttendeesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttendeesResponse
- *   Attendees: [ // AttendeeList
- *     { // Attendee
- *       ExternalUserId: "STRING_VALUE",
- *       AttendeeId: "STRING_VALUE",
- *       JoinToken: "STRING_VALUE",
- *       Capabilities: { // AttendeeCapabilities
- *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAttendeesResponse
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //       Capabilities: { // AttendeeCapabilities
+ * //         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

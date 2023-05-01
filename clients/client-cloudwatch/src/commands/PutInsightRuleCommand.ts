@@ -56,8 +56,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

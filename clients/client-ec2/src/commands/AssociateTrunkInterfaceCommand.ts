@@ -55,24 +55,23 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * };
  * const command = new AssociateTrunkInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTrunkInterfaceResult
- *   InterfaceAssociation: { // TrunkInterfaceAssociation
- *     AssociationId: "STRING_VALUE",
- *     BranchInterfaceId: "STRING_VALUE",
- *     TrunkInterfaceId: "STRING_VALUE",
- *     InterfaceProtocol: "VLAN" || "GRE",
- *     VlanId: Number("int"),
- *     GreKey: Number("int"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   ClientToken: "STRING_VALUE",
- * };
+ * // { // AssociateTrunkInterfaceResult
+ * //   InterfaceAssociation: { // TrunkInterfaceAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     BranchInterfaceId: "STRING_VALUE",
+ * //     TrunkInterfaceId: "STRING_VALUE",
+ * //     InterfaceProtocol: "VLAN" || "GRE",
+ * //     VlanId: Number("int"),
+ * //     GreKey: Number("int"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

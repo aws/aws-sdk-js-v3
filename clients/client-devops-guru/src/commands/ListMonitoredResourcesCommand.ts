@@ -53,33 +53,32 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * };
  * const command = new ListMonitoredResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMonitoredResourcesResponse
- *   MonitoredResourceIdentifiers: [ // MonitoredResourceIdentifiers // required
- *     { // MonitoredResourceIdentifier
- *       MonitoredResourceName: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION",
- *       LastUpdated: new Date("TIMESTAMP"),
- *       ResourceCollection: { // ResourceCollection
- *         CloudFormation: { // CloudFormationCollection
- *           StackNames: [ // StackNames
- *             "STRING_VALUE",
- *           ],
- *         },
- *         Tags: [ // TagCollections
- *           { // TagCollection
- *             AppBoundaryKey: "STRING_VALUE", // required
- *             TagValues: [ // TagValues // required
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMonitoredResourcesResponse
+ * //   MonitoredResourceIdentifiers: [ // MonitoredResourceIdentifiers // required
+ * //     { // MonitoredResourceIdentifier
+ * //       MonitoredResourceName: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       ResourcePermission: "FULL_PERMISSION" || "MISSING_PERMISSION",
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       ResourceCollection: { // ResourceCollection
+ * //         CloudFormation: { // CloudFormationCollection
+ * //           StackNames: [ // StackNames
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Tags: [ // TagCollections
+ * //           { // TagCollection
+ * //             AppBoundaryKey: "STRING_VALUE", // required
+ * //             TagValues: [ // TagValues // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

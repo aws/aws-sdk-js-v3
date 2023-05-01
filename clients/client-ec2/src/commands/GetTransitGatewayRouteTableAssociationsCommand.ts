@@ -64,18 +64,17 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
  * };
  * const command = new GetTransitGatewayRouteTableAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayRouteTableAssociationsResult
- *   Associations: [ // TransitGatewayRouteTableAssociationList
- *     { // TransitGatewayRouteTableAssociation
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       State: "associating" || "associated" || "disassociating" || "disassociated",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayRouteTableAssociationsResult
+ * //   Associations: [ // TransitGatewayRouteTableAssociationList
+ * //     { // TransitGatewayRouteTableAssociation
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

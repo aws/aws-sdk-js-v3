@@ -45,21 +45,20 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicesResponse
- *   ServiceSummaryList: [ // ServiceSummaryList // required
- *     { // ServiceSummary
- *       ServiceName: "STRING_VALUE",
- *       ServiceId: "STRING_VALUE",
- *       ServiceArn: "STRING_VALUE",
- *       ServiceUrl: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       Status: "CREATE_FAILED" || "RUNNING" || "DELETED" || "DELETE_FAILED" || "PAUSED" || "OPERATION_IN_PROGRESS",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListServicesResponse
+ * //   ServiceSummaryList: [ // ServiceSummaryList // required
+ * //     { // ServiceSummary
+ * //       ServiceName: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //       ServiceArn: "STRING_VALUE",
+ * //       ServiceUrl: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATE_FAILED" || "RUNNING" || "DELETED" || "DELETE_FAILED" || "PAUSED" || "OPERATION_IN_PROGRESS",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

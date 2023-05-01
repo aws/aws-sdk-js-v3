@@ -59,37 +59,36 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * };
  * const command = new DescribeIpamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIpamsResult
- *   NextToken: "STRING_VALUE",
- *   Ipams: [ // IpamSet
- *     { // Ipam
- *       OwnerId: "STRING_VALUE",
- *       IpamId: "STRING_VALUE",
- *       IpamArn: "STRING_VALUE",
- *       IpamRegion: "STRING_VALUE",
- *       PublicDefaultScopeId: "STRING_VALUE",
- *       PrivateDefaultScopeId: "STRING_VALUE",
- *       ScopeCount: Number("int"),
- *       Description: "STRING_VALUE",
- *       OperatingRegions: [ // IpamOperatingRegionSet
- *         { // IpamOperatingRegion
- *           RegionName: "STRING_VALUE",
- *         },
- *       ],
- *       State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       DefaultResourceDiscoveryId: "STRING_VALUE",
- *       DefaultResourceDiscoveryAssociationId: "STRING_VALUE",
- *       ResourceDiscoveryAssociationCount: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeIpamsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Ipams: [ // IpamSet
+ * //     { // Ipam
+ * //       OwnerId: "STRING_VALUE",
+ * //       IpamId: "STRING_VALUE",
+ * //       IpamArn: "STRING_VALUE",
+ * //       IpamRegion: "STRING_VALUE",
+ * //       PublicDefaultScopeId: "STRING_VALUE",
+ * //       PrivateDefaultScopeId: "STRING_VALUE",
+ * //       ScopeCount: Number("int"),
+ * //       Description: "STRING_VALUE",
+ * //       OperatingRegions: [ // IpamOperatingRegionSet
+ * //         { // IpamOperatingRegion
+ * //           RegionName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "delete-in-progress" || "delete-complete" || "delete-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DefaultResourceDiscoveryId: "STRING_VALUE",
+ * //       DefaultResourceDiscoveryAssociationId: "STRING_VALUE",
+ * //       ResourceDiscoveryAssociationCount: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

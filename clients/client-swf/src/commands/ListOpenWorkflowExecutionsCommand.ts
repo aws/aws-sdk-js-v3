@@ -108,34 +108,33 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * };
  * const command = new ListOpenWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WorkflowExecutionInfos
- *   executionInfos: [ // WorkflowExecutionInfoList // required
- *     { // WorkflowExecutionInfo
- *       execution: { // WorkflowExecution
- *         workflowId: "STRING_VALUE", // required
- *         runId: "STRING_VALUE", // required
- *       },
- *       workflowType: { // WorkflowType
- *         name: "STRING_VALUE", // required
- *         version: "STRING_VALUE", // required
- *       },
- *       startTimestamp: new Date("TIMESTAMP"), // required
- *       closeTimestamp: new Date("TIMESTAMP"),
- *       executionStatus: "OPEN" || "CLOSED", // required
- *       closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
- *       parent: {
- *         workflowId: "STRING_VALUE", // required
- *         runId: "STRING_VALUE", // required
- *       },
- *       tagList: [ // TagList
- *         "STRING_VALUE",
- *       ],
- *       cancelRequested: true || false,
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // WorkflowExecutionInfos
+ * //   executionInfos: [ // WorkflowExecutionInfoList // required
+ * //     { // WorkflowExecutionInfo
+ * //       execution: { // WorkflowExecution
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       workflowType: { // WorkflowType
+ * //         name: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       startTimestamp: new Date("TIMESTAMP"), // required
+ * //       closeTimestamp: new Date("TIMESTAMP"),
+ * //       executionStatus: "OPEN" || "CLOSED", // required
+ * //       closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
+ * //       parent: {
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       tagList: [ // TagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       cancelRequested: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

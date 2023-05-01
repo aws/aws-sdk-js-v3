@@ -55,24 +55,23 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * };
  * const command = new ListWorkersWithQualificationTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkersWithQualificationTypeResponse
- *   NextToken: "STRING_VALUE",
- *   NumResults: Number("int"),
- *   Qualifications: [ // QualificationList
- *     { // Qualification
- *       QualificationTypeId: "STRING_VALUE",
- *       WorkerId: "STRING_VALUE",
- *       GrantTime: new Date("TIMESTAMP"),
- *       IntegerValue: Number("int"),
- *       LocaleValue: { // Locale
- *         Country: "STRING_VALUE", // required
- *         Subdivision: "STRING_VALUE",
- *       },
- *       Status: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWorkersWithQualificationTypeResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NumResults: Number("int"),
+ * //   Qualifications: [ // QualificationList
+ * //     { // Qualification
+ * //       QualificationTypeId: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //       GrantTime: new Date("TIMESTAMP"),
+ * //       IntegerValue: Number("int"),
+ * //       LocaleValue: { // Locale
+ * //         Country: "STRING_VALUE", // required
+ * //         Subdivision: "STRING_VALUE",
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

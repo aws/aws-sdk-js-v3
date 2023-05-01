@@ -92,16 +92,15 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * };
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SignUpResponse
- *   UserConfirmed: true || false, // required
- *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
- *     Destination: "STRING_VALUE",
- *     DeliveryMedium: "SMS" || "EMAIL",
- *     AttributeName: "STRING_VALUE",
- *   },
- *   UserSub: "STRING_VALUE", // required
- * };
+ * // { // SignUpResponse
+ * //   UserConfirmed: true || false, // required
+ * //   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ * //     Destination: "STRING_VALUE",
+ * //     DeliveryMedium: "SMS" || "EMAIL",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * //   UserSub: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

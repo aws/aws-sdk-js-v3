@@ -44,8 +44,7 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * };
  * const command = new DeleteConnectorDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  * };
  * const command = new SendTaskFailureCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

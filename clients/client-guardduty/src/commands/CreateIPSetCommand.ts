@@ -55,10 +55,9 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIPSetResponse
- *   IpSetId: "STRING_VALUE", // required
- * };
+ * // { // CreateIPSetResponse
+ * //   IpSetId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

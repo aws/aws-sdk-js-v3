@@ -63,10 +63,9 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * };
  * const command = new CreateFaqCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFaqResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateFaqResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,15 +47,14 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * };
  * const command = new GetRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegistryResponse
- *   RegistryName: "STRING_VALUE",
- *   RegistryArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Status: "AVAILABLE" || "DELETING",
- *   CreatedTime: "STRING_VALUE",
- *   UpdatedTime: "STRING_VALUE",
- * };
+ * // { // GetRegistryResponse
+ * //   RegistryName: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "DELETING",
+ * //   CreatedTime: "STRING_VALUE",
+ * //   UpdatedTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

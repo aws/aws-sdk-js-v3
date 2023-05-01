@@ -44,8 +44,7 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * };
  * const command = new DeleteMetricPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

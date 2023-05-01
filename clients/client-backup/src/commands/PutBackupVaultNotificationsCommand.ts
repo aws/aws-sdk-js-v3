@@ -51,8 +51,7 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * };
  * const command = new PutBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

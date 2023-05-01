@@ -42,10 +42,9 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * const input = {};
  * const command = new VerifySessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifySessionResponse
- *   identity: "STRING_VALUE",
- * };
+ * // { // VerifySessionResponse
+ * //   identity: "STRING_VALUE",
+ * // };
  *
  * ```
  *

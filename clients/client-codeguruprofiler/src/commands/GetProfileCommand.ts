@@ -120,12 +120,11 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProfileResponse
- *   profile: "BLOB_VALUE", // required
- *   contentType: "STRING_VALUE", // required
- *   contentEncoding: "STRING_VALUE",
- * };
+ * // { // GetProfileResponse
+ * //   profile: "BLOB_VALUE", // required
+ * //   contentType: "STRING_VALUE", // required
+ * //   contentEncoding: "STRING_VALUE",
+ * // };
  *
  * ```
  *

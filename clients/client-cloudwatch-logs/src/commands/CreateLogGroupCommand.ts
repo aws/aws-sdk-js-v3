@@ -76,8 +76,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

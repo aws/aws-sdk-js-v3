@@ -76,12 +76,11 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * };
  * const command = new GenerateMacCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateMacResponse
- *   Mac: "BLOB_VALUE",
- *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
- *   KeyId: "STRING_VALUE",
- * };
+ * // { // GenerateMacResponse
+ * //   Mac: "BLOB_VALUE",
+ * //   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
+ * //   KeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

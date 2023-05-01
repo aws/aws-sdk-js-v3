@@ -81,10 +81,9 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * };
  * const command = new CreateWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWhatIfForecastExportResponse
- *   WhatIfForecastExportArn: "STRING_VALUE",
- * };
+ * // { // CreateWhatIfForecastExportResponse
+ * //   WhatIfForecastExportArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

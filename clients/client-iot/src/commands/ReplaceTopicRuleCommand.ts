@@ -455,8 +455,7 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceTopicRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

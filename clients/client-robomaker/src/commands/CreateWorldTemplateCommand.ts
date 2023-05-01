@@ -53,16 +53,15 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  * };
  * const command = new CreateWorldTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorldTemplateResponse
- *   arn: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   name: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateWorldTemplateResponse
+ * //   arn: "STRING_VALUE",
+ * //   clientRequestToken: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   name: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

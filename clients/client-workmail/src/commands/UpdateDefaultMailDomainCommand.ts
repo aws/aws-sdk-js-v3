@@ -45,8 +45,7 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * };
  * const command = new UpdateDefaultMailDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

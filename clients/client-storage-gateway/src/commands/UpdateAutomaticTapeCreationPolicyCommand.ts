@@ -66,10 +66,9 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * };
  * const command = new UpdateAutomaticTapeCreationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAutomaticTapeCreationPolicyOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateAutomaticTapeCreationPolicyOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

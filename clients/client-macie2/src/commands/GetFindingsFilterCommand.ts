@@ -44,37 +44,36 @@ export interface GetFindingsFilterCommandOutput extends GetFindingsFilterRespons
  * };
  * const command = new GetFindingsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingsFilterResponse
- *   action: "ARCHIVE" || "NOOP",
- *   arn: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   findingCriteria: { // FindingCriteria
- *     criterion: { // Criterion
- *       "<keys>": { // CriterionAdditionalProperties
- *         eq: [ // __listOf__string
- *           "STRING_VALUE",
- *         ],
- *         eqExactMatch: [
- *           "STRING_VALUE",
- *         ],
- *         gt: Number("long"),
- *         gte: Number("long"),
- *         lt: Number("long"),
- *         lte: Number("long"),
- *         neq: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   },
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   position: Number("int"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetFindingsFilterResponse
+ * //   action: "ARCHIVE" || "NOOP",
+ * //   arn: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   findingCriteria: { // FindingCriteria
+ * //     criterion: { // Criterion
+ * //       "<keys>": { // CriterionAdditionalProperties
+ * //         eq: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         eqExactMatch: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         gt: Number("long"),
+ * //         gte: Number("long"),
+ * //         lt: Number("long"),
+ * //         lte: Number("long"),
+ * //         neq: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   position: Number("int"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

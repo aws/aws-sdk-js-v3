@@ -47,31 +47,30 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * };
  * const command = new GetChannelScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelScheduleResponse
- *   Items: [ // __listOfScheduleEntry
- *     { // ScheduleEntry
- *       ApproximateDurationSeconds: Number("long"),
- *       ApproximateStartTime: new Date("TIMESTAMP"),
- *       Arn: "STRING_VALUE", // required
- *       ChannelName: "STRING_VALUE", // required
- *       LiveSourceName: "STRING_VALUE",
- *       ProgramName: "STRING_VALUE", // required
- *       ScheduleAdBreaks: [ // __listOfScheduleAdBreak
- *         { // ScheduleAdBreak
- *           ApproximateDurationSeconds: Number("long"),
- *           ApproximateStartTime: new Date("TIMESTAMP"),
- *           SourceLocationName: "STRING_VALUE",
- *           VodSourceName: "STRING_VALUE",
- *         },
- *       ],
- *       ScheduleEntryType: "PROGRAM" || "FILLER_SLATE",
- *       SourceLocationName: "STRING_VALUE", // required
- *       VodSourceName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetChannelScheduleResponse
+ * //   Items: [ // __listOfScheduleEntry
+ * //     { // ScheduleEntry
+ * //       ApproximateDurationSeconds: Number("long"),
+ * //       ApproximateStartTime: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE", // required
+ * //       ChannelName: "STRING_VALUE", // required
+ * //       LiveSourceName: "STRING_VALUE",
+ * //       ProgramName: "STRING_VALUE", // required
+ * //       ScheduleAdBreaks: [ // __listOfScheduleAdBreak
+ * //         { // ScheduleAdBreak
+ * //           ApproximateDurationSeconds: Number("long"),
+ * //           ApproximateStartTime: new Date("TIMESTAMP"),
+ * //           SourceLocationName: "STRING_VALUE",
+ * //           VodSourceName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ScheduleEntryType: "PROGRAM" || "FILLER_SLATE",
+ * //       SourceLocationName: "STRING_VALUE", // required
+ * //       VodSourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

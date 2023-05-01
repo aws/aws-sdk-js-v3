@@ -47,8 +47,7 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * };
  * const command = new RegisterMailDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

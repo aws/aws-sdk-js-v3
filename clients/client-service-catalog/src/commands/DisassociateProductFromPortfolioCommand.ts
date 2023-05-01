@@ -52,8 +52,7 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * };
  * const command = new DisassociateProductFromPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

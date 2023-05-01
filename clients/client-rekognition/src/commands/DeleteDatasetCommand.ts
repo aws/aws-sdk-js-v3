@@ -53,8 +53,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,10 +50,9 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  * };
  * const command = new GetResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverQueryLogConfigPolicyResponse
- *   ResolverQueryLogConfigPolicy: "STRING_VALUE",
- * };
+ * // { // GetResolverQueryLogConfigPolicyResponse
+ * //   ResolverQueryLogConfigPolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

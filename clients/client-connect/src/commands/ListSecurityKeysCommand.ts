@@ -47,17 +47,16 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * };
  * const command = new ListSecurityKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityKeysResponse
- *   SecurityKeys: [ // SecurityKeysList
- *     { // SecurityKey
- *       AssociationId: "STRING_VALUE",
- *       Key: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityKeysResponse
+ * //   SecurityKeys: [ // SecurityKeysList
+ * //     { // SecurityKey
+ * //       AssociationId: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

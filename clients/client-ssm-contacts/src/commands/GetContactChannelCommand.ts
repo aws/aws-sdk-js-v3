@@ -44,17 +44,16 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  * };
  * const command = new GetContactChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactChannelResult
- *   ContactArn: "STRING_VALUE", // required
- *   ContactChannelArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   Type: "SMS" || "VOICE" || "EMAIL", // required
- *   DeliveryAddress: { // ContactChannelAddress
- *     SimpleAddress: "STRING_VALUE",
- *   },
- *   ActivationStatus: "ACTIVATED" || "NOT_ACTIVATED",
- * };
+ * // { // GetContactChannelResult
+ * //   ContactArn: "STRING_VALUE", // required
+ * //   ContactChannelArn: "STRING_VALUE", // required
+ * //   Name: "STRING_VALUE", // required
+ * //   Type: "SMS" || "VOICE" || "EMAIL", // required
+ * //   DeliveryAddress: { // ContactChannelAddress
+ * //     SimpleAddress: "STRING_VALUE",
+ * //   },
+ * //   ActivationStatus: "ACTIVATED" || "NOT_ACTIVATED",
+ * // };
  *
  * ```
  *

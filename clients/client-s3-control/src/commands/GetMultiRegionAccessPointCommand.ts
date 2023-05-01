@@ -73,28 +73,27 @@ export interface GetMultiRegionAccessPointCommandOutput extends GetMultiRegionAc
  * };
  * const command = new GetMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMultiRegionAccessPointResult
- *   AccessPoint: { // MultiRegionAccessPointReport
- *     Name: "STRING_VALUE",
- *     Alias: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     PublicAccessBlock: { // PublicAccessBlockConfiguration
- *       BlockPublicAcls: true || false,
- *       IgnorePublicAcls: true || false,
- *       BlockPublicPolicy: true || false,
- *       RestrictPublicBuckets: true || false,
- *     },
- *     Status: "READY" || "INCONSISTENT_ACROSS_REGIONS" || "CREATING" || "PARTIALLY_CREATED" || "PARTIALLY_DELETED" || "DELETING",
- *     Regions: [ // RegionReportList
- *       { // RegionReport
- *         Bucket: "STRING_VALUE",
- *         Region: "STRING_VALUE",
- *         BucketAccountId: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetMultiRegionAccessPointResult
+ * //   AccessPoint: { // MultiRegionAccessPointReport
+ * //     Name: "STRING_VALUE",
+ * //     Alias: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     PublicAccessBlock: { // PublicAccessBlockConfiguration
+ * //       BlockPublicAcls: true || false,
+ * //       IgnorePublicAcls: true || false,
+ * //       BlockPublicPolicy: true || false,
+ * //       RestrictPublicBuckets: true || false,
+ * //     },
+ * //     Status: "READY" || "INCONSISTENT_ACROSS_REGIONS" || "CREATING" || "PARTIALLY_CREATED" || "PARTIALLY_DELETED" || "DELETING",
+ * //     Regions: [ // RegionReportList
+ * //       { // RegionReport
+ * //         Bucket: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
+ * //         BucketAccountId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

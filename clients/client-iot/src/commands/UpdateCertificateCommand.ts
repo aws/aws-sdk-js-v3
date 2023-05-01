@@ -52,8 +52,7 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

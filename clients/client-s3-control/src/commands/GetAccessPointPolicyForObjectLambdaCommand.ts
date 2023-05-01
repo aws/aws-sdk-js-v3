@@ -68,10 +68,9 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
  * };
  * const command = new GetAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointPolicyForObjectLambdaResult
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetAccessPointPolicyForObjectLambdaResult
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

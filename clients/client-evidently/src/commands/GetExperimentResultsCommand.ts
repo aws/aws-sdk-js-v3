@@ -68,31 +68,30 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * };
  * const command = new GetExperimentResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExperimentResultsResponse
- *   resultsData: [ // ExperimentResultsDataList
- *     { // ExperimentResultsData
- *       metricName: "STRING_VALUE",
- *       treatmentName: "STRING_VALUE",
- *       resultStat: "STRING_VALUE",
- *       values: [ // DoubleValueList
- *         Number("double"),
- *       ],
- *     },
- *   ],
- *   reports: [ // ExperimentReportList
- *     { // ExperimentReport
- *       metricName: "STRING_VALUE",
- *       treatmentName: "STRING_VALUE",
- *       reportName: "STRING_VALUE",
- *       content: "STRING_VALUE",
- *     },
- *   ],
- *   timestamps: [ // TimestampList
- *     new Date("TIMESTAMP"),
- *   ],
- *   details: "STRING_VALUE",
- * };
+ * // { // GetExperimentResultsResponse
+ * //   resultsData: [ // ExperimentResultsDataList
+ * //     { // ExperimentResultsData
+ * //       metricName: "STRING_VALUE",
+ * //       treatmentName: "STRING_VALUE",
+ * //       resultStat: "STRING_VALUE",
+ * //       values: [ // DoubleValueList
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   reports: [ // ExperimentReportList
+ * //     { // ExperimentReport
+ * //       metricName: "STRING_VALUE",
+ * //       treatmentName: "STRING_VALUE",
+ * //       reportName: "STRING_VALUE",
+ * //       content: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   timestamps: [ // TimestampList
+ * //     new Date("TIMESTAMP"),
+ * //   ],
+ * //   details: "STRING_VALUE",
+ * // };
  *
  * ```
  *

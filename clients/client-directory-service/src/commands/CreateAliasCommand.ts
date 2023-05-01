@@ -50,11 +50,10 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAliasResult
- *   DirectoryId: "STRING_VALUE",
- *   Alias: "STRING_VALUE",
- * };
+ * // { // CreateAliasResult
+ * //   DirectoryId: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * // };
  *
  * ```
  *

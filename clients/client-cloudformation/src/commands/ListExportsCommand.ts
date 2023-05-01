@@ -50,17 +50,16 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExportsOutput
- *   Exports: [ // Exports
- *     { // Export
- *       ExportingStackId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExportsOutput
+ * //   Exports: [ // Exports
+ * //     { // Export
+ * //       ExportingStackId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

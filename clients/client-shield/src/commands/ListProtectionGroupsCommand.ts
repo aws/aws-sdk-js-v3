@@ -60,22 +60,21 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * };
  * const command = new ListProtectionGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProtectionGroupsResponse
- *   ProtectionGroups: [ // ProtectionGroups // required
- *     { // ProtectionGroup
- *       ProtectionGroupId: "STRING_VALUE", // required
- *       Aggregation: "STRING_VALUE", // required
- *       Pattern: "STRING_VALUE", // required
- *       ResourceType: "STRING_VALUE",
- *       Members: [ // ProtectionGroupMembers // required
- *         "STRING_VALUE",
- *       ],
- *       ProtectionGroupArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProtectionGroupsResponse
+ * //   ProtectionGroups: [ // ProtectionGroups // required
+ * //     { // ProtectionGroup
+ * //       ProtectionGroupId: "STRING_VALUE", // required
+ * //       Aggregation: "STRING_VALUE", // required
+ * //       Pattern: "STRING_VALUE", // required
+ * //       ResourceType: "STRING_VALUE",
+ * //       Members: [ // ProtectionGroupMembers // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ProtectionGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

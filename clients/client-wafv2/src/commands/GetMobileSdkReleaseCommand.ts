@@ -48,20 +48,19 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * };
  * const command = new GetMobileSdkReleaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMobileSdkReleaseResponse
- *   MobileSdkRelease: { // MobileSdkRelease
- *     ReleaseVersion: "STRING_VALUE",
- *     Timestamp: new Date("TIMESTAMP"),
- *     ReleaseNotes: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetMobileSdkReleaseResponse
+ * //   MobileSdkRelease: { // MobileSdkRelease
+ * //     ReleaseVersion: "STRING_VALUE",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //     ReleaseNotes: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -59,19 +59,18 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupResponse
- *   Group: { // Group
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     CreatedTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateGroupResponse
+ * //   Group: { // Group
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

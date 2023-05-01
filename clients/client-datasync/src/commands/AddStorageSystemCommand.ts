@@ -69,10 +69,9 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * };
  * const command = new AddStorageSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddStorageSystemResponse
- *   StorageSystemArn: "STRING_VALUE", // required
- * };
+ * // { // AddStorageSystemResponse
+ * //   StorageSystemArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

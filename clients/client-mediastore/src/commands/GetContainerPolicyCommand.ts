@@ -46,10 +46,9 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * };
  * const command = new GetContainerPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerPolicyOutput
- *   Policy: "STRING_VALUE", // required
- * };
+ * // { // GetContainerPolicyOutput
+ * //   Policy: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

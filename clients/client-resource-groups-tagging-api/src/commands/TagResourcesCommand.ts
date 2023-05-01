@@ -102,16 +102,15 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * };
  * const command = new TagResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagResourcesOutput
- *   FailedResourcesMap: { // FailedResourcesMap
- *     "<keys>": { // FailureInfo
- *       StatusCode: Number("int"),
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // TagResourcesOutput
+ * //   FailedResourcesMap: { // FailedResourcesMap
+ * //     "<keys>": { // FailureInfo
+ * //       StatusCode: Number("int"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

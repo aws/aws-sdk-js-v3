@@ -55,26 +55,25 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * };
  * const command = new ListSimulationApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSimulationApplicationsResponse
- *   simulationApplicationSummaries: [ // SimulationApplicationSummaries
- *     { // SimulationApplicationSummary
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       robotSoftwareSuite: { // RobotSoftwareSuite
- *         name: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *       simulationSoftwareSuite: { // SimulationSoftwareSuite
- *         name: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSimulationApplicationsResponse
+ * //   simulationApplicationSummaries: [ // SimulationApplicationSummaries
+ * //     { // SimulationApplicationSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       robotSoftwareSuite: { // RobotSoftwareSuite
+ * //         name: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //       simulationSoftwareSuite: { // SimulationSoftwareSuite
+ * //         name: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

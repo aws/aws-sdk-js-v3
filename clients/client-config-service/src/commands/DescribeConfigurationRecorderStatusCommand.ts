@@ -61,21 +61,20 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * };
  * const command = new DescribeConfigurationRecorderStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationRecorderStatusResponse
- *   ConfigurationRecordersStatus: [ // ConfigurationRecorderStatusList
- *     { // ConfigurationRecorderStatus
- *       name: "STRING_VALUE",
- *       lastStartTime: new Date("TIMESTAMP"),
- *       lastStopTime: new Date("TIMESTAMP"),
- *       recording: true || false,
- *       lastStatus: "Pending" || "Success" || "Failure",
- *       lastErrorCode: "STRING_VALUE",
- *       lastErrorMessage: "STRING_VALUE",
- *       lastStatusChangeTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeConfigurationRecorderStatusResponse
+ * //   ConfigurationRecordersStatus: [ // ConfigurationRecorderStatusList
+ * //     { // ConfigurationRecorderStatus
+ * //       name: "STRING_VALUE",
+ * //       lastStartTime: new Date("TIMESTAMP"),
+ * //       lastStopTime: new Date("TIMESTAMP"),
+ * //       recording: true || false,
+ * //       lastStatus: "Pending" || "Success" || "Failure",
+ * //       lastErrorCode: "STRING_VALUE",
+ * //       lastErrorMessage: "STRING_VALUE",
+ * //       lastStatusChangeTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

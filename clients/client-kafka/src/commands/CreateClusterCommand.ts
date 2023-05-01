@@ -152,12 +152,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClusterResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterName: "STRING_VALUE",
- *   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
- * };
+ * // { // CreateClusterResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterName: "STRING_VALUE",
+ * //   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ * // };
  *
  * ```
  *

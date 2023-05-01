@@ -49,8 +49,7 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

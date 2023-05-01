@@ -54,10 +54,9 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * };
  * const command = new DisassociateUserFromPermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateUserFromPermissionGroupResponse
- *   statusCode: Number("int"),
- * };
+ * // { // DisassociateUserFromPermissionGroupResponse
+ * //   statusCode: Number("int"),
+ * // };
  *
  * ```
  *

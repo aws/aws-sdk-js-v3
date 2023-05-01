@@ -51,16 +51,15 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * };
  * const command = new ListRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRegionsResponse
- *   NextToken: "STRING_VALUE",
- *   Regions: [ // RegionOptList
- *     { // Region
- *       RegionName: "STRING_VALUE",
- *       RegionOptStatus: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListRegionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Regions: [ // RegionOptList
+ * //     { // Region
+ * //       RegionName: "STRING_VALUE",
+ * //       RegionOptStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

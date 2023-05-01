@@ -45,11 +45,10 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * const input = {};
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNamespaceResponse
- *   namespaceArn: "STRING_VALUE",
- *   namespaceName: "STRING_VALUE",
- * };
+ * // { // DeleteNamespaceResponse
+ * //   namespaceArn: "STRING_VALUE",
+ * //   namespaceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRepositoryNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,8 +57,7 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * };
  * const command = new UpdateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

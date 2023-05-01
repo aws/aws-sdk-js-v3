@@ -51,15 +51,14 @@ export interface DescribeApplicationSnapshotCommandOutput
  * };
  * const command = new DescribeApplicationSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationSnapshotResponse
- *   SnapshotDetails: { // SnapshotDetails
- *     SnapshotName: "STRING_VALUE", // required
- *     SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
- *     ApplicationVersionId: Number("long"), // required
- *     SnapshotCreationTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeApplicationSnapshotResponse
+ * //   SnapshotDetails: { // SnapshotDetails
+ * //     SnapshotName: "STRING_VALUE", // required
+ * //     SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
+ * //     ApplicationVersionId: Number("long"), // required
+ * //     SnapshotCreationTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

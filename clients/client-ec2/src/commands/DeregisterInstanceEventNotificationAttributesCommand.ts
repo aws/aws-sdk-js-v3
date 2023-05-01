@@ -60,15 +60,14 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * };
  * const command = new DeregisterInstanceEventNotificationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterInstanceEventNotificationAttributesResult
- *   InstanceTagAttribute: { // InstanceTagNotificationAttribute
- *     InstanceTagKeys: [ // InstanceTagKeySet
- *       "STRING_VALUE",
- *     ],
- *     IncludeAllTagsOfInstance: true || false,
- *   },
- * };
+ * // { // DeregisterInstanceEventNotificationAttributesResult
+ * //   InstanceTagAttribute: { // InstanceTagNotificationAttribute
+ * //     InstanceTagKeys: [ // InstanceTagKeySet
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     IncludeAllTagsOfInstance: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

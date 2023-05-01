@@ -44,8 +44,7 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * };
  * const command = new CancelBatchPredictionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

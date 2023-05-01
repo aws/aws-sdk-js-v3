@@ -51,8 +51,7 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  * };
  * const command = new AssociateDRTRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

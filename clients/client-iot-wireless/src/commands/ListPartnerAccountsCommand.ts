@@ -49,17 +49,16 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * };
  * const command = new ListPartnerAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPartnerAccountsResponse
- *   NextToken: "STRING_VALUE",
- *   Sidewalk: [ // SidewalkAccountList
- *     { // SidewalkAccountInfoWithFingerprint
- *       AmazonId: "STRING_VALUE",
- *       Fingerprint: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListPartnerAccountsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Sidewalk: [ // SidewalkAccountList
+ * //     { // SidewalkAccountInfoWithFingerprint
+ * //       AmazonId: "STRING_VALUE",
+ * //       Fingerprint: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

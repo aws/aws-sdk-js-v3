@@ -54,32 +54,31 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNamespacesResponse
- *   Namespaces: [ // NamespaceSummariesList
- *     { // NamespaceSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
- *       Description: "STRING_VALUE",
- *       ServiceCount: Number("int"),
- *       Properties: { // NamespaceProperties
- *         DnsProperties: { // DnsProperties
- *           HostedZoneId: "STRING_VALUE",
- *           SOA: { // SOA
- *             TTL: Number("long"), // required
- *           },
- *         },
- *         HttpProperties: { // HttpProperties
- *           HttpName: "STRING_VALUE",
- *         },
- *       },
- *       CreateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNamespacesResponse
+ * //   Namespaces: [ // NamespaceSummariesList
+ * //     { // NamespaceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "DNS_PUBLIC" || "DNS_PRIVATE" || "HTTP",
+ * //       Description: "STRING_VALUE",
+ * //       ServiceCount: Number("int"),
+ * //       Properties: { // NamespaceProperties
+ * //         DnsProperties: { // DnsProperties
+ * //           HostedZoneId: "STRING_VALUE",
+ * //           SOA: { // SOA
+ * //             TTL: Number("long"), // required
+ * //           },
+ * //         },
+ * //         HttpProperties: { // HttpProperties
+ * //           HttpName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

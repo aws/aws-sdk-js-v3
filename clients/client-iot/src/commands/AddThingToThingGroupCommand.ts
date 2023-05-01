@@ -49,8 +49,7 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * };
  * const command = new AddThingToThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

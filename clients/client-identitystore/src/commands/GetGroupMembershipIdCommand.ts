@@ -48,11 +48,10 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * };
  * const command = new GetGroupMembershipIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupMembershipIdResponse
- *   MembershipId: "STRING_VALUE", // required
- *   IdentityStoreId: "STRING_VALUE", // required
- * };
+ * // { // GetGroupMembershipIdResponse
+ * //   MembershipId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

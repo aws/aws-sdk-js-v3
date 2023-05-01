@@ -58,27 +58,26 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  * };
  * const command = new UpdateResiliencyPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateResiliencyPolicyResponse
- *   policy: { // ResiliencyPolicy
- *     policyArn: "STRING_VALUE",
- *     policyName: "STRING_VALUE",
- *     policyDescription: "STRING_VALUE",
- *     dataLocationConstraint: "STRING_VALUE",
- *     tier: "STRING_VALUE",
- *     estimatedCostTier: "STRING_VALUE",
- *     policy: { // DisruptionPolicy
- *       "<keys>": { // FailurePolicy
- *         rtoInSecs: Number("int"), // required
- *         rpoInSecs: Number("int"), // required
- *       },
- *     },
- *     creationTime: new Date("TIMESTAMP"),
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateResiliencyPolicyResponse
+ * //   policy: { // ResiliencyPolicy
+ * //     policyArn: "STRING_VALUE",
+ * //     policyName: "STRING_VALUE",
+ * //     policyDescription: "STRING_VALUE",
+ * //     dataLocationConstraint: "STRING_VALUE",
+ * //     tier: "STRING_VALUE",
+ * //     estimatedCostTier: "STRING_VALUE",
+ * //     policy: { // DisruptionPolicy
+ * //       "<keys>": { // FailurePolicy
+ * //         rtoInSecs: Number("int"), // required
+ * //         rpoInSecs: Number("int"), // required
+ * //       },
+ * //     },
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

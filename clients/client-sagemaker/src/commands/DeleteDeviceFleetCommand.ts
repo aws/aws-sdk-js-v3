@@ -44,8 +44,7 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeviceFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * };
  * const command = new ListAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttributesResponse
- *   attributes: [ // Attributes
- *     { // Attribute
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
- *       targetType: "container-instance",
- *       targetId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAttributesResponse
+ * //   attributes: [ // Attributes
+ * //     { // Attribute
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //       targetType: "container-instance",
+ * //       targetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

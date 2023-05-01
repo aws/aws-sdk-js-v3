@@ -88,8 +88,7 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * };
  * const command = new StartDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

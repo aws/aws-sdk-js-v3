@@ -64,20 +64,19 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * };
  * const command = new CreateServiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceTemplateOutput
- *   serviceTemplate: { // ServiceTemplate
- *     name: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     displayName: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     recommendedVersion: "STRING_VALUE",
- *     encryptionKey: "STRING_VALUE",
- *     pipelineProvisioning: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateServiceTemplateOutput
+ * //   serviceTemplate: { // ServiceTemplate
+ * //     name: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     displayName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     recommendedVersion: "STRING_VALUE",
+ * //     encryptionKey: "STRING_VALUE",
+ * //     pipelineProvisioning: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

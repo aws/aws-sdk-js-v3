@@ -59,8 +59,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

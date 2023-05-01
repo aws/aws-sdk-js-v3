@@ -66,26 +66,25 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsResponse
- *   requestId: "STRING_VALUE",
- *   componentVersionList: [ // ComponentVersionList
- *     { // ComponentVersion
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       supportedOsVersions: [ // OsVersionList
- *         "STRING_VALUE",
- *       ],
- *       type: "BUILD" || "TEST",
- *       owner: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   componentVersionList: [ // ComponentVersionList
+ * //     { // ComponentVersion
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       supportedOsVersions: [ // OsVersionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       type: "BUILD" || "TEST",
+ * //       owner: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

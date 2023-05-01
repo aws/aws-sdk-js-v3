@@ -48,16 +48,15 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  * };
  * const command = new CreateServiceSyncConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceSyncConfigOutput
- *   serviceSyncConfig: { // ServiceSyncConfig
- *     serviceName: "STRING_VALUE", // required
- *     repositoryProvider: "STRING_VALUE", // required
- *     repositoryName: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
- *     filePath: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreateServiceSyncConfigOutput
+ * //   serviceSyncConfig: { // ServiceSyncConfig
+ * //     serviceName: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     filePath: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

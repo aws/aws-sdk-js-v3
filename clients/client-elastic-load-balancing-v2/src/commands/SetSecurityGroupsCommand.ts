@@ -54,12 +54,11 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetSecurityGroupsOutput
- *   SecurityGroupIds: [ // SecurityGroups
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // SetSecurityGroupsOutput
+ * //   SecurityGroupIds: [ // SecurityGroups
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

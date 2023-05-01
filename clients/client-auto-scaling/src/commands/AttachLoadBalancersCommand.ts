@@ -63,8 +63,7 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * };
  * const command = new AttachLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

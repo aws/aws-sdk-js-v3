@@ -91,8 +91,7 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SplitShardCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

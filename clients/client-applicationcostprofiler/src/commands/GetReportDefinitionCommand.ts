@@ -48,19 +48,18 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * };
  * const command = new GetReportDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReportDefinitionResult
- *   reportId: "STRING_VALUE", // required
- *   reportDescription: "STRING_VALUE", // required
- *   reportFrequency: "STRING_VALUE", // required
- *   format: "STRING_VALUE", // required
- *   destinationS3Location: { // S3Location
- *     bucket: "STRING_VALUE", // required
- *     prefix: "STRING_VALUE", // required
- *   },
- *   createdAt: new Date("TIMESTAMP"), // required
- *   lastUpdated: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetReportDefinitionResult
+ * //   reportId: "STRING_VALUE", // required
+ * //   reportDescription: "STRING_VALUE", // required
+ * //   reportFrequency: "STRING_VALUE", // required
+ * //   format: "STRING_VALUE", // required
+ * //   destinationS3Location: { // S3Location
+ * //     bucket: "STRING_VALUE", // required
+ * //     prefix: "STRING_VALUE", // required
+ * //   },
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   lastUpdated: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

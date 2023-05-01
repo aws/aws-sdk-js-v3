@@ -44,23 +44,22 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
  * };
  * const command = new DeleteApnsSandboxChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApnsSandboxChannelResponse
- *   APNSSandboxChannelResponse: { // APNSSandboxChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     DefaultAuthenticationMethod: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     HasTokenKey: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteApnsSandboxChannelResponse
+ * //   APNSSandboxChannelResponse: { // APNSSandboxChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

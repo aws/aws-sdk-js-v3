@@ -46,18 +46,17 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * const input = {};
  * const command = new ListReceiptFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReceiptFiltersResponse
- *   Filters: [ // ReceiptFilterList
- *     { // ReceiptFilter
- *       Name: "STRING_VALUE", // required
- *       IpFilter: { // ReceiptIpFilter
- *         Policy: "STRING_VALUE", // required
- *         Cidr: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // ListReceiptFiltersResponse
+ * //   Filters: [ // ReceiptFilterList
+ * //     { // ReceiptFilter
+ * //       Name: "STRING_VALUE", // required
+ * //       IpFilter: { // ReceiptIpFilter
+ * //         Policy: "STRING_VALUE", // required
+ * //         Cidr: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -94,12 +94,11 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * };
  * const command = new StartJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartJobRunResponse
- *   applicationId: "STRING_VALUE", // required
- *   jobRunId: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // StartJobRunResponse
+ * //   applicationId: "STRING_VALUE", // required
+ * //   jobRunId: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,15 +46,14 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * };
  * const command = new DisableHostedZoneDNSSECCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableHostedZoneDNSSECResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // DisableHostedZoneDNSSECResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

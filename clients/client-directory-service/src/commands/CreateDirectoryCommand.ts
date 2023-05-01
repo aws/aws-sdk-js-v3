@@ -69,10 +69,9 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDirectoryResult
- *   DirectoryId: "STRING_VALUE",
- * };
+ * // { // CreateDirectoryResult
+ * //   DirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

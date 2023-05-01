@@ -73,8 +73,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

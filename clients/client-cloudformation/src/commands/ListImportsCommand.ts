@@ -50,13 +50,12 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImportsOutput
- *   Imports: [ // Imports
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImportsOutput
+ * //   Imports: [ // Imports
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

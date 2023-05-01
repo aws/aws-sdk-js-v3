@@ -55,17 +55,16 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * };
  * const command = new CreateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSolNetworkPackageOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
- *   nsdOperationalState: "ENABLED" || "DISABLED", // required
- *   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSolNetworkPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * //   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

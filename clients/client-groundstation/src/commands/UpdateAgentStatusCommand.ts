@@ -65,10 +65,9 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAgentStatusResponse
- *   agentId: "STRING_VALUE", // required
- * };
+ * // { // UpdateAgentStatusResponse
+ * //   agentId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

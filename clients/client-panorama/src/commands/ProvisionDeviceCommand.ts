@@ -80,14 +80,13 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * };
  * const command = new ProvisionDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionDeviceResponse
- *   DeviceId: "STRING_VALUE",
- *   Arn: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
- *   Certificates: "BLOB_VALUE",
- *   IotThingName: "STRING_VALUE",
- * };
+ * // { // ProvisionDeviceResponse
+ * //   DeviceId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * //   Certificates: "BLOB_VALUE",
+ * //   IotThingName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

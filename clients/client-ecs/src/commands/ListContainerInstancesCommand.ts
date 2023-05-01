@@ -50,13 +50,12 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * };
  * const command = new ListContainerInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContainerInstancesResponse
- *   containerInstanceArns: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListContainerInstancesResponse
+ * //   containerInstanceArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

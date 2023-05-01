@@ -59,18 +59,17 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConfigurationSetResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // CreateConfigurationSetResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

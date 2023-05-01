@@ -55,18 +55,17 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * const input = {};
  * const command = new DescribeVpcPeeringAuthorizationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcPeeringAuthorizationsOutput
- *   VpcPeeringAuthorizations: [ // VpcPeeringAuthorizationList
- *     { // VpcPeeringAuthorization
- *       GameLiftAwsAccountId: "STRING_VALUE",
- *       PeerVpcAwsAccountId: "STRING_VALUE",
- *       PeerVpcId: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       ExpirationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeVpcPeeringAuthorizationsOutput
+ * //   VpcPeeringAuthorizations: [ // VpcPeeringAuthorizationList
+ * //     { // VpcPeeringAuthorization
+ * //       GameLiftAwsAccountId: "STRING_VALUE",
+ * //       PeerVpcAwsAccountId: "STRING_VALUE",
+ * //       PeerVpcId: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ExpirationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

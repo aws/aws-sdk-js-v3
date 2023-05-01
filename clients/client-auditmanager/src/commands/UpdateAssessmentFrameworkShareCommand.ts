@@ -51,26 +51,25 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * };
  * const command = new UpdateAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAssessmentFrameworkShareResponse
- *   assessmentFrameworkShareRequest: { // AssessmentFrameworkShareRequest
- *     id: "STRING_VALUE",
- *     frameworkId: "STRING_VALUE",
- *     frameworkName: "STRING_VALUE",
- *     frameworkDescription: "STRING_VALUE",
- *     status: "ACTIVE" || "REPLICATING" || "SHARED" || "EXPIRING" || "FAILED" || "EXPIRED" || "DECLINED" || "REVOKED",
- *     sourceAccount: "STRING_VALUE",
- *     destinationAccount: "STRING_VALUE",
- *     destinationRegion: "STRING_VALUE",
- *     expirationTime: new Date("TIMESTAMP"),
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdated: new Date("TIMESTAMP"),
- *     comment: "STRING_VALUE",
- *     standardControlsCount: Number("int"),
- *     customControlsCount: Number("int"),
- *     complianceType: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateAssessmentFrameworkShareResponse
+ * //   assessmentFrameworkShareRequest: { // AssessmentFrameworkShareRequest
+ * //     id: "STRING_VALUE",
+ * //     frameworkId: "STRING_VALUE",
+ * //     frameworkName: "STRING_VALUE",
+ * //     frameworkDescription: "STRING_VALUE",
+ * //     status: "ACTIVE" || "REPLICATING" || "SHARED" || "EXPIRING" || "FAILED" || "EXPIRED" || "DECLINED" || "REVOKED",
+ * //     sourceAccount: "STRING_VALUE",
+ * //     destinationAccount: "STRING_VALUE",
+ * //     destinationRegion: "STRING_VALUE",
+ * //     expirationTime: new Date("TIMESTAMP"),
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdated: new Date("TIMESTAMP"),
+ * //     comment: "STRING_VALUE",
+ * //     standardControlsCount: Number("int"),
+ * //     customControlsCount: Number("int"),
+ * //     complianceType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,17 +44,16 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * };
  * const command = new DescribeDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDashboardResponse
- *   dashboardId: "STRING_VALUE", // required
- *   dashboardArn: "STRING_VALUE", // required
- *   dashboardName: "STRING_VALUE", // required
- *   projectId: "STRING_VALUE", // required
- *   dashboardDescription: "STRING_VALUE",
- *   dashboardDefinition: "STRING_VALUE", // required
- *   dashboardCreationDate: new Date("TIMESTAMP"), // required
- *   dashboardLastUpdateDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeDashboardResponse
+ * //   dashboardId: "STRING_VALUE", // required
+ * //   dashboardArn: "STRING_VALUE", // required
+ * //   dashboardName: "STRING_VALUE", // required
+ * //   projectId: "STRING_VALUE", // required
+ * //   dashboardDescription: "STRING_VALUE",
+ * //   dashboardDefinition: "STRING_VALUE", // required
+ * //   dashboardCreationDate: new Date("TIMESTAMP"), // required
+ * //   dashboardLastUpdateDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

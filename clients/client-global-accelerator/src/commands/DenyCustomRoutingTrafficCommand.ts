@@ -61,8 +61,7 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * };
  * const command = new DenyCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

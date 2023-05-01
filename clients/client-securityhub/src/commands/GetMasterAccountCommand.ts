@@ -48,15 +48,14 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMasterAccountResponse
- *   Master: { // Invitation
- *     AccountId: "STRING_VALUE",
- *     InvitationId: "STRING_VALUE",
- *     InvitedAt: new Date("TIMESTAMP"),
- *     MemberStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // GetMasterAccountResponse
+ * //   Master: { // Invitation
+ * //     AccountId: "STRING_VALUE",
+ * //     InvitationId: "STRING_VALUE",
+ * //     InvitedAt: new Date("TIMESTAMP"),
+ * //     MemberStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

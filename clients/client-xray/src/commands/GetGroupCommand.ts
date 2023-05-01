@@ -45,18 +45,17 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupResult
- *   Group: { // Group
- *     GroupName: "STRING_VALUE",
- *     GroupARN: "STRING_VALUE",
- *     FilterExpression: "STRING_VALUE",
- *     InsightsConfiguration: { // InsightsConfiguration
- *       InsightsEnabled: true || false,
- *       NotificationsEnabled: true || false,
- *     },
- *   },
- * };
+ * // { // GetGroupResult
+ * //   Group: { // Group
+ * //     GroupName: "STRING_VALUE",
+ * //     GroupARN: "STRING_VALUE",
+ * //     FilterExpression: "STRING_VALUE",
+ * //     InsightsConfiguration: { // InsightsConfiguration
+ * //       InsightsEnabled: true || false,
+ * //       NotificationsEnabled: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

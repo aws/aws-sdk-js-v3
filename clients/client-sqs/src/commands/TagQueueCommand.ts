@@ -72,8 +72,7 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

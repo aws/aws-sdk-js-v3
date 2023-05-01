@@ -48,13 +48,12 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // DeleteServiceResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

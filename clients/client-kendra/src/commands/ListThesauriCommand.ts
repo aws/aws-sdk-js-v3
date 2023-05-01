@@ -46,19 +46,18 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * };
  * const command = new ListThesauriCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThesauriResponse
- *   NextToken: "STRING_VALUE",
- *   ThesaurusSummaryItems: [ // ThesaurusSummaryItems
- *     { // ThesaurusSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListThesauriResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ThesaurusSummaryItems: [ // ThesaurusSummaryItems
+ * //     { // ThesaurusSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -57,10 +57,9 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * };
  * const command = new ReloadTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReloadTablesResponse
- *   ReplicationTaskArn: "STRING_VALUE",
- * };
+ * // { // ReloadTablesResponse
+ * //   ReplicationTaskArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,8 +59,7 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

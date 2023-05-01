@@ -56,17 +56,16 @@ export interface AcceptAddressTransferCommandOutput extends AcceptAddressTransfe
  * };
  * const command = new AcceptAddressTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptAddressTransferResult
- *   AddressTransfer: { // AddressTransfer
- *     PublicIp: "STRING_VALUE",
- *     AllocationId: "STRING_VALUE",
- *     TransferAccountId: "STRING_VALUE",
- *     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
- *     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
- *     AddressTransferStatus: "pending" || "disabled" || "accepted",
- *   },
- * };
+ * // { // AcceptAddressTransferResult
+ * //   AddressTransfer: { // AddressTransfer
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     TransferAccountId: "STRING_VALUE",
+ * //     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ * //     AddressTransferStatus: "pending" || "disabled" || "accepted",
+ * //   },
+ * // };
  *
  * ```
  *

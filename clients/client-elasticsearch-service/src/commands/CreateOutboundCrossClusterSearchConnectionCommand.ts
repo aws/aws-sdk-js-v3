@@ -67,25 +67,24 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * };
  * const command = new CreateOutboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOutboundCrossClusterSearchConnectionResponse
- *   SourceDomainInfo: { // DomainInformation
- *     OwnerId: "STRING_VALUE",
- *     DomainName: "STRING_VALUE", // required
- *     Region: "STRING_VALUE",
- *   },
- *   DestinationDomainInfo: {
- *     OwnerId: "STRING_VALUE",
- *     DomainName: "STRING_VALUE", // required
- *     Region: "STRING_VALUE",
- *   },
- *   ConnectionAlias: "STRING_VALUE",
- *   ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
- *     StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
- *     Message: "STRING_VALUE",
- *   },
- *   CrossClusterSearchConnectionId: "STRING_VALUE",
- * };
+ * // { // CreateOutboundCrossClusterSearchConnectionResponse
+ * //   SourceDomainInfo: { // DomainInformation
+ * //     OwnerId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE", // required
+ * //     Region: "STRING_VALUE",
+ * //   },
+ * //   DestinationDomainInfo: {
+ * //     OwnerId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE", // required
+ * //     Region: "STRING_VALUE",
+ * //   },
+ * //   ConnectionAlias: "STRING_VALUE",
+ * //   ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ * //     StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   CrossClusterSearchConnectionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

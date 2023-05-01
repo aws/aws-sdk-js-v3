@@ -86,34 +86,33 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * };
  * const command = new PutConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutConfigurationAggregatorResponse
- *   ConfigurationAggregator: { // ConfigurationAggregator
- *     ConfigurationAggregatorName: "STRING_VALUE",
- *     ConfigurationAggregatorArn: "STRING_VALUE",
- *     AccountAggregationSources: [ // AccountAggregationSourceList
- *       { // AccountAggregationSource
- *         AccountIds: [ // AccountAggregationSourceAccountList // required
- *           "STRING_VALUE",
- *         ],
- *         AllAwsRegions: true || false,
- *         AwsRegions: [ // AggregatorRegionList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *     OrganizationAggregationSource: { // OrganizationAggregationSource
- *       RoleArn: "STRING_VALUE", // required
- *       AwsRegions: [
- *         "STRING_VALUE",
- *       ],
- *       AllAwsRegions: true || false,
- *     },
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *     CreatedBy: "STRING_VALUE",
- *   },
- * };
+ * // { // PutConfigurationAggregatorResponse
+ * //   ConfigurationAggregator: { // ConfigurationAggregator
+ * //     ConfigurationAggregatorName: "STRING_VALUE",
+ * //     ConfigurationAggregatorArn: "STRING_VALUE",
+ * //     AccountAggregationSources: [ // AccountAggregationSourceList
+ * //       { // AccountAggregationSource
+ * //         AccountIds: [ // AccountAggregationSourceAccountList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllAwsRegions: true || false,
+ * //         AwsRegions: [ // AggregatorRegionList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     OrganizationAggregationSource: { // OrganizationAggregationSource
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       AwsRegions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllAwsRegions: true || false,
+ * //     },
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     CreatedBy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -54,19 +54,18 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * };
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSpotDatafeedSubscriptionResult
- *   SpotDatafeedSubscription: { // SpotDatafeedSubscription
- *     Bucket: "STRING_VALUE",
- *     Fault: { // SpotInstanceStateFault
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     OwnerId: "STRING_VALUE",
- *     Prefix: "STRING_VALUE",
- *     State: "Active" || "Inactive",
- *   },
- * };
+ * // { // CreateSpotDatafeedSubscriptionResult
+ * //   SpotDatafeedSubscription: { // SpotDatafeedSubscription
+ * //     Bucket: "STRING_VALUE",
+ * //     Fault: { // SpotInstanceStateFault
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     OwnerId: "STRING_VALUE",
+ * //     Prefix: "STRING_VALUE",
+ * //     State: "Active" || "Inactive",
+ * //   },
+ * // };
  *
  * ```
  *

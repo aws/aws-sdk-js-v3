@@ -45,14 +45,13 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * };
  * const command = new DeauthorizeConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeauthorizeConnectionResponse
- *   ConnectionArn: "STRING_VALUE",
- *   ConnectionState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastAuthorizedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DeauthorizeConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

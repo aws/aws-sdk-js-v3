@@ -47,12 +47,11 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * };
  * const command = new GetRuntimeManagementConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRuntimeManagementConfigResponse
- *   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate",
- *   RuntimeVersionArn: "STRING_VALUE",
- *   FunctionArn: "STRING_VALUE",
- * };
+ * // { // GetRuntimeManagementConfigResponse
+ * //   UpdateRuntimeOn: "Auto" || "Manual" || "FunctionUpdate",
+ * //   RuntimeVersionArn: "STRING_VALUE",
+ * //   FunctionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

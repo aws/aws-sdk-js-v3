@@ -51,17 +51,16 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * };
  * const command = new ListDeviceResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceResourcesOutput
- *   resources: [ // ResourceSummaryList
- *     { // ResourceSummary
- *       resourceType: "STRING_VALUE", // required
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeviceResourcesOutput
+ * //   resources: [ // ResourceSummaryList
+ * //     { // ResourceSummary
+ * //       resourceType: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

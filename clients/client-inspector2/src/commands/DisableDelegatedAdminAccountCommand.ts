@@ -49,10 +49,9 @@ export interface DisableDelegatedAdminAccountCommandOutput
  * };
  * const command = new DisableDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableDelegatedAdminAccountResponse
- *   delegatedAdminAccountId: "STRING_VALUE", // required
- * };
+ * // { // DisableDelegatedAdminAccountResponse
+ * //   delegatedAdminAccountId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

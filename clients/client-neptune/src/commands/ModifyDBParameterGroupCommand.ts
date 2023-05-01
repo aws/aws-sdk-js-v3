@@ -77,10 +77,9 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * };
  * const command = new ModifyDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBParameterGroupNameMessage
- *   DBParameterGroupName: "STRING_VALUE",
- * };
+ * // { // DBParameterGroupNameMessage
+ * //   DBParameterGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

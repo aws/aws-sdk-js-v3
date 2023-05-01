@@ -111,19 +111,18 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRecordsOutput
- *   FailedRecordCount: Number("int"),
- *   Records: [ // PutRecordsResultEntryList // required
- *     { // PutRecordsResultEntry
- *       SequenceNumber: "STRING_VALUE",
- *       ShardId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   EncryptionType: "NONE" || "KMS",
- * };
+ * // { // PutRecordsOutput
+ * //   FailedRecordCount: Number("int"),
+ * //   Records: [ // PutRecordsResultEntryList // required
+ * //     { // PutRecordsResultEntry
+ * //       SequenceNumber: "STRING_VALUE",
+ * //       ShardId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncryptionType: "NONE" || "KMS",
+ * // };
  *
  * ```
  *

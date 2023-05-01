@@ -82,8 +82,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * };
  * const command = new DeleteBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

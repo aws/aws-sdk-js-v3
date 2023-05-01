@@ -50,41 +50,40 @@ export interface DescribeSimulationApplicationCommandOutput
  * };
  * const command = new DescribeSimulationApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSimulationApplicationResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   sources: [ // Sources
- *     { // Source
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       etag: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
- *     },
- *   ],
- *   simulationSoftwareSuite: { // SimulationSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   renderingEngine: { // RenderingEngine
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   revisionId: "STRING_VALUE",
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   environment: { // Environment
- *     uri: "STRING_VALUE",
- *   },
- *   imageDigest: "STRING_VALUE",
- * };
+ * // { // DescribeSimulationApplicationResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   sources: [ // Sources
+ * //     { // Source
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Key: "STRING_VALUE",
+ * //       etag: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   simulationSoftwareSuite: { // SimulationSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   robotSoftwareSuite: { // RobotSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   renderingEngine: { // RenderingEngine
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   revisionId: "STRING_VALUE",
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   environment: { // Environment
+ * //     uri: "STRING_VALUE",
+ * //   },
+ * //   imageDigest: "STRING_VALUE",
+ * // };
  *
  * ```
  *

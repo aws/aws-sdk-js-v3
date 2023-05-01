@@ -46,13 +46,12 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * };
  * const command = new ListScramSecretsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScramSecretsResponse
- *   NextToken: "STRING_VALUE",
- *   SecretArnList: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListScramSecretsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   SecretArnList: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

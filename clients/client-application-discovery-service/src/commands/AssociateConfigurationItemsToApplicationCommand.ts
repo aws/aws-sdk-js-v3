@@ -60,8 +60,7 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * };
  * const command = new AssociateConfigurationItemsToApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

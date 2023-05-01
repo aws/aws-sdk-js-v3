@@ -48,23 +48,22 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  * };
  * const command = new ReplaceTransitGatewayRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplaceTransitGatewayRouteResult
- *   Route: { // TransitGatewayRoute
- *     DestinationCidrBlock: "STRING_VALUE",
- *     PrefixListId: "STRING_VALUE",
- *     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
- *     TransitGatewayAttachments: [ // TransitGatewayRouteAttachmentList
- *       { // TransitGatewayRouteAttachment
- *         ResourceId: "STRING_VALUE",
- *         TransitGatewayAttachmentId: "STRING_VALUE",
- *         ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       },
- *     ],
- *     Type: "static" || "propagated",
- *     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
- *   },
- * };
+ * // { // ReplaceTransitGatewayRouteResult
+ * //   Route: { // TransitGatewayRoute
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     PrefixListId: "STRING_VALUE",
+ * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //     TransitGatewayAttachments: [ // TransitGatewayRouteAttachmentList
+ * //       { // TransitGatewayRouteAttachment
+ * //         ResourceId: "STRING_VALUE",
+ * //         TransitGatewayAttachmentId: "STRING_VALUE",
+ * //         ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       },
+ * //     ],
+ * //     Type: "static" || "propagated",
+ * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,8 +55,7 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteChannelBanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

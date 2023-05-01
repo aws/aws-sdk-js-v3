@@ -49,13 +49,12 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApiDestinationResponse
- *   ApiDestinationArn: "STRING_VALUE",
- *   ApiDestinationState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateApiDestinationResponse
+ * //   ApiDestinationArn: "STRING_VALUE",
+ * //   ApiDestinationState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

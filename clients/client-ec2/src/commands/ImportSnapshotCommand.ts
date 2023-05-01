@@ -77,33 +77,32 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  * };
  * const command = new ImportSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportSnapshotResult
- *   Description: "STRING_VALUE",
- *   ImportTaskId: "STRING_VALUE",
- *   SnapshotTaskDetail: { // SnapshotTaskDetail
- *     Description: "STRING_VALUE",
- *     DiskImageSize: Number("double"),
- *     Encrypted: true || false,
- *     Format: "STRING_VALUE",
- *     KmsKeyId: "STRING_VALUE",
- *     Progress: "STRING_VALUE",
- *     SnapshotId: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     Url: "STRING_VALUE",
- *     UserBucket: { // UserBucketDetails
- *       S3Bucket: "STRING_VALUE",
- *       S3Key: "STRING_VALUE",
- *     },
- *   },
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ImportSnapshotResult
+ * //   Description: "STRING_VALUE",
+ * //   ImportTaskId: "STRING_VALUE",
+ * //   SnapshotTaskDetail: { // SnapshotTaskDetail
+ * //     Description: "STRING_VALUE",
+ * //     DiskImageSize: Number("double"),
+ * //     Encrypted: true || false,
+ * //     Format: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     Progress: "STRING_VALUE",
+ * //     SnapshotId: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Url: "STRING_VALUE",
+ * //     UserBucket: { // UserBucketDetails
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

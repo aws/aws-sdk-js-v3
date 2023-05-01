@@ -49,25 +49,24 @@ export interface GetRequestedServiceQuotaChangeCommandOutput
  * };
  * const command = new GetRequestedServiceQuotaChangeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRequestedServiceQuotaChangeResponse
- *   RequestedQuota: { // RequestedServiceQuotaChange
- *     Id: "STRING_VALUE",
- *     CaseId: "STRING_VALUE",
- *     ServiceCode: "STRING_VALUE",
- *     ServiceName: "STRING_VALUE",
- *     QuotaCode: "STRING_VALUE",
- *     QuotaName: "STRING_VALUE",
- *     DesiredValue: Number("double"),
- *     Status: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     Requester: "STRING_VALUE",
- *     QuotaArn: "STRING_VALUE",
- *     GlobalQuota: true || false,
- *     Unit: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRequestedServiceQuotaChangeResponse
+ * //   RequestedQuota: { // RequestedServiceQuotaChange
+ * //     Id: "STRING_VALUE",
+ * //     CaseId: "STRING_VALUE",
+ * //     ServiceCode: "STRING_VALUE",
+ * //     ServiceName: "STRING_VALUE",
+ * //     QuotaCode: "STRING_VALUE",
+ * //     QuotaName: "STRING_VALUE",
+ * //     DesiredValue: Number("double"),
+ * //     Status: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     Requester: "STRING_VALUE",
+ * //     QuotaArn: "STRING_VALUE",
+ * //     GlobalQuota: true || false,
+ * //     Unit: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

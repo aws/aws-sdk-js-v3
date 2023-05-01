@@ -47,8 +47,7 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteStudioSessionMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,19 +55,18 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * };
  * const command = new CreateBotVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBotVersionResponse
- *   botId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   botVersionLocaleSpecification: { // BotVersionLocaleSpecification
- *     "<keys>": { // BotVersionLocaleDetails
- *       sourceBotVersion: "STRING_VALUE", // required
- *     },
- *   },
- *   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- *   creationDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateBotVersionResponse
+ * //   botId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botVersionLocaleSpecification: { // BotVersionLocaleSpecification
+ * //     "<keys>": { // BotVersionLocaleDetails
+ * //       sourceBotVersion: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -76,31 +76,30 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * };
  * const command = new ListMultiRegionAccessPointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMultiRegionAccessPointsResult
- *   AccessPoints: [ // MultiRegionAccessPointReportList
- *     { // MultiRegionAccessPointReport
- *       Name: "STRING_VALUE",
- *       Alias: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       PublicAccessBlock: { // PublicAccessBlockConfiguration
- *         BlockPublicAcls: true || false,
- *         IgnorePublicAcls: true || false,
- *         BlockPublicPolicy: true || false,
- *         RestrictPublicBuckets: true || false,
- *       },
- *       Status: "READY" || "INCONSISTENT_ACROSS_REGIONS" || "CREATING" || "PARTIALLY_CREATED" || "PARTIALLY_DELETED" || "DELETING",
- *       Regions: [ // RegionReportList
- *         { // RegionReport
- *           Bucket: "STRING_VALUE",
- *           Region: "STRING_VALUE",
- *           BucketAccountId: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMultiRegionAccessPointsResult
+ * //   AccessPoints: [ // MultiRegionAccessPointReportList
+ * //     { // MultiRegionAccessPointReport
+ * //       Name: "STRING_VALUE",
+ * //       Alias: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       PublicAccessBlock: { // PublicAccessBlockConfiguration
+ * //         BlockPublicAcls: true || false,
+ * //         IgnorePublicAcls: true || false,
+ * //         BlockPublicPolicy: true || false,
+ * //         RestrictPublicBuckets: true || false,
+ * //       },
+ * //       Status: "READY" || "INCONSISTENT_ACROSS_REGIONS" || "CREATING" || "PARTIALLY_CREATED" || "PARTIALLY_DELETED" || "DELETING",
+ * //       Regions: [ // RegionReportList
+ * //         { // RegionReport
+ * //           Bucket: "STRING_VALUE",
+ * //           Region: "STRING_VALUE",
+ * //           BucketAccountId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

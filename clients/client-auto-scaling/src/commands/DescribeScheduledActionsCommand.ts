@@ -54,25 +54,24 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * };
  * const command = new DescribeScheduledActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ScheduledActionsType
- *   ScheduledUpdateGroupActions: [ // ScheduledUpdateGroupActions
- *     { // ScheduledUpdateGroupAction
- *       AutoScalingGroupName: "STRING_VALUE",
- *       ScheduledActionName: "STRING_VALUE",
- *       ScheduledActionARN: "STRING_VALUE",
- *       Time: new Date("TIMESTAMP"),
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       Recurrence: "STRING_VALUE",
- *       MinSize: Number("int"),
- *       MaxSize: Number("int"),
- *       DesiredCapacity: Number("int"),
- *       TimeZone: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ScheduledActionsType
+ * //   ScheduledUpdateGroupActions: [ // ScheduledUpdateGroupActions
+ * //     { // ScheduledUpdateGroupAction
+ * //       AutoScalingGroupName: "STRING_VALUE",
+ * //       ScheduledActionName: "STRING_VALUE",
+ * //       ScheduledActionARN: "STRING_VALUE",
+ * //       Time: new Date("TIMESTAMP"),
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       Recurrence: "STRING_VALUE",
+ * //       MinSize: Number("int"),
+ * //       MaxSize: Number("int"),
+ * //       DesiredCapacity: Number("int"),
+ * //       TimeZone: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

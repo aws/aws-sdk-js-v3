@@ -45,10 +45,9 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * };
  * const command = new AssociateRoleToGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateRoleToGroupResponse
- *   AssociatedAt: "STRING_VALUE",
- * };
+ * // { // AssociateRoleToGroupResponse
+ * //   AssociatedAt: "STRING_VALUE",
+ * // };
  *
  * ```
  *

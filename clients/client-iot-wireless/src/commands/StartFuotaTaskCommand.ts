@@ -47,8 +47,7 @@ export interface StartFuotaTaskCommandOutput extends StartFuotaTaskResponse, __M
  * };
  * const command = new StartFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

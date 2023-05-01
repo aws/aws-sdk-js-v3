@@ -49,18 +49,17 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  * };
  * const command = new DescribeWatchlistCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWatchlistResponse
- *   Watchlist: { // Watchlist
- *     DomainId: "STRING_VALUE",
- *     WatchlistId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DefaultWatchlist: true || false,
- *     CreatedAt: new Date("TIMESTAMP"),
- *     UpdatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeWatchlistResponse
+ * //   Watchlist: { // Watchlist
+ * //     DomainId: "STRING_VALUE",
+ * //     WatchlistId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DefaultWatchlist: true || false,
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

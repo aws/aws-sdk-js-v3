@@ -48,8 +48,7 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * };
  * const command = new DeleteVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

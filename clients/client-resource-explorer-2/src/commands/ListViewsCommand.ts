@@ -58,13 +58,12 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * };
  * const command = new ListViewsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListViewsOutput
- *   Views: [ // ViewArnList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListViewsOutput
+ * //   Views: [ // ViewArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

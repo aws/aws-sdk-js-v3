@@ -427,8 +427,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * };
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

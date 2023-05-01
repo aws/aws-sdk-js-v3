@@ -45,22 +45,21 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserResponse
- *   BrokerId: "STRING_VALUE",
- *   ConsoleAccess: true || false,
- *   Groups: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   Pending: { // UserPendingChanges
- *     ConsoleAccess: true || false,
- *     Groups: [
- *       "STRING_VALUE",
- *     ],
- *     PendingChange: "STRING_VALUE", // required
- *   },
- *   Username: "STRING_VALUE",
- * };
+ * // { // DescribeUserResponse
+ * //   BrokerId: "STRING_VALUE",
+ * //   ConsoleAccess: true || false,
+ * //   Groups: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Pending: { // UserPendingChanges
+ * //     ConsoleAccess: true || false,
+ * //     Groups: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PendingChange: "STRING_VALUE", // required
+ * //   },
+ * //   Username: "STRING_VALUE",
+ * // };
  *
  * ```
  *

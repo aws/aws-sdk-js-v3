@@ -52,16 +52,15 @@ export interface GetManagedPrefixListAssociationsCommandOutput
  * };
  * const command = new GetManagedPrefixListAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetManagedPrefixListAssociationsResult
- *   PrefixListAssociations: [ // PrefixListAssociationSet
- *     { // PrefixListAssociation
- *       ResourceId: "STRING_VALUE",
- *       ResourceOwner: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetManagedPrefixListAssociationsResult
+ * //   PrefixListAssociations: [ // PrefixListAssociationSet
+ * //     { // PrefixListAssociation
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

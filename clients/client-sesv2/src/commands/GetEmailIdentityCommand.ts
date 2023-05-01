@@ -46,39 +46,38 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * };
  * const command = new GetEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEmailIdentityResponse
- *   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
- *   FeedbackForwardingStatus: true || false,
- *   VerifiedForSendingStatus: true || false,
- *   DkimAttributes: { // DkimAttributes
- *     SigningEnabled: true || false,
- *     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
- *     Tokens: [ // DnsTokenList
- *       "STRING_VALUE",
- *     ],
- *     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL",
- *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
- *     CurrentSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
- *     LastKeyGenerationTimestamp: new Date("TIMESTAMP"),
- *   },
- *   MailFromAttributes: { // MailFromAttributes
- *     MailFromDomain: "STRING_VALUE", // required
- *     MailFromDomainStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE", // required
- *     BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE", // required
- *   },
- *   Policies: { // PolicyMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   ConfigurationSetName: "STRING_VALUE",
- *   VerificationStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
- * };
+ * // { // GetEmailIdentityResponse
+ * //   IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
+ * //   FeedbackForwardingStatus: true || false,
+ * //   VerifiedForSendingStatus: true || false,
+ * //   DkimAttributes: { // DkimAttributes
+ * //     SigningEnabled: true || false,
+ * //     Status: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ * //     Tokens: [ // DnsTokenList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SigningAttributesOrigin: "AWS_SES" || "EXTERNAL",
+ * //     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ * //     CurrentSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ * //     LastKeyGenerationTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * //   MailFromAttributes: { // MailFromAttributes
+ * //     MailFromDomain: "STRING_VALUE", // required
+ * //     MailFromDomainStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE", // required
+ * //     BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE", // required
+ * //   },
+ * //   Policies: { // PolicyMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   VerificationStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ * // };
  *
  * ```
  *

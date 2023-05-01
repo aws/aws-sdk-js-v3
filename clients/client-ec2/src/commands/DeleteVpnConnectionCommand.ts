@@ -55,8 +55,7 @@ export interface DeleteVpnConnectionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVpnConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -61,18 +61,17 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput
  * };
  * const command = new ListResourcesAssociatedToCustomLineItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesAssociatedToCustomLineItemOutput
- *   Arn: "STRING_VALUE",
- *   AssociatedResources: [ // ListResourcesAssociatedToCustomLineItemResponseList
- *     { // ListResourcesAssociatedToCustomLineItemResponseElement
- *       Arn: "STRING_VALUE",
- *       Relationship: "STRING_VALUE",
- *       EndBillingPeriod: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesAssociatedToCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * //   AssociatedResources: [ // ListResourcesAssociatedToCustomLineItemResponseList
+ * //     { // ListResourcesAssociatedToCustomLineItemResponseElement
+ * //       Arn: "STRING_VALUE",
+ * //       Relationship: "STRING_VALUE",
+ * //       EndBillingPeriod: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

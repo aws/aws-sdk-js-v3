@@ -55,8 +55,7 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  * };
  * const command = new HeadBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

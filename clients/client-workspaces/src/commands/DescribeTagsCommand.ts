@@ -44,15 +44,14 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTagsResult
- *   TagList: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeTagsResult
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

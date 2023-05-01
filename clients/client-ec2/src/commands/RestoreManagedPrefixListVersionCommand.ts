@@ -52,26 +52,25 @@ export interface RestoreManagedPrefixListVersionCommandOutput
  * };
  * const command = new RestoreManagedPrefixListVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreManagedPrefixListVersionResult
- *   PrefixList: { // ManagedPrefixList
- *     PrefixListId: "STRING_VALUE",
- *     AddressFamily: "STRING_VALUE",
- *     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "restore-in-progress" || "restore-complete" || "restore-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
- *     StateMessage: "STRING_VALUE",
- *     PrefixListArn: "STRING_VALUE",
- *     PrefixListName: "STRING_VALUE",
- *     MaxEntries: Number("int"),
- *     Version: Number("long"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     OwnerId: "STRING_VALUE",
- *   },
- * };
+ * // { // RestoreManagedPrefixListVersionResult
+ * //   PrefixList: { // ManagedPrefixList
+ * //     PrefixListId: "STRING_VALUE",
+ * //     AddressFamily: "STRING_VALUE",
+ * //     State: "create-in-progress" || "create-complete" || "create-failed" || "modify-in-progress" || "modify-complete" || "modify-failed" || "restore-in-progress" || "restore-complete" || "restore-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //     StateMessage: "STRING_VALUE",
+ * //     PrefixListArn: "STRING_VALUE",
+ * //     PrefixListName: "STRING_VALUE",
+ * //     MaxEntries: Number("int"),
+ * //     Version: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OwnerId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

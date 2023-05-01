@@ -48,8 +48,7 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopBackupJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

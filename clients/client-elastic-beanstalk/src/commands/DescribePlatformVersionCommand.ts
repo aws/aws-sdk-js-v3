@@ -47,51 +47,50 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * };
  * const command = new DescribePlatformVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePlatformVersionResult
- *   PlatformDescription: { // PlatformDescription
- *     PlatformArn: "STRING_VALUE",
- *     PlatformOwner: "STRING_VALUE",
- *     PlatformName: "STRING_VALUE",
- *     PlatformVersion: "STRING_VALUE",
- *     SolutionStackName: "STRING_VALUE",
- *     PlatformStatus: "Creating" || "Failed" || "Ready" || "Deleting" || "Deleted",
- *     DateCreated: new Date("TIMESTAMP"),
- *     DateUpdated: new Date("TIMESTAMP"),
- *     PlatformCategory: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Maintainer: "STRING_VALUE",
- *     OperatingSystemName: "STRING_VALUE",
- *     OperatingSystemVersion: "STRING_VALUE",
- *     ProgrammingLanguages: [ // PlatformProgrammingLanguages
- *       { // PlatformProgrammingLanguage
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *     ],
- *     Frameworks: [ // PlatformFrameworks
- *       { // PlatformFramework
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *     ],
- *     CustomAmiList: [ // CustomAmiList
- *       { // CustomAmi
- *         VirtualizationType: "STRING_VALUE",
- *         ImageId: "STRING_VALUE",
- *       },
- *     ],
- *     SupportedTierList: [ // SupportedTierList
- *       "STRING_VALUE",
- *     ],
- *     SupportedAddonList: [ // SupportedAddonList
- *       "STRING_VALUE",
- *     ],
- *     PlatformLifecycleState: "STRING_VALUE",
- *     PlatformBranchName: "STRING_VALUE",
- *     PlatformBranchLifecycleState: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribePlatformVersionResult
+ * //   PlatformDescription: { // PlatformDescription
+ * //     PlatformArn: "STRING_VALUE",
+ * //     PlatformOwner: "STRING_VALUE",
+ * //     PlatformName: "STRING_VALUE",
+ * //     PlatformVersion: "STRING_VALUE",
+ * //     SolutionStackName: "STRING_VALUE",
+ * //     PlatformStatus: "Creating" || "Failed" || "Ready" || "Deleting" || "Deleted",
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateUpdated: new Date("TIMESTAMP"),
+ * //     PlatformCategory: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Maintainer: "STRING_VALUE",
+ * //     OperatingSystemName: "STRING_VALUE",
+ * //     OperatingSystemVersion: "STRING_VALUE",
+ * //     ProgrammingLanguages: [ // PlatformProgrammingLanguages
+ * //       { // PlatformProgrammingLanguage
+ * //         Name: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Frameworks: [ // PlatformFrameworks
+ * //       { // PlatformFramework
+ * //         Name: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CustomAmiList: [ // CustomAmiList
+ * //       { // CustomAmi
+ * //         VirtualizationType: "STRING_VALUE",
+ * //         ImageId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SupportedTierList: [ // SupportedTierList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SupportedAddonList: [ // SupportedAddonList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PlatformLifecycleState: "STRING_VALUE",
+ * //     PlatformBranchName: "STRING_VALUE",
+ * //     PlatformBranchLifecycleState: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

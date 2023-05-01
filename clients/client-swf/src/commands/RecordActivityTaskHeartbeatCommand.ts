@@ -92,10 +92,9 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  * };
  * const command = new RecordActivityTaskHeartbeatCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivityTaskStatus
- *   cancelRequested: true || false, // required
- * };
+ * // { // ActivityTaskStatus
+ * //   cancelRequested: true || false, // required
+ * // };
  *
  * ```
  *

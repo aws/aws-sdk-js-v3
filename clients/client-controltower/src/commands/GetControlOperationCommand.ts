@@ -46,16 +46,15 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * };
  * const command = new GetControlOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetControlOperationOutput
- *   controlOperation: { // ControlOperation
- *     operationType: "STRING_VALUE",
- *     startTime: new Date("TIMESTAMP"),
- *     endTime: new Date("TIMESTAMP"),
- *     status: "STRING_VALUE",
- *     statusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // GetControlOperationOutput
+ * //   controlOperation: { // ControlOperation
+ * //     operationType: "STRING_VALUE",
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     status: "STRING_VALUE",
+ * //     statusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

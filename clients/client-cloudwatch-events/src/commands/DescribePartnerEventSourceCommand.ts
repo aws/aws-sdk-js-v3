@@ -47,11 +47,10 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * };
  * const command = new DescribePartnerEventSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePartnerEventSourceResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // DescribePartnerEventSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

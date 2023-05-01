@@ -52,12 +52,11 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * };
  * const command = new PutFileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutFileOutput
- *   commitId: "STRING_VALUE", // required
- *   blobId: "STRING_VALUE", // required
- *   treeId: "STRING_VALUE", // required
- * };
+ * // { // PutFileOutput
+ * //   commitId: "STRING_VALUE", // required
+ * //   blobId: "STRING_VALUE", // required
+ * //   treeId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

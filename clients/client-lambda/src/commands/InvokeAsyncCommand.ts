@@ -59,10 +59,9 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeAsyncResponse
- *   Status: Number("int"),
- * };
+ * // { // InvokeAsyncResponse
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

@@ -66,30 +66,29 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * };
  * const command = new DescribeOutboundCrossClusterSearchConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOutboundCrossClusterSearchConnectionsResponse
- *   CrossClusterSearchConnections: [ // OutboundCrossClusterSearchConnections
- *     { // OutboundCrossClusterSearchConnection
- *       SourceDomainInfo: { // DomainInformation
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *       DestinationDomainInfo: {
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *       CrossClusterSearchConnectionId: "STRING_VALUE",
- *       ConnectionAlias: "STRING_VALUE",
- *       ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
- *         StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOutboundCrossClusterSearchConnectionsResponse
+ * //   CrossClusterSearchConnections: [ // OutboundCrossClusterSearchConnections
+ * //     { // OutboundCrossClusterSearchConnection
+ * //       SourceDomainInfo: { // DomainInformation
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //       DestinationDomainInfo: {
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //       CrossClusterSearchConnectionId: "STRING_VALUE",
+ * //       ConnectionAlias: "STRING_VALUE",
+ * //       ConnectionStatus: { // OutboundCrossClusterSearchConnectionStatus
+ * //         StatusCode: "PENDING_ACCEPTANCE" || "VALIDATING" || "VALIDATION_FAILED" || "PROVISIONING" || "ACTIVE" || "REJECTED" || "DELETING" || "DELETED",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,12 +49,11 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * };
  * const command = new SetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetRepositoryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // SetRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

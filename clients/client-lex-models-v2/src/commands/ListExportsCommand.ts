@@ -62,38 +62,37 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * };
  * const command = new ListExportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExportsResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   exportSummaries: [ // ExportSummaryList
- *     { // ExportSummary
- *       exportId: "STRING_VALUE",
- *       resourceSpecification: { // ExportResourceSpecification
- *         botExportSpecification: { // BotExportSpecification
- *           botId: "STRING_VALUE", // required
- *           botVersion: "STRING_VALUE", // required
- *         },
- *         botLocaleExportSpecification: { // BotLocaleExportSpecification
- *           botId: "STRING_VALUE", // required
- *           botVersion: "STRING_VALUE", // required
- *           localeId: "STRING_VALUE", // required
- *         },
- *         customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
- *           botId: "STRING_VALUE", // required
- *           botVersion: "STRING_VALUE", // required
- *           localeId: "STRING_VALUE", // required
- *         },
- *       },
- *       fileFormat: "LexJson" || "TSV",
- *       exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- * };
+ * // { // ListExportsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   exportSummaries: [ // ExportSummaryList
+ * //     { // ExportSummary
+ * //       exportId: "STRING_VALUE",
+ * //       resourceSpecification: { // ExportResourceSpecification
+ * //         botExportSpecification: { // BotExportSpecification
+ * //           botId: "STRING_VALUE", // required
+ * //           botVersion: "STRING_VALUE", // required
+ * //         },
+ * //         botLocaleExportSpecification: { // BotLocaleExportSpecification
+ * //           botId: "STRING_VALUE", // required
+ * //           botVersion: "STRING_VALUE", // required
+ * //           localeId: "STRING_VALUE", // required
+ * //         },
+ * //         customVocabularyExportSpecification: { // CustomVocabularyExportSpecification
+ * //           botId: "STRING_VALUE", // required
+ * //           botVersion: "STRING_VALUE", // required
+ * //           localeId: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       fileFormat: "LexJson" || "TSV",
+ * //       exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

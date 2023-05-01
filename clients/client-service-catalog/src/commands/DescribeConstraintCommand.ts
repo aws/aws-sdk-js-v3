@@ -45,19 +45,18 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  * };
  * const command = new DescribeConstraintCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConstraintOutput
- *   ConstraintDetail: { // ConstraintDetail
- *     ConstraintId: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     ProductId: "STRING_VALUE",
- *     PortfolioId: "STRING_VALUE",
- *   },
- *   ConstraintParameters: "STRING_VALUE",
- *   Status: "AVAILABLE" || "CREATING" || "FAILED",
- * };
+ * // { // DescribeConstraintOutput
+ * //   ConstraintDetail: { // ConstraintDetail
+ * //     ConstraintId: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     PortfolioId: "STRING_VALUE",
+ * //   },
+ * //   ConstraintParameters: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -76,8 +76,7 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutPrincipalMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

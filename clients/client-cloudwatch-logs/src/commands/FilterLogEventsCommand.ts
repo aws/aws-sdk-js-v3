@@ -71,25 +71,24 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * };
  * const command = new FilterLogEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FilterLogEventsResponse
- *   events: [ // FilteredLogEvents
- *     { // FilteredLogEvent
- *       logStreamName: "STRING_VALUE",
- *       timestamp: Number("long"),
- *       message: "STRING_VALUE",
- *       ingestionTime: Number("long"),
- *       eventId: "STRING_VALUE",
- *     },
- *   ],
- *   searchedLogStreams: [ // SearchedLogStreams
- *     { // SearchedLogStream
- *       logStreamName: "STRING_VALUE",
- *       searchedCompletely: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // FilterLogEventsResponse
+ * //   events: [ // FilteredLogEvents
+ * //     { // FilteredLogEvent
+ * //       logStreamName: "STRING_VALUE",
+ * //       timestamp: Number("long"),
+ * //       message: "STRING_VALUE",
+ * //       ingestionTime: Number("long"),
+ * //       eventId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   searchedLogStreams: [ // SearchedLogStreams
+ * //     { // SearchedLogStream
+ * //       logStreamName: "STRING_VALUE",
+ * //       searchedCompletely: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

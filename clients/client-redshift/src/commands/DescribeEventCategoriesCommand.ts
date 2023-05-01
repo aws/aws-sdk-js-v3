@@ -46,24 +46,23 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EventCategoriesMessage
- *   EventCategoriesMapList: [ // EventCategoriesMapList
- *     { // EventCategoriesMap
- *       SourceType: "STRING_VALUE",
- *       Events: [ // EventInfoMapList
- *         { // EventInfoMap
- *           EventId: "STRING_VALUE",
- *           EventCategories: [ // EventCategoriesList
- *             "STRING_VALUE",
- *           ],
- *           EventDescription: "STRING_VALUE",
- *           Severity: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // EventCategoriesMessage
+ * //   EventCategoriesMapList: [ // EventCategoriesMapList
+ * //     { // EventCategoriesMap
+ * //       SourceType: "STRING_VALUE",
+ * //       Events: [ // EventInfoMapList
+ * //         { // EventInfoMap
+ * //           EventId: "STRING_VALUE",
+ * //           EventCategories: [ // EventCategoriesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           EventDescription: "STRING_VALUE",
+ * //           Severity: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -87,21 +87,20 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * };
  * const command = new UpdateBackupPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackupPlanOutput
- *   BackupPlanId: "STRING_VALUE",
- *   BackupPlanArn: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   VersionId: "STRING_VALUE",
- *   AdvancedBackupSettings: [ // AdvancedBackupSettings
- *     { // AdvancedBackupSetting
- *       ResourceType: "STRING_VALUE",
- *       BackupOptions: { // BackupOptions
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // UpdateBackupPlanOutput
+ * //   BackupPlanId: "STRING_VALUE",
+ * //   BackupPlanArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   VersionId: "STRING_VALUE",
+ * //   AdvancedBackupSettings: [ // AdvancedBackupSettings
+ * //     { // AdvancedBackupSetting
+ * //       ResourceType: "STRING_VALUE",
+ * //       BackupOptions: { // BackupOptions
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

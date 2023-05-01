@@ -53,19 +53,18 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApplicationResponse
- *   ApplicationInfo: { // ApplicationInfo
- *     ResourceGroupName: "STRING_VALUE",
- *     LifeCycle: "STRING_VALUE",
- *     OpsItemSNSTopicArn: "STRING_VALUE",
- *     OpsCenterEnabled: true || false,
- *     CWEMonitorEnabled: true || false,
- *     Remarks: "STRING_VALUE",
- *     AutoConfigEnabled: true || false,
- *     DiscoveryType: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateApplicationResponse
+ * //   ApplicationInfo: { // ApplicationInfo
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     LifeCycle: "STRING_VALUE",
+ * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     OpsCenterEnabled: true || false,
+ * //     CWEMonitorEnabled: true || false,
+ * //     Remarks: "STRING_VALUE",
+ * //     AutoConfigEnabled: true || false,
+ * //     DiscoveryType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

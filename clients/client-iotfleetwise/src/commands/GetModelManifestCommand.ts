@@ -44,16 +44,15 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * };
  * const command = new GetModelManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   signalCatalogArn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetModelManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   signalCatalogArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

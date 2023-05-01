@@ -45,8 +45,7 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

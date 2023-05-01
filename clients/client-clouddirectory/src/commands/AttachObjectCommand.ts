@@ -61,10 +61,9 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * };
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachObjectResponse
- *   AttachedObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // AttachObjectResponse
+ * //   AttachedObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

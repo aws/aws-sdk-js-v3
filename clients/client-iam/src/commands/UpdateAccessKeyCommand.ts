@@ -56,8 +56,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAccessKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

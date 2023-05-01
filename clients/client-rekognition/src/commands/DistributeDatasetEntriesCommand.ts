@@ -58,8 +58,7 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * };
  * const command = new DistributeDatasetEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

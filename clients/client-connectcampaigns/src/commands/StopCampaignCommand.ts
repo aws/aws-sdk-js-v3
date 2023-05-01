@@ -44,8 +44,7 @@ export interface StopCampaignCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

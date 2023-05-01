@@ -49,10 +49,9 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * };
  * const command = new DeleteMLModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMLModelOutput
- *   MLModelId: "STRING_VALUE",
- * };
+ * // { // DeleteMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

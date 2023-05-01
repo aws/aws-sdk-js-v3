@@ -47,8 +47,7 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * };
  * const command = new DeleteAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

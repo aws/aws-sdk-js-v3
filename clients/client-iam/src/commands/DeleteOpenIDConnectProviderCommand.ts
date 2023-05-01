@@ -49,8 +49,7 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

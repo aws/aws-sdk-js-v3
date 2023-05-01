@@ -48,14 +48,13 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProjectResponse
- *   ProjectMetadata: { // ProjectMetadata
- *     ProjectArn: "STRING_VALUE",
- *     ProjectName: "STRING_VALUE",
- *     CreationTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateProjectResponse
+ * //   ProjectMetadata: { // ProjectMetadata
+ * //     ProjectArn: "STRING_VALUE",
+ * //     ProjectName: "STRING_VALUE",
+ * //     CreationTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

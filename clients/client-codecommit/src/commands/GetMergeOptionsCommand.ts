@@ -50,15 +50,14 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * };
  * const command = new GetMergeOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMergeOptionsOutput
- *   mergeOptions: [ // MergeOptions // required
- *     "STRING_VALUE",
- *   ],
- *   sourceCommitId: "STRING_VALUE", // required
- *   destinationCommitId: "STRING_VALUE", // required
- *   baseCommitId: "STRING_VALUE", // required
- * };
+ * // { // GetMergeOptionsOutput
+ * //   mergeOptions: [ // MergeOptions // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   sourceCommitId: "STRING_VALUE", // required
+ * //   destinationCommitId: "STRING_VALUE", // required
+ * //   baseCommitId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

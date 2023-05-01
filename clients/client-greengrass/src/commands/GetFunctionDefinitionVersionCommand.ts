@@ -51,59 +51,58 @@ export interface GetFunctionDefinitionVersionCommandOutput
  * };
  * const command = new GetFunctionDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFunctionDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // FunctionDefinitionVersion
- *     DefaultConfig: { // FunctionDefaultConfig
- *       Execution: { // FunctionDefaultExecutionConfig
- *         IsolationMode: "GreengrassContainer" || "NoContainer",
- *         RunAs: { // FunctionRunAsConfig
- *           Gid: Number("int"),
- *           Uid: Number("int"),
- *         },
- *       },
- *     },
- *     Functions: [ // __listOfFunction
- *       { // Function
- *         FunctionArn: "STRING_VALUE",
- *         FunctionConfiguration: { // FunctionConfiguration
- *           EncodingType: "binary" || "json",
- *           Environment: { // FunctionConfigurationEnvironment
- *             AccessSysfs: true || false,
- *             Execution: { // FunctionExecutionConfig
- *               IsolationMode: "GreengrassContainer" || "NoContainer",
- *               RunAs: {
- *                 Gid: Number("int"),
- *                 Uid: Number("int"),
- *               },
- *             },
- *             ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
- *               { // ResourceAccessPolicy
- *                 Permission: "ro" || "rw",
- *                 ResourceId: "STRING_VALUE", // required
- *               },
- *             ],
- *             Variables: { // __mapOf__string
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *           ExecArgs: "STRING_VALUE",
- *           Executable: "STRING_VALUE",
- *           MemorySize: Number("int"),
- *           Pinned: true || false,
- *           Timeout: Number("int"),
- *           FunctionRuntimeOverride: "STRING_VALUE",
- *         },
- *         Id: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetFunctionDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // FunctionDefinitionVersion
+ * //     DefaultConfig: { // FunctionDefaultConfig
+ * //       Execution: { // FunctionDefaultExecutionConfig
+ * //         IsolationMode: "GreengrassContainer" || "NoContainer",
+ * //         RunAs: { // FunctionRunAsConfig
+ * //           Gid: Number("int"),
+ * //           Uid: Number("int"),
+ * //         },
+ * //       },
+ * //     },
+ * //     Functions: [ // __listOfFunction
+ * //       { // Function
+ * //         FunctionArn: "STRING_VALUE",
+ * //         FunctionConfiguration: { // FunctionConfiguration
+ * //           EncodingType: "binary" || "json",
+ * //           Environment: { // FunctionConfigurationEnvironment
+ * //             AccessSysfs: true || false,
+ * //             Execution: { // FunctionExecutionConfig
+ * //               IsolationMode: "GreengrassContainer" || "NoContainer",
+ * //               RunAs: {
+ * //                 Gid: Number("int"),
+ * //                 Uid: Number("int"),
+ * //               },
+ * //             },
+ * //             ResourceAccessPolicies: [ // __listOfResourceAccessPolicy
+ * //               { // ResourceAccessPolicy
+ * //                 Permission: "ro" || "rw",
+ * //                 ResourceId: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             Variables: { // __mapOf__string
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           ExecArgs: "STRING_VALUE",
+ * //           Executable: "STRING_VALUE",
+ * //           MemorySize: Number("int"),
+ * //           Pinned: true || false,
+ * //           Timeout: Number("int"),
+ * //           FunctionRuntimeOverride: "STRING_VALUE",
+ * //         },
+ * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

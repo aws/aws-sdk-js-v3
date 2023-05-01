@@ -53,8 +53,7 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SuspendProcessesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

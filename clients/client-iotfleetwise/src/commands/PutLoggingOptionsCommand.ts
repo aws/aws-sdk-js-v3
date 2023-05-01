@@ -47,8 +47,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

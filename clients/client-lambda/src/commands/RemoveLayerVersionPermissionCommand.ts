@@ -52,8 +52,7 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * };
  * const command = new RemoveLayerVersionPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -97,46 +97,45 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * };
  * const command = new UpdateWorkforceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkforceResponse
- *   Workforce: { // Workforce
- *     WorkforceName: "STRING_VALUE", // required
- *     WorkforceArn: "STRING_VALUE", // required
- *     LastUpdatedDate: new Date("TIMESTAMP"),
- *     SourceIpConfig: { // SourceIpConfig
- *       Cidrs: [ // Cidrs // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *     SubDomain: "STRING_VALUE",
- *     CognitoConfig: { // CognitoConfig
- *       UserPool: "STRING_VALUE", // required
- *       ClientId: "STRING_VALUE", // required
- *     },
- *     OidcConfig: { // OidcConfigForResponse
- *       ClientId: "STRING_VALUE",
- *       Issuer: "STRING_VALUE",
- *       AuthorizationEndpoint: "STRING_VALUE",
- *       TokenEndpoint: "STRING_VALUE",
- *       UserInfoEndpoint: "STRING_VALUE",
- *       LogoutEndpoint: "STRING_VALUE",
- *       JwksUri: "STRING_VALUE",
- *     },
- *     CreateDate: new Date("TIMESTAMP"),
- *     WorkforceVpcConfig: { // WorkforceVpcConfigResponse
- *       VpcId: "STRING_VALUE", // required
- *       SecurityGroupIds: [ // WorkforceSecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       Subnets: [ // WorkforceSubnets // required
- *         "STRING_VALUE",
- *       ],
- *       VpcEndpointId: "STRING_VALUE",
- *     },
- *     Status: "Initializing" || "Updating" || "Deleting" || "Failed" || "Active",
- *     FailureReason: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateWorkforceResponse
+ * //   Workforce: { // Workforce
+ * //     WorkforceName: "STRING_VALUE", // required
+ * //     WorkforceArn: "STRING_VALUE", // required
+ * //     LastUpdatedDate: new Date("TIMESTAMP"),
+ * //     SourceIpConfig: { // SourceIpConfig
+ * //       Cidrs: [ // Cidrs // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     SubDomain: "STRING_VALUE",
+ * //     CognitoConfig: { // CognitoConfig
+ * //       UserPool: "STRING_VALUE", // required
+ * //       ClientId: "STRING_VALUE", // required
+ * //     },
+ * //     OidcConfig: { // OidcConfigForResponse
+ * //       ClientId: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       LogoutEndpoint: "STRING_VALUE",
+ * //       JwksUri: "STRING_VALUE",
+ * //     },
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     WorkforceVpcConfig: { // WorkforceVpcConfigResponse
+ * //       VpcId: "STRING_VALUE", // required
+ * //       SecurityGroupIds: [ // WorkforceSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Subnets: [ // WorkforceSubnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //     },
+ * //     Status: "Initializing" || "Updating" || "Deleting" || "Failed" || "Active",
+ * //     FailureReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

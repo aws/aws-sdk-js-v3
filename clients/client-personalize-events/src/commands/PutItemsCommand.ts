@@ -56,8 +56,7 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

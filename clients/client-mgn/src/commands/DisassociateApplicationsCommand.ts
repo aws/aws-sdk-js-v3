@@ -47,8 +47,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

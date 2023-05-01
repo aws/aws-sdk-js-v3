@@ -46,19 +46,18 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * };
  * const command = new ListVPCEConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVPCEConfigurationsResult
- *   vpceConfigurations: [ // VPCEConfigurations
- *     { // VPCEConfiguration
- *       arn: "STRING_VALUE",
- *       vpceConfigurationName: "STRING_VALUE",
- *       vpceServiceName: "STRING_VALUE",
- *       serviceDnsName: "STRING_VALUE",
- *       vpceConfigurationDescription: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVPCEConfigurationsResult
+ * //   vpceConfigurations: [ // VPCEConfigurations
+ * //     { // VPCEConfiguration
+ * //       arn: "STRING_VALUE",
+ * //       vpceConfigurationName: "STRING_VALUE",
+ * //       vpceServiceName: "STRING_VALUE",
+ * //       serviceDnsName: "STRING_VALUE",
+ * //       vpceConfigurationDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

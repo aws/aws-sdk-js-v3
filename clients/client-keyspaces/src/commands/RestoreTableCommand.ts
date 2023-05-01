@@ -112,10 +112,9 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * };
  * const command = new RestoreTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreTableResponse
- *   restoredTableARN: "STRING_VALUE", // required
- * };
+ * // { // RestoreTableResponse
+ * //   restoredTableARN: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

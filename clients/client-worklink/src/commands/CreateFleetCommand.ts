@@ -52,10 +52,9 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFleetResponse
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // CreateFleetResponse
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

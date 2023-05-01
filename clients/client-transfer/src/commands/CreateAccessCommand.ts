@@ -67,11 +67,10 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * };
  * const command = new CreateAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessResponse
- *   ServerId: "STRING_VALUE", // required
- *   ExternalId: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   ExternalId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

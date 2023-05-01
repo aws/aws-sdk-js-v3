@@ -50,14 +50,13 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * };
  * const command = new ListLogPatternSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLogPatternSetsResponse
- *   ResourceGroupName: "STRING_VALUE",
- *   LogPatternSets: [ // LogPatternSetList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLogPatternSetsResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPatternSets: [ // LogPatternSetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

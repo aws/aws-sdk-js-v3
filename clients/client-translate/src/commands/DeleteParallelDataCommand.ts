@@ -44,11 +44,10 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * };
  * const command = new DeleteParallelDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteParallelDataResponse
- *   Name: "STRING_VALUE",
- *   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- * };
+ * // { // DeleteParallelDataResponse
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * // };
  *
  * ```
  *

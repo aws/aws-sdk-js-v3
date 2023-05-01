@@ -47,17 +47,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForResourceOutput
- *   ResourceARN: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListTagsForResourceOutput
+ * //   ResourceARN: "STRING_VALUE",
+ * //   Marker: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

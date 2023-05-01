@@ -58,8 +58,7 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * };
  * const command = new UpdateRoutingProfileConcurrencyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

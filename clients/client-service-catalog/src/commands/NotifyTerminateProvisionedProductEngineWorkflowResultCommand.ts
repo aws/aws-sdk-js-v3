@@ -60,8 +60,7 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * };
  * const command = new NotifyTerminateProvisionedProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

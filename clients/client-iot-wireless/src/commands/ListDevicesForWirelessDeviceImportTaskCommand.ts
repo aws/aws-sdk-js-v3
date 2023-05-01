@@ -56,21 +56,20 @@ export interface ListDevicesForWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new ListDevicesForWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicesForWirelessDeviceImportTaskResponse
- *   NextToken: "STRING_VALUE",
- *   DestinationName: "STRING_VALUE",
- *   ImportedWirelessDeviceList: [ // ImportedWirelessDeviceList
- *     { // ImportedWirelessDevice
- *       Sidewalk: { // ImportedSidewalkDevice
- *         SidewalkManufacturingSn: "STRING_VALUE",
- *         OnboardingStatus: "INITIALIZED" || "PENDING" || "ONBOARDED" || "FAILED",
- *         OnboardingStatusReason: "STRING_VALUE",
- *         LastUpdateTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // ListDevicesForWirelessDeviceImportTaskResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DestinationName: "STRING_VALUE",
+ * //   ImportedWirelessDeviceList: [ // ImportedWirelessDeviceList
+ * //     { // ImportedWirelessDevice
+ * //       Sidewalk: { // ImportedSidewalkDevice
+ * //         SidewalkManufacturingSn: "STRING_VALUE",
+ * //         OnboardingStatus: "INITIALIZED" || "PENDING" || "ONBOARDED" || "FAILED",
+ * //         OnboardingStatusReason: "STRING_VALUE",
+ * //         LastUpdateTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

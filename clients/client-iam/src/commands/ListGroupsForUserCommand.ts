@@ -48,20 +48,19 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * };
  * const command = new ListGroupsForUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupsForUserResponse
- *   Groups: [ // groupListType // required
- *     { // Group
- *       Path: "STRING_VALUE", // required
- *       GroupName: "STRING_VALUE", // required
- *       GroupId: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       CreateDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListGroupsForUserResponse
+ * //   Groups: [ // groupListType // required
+ * //     { // Group
+ * //       Path: "STRING_VALUE", // required
+ * //       GroupName: "STRING_VALUE", // required
+ * //       GroupId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -71,8 +71,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new CreateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

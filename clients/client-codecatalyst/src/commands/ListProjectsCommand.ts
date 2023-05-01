@@ -55,17 +55,16 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsResponse
- *   nextToken: "STRING_VALUE",
- *   items: [ // ProjectSummaries
- *     { // ProjectSummary
- *       name: "STRING_VALUE", // required
- *       displayName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListProjectsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   items: [ // ProjectSummaries
+ * //     { // ProjectSummary
+ * //       name: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

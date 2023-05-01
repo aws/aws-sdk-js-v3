@@ -51,8 +51,7 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * };
  * const command = new AssociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

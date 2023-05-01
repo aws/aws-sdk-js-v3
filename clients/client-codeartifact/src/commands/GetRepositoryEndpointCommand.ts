@@ -72,10 +72,9 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryEndpointResult
- *   repositoryEndpoint: "STRING_VALUE",
- * };
+ * // { // GetRepositoryEndpointResult
+ * //   repositoryEndpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

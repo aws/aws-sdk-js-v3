@@ -52,22 +52,21 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * };
  * const command = new UpdateNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateNetworkSettingsResponse
- *   networkSettings: { // NetworkSettings
- *     networkSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     vpcId: "STRING_VALUE",
- *     subnetIds: [ // SubnetIdList
- *       "STRING_VALUE",
- *     ],
- *     securityGroupIds: [ // SecurityGroupIdList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // UpdateNetworkSettingsResponse
+ * //   networkSettings: { // NetworkSettings
+ * //     networkSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

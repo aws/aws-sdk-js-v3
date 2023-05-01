@@ -53,10 +53,9 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * };
  * const command = new CancelTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelTaskOutput
- *   taskId: "STRING_VALUE",
- * };
+ * // { // CancelTaskOutput
+ * //   taskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

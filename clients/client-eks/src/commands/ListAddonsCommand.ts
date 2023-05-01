@@ -46,13 +46,12 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * };
  * const command = new ListAddonsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAddonsResponse
- *   addons: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAddonsResponse
+ * //   addons: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,16 +57,15 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * };
  * const command = new DescribeMappedResourceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMappedResourceConfigurationOutput
- *   MappedResourceConfigurationList: [ // MappedResourceConfigurationList
- *     { // MappedResourceConfigurationListItem
- *       Type: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMappedResourceConfigurationOutput
+ * //   MappedResourceConfigurationList: [ // MappedResourceConfigurationList
+ * //     { // MappedResourceConfigurationListItem
+ * //       Type: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

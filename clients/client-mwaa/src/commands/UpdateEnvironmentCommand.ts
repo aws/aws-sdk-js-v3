@@ -94,10 +94,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnvironmentOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // UpdateEnvironmentOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,13 +47,12 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * };
  * const command = new ListKeywordsForDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKeywordsForDataSourceResponse
- *   keywords: [ // Keywords
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListKeywordsForDataSourceResponse
+ * //   keywords: [ // Keywords
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

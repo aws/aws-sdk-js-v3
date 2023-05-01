@@ -49,11 +49,10 @@ export interface DeleteDistributionConfigurationCommandOutput
  * };
  * const command = new DeleteDistributionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDistributionConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   distributionConfigurationArn: "STRING_VALUE",
- * };
+ * // { // DeleteDistributionConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   distributionConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

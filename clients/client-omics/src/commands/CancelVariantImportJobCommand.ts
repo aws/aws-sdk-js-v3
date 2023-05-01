@@ -44,8 +44,7 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * };
  * const command = new CancelVariantImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

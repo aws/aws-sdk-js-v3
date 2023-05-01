@@ -50,11 +50,10 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * };
  * const command = new RegisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterOrganizationAdminAccountResponse
- *   adminAccountId: "STRING_VALUE",
- *   organizationId: "STRING_VALUE",
- * };
+ * // { // RegisterOrganizationAdminAccountResponse
+ * //   adminAccountId: "STRING_VALUE",
+ * //   organizationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

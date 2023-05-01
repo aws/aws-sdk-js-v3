@@ -51,8 +51,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

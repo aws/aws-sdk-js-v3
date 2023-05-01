@@ -73,10 +73,9 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * };
  * const command = new CreateLocationFsxOntapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationFsxOntapResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationFsxOntapResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

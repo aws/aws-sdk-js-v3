@@ -48,8 +48,7 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * };
  * const command = new DeleteDashboardsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

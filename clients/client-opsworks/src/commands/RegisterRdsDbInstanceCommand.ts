@@ -52,8 +52,7 @@ export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RegisterRdsDbInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,18 +48,17 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * };
  * const command = new ListLabelGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLabelGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   LabelGroupSummaries: [ // LabelGroupSummaries
- *     { // LabelGroupSummary
- *       LabelGroupName: "STRING_VALUE",
- *       LabelGroupArn: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListLabelGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   LabelGroupSummaries: [ // LabelGroupSummaries
+ * //     { // LabelGroupSummary
+ * //       LabelGroupName: "STRING_VALUE",
+ * //       LabelGroupArn: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

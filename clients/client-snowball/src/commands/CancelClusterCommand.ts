@@ -46,8 +46,7 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * };
  * const command = new CancelClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

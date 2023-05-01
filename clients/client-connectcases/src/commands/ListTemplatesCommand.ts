@@ -50,18 +50,17 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplatesResponse
- *   templates: [ // TemplateSummaryList // required
- *     { // TemplateSummary
- *       templateId: "STRING_VALUE", // required
- *       templateArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTemplatesResponse
+ * //   templates: [ // TemplateSummaryList // required
+ * //     { // TemplateSummary
+ * //       templateId: "STRING_VALUE", // required
+ * //       templateArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

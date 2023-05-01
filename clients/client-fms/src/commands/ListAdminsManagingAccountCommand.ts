@@ -45,13 +45,12 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * };
  * const command = new ListAdminsManagingAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAdminsManagingAccountResponse
- *   AdminAccounts: [ // AccountIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAdminsManagingAccountResponse
+ * //   AdminAccounts: [ // AccountIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

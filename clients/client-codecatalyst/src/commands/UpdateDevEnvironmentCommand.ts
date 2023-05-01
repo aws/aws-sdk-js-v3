@@ -56,22 +56,21 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * };
  * const command = new UpdateDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDevEnvironmentResponse
- *   id: "STRING_VALUE", // required
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   alias: "STRING_VALUE",
- *   ides: [ // IdeConfigurationList
- *     { // IdeConfiguration
- *       runtime: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   instanceType: "STRING_VALUE",
- *   inactivityTimeoutMinutes: Number("int"),
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // UpdateDevEnvironmentResponse
+ * //   id: "STRING_VALUE", // required
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   alias: "STRING_VALUE",
+ * //   ides: [ // IdeConfigurationList
+ * //     { // IdeConfiguration
+ * //       runtime: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   instanceType: "STRING_VALUE",
+ * //   inactivityTimeoutMinutes: Number("int"),
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,20 +50,19 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTasksOutput
- *   tasks: [ // TaskSummaryList
- *     { // TaskSummary
- *       taskId: "STRING_VALUE", // required
- *       taskArn: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTasksOutput
+ * //   tasks: [ // TaskSummaryList
+ * //     { // TaskSummary
+ * //       taskId: "STRING_VALUE", // required
+ * //       taskArn: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

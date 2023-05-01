@@ -70,10 +70,9 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * };
  * const command = new CreateNotificationRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNotificationRuleResult
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateNotificationRuleResult
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

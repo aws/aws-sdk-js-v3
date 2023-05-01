@@ -46,13 +46,12 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * };
  * const command = new DescribeProtectedResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProtectedResourceOutput
- *   ResourceArn: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- *   LastBackupTime: new Date("TIMESTAMP"),
- *   ResourceName: "STRING_VALUE",
- * };
+ * // { // DescribeProtectedResourceOutput
+ * //   ResourceArn: "STRING_VALUE",
+ * //   ResourceType: "STRING_VALUE",
+ * //   LastBackupTime: new Date("TIMESTAMP"),
+ * //   ResourceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

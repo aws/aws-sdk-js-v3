@@ -66,21 +66,20 @@ export interface CreateAutoScalingConfigurationCommandOutput
  * };
  * const command = new CreateAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAutoScalingConfigurationResponse
- *   AutoScalingConfiguration: { // AutoScalingConfiguration
- *     AutoScalingConfigurationArn: "STRING_VALUE",
- *     AutoScalingConfigurationName: "STRING_VALUE",
- *     AutoScalingConfigurationRevision: Number("int"),
- *     Latest: true || false,
- *     Status: "ACTIVE" || "INACTIVE",
- *     MaxConcurrency: Number("int"),
- *     MinSize: Number("int"),
- *     MaxSize: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     DeletedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateAutoScalingConfigurationResponse
+ * //   AutoScalingConfiguration: { // AutoScalingConfiguration
+ * //     AutoScalingConfigurationArn: "STRING_VALUE",
+ * //     AutoScalingConfigurationName: "STRING_VALUE",
+ * //     AutoScalingConfigurationRevision: Number("int"),
+ * //     Latest: true || false,
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     MaxConcurrency: Number("int"),
+ * //     MinSize: Number("int"),
+ * //     MaxSize: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

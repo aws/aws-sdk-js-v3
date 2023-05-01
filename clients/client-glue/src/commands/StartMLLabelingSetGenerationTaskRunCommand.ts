@@ -63,10 +63,9 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * };
  * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMLLabelingSetGenerationTaskRunResponse
- *   TaskRunId: "STRING_VALUE",
- * };
+ * // { // StartMLLabelingSetGenerationTaskRunResponse
+ * //   TaskRunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

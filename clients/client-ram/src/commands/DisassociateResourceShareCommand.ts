@@ -52,23 +52,22 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * };
  * const command = new DisassociateResourceShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateResourceShareResponse
- *   resourceShareAssociations: [ // ResourceShareAssociationList
- *     { // ResourceShareAssociation
- *       resourceShareArn: "STRING_VALUE",
- *       resourceShareName: "STRING_VALUE",
- *       associatedEntity: "STRING_VALUE",
- *       associationType: "PRINCIPAL" || "RESOURCE",
- *       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
- *       statusMessage: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       external: true || false,
- *     },
- *   ],
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // DisassociateResourceShareResponse
+ * //   resourceShareAssociations: [ // ResourceShareAssociationList
+ * //     { // ResourceShareAssociation
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       resourceShareName: "STRING_VALUE",
+ * //       associatedEntity: "STRING_VALUE",
+ * //       associationType: "PRINCIPAL" || "RESOURCE",
+ * //       status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //       statusMessage: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       external: true || false,
+ * //     },
+ * //   ],
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

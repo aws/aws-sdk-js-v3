@@ -51,8 +51,7 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * };
  * const command = new PutContainerPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

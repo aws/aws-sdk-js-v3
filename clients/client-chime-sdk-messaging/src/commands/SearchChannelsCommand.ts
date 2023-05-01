@@ -69,20 +69,19 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * };
  * const command = new SearchChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchChannelsResponse
- *   Channels: [ // ChannelSummaryList
- *     { // ChannelSummary
- *       Name: "STRING_VALUE",
- *       ChannelArn: "STRING_VALUE",
- *       Mode: "UNRESTRICTED" || "RESTRICTED",
- *       Privacy: "PUBLIC" || "PRIVATE",
- *       Metadata: "STRING_VALUE",
- *       LastMessageTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // SearchChannelsResponse
+ * //   Channels: [ // ChannelSummaryList
+ * //     { // ChannelSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //       LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

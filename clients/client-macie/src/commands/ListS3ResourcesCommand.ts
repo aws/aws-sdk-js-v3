@@ -50,20 +50,19 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * };
  * const command = new ListS3ResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListS3ResourcesResult
- *   s3Resources: [ // S3ResourcesClassification
- *     { // S3ResourceClassification
- *       bucketName: "STRING_VALUE", // required
- *       prefix: "STRING_VALUE",
- *       classificationType: { // ClassificationType
- *         oneTime: "STRING_VALUE", // required
- *         continuous: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListS3ResourcesResult
+ * //   s3Resources: [ // S3ResourcesClassification
+ * //     { // S3ResourceClassification
+ * //       bucketName: "STRING_VALUE", // required
+ * //       prefix: "STRING_VALUE",
+ * //       classificationType: { // ClassificationType
+ * //         oneTime: "STRING_VALUE", // required
+ * //         continuous: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

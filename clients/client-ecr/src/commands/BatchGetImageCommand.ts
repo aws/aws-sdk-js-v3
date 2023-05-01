@@ -57,31 +57,30 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetImageResponse
- *   images: [ // ImageList
- *     { // Image
- *       registryId: "STRING_VALUE",
- *       repositoryName: "STRING_VALUE",
- *       imageId: { // ImageIdentifier
- *         imageDigest: "STRING_VALUE",
- *         imageTag: "STRING_VALUE",
- *       },
- *       imageManifest: "STRING_VALUE",
- *       imageManifestMediaType: "STRING_VALUE",
- *     },
- *   ],
- *   failures: [ // ImageFailureList
- *     { // ImageFailure
- *       imageId: {
- *         imageDigest: "STRING_VALUE",
- *         imageTag: "STRING_VALUE",
- *       },
- *       failureCode: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetImageResponse
+ * //   images: [ // ImageList
+ * //     { // Image
+ * //       registryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       imageId: { // ImageIdentifier
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       imageManifest: "STRING_VALUE",
+ * //       imageManifestMediaType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failures: [ // ImageFailureList
+ * //     { // ImageFailure
+ * //       imageId: {
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

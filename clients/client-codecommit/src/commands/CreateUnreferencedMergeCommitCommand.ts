@@ -86,11 +86,10 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * };
  * const command = new CreateUnreferencedMergeCommitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUnreferencedMergeCommitOutput
- *   commitId: "STRING_VALUE",
- *   treeId: "STRING_VALUE",
- * };
+ * // { // CreateUnreferencedMergeCommitOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

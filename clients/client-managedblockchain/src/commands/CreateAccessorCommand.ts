@@ -53,11 +53,10 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * };
  * const command = new CreateAccessorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessorOutput
- *   AccessorId: "STRING_VALUE",
- *   BillingToken: "STRING_VALUE",
- * };
+ * // { // CreateAccessorOutput
+ * //   AccessorId: "STRING_VALUE",
+ * //   BillingToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

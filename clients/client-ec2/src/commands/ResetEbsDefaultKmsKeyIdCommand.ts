@@ -49,10 +49,9 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * };
  * const command = new ResetEbsDefaultKmsKeyIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetEbsDefaultKmsKeyIdResult
- *   KmsKeyId: "STRING_VALUE",
- * };
+ * // { // ResetEbsDefaultKmsKeyIdResult
+ * //   KmsKeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

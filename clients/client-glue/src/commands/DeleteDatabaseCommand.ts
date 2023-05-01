@@ -57,8 +57,7 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

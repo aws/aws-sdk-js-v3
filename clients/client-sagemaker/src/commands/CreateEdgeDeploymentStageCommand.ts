@@ -60,8 +60,7 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * };
  * const command = new CreateEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

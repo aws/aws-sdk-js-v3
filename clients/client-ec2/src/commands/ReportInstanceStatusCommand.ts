@@ -58,8 +58,7 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReportInstanceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

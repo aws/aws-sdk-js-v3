@@ -52,8 +52,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

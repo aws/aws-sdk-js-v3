@@ -44,21 +44,20 @@ export interface GetGameCommandOutput extends GetGameResult, __MetadataBearer {}
  * };
  * const command = new GetGameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGameResult
- *   Game: { // GameDetails
- *     Name: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     State: "STRING_VALUE",
- *     EnableTerminationProtection: true || false,
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetGameResult
+ * //   Game: { // GameDetails
+ * //     Name: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     State: "STRING_VALUE",
+ * //     EnableTerminationProtection: true || false,
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

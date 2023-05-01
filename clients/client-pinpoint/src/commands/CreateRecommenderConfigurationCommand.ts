@@ -61,25 +61,24 @@ export interface CreateRecommenderConfigurationCommandOutput
  * };
  * const command = new CreateRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRecommenderConfigurationResponse
- *   RecommenderConfigurationResponse: { // RecommenderConfigurationResponse
- *     Attributes: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     CreationDate: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Id: "STRING_VALUE", // required
- *     LastModifiedDate: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     RecommendationProviderIdType: "STRING_VALUE",
- *     RecommendationProviderRoleArn: "STRING_VALUE", // required
- *     RecommendationProviderUri: "STRING_VALUE", // required
- *     RecommendationTransformerUri: "STRING_VALUE",
- *     RecommendationsDisplayName: "STRING_VALUE",
- *     RecommendationsPerMessage: Number("int"),
- *   },
- * };
+ * // { // CreateRecommenderConfigurationResponse
+ * //   RecommenderConfigurationResponse: { // RecommenderConfigurationResponse
+ * //     Attributes: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedDate: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     RecommendationProviderIdType: "STRING_VALUE",
+ * //     RecommendationProviderRoleArn: "STRING_VALUE", // required
+ * //     RecommendationProviderUri: "STRING_VALUE", // required
+ * //     RecommendationTransformerUri: "STRING_VALUE",
+ * //     RecommendationsDisplayName: "STRING_VALUE",
+ * //     RecommendationsPerMessage: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,28 +46,27 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchedulesResponse
- *   Schedules: [ // ScheduleList // required
- *     { // Schedule
- *       AccountId: "STRING_VALUE",
- *       CreatedBy: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       JobNames: [ // JobNameList
- *         "STRING_VALUE",
- *       ],
- *       LastModifiedBy: "STRING_VALUE",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       ResourceArn: "STRING_VALUE",
- *       CronExpression: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSchedulesResponse
+ * //   Schedules: [ // ScheduleList // required
+ * //     { // Schedule
+ * //       AccountId: "STRING_VALUE",
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       JobNames: [ // JobNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       ResourceArn: "STRING_VALUE",
+ * //       CronExpression: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

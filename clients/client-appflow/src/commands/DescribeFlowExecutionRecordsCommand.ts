@@ -51,45 +51,44 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * };
  * const command = new DescribeFlowExecutionRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFlowExecutionRecordsResponse
- *   flowExecutions: [ // FlowExecutionList
- *     { // ExecutionRecord
- *       executionId: "STRING_VALUE",
- *       executionStatus: "InProgress" || "Successful" || "Error",
- *       executionResult: { // ExecutionResult
- *         errorInfo: { // ErrorInfo
- *           putFailuresCount: Number("long"),
- *           executionMessage: "STRING_VALUE",
- *         },
- *         bytesProcessed: Number("long"),
- *         bytesWritten: Number("long"),
- *         recordsProcessed: Number("long"),
- *       },
- *       startedAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       dataPullStartTime: new Date("TIMESTAMP"),
- *       dataPullEndTime: new Date("TIMESTAMP"),
- *       metadataCatalogDetails: [ // MetadataCatalogDetails
- *         { // MetadataCatalogDetail
- *           catalogType: "GLUE",
- *           tableName: "STRING_VALUE",
- *           tableRegistrationOutput: { // RegistrationOutput
- *             message: "STRING_VALUE",
- *             result: "STRING_VALUE",
- *             status: "InProgress" || "Successful" || "Error",
- *           },
- *           partitionRegistrationOutput: {
- *             message: "STRING_VALUE",
- *             result: "STRING_VALUE",
- *             status: "InProgress" || "Successful" || "Error",
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFlowExecutionRecordsResponse
+ * //   flowExecutions: [ // FlowExecutionList
+ * //     { // ExecutionRecord
+ * //       executionId: "STRING_VALUE",
+ * //       executionStatus: "InProgress" || "Successful" || "Error",
+ * //       executionResult: { // ExecutionResult
+ * //         errorInfo: { // ErrorInfo
+ * //           putFailuresCount: Number("long"),
+ * //           executionMessage: "STRING_VALUE",
+ * //         },
+ * //         bytesProcessed: Number("long"),
+ * //         bytesWritten: Number("long"),
+ * //         recordsProcessed: Number("long"),
+ * //       },
+ * //       startedAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       dataPullStartTime: new Date("TIMESTAMP"),
+ * //       dataPullEndTime: new Date("TIMESTAMP"),
+ * //       metadataCatalogDetails: [ // MetadataCatalogDetails
+ * //         { // MetadataCatalogDetail
+ * //           catalogType: "GLUE",
+ * //           tableName: "STRING_VALUE",
+ * //           tableRegistrationOutput: { // RegistrationOutput
+ * //             message: "STRING_VALUE",
+ * //             result: "STRING_VALUE",
+ * //             status: "InProgress" || "Successful" || "Error",
+ * //           },
+ * //           partitionRegistrationOutput: {
+ * //             message: "STRING_VALUE",
+ * //             result: "STRING_VALUE",
+ * //             status: "InProgress" || "Successful" || "Error",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

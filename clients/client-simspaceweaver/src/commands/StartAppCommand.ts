@@ -53,12 +53,11 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * };
  * const command = new StartAppCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAppOutput
- *   Name: "STRING_VALUE",
- *   Domain: "STRING_VALUE",
- *   Simulation: "STRING_VALUE",
- * };
+ * // { // StartAppOutput
+ * //   Name: "STRING_VALUE",
+ * //   Domain: "STRING_VALUE",
+ * //   Simulation: "STRING_VALUE",
+ * // };
  *
  * ```
  *

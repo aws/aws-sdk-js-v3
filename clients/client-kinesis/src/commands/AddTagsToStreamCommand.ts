@@ -58,8 +58,7 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

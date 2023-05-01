@@ -53,10 +53,9 @@ export interface SendPipelineExecutionStepFailureCommandOutput
  * };
  * const command = new SendPipelineExecutionStepFailureCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendPipelineExecutionStepFailureResponse
- *   PipelineExecutionArn: "STRING_VALUE",
- * };
+ * // { // SendPipelineExecutionStepFailureResponse
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

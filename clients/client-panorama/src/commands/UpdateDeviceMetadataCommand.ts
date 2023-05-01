@@ -45,10 +45,9 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * };
  * const command = new UpdateDeviceMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDeviceMetadataResponse
- *   DeviceId: "STRING_VALUE",
- * };
+ * // { // UpdateDeviceMetadataResponse
+ * //   DeviceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

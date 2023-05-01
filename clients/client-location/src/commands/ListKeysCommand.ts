@@ -53,30 +53,29 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * };
  * const command = new ListKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKeysResponse
- *   Entries: [ // ListKeysResponseEntryList // required
- *     { // ListKeysResponseEntry
- *       KeyName: "STRING_VALUE", // required
- *       ExpireTime: new Date("TIMESTAMP"), // required
- *       Description: "STRING_VALUE",
- *       Restrictions: { // ApiKeyRestrictions
- *         AllowActions: [ // ApiKeyActionList // required
- *           "STRING_VALUE",
- *         ],
- *         AllowResources: [ // GeoArnList // required
- *           "STRING_VALUE",
- *         ],
- *         AllowReferers: [ // RefererPatternList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListKeysResponse
+ * //   Entries: [ // ListKeysResponseEntryList // required
+ * //     { // ListKeysResponseEntry
+ * //       KeyName: "STRING_VALUE", // required
+ * //       ExpireTime: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE",
+ * //       Restrictions: { // ApiKeyRestrictions
+ * //         AllowActions: [ // ApiKeyActionList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowResources: [ // GeoArnList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowReferers: [ // RefererPatternList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

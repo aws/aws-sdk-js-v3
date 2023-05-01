@@ -63,8 +63,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * };
  * const command = new UpdateResourceCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

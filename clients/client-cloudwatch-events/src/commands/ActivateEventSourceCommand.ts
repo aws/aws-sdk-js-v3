@@ -45,8 +45,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ActivateEventSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
  * };
  * const command = new UpdateAddressBookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

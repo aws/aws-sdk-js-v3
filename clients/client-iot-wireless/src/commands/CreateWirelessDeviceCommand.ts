@@ -108,11 +108,10 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * };
  * const command = new CreateWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWirelessDeviceResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateWirelessDeviceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

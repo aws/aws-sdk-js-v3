@@ -168,8 +168,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * };
  * const command = new RespondDecisionTaskCompletedCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

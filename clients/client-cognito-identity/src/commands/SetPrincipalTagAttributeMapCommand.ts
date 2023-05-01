@@ -52,15 +52,14 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * };
  * const command = new SetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetPrincipalTagAttributeMapResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   IdentityProviderName: "STRING_VALUE",
- *   UseDefaults: true || false,
- *   PrincipalTags: { // PrincipalTags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // SetPrincipalTagAttributeMapResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   IdentityProviderName: "STRING_VALUE",
+ * //   UseDefaults: true || false,
+ * //   PrincipalTags: { // PrincipalTags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

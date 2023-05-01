@@ -84,30 +84,29 @@ export interface GetBucketMetricsConfigurationCommandOutput
  * };
  * const command = new GetBucketMetricsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketMetricsConfigurationOutput
- *   MetricsConfiguration: { // MetricsConfiguration
- *     Id: "STRING_VALUE", // required
- *     Filter: { // MetricsFilter Union: only one key present
- *       Prefix: "STRING_VALUE",
- *       Tag: { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *       AccessPointArn: "STRING_VALUE",
- *       And: { // MetricsAndOperator
- *         Prefix: "STRING_VALUE",
- *         Tags: [ // TagSet
- *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *         AccessPointArn: "STRING_VALUE",
- *       },
- *     },
- *   },
- * };
+ * // { // GetBucketMetricsConfigurationOutput
+ * //   MetricsConfiguration: { // MetricsConfiguration
+ * //     Id: "STRING_VALUE", // required
+ * //     Filter: { // MetricsFilter Union: only one key present
+ * //       Prefix: "STRING_VALUE",
+ * //       Tag: { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //       AccessPointArn: "STRING_VALUE",
+ * //       And: { // MetricsAndOperator
+ * //         Prefix: "STRING_VALUE",
+ * //         Tags: [ // TagSet
+ * //           {
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         AccessPointArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

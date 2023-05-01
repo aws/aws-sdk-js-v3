@@ -52,11 +52,10 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * };
  * const command = new CreateChangesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChangesetResponse
- *   datasetId: "STRING_VALUE",
- *   changesetId: "STRING_VALUE",
- * };
+ * // { // CreateChangesetResponse
+ * //   datasetId: "STRING_VALUE",
+ * //   changesetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

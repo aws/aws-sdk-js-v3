@@ -60,10 +60,9 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * };
  * const command = new ImportWorkspaceImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportWorkspaceImageResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // ImportWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

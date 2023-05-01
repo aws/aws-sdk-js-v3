@@ -62,8 +62,7 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * };
  * const command = new DeleteQualificationTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

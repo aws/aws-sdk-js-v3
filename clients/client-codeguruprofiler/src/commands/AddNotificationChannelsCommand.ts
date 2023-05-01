@@ -53,20 +53,19 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * };
  * const command = new AddNotificationChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddNotificationChannelsResponse
- *   notificationConfiguration: { // NotificationConfiguration
- *     channels: [ // Channels
- *       { // Channel
- *         id: "STRING_VALUE",
- *         uri: "STRING_VALUE", // required
- *         eventPublishers: [ // EventPublishers // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // AddNotificationChannelsResponse
+ * //   notificationConfiguration: { // NotificationConfiguration
+ * //     channels: [ // Channels
+ * //       { // Channel
+ * //         id: "STRING_VALUE",
+ * //         uri: "STRING_VALUE", // required
+ * //         eventPublishers: [ // EventPublishers // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

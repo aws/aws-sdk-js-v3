@@ -74,8 +74,7 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMountTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

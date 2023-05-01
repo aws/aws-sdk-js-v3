@@ -55,16 +55,15 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
  * };
  * const command = new ListManagedPoliciesInPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedPoliciesInPermissionSetResponse
- *   AttachedManagedPolicies: [ // AttachedManagedPolicyList
- *     { // AttachedManagedPolicy
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedPoliciesInPermissionSetResponse
+ * //   AttachedManagedPolicies: [ // AttachedManagedPolicyList
+ * //     { // AttachedManagedPolicy
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

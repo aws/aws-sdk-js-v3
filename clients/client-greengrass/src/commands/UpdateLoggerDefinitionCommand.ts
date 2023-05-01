@@ -45,8 +45,7 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * };
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

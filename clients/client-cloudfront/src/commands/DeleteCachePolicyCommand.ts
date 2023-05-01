@@ -51,8 +51,7 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCachePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

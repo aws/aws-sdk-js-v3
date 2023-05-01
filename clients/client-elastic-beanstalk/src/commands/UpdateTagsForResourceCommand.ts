@@ -72,8 +72,7 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

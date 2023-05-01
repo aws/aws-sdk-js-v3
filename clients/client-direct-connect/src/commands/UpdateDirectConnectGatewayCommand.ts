@@ -45,17 +45,16 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * };
  * const command = new UpdateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDirectConnectGatewayResponse
- *   directConnectGateway: { // DirectConnectGateway
- *     directConnectGatewayId: "STRING_VALUE",
- *     directConnectGatewayName: "STRING_VALUE",
- *     amazonSideAsn: Number("long"),
- *     ownerAccount: "STRING_VALUE",
- *     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
- *     stateChangeError: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateDirectConnectGatewayResponse
+ * //   directConnectGateway: { // DirectConnectGateway
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayName: "STRING_VALUE",
+ * //     amazonSideAsn: Number("long"),
+ * //     ownerAccount: "STRING_VALUE",
+ * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
+ * //     stateChangeError: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

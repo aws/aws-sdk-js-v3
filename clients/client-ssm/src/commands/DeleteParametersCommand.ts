@@ -47,15 +47,14 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * };
  * const command = new DeleteParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteParametersResult
- *   DeletedParameters: [ // ParameterNameList
- *     "STRING_VALUE",
- *   ],
- *   InvalidParameters: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DeleteParametersResult
+ * //   DeletedParameters: [ // ParameterNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidParameters: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

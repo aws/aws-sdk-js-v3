@@ -62,33 +62,32 @@ export interface DescribeVerifiedAccessInstancesCommandOutput
  * };
  * const command = new DescribeVerifiedAccessInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVerifiedAccessInstancesResult
- *   VerifiedAccessInstances: [ // VerifiedAccessInstanceList
- *     { // VerifiedAccessInstance
- *       VerifiedAccessInstanceId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
- *         { // VerifiedAccessTrustProviderCondensed
- *           VerifiedAccessTrustProviderId: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           TrustProviderType: "user" || "device",
- *           UserTrustProviderType: "iam-identity-center" || "oidc",
- *           DeviceTrustProviderType: "jamf" || "crowdstrike",
- *         },
- *       ],
- *       CreationTime: "STRING_VALUE",
- *       LastUpdatedTime: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVerifiedAccessInstancesResult
+ * //   VerifiedAccessInstances: [ // VerifiedAccessInstanceList
+ * //     { // VerifiedAccessInstance
+ * //       VerifiedAccessInstanceId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       VerifiedAccessTrustProviders: [ // VerifiedAccessTrustProviderCondensedList
+ * //         { // VerifiedAccessTrustProviderCondensed
+ * //           VerifiedAccessTrustProviderId: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           TrustProviderType: "user" || "device",
+ * //           UserTrustProviderType: "iam-identity-center" || "oidc",
+ * //           DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //         },
+ * //       ],
+ * //       CreationTime: "STRING_VALUE",
+ * //       LastUpdatedTime: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

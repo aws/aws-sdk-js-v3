@@ -49,21 +49,20 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForResourcesResponse
- *   ResourceTagSets: [ // ResourceTagSetList // required
- *     { // ResourceTagSet
- *       ResourceType: "healthcheck" || "hostedzone",
- *       ResourceId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListTagsForResourcesResponse
+ * //   ResourceTagSets: [ // ResourceTagSetList // required
+ * //     { // ResourceTagSet
+ * //       ResourceType: "healthcheck" || "hostedzone",
+ * //       ResourceId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

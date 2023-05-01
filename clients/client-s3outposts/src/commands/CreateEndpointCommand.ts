@@ -65,10 +65,9 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * };
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEndpointResult
- *   EndpointArn: "STRING_VALUE",
- * };
+ * // { // CreateEndpointResult
+ * //   EndpointArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -63,30 +63,29 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * };
  * const command = new CreatePrefetchScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePrefetchScheduleResponse
- *   Arn: "STRING_VALUE",
- *   Consumption: { // PrefetchConsumption
- *     AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
- *       { // AvailMatchingCriteria
- *         DynamicVariable: "STRING_VALUE", // required
- *         Operator: "EQUALS", // required
- *       },
- *     ],
- *     EndTime: new Date("TIMESTAMP"), // required
- *     StartTime: new Date("TIMESTAMP"),
- *   },
- *   Name: "STRING_VALUE",
- *   PlaybackConfigurationName: "STRING_VALUE",
- *   Retrieval: { // PrefetchRetrieval
- *     DynamicVariables: { // __mapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     EndTime: new Date("TIMESTAMP"), // required
- *     StartTime: new Date("TIMESTAMP"),
- *   },
- *   StreamId: "STRING_VALUE",
- * };
+ * // { // CreatePrefetchScheduleResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Consumption: { // PrefetchConsumption
+ * //     AvailMatchingCriteria: [ // __listOfAvailMatchingCriteria
+ * //       { // AvailMatchingCriteria
+ * //         DynamicVariable: "STRING_VALUE", // required
+ * //         Operator: "EQUALS", // required
+ * //       },
+ * //     ],
+ * //     EndTime: new Date("TIMESTAMP"), // required
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   PlaybackConfigurationName: "STRING_VALUE",
+ * //   Retrieval: { // PrefetchRetrieval
+ * //     DynamicVariables: { // __mapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     EndTime: new Date("TIMESTAMP"), // required
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   StreamId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

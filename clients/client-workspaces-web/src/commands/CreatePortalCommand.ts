@@ -56,11 +56,10 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePortalResponse
- *   portalArn: "STRING_VALUE", // required
- *   portalEndpoint: "STRING_VALUE", // required
- * };
+ * // { // CreatePortalResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   portalEndpoint: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

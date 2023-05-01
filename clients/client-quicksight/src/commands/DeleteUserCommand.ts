@@ -48,11 +48,10 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteUserResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteUserResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

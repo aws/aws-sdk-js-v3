@@ -44,11 +44,10 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * };
  * const command = new DeleteImagePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteImagePipelineResponse
- *   requestId: "STRING_VALUE",
- *   imagePipelineArn: "STRING_VALUE",
- * };
+ * // { // DeleteImagePipelineResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imagePipelineArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

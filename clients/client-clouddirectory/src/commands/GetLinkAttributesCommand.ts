@@ -72,25 +72,24 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * };
  * const command = new GetLinkAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLinkAttributesResponse
- *   Attributes: [ // AttributeKeyAndValueList
- *     { // AttributeKeyAndValue
- *       Key: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *       },
- *       Value: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
- *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetLinkAttributesResponse
+ * //   Attributes: [ // AttributeKeyAndValueList
+ * //     { // AttributeKeyAndValue
+ * //       Key: { // AttributeKey
+ * //         SchemaArn: "STRING_VALUE", // required
+ * //         FacetName: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //       Value: { // TypedAttributeValue Union: only one key present
+ * //         StringValue: "STRING_VALUE",
+ * //         BinaryValue: "BLOB_VALUE",
+ * //         BooleanValue: true || false,
+ * //         NumberValue: "STRING_VALUE",
+ * //         DatetimeValue: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

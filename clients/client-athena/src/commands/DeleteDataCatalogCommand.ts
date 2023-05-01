@@ -44,8 +44,7 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

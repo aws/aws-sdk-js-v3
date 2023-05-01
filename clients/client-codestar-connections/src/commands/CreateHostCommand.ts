@@ -73,16 +73,15 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * };
  * const command = new CreateHostCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHostOutput
- *   HostArn: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreateHostOutput
+ * //   HostArn: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

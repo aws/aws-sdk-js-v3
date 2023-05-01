@@ -47,8 +47,7 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * };
  * const command = new UpdateMapRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

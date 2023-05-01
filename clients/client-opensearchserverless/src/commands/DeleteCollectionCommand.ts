@@ -50,14 +50,13 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCollectionResponse
- *   deleteCollectionDetail: { // DeleteCollectionDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteCollectionResponse
+ * //   deleteCollectionDetail: { // DeleteCollectionDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

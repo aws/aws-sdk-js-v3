@@ -46,17 +46,16 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * };
  * const command = new ListLogSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLogSubscriptionsResult
- *   LogSubscriptions: [ // LogSubscriptions
- *     { // LogSubscription
- *       DirectoryId: "STRING_VALUE",
- *       LogGroupName: "STRING_VALUE",
- *       SubscriptionCreatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLogSubscriptionsResult
+ * //   LogSubscriptions: [ // LogSubscriptions
+ * //     { // LogSubscription
+ * //       DirectoryId: "STRING_VALUE",
+ * //       LogGroupName: "STRING_VALUE",
+ * //       SubscriptionCreatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

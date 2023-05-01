@@ -57,41 +57,40 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * };
  * const command = new AdminListUserAuthEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AdminListUserAuthEventsResponse
- *   AuthEvents: [ // AuthEventsType
- *     { // AuthEventType
- *       EventId: "STRING_VALUE",
- *       EventType: "SignIn" || "SignUp" || "ForgotPassword" || "PasswordChange" || "ResendCode",
- *       CreationDate: new Date("TIMESTAMP"),
- *       EventResponse: "Pass" || "Fail" || "InProgress",
- *       EventRisk: { // EventRiskType
- *         RiskDecision: "NoRisk" || "AccountTakeover" || "Block",
- *         RiskLevel: "Low" || "Medium" || "High",
- *         CompromisedCredentialsDetected: true || false,
- *       },
- *       ChallengeResponses: [ // ChallengeResponseListType
- *         { // ChallengeResponseType
- *           ChallengeName: "Password" || "Mfa",
- *           ChallengeResponse: "Success" || "Failure",
- *         },
- *       ],
- *       EventContextData: { // EventContextDataType
- *         IpAddress: "STRING_VALUE",
- *         DeviceName: "STRING_VALUE",
- *         Timezone: "STRING_VALUE",
- *         City: "STRING_VALUE",
- *         Country: "STRING_VALUE",
- *       },
- *       EventFeedback: { // EventFeedbackType
- *         FeedbackValue: "Valid" || "Invalid", // required
- *         Provider: "STRING_VALUE", // required
- *         FeedbackDate: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // AdminListUserAuthEventsResponse
+ * //   AuthEvents: [ // AuthEventsType
+ * //     { // AuthEventType
+ * //       EventId: "STRING_VALUE",
+ * //       EventType: "SignIn" || "SignUp" || "ForgotPassword" || "PasswordChange" || "ResendCode",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       EventResponse: "Pass" || "Fail" || "InProgress",
+ * //       EventRisk: { // EventRiskType
+ * //         RiskDecision: "NoRisk" || "AccountTakeover" || "Block",
+ * //         RiskLevel: "Low" || "Medium" || "High",
+ * //         CompromisedCredentialsDetected: true || false,
+ * //       },
+ * //       ChallengeResponses: [ // ChallengeResponseListType
+ * //         { // ChallengeResponseType
+ * //           ChallengeName: "Password" || "Mfa",
+ * //           ChallengeResponse: "Success" || "Failure",
+ * //         },
+ * //       ],
+ * //       EventContextData: { // EventContextDataType
+ * //         IpAddress: "STRING_VALUE",
+ * //         DeviceName: "STRING_VALUE",
+ * //         Timezone: "STRING_VALUE",
+ * //         City: "STRING_VALUE",
+ * //         Country: "STRING_VALUE",
+ * //       },
+ * //       EventFeedback: { // EventFeedbackType
+ * //         FeedbackValue: "Valid" || "Invalid", // required
+ * //         Provider: "STRING_VALUE", // required
+ * //         FeedbackDate: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

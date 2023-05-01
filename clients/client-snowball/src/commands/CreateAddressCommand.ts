@@ -62,10 +62,9 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * };
  * const command = new CreateAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAddressResult
- *   AddressId: "STRING_VALUE",
- * };
+ * // { // CreateAddressResult
+ * //   AddressId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

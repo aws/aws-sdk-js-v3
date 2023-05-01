@@ -53,22 +53,21 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * };
  * const command = new SearchFoldersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchFoldersResponse
- *   Status: Number("int"),
- *   FolderSummaryList: [ // FolderSummaryList
- *     { // FolderSummary
- *       Arn: "STRING_VALUE",
- *       FolderId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       FolderType: "SHARED",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // SearchFoldersResponse
+ * //   Status: Number("int"),
+ * //   FolderSummaryList: [ // FolderSummaryList
+ * //     { // FolderSummary
+ * //       Arn: "STRING_VALUE",
+ * //       FolderId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       FolderType: "SHARED",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

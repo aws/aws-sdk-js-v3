@@ -46,8 +46,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * };
  * const command = new DisassociateApprovedOriginCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

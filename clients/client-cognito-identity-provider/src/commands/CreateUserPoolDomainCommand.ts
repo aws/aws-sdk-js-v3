@@ -53,10 +53,9 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * };
  * const command = new CreateUserPoolDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserPoolDomainResponse
- *   CloudFrontDomain: "STRING_VALUE",
- * };
+ * // { // CreateUserPoolDomainResponse
+ * //   CloudFrontDomain: "STRING_VALUE",
+ * // };
  *
  * ```
  *

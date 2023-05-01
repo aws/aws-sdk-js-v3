@@ -62,37 +62,36 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * };
  * const command = new ModifyTransitGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyTransitGatewayResult
- *   TransitGateway: { // TransitGateway
- *     TransitGatewayId: "STRING_VALUE",
- *     TransitGatewayArn: "STRING_VALUE",
- *     State: "pending" || "available" || "modifying" || "deleting" || "deleted",
- *     OwnerId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Options: { // TransitGatewayOptions
- *       AmazonSideAsn: Number("long"),
- *       TransitGatewayCidrBlocks: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       AutoAcceptSharedAttachments: "enable" || "disable",
- *       DefaultRouteTableAssociation: "enable" || "disable",
- *       AssociationDefaultRouteTableId: "STRING_VALUE",
- *       DefaultRouteTablePropagation: "enable" || "disable",
- *       PropagationDefaultRouteTableId: "STRING_VALUE",
- *       VpnEcmpSupport: "enable" || "disable",
- *       DnsSupport: "enable" || "disable",
- *       MulticastSupport: "enable" || "disable",
- *     },
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyTransitGatewayResult
+ * //   TransitGateway: { // TransitGateway
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     TransitGatewayArn: "STRING_VALUE",
+ * //     State: "pending" || "available" || "modifying" || "deleting" || "deleted",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Options: { // TransitGatewayOptions
+ * //       AmazonSideAsn: Number("long"),
+ * //       TransitGatewayCidrBlocks: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AutoAcceptSharedAttachments: "enable" || "disable",
+ * //       DefaultRouteTableAssociation: "enable" || "disable",
+ * //       AssociationDefaultRouteTableId: "STRING_VALUE",
+ * //       DefaultRouteTablePropagation: "enable" || "disable",
+ * //       PropagationDefaultRouteTableId: "STRING_VALUE",
+ * //       VpnEcmpSupport: "enable" || "disable",
+ * //       DnsSupport: "enable" || "disable",
+ * //       MulticastSupport: "enable" || "disable",
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

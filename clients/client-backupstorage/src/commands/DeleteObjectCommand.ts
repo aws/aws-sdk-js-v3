@@ -45,8 +45,7 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

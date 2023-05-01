@@ -48,27 +48,26 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * };
  * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetSecurityControlsResponse
- *   SecurityControls: [ // SecurityControls // required
- *     { // SecurityControl
- *       SecurityControlId: "STRING_VALUE", // required
- *       SecurityControlArn: "STRING_VALUE", // required
- *       Title: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       RemediationUrl: "STRING_VALUE", // required
- *       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
- *       SecurityControlStatus: "ENABLED" || "DISABLED", // required
- *     },
- *   ],
- *   UnprocessedIds: [ // UnprocessedSecurityControls
- *     { // UnprocessedSecurityControl
- *       SecurityControlId: "STRING_VALUE", // required
- *       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
- *       ErrorReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetSecurityControlsResponse
+ * //   SecurityControls: [ // SecurityControls // required
+ * //     { // SecurityControl
+ * //       SecurityControlId: "STRING_VALUE", // required
+ * //       SecurityControlArn: "STRING_VALUE", // required
+ * //       Title: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       RemediationUrl: "STRING_VALUE", // required
+ * //       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
+ * //       SecurityControlStatus: "ENABLED" || "DISABLED", // required
+ * //     },
+ * //   ],
+ * //   UnprocessedIds: [ // UnprocessedSecurityControls
+ * //     { // UnprocessedSecurityControl
+ * //       SecurityControlId: "STRING_VALUE", // required
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

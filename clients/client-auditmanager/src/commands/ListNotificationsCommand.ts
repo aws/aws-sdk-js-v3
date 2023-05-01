@@ -45,22 +45,21 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * };
  * const command = new ListNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotificationsResponse
- *   notifications: [ // Notifications
- *     { // Notification
- *       id: "STRING_VALUE",
- *       assessmentId: "STRING_VALUE",
- *       assessmentName: "STRING_VALUE",
- *       controlSetId: "STRING_VALUE",
- *       controlSetName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       eventTime: new Date("TIMESTAMP"),
- *       source: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListNotificationsResponse
+ * //   notifications: [ // Notifications
+ * //     { // Notification
+ * //       id: "STRING_VALUE",
+ * //       assessmentId: "STRING_VALUE",
+ * //       assessmentName: "STRING_VALUE",
+ * //       controlSetId: "STRING_VALUE",
+ * //       controlSetName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       eventTime: new Date("TIMESTAMP"),
+ * //       source: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

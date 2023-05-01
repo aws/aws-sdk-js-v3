@@ -127,10 +127,9 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * };
  * const command = new CreateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnomalyMonitorResponse
- *   MonitorArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAnomalyMonitorResponse
+ * //   MonitorArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -52,10 +52,9 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * };
  * const command = new DeleteFirewallManagerRuleGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFirewallManagerRuleGroupsResponse
- *   NextWebACLLockToken: "STRING_VALUE",
- * };
+ * // { // DeleteFirewallManagerRuleGroupsResponse
+ * //   NextWebACLLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,18 +45,17 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * };
  * const command = new ListMissionProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMissionProfilesResponse
- *   nextToken: "STRING_VALUE",
- *   missionProfileList: [ // MissionProfileList
- *     { // MissionProfileListItem
- *       missionProfileId: "STRING_VALUE",
- *       missionProfileArn: "STRING_VALUE",
- *       region: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListMissionProfilesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   missionProfileList: [ // MissionProfileList
+ * //     { // MissionProfileListItem
+ * //       missionProfileId: "STRING_VALUE",
+ * //       missionProfileArn: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,13 +46,12 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTemplateResponse
- *   RequestId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   TemplateId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteTemplateResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   TemplateId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

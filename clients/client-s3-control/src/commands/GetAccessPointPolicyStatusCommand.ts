@@ -48,12 +48,11 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  * };
  * const command = new GetAccessPointPolicyStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointPolicyStatusResult
- *   PolicyStatus: { // PolicyStatus
- *     IsPublic: true || false,
- *   },
- * };
+ * // { // GetAccessPointPolicyStatusResult
+ * //   PolicyStatus: { // PolicyStatus
+ * //     IsPublic: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

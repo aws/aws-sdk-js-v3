@@ -44,80 +44,79 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * };
  * const command = new DescribeConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConnectionResponse
- *   ConnectionArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
- *   StateReason: "STRING_VALUE",
- *   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
- *   SecretArn: "STRING_VALUE",
- *   AuthParameters: { // ConnectionAuthResponseParameters
- *     BasicAuthParameters: { // ConnectionBasicAuthResponseParameters
- *       Username: "STRING_VALUE",
- *     },
- *     OAuthParameters: { // ConnectionOAuthResponseParameters
- *       ClientParameters: { // ConnectionOAuthClientResponseParameters
- *         ClientID: "STRING_VALUE",
- *       },
- *       AuthorizationEndpoint: "STRING_VALUE",
- *       HttpMethod: "GET" || "POST" || "PUT",
- *       OAuthHttpParameters: { // ConnectionHttpParameters
- *         HeaderParameters: [ // ConnectionHeaderParametersList
- *           { // ConnectionHeaderParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *             IsValueSecret: true || false,
- *           },
- *         ],
- *         QueryStringParameters: [ // ConnectionQueryStringParametersList
- *           { // ConnectionQueryStringParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *             IsValueSecret: true || false,
- *           },
- *         ],
- *         BodyParameters: [ // ConnectionBodyParametersList
- *           { // ConnectionBodyParameter
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *             IsValueSecret: true || false,
- *           },
- *         ],
- *       },
- *     },
- *     ApiKeyAuthParameters: { // ConnectionApiKeyAuthResponseParameters
- *       ApiKeyName: "STRING_VALUE",
- *     },
- *     InvocationHttpParameters: {
- *       HeaderParameters: [
- *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           IsValueSecret: true || false,
- *         },
- *       ],
- *       QueryStringParameters: [
- *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           IsValueSecret: true || false,
- *         },
- *       ],
- *       BodyParameters: [
- *         {
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           IsValueSecret: true || false,
- *         },
- *       ],
- *     },
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastAuthorizedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   StateReason: "STRING_VALUE",
+ * //   AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
+ * //   SecretArn: "STRING_VALUE",
+ * //   AuthParameters: { // ConnectionAuthResponseParameters
+ * //     BasicAuthParameters: { // ConnectionBasicAuthResponseParameters
+ * //       Username: "STRING_VALUE",
+ * //     },
+ * //     OAuthParameters: { // ConnectionOAuthResponseParameters
+ * //       ClientParameters: { // ConnectionOAuthClientResponseParameters
+ * //         ClientID: "STRING_VALUE",
+ * //       },
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       HttpMethod: "GET" || "POST" || "PUT",
+ * //       OAuthHttpParameters: { // ConnectionHttpParameters
+ * //         HeaderParameters: [ // ConnectionHeaderParametersList
+ * //           { // ConnectionHeaderParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //         QueryStringParameters: [ // ConnectionQueryStringParametersList
+ * //           { // ConnectionQueryStringParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //         BodyParameters: [ // ConnectionBodyParametersList
+ * //           { // ConnectionBodyParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //             IsValueSecret: true || false,
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     ApiKeyAuthParameters: { // ConnectionApiKeyAuthResponseParameters
+ * //       ApiKeyName: "STRING_VALUE",
+ * //     },
+ * //     InvocationHttpParameters: {
+ * //       HeaderParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //       QueryStringParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //       BodyParameters: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           IsValueSecret: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

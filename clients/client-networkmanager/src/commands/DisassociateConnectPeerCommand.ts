@@ -45,16 +45,15 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * };
  * const command = new DisassociateConnectPeerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateConnectPeerResponse
- *   ConnectPeerAssociation: { // ConnectPeerAssociation
- *     ConnectPeerId: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // DisassociateConnectPeerResponse
+ * //   ConnectPeerAssociation: { // ConnectPeerAssociation
+ * //     ConnectPeerId: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

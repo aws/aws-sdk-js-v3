@@ -57,13 +57,12 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * };
  * const command = new GetRateBasedRuleManagedKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRateBasedRuleManagedKeysResponse
- *   ManagedKeys: [ // ManagedKeys
- *     "STRING_VALUE",
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // GetRateBasedRuleManagedKeysResponse
+ * //   ManagedKeys: [ // ManagedKeys
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

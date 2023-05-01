@@ -57,26 +57,25 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * };
  * const command = new DescribeMaintenanceWindowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowsResult
- *   WindowIdentities: [ // MaintenanceWindowIdentityList
- *     { // MaintenanceWindowIdentity
- *       WindowId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Enabled: true || false,
- *       Duration: Number("int"),
- *       Cutoff: Number("int"),
- *       Schedule: "STRING_VALUE",
- *       ScheduleTimezone: "STRING_VALUE",
- *       ScheduleOffset: Number("int"),
- *       EndDate: "STRING_VALUE",
- *       StartDate: "STRING_VALUE",
- *       NextExecutionTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowsResult
+ * //   WindowIdentities: [ // MaintenanceWindowIdentityList
+ * //     { // MaintenanceWindowIdentity
+ * //       WindowId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Enabled: true || false,
+ * //       Duration: Number("int"),
+ * //       Cutoff: Number("int"),
+ * //       Schedule: "STRING_VALUE",
+ * //       ScheduleTimezone: "STRING_VALUE",
+ * //       ScheduleOffset: Number("int"),
+ * //       EndDate: "STRING_VALUE",
+ * //       StartDate: "STRING_VALUE",
+ * //       NextExecutionTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

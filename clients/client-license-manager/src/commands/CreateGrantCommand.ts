@@ -55,12 +55,11 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGrantResponse
- *   GrantArn: "STRING_VALUE",
- *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateGrantResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

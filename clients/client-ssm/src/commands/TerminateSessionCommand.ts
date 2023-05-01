@@ -45,10 +45,9 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * };
  * const command = new TerminateSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateSessionResponse
- *   SessionId: "STRING_VALUE",
- * };
+ * // { // TerminateSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,39 +60,38 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * };
  * const command = new DescribeVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcEndpointConnectionsResult
- *   VpcEndpointConnections: [ // VpcEndpointConnectionSet
- *     { // VpcEndpointConnection
- *       ServiceId: "STRING_VALUE",
- *       VpcEndpointId: "STRING_VALUE",
- *       VpcEndpointOwner: "STRING_VALUE",
- *       VpcEndpointState: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       DnsEntries: [ // DnsEntrySet
- *         { // DnsEntry
- *           DnsName: "STRING_VALUE",
- *           HostedZoneId: "STRING_VALUE",
- *         },
- *       ],
- *       NetworkLoadBalancerArns: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       GatewayLoadBalancerArns: [
- *         "STRING_VALUE",
- *       ],
- *       IpAddressType: "ipv4" || "dualstack" || "ipv6",
- *       VpcEndpointConnectionId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVpcEndpointConnectionsResult
+ * //   VpcEndpointConnections: [ // VpcEndpointConnectionSet
+ * //     { // VpcEndpointConnection
+ * //       ServiceId: "STRING_VALUE",
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       VpcEndpointOwner: "STRING_VALUE",
+ * //       VpcEndpointState: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       DnsEntries: [ // DnsEntrySet
+ * //         { // DnsEntry
+ * //           DnsName: "STRING_VALUE",
+ * //           HostedZoneId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       NetworkLoadBalancerArns: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       GatewayLoadBalancerArns: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ * //       VpcEndpointConnectionId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

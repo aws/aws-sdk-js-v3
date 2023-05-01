@@ -809,16 +809,15 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWebACLResponse
- *   Summary: { // WebACLSummary
- *     Name: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LockToken: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateWebACLResponse
+ * //   Summary: { // WebACLSummary
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LockToken: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

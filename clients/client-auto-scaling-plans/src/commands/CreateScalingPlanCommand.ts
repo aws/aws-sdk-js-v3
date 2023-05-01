@@ -111,10 +111,9 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * };
  * const command = new CreateScalingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScalingPlanResponse
- *   ScalingPlanVersion: Number("long"), // required
- * };
+ * // { // CreateScalingPlanResponse
+ * //   ScalingPlanVersion: Number("long"), // required
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  * };
  * const command = new EnableDomainTransferLockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableDomainTransferLockResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // EnableDomainTransferLockResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

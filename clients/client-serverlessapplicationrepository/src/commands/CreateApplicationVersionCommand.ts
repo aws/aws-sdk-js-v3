@@ -53,40 +53,39 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationVersionResponse
- *   ApplicationId: "STRING_VALUE",
- *   CreationTime: "STRING_VALUE",
- *   ParameterDefinitions: [ // __listOfParameterDefinition
- *     { // ParameterDefinition
- *       AllowedPattern: "STRING_VALUE",
- *       AllowedValues: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *       ConstraintDescription: "STRING_VALUE",
- *       DefaultValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       MaxLength: Number("int"),
- *       MaxValue: Number("int"),
- *       MinLength: Number("int"),
- *       MinValue: Number("int"),
- *       Name: "STRING_VALUE", // required
- *       NoEcho: true || false,
- *       ReferencedByResources: [ // required
- *         "STRING_VALUE",
- *       ],
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- *   RequiredCapabilities: [ // __listOfCapability
- *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND" || "CAPABILITY_RESOURCE_POLICY",
- *   ],
- *   ResourcesSupported: true || false,
- *   SemanticVersion: "STRING_VALUE",
- *   SourceCodeArchiveUrl: "STRING_VALUE",
- *   SourceCodeUrl: "STRING_VALUE",
- *   TemplateUrl: "STRING_VALUE",
- * };
+ * // { // CreateApplicationVersionResponse
+ * //   ApplicationId: "STRING_VALUE",
+ * //   CreationTime: "STRING_VALUE",
+ * //   ParameterDefinitions: [ // __listOfParameterDefinition
+ * //     { // ParameterDefinition
+ * //       AllowedPattern: "STRING_VALUE",
+ * //       AllowedValues: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConstraintDescription: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       MaxLength: Number("int"),
+ * //       MaxValue: Number("int"),
+ * //       MinLength: Number("int"),
+ * //       MinValue: Number("int"),
+ * //       Name: "STRING_VALUE", // required
+ * //       NoEcho: true || false,
+ * //       ReferencedByResources: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   RequiredCapabilities: [ // __listOfCapability
+ * //     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND" || "CAPABILITY_RESOURCE_POLICY",
+ * //   ],
+ * //   ResourcesSupported: true || false,
+ * //   SemanticVersion: "STRING_VALUE",
+ * //   SourceCodeArchiveUrl: "STRING_VALUE",
+ * //   SourceCodeUrl: "STRING_VALUE",
+ * //   TemplateUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateMyUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

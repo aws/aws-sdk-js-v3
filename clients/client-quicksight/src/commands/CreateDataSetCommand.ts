@@ -232,15 +232,14 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSetResponse
- *   Arn: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE",
- *   IngestionArn: "STRING_VALUE",
- *   IngestionId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CreateDataSetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   DataSetId: "STRING_VALUE",
+ * //   IngestionArn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

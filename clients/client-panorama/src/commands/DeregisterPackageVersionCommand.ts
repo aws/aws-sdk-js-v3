@@ -48,8 +48,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * };
  * const command = new DeregisterPackageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

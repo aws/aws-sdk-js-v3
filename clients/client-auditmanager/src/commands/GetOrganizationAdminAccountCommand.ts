@@ -48,11 +48,10 @@ export interface GetOrganizationAdminAccountCommandOutput
  * const input = {};
  * const command = new GetOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOrganizationAdminAccountResponse
- *   adminAccountId: "STRING_VALUE",
- *   organizationId: "STRING_VALUE",
- * };
+ * // { // GetOrganizationAdminAccountResponse
+ * //   adminAccountId: "STRING_VALUE",
+ * //   organizationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

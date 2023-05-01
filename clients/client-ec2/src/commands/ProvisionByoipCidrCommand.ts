@@ -74,15 +74,14 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionByoipCidrResult
- *   ByoipCidr: { // ByoipCidr
- *     Cidr: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
- *   },
- * };
+ * // { // ProvisionByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
  *
  * ```
  *

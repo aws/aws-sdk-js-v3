@@ -52,8 +52,7 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

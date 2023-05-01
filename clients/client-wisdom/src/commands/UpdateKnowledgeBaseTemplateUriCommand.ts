@@ -55,35 +55,34 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * };
  * const command = new UpdateKnowledgeBaseTemplateUriCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateKnowledgeBaseTemplateUriResponse
- *   knowledgeBase: { // KnowledgeBaseData
- *     knowledgeBaseId: "STRING_VALUE", // required
- *     knowledgeBaseArn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     knowledgeBaseType: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     lastContentModificationTime: new Date("TIMESTAMP"),
- *     sourceConfiguration: { // SourceConfiguration Union: only one key present
- *       appIntegrations: { // AppIntegrationsConfiguration
- *         appIntegrationArn: "STRING_VALUE", // required
- *         objectFields: [ // ObjectFieldsList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *     renderingConfiguration: { // RenderingConfiguration
- *       templateUri: "STRING_VALUE",
- *     },
- *     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *       kmsKeyId: "STRING_VALUE",
- *     },
- *     description: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateKnowledgeBaseTemplateUriResponse
+ * //   knowledgeBase: { // KnowledgeBaseData
+ * //     knowledgeBaseId: "STRING_VALUE", // required
+ * //     knowledgeBaseArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     knowledgeBaseType: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     lastContentModificationTime: new Date("TIMESTAMP"),
+ * //     sourceConfiguration: { // SourceConfiguration Union: only one key present
+ * //       appIntegrations: { // AppIntegrationsConfiguration
+ * //         appIntegrationArn: "STRING_VALUE", // required
+ * //         objectFields: [ // ObjectFieldsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     renderingConfiguration: { // RenderingConfiguration
+ * //       templateUri: "STRING_VALUE",
+ * //     },
+ * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

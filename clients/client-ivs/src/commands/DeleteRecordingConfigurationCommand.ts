@@ -52,8 +52,7 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteRecordingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -93,21 +93,20 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * };
  * const command = new UpdateServicePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServicePipelineOutput
- *   pipeline: { // ServicePipeline
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
- *     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
- *     templateName: "STRING_VALUE", // required
- *     templateMajorVersion: "STRING_VALUE", // required
- *     templateMinorVersion: "STRING_VALUE", // required
- *     deploymentStatus: "STRING_VALUE", // required
- *     deploymentStatusMessage: "STRING_VALUE",
- *     spec: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateServicePipelineOutput
+ * //   pipeline: { // ServicePipeline
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ * //     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateMajorVersion: "STRING_VALUE", // required
+ * //     templateMinorVersion: "STRING_VALUE", // required
+ * //     deploymentStatus: "STRING_VALUE", // required
+ * //     deploymentStatusMessage: "STRING_VALUE",
+ * //     spec: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

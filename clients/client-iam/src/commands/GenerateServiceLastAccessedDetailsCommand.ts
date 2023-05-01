@@ -106,10 +106,9 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * };
  * const command = new GenerateServiceLastAccessedDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateServiceLastAccessedDetailsResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // GenerateServiceLastAccessedDetailsResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

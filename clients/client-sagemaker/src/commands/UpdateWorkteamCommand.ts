@@ -62,38 +62,37 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * };
  * const command = new UpdateWorkteamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkteamResponse
- *   Workteam: { // Workteam
- *     WorkteamName: "STRING_VALUE", // required
- *     MemberDefinitions: [ // MemberDefinitions // required
- *       { // MemberDefinition
- *         CognitoMemberDefinition: { // CognitoMemberDefinition
- *           UserPool: "STRING_VALUE", // required
- *           UserGroup: "STRING_VALUE", // required
- *           ClientId: "STRING_VALUE", // required
- *         },
- *         OidcMemberDefinition: { // OidcMemberDefinition
- *           Groups: [ // Groups // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *     ],
- *     WorkteamArn: "STRING_VALUE", // required
- *     WorkforceArn: "STRING_VALUE",
- *     ProductListingIds: [ // ProductListings
- *       "STRING_VALUE",
- *     ],
- *     Description: "STRING_VALUE", // required
- *     SubDomain: "STRING_VALUE",
- *     CreateDate: new Date("TIMESTAMP"),
- *     LastUpdatedDate: new Date("TIMESTAMP"),
- *     NotificationConfiguration: { // NotificationConfiguration
- *       NotificationTopicArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateWorkteamResponse
+ * //   Workteam: { // Workteam
+ * //     WorkteamName: "STRING_VALUE", // required
+ * //     MemberDefinitions: [ // MemberDefinitions // required
+ * //       { // MemberDefinition
+ * //         CognitoMemberDefinition: { // CognitoMemberDefinition
+ * //           UserPool: "STRING_VALUE", // required
+ * //           UserGroup: "STRING_VALUE", // required
+ * //           ClientId: "STRING_VALUE", // required
+ * //         },
+ * //         OidcMemberDefinition: { // OidcMemberDefinition
+ * //           Groups: [ // Groups // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     WorkteamArn: "STRING_VALUE", // required
+ * //     WorkforceArn: "STRING_VALUE",
+ * //     ProductListingIds: [ // ProductListings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Description: "STRING_VALUE", // required
+ * //     SubDomain: "STRING_VALUE",
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     LastUpdatedDate: new Date("TIMESTAMP"),
+ * //     NotificationConfiguration: { // NotificationConfiguration
+ * //       NotificationTopicArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

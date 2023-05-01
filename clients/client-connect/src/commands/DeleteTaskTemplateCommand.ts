@@ -45,8 +45,7 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * };
  * const command = new DeleteTaskTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

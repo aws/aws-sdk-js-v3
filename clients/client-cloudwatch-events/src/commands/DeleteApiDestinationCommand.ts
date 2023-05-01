@@ -44,8 +44,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * };
  * const command = new DeleteApiDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

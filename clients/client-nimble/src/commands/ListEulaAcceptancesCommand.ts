@@ -48,19 +48,18 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * };
  * const command = new ListEulaAcceptancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEulaAcceptancesResponse
- *   eulaAcceptances: [ // EulaAcceptanceList
- *     { // EulaAcceptance
- *       acceptedAt: new Date("TIMESTAMP"),
- *       acceptedBy: "STRING_VALUE",
- *       accepteeId: "STRING_VALUE",
- *       eulaAcceptanceId: "STRING_VALUE",
- *       eulaId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEulaAcceptancesResponse
+ * //   eulaAcceptances: [ // EulaAcceptanceList
+ * //     { // EulaAcceptance
+ * //       acceptedAt: new Date("TIMESTAMP"),
+ * //       acceptedBy: "STRING_VALUE",
+ * //       accepteeId: "STRING_VALUE",
+ * //       eulaAcceptanceId: "STRING_VALUE",
+ * //       eulaId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

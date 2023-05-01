@@ -50,16 +50,15 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * };
  * const command = new EvaluateMappingTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EvaluateMappingTemplateResponse
- *   evaluationResult: "STRING_VALUE",
- *   error: { // ErrorDetail
- *     message: "STRING_VALUE",
- *   },
- *   logs: [ // Logs
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // EvaluateMappingTemplateResponse
+ * //   evaluationResult: "STRING_VALUE",
+ * //   error: { // ErrorDetail
+ * //     message: "STRING_VALUE",
+ * //   },
+ * //   logs: [ // Logs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

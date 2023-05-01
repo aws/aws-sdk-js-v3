@@ -47,19 +47,18 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSpotFleetInstancesResponse
- *   ActiveInstances: [ // ActiveInstanceSet
- *     { // ActiveInstance
- *       InstanceId: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE",
- *       SpotInstanceRequestId: "STRING_VALUE",
- *       InstanceHealth: "healthy" || "unhealthy",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   SpotFleetRequestId: "STRING_VALUE",
- * };
+ * // { // DescribeSpotFleetInstancesResponse
+ * //   ActiveInstances: [ // ActiveInstanceSet
+ * //     { // ActiveInstance
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       SpotInstanceRequestId: "STRING_VALUE",
+ * //       InstanceHealth: "healthy" || "unhealthy",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   SpotFleetRequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

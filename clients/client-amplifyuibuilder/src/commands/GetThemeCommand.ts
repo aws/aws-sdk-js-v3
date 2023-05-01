@@ -46,38 +46,37 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * };
  * const command = new GetThemeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetThemeResponse
- *   theme: { // Theme
- *     appId: "STRING_VALUE", // required
- *     environmentName: "STRING_VALUE", // required
- *     id: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     modifiedAt: new Date("TIMESTAMP"),
- *     values: [ // ThemeValuesList // required
- *       { // ThemeValues
- *         key: "STRING_VALUE",
- *         value: { // ThemeValue
- *           value: "STRING_VALUE",
- *           children: [
- *             {
- *               key: "STRING_VALUE",
- *               value: {
- *                 value: "STRING_VALUE",
- *                 children: "<ThemeValuesList>",
- *               },
- *             },
- *           ],
- *         },
- *       },
- *     ],
- *     overrides: "<ThemeValuesList>",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetThemeResponse
+ * //   theme: { // Theme
+ * //     appId: "STRING_VALUE", // required
+ * //     environmentName: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     values: [ // ThemeValuesList // required
+ * //       { // ThemeValues
+ * //         key: "STRING_VALUE",
+ * //         value: { // ThemeValue
+ * //           value: "STRING_VALUE",
+ * //           children: [
+ * //             {
+ * //               key: "STRING_VALUE",
+ * //               value: {
+ * //                 value: "STRING_VALUE",
+ * //                 children: "<ThemeValuesList>",
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     overrides: "<ThemeValuesList>",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

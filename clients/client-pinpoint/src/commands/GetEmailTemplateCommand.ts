@@ -45,26 +45,25 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * };
  * const command = new GetEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEmailTemplateResponse
- *   EmailTemplateResponse: { // EmailTemplateResponse
- *     Arn: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE", // required
- *     DefaultSubstitutions: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE", // required
- *     RecommenderId: "STRING_VALUE",
- *     Subject: "STRING_VALUE",
- *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     TemplateDescription: "STRING_VALUE",
- *     TemplateName: "STRING_VALUE", // required
- *     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
- *     TextPart: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *   },
- * };
+ * // { // GetEmailTemplateResponse
+ * //   EmailTemplateResponse: { // EmailTemplateResponse
+ * //     Arn: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     DefaultSubstitutions: "STRING_VALUE",
+ * //     HtmlPart: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE", // required
+ * //     RecommenderId: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //     tags: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TemplateDescription: "STRING_VALUE",
+ * //     TemplateName: "STRING_VALUE", // required
+ * //     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ * //     TextPart: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

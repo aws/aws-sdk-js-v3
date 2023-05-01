@@ -61,8 +61,7 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * };
  * const command = new UpdateCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

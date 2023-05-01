@@ -47,12 +47,11 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * const input = {};
  * const command = new DescribeAutoScalingNotificationTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAutoScalingNotificationTypesAnswer
- *   AutoScalingNotificationTypes: [ // AutoScalingNotificationTypes
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeAutoScalingNotificationTypesAnswer
+ * //   AutoScalingNotificationTypes: [ // AutoScalingNotificationTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

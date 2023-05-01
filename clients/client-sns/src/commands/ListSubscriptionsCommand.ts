@@ -48,19 +48,18 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * };
  * const command = new ListSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscriptionsResponse
- *   Subscriptions: [ // SubscriptionsList
- *     { // Subscription
- *       SubscriptionArn: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       Protocol: "STRING_VALUE",
- *       Endpoint: "STRING_VALUE",
- *       TopicArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSubscriptionsResponse
+ * //   Subscriptions: [ // SubscriptionsList
+ * //     { // Subscription
+ * //       SubscriptionArn: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       Protocol: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       TopicArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

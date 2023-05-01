@@ -56,35 +56,34 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * };
  * const command = new ListCustomLineItemVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomLineItemVersionsOutput
- *   CustomLineItemVersions: [ // CustomLineItemVersionList
- *     { // CustomLineItemVersionListElement
- *       Name: "STRING_VALUE",
- *       ChargeDetails: { // ListCustomLineItemChargeDetails
- *         Flat: { // ListCustomLineItemFlatChargeDetails
- *           ChargeValue: Number("double"), // required
- *         },
- *         Percentage: { // ListCustomLineItemPercentageChargeDetails
- *           PercentageValue: Number("double"), // required
- *         },
- *         Type: "STRING_VALUE", // required
- *       },
- *       CurrencyCode: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ProductCode: "STRING_VALUE",
- *       BillingGroupArn: "STRING_VALUE",
- *       CreationTime: Number("long"),
- *       LastModifiedTime: Number("long"),
- *       AssociationSize: Number("long"),
- *       StartBillingPeriod: "STRING_VALUE",
- *       EndBillingPeriod: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       StartTime: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomLineItemVersionsOutput
+ * //   CustomLineItemVersions: [ // CustomLineItemVersionList
+ * //     { // CustomLineItemVersionListElement
+ * //       Name: "STRING_VALUE",
+ * //       ChargeDetails: { // ListCustomLineItemChargeDetails
+ * //         Flat: { // ListCustomLineItemFlatChargeDetails
+ * //           ChargeValue: Number("double"), // required
+ * //         },
+ * //         Percentage: { // ListCustomLineItemPercentageChargeDetails
+ * //           PercentageValue: Number("double"), // required
+ * //         },
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ProductCode: "STRING_VALUE",
+ * //       BillingGroupArn: "STRING_VALUE",
+ * //       CreationTime: Number("long"),
+ * //       LastModifiedTime: Number("long"),
+ * //       AssociationSize: Number("long"),
+ * //       StartBillingPeriod: "STRING_VALUE",
+ * //       EndBillingPeriod: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       StartTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

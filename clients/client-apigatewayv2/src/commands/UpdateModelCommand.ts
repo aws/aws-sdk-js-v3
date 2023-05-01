@@ -49,14 +49,13 @@ export interface UpdateModelCommandOutput extends UpdateModelResponse, __Metadat
  * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateModelResponse
- *   ContentType: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ModelId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Schema: "STRING_VALUE",
- * };
+ * // { // UpdateModelResponse
+ * //   ContentType: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ModelId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Schema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

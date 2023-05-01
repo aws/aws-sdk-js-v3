@@ -46,28 +46,27 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * };
  * const command = new GetArchiveRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetArchiveRuleResponse
- *   archiveRule: { // ArchiveRuleSummary
- *     ruleName: "STRING_VALUE", // required
- *     filter: { // FilterCriteriaMap // required
- *       "<keys>": { // Criterion
- *         eq: [ // ValueList
- *           "STRING_VALUE",
- *         ],
- *         neq: [
- *           "STRING_VALUE",
- *         ],
- *         contains: [
- *           "STRING_VALUE",
- *         ],
- *         exists: true || false,
- *       },
- *     },
- *     createdAt: new Date("TIMESTAMP"), // required
- *     updatedAt: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // GetArchiveRuleResponse
+ * //   archiveRule: { // ArchiveRuleSummary
+ * //     ruleName: "STRING_VALUE", // required
+ * //     filter: { // FilterCriteriaMap // required
+ * //       "<keys>": { // Criterion
+ * //         eq: [ // ValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         neq: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         contains: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         exists: true || false,
+ * //       },
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

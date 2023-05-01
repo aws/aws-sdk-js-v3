@@ -44,17 +44,16 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * };
  * const command = new GetStreamKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStreamKeyResponse
- *   streamKey: { // StreamKey
- *     arn: "STRING_VALUE",
- *     value: "STRING_VALUE",
- *     channelArn: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetStreamKeyResponse
+ * //   streamKey: { // StreamKey
+ * //     arn: "STRING_VALUE",
+ * //     value: "STRING_VALUE",
+ * //     channelArn: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

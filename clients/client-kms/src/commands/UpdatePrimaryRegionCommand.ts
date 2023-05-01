@@ -109,8 +109,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

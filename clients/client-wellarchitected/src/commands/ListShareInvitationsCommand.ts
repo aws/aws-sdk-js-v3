@@ -48,23 +48,22 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * };
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListShareInvitationsOutput
- *   ShareInvitationSummaries: [ // ShareInvitationSummaries
- *     { // ShareInvitationSummary
- *       ShareInvitationId: "STRING_VALUE",
- *       SharedBy: "STRING_VALUE",
- *       SharedWith: "STRING_VALUE",
- *       PermissionType: "READONLY" || "CONTRIBUTOR",
- *       ShareResourceType: "WORKLOAD" || "LENS",
- *       WorkloadName: "STRING_VALUE",
- *       WorkloadId: "STRING_VALUE",
- *       LensName: "STRING_VALUE",
- *       LensArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListShareInvitationsOutput
+ * //   ShareInvitationSummaries: [ // ShareInvitationSummaries
+ * //     { // ShareInvitationSummary
+ * //       ShareInvitationId: "STRING_VALUE",
+ * //       SharedBy: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       PermissionType: "READONLY" || "CONTRIBUTOR",
+ * //       ShareResourceType: "WORKLOAD" || "LENS",
+ * //       WorkloadName: "STRING_VALUE",
+ * //       WorkloadId: "STRING_VALUE",
+ * //       LensName: "STRING_VALUE",
+ * //       LensArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

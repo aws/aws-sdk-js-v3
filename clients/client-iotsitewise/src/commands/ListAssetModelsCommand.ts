@@ -45,33 +45,32 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * };
  * const command = new ListAssetModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetModelsResponse
- *   assetModelSummaries: [ // AssetModelSummaries // required
- *     { // AssetModelSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       creationDate: new Date("TIMESTAMP"), // required
- *       lastUpdateDate: new Date("TIMESTAMP"), // required
- *       status: { // AssetModelStatus
- *         state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
- *         error: { // ErrorDetails
- *           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *           message: "STRING_VALUE", // required
- *           details: [ // DetailedErrors
- *             { // DetailedError
- *               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *               message: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetModelsResponse
+ * //   assetModelSummaries: [ // AssetModelSummaries // required
+ * //     { // AssetModelSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //       lastUpdateDate: new Date("TIMESTAMP"), // required
+ * //       status: { // AssetModelStatus
+ * //         state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ * //         error: { // ErrorDetails
+ * //           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //           message: "STRING_VALUE", // required
+ * //           details: [ // DetailedErrors
+ * //             { // DetailedError
+ * //               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //               message: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,11 +45,10 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * };
  * const command = new AssociateNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateNetworkSettingsResponse
- *   portalArn: "STRING_VALUE", // required
- *   networkSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // AssociateNetworkSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   networkSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

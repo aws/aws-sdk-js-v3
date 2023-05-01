@@ -51,10 +51,9 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * };
  * const command = new PutResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResolverQueryLogConfigPolicyResponse
- *   ReturnValue: true || false,
- * };
+ * // { // PutResolverQueryLogConfigPolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

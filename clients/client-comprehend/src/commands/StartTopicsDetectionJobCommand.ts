@@ -78,12 +78,11 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * };
  * const command = new StartTopicsDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTopicsDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartTopicsDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

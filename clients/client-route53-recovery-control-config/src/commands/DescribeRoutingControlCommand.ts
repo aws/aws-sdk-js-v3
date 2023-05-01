@@ -48,15 +48,14 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  * };
  * const command = new DescribeRoutingControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRoutingControlResponse
- *   RoutingControl: { // RoutingControl
- *     ControlPanelArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RoutingControlArn: "STRING_VALUE",
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // DescribeRoutingControlResponse
+ * //   RoutingControl: { // RoutingControl
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlArn: "STRING_VALUE",
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

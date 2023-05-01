@@ -46,16 +46,15 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  * };
  * const command = new DescribeTemplateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTemplateAliasResponse
- *   TemplateAlias: { // TemplateAlias
- *     AliasName: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     TemplateVersionNumber: Number("long"),
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeTemplateAliasResponse
+ * //   TemplateAlias: { // TemplateAlias
+ * //     AliasName: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     TemplateVersionNumber: Number("long"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

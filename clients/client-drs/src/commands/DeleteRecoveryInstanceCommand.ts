@@ -44,8 +44,7 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecoveryInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

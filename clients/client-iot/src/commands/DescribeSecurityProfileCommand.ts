@@ -45,72 +45,71 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSecurityProfileResponse
- *   securityProfileName: "STRING_VALUE",
- *   securityProfileArn: "STRING_VALUE",
- *   securityProfileDescription: "STRING_VALUE",
- *   behaviors: [ // Behaviors
- *     { // Behavior
- *       name: "STRING_VALUE", // required
- *       metric: "STRING_VALUE",
- *       metricDimension: { // MetricDimension
- *         dimensionName: "STRING_VALUE", // required
- *         operator: "IN" || "NOT_IN",
- *       },
- *       criteria: { // BehaviorCriteria
- *         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
- *         value: { // MetricValue
- *           count: Number("long"),
- *           cidrs: [ // Cidrs
- *             "STRING_VALUE",
- *           ],
- *           ports: [ // Ports
- *             Number("int"),
- *           ],
- *           number: Number("double"),
- *           numbers: [ // NumberList
- *             Number("double"),
- *           ],
- *           strings: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *         },
- *         durationSeconds: Number("int"),
- *         consecutiveDatapointsToAlarm: Number("int"),
- *         consecutiveDatapointsToClear: Number("int"),
- *         statisticalThreshold: { // StatisticalThreshold
- *           statistic: "STRING_VALUE",
- *         },
- *         mlDetectionConfig: { // MachineLearningDetectionConfig
- *           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
- *         },
- *       },
- *       suppressAlerts: true || false,
- *     },
- *   ],
- *   alertTargets: { // AlertTargets
- *     "<keys>": { // AlertTarget
- *       alertTargetArn: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *     },
- *   },
- *   additionalMetricsToRetain: [ // AdditionalMetricsToRetainList
- *     "STRING_VALUE",
- *   ],
- *   additionalMetricsToRetainV2: [ // AdditionalMetricsToRetainV2List
- *     { // MetricToRetain
- *       metric: "STRING_VALUE", // required
- *       metricDimension: {
- *         dimensionName: "STRING_VALUE", // required
- *         operator: "IN" || "NOT_IN",
- *       },
- *     },
- *   ],
- *   version: Number("long"),
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeSecurityProfileResponse
+ * //   securityProfileName: "STRING_VALUE",
+ * //   securityProfileArn: "STRING_VALUE",
+ * //   securityProfileDescription: "STRING_VALUE",
+ * //   behaviors: [ // Behaviors
+ * //     { // Behavior
+ * //       name: "STRING_VALUE", // required
+ * //       metric: "STRING_VALUE",
+ * //       metricDimension: { // MetricDimension
+ * //         dimensionName: "STRING_VALUE", // required
+ * //         operator: "IN" || "NOT_IN",
+ * //       },
+ * //       criteria: { // BehaviorCriteria
+ * //         comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ * //         value: { // MetricValue
+ * //           count: Number("long"),
+ * //           cidrs: [ // Cidrs
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ports: [ // Ports
+ * //             Number("int"),
+ * //           ],
+ * //           number: Number("double"),
+ * //           numbers: [ // NumberList
+ * //             Number("double"),
+ * //           ],
+ * //           strings: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         durationSeconds: Number("int"),
+ * //         consecutiveDatapointsToAlarm: Number("int"),
+ * //         consecutiveDatapointsToClear: Number("int"),
+ * //         statisticalThreshold: { // StatisticalThreshold
+ * //           statistic: "STRING_VALUE",
+ * //         },
+ * //         mlDetectionConfig: { // MachineLearningDetectionConfig
+ * //           confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ * //         },
+ * //       },
+ * //       suppressAlerts: true || false,
+ * //     },
+ * //   ],
+ * //   alertTargets: { // AlertTargets
+ * //     "<keys>": { // AlertTarget
+ * //       alertTargetArn: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   additionalMetricsToRetain: [ // AdditionalMetricsToRetainList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   additionalMetricsToRetainV2: [ // AdditionalMetricsToRetainV2List
+ * //     { // MetricToRetain
+ * //       metric: "STRING_VALUE", // required
+ * //       metricDimension: {
+ * //         dimensionName: "STRING_VALUE", // required
+ * //         operator: "IN" || "NOT_IN",
+ * //       },
+ * //     },
+ * //   ],
+ * //   version: Number("long"),
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

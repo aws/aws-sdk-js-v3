@@ -100,10 +100,9 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * };
  * const command = new UpdateRegexMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRegexMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateRegexMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,13 +50,12 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  * };
  * const command = new ListPolicyAttachmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyAttachmentsResponse
- *   ObjectIdentifiers: [ // ObjectIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPolicyAttachmentsResponse
+ * //   ObjectIdentifiers: [ // ObjectIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

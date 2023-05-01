@@ -52,10 +52,9 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * };
  * const command = new PutApprovalResultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutApprovalResultOutput
- *   approvedAt: new Date("TIMESTAMP"),
- * };
+ * // { // PutApprovalResultOutput
+ * //   approvedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

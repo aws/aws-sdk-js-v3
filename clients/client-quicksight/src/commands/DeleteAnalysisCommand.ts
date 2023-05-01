@@ -58,14 +58,13 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * };
  * const command = new DeleteAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAnalysisResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   AnalysisId: "STRING_VALUE",
- *   DeletionTime: new Date("TIMESTAMP"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DeleteAnalysisResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   AnalysisId: "STRING_VALUE",
+ * //   DeletionTime: new Date("TIMESTAMP"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

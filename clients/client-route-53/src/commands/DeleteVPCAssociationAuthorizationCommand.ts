@@ -68,8 +68,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * };
  * const command = new DeleteVPCAssociationAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

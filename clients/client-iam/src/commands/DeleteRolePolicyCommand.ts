@@ -50,8 +50,7 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRolePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

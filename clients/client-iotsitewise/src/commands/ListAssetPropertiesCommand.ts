@@ -49,22 +49,21 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * };
  * const command = new ListAssetPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetPropertiesResponse
- *   assetPropertySummaries: [ // AssetPropertySummaries // required
- *     { // AssetPropertySummary
- *       id: "STRING_VALUE",
- *       alias: "STRING_VALUE",
- *       unit: "STRING_VALUE",
- *       notification: { // PropertyNotification
- *         topic: "STRING_VALUE", // required
- *         state: "ENABLED" || "DISABLED", // required
- *       },
- *       assetCompositeModelId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetPropertiesResponse
+ * //   assetPropertySummaries: [ // AssetPropertySummaries // required
+ * //     { // AssetPropertySummary
+ * //       id: "STRING_VALUE",
+ * //       alias: "STRING_VALUE",
+ * //       unit: "STRING_VALUE",
+ * //       notification: { // PropertyNotification
+ * //         topic: "STRING_VALUE", // required
+ * //         state: "ENABLED" || "DISABLED", // required
+ * //       },
+ * //       assetCompositeModelId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

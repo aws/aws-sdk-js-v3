@@ -52,15 +52,14 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * };
  * const command = new UpdateFlowTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFlowTemplateResponse
- *   summary: { // FlowTemplateSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     revisionNumber: Number("long"),
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateFlowTemplateResponse
+ * //   summary: { // FlowTemplateSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     revisionNumber: Number("long"),
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

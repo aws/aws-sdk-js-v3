@@ -47,22 +47,21 @@ export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGateway
  * };
  * const command = new DeleteLocalGatewayRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLocalGatewayRouteResult
- *   Route: { // LocalGatewayRoute
- *     DestinationCidrBlock: "STRING_VALUE",
- *     LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
- *     Type: "static" || "propagated",
- *     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *     LocalGatewayRouteTableArn: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     SubnetId: "STRING_VALUE",
- *     CoipPoolId: "STRING_VALUE",
- *     NetworkInterfaceId: "STRING_VALUE",
- *     DestinationPrefixListId: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteLocalGatewayRouteResult
+ * //   Route: { // LocalGatewayRoute
+ * //     DestinationCidrBlock: "STRING_VALUE",
+ * //     LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //     Type: "static" || "propagated",
+ * //     State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     CoipPoolId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     DestinationPrefixListId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,13 +52,12 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * };
  * const command = new GetListElementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetListElementsResult
- *   elements: [ // ElementsList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetListElementsResult
+ * //   elements: [ // ElementsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

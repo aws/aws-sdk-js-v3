@@ -63,18 +63,17 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * };
  * const command = new PutRetentionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRetentionSettingsResponse
- *   RetentionSettings: { // RetentionSettings
- *     RoomRetentionSettings: { // RoomRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *     ConversationRetentionSettings: { // ConversationRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *   },
- *   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // PutRetentionSettingsResponse
+ * //   RetentionSettings: { // RetentionSettings
+ * //     RoomRetentionSettings: { // RoomRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //     ConversationRetentionSettings: { // ConversationRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

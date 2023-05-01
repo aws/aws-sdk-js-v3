@@ -44,23 +44,22 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * };
  * const command = new GetRepositoryTriggersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryTriggersOutput
- *   configurationId: "STRING_VALUE",
- *   triggers: [ // RepositoryTriggersList
- *     { // RepositoryTrigger
- *       name: "STRING_VALUE", // required
- *       destinationArn: "STRING_VALUE", // required
- *       customData: "STRING_VALUE",
- *       branches: [ // BranchNameList
- *         "STRING_VALUE",
- *       ],
- *       events: [ // RepositoryTriggerEventList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetRepositoryTriggersOutput
+ * //   configurationId: "STRING_VALUE",
+ * //   triggers: [ // RepositoryTriggersList
+ * //     { // RepositoryTrigger
+ * //       name: "STRING_VALUE", // required
+ * //       destinationArn: "STRING_VALUE", // required
+ * //       customData: "STRING_VALUE",
+ * //       branches: [ // BranchNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       events: [ // RepositoryTriggerEventList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

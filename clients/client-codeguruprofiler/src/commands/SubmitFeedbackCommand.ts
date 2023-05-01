@@ -48,8 +48,7 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * };
  * const command = new SubmitFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -72,11 +72,10 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * };
  * const command = new TransferContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TransferContactResponse
- *   ContactId: "STRING_VALUE",
- *   ContactArn: "STRING_VALUE",
- * };
+ * // { // TransferContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * //   ContactArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

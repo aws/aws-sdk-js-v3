@@ -54,25 +54,24 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * };
  * const command = new SearchQuantumTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchQuantumTasksResponse
- *   quantumTasks: [ // QuantumTaskSummaryList // required
- *     { // QuantumTaskSummary
- *       quantumTaskArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       deviceArn: "STRING_VALUE", // required
- *       shots: Number("long"), // required
- *       outputS3Bucket: "STRING_VALUE", // required
- *       outputS3Directory: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       endedAt: new Date("TIMESTAMP"),
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchQuantumTasksResponse
+ * //   quantumTasks: [ // QuantumTaskSummaryList // required
+ * //     { // QuantumTaskSummary
+ * //       quantumTaskArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       deviceArn: "STRING_VALUE", // required
+ * //       shots: Number("long"), // required
+ * //       outputS3Bucket: "STRING_VALUE", // required
+ * //       outputS3Directory: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       endedAt: new Date("TIMESTAMP"),
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

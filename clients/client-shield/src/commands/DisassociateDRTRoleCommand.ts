@@ -42,8 +42,7 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * const input = {};
  * const command = new DisassociateDRTRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

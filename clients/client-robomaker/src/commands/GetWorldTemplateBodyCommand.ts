@@ -45,10 +45,9 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * };
  * const command = new GetWorldTemplateBodyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorldTemplateBodyResponse
- *   templateBody: "STRING_VALUE",
- * };
+ * // { // GetWorldTemplateBodyResponse
+ * //   templateBody: "STRING_VALUE",
+ * // };
  *
  * ```
  *

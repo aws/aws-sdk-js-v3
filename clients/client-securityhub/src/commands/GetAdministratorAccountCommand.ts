@@ -44,15 +44,14 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAdministratorAccountResponse
- *   Administrator: { // Invitation
- *     AccountId: "STRING_VALUE",
- *     InvitationId: "STRING_VALUE",
- *     InvitedAt: new Date("TIMESTAMP"),
- *     MemberStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAdministratorAccountResponse
+ * //   Administrator: { // Invitation
+ * //     AccountId: "STRING_VALUE",
+ * //     InvitationId: "STRING_VALUE",
+ * //     InvitedAt: new Date("TIMESTAMP"),
+ * //     MemberStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

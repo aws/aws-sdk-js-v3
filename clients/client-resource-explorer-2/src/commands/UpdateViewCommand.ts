@@ -62,23 +62,22 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * };
  * const command = new UpdateViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateViewOutput
- *   View: { // View
- *     ViewArn: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     Scope: "STRING_VALUE",
- *     IncludedProperties: [ // IncludedPropertyList
- *       { // IncludedProperty
- *         Name: "STRING_VALUE", // required
- *       },
- *     ],
- *     Filters: { // SearchFilter
- *       FilterString: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // UpdateViewOutput
+ * //   View: { // View
+ * //     ViewArn: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Scope: "STRING_VALUE",
+ * //     IncludedProperties: [ // IncludedPropertyList
+ * //       { // IncludedProperty
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     Filters: { // SearchFilter
+ * //       FilterString: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

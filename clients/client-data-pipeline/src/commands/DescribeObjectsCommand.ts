@@ -107,24 +107,23 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * };
  * const command = new DescribeObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeObjectsOutput
- *   pipelineObjects: [ // PipelineObjectList // required
- *     { // PipelineObject
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       fields: [ // fieldList // required
- *         { // Field
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE",
- *           refValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   marker: "STRING_VALUE",
- *   hasMoreResults: true || false,
- * };
+ * // { // DescribeObjectsOutput
+ * //   pipelineObjects: [ // PipelineObjectList // required
+ * //     { // PipelineObject
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       fields: [ // fieldList // required
+ * //         { // Field
+ * //           key: "STRING_VALUE", // required
+ * //           stringValue: "STRING_VALUE",
+ * //           refValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
  *
  * ```
  *

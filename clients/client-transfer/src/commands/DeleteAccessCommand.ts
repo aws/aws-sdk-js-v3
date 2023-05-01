@@ -46,8 +46,7 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

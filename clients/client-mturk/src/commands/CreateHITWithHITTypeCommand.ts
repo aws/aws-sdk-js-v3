@@ -111,48 +111,47 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  * };
  * const command = new CreateHITWithHITTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHITWithHITTypeResponse
- *   HIT: { // HIT
- *     HITId: "STRING_VALUE",
- *     HITTypeId: "STRING_VALUE",
- *     HITGroupId: "STRING_VALUE",
- *     HITLayoutId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Title: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Question: "STRING_VALUE",
- *     Keywords: "STRING_VALUE",
- *     HITStatus: "STRING_VALUE",
- *     MaxAssignments: Number("int"),
- *     Reward: "STRING_VALUE",
- *     AutoApprovalDelayInSeconds: Number("long"),
- *     Expiration: new Date("TIMESTAMP"),
- *     AssignmentDurationInSeconds: Number("long"),
- *     RequesterAnnotation: "STRING_VALUE",
- *     QualificationRequirements: [ // QualificationRequirementList
- *       { // QualificationRequirement
- *         QualificationTypeId: "STRING_VALUE", // required
- *         Comparator: "STRING_VALUE", // required
- *         IntegerValues: [ // IntegerList
- *           Number("int"),
- *         ],
- *         LocaleValues: [ // LocaleList
- *           { // Locale
- *             Country: "STRING_VALUE", // required
- *             Subdivision: "STRING_VALUE",
- *           },
- *         ],
- *         RequiredToPreview: true || false,
- *         ActionsGuarded: "STRING_VALUE",
- *       },
- *     ],
- *     HITReviewStatus: "STRING_VALUE",
- *     NumberOfAssignmentsPending: Number("int"),
- *     NumberOfAssignmentsAvailable: Number("int"),
- *     NumberOfAssignmentsCompleted: Number("int"),
- *   },
- * };
+ * // { // CreateHITWithHITTypeResponse
+ * //   HIT: { // HIT
+ * //     HITId: "STRING_VALUE",
+ * //     HITTypeId: "STRING_VALUE",
+ * //     HITGroupId: "STRING_VALUE",
+ * //     HITLayoutId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Title: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Question: "STRING_VALUE",
+ * //     Keywords: "STRING_VALUE",
+ * //     HITStatus: "STRING_VALUE",
+ * //     MaxAssignments: Number("int"),
+ * //     Reward: "STRING_VALUE",
+ * //     AutoApprovalDelayInSeconds: Number("long"),
+ * //     Expiration: new Date("TIMESTAMP"),
+ * //     AssignmentDurationInSeconds: Number("long"),
+ * //     RequesterAnnotation: "STRING_VALUE",
+ * //     QualificationRequirements: [ // QualificationRequirementList
+ * //       { // QualificationRequirement
+ * //         QualificationTypeId: "STRING_VALUE", // required
+ * //         Comparator: "STRING_VALUE", // required
+ * //         IntegerValues: [ // IntegerList
+ * //           Number("int"),
+ * //         ],
+ * //         LocaleValues: [ // LocaleList
+ * //           { // Locale
+ * //             Country: "STRING_VALUE", // required
+ * //             Subdivision: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         RequiredToPreview: true || false,
+ * //         ActionsGuarded: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     HITReviewStatus: "STRING_VALUE",
+ * //     NumberOfAssignmentsPending: Number("int"),
+ * //     NumberOfAssignmentsAvailable: Number("int"),
+ * //     NumberOfAssignmentsCompleted: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

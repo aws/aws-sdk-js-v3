@@ -45,13 +45,12 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * };
  * const command = new ListReplicationSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReplicationSetsOutput
- *   replicationSetArns: [ // ReplicationSetArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListReplicationSetsOutput
+ * //   replicationSetArns: [ // ReplicationSetArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

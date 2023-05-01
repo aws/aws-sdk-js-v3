@@ -45,13 +45,12 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * };
  * const command = new RestoreAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreAnalysisResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   AnalysisId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // RestoreAnalysisResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   AnalysisId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

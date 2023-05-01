@@ -47,8 +47,7 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableAlarmActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

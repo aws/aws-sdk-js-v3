@@ -54,19 +54,18 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * };
  * const command = new CreateIntegrationResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIntegrationResponseResponse
- *   ContentHandlingStrategy: "STRING_VALUE",
- *   IntegrationResponseId: "STRING_VALUE",
- *   IntegrationResponseKey: "STRING_VALUE",
- *   ResponseParameters: { // IntegrationParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ResponseTemplates: { // TemplateMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   TemplateSelectionExpression: "STRING_VALUE",
- * };
+ * // { // CreateIntegrationResponseResponse
+ * //   ContentHandlingStrategy: "STRING_VALUE",
+ * //   IntegrationResponseId: "STRING_VALUE",
+ * //   IntegrationResponseKey: "STRING_VALUE",
+ * //   ResponseParameters: { // IntegrationParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseTemplates: { // TemplateMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   TemplateSelectionExpression: "STRING_VALUE",
+ * // };
  *
  * ```
  *

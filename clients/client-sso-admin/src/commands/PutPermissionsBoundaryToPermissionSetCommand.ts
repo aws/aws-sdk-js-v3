@@ -61,8 +61,7 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * };
  * const command = new PutPermissionsBoundaryToPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

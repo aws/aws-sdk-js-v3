@@ -51,8 +51,7 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

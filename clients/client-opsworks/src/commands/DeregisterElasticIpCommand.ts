@@ -50,8 +50,7 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterElasticIpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

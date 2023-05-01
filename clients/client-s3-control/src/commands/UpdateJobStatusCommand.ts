@@ -73,12 +73,11 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * };
  * const command = new UpdateJobStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateJobStatusResult
- *   JobId: "STRING_VALUE",
- *   Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
- *   StatusUpdateReason: "STRING_VALUE",
- * };
+ * // { // UpdateJobStatusResult
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "Active" || "Cancelled" || "Cancelling" || "Complete" || "Completing" || "Failed" || "Failing" || "New" || "Paused" || "Pausing" || "Preparing" || "Ready" || "Suspended",
+ * //   StatusUpdateReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

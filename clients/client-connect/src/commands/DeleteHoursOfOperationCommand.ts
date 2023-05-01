@@ -46,8 +46,7 @@ export interface DeleteHoursOfOperationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHoursOfOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

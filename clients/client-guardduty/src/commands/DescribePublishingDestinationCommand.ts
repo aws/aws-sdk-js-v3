@@ -51,17 +51,16 @@ export interface DescribePublishingDestinationCommandOutput
  * };
  * const command = new DescribePublishingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePublishingDestinationResponse
- *   DestinationId: "STRING_VALUE", // required
- *   DestinationType: "S3", // required
- *   Status: "PENDING_VERIFICATION" || "PUBLISHING" || "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY" || "STOPPED", // required
- *   PublishingFailureStartTimestamp: Number("long"), // required
- *   DestinationProperties: { // DestinationProperties
- *     DestinationArn: "STRING_VALUE",
- *     KmsKeyArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribePublishingDestinationResponse
+ * //   DestinationId: "STRING_VALUE", // required
+ * //   DestinationType: "S3", // required
+ * //   Status: "PENDING_VERIFICATION" || "PUBLISHING" || "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY" || "STOPPED", // required
+ * //   PublishingFailureStartTimestamp: Number("long"), // required
+ * //   DestinationProperties: { // DestinationProperties
+ * //     DestinationArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

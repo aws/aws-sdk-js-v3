@@ -45,36 +45,35 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * };
  * const command = new DescribeThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeThingGroupResponse
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupId: "STRING_VALUE",
- *   thingGroupArn: "STRING_VALUE",
- *   version: Number("long"),
- *   thingGroupProperties: { // ThingGroupProperties
- *     thingGroupDescription: "STRING_VALUE",
- *     attributePayload: { // AttributePayload
- *       attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *       merge: true || false,
- *     },
- *   },
- *   thingGroupMetadata: { // ThingGroupMetadata
- *     parentGroupName: "STRING_VALUE",
- *     rootToParentThingGroups: [ // ThingGroupNameAndArnList
- *       { // GroupNameAndArn
- *         groupName: "STRING_VALUE",
- *         groupArn: "STRING_VALUE",
- *       },
- *     ],
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
- *   status: "ACTIVE" || "BUILDING" || "REBUILDING",
- * };
+ * // { // DescribeThingGroupResponse
+ * //   thingGroupName: "STRING_VALUE",
+ * //   thingGroupId: "STRING_VALUE",
+ * //   thingGroupArn: "STRING_VALUE",
+ * //   version: Number("long"),
+ * //   thingGroupProperties: { // ThingGroupProperties
+ * //     thingGroupDescription: "STRING_VALUE",
+ * //     attributePayload: { // AttributePayload
+ * //       attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       merge: true || false,
+ * //     },
+ * //   },
+ * //   thingGroupMetadata: { // ThingGroupMetadata
+ * //     parentGroupName: "STRING_VALUE",
+ * //     rootToParentThingGroups: [ // ThingGroupNameAndArnList
+ * //       { // GroupNameAndArn
+ * //         groupName: "STRING_VALUE",
+ * //         groupArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   indexName: "STRING_VALUE",
+ * //   queryString: "STRING_VALUE",
+ * //   queryVersion: "STRING_VALUE",
+ * //   status: "ACTIVE" || "BUILDING" || "REBUILDING",
+ * // };
  *
  * ```
  *

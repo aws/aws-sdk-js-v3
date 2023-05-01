@@ -115,25 +115,24 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEventsResponse
- *   EventsResponse: { // EventsResponse
- *     Results: { // MapOfItemResponse
- *       "<keys>": { // ItemResponse
- *         EndpointItemResponse: { // EndpointItemResponse
- *           Message: "STRING_VALUE",
- *           StatusCode: Number("int"),
- *         },
- *         EventsItemResponse: { // MapOfEventItemResponse
- *           "<keys>": { // EventItemResponse
- *             Message: "STRING_VALUE",
- *             StatusCode: Number("int"),
- *           },
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // PutEventsResponse
+ * //   EventsResponse: { // EventsResponse
+ * //     Results: { // MapOfItemResponse
+ * //       "<keys>": { // ItemResponse
+ * //         EndpointItemResponse: { // EndpointItemResponse
+ * //           Message: "STRING_VALUE",
+ * //           StatusCode: Number("int"),
+ * //         },
+ * //         EventsItemResponse: { // MapOfEventItemResponse
+ * //           "<keys>": { // EventItemResponse
+ * //             Message: "STRING_VALUE",
+ * //             StatusCode: Number("int"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

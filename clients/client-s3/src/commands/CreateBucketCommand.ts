@@ -201,10 +201,9 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBucketOutput
- *   Location: "STRING_VALUE",
- * };
+ * // { // CreateBucketOutput
+ * //   Location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

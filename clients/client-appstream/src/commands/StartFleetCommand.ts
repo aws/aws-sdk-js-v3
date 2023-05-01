@@ -44,8 +44,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * };
  * const command = new StartFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

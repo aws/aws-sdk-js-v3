@@ -50,12 +50,11 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * };
  * const command = new GetTypedLinkFacetInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTypedLinkFacetInformationResponse
- *   IdentityAttributeOrder: [ // AttributeNameList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetTypedLinkFacetInformationResponse
+ * //   IdentityAttributeOrder: [ // AttributeNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

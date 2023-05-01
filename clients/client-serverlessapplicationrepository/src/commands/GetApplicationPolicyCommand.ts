@@ -48,23 +48,22 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * };
  * const command = new GetApplicationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationPolicyResponse
- *   Statements: [ // __listOfApplicationPolicyStatement
- *     { // ApplicationPolicyStatement
- *       Actions: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       PrincipalOrgIDs: [
- *         "STRING_VALUE",
- *       ],
- *       Principals: [ // required
- *         "STRING_VALUE",
- *       ],
- *       StatementId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetApplicationPolicyResponse
+ * //   Statements: [ // __listOfApplicationPolicyStatement
+ * //     { // ApplicationPolicyStatement
+ * //       Actions: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PrincipalOrgIDs: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Principals: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StatementId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

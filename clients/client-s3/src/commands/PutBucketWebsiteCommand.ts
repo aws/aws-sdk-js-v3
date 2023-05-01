@@ -196,8 +196,7 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketWebsiteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

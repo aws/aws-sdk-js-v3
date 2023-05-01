@@ -44,48 +44,47 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * };
  * const command = new GetAppMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppMonitorResponse
- *   AppMonitor: { // AppMonitor
- *     Name: "STRING_VALUE",
- *     Domain: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Created: "STRING_VALUE",
- *     LastModified: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     State: "STRING_VALUE",
- *     AppMonitorConfiguration: { // AppMonitorConfiguration
- *       IdentityPoolId: "STRING_VALUE",
- *       ExcludedPages: [ // Pages
- *         "STRING_VALUE",
- *       ],
- *       IncludedPages: [
- *         "STRING_VALUE",
- *       ],
- *       FavoritePages: [ // FavoritePages
- *         "STRING_VALUE",
- *       ],
- *       SessionSampleRate: Number("double"),
- *       GuestRoleArn: "STRING_VALUE",
- *       AllowCookies: true || false,
- *       Telemetries: [ // Telemetries
- *         "STRING_VALUE",
- *       ],
- *       EnableXRay: true || false,
- *     },
- *     DataStorage: { // DataStorage
- *       CwLog: { // CwLog
- *         CwLogEnabled: true || false,
- *         CwLogGroup: "STRING_VALUE",
- *       },
- *     },
- *     CustomEvents: { // CustomEvents
- *       Status: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetAppMonitorResponse
+ * //   AppMonitor: { // AppMonitor
+ * //     Name: "STRING_VALUE",
+ * //     Domain: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Created: "STRING_VALUE",
+ * //     LastModified: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     State: "STRING_VALUE",
+ * //     AppMonitorConfiguration: { // AppMonitorConfiguration
+ * //       IdentityPoolId: "STRING_VALUE",
+ * //       ExcludedPages: [ // Pages
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IncludedPages: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FavoritePages: [ // FavoritePages
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SessionSampleRate: Number("double"),
+ * //       GuestRoleArn: "STRING_VALUE",
+ * //       AllowCookies: true || false,
+ * //       Telemetries: [ // Telemetries
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EnableXRay: true || false,
+ * //     },
+ * //     DataStorage: { // DataStorage
+ * //       CwLog: { // CwLog
+ * //         CwLogEnabled: true || false,
+ * //         CwLogGroup: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     CustomEvents: { // CustomEvents
+ * //       Status: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

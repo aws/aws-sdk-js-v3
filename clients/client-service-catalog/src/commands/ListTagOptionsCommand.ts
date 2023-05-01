@@ -50,19 +50,18 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * };
  * const command = new ListTagOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagOptionsOutput
- *   TagOptionDetails: [ // TagOptionDetails
- *     { // TagOptionDetail
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Active: true || false,
- *       Id: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *     },
- *   ],
- *   PageToken: "STRING_VALUE",
- * };
+ * // { // ListTagOptionsOutput
+ * //   TagOptionDetails: [ // TagOptionDetails
+ * //     { // TagOptionDetail
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       Active: true || false,
+ * //       Id: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

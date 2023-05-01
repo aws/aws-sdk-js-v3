@@ -48,8 +48,7 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * };
  * const command = new DisassociateMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

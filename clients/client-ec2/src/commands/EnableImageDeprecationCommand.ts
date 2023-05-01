@@ -47,10 +47,9 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * };
  * const command = new EnableImageDeprecationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableImageDeprecationResult
- *   Return: true || false,
- * };
+ * // { // EnableImageDeprecationResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

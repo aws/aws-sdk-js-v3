@@ -53,12 +53,11 @@ export interface DeleteServiceNetworkVpcAssociationCommandOutput
  * };
  * const command = new DeleteServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceNetworkVpcAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // DeleteServiceNetworkVpcAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

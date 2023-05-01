@@ -52,8 +52,7 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * };
  * const command = new DisassociateWirelessGatewayFromThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

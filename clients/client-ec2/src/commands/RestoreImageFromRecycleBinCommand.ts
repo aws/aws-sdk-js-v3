@@ -45,10 +45,9 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * };
  * const command = new RestoreImageFromRecycleBinCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreImageFromRecycleBinResult
- *   Return: true || false,
- * };
+ * // { // RestoreImageFromRecycleBinResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

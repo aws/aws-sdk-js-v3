@@ -45,8 +45,7 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFolderContentsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

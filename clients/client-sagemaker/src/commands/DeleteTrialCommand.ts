@@ -46,10 +46,9 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * };
  * const command = new DeleteTrialCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrialResponse
- *   TrialArn: "STRING_VALUE",
- * };
+ * // { // DeleteTrialResponse
+ * //   TrialArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

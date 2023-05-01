@@ -107,10 +107,9 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  * };
  * const command = new CreateInferenceExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInferenceExperimentResponse
- *   InferenceExperimentArn: "STRING_VALUE", // required
- * };
+ * // { // CreateInferenceExperimentResponse
+ * //   InferenceExperimentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

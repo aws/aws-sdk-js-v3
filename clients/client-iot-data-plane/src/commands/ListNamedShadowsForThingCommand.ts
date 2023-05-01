@@ -47,14 +47,13 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * };
  * const command = new ListNamedShadowsForThingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNamedShadowsForThingResponse
- *   results: [ // NamedShadowList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- *   timestamp: Number("long"),
- * };
+ * // { // ListNamedShadowsForThingResponse
+ * //   results: [ // NamedShadowList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   timestamp: Number("long"),
+ * // };
  *
  * ```
  *

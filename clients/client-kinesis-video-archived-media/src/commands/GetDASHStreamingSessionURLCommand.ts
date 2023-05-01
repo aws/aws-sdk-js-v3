@@ -207,10 +207,9 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * };
  * const command = new GetDASHStreamingSessionURLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDASHStreamingSessionURLOutput
- *   DASHStreamingSessionURL: "STRING_VALUE",
- * };
+ * // { // GetDASHStreamingSessionURLOutput
+ * //   DASHStreamingSessionURL: "STRING_VALUE",
+ * // };
  *
  * ```
  *

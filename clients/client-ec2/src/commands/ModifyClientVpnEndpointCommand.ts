@@ -74,10 +74,9 @@ export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEnd
  * };
  * const command = new ModifyClientVpnEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyClientVpnEndpointResult
- *   Return: true || false,
- * };
+ * // { // ModifyClientVpnEndpointResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

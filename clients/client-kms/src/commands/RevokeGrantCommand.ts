@@ -88,8 +88,7 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

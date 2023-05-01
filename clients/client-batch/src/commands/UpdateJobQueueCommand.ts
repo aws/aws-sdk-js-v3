@@ -53,11 +53,10 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * };
  * const command = new UpdateJobQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateJobQueueResponse
- *   jobQueueName: "STRING_VALUE",
- *   jobQueueArn: "STRING_VALUE",
- * };
+ * // { // UpdateJobQueueResponse
+ * //   jobQueueName: "STRING_VALUE",
+ * //   jobQueueArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

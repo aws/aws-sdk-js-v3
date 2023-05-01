@@ -46,13 +46,12 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIndicesResponse
- *   indexNames: [ // IndexNamesList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListIndicesResponse
+ * //   indexNames: [ // IndexNamesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

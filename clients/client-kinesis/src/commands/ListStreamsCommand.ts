@@ -61,25 +61,24 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamsOutput
- *   StreamNames: [ // StreamNameList // required
- *     "STRING_VALUE",
- *   ],
- *   HasMoreStreams: true || false, // required
- *   NextToken: "STRING_VALUE",
- *   StreamSummaries: [ // StreamSummaryList
- *     { // StreamSummary
- *       StreamName: "STRING_VALUE", // required
- *       StreamARN: "STRING_VALUE", // required
- *       StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
- *       StreamModeDetails: { // StreamModeDetails
- *         StreamMode: "PROVISIONED" || "ON_DEMAND", // required
- *       },
- *       StreamCreationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListStreamsOutput
+ * //   StreamNames: [ // StreamNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HasMoreStreams: true || false, // required
+ * //   NextToken: "STRING_VALUE",
+ * //   StreamSummaries: [ // StreamSummaryList
+ * //     { // StreamSummary
+ * //       StreamName: "STRING_VALUE", // required
+ * //       StreamARN: "STRING_VALUE", // required
+ * //       StreamStatus: "CREATING" || "DELETING" || "ACTIVE" || "UPDATING", // required
+ * //       StreamModeDetails: { // StreamModeDetails
+ * //         StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ * //       },
+ * //       StreamCreationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -94,13 +94,12 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * };
  * const command = new UpdateShardCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateShardCountOutput
- *   StreamName: "STRING_VALUE",
- *   CurrentShardCount: Number("int"),
- *   TargetShardCount: Number("int"),
- *   StreamARN: "STRING_VALUE",
- * };
+ * // { // UpdateShardCountOutput
+ * //   StreamName: "STRING_VALUE",
+ * //   CurrentShardCount: Number("int"),
+ * //   TargetShardCount: Number("int"),
+ * //   StreamARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

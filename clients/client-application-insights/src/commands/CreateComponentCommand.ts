@@ -52,8 +52,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,22 +49,21 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCertificatesResponse
- *   NextToken: "STRING_VALUE",
- *   Certificates: [ // ListedCertificates // required
- *     { // ListedCertificate
- *       Arn: "STRING_VALUE",
- *       CertificateId: "STRING_VALUE",
- *       Usage: "SIGNING" || "ENCRYPTION",
- *       Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
- *       ActiveDate: new Date("TIMESTAMP"),
- *       InactiveDate: new Date("TIMESTAMP"),
- *       Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCertificatesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Certificates: [ // ListedCertificates // required
+ * //     { // ListedCertificate
+ * //       Arn: "STRING_VALUE",
+ * //       CertificateId: "STRING_VALUE",
+ * //       Usage: "SIGNING" || "ENCRYPTION",
+ * //       Status: "ACTIVE" || "PENDING_ROTATION" || "INACTIVE",
+ * //       ActiveDate: new Date("TIMESTAMP"),
+ * //       InactiveDate: new Date("TIMESTAMP"),
+ * //       Type: "CERTIFICATE" || "CERTIFICATE_WITH_PRIVATE_KEY",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

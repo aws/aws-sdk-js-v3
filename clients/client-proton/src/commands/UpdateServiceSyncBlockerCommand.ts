@@ -45,26 +45,25 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  * };
  * const command = new UpdateServiceSyncBlockerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceSyncBlockerOutput
- *   serviceName: "STRING_VALUE", // required
- *   serviceInstanceName: "STRING_VALUE",
- *   serviceSyncBlocker: { // SyncBlocker
- *     id: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     createdReason: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     contexts: [ // SyncBlockerContexts
- *       { // SyncBlockerContext
- *         key: "STRING_VALUE", // required
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *     resolvedReason: "STRING_VALUE",
- *     resolvedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateServiceSyncBlockerOutput
+ * //   serviceName: "STRING_VALUE", // required
+ * //   serviceInstanceName: "STRING_VALUE",
+ * //   serviceSyncBlocker: { // SyncBlocker
+ * //     id: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     createdReason: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     contexts: [ // SyncBlockerContexts
+ * //       { // SyncBlockerContext
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     resolvedReason: "STRING_VALUE",
+ * //     resolvedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

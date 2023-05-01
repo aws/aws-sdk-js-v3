@@ -53,18 +53,17 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetsResponse
- *   items: [ // TargetSummaryList // required
- *     { // TargetSummary
- *       id: "STRING_VALUE",
- *       port: Number("int"),
- *       status: "STRING_VALUE",
- *       reasonCode: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetsResponse
+ * //   items: [ // TargetSummaryList // required
+ * //     { // TargetSummary
+ * //       id: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       status: "STRING_VALUE",
+ * //       reasonCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,10 +60,9 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * };
  * const command = new DeleteServiceLinkedRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceLinkedRoleResponse
- *   DeletionTaskId: "STRING_VALUE", // required
- * };
+ * // { // DeleteServiceLinkedRoleResponse
+ * //   DeletionTaskId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

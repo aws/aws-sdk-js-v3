@@ -57,28 +57,27 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * };
  * const command = new ListProtectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProtectionsResponse
- *   Protections: [ // Protections
- *     { // Protection
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       HealthCheckIds: [ // HealthCheckIds
- *         "STRING_VALUE",
- *       ],
- *       ProtectionArn: "STRING_VALUE",
- *       ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
- *         Status: "STRING_VALUE", // required
- *         Action: { // ResponseAction
- *           Block: {},
- *           Count: {},
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProtectionsResponse
+ * //   Protections: [ // Protections
+ * //     { // Protection
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       HealthCheckIds: [ // HealthCheckIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ProtectionArn: "STRING_VALUE",
+ * //       ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
+ * //         Status: "STRING_VALUE", // required
+ * //         Action: { // ResponseAction
+ * //           Block: {},
+ * //           Count: {},
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

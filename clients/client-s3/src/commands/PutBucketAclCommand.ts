@@ -260,8 +260,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketAclCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

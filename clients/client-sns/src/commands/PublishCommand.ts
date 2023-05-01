@@ -75,11 +75,10 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishResponse
- *   MessageId: "STRING_VALUE",
- *   SequenceNumber: "STRING_VALUE",
- * };
+ * // { // PublishResponse
+ * //   MessageId: "STRING_VALUE",
+ * //   SequenceNumber: "STRING_VALUE",
+ * // };
  *
  * ```
  *

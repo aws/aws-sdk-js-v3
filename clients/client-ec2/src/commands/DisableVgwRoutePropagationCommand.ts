@@ -47,8 +47,7 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * };
  * const command = new DisableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

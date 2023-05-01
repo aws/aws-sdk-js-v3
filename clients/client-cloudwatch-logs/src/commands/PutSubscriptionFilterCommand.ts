@@ -76,8 +76,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

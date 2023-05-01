@@ -61,12 +61,11 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * };
  * const command = new EnableAvailabilityZonesForLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddAvailabilityZonesOutput
- *   AvailabilityZones: [ // AvailabilityZones
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AddAvailabilityZonesOutput
+ * //   AvailabilityZones: [ // AvailabilityZones
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

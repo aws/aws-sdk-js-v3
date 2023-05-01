@@ -50,18 +50,17 @@ export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput,
  * };
  * const command = new ListStateMachinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStateMachinesOutput
- *   stateMachines: [ // StateMachineList // required
- *     { // StateMachineListItem
- *       stateMachineArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       type: "STANDARD" || "EXPRESS", // required
- *       creationDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStateMachinesOutput
+ * //   stateMachines: [ // StateMachineList // required
+ * //     { // StateMachineListItem
+ * //       stateMachineArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STANDARD" || "EXPRESS", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

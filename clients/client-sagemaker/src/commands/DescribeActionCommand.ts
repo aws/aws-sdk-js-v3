@@ -44,51 +44,50 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  * };
  * const command = new DescribeActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeActionResponse
- *   ActionName: "STRING_VALUE",
- *   ActionArn: "STRING_VALUE",
- *   Source: { // ActionSource
- *     SourceUri: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *     SourceId: "STRING_VALUE",
- *   },
- *   ActionType: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
- *   },
- *   LineageGroupArn: "STRING_VALUE",
- * };
+ * // { // DescribeActionResponse
+ * //   ActionName: "STRING_VALUE",
+ * //   ActionArn: "STRING_VALUE",
+ * //   Source: { // ActionSource
+ * //     SourceUri: "STRING_VALUE", // required
+ * //     SourceType: "STRING_VALUE",
+ * //     SourceId: "STRING_VALUE",
+ * //   },
+ * //   ActionType: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //   Properties: { // LineageEntityParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   MetadataProperties: { // MetadataProperties
+ * //     CommitId: "STRING_VALUE",
+ * //     Repository: "STRING_VALUE",
+ * //     GeneratedBy: "STRING_VALUE",
+ * //     ProjectId: "STRING_VALUE",
+ * //   },
+ * //   LineageGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

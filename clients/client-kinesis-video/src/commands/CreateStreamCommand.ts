@@ -58,10 +58,9 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamOutput
- *   StreamARN: "STRING_VALUE",
- * };
+ * // { // CreateStreamOutput
+ * //   StreamARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

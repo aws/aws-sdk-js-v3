@@ -56,8 +56,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

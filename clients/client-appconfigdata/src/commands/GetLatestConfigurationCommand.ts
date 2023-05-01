@@ -68,14 +68,13 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  * };
  * const command = new GetLatestConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLatestConfigurationResponse
- *   NextPollConfigurationToken: "STRING_VALUE",
- *   NextPollIntervalInSeconds: Number("int"),
- *   ContentType: "STRING_VALUE",
- *   Configuration: "BLOB_VALUE",
- *   VersionLabel: "STRING_VALUE",
- * };
+ * // { // GetLatestConfigurationResponse
+ * //   NextPollConfigurationToken: "STRING_VALUE",
+ * //   NextPollIntervalInSeconds: Number("int"),
+ * //   ContentType: "STRING_VALUE",
+ * //   Configuration: "BLOB_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
+ * // };
  *
  * ```
  *

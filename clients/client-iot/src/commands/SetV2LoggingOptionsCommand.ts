@@ -47,8 +47,7 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

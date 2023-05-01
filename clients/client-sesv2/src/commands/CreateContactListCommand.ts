@@ -59,8 +59,7 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * };
  * const command = new CreateContactListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

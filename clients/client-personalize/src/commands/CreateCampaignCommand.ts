@@ -126,10 +126,9 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * };
  * const command = new CreateCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCampaignResponse
- *   campaignArn: "STRING_VALUE",
- * };
+ * // { // CreateCampaignResponse
+ * //   campaignArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

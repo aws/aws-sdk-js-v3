@@ -71,20 +71,19 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * };
  * const command = new CreateSystemInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSystemInstanceResponse
- *   summary: { // SystemInstanceSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     target: "STRING_VALUE",
- *     greengrassGroupName: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *     greengrassGroupId: "STRING_VALUE",
- *     greengrassGroupVersionId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSystemInstanceResponse
+ * //   summary: { // SystemInstanceSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     target: "STRING_VALUE",
+ * //     greengrassGroupName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     greengrassGroupId: "STRING_VALUE",
+ * //     greengrassGroupVersionId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

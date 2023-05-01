@@ -64,25 +64,24 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * };
  * const command = new PutProtocolsListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutProtocolsListResponse
- *   ProtocolsList: { // ProtocolsListData
- *     ListId: "STRING_VALUE",
- *     ListName: "STRING_VALUE", // required
- *     ListUpdateToken: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastUpdateTime: new Date("TIMESTAMP"),
- *     ProtocolsList: [ // ProtocolsList // required
- *       "STRING_VALUE",
- *     ],
- *     PreviousProtocolsList: { // PreviousProtocolsList
- *       "<keys>": [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- *   ProtocolsListArn: "STRING_VALUE",
- * };
+ * // { // PutProtocolsListResponse
+ * //   ProtocolsList: { // ProtocolsListData
+ * //     ListId: "STRING_VALUE",
+ * //     ListName: "STRING_VALUE", // required
+ * //     ListUpdateToken: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     ProtocolsList: [ // ProtocolsList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PreviousProtocolsList: { // PreviousProtocolsList
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   ProtocolsListArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

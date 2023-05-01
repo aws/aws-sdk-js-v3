@@ -50,8 +50,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

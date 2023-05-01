@@ -73,20 +73,19 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * };
  * const command = new CreateGeoMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGeoMatchSetResponse
- *   GeoMatchSet: { // GeoMatchSet
- *     GeoMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     GeoMatchConstraints: [ // GeoMatchConstraints // required
- *       { // GeoMatchConstraint
- *         Type: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateGeoMatchSetResponse
+ * //   GeoMatchSet: { // GeoMatchSet
+ * //     GeoMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     GeoMatchConstraints: [ // GeoMatchConstraints // required
+ * //       { // GeoMatchConstraint
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

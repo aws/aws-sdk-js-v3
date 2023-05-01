@@ -53,22 +53,21 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * };
  * const command = new GetBucketAccessKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketAccessKeysResult
- *   accessKeys: [ // AccessKeyList
- *     { // AccessKey
- *       accessKeyId: "STRING_VALUE",
- *       secretAccessKey: "STRING_VALUE",
- *       status: "Active" || "Inactive",
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUsed: { // AccessKeyLastUsed
- *         lastUsedDate: new Date("TIMESTAMP"),
- *         region: "STRING_VALUE",
- *         serviceName: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetBucketAccessKeysResult
+ * //   accessKeys: [ // AccessKeyList
+ * //     { // AccessKey
+ * //       accessKeyId: "STRING_VALUE",
+ * //       secretAccessKey: "STRING_VALUE",
+ * //       status: "Active" || "Inactive",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUsed: { // AccessKeyLastUsed
+ * //         lastUsedDate: new Date("TIMESTAMP"),
+ * //         region: "STRING_VALUE",
+ * //         serviceName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

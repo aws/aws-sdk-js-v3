@@ -47,17 +47,16 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * };
  * const command = new ListContributorInsightsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContributorInsightsOutput
- *   ContributorInsightsSummaries: [ // ContributorInsightsSummaries
- *     { // ContributorInsightsSummary
- *       TableName: "STRING_VALUE",
- *       IndexName: "STRING_VALUE",
- *       ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContributorInsightsOutput
+ * //   ContributorInsightsSummaries: [ // ContributorInsightsSummaries
+ * //     { // ContributorInsightsSummary
+ * //       TableName: "STRING_VALUE",
+ * //       IndexName: "STRING_VALUE",
+ * //       ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

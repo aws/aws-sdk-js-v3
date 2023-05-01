@@ -46,16 +46,15 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * };
  * const command = new GetPreparedStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPreparedStatementOutput
- *   PreparedStatement: { // PreparedStatement
- *     StatementName: "STRING_VALUE",
- *     QueryStatement: "STRING_VALUE",
- *     WorkGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetPreparedStatementOutput
+ * //   PreparedStatement: { // PreparedStatement
+ * //     StatementName: "STRING_VALUE",
+ * //     QueryStatement: "STRING_VALUE",
+ * //     WorkGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

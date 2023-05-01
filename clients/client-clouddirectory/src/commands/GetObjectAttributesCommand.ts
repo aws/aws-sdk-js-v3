@@ -55,25 +55,24 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectAttributesResponse
- *   Attributes: [ // AttributeKeyAndValueList
- *     { // AttributeKeyAndValue
- *       Key: { // AttributeKey
- *         SchemaArn: "STRING_VALUE", // required
- *         FacetName: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *       },
- *       Value: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
- *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetObjectAttributesResponse
+ * //   Attributes: [ // AttributeKeyAndValueList
+ * //     { // AttributeKeyAndValue
+ * //       Key: { // AttributeKey
+ * //         SchemaArn: "STRING_VALUE", // required
+ * //         FacetName: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //       Value: { // TypedAttributeValue Union: only one key present
+ * //         StringValue: "STRING_VALUE",
+ * //         BinaryValue: "BLOB_VALUE",
+ * //         BooleanValue: true || false,
+ * //         NumberValue: "STRING_VALUE",
+ * //         DatetimeValue: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

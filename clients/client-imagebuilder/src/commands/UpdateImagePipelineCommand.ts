@@ -76,12 +76,11 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateImagePipelineResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   imagePipelineArn: "STRING_VALUE",
- * };
+ * // { // UpdateImagePipelineResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   imagePipelineArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

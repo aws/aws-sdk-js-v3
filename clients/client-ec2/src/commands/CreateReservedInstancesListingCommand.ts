@@ -73,40 +73,39 @@ export interface CreateReservedInstancesListingCommandOutput
  * };
  * const command = new CreateReservedInstancesListingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReservedInstancesListingResult
- *   ReservedInstancesListings: [ // ReservedInstancesListingList
- *     { // ReservedInstancesListing
- *       ClientToken: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       InstanceCounts: [ // InstanceCountList
- *         { // InstanceCount
- *           InstanceCount: Number("int"),
- *           State: "available" || "sold" || "cancelled" || "pending",
- *         },
- *       ],
- *       PriceSchedules: [ // PriceScheduleList
- *         { // PriceSchedule
- *           Active: true || false,
- *           CurrencyCode: "USD",
- *           Price: Number("double"),
- *           Term: Number("long"),
- *         },
- *       ],
- *       ReservedInstancesId: "STRING_VALUE",
- *       ReservedInstancesListingId: "STRING_VALUE",
- *       Status: "active" || "pending" || "cancelled" || "closed",
- *       StatusMessage: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       UpdateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // CreateReservedInstancesListingResult
+ * //   ReservedInstancesListings: [ // ReservedInstancesListingList
+ * //     { // ReservedInstancesListing
+ * //       ClientToken: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       InstanceCounts: [ // InstanceCountList
+ * //         { // InstanceCount
+ * //           InstanceCount: Number("int"),
+ * //           State: "available" || "sold" || "cancelled" || "pending",
+ * //         },
+ * //       ],
+ * //       PriceSchedules: [ // PriceScheduleList
+ * //         { // PriceSchedule
+ * //           Active: true || false,
+ * //           CurrencyCode: "USD",
+ * //           Price: Number("double"),
+ * //           Term: Number("long"),
+ * //         },
+ * //       ],
+ * //       ReservedInstancesId: "STRING_VALUE",
+ * //       ReservedInstancesListingId: "STRING_VALUE",
+ * //       Status: "active" || "pending" || "cancelled" || "closed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       UpdateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

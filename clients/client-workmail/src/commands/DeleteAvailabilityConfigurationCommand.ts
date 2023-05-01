@@ -50,8 +50,7 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  * };
  * const command = new DeleteAvailabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,16 +46,15 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * };
  * const command = new CreateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEnvironmentMembershipResult
- *   membership: { // EnvironmentMember
- *     permissions: "owner" || "read-write" || "read-only", // required
- *     userId: "STRING_VALUE", // required
- *     userArn: "STRING_VALUE", // required
- *     environmentId: "STRING_VALUE", // required
- *     lastAccess: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateEnvironmentMembershipResult
+ * //   membership: { // EnvironmentMember
+ * //     permissions: "owner" || "read-write" || "read-only", // required
+ * //     userId: "STRING_VALUE", // required
+ * //     userArn: "STRING_VALUE", // required
+ * //     environmentId: "STRING_VALUE", // required
+ * //     lastAccess: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

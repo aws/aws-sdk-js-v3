@@ -55,10 +55,9 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * };
  * const command = new SendAlexaOfferToMasterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendAlexaOfferToMasterResponse
- *   Answer: "STRING_VALUE",
- * };
+ * // { // SendAlexaOfferToMasterResponse
+ * //   Answer: "STRING_VALUE",
+ * // };
  *
  * ```
  *

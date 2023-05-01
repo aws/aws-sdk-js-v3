@@ -58,16 +58,15 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectionOutput
- *   ConnectionArn: "STRING_VALUE", // required
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreateConnectionOutput
+ * //   ConnectionArn: "STRING_VALUE", // required
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

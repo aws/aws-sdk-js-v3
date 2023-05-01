@@ -112,8 +112,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

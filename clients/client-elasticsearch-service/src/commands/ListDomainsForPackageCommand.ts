@@ -50,26 +50,25 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * };
  * const command = new ListDomainsForPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsForPackageResponse
- *   DomainPackageDetailsList: [ // DomainPackageDetailsList
- *     { // DomainPackageDetails
- *       PackageID: "STRING_VALUE",
- *       PackageName: "STRING_VALUE",
- *       PackageType: "TXT-DICTIONARY",
- *       LastUpdated: new Date("TIMESTAMP"),
- *       DomainName: "STRING_VALUE",
- *       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
- *       PackageVersion: "STRING_VALUE",
- *       ReferencePath: "STRING_VALUE",
- *       ErrorDetails: { // ErrorDetails
- *         ErrorType: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainsForPackageResponse
+ * //   DomainPackageDetailsList: [ // DomainPackageDetailsList
+ * //     { // DomainPackageDetails
+ * //       PackageID: "STRING_VALUE",
+ * //       PackageName: "STRING_VALUE",
+ * //       PackageType: "TXT-DICTIONARY",
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       DomainName: "STRING_VALUE",
+ * //       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
+ * //       PackageVersion: "STRING_VALUE",
+ * //       ReferencePath: "STRING_VALUE",
+ * //       ErrorDetails: { // ErrorDetails
+ * //         ErrorType: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

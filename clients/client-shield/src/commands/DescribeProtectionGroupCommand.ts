@@ -44,19 +44,18 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  * };
  * const command = new DescribeProtectionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProtectionGroupResponse
- *   ProtectionGroup: { // ProtectionGroup
- *     ProtectionGroupId: "STRING_VALUE", // required
- *     Aggregation: "STRING_VALUE", // required
- *     Pattern: "STRING_VALUE", // required
- *     ResourceType: "STRING_VALUE",
- *     Members: [ // ProtectionGroupMembers // required
- *       "STRING_VALUE",
- *     ],
- *     ProtectionGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeProtectionGroupResponse
+ * //   ProtectionGroup: { // ProtectionGroup
+ * //     ProtectionGroupId: "STRING_VALUE", // required
+ * //     Aggregation: "STRING_VALUE", // required
+ * //     Pattern: "STRING_VALUE", // required
+ * //     ResourceType: "STRING_VALUE",
+ * //     Members: [ // ProtectionGroupMembers // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ProtectionGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

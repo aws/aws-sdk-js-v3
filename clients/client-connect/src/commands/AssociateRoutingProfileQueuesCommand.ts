@@ -58,8 +58,7 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * };
  * const command = new AssociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

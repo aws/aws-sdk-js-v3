@@ -44,25 +44,24 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * };
  * const command = new GetOutpostCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOutpostOutput
- *   Outpost: { // Outpost
- *     OutpostId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     OutpostArn: "STRING_VALUE",
- *     SiteId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LifeCycleStatus: "STRING_VALUE",
- *     AvailabilityZone: "STRING_VALUE",
- *     AvailabilityZoneId: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     SiteArn: "STRING_VALUE",
- *     SupportedHardwareType: "RACK" || "SERVER",
- *   },
- * };
+ * // { // GetOutpostOutput
+ * //   Outpost: { // Outpost
+ * //     OutpostId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     SiteId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LifeCycleStatus: "STRING_VALUE",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     AvailabilityZoneId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     SiteArn: "STRING_VALUE",
+ * //     SupportedHardwareType: "RACK" || "SERVER",
+ * //   },
+ * // };
  *
  * ```
  *

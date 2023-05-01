@@ -44,8 +44,7 @@ export interface DeleteWorkerFleetCommandOutput extends DeleteWorkerFleetRespons
  * };
  * const command = new DeleteWorkerFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

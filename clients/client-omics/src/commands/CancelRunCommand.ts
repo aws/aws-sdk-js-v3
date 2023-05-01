@@ -44,8 +44,7 @@ export interface CancelRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

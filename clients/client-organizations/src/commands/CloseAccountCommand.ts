@@ -94,8 +94,7 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CloseAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

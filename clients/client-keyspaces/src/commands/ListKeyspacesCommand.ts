@@ -45,16 +45,15 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * };
  * const command = new ListKeyspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKeyspacesResponse
- *   nextToken: "STRING_VALUE",
- *   keyspaces: [ // KeyspaceSummaryList // required
- *     { // KeyspaceSummary
- *       keyspaceName: "STRING_VALUE", // required
- *       resourceArn: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListKeyspacesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   keyspaces: [ // KeyspaceSummaryList // required
+ * //     { // KeyspaceSummary
+ * //       keyspaceName: "STRING_VALUE", // required
+ * //       resourceArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

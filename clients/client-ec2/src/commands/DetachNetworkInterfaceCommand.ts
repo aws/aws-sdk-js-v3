@@ -46,8 +46,7 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

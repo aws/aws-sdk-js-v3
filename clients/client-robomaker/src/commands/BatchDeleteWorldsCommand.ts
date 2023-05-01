@@ -46,12 +46,11 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * };
  * const command = new BatchDeleteWorldsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteWorldsResponse
- *   unprocessedWorlds: [ // Arns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // BatchDeleteWorldsResponse
+ * //   unprocessedWorlds: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

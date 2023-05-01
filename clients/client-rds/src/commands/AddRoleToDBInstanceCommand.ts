@@ -50,8 +50,7 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddRoleToDBInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

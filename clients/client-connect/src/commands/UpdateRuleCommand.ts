@@ -84,8 +84,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -67,8 +67,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

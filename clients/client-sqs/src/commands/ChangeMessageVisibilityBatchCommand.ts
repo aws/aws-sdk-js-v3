@@ -67,22 +67,21 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * };
  * const command = new ChangeMessageVisibilityBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ChangeMessageVisibilityBatchResult
- *   Successful: [ // ChangeMessageVisibilityBatchResultEntryList // required
- *     { // ChangeMessageVisibilityBatchResultEntry
- *       Id: "STRING_VALUE", // required
- *     },
- *   ],
- *   Failed: [ // BatchResultErrorEntryList // required
- *     { // BatchResultErrorEntry
- *       Id: "STRING_VALUE", // required
- *       SenderFault: true || false, // required
- *       Code: "STRING_VALUE", // required
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ChangeMessageVisibilityBatchResult
+ * //   Successful: [ // ChangeMessageVisibilityBatchResultEntryList // required
+ * //     { // ChangeMessageVisibilityBatchResultEntry
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   Failed: [ // BatchResultErrorEntryList // required
+ * //     { // BatchResultErrorEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       SenderFault: true || false, // required
+ * //       Code: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

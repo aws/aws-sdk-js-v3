@@ -49,25 +49,24 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  * };
  * const command = new UpdateSmsChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSmsChannelResponse
- *   SMSChannelResponse: { // SMSChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     PromotionalMessagesPerSecond: Number("int"),
- *     SenderId: "STRING_VALUE",
- *     ShortCode: "STRING_VALUE",
- *     TransactionalMessagesPerSecond: Number("int"),
- *     Version: Number("int"),
- *   },
- * };
+ * // { // UpdateSmsChannelResponse
+ * //   SMSChannelResponse: { // SMSChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     PromotionalMessagesPerSecond: Number("int"),
+ * //     SenderId: "STRING_VALUE",
+ * //     ShortCode: "STRING_VALUE",
+ * //     TransactionalMessagesPerSecond: Number("int"),
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

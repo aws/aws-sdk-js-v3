@@ -55,8 +55,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * };
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

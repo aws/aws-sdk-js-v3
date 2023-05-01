@@ -45,17 +45,16 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectorsResponse
- *   NextToken: "STRING_VALUE",
- *   Connectors: [ // ListedConnectors // required
- *     { // ListedConnector
- *       Arn: "STRING_VALUE",
- *       ConnectorId: "STRING_VALUE",
- *       Url: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListConnectorsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Connectors: [ // ListedConnectors // required
+ * //     { // ListedConnector
+ * //       Arn: "STRING_VALUE",
+ * //       ConnectorId: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

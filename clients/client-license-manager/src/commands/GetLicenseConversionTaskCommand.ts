@@ -44,22 +44,21 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * };
  * const command = new GetLicenseConversionTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLicenseConversionTaskResponse
- *   LicenseConversionTaskId: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   SourceLicenseContext: { // LicenseConversionContext
- *     UsageOperation: "STRING_VALUE",
- *   },
- *   DestinationLicenseContext: {
- *     UsageOperation: "STRING_VALUE",
- *   },
- *   StatusMessage: "STRING_VALUE",
- *   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *   StartTime: new Date("TIMESTAMP"),
- *   LicenseConversionTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetLicenseConversionTaskResponse
+ * //   LicenseConversionTaskId: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   SourceLicenseContext: { // LicenseConversionContext
+ * //     UsageOperation: "STRING_VALUE",
+ * //   },
+ * //   DestinationLicenseContext: {
+ * //     UsageOperation: "STRING_VALUE",
+ * //   },
+ * //   StatusMessage: "STRING_VALUE",
+ * //   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   LicenseConversionTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

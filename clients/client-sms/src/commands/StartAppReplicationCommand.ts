@@ -45,8 +45,7 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * };
  * const command = new StartAppReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

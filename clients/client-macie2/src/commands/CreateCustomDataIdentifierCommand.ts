@@ -63,10 +63,9 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * };
  * const command = new CreateCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomDataIdentifierResponse
- *   customDataIdentifierId: "STRING_VALUE",
- * };
+ * // { // CreateCustomDataIdentifierResponse
+ * //   customDataIdentifierId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

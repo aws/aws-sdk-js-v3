@@ -52,13 +52,12 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateParameterGroupResponse
- *   ParameterGroup: { // ParameterGroup
- *     ParameterGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     ParameterGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

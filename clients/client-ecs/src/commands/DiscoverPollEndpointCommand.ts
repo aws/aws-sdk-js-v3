@@ -48,12 +48,11 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * };
  * const command = new DiscoverPollEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DiscoverPollEndpointResponse
- *   endpoint: "STRING_VALUE",
- *   telemetryEndpoint: "STRING_VALUE",
- *   serviceConnectEndpoint: "STRING_VALUE",
- * };
+ * // { // DiscoverPollEndpointResponse
+ * //   endpoint: "STRING_VALUE",
+ * //   telemetryEndpoint: "STRING_VALUE",
+ * //   serviceConnectEndpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,10 +53,9 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * const input = {};
  * const command = new ExportConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportConfigurationsResponse
- *   exportId: "STRING_VALUE",
- * };
+ * // { // ExportConfigurationsResponse
+ * //   exportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

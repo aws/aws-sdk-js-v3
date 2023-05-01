@@ -45,8 +45,7 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRetentionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

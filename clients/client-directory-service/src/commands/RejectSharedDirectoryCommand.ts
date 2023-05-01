@@ -44,10 +44,9 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * };
  * const command = new RejectSharedDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RejectSharedDirectoryResult
- *   SharedDirectoryId: "STRING_VALUE",
- * };
+ * // { // RejectSharedDirectoryResult
+ * //   SharedDirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

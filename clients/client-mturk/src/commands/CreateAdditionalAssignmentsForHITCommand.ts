@@ -76,8 +76,7 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * };
  * const command = new CreateAdditionalAssignmentsForHITCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

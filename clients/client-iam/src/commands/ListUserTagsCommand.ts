@@ -47,17 +47,16 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * };
  * const command = new ListUserTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserTagsResponse
- *   Tags: [ // tagListType // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListUserTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

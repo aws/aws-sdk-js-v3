@@ -60,27 +60,26 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * };
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEngineDefaultParametersResult
- *   EngineDefaults: { // EngineDefaults
- *     DBParameterGroupFamily: "STRING_VALUE",
- *     Marker: "STRING_VALUE",
- *     Parameters: [ // ParametersList
- *       { // Parameter
- *         ParameterName: "STRING_VALUE",
- *         ParameterValue: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         Source: "STRING_VALUE",
- *         ApplyType: "STRING_VALUE",
- *         DataType: "STRING_VALUE",
- *         AllowedValues: "STRING_VALUE",
- *         IsModifiable: true || false,
- *         MinimumEngineVersion: "STRING_VALUE",
- *         ApplyMethod: "immediate" || "pending-reboot",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeEngineDefaultParametersResult
+ * //   EngineDefaults: { // EngineDefaults
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Marker: "STRING_VALUE",
+ * //     Parameters: [ // ParametersList
+ * //       { // Parameter
+ * //         ParameterName: "STRING_VALUE",
+ * //         ParameterValue: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Source: "STRING_VALUE",
+ * //         ApplyType: "STRING_VALUE",
+ * //         DataType: "STRING_VALUE",
+ * //         AllowedValues: "STRING_VALUE",
+ * //         IsModifiable: true || false,
+ * //         MinimumEngineVersion: "STRING_VALUE",
+ * //         ApplyMethod: "immediate" || "pending-reboot",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

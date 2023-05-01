@@ -50,12 +50,11 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVaultAccessPolicyOutput
- *   policy: { // VaultAccessPolicy
- *     Policy: "STRING_VALUE",
- *   },
- * };
+ * // { // GetVaultAccessPolicyOutput
+ * //   policy: { // VaultAccessPolicy
+ * //     Policy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

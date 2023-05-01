@@ -56,29 +56,28 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  * };
  * const command = new ListDistributedGrantsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDistributedGrantsResponse
- *   Grants: [ // GrantList
- *     { // Grant
- *       GrantArn: "STRING_VALUE", // required
- *       GrantName: "STRING_VALUE", // required
- *       ParentArn: "STRING_VALUE", // required
- *       LicenseArn: "STRING_VALUE", // required
- *       GranteePrincipalArn: "STRING_VALUE", // required
- *       HomeRegion: "STRING_VALUE", // required
- *       GrantStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED", // required
- *       StatusReason: "STRING_VALUE",
- *       Version: "STRING_VALUE", // required
- *       GrantedOperations: [ // AllowedOperationList // required
- *         "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
- *       ],
- *       Options: { // Options
- *         ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDistributedGrantsResponse
+ * //   Grants: [ // GrantList
+ * //     { // Grant
+ * //       GrantArn: "STRING_VALUE", // required
+ * //       GrantName: "STRING_VALUE", // required
+ * //       ParentArn: "STRING_VALUE", // required
+ * //       LicenseArn: "STRING_VALUE", // required
+ * //       GranteePrincipalArn: "STRING_VALUE", // required
+ * //       HomeRegion: "STRING_VALUE", // required
+ * //       GrantStatus: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED", // required
+ * //       StatusReason: "STRING_VALUE",
+ * //       Version: "STRING_VALUE", // required
+ * //       GrantedOperations: [ // AllowedOperationList // required
+ * //         "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ * //       ],
+ * //       Options: { // Options
+ * //         ActivationOverrideBehavior: "DISTRIBUTED_GRANTS_ONLY" || "ALL_GRANTS_PERMITTED_BY_ISSUER",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

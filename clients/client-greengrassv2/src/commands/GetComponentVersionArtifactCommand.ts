@@ -52,10 +52,9 @@ export interface GetComponentVersionArtifactCommandOutput
  * };
  * const command = new GetComponentVersionArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComponentVersionArtifactResponse
- *   preSignedUrl: "STRING_VALUE", // required
- * };
+ * // { // GetComponentVersionArtifactResponse
+ * //   preSignedUrl: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * };
  * const command = new UpdateDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

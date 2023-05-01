@@ -82,15 +82,14 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  * };
  * const command = new CreateBackendAPICommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackendAPIResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // CreateBackendAPIResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

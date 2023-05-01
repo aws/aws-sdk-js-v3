@@ -47,29 +47,28 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  * };
  * const command = new ListAnomalyGroupSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnomalyGroupSummariesResponse
- *   AnomalyGroupSummaryList: [ // AnomalyGroupSummaryList
- *     { // AnomalyGroupSummary
- *       StartTime: "STRING_VALUE",
- *       EndTime: "STRING_VALUE",
- *       AnomalyGroupId: "STRING_VALUE",
- *       AnomalyGroupScore: Number("double"),
- *       PrimaryMetricName: "STRING_VALUE",
- *     },
- *   ],
- *   AnomalyGroupStatistics: { // AnomalyGroupStatistics
- *     EvaluationStartDate: "STRING_VALUE",
- *     TotalCount: Number("int"),
- *     ItemizedMetricStatsList: [ // ItemizedMetricStatsList
- *       { // ItemizedMetricStats
- *         MetricName: "STRING_VALUE",
- *         OccurrenceCount: Number("int"),
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAnomalyGroupSummariesResponse
+ * //   AnomalyGroupSummaryList: [ // AnomalyGroupSummaryList
+ * //     { // AnomalyGroupSummary
+ * //       StartTime: "STRING_VALUE",
+ * //       EndTime: "STRING_VALUE",
+ * //       AnomalyGroupId: "STRING_VALUE",
+ * //       AnomalyGroupScore: Number("double"),
+ * //       PrimaryMetricName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   AnomalyGroupStatistics: { // AnomalyGroupStatistics
+ * //     EvaluationStartDate: "STRING_VALUE",
+ * //     TotalCount: Number("int"),
+ * //     ItemizedMetricStatsList: [ // ItemizedMetricStatsList
+ * //       { // ItemizedMetricStats
+ * //         MetricName: "STRING_VALUE",
+ * //         OccurrenceCount: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

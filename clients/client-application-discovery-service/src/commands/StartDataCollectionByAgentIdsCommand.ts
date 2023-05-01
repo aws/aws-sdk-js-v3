@@ -55,16 +55,15 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * };
  * const command = new StartDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDataCollectionByAgentIdsResponse
- *   agentsConfigurationStatus: [ // AgentConfigurationStatusList
- *     { // AgentConfigurationStatus
- *       agentId: "STRING_VALUE",
- *       operationSucceeded: true || false,
- *       description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // StartDataCollectionByAgentIdsResponse
+ * //   agentsConfigurationStatus: [ // AgentConfigurationStatusList
+ * //     { // AgentConfigurationStatus
+ * //       agentId: "STRING_VALUE",
+ * //       operationSucceeded: true || false,
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

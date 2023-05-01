@@ -53,18 +53,17 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * };
  * const command = new CreateSequenceStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSequenceStoreResponse
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateSequenceStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   sseConfig: { // SseConfig
+ * //     type: "STRING_VALUE", // required
+ * //     keyArn: "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

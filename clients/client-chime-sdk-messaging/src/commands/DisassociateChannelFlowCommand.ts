@@ -57,8 +57,7 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * };
  * const command = new DisassociateChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

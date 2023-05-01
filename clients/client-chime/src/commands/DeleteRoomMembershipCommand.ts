@@ -46,8 +46,7 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRoomMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

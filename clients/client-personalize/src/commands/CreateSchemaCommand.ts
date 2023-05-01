@@ -72,10 +72,9 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSchemaResponse
- *   schemaArn: "STRING_VALUE",
- * };
+ * // { // CreateSchemaResponse
+ * //   schemaArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

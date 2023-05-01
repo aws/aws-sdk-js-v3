@@ -53,20 +53,19 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * };
  * const command = new ListContainersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContainersOutput
- *   Containers: [ // ContainerList // required
- *     { // Container
- *       Endpoint: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       ARN: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       AccessLoggingEnabled: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContainersOutput
+ * //   Containers: [ // ContainerList // required
+ * //     { // Container
+ * //       Endpoint: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       AccessLoggingEnabled: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

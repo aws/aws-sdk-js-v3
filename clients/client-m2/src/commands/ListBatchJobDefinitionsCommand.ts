@@ -49,21 +49,20 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  * };
  * const command = new ListBatchJobDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBatchJobDefinitionsResponse
- *   batchJobDefinitions: [ // BatchJobDefinitions // required
- *     { // BatchJobDefinition Union: only one key present
- *       fileBatchJobDefinition: { // FileBatchJobDefinition
- *         fileName: "STRING_VALUE", // required
- *         folderPath: "STRING_VALUE",
- *       },
- *       scriptBatchJobDefinition: { // ScriptBatchJobDefinition
- *         scriptName: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBatchJobDefinitionsResponse
+ * //   batchJobDefinitions: [ // BatchJobDefinitions // required
+ * //     { // BatchJobDefinition Union: only one key present
+ * //       fileBatchJobDefinition: { // FileBatchJobDefinition
+ * //         fileName: "STRING_VALUE", // required
+ * //         folderPath: "STRING_VALUE",
+ * //       },
+ * //       scriptBatchJobDefinition: { // ScriptBatchJobDefinition
+ * //         scriptName: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

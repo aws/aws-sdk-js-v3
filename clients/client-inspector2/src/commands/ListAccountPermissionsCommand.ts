@@ -46,16 +46,15 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * };
  * const command = new ListAccountPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountPermissionsResponse
- *   permissions: [ // Permissions // required
- *     { // Permission
- *       service: "STRING_VALUE", // required
- *       operation: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountPermissionsResponse
+ * //   permissions: [ // Permissions // required
+ * //     { // Permission
+ * //       service: "STRING_VALUE", // required
+ * //       operation: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

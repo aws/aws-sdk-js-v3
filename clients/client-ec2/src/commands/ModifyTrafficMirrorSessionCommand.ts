@@ -54,26 +54,25 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * };
  * const command = new ModifyTrafficMirrorSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyTrafficMirrorSessionResult
- *   TrafficMirrorSession: { // TrafficMirrorSession
- *     TrafficMirrorSessionId: "STRING_VALUE",
- *     TrafficMirrorTargetId: "STRING_VALUE",
- *     TrafficMirrorFilterId: "STRING_VALUE",
- *     NetworkInterfaceId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     PacketLength: Number("int"),
- *     SessionNumber: Number("int"),
- *     VirtualNetworkId: Number("int"),
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyTrafficMirrorSessionResult
+ * //   TrafficMirrorSession: { // TrafficMirrorSession
+ * //     TrafficMirrorSessionId: "STRING_VALUE",
+ * //     TrafficMirrorTargetId: "STRING_VALUE",
+ * //     TrafficMirrorFilterId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     PacketLength: Number("int"),
+ * //     SessionNumber: Number("int"),
+ * //     VirtualNetworkId: Number("int"),
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

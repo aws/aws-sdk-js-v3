@@ -87,10 +87,9 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * };
  * const command = new CloneStackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CloneStackResult
- *   StackId: "STRING_VALUE",
- * };
+ * // { // CloneStackResult
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

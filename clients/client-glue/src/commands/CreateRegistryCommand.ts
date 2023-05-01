@@ -48,15 +48,14 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * };
  * const command = new CreateRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRegistryResponse
- *   RegistryArn: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRegistryResponse
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

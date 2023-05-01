@@ -45,8 +45,7 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * };
  * const command = new DisassociateSkillFromUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

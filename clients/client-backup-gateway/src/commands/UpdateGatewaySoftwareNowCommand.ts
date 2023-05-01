@@ -50,10 +50,9 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGatewaySoftwareNowOutput
- *   GatewayArn: "STRING_VALUE",
- * };
+ * // { // UpdateGatewaySoftwareNowOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

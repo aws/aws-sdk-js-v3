@@ -44,18 +44,17 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * };
  * const command = new DescribeImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeImageResponse
- *   CreationTime: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   FailureReason: "STRING_VALUE",
- *   ImageArn: "STRING_VALUE",
- *   ImageName: "STRING_VALUE",
- *   ImageStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   RoleArn: "STRING_VALUE",
- * };
+ * // { // DescribeImageResponse
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   FailureReason: "STRING_VALUE",
+ * //   ImageArn: "STRING_VALUE",
+ * //   ImageName: "STRING_VALUE",
+ * //   ImageStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   RoleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -118,12 +118,11 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * };
  * const command = new AddInstanceFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddInstanceFleetOutput
- *   ClusterId: "STRING_VALUE",
- *   InstanceFleetId: "STRING_VALUE",
- *   ClusterArn: "STRING_VALUE",
- * };
+ * // { // AddInstanceFleetOutput
+ * //   ClusterId: "STRING_VALUE",
+ * //   InstanceFleetId: "STRING_VALUE",
+ * //   ClusterArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

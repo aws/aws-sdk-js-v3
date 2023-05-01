@@ -77,10 +77,9 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * };
  * const command = new CreateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLicenseConfigurationResponse
- *   LicenseConfigurationArn: "STRING_VALUE",
- * };
+ * // { // CreateLicenseConfigurationResponse
+ * //   LicenseConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

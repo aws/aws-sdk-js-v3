@@ -49,19 +49,18 @@ export interface GetCalculationExecutionStatusCommandOutput
  * };
  * const command = new GetCalculationExecutionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCalculationExecutionStatusResponse
- *   Status: { // CalculationStatus
- *     SubmissionDateTime: new Date("TIMESTAMP"),
- *     CompletionDateTime: new Date("TIMESTAMP"),
- *     State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- *     StateChangeReason: "STRING_VALUE",
- *   },
- *   Statistics: { // CalculationStatistics
- *     DpuExecutionInMillis: Number("long"),
- *     Progress: "STRING_VALUE",
- *   },
- * };
+ * // { // GetCalculationExecutionStatusResponse
+ * //   Status: { // CalculationStatus
+ * //     SubmissionDateTime: new Date("TIMESTAMP"),
+ * //     CompletionDateTime: new Date("TIMESTAMP"),
+ * //     State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * //     StateChangeReason: "STRING_VALUE",
+ * //   },
+ * //   Statistics: { // CalculationStatistics
+ * //     DpuExecutionInMillis: Number("long"),
+ * //     Progress: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -88,24 +88,23 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * };
  * const command = new DescribeAffectedEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAffectedEntitiesResponse
- *   entities: [ // EntityList
- *     { // AffectedEntity
- *       entityArn: "STRING_VALUE",
- *       eventArn: "STRING_VALUE",
- *       entityValue: "STRING_VALUE",
- *       entityUrl: "STRING_VALUE",
- *       awsAccountId: "STRING_VALUE",
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       statusCode: "STRING_VALUE",
- *       tags: { // tagSet
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAffectedEntitiesResponse
+ * //   entities: [ // EntityList
+ * //     { // AffectedEntity
+ * //       entityArn: "STRING_VALUE",
+ * //       eventArn: "STRING_VALUE",
+ * //       entityValue: "STRING_VALUE",
+ * //       entityUrl: "STRING_VALUE",
+ * //       awsAccountId: "STRING_VALUE",
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       statusCode: "STRING_VALUE",
+ * //       tags: { // tagSet
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

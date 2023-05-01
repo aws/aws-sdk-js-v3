@@ -45,25 +45,24 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * };
  * const command = new GetAssistantAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssistantAssociationResponse
- *   assistantAssociation: { // AssistantAssociationData
- *     assistantAssociationId: "STRING_VALUE", // required
- *     assistantAssociationArn: "STRING_VALUE", // required
- *     assistantId: "STRING_VALUE", // required
- *     assistantArn: "STRING_VALUE", // required
- *     associationType: "STRING_VALUE", // required
- *     associationData: { // AssistantAssociationOutputData Union: only one key present
- *       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
- *         knowledgeBaseId: "STRING_VALUE",
- *         knowledgeBaseArn: "STRING_VALUE",
- *       },
- *     },
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetAssistantAssociationResponse
+ * //   assistantAssociation: { // AssistantAssociationData
+ * //     assistantAssociationId: "STRING_VALUE", // required
+ * //     assistantAssociationArn: "STRING_VALUE", // required
+ * //     assistantId: "STRING_VALUE", // required
+ * //     assistantArn: "STRING_VALUE", // required
+ * //     associationType: "STRING_VALUE", // required
+ * //     associationData: { // AssistantAssociationOutputData Union: only one key present
+ * //       knowledgeBaseAssociation: { // KnowledgeBaseAssociationData
+ * //         knowledgeBaseId: "STRING_VALUE",
+ * //         knowledgeBaseArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

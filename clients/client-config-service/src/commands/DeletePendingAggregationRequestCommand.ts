@@ -49,8 +49,7 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

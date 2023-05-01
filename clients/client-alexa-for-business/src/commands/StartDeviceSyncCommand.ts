@@ -69,8 +69,7 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * };
  * const command = new StartDeviceSyncCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

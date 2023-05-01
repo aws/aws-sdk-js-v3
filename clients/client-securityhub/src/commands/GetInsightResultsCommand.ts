@@ -44,19 +44,18 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * };
  * const command = new GetInsightResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightResultsResponse
- *   InsightResults: { // InsightResults
- *     InsightArn: "STRING_VALUE", // required
- *     GroupByAttribute: "STRING_VALUE", // required
- *     ResultValues: [ // InsightResultValueList // required
- *       { // InsightResultValue
- *         GroupByAttributeValue: "STRING_VALUE", // required
- *         Count: Number("int"), // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetInsightResultsResponse
+ * //   InsightResults: { // InsightResults
+ * //     InsightArn: "STRING_VALUE", // required
+ * //     GroupByAttribute: "STRING_VALUE", // required
+ * //     ResultValues: [ // InsightResultValueList // required
+ * //       { // InsightResultValue
+ * //         GroupByAttributeValue: "STRING_VALUE", // required
+ * //         Count: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

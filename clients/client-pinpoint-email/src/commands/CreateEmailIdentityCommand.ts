@@ -63,18 +63,17 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEmailIdentityResponse
- *   IdentityType: "STRING_VALUE",
- *   VerifiedForSendingStatus: true || false,
- *   DkimAttributes: { // DkimAttributes
- *     SigningEnabled: true || false,
- *     Status: "STRING_VALUE",
- *     Tokens: [ // DnsTokenList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // CreateEmailIdentityResponse
+ * //   IdentityType: "STRING_VALUE",
+ * //   VerifiedForSendingStatus: true || false,
+ * //   DkimAttributes: { // DkimAttributes
+ * //     SigningEnabled: true || false,
+ * //     Status: "STRING_VALUE",
+ * //     Tokens: [ // DnsTokenList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

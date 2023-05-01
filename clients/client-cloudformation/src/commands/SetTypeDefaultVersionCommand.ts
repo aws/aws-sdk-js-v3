@@ -48,8 +48,7 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
  * };
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

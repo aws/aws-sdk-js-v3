@@ -57,8 +57,7 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  * };
  * const command = new CreateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

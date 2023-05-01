@@ -47,12 +47,11 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * };
  * const command = new UpdateGeofenceCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGeofenceCollectionResponse
- *   CollectionName: "STRING_VALUE", // required
- *   CollectionArn: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateGeofenceCollectionResponse
+ * //   CollectionName: "STRING_VALUE", // required
+ * //   CollectionArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

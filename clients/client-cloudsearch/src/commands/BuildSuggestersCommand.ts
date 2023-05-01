@@ -44,12 +44,11 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * };
  * const command = new BuildSuggestersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BuildSuggestersResponse
- *   FieldNames: [ // FieldNameList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // BuildSuggestersResponse
+ * //   FieldNames: [ // FieldNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

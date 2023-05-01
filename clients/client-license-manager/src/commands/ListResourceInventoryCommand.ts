@@ -52,20 +52,19 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * };
  * const command = new ListResourceInventoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceInventoryResponse
- *   ResourceInventoryList: [ // ResourceInventoryList
- *     { // ResourceInventory
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
- *       ResourceArn: "STRING_VALUE",
- *       Platform: "STRING_VALUE",
- *       PlatformVersion: "STRING_VALUE",
- *       ResourceOwningAccountId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceInventoryResponse
+ * //   ResourceInventoryList: [ // ResourceInventoryList
+ * //     { // ResourceInventory
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       PlatformVersion: "STRING_VALUE",
+ * //       ResourceOwningAccountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

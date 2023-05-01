@@ -49,8 +49,7 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * };
  * const command = new AssociateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

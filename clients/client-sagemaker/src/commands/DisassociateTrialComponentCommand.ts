@@ -50,11 +50,10 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * };
  * const command = new DisassociateTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateTrialComponentResponse
- *   TrialComponentArn: "STRING_VALUE",
- *   TrialArn: "STRING_VALUE",
- * };
+ * // { // DisassociateTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * //   TrialArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

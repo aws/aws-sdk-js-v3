@@ -65,14 +65,13 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * };
  * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateAwsAccountWithPartnerAccountResponse
- *   Sidewalk: { // SidewalkAccountInfo
- *     AmazonId: "STRING_VALUE",
- *     AppServerPrivateKey: "STRING_VALUE",
- *   },
- *   Arn: "STRING_VALUE",
- * };
+ * // { // AssociateAwsAccountWithPartnerAccountResponse
+ * //   Sidewalk: { // SidewalkAccountInfo
+ * //     AmazonId: "STRING_VALUE",
+ * //     AppServerPrivateKey: "STRING_VALUE",
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

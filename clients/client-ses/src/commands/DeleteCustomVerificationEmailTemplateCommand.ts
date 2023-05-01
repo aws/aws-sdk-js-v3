@@ -51,8 +51,7 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  * };
  * const command = new DeleteCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

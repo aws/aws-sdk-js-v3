@@ -45,8 +45,7 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * };
  * const command = new DeleteReferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

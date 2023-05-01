@@ -82,8 +82,7 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

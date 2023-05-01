@@ -45,8 +45,7 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * };
  * const command = new AssociateFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

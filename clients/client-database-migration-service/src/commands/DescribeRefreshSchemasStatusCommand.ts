@@ -53,16 +53,15 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * };
  * const command = new DescribeRefreshSchemasStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRefreshSchemasStatusResponse
- *   RefreshSchemasStatus: { // RefreshSchemasStatus
- *     EndpointArn: "STRING_VALUE",
- *     ReplicationInstanceArn: "STRING_VALUE",
- *     Status: "successful" || "failed" || "refreshing",
- *     LastRefreshDate: new Date("TIMESTAMP"),
- *     LastFailureMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeRefreshSchemasStatusResponse
+ * //   RefreshSchemasStatus: { // RefreshSchemasStatus
+ * //     EndpointArn: "STRING_VALUE",
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     Status: "successful" || "failed" || "refreshing",
+ * //     LastRefreshDate: new Date("TIMESTAMP"),
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

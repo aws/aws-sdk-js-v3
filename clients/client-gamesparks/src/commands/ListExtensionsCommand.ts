@@ -48,17 +48,16 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExtensionsResult
- *   Extensions: [ // ExtensionDetailsList
- *     { // ExtensionDetails
- *       Namespace: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExtensionsResult
+ * //   Extensions: [ // ExtensionDetailsList
+ * //     { // ExtensionDetails
+ * //       Namespace: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

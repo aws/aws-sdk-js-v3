@@ -63,8 +63,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * };
  * const command = new DeleteSubscriberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

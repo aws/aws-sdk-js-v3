@@ -66,19 +66,18 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * };
  * const command = new UpdateRecoveryPointLifecycleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecoveryPointLifecycleOutput
- *   BackupVaultArn: "STRING_VALUE",
- *   RecoveryPointArn: "STRING_VALUE",
- *   Lifecycle: { // Lifecycle
- *     MoveToColdStorageAfterDays: Number("long"),
- *     DeleteAfterDays: Number("long"),
- *   },
- *   CalculatedLifecycle: { // CalculatedLifecycle
- *     MoveToColdStorageAt: new Date("TIMESTAMP"),
- *     DeleteAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateRecoveryPointLifecycleOutput
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   RecoveryPointArn: "STRING_VALUE",
+ * //   Lifecycle: { // Lifecycle
+ * //     MoveToColdStorageAfterDays: Number("long"),
+ * //     DeleteAfterDays: Number("long"),
+ * //   },
+ * //   CalculatedLifecycle: { // CalculatedLifecycle
+ * //     MoveToColdStorageAt: new Date("TIMESTAMP"),
+ * //     DeleteAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

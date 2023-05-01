@@ -44,15 +44,14 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * };
  * const command = new StopPipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopPipeResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE",
- *   CurrentState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // StopPipeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DesiredState: "STRING_VALUE",
+ * //   CurrentState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

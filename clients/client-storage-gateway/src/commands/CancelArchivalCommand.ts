@@ -46,10 +46,9 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * };
  * const command = new CancelArchivalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelArchivalOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // CancelArchivalOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

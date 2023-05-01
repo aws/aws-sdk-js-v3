@@ -109,10 +109,9 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * };
  * const command = new CreateProjectVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProjectVersionResponse
- *   ProjectVersionArn: "STRING_VALUE",
- * };
+ * // { // CreateProjectVersionResponse
+ * //   ProjectVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

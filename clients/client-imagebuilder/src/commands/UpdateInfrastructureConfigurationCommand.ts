@@ -79,12 +79,11 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateInfrastructureConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   infrastructureConfigurationArn: "STRING_VALUE",
- * };
+ * // { // UpdateInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

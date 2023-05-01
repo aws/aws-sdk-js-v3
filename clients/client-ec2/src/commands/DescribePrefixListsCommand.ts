@@ -59,19 +59,18 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * };
  * const command = new DescribePrefixListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePrefixListsResult
- *   NextToken: "STRING_VALUE",
- *   PrefixLists: [ // PrefixListSet
- *     { // PrefixList
- *       Cidrs: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       PrefixListId: "STRING_VALUE",
- *       PrefixListName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribePrefixListsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   PrefixLists: [ // PrefixListSet
+ * //     { // PrefixList
+ * //       Cidrs: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PrefixListId: "STRING_VALUE",
+ * //       PrefixListName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

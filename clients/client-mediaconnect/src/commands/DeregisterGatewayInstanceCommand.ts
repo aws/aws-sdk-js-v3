@@ -45,11 +45,10 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * };
  * const command = new DeregisterGatewayInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterGatewayInstanceResponse
- *   GatewayInstanceArn: "STRING_VALUE",
- *   InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR",
- * };
+ * // { // DeregisterGatewayInstanceResponse
+ * //   GatewayInstanceArn: "STRING_VALUE",
+ * //   InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR",
+ * // };
  *
  * ```
  *

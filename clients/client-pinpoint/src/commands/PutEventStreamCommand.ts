@@ -48,17 +48,16 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * };
  * const command = new PutEventStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEventStreamResponse
- *   EventStream: { // EventStream
- *     ApplicationId: "STRING_VALUE", // required
- *     DestinationStreamArn: "STRING_VALUE", // required
- *     ExternalId: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     LastUpdatedBy: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // PutEventStreamResponse
+ * //   EventStream: { // EventStream
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     DestinationStreamArn: "STRING_VALUE", // required
+ * //     ExternalId: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     LastUpdatedBy: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

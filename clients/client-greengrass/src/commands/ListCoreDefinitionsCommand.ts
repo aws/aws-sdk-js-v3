@@ -45,24 +45,23 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  * };
  * const command = new ListCoreDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoreDefinitionsResponse
- *   Definitions: [ // __listOfDefinitionInformation
- *     { // DefinitionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       LastUpdatedTimestamp: "STRING_VALUE",
- *       LatestVersion: "STRING_VALUE",
- *       LatestVersionArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCoreDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

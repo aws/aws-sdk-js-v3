@@ -44,29 +44,28 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * };
  * const command = new DeleteACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteACLResponse
- *   ACL: { // ACL
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     UserNames: [ // UserNameList
- *       "STRING_VALUE",
- *     ],
- *     MinimumEngineVersion: "STRING_VALUE",
- *     PendingChanges: { // ACLPendingChanges
- *       UserNamesToRemove: [
- *         "STRING_VALUE",
- *       ],
- *       UserNamesToAdd: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Clusters: [ // ACLClusterNameList
- *       "STRING_VALUE",
- *     ],
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteACLResponse
+ * //   ACL: { // ACL
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     UserNames: [ // UserNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MinimumEngineVersion: "STRING_VALUE",
+ * //     PendingChanges: { // ACLPendingChanges
+ * //       UserNamesToRemove: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UserNamesToAdd: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Clusters: [ // ACLClusterNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

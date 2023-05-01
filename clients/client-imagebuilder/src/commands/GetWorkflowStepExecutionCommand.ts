@@ -45,26 +45,25 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  * };
  * const command = new GetWorkflowStepExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowStepExecutionResponse
- *   requestId: "STRING_VALUE",
- *   stepExecutionId: "STRING_VALUE",
- *   workflowBuildVersionArn: "STRING_VALUE",
- *   workflowExecutionId: "STRING_VALUE",
- *   imageBuildVersionArn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   action: "STRING_VALUE",
- *   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED",
- *   rollbackStatus: "RUNNING" || "COMPLETED" || "SKIPPED" || "FAILED",
- *   message: "STRING_VALUE",
- *   inputs: "STRING_VALUE",
- *   outputs: "STRING_VALUE",
- *   startTime: "STRING_VALUE",
- *   endTime: "STRING_VALUE",
- *   onFailure: "STRING_VALUE",
- *   timeoutSeconds: Number("int"),
- * };
+ * // { // GetWorkflowStepExecutionResponse
+ * //   requestId: "STRING_VALUE",
+ * //   stepExecutionId: "STRING_VALUE",
+ * //   workflowBuildVersionArn: "STRING_VALUE",
+ * //   workflowExecutionId: "STRING_VALUE",
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   action: "STRING_VALUE",
+ * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED",
+ * //   rollbackStatus: "RUNNING" || "COMPLETED" || "SKIPPED" || "FAILED",
+ * //   message: "STRING_VALUE",
+ * //   inputs: "STRING_VALUE",
+ * //   outputs: "STRING_VALUE",
+ * //   startTime: "STRING_VALUE",
+ * //   endTime: "STRING_VALUE",
+ * //   onFailure: "STRING_VALUE",
+ * //   timeoutSeconds: Number("int"),
+ * // };
  *
  * ```
  *

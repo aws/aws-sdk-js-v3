@@ -54,8 +54,7 @@ export interface DeletePermissionsBoundaryFromPermissionSetCommandOutput
  * };
  * const command = new DeletePermissionsBoundaryFromPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartStackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

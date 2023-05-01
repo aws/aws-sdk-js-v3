@@ -66,8 +66,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

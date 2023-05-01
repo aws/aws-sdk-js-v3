@@ -59,13 +59,12 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * };
  * const command = new ListHsmsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHsmsResponse
- *   HsmList: [ // HsmList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHsmsResponse
+ * //   HsmList: [ // HsmList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,11 +50,10 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * };
  * const command = new DeleteCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCostCategoryDefinitionResponse
- *   CostCategoryArn: "STRING_VALUE",
- *   EffectiveEnd: "STRING_VALUE",
- * };
+ * // { // DeleteCostCategoryDefinitionResponse
+ * //   CostCategoryArn: "STRING_VALUE",
+ * //   EffectiveEnd: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -42,12 +42,11 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * const input = {};
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainNamesResponse
- *   DomainNames: { // DomainNameMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListDomainNamesResponse
+ * //   DomainNames: { // DomainNameMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

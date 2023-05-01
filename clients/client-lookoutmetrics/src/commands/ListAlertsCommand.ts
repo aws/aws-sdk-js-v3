@@ -48,25 +48,24 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * };
  * const command = new ListAlertsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAlertsResponse
- *   AlertSummaryList: [ // AlertSummaryList
- *     { // AlertSummary
- *       AlertArn: "STRING_VALUE",
- *       AnomalyDetectorArn: "STRING_VALUE",
- *       AlertName: "STRING_VALUE",
- *       AlertSensitivityThreshold: Number("int"),
- *       AlertType: "STRING_VALUE",
- *       AlertStatus: "STRING_VALUE",
- *       LastModificationTime: new Date("TIMESTAMP"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAlertsResponse
+ * //   AlertSummaryList: [ // AlertSummaryList
+ * //     { // AlertSummary
+ * //       AlertArn: "STRING_VALUE",
+ * //       AnomalyDetectorArn: "STRING_VALUE",
+ * //       AlertName: "STRING_VALUE",
+ * //       AlertSensitivityThreshold: Number("int"),
+ * //       AlertType: "STRING_VALUE",
+ * //       AlertStatus: "STRING_VALUE",
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

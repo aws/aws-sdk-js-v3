@@ -44,8 +44,7 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  * };
  * const command = new DeleteFlowDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

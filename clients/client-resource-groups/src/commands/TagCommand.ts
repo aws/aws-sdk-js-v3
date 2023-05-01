@@ -65,13 +65,12 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * };
  * const command = new TagCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagOutput
- *   Arn: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // TagOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

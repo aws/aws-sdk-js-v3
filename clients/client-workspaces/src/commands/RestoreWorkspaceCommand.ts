@@ -51,8 +51,7 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * };
  * const command = new RestoreWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

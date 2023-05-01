@@ -68,13 +68,12 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * };
  * const command = new GetAutoMergingPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAutoMergingPreviewResponse
- *   DomainName: "STRING_VALUE", // required
- *   NumberOfMatchesInSample: Number("long"),
- *   NumberOfProfilesInSample: Number("long"),
- *   NumberOfProfilesWillBeMerged: Number("long"),
- * };
+ * // { // GetAutoMergingPreviewResponse
+ * //   DomainName: "STRING_VALUE", // required
+ * //   NumberOfMatchesInSample: Number("long"),
+ * //   NumberOfProfilesInSample: Number("long"),
+ * //   NumberOfProfilesWillBeMerged: Number("long"),
+ * // };
  *
  * ```
  *

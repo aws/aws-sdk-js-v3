@@ -44,17 +44,16 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * };
  * const command = new GetNotebookMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNotebookMetadataOutput
- *   NotebookMetadata: { // NotebookMetadata
- *     NotebookId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     WorkGroup: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Type: "IPYNB",
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetNotebookMetadataOutput
+ * //   NotebookMetadata: { // NotebookMetadata
+ * //     NotebookId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     WorkGroup: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Type: "IPYNB",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

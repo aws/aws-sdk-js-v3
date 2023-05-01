@@ -58,29 +58,28 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * };
  * const command = new DescribeElasticGpusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeElasticGpusResult
- *   ElasticGpuSet: [ // ElasticGpuSet
- *     { // ElasticGpus
- *       ElasticGpuId: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       ElasticGpuType: "STRING_VALUE",
- *       ElasticGpuHealth: { // ElasticGpuHealth
- *         Status: "OK" || "IMPAIRED",
- *       },
- *       ElasticGpuState: "ATTACHED",
- *       InstanceId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeElasticGpusResult
+ * //   ElasticGpuSet: [ // ElasticGpuSet
+ * //     { // ElasticGpus
+ * //       ElasticGpuId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ElasticGpuType: "STRING_VALUE",
+ * //       ElasticGpuHealth: { // ElasticGpuHealth
+ * //         Status: "OK" || "IMPAIRED",
+ * //       },
+ * //       ElasticGpuState: "ATTACHED",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

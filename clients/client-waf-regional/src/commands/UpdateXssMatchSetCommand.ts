@@ -108,10 +108,9 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateXssMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateXssMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

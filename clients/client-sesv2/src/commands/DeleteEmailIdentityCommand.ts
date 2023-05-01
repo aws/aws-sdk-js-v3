@@ -45,8 +45,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * };
  * const command = new DeleteEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

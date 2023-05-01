@@ -63,8 +63,7 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * };
  * const command = new UpdateQuerySuggestionsConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

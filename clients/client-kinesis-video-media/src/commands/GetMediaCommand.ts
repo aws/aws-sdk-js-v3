@@ -103,11 +103,10 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * };
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMediaOutput
- *   ContentType: "STRING_VALUE",
- *   Payload: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetMediaOutput
+ * //   ContentType: "STRING_VALUE",
+ * //   Payload: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

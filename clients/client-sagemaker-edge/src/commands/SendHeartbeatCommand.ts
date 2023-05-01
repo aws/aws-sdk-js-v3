@@ -89,8 +89,7 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SendHeartbeatCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

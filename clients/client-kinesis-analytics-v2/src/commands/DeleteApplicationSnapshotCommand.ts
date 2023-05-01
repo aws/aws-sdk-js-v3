@@ -50,8 +50,7 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * };
  * const command = new DeleteApplicationSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

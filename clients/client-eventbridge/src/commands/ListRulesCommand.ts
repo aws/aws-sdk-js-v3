@@ -50,23 +50,22 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRulesResponse
- *   Rules: [ // RuleResponseList
- *     { // Rule
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       EventPattern: "STRING_VALUE",
- *       State: "ENABLED" || "DISABLED",
- *       Description: "STRING_VALUE",
- *       ScheduleExpression: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       ManagedBy: "STRING_VALUE",
- *       EventBusName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRulesResponse
+ * //   Rules: [ // RuleResponseList
+ * //     { // Rule
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       EventPattern: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED",
+ * //       Description: "STRING_VALUE",
+ * //       ScheduleExpression: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ManagedBy: "STRING_VALUE",
+ * //       EventBusName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

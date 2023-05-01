@@ -150,11 +150,10 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDecoderManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // UpdateDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -44,19 +44,18 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * };
  * const command = new GetApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApprovalRuleTemplateOutput
- *   approvalRuleTemplate: { // ApprovalRuleTemplate
- *     approvalRuleTemplateId: "STRING_VALUE",
- *     approvalRuleTemplateName: "STRING_VALUE",
- *     approvalRuleTemplateDescription: "STRING_VALUE",
- *     approvalRuleTemplateContent: "STRING_VALUE",
- *     ruleContentSha256: "STRING_VALUE",
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedUser: "STRING_VALUE",
- *   },
- * };
+ * // { // GetApprovalRuleTemplateOutput
+ * //   approvalRuleTemplate: { // ApprovalRuleTemplate
+ * //     approvalRuleTemplateId: "STRING_VALUE",
+ * //     approvalRuleTemplateName: "STRING_VALUE",
+ * //     approvalRuleTemplateDescription: "STRING_VALUE",
+ * //     approvalRuleTemplateContent: "STRING_VALUE",
+ * //     ruleContentSha256: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedUser: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

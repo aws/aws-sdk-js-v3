@@ -45,20 +45,19 @@ export interface ListPackageImportJobsCommandOutput extends ListPackageImportJob
  * };
  * const command = new ListPackageImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPackageImportJobsResponse
- *   PackageImportJobs: [ // PackageImportJobList // required
- *     { // PackageImportJob
- *       JobId: "STRING_VALUE",
- *       JobType: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPackageImportJobsResponse
+ * //   PackageImportJobs: [ // PackageImportJobList // required
+ * //     { // PackageImportJob
+ * //       JobId: "STRING_VALUE",
+ * //       JobType: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

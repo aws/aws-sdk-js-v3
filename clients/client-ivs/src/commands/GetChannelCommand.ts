@@ -44,23 +44,22 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * };
  * const command = new GetChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelResponse
- *   channel: { // Channel
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     latencyMode: "STRING_VALUE",
- *     type: "BASIC" || "STANDARD",
- *     recordingConfigurationArn: "STRING_VALUE",
- *     ingestEndpoint: "STRING_VALUE",
- *     playbackUrl: "STRING_VALUE",
- *     authorized: true || false,
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     insecureIngest: true || false,
- *   },
- * };
+ * // { // GetChannelResponse
+ * //   channel: { // Channel
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     latencyMode: "STRING_VALUE",
+ * //     type: "BASIC" || "STANDARD",
+ * //     recordingConfigurationArn: "STRING_VALUE",
+ * //     ingestEndpoint: "STRING_VALUE",
+ * //     playbackUrl: "STRING_VALUE",
+ * //     authorized: true || false,
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     insecureIngest: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

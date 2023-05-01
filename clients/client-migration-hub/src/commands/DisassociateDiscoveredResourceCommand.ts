@@ -53,8 +53,7 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * };
  * const command = new DisassociateDiscoveredResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

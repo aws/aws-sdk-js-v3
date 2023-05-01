@@ -44,29 +44,28 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * };
  * const command = new GetPendingJobExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPendingJobExecutionsResponse
- *   inProgressJobs: [ // JobExecutionSummaryList
- *     { // JobExecutionSummary
- *       jobId: "STRING_VALUE",
- *       queuedAt: Number("long"),
- *       startedAt: Number("long"),
- *       lastUpdatedAt: Number("long"),
- *       versionNumber: Number("long"),
- *       executionNumber: Number("long"),
- *     },
- *   ],
- *   queuedJobs: [
- *     {
- *       jobId: "STRING_VALUE",
- *       queuedAt: Number("long"),
- *       startedAt: Number("long"),
- *       lastUpdatedAt: Number("long"),
- *       versionNumber: Number("long"),
- *       executionNumber: Number("long"),
- *     },
- *   ],
- * };
+ * // { // GetPendingJobExecutionsResponse
+ * //   inProgressJobs: [ // JobExecutionSummaryList
+ * //     { // JobExecutionSummary
+ * //       jobId: "STRING_VALUE",
+ * //       queuedAt: Number("long"),
+ * //       startedAt: Number("long"),
+ * //       lastUpdatedAt: Number("long"),
+ * //       versionNumber: Number("long"),
+ * //       executionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * //   queuedJobs: [
+ * //     {
+ * //       jobId: "STRING_VALUE",
+ * //       queuedAt: Number("long"),
+ * //       startedAt: Number("long"),
+ * //       lastUpdatedAt: Number("long"),
+ * //       versionNumber: Number("long"),
+ * //       executionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

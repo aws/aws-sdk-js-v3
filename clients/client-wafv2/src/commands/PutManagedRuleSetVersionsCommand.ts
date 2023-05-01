@@ -65,10 +65,9 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * };
  * const command = new PutManagedRuleSetVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutManagedRuleSetVersionsResponse
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // PutManagedRuleSetVersionsResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

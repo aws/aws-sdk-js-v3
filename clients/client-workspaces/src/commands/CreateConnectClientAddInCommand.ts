@@ -48,10 +48,9 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * };
  * const command = new CreateConnectClientAddInCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectClientAddInResult
- *   AddInId: "STRING_VALUE",
- * };
+ * // { // CreateConnectClientAddInResult
+ * //   AddInId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

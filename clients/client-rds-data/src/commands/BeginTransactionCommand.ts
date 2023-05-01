@@ -55,10 +55,9 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * };
  * const command = new BeginTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BeginTransactionResponse
- *   transactionId: "STRING_VALUE",
- * };
+ * // { // BeginTransactionResponse
+ * //   transactionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

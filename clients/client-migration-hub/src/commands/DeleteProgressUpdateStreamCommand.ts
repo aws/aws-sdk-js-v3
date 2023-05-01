@@ -75,8 +75,7 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * };
  * const command = new DeleteProgressUpdateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,13 +60,12 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * };
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestRoleResponse
- *   Success: "STRING_VALUE",
- *   Messages: [ // ExceptionMessages
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // TestRoleResponse
+ * //   Success: "STRING_VALUE",
+ * //   Messages: [ // ExceptionMessages
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

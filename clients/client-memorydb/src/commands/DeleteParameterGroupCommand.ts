@@ -45,15 +45,14 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * };
  * const command = new DeleteParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteParameterGroupResponse
- *   ParameterGroup: { // ParameterGroup
- *     Name: "STRING_VALUE",
- *     Family: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     Name: "STRING_VALUE",
+ * //     Family: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

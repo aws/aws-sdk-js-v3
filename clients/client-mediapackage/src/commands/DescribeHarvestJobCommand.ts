@@ -44,22 +44,21 @@ export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobRespo
  * };
  * const command = new DescribeHarvestJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHarvestJobResponse
- *   Arn: "STRING_VALUE",
- *   ChannelId: "STRING_VALUE",
- *   CreatedAt: "STRING_VALUE",
- *   EndTime: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   OriginEndpointId: "STRING_VALUE",
- *   S3Destination: { // S3Destination
- *     BucketName: "STRING_VALUE", // required
- *     ManifestKey: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE", // required
- *   },
- *   StartTime: "STRING_VALUE",
- *   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- * };
+ * // { // DescribeHarvestJobResponse
+ * //   Arn: "STRING_VALUE",
+ * //   ChannelId: "STRING_VALUE",
+ * //   CreatedAt: "STRING_VALUE",
+ * //   EndTime: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   OriginEndpointId: "STRING_VALUE",
+ * //   S3Destination: { // S3Destination
+ * //     BucketName: "STRING_VALUE", // required
+ * //     ManifestKey: "STRING_VALUE", // required
+ * //     RoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   StartTime: "STRING_VALUE",
+ * //   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * // };
  *
  * ```
  *

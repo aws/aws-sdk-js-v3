@@ -52,16 +52,15 @@ export interface GetGroupsForCapacityReservationCommandOutput
  * };
  * const command = new GetGroupsForCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupsForCapacityReservationResult
- *   NextToken: "STRING_VALUE",
- *   CapacityReservationGroups: [ // CapacityReservationGroupSet
- *     { // CapacityReservationGroup
- *       GroupArn: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetGroupsForCapacityReservationResult
+ * //   NextToken: "STRING_VALUE",
+ * //   CapacityReservationGroups: [ // CapacityReservationGroupSet
+ * //     { // CapacityReservationGroup
+ * //       GroupArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

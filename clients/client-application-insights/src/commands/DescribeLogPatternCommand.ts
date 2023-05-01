@@ -50,16 +50,15 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLogPatternResponse
- *   ResourceGroupName: "STRING_VALUE",
- *   LogPattern: { // LogPattern
- *     PatternSetName: "STRING_VALUE",
- *     PatternName: "STRING_VALUE",
- *     Pattern: "STRING_VALUE",
- *     Rank: Number("int"),
- *   },
- * };
+ * // { // DescribeLogPatternResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPattern: { // LogPattern
+ * //     PatternSetName: "STRING_VALUE",
+ * //     PatternName: "STRING_VALUE",
+ * //     Pattern: "STRING_VALUE",
+ * //     Rank: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

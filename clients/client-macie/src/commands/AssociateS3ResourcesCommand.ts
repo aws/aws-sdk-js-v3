@@ -58,19 +58,18 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * };
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateS3ResourcesResult
- *   failedS3Resources: [ // FailedS3Resources
- *     { // FailedS3Resource
- *       failedItem: { // S3Resource
- *         bucketName: "STRING_VALUE", // required
- *         prefix: "STRING_VALUE",
- *       },
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssociateS3ResourcesResult
+ * //   failedS3Resources: [ // FailedS3Resources
+ * //     { // FailedS3Resource
+ * //       failedItem: { // S3Resource
+ * //         bucketName: "STRING_VALUE", // required
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

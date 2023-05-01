@@ -46,8 +46,7 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLanguageModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

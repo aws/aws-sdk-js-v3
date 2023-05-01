@@ -54,42 +54,41 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * };
  * const command = new DescribeDBProxiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDBProxiesResponse
- *   DBProxies: [ // DBProxyList
- *     { // DBProxy
- *       DBProxyName: "STRING_VALUE",
- *       DBProxyArn: "STRING_VALUE",
- *       Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting" || "suspended" || "suspending" || "reactivating",
- *       EngineFamily: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       VpcSecurityGroupIds: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       VpcSubnetIds: [
- *         "STRING_VALUE",
- *       ],
- *       Auth: [ // UserAuthConfigInfoList
- *         { // UserAuthConfigInfo
- *           Description: "STRING_VALUE",
- *           UserName: "STRING_VALUE",
- *           AuthScheme: "SECRETS",
- *           SecretArn: "STRING_VALUE",
- *           IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- *           ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
- *         },
- *       ],
- *       RoleArn: "STRING_VALUE",
- *       Endpoint: "STRING_VALUE",
- *       RequireTLS: true || false,
- *       IdleClientTimeout: Number("int"),
- *       DebugLogging: true || false,
- *       CreatedDate: new Date("TIMESTAMP"),
- *       UpdatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeDBProxiesResponse
+ * //   DBProxies: [ // DBProxyList
+ * //     { // DBProxy
+ * //       DBProxyName: "STRING_VALUE",
+ * //       DBProxyArn: "STRING_VALUE",
+ * //       Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting" || "suspended" || "suspending" || "reactivating",
+ * //       EngineFamily: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcSecurityGroupIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VpcSubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Auth: [ // UserAuthConfigInfoList
+ * //         { // UserAuthConfigInfo
+ * //           Description: "STRING_VALUE",
+ * //           UserName: "STRING_VALUE",
+ * //           AuthScheme: "SECRETS",
+ * //           SecretArn: "STRING_VALUE",
+ * //           IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
+ * //           ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ * //         },
+ * //       ],
+ * //       RoleArn: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       RequireTLS: true || false,
+ * //       IdleClientTimeout: Number("int"),
+ * //       DebugLogging: true || false,
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       UpdatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,10 +53,9 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * };
  * const command = new ModifyVpcTenancyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVpcTenancyResult
- *   ReturnValue: true || false,
- * };
+ * // { // ModifyVpcTenancyResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

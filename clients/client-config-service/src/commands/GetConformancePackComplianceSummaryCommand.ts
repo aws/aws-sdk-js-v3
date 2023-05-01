@@ -56,16 +56,15 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * };
  * const command = new GetConformancePackComplianceSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConformancePackComplianceSummaryResponse
- *   ConformancePackComplianceSummaryList: [ // ConformancePackComplianceSummaryList
- *     { // ConformancePackComplianceSummary
- *       ConformancePackName: "STRING_VALUE", // required
- *       ConformancePackComplianceStatus: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetConformancePackComplianceSummaryResponse
+ * //   ConformancePackComplianceSummaryList: [ // ConformancePackComplianceSummaryList
+ * //     { // ConformancePackComplianceSummary
+ * //       ConformancePackName: "STRING_VALUE", // required
+ * //       ConformancePackComplianceStatus: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

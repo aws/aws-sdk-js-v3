@@ -50,8 +50,7 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  * };
  * const command = new StopLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

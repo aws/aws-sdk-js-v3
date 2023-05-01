@@ -55,14 +55,13 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * };
  * const command = new CreateLoginProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLoginProfileResponse
- *   LoginProfile: { // LoginProfile
- *     UserName: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     PasswordResetRequired: true || false,
- *   },
- * };
+ * // { // CreateLoginProfileResponse
+ * //   LoginProfile: { // LoginProfile
+ * //     UserName: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     PasswordResetRequired: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

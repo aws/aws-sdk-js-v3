@@ -133,16 +133,15 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutScalingPolicyResponse
- *   PolicyARN: "STRING_VALUE", // required
- *   Alarms: [ // Alarms
- *     { // Alarm
- *       AlarmName: "STRING_VALUE", // required
- *       AlarmARN: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // PutScalingPolicyResponse
+ * //   PolicyARN: "STRING_VALUE", // required
+ * //   Alarms: [ // Alarms
+ * //     { // Alarm
+ * //       AlarmName: "STRING_VALUE", // required
+ * //       AlarmARN: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

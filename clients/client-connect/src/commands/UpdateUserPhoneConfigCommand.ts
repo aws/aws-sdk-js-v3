@@ -51,8 +51,7 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateUserPhoneConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

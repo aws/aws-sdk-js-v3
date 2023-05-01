@@ -46,10 +46,9 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * };
  * const command = new CancelDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelDeploymentResponse
- *   message: "STRING_VALUE",
- * };
+ * // { // CancelDeploymentResponse
+ * //   message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

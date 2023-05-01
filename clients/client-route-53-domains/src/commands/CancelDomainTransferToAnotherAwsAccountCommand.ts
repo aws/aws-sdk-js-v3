@@ -60,10 +60,9 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * };
  * const command = new CancelDomainTransferToAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelDomainTransferToAnotherAwsAccountResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // CancelDomainTransferToAnotherAwsAccountResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

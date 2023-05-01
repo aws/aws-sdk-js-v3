@@ -74,10 +74,9 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * };
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFilterResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateFilterResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

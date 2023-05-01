@@ -47,8 +47,7 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

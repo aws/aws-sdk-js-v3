@@ -44,8 +44,7 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * };
  * const command = new DeleteContainerServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

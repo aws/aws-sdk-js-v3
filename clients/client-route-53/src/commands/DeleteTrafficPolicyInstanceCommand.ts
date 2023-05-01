@@ -52,8 +52,7 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * };
  * const command = new DeleteTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

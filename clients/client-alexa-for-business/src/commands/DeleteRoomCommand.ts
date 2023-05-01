@@ -44,8 +44,7 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
  * };
  * const command = new DeleteRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

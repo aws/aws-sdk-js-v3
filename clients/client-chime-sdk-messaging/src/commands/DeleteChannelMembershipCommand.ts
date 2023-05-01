@@ -56,8 +56,7 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteChannelMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * };
  * const command = new DeleteAnnotationStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAnnotationStoreResponse
- *   status: "STRING_VALUE", // required
- * };
+ * // { // DeleteAnnotationStoreResponse
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -87,8 +87,7 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * };
  * const command = new PutDataLakeSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

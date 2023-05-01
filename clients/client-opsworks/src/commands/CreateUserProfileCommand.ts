@@ -51,10 +51,9 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserProfileResult
- *   IamUserArn: "STRING_VALUE",
- * };
+ * // { // CreateUserProfileResult
+ * //   IamUserArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

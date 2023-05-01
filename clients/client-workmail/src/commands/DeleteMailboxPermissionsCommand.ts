@@ -46,8 +46,7 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  * };
  * const command = new DeleteMailboxPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,20 +50,19 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * };
  * const command = new ListControlPanelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListControlPanelsResponse
- *   ControlPanels: [ // __listOfControlPanel
- *     { // ControlPanel
- *       ClusterArn: "STRING_VALUE",
- *       ControlPanelArn: "STRING_VALUE",
- *       DefaultControlPanel: true || false,
- *       Name: "STRING_VALUE",
- *       RoutingControlCount: Number("int"),
- *       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListControlPanelsResponse
+ * //   ControlPanels: [ // __listOfControlPanel
+ * //     { // ControlPanel
+ * //       ClusterArn: "STRING_VALUE",
+ * //       ControlPanelArn: "STRING_VALUE",
+ * //       DefaultControlPanel: true || false,
+ * //       Name: "STRING_VALUE",
+ * //       RoutingControlCount: Number("int"),
+ * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

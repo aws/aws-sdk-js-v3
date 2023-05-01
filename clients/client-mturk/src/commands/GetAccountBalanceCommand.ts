@@ -44,11 +44,10 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  * const input = {};
  * const command = new GetAccountBalanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountBalanceResponse
- *   AvailableBalance: "STRING_VALUE",
- *   OnHoldBalance: "STRING_VALUE",
- * };
+ * // { // GetAccountBalanceResponse
+ * //   AvailableBalance: "STRING_VALUE",
+ * //   OnHoldBalance: "STRING_VALUE",
+ * // };
  *
  * ```
  *

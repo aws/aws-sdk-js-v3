@@ -79,13 +79,12 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFleetsOutput
- *   FleetIds: [ // FleetIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFleetsOutput
+ * //   FleetIds: [ // FleetIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * };
  * const command = new DisassociateRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

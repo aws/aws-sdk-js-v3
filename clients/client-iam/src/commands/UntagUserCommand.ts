@@ -48,8 +48,7 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,11 +59,10 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAuthorizerResponse
- *   authorizerName: "STRING_VALUE",
- *   authorizerArn: "STRING_VALUE",
- * };
+ * // { // CreateAuthorizerResponse
+ * //   authorizerName: "STRING_VALUE",
+ * //   authorizerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

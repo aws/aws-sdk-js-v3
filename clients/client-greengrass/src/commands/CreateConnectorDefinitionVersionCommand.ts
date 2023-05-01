@@ -59,13 +59,12 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * };
  * const command = new CreateConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectorDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateConnectorDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,12 +52,11 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * };
  * const command = new CreateSoftwareUpdateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSoftwareUpdateJobResponse
- *   IotJobArn: "STRING_VALUE",
- *   IotJobId: "STRING_VALUE",
- *   PlatformSoftwareVersion: "STRING_VALUE",
- * };
+ * // { // CreateSoftwareUpdateJobResponse
+ * //   IotJobArn: "STRING_VALUE",
+ * //   IotJobId: "STRING_VALUE",
+ * //   PlatformSoftwareVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

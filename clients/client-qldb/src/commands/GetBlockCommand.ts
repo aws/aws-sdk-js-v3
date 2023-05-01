@@ -64,15 +64,14 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * };
  * const command = new GetBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBlockResponse
- *   Block: { // ValueHolder
- *     IonText: "STRING_VALUE",
- *   },
- *   Proof: {
- *     IonText: "STRING_VALUE",
- *   },
- * };
+ * // { // GetBlockResponse
+ * //   Block: { // ValueHolder
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * //   Proof: {
+ * //     IonText: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

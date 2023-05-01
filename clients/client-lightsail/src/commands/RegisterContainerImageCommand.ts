@@ -52,14 +52,13 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * };
  * const command = new RegisterContainerImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterContainerImageResult
- *   containerImage: { // ContainerImage
- *     image: "STRING_VALUE",
- *     digest: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // RegisterContainerImageResult
+ * //   containerImage: { // ContainerImage
+ * //     image: "STRING_VALUE",
+ * //     digest: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

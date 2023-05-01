@@ -59,23 +59,22 @@ export interface UpdateSecurityConfigCommandOutput extends UpdateSecurityConfigR
  * };
  * const command = new UpdateSecurityConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecurityConfigResponse
- *   securityConfigDetail: { // SecurityConfigDetail
- *     id: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     configVersion: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     samlOptions: { // SamlConfigOptions
- *       metadata: "STRING_VALUE", // required
- *       userAttribute: "STRING_VALUE",
- *       groupAttribute: "STRING_VALUE",
- *       sessionTimeout: Number("int"),
- *     },
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // UpdateSecurityConfigResponse
+ * //   securityConfigDetail: { // SecurityConfigDetail
+ * //     id: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     configVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     samlOptions: { // SamlConfigOptions
+ * //       metadata: "STRING_VALUE", // required
+ * //       userAttribute: "STRING_VALUE",
+ * //       groupAttribute: "STRING_VALUE",
+ * //       sessionTimeout: Number("int"),
+ * //     },
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

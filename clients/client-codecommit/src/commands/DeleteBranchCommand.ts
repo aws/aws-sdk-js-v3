@@ -45,13 +45,12 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBranchOutput
- *   deletedBranch: { // BranchInfo
- *     branchName: "STRING_VALUE",
- *     commitId: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteBranchOutput
+ * //   deletedBranch: { // BranchInfo
+ * //     branchName: "STRING_VALUE",
+ * //     commitId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

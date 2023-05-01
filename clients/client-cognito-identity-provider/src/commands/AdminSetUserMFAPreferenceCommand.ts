@@ -66,8 +66,7 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * };
  * const command = new AdminSetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

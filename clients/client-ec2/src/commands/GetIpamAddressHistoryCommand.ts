@@ -51,25 +51,24 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * };
  * const command = new GetIpamAddressHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIpamAddressHistoryResult
- *   HistoryRecords: [ // IpamAddressHistoryRecordSet
- *     { // IpamAddressHistoryRecord
- *       ResourceOwnerId: "STRING_VALUE",
- *       ResourceRegion: "STRING_VALUE",
- *       ResourceType: "eip" || "vpc" || "subnet" || "network-interface" || "instance",
- *       ResourceId: "STRING_VALUE",
- *       ResourceCidr: "STRING_VALUE",
- *       ResourceName: "STRING_VALUE",
- *       ResourceComplianceStatus: "compliant" || "noncompliant" || "unmanaged" || "ignored",
- *       ResourceOverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
- *       VpcId: "STRING_VALUE",
- *       SampledStartTime: new Date("TIMESTAMP"),
- *       SampledEndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetIpamAddressHistoryResult
+ * //   HistoryRecords: [ // IpamAddressHistoryRecordSet
+ * //     { // IpamAddressHistoryRecord
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceType: "eip" || "vpc" || "subnet" || "network-interface" || "instance",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceCidr: "STRING_VALUE",
+ * //       ResourceName: "STRING_VALUE",
+ * //       ResourceComplianceStatus: "compliant" || "noncompliant" || "unmanaged" || "ignored",
+ * //       ResourceOverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
+ * //       VpcId: "STRING_VALUE",
+ * //       SampledStartTime: new Date("TIMESTAMP"),
+ * //       SampledEndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,11 +55,10 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResourcePolicyStatementResponse
- *   resourceArn: "STRING_VALUE",
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // DeleteResourcePolicyStatementResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

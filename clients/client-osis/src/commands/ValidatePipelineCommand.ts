@@ -46,15 +46,14 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * };
  * const command = new ValidatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidatePipelineResponse
- *   isValid: true || false,
- *   Errors: [ // ValidationMessageList
- *     { // ValidationMessage
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ValidatePipelineResponse
+ * //   isValid: true || false,
+ * //   Errors: [ // ValidationMessageList
+ * //     { // ValidationMessage
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

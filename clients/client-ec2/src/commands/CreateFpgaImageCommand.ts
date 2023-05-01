@@ -71,11 +71,10 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * };
  * const command = new CreateFpgaImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFpgaImageResult
- *   FpgaImageId: "STRING_VALUE",
- *   FpgaImageGlobalId: "STRING_VALUE",
- * };
+ * // { // CreateFpgaImageResult
+ * //   FpgaImageId: "STRING_VALUE",
+ * //   FpgaImageGlobalId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

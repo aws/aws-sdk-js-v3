@@ -50,11 +50,10 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * };
  * const command = new CreateImageBuilderStreamingURLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImageBuilderStreamingURLResult
- *   StreamingURL: "STRING_VALUE",
- *   Expires: new Date("TIMESTAMP"),
- * };
+ * // { // CreateImageBuilderStreamingURLResult
+ * //   StreamingURL: "STRING_VALUE",
+ * //   Expires: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

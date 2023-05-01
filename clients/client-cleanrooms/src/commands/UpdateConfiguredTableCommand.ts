@@ -46,30 +46,29 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * };
  * const command = new UpdateConfiguredTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConfiguredTableOutput
- *   configuredTable: { // ConfiguredTable
- *     id: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     tableReference: { // TableReference Union: only one key present
- *       glue: { // GlueTableReference
- *         tableName: "STRING_VALUE", // required
- *         databaseName: "STRING_VALUE", // required
- *       },
- *     },
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
- *       "AGGREGATION" || "LIST",
- *     ],
- *     analysisMethod: "STRING_VALUE", // required
- *     allowedColumns: [ // AllowedColumnList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // UpdateConfiguredTableOutput
+ * //   configuredTable: { // ConfiguredTable
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tableReference: { // TableReference Union: only one key present
+ * //       glue: { // GlueTableReference
+ * //         tableName: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
+ * //       "AGGREGATION" || "LIST",
+ * //     ],
+ * //     analysisMethod: "STRING_VALUE", // required
+ * //     allowedColumns: [ // AllowedColumnList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

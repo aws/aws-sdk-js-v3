@@ -42,12 +42,11 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * const input = {};
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGlobalSettingsResponse
- *   VoiceConnector: { // VoiceConnectorSettings
- *     CdrBucket: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGlobalSettingsResponse
+ * //   VoiceConnector: { // VoiceConnectorSettings
+ * //     CdrBucket: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

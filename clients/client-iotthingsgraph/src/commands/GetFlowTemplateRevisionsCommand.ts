@@ -49,18 +49,17 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
  * };
  * const command = new GetFlowTemplateRevisionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFlowTemplateRevisionsResponse
- *   summaries: [ // FlowTemplateSummaries
- *     { // FlowTemplateSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       revisionNumber: Number("long"),
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetFlowTemplateRevisionsResponse
+ * //   summaries: [ // FlowTemplateSummaries
+ * //     { // FlowTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

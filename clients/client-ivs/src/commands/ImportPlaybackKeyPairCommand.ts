@@ -52,17 +52,16 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * };
  * const command = new ImportPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportPlaybackKeyPairResponse
- *   keyPair: { // PlaybackKeyPair
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     fingerprint: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // ImportPlaybackKeyPairResponse
+ * //   keyPair: { // PlaybackKeyPair
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     fingerprint: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

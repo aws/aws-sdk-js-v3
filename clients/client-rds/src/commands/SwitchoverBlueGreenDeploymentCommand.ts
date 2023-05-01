@@ -57,38 +57,37 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  * };
  * const command = new SwitchoverBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SwitchoverBlueGreenDeploymentResponse
- *   BlueGreenDeployment: { // BlueGreenDeployment
- *     BlueGreenDeploymentIdentifier: "STRING_VALUE",
- *     BlueGreenDeploymentName: "STRING_VALUE",
- *     Source: "STRING_VALUE",
- *     Target: "STRING_VALUE",
- *     SwitchoverDetails: [ // SwitchoverDetailList
- *       { // SwitchoverDetail
- *         SourceMember: "STRING_VALUE",
- *         TargetMember: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *       },
- *     ],
- *     Tasks: [ // BlueGreenDeploymentTaskList
- *       { // BlueGreenDeploymentTask
- *         Name: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *       },
- *     ],
- *     Status: "STRING_VALUE",
- *     StatusDetails: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     DeleteTime: new Date("TIMESTAMP"),
- *     TagList: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // SwitchoverBlueGreenDeploymentResponse
+ * //   BlueGreenDeployment: { // BlueGreenDeployment
+ * //     BlueGreenDeploymentIdentifier: "STRING_VALUE",
+ * //     BlueGreenDeploymentName: "STRING_VALUE",
+ * //     Source: "STRING_VALUE",
+ * //     Target: "STRING_VALUE",
+ * //     SwitchoverDetails: [ // SwitchoverDetailList
+ * //       { // SwitchoverDetail
+ * //         SourceMember: "STRING_VALUE",
+ * //         TargetMember: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tasks: [ // BlueGreenDeploymentTaskList
+ * //       { // BlueGreenDeploymentTask
+ * //         Name: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Status: "STRING_VALUE",
+ * //     StatusDetails: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     DeleteTime: new Date("TIMESTAMP"),
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

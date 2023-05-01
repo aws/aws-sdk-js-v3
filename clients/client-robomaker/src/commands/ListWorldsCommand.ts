@@ -53,18 +53,17 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * };
  * const command = new ListWorldsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorldsResponse
- *   worldSummaries: [ // WorldSummaries
- *     { // WorldSummary
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       generationJob: "STRING_VALUE",
- *       template: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorldsResponse
+ * //   worldSummaries: [ // WorldSummaries
+ * //     { // WorldSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       generationJob: "STRING_VALUE",
+ * //       template: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

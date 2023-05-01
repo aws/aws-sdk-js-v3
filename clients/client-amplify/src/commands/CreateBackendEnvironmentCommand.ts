@@ -47,17 +47,16 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * };
  * const command = new CreateBackendEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackendEnvironmentResult
- *   backendEnvironment: { // BackendEnvironment
- *     backendEnvironmentArn: "STRING_VALUE", // required
- *     environmentName: "STRING_VALUE", // required
- *     stackName: "STRING_VALUE",
- *     deploymentArtifacts: "STRING_VALUE",
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // CreateBackendEnvironmentResult
+ * //   backendEnvironment: { // BackendEnvironment
+ * //     backendEnvironmentArn: "STRING_VALUE", // required
+ * //     environmentName: "STRING_VALUE", // required
+ * //     stackName: "STRING_VALUE",
+ * //     deploymentArtifacts: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

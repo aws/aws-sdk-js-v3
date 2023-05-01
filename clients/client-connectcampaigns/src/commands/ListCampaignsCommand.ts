@@ -51,18 +51,17 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCampaignsResponse
- *   nextToken: "STRING_VALUE",
- *   campaignSummaryList: [ // CampaignSummaryList
- *     { // CampaignSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       connectInstanceId: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListCampaignsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   campaignSummaryList: [ // CampaignSummaryList
+ * //     { // CampaignSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       connectInstanceId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

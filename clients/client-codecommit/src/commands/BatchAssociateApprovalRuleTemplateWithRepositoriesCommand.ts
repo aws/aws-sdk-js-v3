@@ -56,19 +56,18 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  * };
  * const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
- *   associatedRepositoryNames: [ // RepositoryNameList // required
- *     "STRING_VALUE",
- *   ],
- *   errors: [ // BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList // required
- *     { // BatchAssociateApprovalRuleTemplateWithRepositoriesError
- *       repositoryName: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
+ * //   associatedRepositoryNames: [ // RepositoryNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   errors: [ // BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList // required
+ * //     { // BatchAssociateApprovalRuleTemplateWithRepositoriesError
+ * //       repositoryName: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

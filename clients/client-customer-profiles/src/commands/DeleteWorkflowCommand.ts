@@ -45,8 +45,7 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

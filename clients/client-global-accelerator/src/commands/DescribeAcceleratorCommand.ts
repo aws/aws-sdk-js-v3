@@ -48,35 +48,34 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  * };
  * const command = new DescribeAcceleratorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAcceleratorResponse
- *   Accelerator: { // Accelerator
- *     AcceleratorArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     IpAddressType: "IPV4" || "DUAL_STACK",
- *     Enabled: true || false,
- *     IpSets: [ // IpSets
- *       { // IpSet
- *         IpFamily: "STRING_VALUE",
- *         IpAddresses: [ // IpAddresses
- *           "STRING_VALUE",
- *         ],
- *         IpAddressFamily: "IPv4" || "IPv6",
- *       },
- *     ],
- *     DnsName: "STRING_VALUE",
- *     Status: "DEPLOYED" || "IN_PROGRESS",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     DualStackDnsName: "STRING_VALUE",
- *     Events: [ // AcceleratorEvents
- *       { // AcceleratorEvent
- *         Message: "STRING_VALUE",
- *         Timestamp: new Date("TIMESTAMP"),
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeAcceleratorResponse
+ * //   Accelerator: { // Accelerator
+ * //     AcceleratorArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     IpAddressType: "IPV4" || "DUAL_STACK",
+ * //     Enabled: true || false,
+ * //     IpSets: [ // IpSets
+ * //       { // IpSet
+ * //         IpFamily: "STRING_VALUE",
+ * //         IpAddresses: [ // IpAddresses
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IpAddressFamily: "IPv4" || "IPv6",
+ * //       },
+ * //     ],
+ * //     DnsName: "STRING_VALUE",
+ * //     Status: "DEPLOYED" || "IN_PROGRESS",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     DualStackDnsName: "STRING_VALUE",
+ * //     Events: [ // AcceleratorEvents
+ * //       { // AcceleratorEvent
+ * //         Message: "STRING_VALUE",
+ * //         Timestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

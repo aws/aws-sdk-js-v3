@@ -44,11 +44,10 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * };
  * const command = new GetSchemaAsJsonCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaAsJsonResponse
- *   Name: "STRING_VALUE",
- *   Document: "STRING_VALUE",
- * };
+ * // { // GetSchemaAsJsonResponse
+ * //   Name: "STRING_VALUE",
+ * //   Document: "STRING_VALUE",
+ * // };
  *
  * ```
  *

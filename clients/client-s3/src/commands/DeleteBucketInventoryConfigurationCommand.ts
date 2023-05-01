@@ -74,8 +74,7 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  * };
  * const command = new DeleteBucketInventoryConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

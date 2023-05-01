@@ -47,13 +47,12 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * };
  * const command = new StopDevEnvironmentSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopDevEnvironmentSessionResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- * };
+ * // { // StopDevEnvironmentSessionResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   sessionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

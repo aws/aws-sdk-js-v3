@@ -54,8 +54,7 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLifecyclePolicyOutput
- *   LifecyclePolicy: "STRING_VALUE", // required
- * };
+ * // { // GetLifecyclePolicyOutput
+ * //   LifecyclePolicy: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

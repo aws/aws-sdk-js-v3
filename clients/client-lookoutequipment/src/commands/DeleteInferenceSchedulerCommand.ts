@@ -45,8 +45,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteInferenceSchedulerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

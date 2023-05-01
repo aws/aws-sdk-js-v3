@@ -45,22 +45,21 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  * };
  * const command = new GetClientCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClientCertificates
- *   items: [ // ListOfClientCertificate
- *     { // ClientCertificate
- *       clientCertificateId: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       pemEncodedCertificate: "STRING_VALUE",
- *       createdDate: new Date("TIMESTAMP"),
- *       expirationDate: new Date("TIMESTAMP"),
- *       tags: { // MapOfStringToString
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // ClientCertificates
+ * //   items: [ // ListOfClientCertificate
+ * //     { // ClientCertificate
+ * //       clientCertificateId: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       pemEncodedCertificate: "STRING_VALUE",
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       expirationDate: new Date("TIMESTAMP"),
+ * //       tags: { // MapOfStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

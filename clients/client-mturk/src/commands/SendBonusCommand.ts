@@ -61,8 +61,7 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * };
  * const command = new SendBonusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

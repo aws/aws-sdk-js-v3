@@ -48,26 +48,25 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRulesResponse
- *   RuleSummaryList: [ // RuleSummaryList // required
- *     { // RuleSummary
- *       Name: "STRING_VALUE", // required
- *       RuleId: "STRING_VALUE", // required
- *       RuleArn: "STRING_VALUE", // required
- *       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
- *       PublishStatus: "DRAFT" || "PUBLISHED", // required
- *       ActionSummaries: [ // ActionSummaries // required
- *         { // ActionSummary
- *           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
- *         },
- *       ],
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       LastUpdatedTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRulesResponse
+ * //   RuleSummaryList: [ // RuleSummaryList // required
+ * //     { // RuleSummary
+ * //       Name: "STRING_VALUE", // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //       RuleArn: "STRING_VALUE", // required
+ * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
+ * //       ActionSummaries: [ // ActionSummaries // required
+ * //         { // ActionSummary
+ * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ * //         },
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       LastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

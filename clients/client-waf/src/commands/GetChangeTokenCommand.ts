@@ -56,10 +56,9 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChangeTokenResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // GetChangeTokenResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

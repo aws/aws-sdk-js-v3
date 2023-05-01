@@ -103,13 +103,12 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  * };
  * const command = new UpdatePushTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePushTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdatePushTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -61,17 +61,16 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * };
  * const command = new GetImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImagesOutput
- *   Images: [ // Images
- *     { // Image
- *       TimeStamp: new Date("TIMESTAMP"),
- *       Error: "STRING_VALUE",
- *       ImageContent: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetImagesOutput
+ * //   Images: [ // Images
+ * //     { // Image
+ * //       TimeStamp: new Date("TIMESTAMP"),
+ * //       Error: "STRING_VALUE",
+ * //       ImageContent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

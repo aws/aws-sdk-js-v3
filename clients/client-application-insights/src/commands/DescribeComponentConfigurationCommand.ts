@@ -54,12 +54,11 @@ export interface DescribeComponentConfigurationCommandOutput
  * };
  * const command = new DescribeComponentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeComponentConfigurationResponse
- *   Monitor: true || false,
- *   Tier: "STRING_VALUE",
- *   ComponentConfiguration: "STRING_VALUE",
- * };
+ * // { // DescribeComponentConfigurationResponse
+ * //   Monitor: true || false,
+ * //   Tier: "STRING_VALUE",
+ * //   ComponentConfiguration: "STRING_VALUE",
+ * // };
  *
  * ```
  *

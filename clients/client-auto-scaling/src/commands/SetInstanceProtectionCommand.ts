@@ -55,8 +55,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * };
  * const command = new SetInstanceProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

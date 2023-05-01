@@ -49,15 +49,14 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * };
  * const command = new CreateFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFindingAggregatorResponse
- *   FindingAggregatorArn: "STRING_VALUE",
- *   FindingAggregationRegion: "STRING_VALUE",
- *   RegionLinkingMode: "STRING_VALUE",
- *   Regions: [ // StringList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // CreateFindingAggregatorResponse
+ * //   FindingAggregatorArn: "STRING_VALUE",
+ * //   FindingAggregationRegion: "STRING_VALUE",
+ * //   RegionLinkingMode: "STRING_VALUE",
+ * //   Regions: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

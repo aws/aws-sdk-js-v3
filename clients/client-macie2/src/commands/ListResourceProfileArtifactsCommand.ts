@@ -50,17 +50,16 @@ export interface ListResourceProfileArtifactsCommandOutput
  * };
  * const command = new ListResourceProfileArtifactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceProfileArtifactsResponse
- *   artifacts: [ // __listOfResourceProfileArtifact
- *     { // ResourceProfileArtifact
- *       arn: "STRING_VALUE", // required
- *       classificationResultStatus: "STRING_VALUE", // required
- *       sensitive: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceProfileArtifactsResponse
+ * //   artifacts: [ // __listOfResourceProfileArtifact
+ * //     { // ResourceProfileArtifact
+ * //       arn: "STRING_VALUE", // required
+ * //       classificationResultStatus: "STRING_VALUE", // required
+ * //       sensitive: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

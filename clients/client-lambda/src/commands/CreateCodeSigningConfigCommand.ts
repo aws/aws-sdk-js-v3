@@ -54,23 +54,22 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * };
  * const command = new CreateCodeSigningConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCodeSigningConfigResponse
- *   CodeSigningConfig: { // CodeSigningConfig
- *     CodeSigningConfigId: "STRING_VALUE", // required
- *     CodeSigningConfigArn: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     AllowedPublishers: { // AllowedPublishers
- *       SigningProfileVersionArns: [ // SigningProfileVersionArns // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *     CodeSigningPolicies: { // CodeSigningPolicies
- *       UntrustedArtifactOnDeployment: "Warn" || "Enforce",
- *     },
- *     LastModified: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreateCodeSigningConfigResponse
+ * //   CodeSigningConfig: { // CodeSigningConfig
+ * //     CodeSigningConfigId: "STRING_VALUE", // required
+ * //     CodeSigningConfigArn: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     AllowedPublishers: { // AllowedPublishers
+ * //       SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CodeSigningPolicies: { // CodeSigningPolicies
+ * //       UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ * //     },
+ * //     LastModified: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

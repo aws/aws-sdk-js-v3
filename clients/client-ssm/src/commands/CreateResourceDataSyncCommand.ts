@@ -91,8 +91,7 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * };
  * const command = new CreateResourceDataSyncCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

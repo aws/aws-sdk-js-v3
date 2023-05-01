@@ -47,11 +47,10 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * };
  * const command = new MergeBranchesByFastForwardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergeBranchesByFastForwardOutput
- *   commitId: "STRING_VALUE",
- *   treeId: "STRING_VALUE",
- * };
+ * // { // MergeBranchesByFastForwardOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

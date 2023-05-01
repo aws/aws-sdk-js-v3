@@ -48,18 +48,17 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * };
  * const command = new ListEntityPersonasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEntityPersonasResponse
- *   SummaryItems: [ // PersonasSummaryList
- *     { // PersonasSummary
- *       EntityId: "STRING_VALUE",
- *       Persona: "OWNER" || "VIEWER",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEntityPersonasResponse
+ * //   SummaryItems: [ // PersonasSummaryList
+ * //     { // PersonasSummary
+ * //       EntityId: "STRING_VALUE",
+ * //       Persona: "OWNER" || "VIEWER",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

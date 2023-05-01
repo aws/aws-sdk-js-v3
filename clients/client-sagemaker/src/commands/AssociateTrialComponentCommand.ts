@@ -46,11 +46,10 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  * };
  * const command = new AssociateTrialComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTrialComponentResponse
- *   TrialComponentArn: "STRING_VALUE",
- *   TrialArn: "STRING_VALUE",
- * };
+ * // { // AssociateTrialComponentResponse
+ * //   TrialComponentArn: "STRING_VALUE",
+ * //   TrialArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

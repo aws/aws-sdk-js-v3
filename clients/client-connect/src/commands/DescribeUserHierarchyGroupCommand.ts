@@ -45,45 +45,44 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * };
  * const command = new DescribeUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserHierarchyGroupResponse
- *   HierarchyGroup: { // HierarchyGroup
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     LevelId: "STRING_VALUE",
- *     HierarchyPath: { // HierarchyPath
- *       LevelOne: { // HierarchyGroupSummary
- *         Id: "STRING_VALUE",
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       LevelTwo: {
- *         Id: "STRING_VALUE",
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       LevelThree: {
- *         Id: "STRING_VALUE",
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       LevelFour: {
- *         Id: "STRING_VALUE",
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *       LevelFive: {
- *         Id: "STRING_VALUE",
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     },
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeUserHierarchyGroupResponse
+ * //   HierarchyGroup: { // HierarchyGroup
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     LevelId: "STRING_VALUE",
+ * //     HierarchyPath: { // HierarchyPath
+ * //       LevelOne: { // HierarchyGroupSummary
+ * //         Id: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       LevelTwo: {
+ * //         Id: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       LevelThree: {
+ * //         Id: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       LevelFour: {
+ * //         Id: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       LevelFive: {
+ * //         Id: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

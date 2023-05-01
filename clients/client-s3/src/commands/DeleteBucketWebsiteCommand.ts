@@ -68,8 +68,7 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketWebsiteCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

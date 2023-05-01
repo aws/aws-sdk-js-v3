@@ -127,10 +127,9 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * };
  * const command = new CreateStreamProcessorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamProcessorResponse
- *   StreamProcessorArn: "STRING_VALUE",
- * };
+ * // { // CreateStreamProcessorResponse
+ * //   StreamProcessorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

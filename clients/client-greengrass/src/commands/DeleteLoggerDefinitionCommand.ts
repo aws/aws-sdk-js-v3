@@ -44,8 +44,7 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * };
  * const command = new DeleteLoggerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

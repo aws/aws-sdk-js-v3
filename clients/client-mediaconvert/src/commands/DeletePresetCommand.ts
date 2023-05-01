@@ -44,8 +44,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * };
  * const command = new DeletePresetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

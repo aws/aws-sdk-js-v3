@@ -46,8 +46,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * };
  * const command = new DeleteActivationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

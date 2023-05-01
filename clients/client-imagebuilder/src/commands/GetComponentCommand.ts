@@ -44,46 +44,45 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComponentResponse
- *   requestId: "STRING_VALUE",
- *   component: { // Component
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     changeDescription: "STRING_VALUE",
- *     type: "BUILD" || "TEST",
- *     platform: "Windows" || "Linux",
- *     supportedOsVersions: [ // OsVersionList
- *       "STRING_VALUE",
- *     ],
- *     state: { // ComponentState
- *       status: "DEPRECATED",
- *       reason: "STRING_VALUE",
- *     },
- *     parameters: [ // ComponentParameterDetailList
- *       { // ComponentParameterDetail
- *         name: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *         defaultValue: [ // ComponentParameterValueList
- *           "STRING_VALUE",
- *         ],
- *         description: "STRING_VALUE",
- *       },
- *     ],
- *     owner: "STRING_VALUE",
- *     data: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     encrypted: true || false,
- *     dateCreated: "STRING_VALUE",
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     publisher: "STRING_VALUE",
- *     obfuscate: true || false,
- *   },
- * };
+ * // { // GetComponentResponse
+ * //   requestId: "STRING_VALUE",
+ * //   component: { // Component
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     changeDescription: "STRING_VALUE",
+ * //     type: "BUILD" || "TEST",
+ * //     platform: "Windows" || "Linux",
+ * //     supportedOsVersions: [ // OsVersionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     state: { // ComponentState
+ * //       status: "DEPRECATED",
+ * //       reason: "STRING_VALUE",
+ * //     },
+ * //     parameters: [ // ComponentParameterDetailList
+ * //       { // ComponentParameterDetail
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //         defaultValue: [ // ComponentParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     owner: "STRING_VALUE",
+ * //     data: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     encrypted: true || false,
+ * //     dateCreated: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     publisher: "STRING_VALUE",
+ * //     obfuscate: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

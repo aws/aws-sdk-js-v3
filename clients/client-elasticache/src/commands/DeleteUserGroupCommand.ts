@@ -44,28 +44,27 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * };
  * const command = new DeleteUserGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UserGroup
- *   UserGroupId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   Engine: "STRING_VALUE",
- *   UserIds: [ // UserIdList
- *     "STRING_VALUE",
- *   ],
- *   MinimumEngineVersion: "STRING_VALUE",
- *   PendingChanges: { // UserGroupPendingChanges
- *     UserIdsToRemove: [
- *       "STRING_VALUE",
- *     ],
- *     UserIdsToAdd: [
- *       "STRING_VALUE",
- *     ],
- *   },
- *   ReplicationGroups: [ // UGReplicationGroupIdList
- *     "STRING_VALUE",
- *   ],
- *   ARN: "STRING_VALUE",
- * };
+ * // { // UserGroup
+ * //   UserGroupId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   Engine: "STRING_VALUE",
+ * //   UserIds: [ // UserIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   MinimumEngineVersion: "STRING_VALUE",
+ * //   PendingChanges: { // UserGroupPendingChanges
+ * //     UserIdsToRemove: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     UserIdsToAdd: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ReplicationGroups: [ // UGReplicationGroupIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

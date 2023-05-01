@@ -44,8 +44,7 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * };
  * const command = new ImportCatalogToGlueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,19 +45,18 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * };
  * const command = new ListAppMonitorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppMonitorsResponse
- *   NextToken: "STRING_VALUE",
- *   AppMonitorSummaries: [ // AppMonitorSummaryList
- *     { // AppMonitorSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Created: "STRING_VALUE",
- *       LastModified: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAppMonitorsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   AppMonitorSummaries: [ // AppMonitorSummaryList
+ * //     { // AppMonitorSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Created: "STRING_VALUE",
+ * //       LastModified: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,16 +45,15 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstancesResponse
- *   Instances: [ // InstanceList
- *     { // InstanceMetadata
- *       InstanceArn: "STRING_VALUE",
- *       IdentityStoreId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInstancesResponse
+ * //   Instances: [ // InstanceList
+ * //     { // InstanceMetadata
+ * //       InstanceArn: "STRING_VALUE",
+ * //       IdentityStoreId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -78,58 +78,57 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVpcEndpointResult
- *   VpcEndpoint: { // VpcEndpoint
- *     VpcEndpointId: "STRING_VALUE",
- *     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
- *     VpcId: "STRING_VALUE",
- *     ServiceName: "STRING_VALUE",
- *     State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
- *     PolicyDocument: "STRING_VALUE",
- *     RouteTableIds: [ // ValueStringList
- *       "STRING_VALUE",
- *     ],
- *     SubnetIds: [
- *       "STRING_VALUE",
- *     ],
- *     Groups: [ // GroupIdentifierSet
- *       { // SecurityGroupIdentifier
- *         GroupId: "STRING_VALUE",
- *         GroupName: "STRING_VALUE",
- *       },
- *     ],
- *     IpAddressType: "ipv4" || "dualstack" || "ipv6",
- *     DnsOptions: { // DnsOptions
- *       DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
- *       PrivateDnsOnlyForInboundResolverEndpoint: true || false,
- *     },
- *     PrivateDnsEnabled: true || false,
- *     RequesterManaged: true || false,
- *     NetworkInterfaceIds: [
- *       "STRING_VALUE",
- *     ],
- *     DnsEntries: [ // DnsEntrySet
- *       { // DnsEntry
- *         DnsName: "STRING_VALUE",
- *         HostedZoneId: "STRING_VALUE",
- *       },
- *     ],
- *     CreationTimestamp: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     OwnerId: "STRING_VALUE",
- *     LastError: { // LastError
- *       Message: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *     },
- *   },
- *   ClientToken: "STRING_VALUE",
- * };
+ * // { // CreateVpcEndpointResult
+ * //   VpcEndpoint: { // VpcEndpoint
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ * //     VpcId: "STRING_VALUE",
+ * //     ServiceName: "STRING_VALUE",
+ * //     State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //     PolicyDocument: "STRING_VALUE",
+ * //     RouteTableIds: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Groups: [ // GroupIdentifierSet
+ * //       { // SecurityGroupIdentifier
+ * //         GroupId: "STRING_VALUE",
+ * //         GroupName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ * //     DnsOptions: { // DnsOptions
+ * //       DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
+ * //       PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ * //     },
+ * //     PrivateDnsEnabled: true || false,
+ * //     RequesterManaged: true || false,
+ * //     NetworkInterfaceIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DnsEntries: [ // DnsEntrySet
+ * //       { // DnsEntry
+ * //         DnsName: "STRING_VALUE",
+ * //         HostedZoneId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CreationTimestamp: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OwnerId: "STRING_VALUE",
+ * //     LastError: { // LastError
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

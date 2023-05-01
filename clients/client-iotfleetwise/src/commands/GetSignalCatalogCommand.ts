@@ -44,21 +44,20 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  * };
  * const command = new GetSignalCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSignalCatalogResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   nodeCounts: { // NodeCounts
- *     totalNodes: Number("int"),
- *     totalBranches: Number("int"),
- *     totalSensors: Number("int"),
- *     totalAttributes: Number("int"),
- *     totalActuators: Number("int"),
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetSignalCatalogResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   nodeCounts: { // NodeCounts
+ * //     totalNodes: Number("int"),
+ * //     totalBranches: Number("int"),
+ * //     totalSensors: Number("int"),
+ * //     totalAttributes: Number("int"),
+ * //     totalActuators: Number("int"),
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -47,32 +47,31 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * };
  * const command = new DescribeChangeSetHooksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChangeSetHooksOutput
- *   ChangeSetId: "STRING_VALUE",
- *   ChangeSetName: "STRING_VALUE",
- *   Hooks: [ // ChangeSetHooks
- *     { // ChangeSetHook
- *       InvocationPoint: "PRE_PROVISION",
- *       FailureMode: "FAIL" || "WARN",
- *       TypeName: "STRING_VALUE",
- *       TypeVersionId: "STRING_VALUE",
- *       TypeConfigurationVersionId: "STRING_VALUE",
- *       TargetDetails: { // ChangeSetHookTargetDetails
- *         TargetType: "RESOURCE",
- *         ResourceTargetDetails: { // ChangeSetHookResourceTargetDetails
- *           LogicalResourceId: "STRING_VALUE",
- *           ResourceType: "STRING_VALUE",
- *           ResourceAction: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
- *         },
- *       },
- *     },
- *   ],
- *   Status: "PLANNING" || "PLANNED" || "UNAVAILABLE",
- *   NextToken: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
- *   StackName: "STRING_VALUE",
- * };
+ * // { // DescribeChangeSetHooksOutput
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetName: "STRING_VALUE",
+ * //   Hooks: [ // ChangeSetHooks
+ * //     { // ChangeSetHook
+ * //       InvocationPoint: "PRE_PROVISION",
+ * //       FailureMode: "FAIL" || "WARN",
+ * //       TypeName: "STRING_VALUE",
+ * //       TypeVersionId: "STRING_VALUE",
+ * //       TypeConfigurationVersionId: "STRING_VALUE",
+ * //       TargetDetails: { // ChangeSetHookTargetDetails
+ * //         TargetType: "RESOURCE",
+ * //         ResourceTargetDetails: { // ChangeSetHookResourceTargetDetails
+ * //           LogicalResourceId: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceAction: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   Status: "PLANNING" || "PLANNED" || "UNAVAILABLE",
+ * //   NextToken: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * //   StackName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

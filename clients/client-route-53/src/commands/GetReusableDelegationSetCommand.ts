@@ -46,16 +46,15 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * };
  * const command = new GetReusableDelegationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReusableDelegationSetResponse
- *   DelegationSet: { // DelegationSet
- *     Id: "STRING_VALUE",
- *     CallerReference: "STRING_VALUE",
- *     NameServers: [ // DelegationSetNameServers // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetReusableDelegationSetResponse
+ * //   DelegationSet: { // DelegationSet
+ * //     Id: "STRING_VALUE",
+ * //     CallerReference: "STRING_VALUE",
+ * //     NameServers: [ // DelegationSetNameServers // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

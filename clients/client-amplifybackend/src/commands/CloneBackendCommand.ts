@@ -46,15 +46,14 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * };
  * const command = new CloneBackendCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CloneBackendResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // CloneBackendResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

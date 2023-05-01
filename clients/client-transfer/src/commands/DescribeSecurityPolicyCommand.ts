@@ -47,25 +47,24 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * };
  * const command = new DescribeSecurityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSecurityPolicyResponse
- *   SecurityPolicy: { // DescribedSecurityPolicy
- *     Fips: true || false,
- *     SecurityPolicyName: "STRING_VALUE", // required
- *     SshCiphers: [ // SecurityPolicyOptions
- *       "STRING_VALUE",
- *     ],
- *     SshKexs: [
- *       "STRING_VALUE",
- *     ],
- *     SshMacs: [
- *       "STRING_VALUE",
- *     ],
- *     TlsCiphers: [
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeSecurityPolicyResponse
+ * //   SecurityPolicy: { // DescribedSecurityPolicy
+ * //     Fips: true || false,
+ * //     SecurityPolicyName: "STRING_VALUE", // required
+ * //     SshCiphers: [ // SecurityPolicyOptions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SshKexs: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SshMacs: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     TlsCiphers: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

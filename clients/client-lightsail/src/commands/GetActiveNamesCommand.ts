@@ -44,13 +44,12 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * };
  * const command = new GetActiveNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetActiveNamesResult
- *   activeNames: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetActiveNamesResult
+ * //   activeNames: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

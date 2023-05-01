@@ -125,15 +125,14 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTagsResponse
- *   NextPageToken: "STRING_VALUE",
- *   Tags: [ // TagList // required
- *     "STRING_VALUE",
- *   ],
- *   ReturnSize: Number("int"), // required
- *   TotalSize: Number("int"), // required
- * };
+ * // { // GetTagsResponse
+ * //   NextPageToken: "STRING_VALUE",
+ * //   Tags: [ // TagList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ReturnSize: Number("int"), // required
+ * //   TotalSize: Number("int"), // required
+ * // };
  *
  * ```
  *

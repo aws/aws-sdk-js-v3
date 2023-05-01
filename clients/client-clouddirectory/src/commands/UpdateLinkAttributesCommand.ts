@@ -87,8 +87,7 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * };
  * const command = new UpdateLinkAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

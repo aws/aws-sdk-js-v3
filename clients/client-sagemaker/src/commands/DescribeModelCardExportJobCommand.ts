@@ -44,23 +44,22 @@ export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCa
  * };
  * const command = new DescribeModelCardExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeModelCardExportJobResponse
- *   ModelCardExportJobName: "STRING_VALUE", // required
- *   ModelCardExportJobArn: "STRING_VALUE", // required
- *   Status: "InProgress" || "Completed" || "Failed", // required
- *   ModelCardName: "STRING_VALUE", // required
- *   ModelCardVersion: Number("int"), // required
- *   OutputConfig: { // ModelCardExportOutputConfig
- *     S3OutputPath: "STRING_VALUE", // required
- *   },
- *   CreatedAt: new Date("TIMESTAMP"), // required
- *   LastModifiedAt: new Date("TIMESTAMP"), // required
- *   FailureReason: "STRING_VALUE",
- *   ExportArtifacts: { // ModelCardExportArtifacts
- *     S3ExportArtifacts: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DescribeModelCardExportJobResponse
+ * //   ModelCardExportJobName: "STRING_VALUE", // required
+ * //   ModelCardExportJobArn: "STRING_VALUE", // required
+ * //   Status: "InProgress" || "Completed" || "Failed", // required
+ * //   ModelCardName: "STRING_VALUE", // required
+ * //   ModelCardVersion: Number("int"), // required
+ * //   OutputConfig: { // ModelCardExportOutputConfig
+ * //     S3OutputPath: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   LastModifiedAt: new Date("TIMESTAMP"), // required
+ * //   FailureReason: "STRING_VALUE",
+ * //   ExportArtifacts: { // ModelCardExportArtifacts
+ * //     S3ExportArtifacts: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

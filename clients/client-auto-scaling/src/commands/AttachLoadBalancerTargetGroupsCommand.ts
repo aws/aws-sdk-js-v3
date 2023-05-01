@@ -81,8 +81,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new AttachLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

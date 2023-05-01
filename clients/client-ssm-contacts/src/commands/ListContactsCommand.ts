@@ -47,18 +47,17 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactsResult
- *   NextToken: "STRING_VALUE",
- *   Contacts: [ // ContactsList
- *     { // Contact
- *       ContactArn: "STRING_VALUE", // required
- *       Alias: "STRING_VALUE", // required
- *       DisplayName: "STRING_VALUE",
- *       Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
- *     },
- *   ],
- * };
+ * // { // ListContactsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Contacts: [ // ContactsList
+ * //     { // Contact
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Alias: "STRING_VALUE", // required
+ * //       DisplayName: "STRING_VALUE",
+ * //       Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

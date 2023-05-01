@@ -63,8 +63,7 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

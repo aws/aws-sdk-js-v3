@@ -53,17 +53,16 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * };
  * const command = new UpdateDimensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDimensionResponse
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   type: "TOPIC_FILTER",
- *   stringValues: [ // DimensionStringValues
- *     "STRING_VALUE",
- *   ],
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateDimensionResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   type: "TOPIC_FILTER",
+ * //   stringValues: [ // DimensionStringValues
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

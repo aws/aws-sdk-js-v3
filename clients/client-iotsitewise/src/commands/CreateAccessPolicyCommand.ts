@@ -71,11 +71,10 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * };
  * const command = new CreateAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPolicyResponse
- *   accessPolicyId: "STRING_VALUE", // required
- *   accessPolicyArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessPolicyResponse
+ * //   accessPolicyId: "STRING_VALUE", // required
+ * //   accessPolicyArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

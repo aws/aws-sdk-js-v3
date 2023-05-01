@@ -50,13 +50,12 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * };
  * const command = new UpdateWorldTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorldTemplateResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateWorldTemplateResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

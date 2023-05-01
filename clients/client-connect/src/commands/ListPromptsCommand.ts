@@ -46,17 +46,16 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * };
  * const command = new ListPromptsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPromptsResponse
- *   PromptSummaryList: [ // PromptSummaryList
- *     { // PromptSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPromptsResponse
+ * //   PromptSummaryList: [ // PromptSummaryList
+ * //     { // PromptSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * };
  * const command = new RecordHandlerProgressCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

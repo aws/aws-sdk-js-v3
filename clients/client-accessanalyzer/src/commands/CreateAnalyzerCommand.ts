@@ -68,10 +68,9 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * };
  * const command = new CreateAnalyzerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnalyzerResponse
- *   arn: "STRING_VALUE",
- * };
+ * // { // CreateAnalyzerResponse
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

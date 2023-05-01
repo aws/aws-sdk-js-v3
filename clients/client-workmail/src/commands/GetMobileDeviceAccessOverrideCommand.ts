@@ -51,15 +51,14 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * };
  * const command = new GetMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMobileDeviceAccessOverrideResponse
- *   UserId: "STRING_VALUE",
- *   DeviceId: "STRING_VALUE",
- *   Effect: "ALLOW" || "DENY",
- *   Description: "STRING_VALUE",
- *   DateCreated: new Date("TIMESTAMP"),
- *   DateModified: new Date("TIMESTAMP"),
- * };
+ * // { // GetMobileDeviceAccessOverrideResponse
+ * //   UserId: "STRING_VALUE",
+ * //   DeviceId: "STRING_VALUE",
+ * //   Effect: "ALLOW" || "DENY",
+ * //   Description: "STRING_VALUE",
+ * //   DateCreated: new Date("TIMESTAMP"),
+ * //   DateModified: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

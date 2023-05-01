@@ -139,13 +139,12 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * };
  * const command = new UpdateComponentTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateComponentTypeResponse
- *   workspaceId: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   componentTypeId: "STRING_VALUE", // required
- *   state: "STRING_VALUE", // required
- * };
+ * // { // UpdateComponentTypeResponse
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   componentTypeId: "STRING_VALUE", // required
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

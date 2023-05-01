@@ -47,15 +47,14 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * };
  * const command = new CreateFolderMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFolderMembershipResponse
- *   Status: Number("int"),
- *   FolderMember: { // FolderMember
- *     MemberId: "STRING_VALUE",
- *     MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET",
- *   },
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateFolderMembershipResponse
+ * //   Status: Number("int"),
+ * //   FolderMember: { // FolderMember
+ * //     MemberId: "STRING_VALUE",
+ * //     MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

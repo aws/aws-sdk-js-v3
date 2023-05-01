@@ -56,25 +56,24 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteImageResponse
- *   imageIds: [ // ImageIdentifierList
- *     { // ImageIdentifier
- *       imageDigest: "STRING_VALUE",
- *       imageTag: "STRING_VALUE",
- *     },
- *   ],
- *   failures: [ // ImageFailureList
- *     { // ImageFailure
- *       imageId: {
- *         imageDigest: "STRING_VALUE",
- *         imageTag: "STRING_VALUE",
- *       },
- *       failureCode: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteImageResponse
+ * //   imageIds: [ // ImageIdentifierList
+ * //     { // ImageIdentifier
+ * //       imageDigest: "STRING_VALUE",
+ * //       imageTag: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failures: [ // ImageFailureList
+ * //     { // ImageFailure
+ * //       imageId: {
+ * //         imageDigest: "STRING_VALUE",
+ * //         imageTag: "STRING_VALUE",
+ * //       },
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

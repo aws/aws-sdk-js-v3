@@ -103,16 +103,15 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * };
  * const command = new DescribeEventAggregatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventAggregatesResponse
- *   eventAggregates: [ // EventAggregateList
- *     { // EventAggregate
- *       aggregateValue: "STRING_VALUE",
- *       count: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEventAggregatesResponse
+ * //   eventAggregates: [ // EventAggregateList
+ * //     { // EventAggregate
+ * //       aggregateValue: "STRING_VALUE",
+ * //       count: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

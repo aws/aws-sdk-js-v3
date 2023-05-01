@@ -50,8 +50,7 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * };
  * const command = new DeleteDocumentClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,59 +48,58 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * };
  * const command = new DescribeLaunchConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LaunchConfigurationsType
- *   LaunchConfigurations: [ // LaunchConfigurations // required
- *     { // LaunchConfiguration
- *       LaunchConfigurationName: "STRING_VALUE", // required
- *       LaunchConfigurationARN: "STRING_VALUE",
- *       ImageId: "STRING_VALUE", // required
- *       KeyName: "STRING_VALUE",
- *       SecurityGroups: [ // SecurityGroups
- *         "STRING_VALUE",
- *       ],
- *       ClassicLinkVPCId: "STRING_VALUE",
- *       ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
- *         "STRING_VALUE",
- *       ],
- *       UserData: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE", // required
- *       KernelId: "STRING_VALUE",
- *       RamdiskId: "STRING_VALUE",
- *       BlockDeviceMappings: [ // BlockDeviceMappings
- *         { // BlockDeviceMapping
- *           VirtualName: "STRING_VALUE",
- *           DeviceName: "STRING_VALUE", // required
- *           Ebs: { // Ebs
- *             SnapshotId: "STRING_VALUE",
- *             VolumeSize: Number("int"),
- *             VolumeType: "STRING_VALUE",
- *             DeleteOnTermination: true || false,
- *             Iops: Number("int"),
- *             Encrypted: true || false,
- *             Throughput: Number("int"),
- *           },
- *           NoDevice: true || false,
- *         },
- *       ],
- *       InstanceMonitoring: { // InstanceMonitoring
- *         Enabled: true || false,
- *       },
- *       SpotPrice: "STRING_VALUE",
- *       IamInstanceProfile: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       EbsOptimized: true || false,
- *       AssociatePublicIpAddress: true || false,
- *       PlacementTenancy: "STRING_VALUE",
- *       MetadataOptions: { // InstanceMetadataOptions
- *         HttpTokens: "optional" || "required",
- *         HttpPutResponseHopLimit: Number("int"),
- *         HttpEndpoint: "disabled" || "enabled",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // LaunchConfigurationsType
+ * //   LaunchConfigurations: [ // LaunchConfigurations // required
+ * //     { // LaunchConfiguration
+ * //       LaunchConfigurationName: "STRING_VALUE", // required
+ * //       LaunchConfigurationARN: "STRING_VALUE",
+ * //       ImageId: "STRING_VALUE", // required
+ * //       KeyName: "STRING_VALUE",
+ * //       SecurityGroups: [ // SecurityGroups
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ClassicLinkVPCId: "STRING_VALUE",
+ * //       ClassicLinkVPCSecurityGroups: [ // ClassicLinkVPCSecurityGroups
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UserData: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE", // required
+ * //       KernelId: "STRING_VALUE",
+ * //       RamdiskId: "STRING_VALUE",
+ * //       BlockDeviceMappings: [ // BlockDeviceMappings
+ * //         { // BlockDeviceMapping
+ * //           VirtualName: "STRING_VALUE",
+ * //           DeviceName: "STRING_VALUE", // required
+ * //           Ebs: { // Ebs
+ * //             SnapshotId: "STRING_VALUE",
+ * //             VolumeSize: Number("int"),
+ * //             VolumeType: "STRING_VALUE",
+ * //             DeleteOnTermination: true || false,
+ * //             Iops: Number("int"),
+ * //             Encrypted: true || false,
+ * //             Throughput: Number("int"),
+ * //           },
+ * //           NoDevice: true || false,
+ * //         },
+ * //       ],
+ * //       InstanceMonitoring: { // InstanceMonitoring
+ * //         Enabled: true || false,
+ * //       },
+ * //       SpotPrice: "STRING_VALUE",
+ * //       IamInstanceProfile: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       EbsOptimized: true || false,
+ * //       AssociatePublicIpAddress: true || false,
+ * //       PlacementTenancy: "STRING_VALUE",
+ * //       MetadataOptions: { // InstanceMetadataOptions
+ * //         HttpTokens: "optional" || "required",
+ * //         HttpPutResponseHopLimit: Number("int"),
+ * //         HttpEndpoint: "disabled" || "enabled",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

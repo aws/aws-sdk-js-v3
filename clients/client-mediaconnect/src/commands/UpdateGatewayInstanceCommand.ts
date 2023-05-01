@@ -45,11 +45,10 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * };
  * const command = new UpdateGatewayInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGatewayInstanceResponse
- *   BridgePlacement: "AVAILABLE" || "LOCKED",
- *   GatewayInstanceArn: "STRING_VALUE",
- * };
+ * // { // UpdateGatewayInstanceResponse
+ * //   BridgePlacement: "AVAILABLE" || "LOCKED",
+ * //   GatewayInstanceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

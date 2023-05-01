@@ -58,24 +58,23 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * };
  * const command = new ListInferenceRecommendationsJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInferenceRecommendationsJobsResponse
- *   InferenceRecommendationsJobs: [ // InferenceRecommendationsJobs // required
- *     { // InferenceRecommendationsJob
- *       JobName: "STRING_VALUE", // required
- *       JobDescription: "STRING_VALUE", // required
- *       JobType: "Default" || "Advanced", // required
- *       JobArn: "STRING_VALUE", // required
- *       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       CompletionTime: new Date("TIMESTAMP"),
- *       RoleArn: "STRING_VALUE", // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInferenceRecommendationsJobsResponse
+ * //   InferenceRecommendationsJobs: [ // InferenceRecommendationsJobs // required
+ * //     { // InferenceRecommendationsJob
+ * //       JobName: "STRING_VALUE", // required
+ * //       JobDescription: "STRING_VALUE", // required
+ * //       JobType: "Default" || "Advanced", // required
+ * //       JobArn: "STRING_VALUE", // required
+ * //       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       CompletionTime: new Date("TIMESTAMP"),
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

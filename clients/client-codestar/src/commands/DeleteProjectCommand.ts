@@ -47,11 +47,10 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProjectResult
- *   stackId: "STRING_VALUE",
- *   projectArn: "STRING_VALUE",
- * };
+ * // { // DeleteProjectResult
+ * //   stackId: "STRING_VALUE",
+ * //   projectArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

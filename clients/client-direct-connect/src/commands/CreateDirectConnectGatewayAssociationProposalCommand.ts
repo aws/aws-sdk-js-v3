@@ -66,31 +66,30 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * };
  * const command = new CreateDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDirectConnectGatewayAssociationProposalResult
- *   directConnectGatewayAssociationProposal: { // DirectConnectGatewayAssociationProposal
- *     proposalId: "STRING_VALUE",
- *     directConnectGatewayId: "STRING_VALUE",
- *     directConnectGatewayOwnerAccount: "STRING_VALUE",
- *     proposalState: "requested" || "accepted" || "deleted",
- *     associatedGateway: { // AssociatedGateway
- *       id: "STRING_VALUE",
- *       type: "virtualPrivateGateway" || "transitGateway",
- *       ownerAccount: "STRING_VALUE",
- *       region: "STRING_VALUE",
- *     },
- *     existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
- *       { // RouteFilterPrefix
- *         cidr: "STRING_VALUE",
- *       },
- *     ],
- *     requestedAllowedPrefixesToDirectConnectGateway: [
- *       {
- *         cidr: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateDirectConnectGatewayAssociationProposalResult
+ * //   directConnectGatewayAssociationProposal: { // DirectConnectGatewayAssociationProposal
+ * //     proposalId: "STRING_VALUE",
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayOwnerAccount: "STRING_VALUE",
+ * //     proposalState: "requested" || "accepted" || "deleted",
+ * //     associatedGateway: { // AssociatedGateway
+ * //       id: "STRING_VALUE",
+ * //       type: "virtualPrivateGateway" || "transitGateway",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //     },
+ * //     existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ * //       { // RouteFilterPrefix
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     requestedAllowedPrefixesToDirectConnectGateway: [
+ * //       {
+ * //         cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

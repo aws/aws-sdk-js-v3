@@ -52,8 +52,7 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * };
  * const command = new CloseTunnelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

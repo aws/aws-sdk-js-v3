@@ -51,20 +51,19 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNetworksResponse
- *   networks: [ // NetworkList
- *     { // Network
- *       networkArn: "STRING_VALUE", // required
- *       networkName: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       statusReason: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListNetworksResponse
+ * //   networks: [ // NetworkList
+ * //     { // Network
+ * //       networkArn: "STRING_VALUE", // required
+ * //       networkName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       statusReason: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,17 +45,16 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
  * };
  * const command = new ListBulkDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBulkDeploymentsResponse
- *   BulkDeployments: [ // BulkDeployments
- *     { // BulkDeployment
- *       BulkDeploymentArn: "STRING_VALUE",
- *       BulkDeploymentId: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBulkDeploymentsResponse
+ * //   BulkDeployments: [ // BulkDeployments
+ * //     { // BulkDeployment
+ * //       BulkDeploymentArn: "STRING_VALUE",
+ * //       BulkDeploymentId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

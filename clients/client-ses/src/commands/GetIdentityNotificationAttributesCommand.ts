@@ -59,20 +59,19 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * };
  * const command = new GetIdentityNotificationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityNotificationAttributesResponse
- *   NotificationAttributes: { // NotificationAttributes // required
- *     "<keys>": { // IdentityNotificationAttributes
- *       BounceTopic: "STRING_VALUE", // required
- *       ComplaintTopic: "STRING_VALUE", // required
- *       DeliveryTopic: "STRING_VALUE", // required
- *       ForwardingEnabled: true || false, // required
- *       HeadersInBounceNotificationsEnabled: true || false,
- *       HeadersInComplaintNotificationsEnabled: true || false,
- *       HeadersInDeliveryNotificationsEnabled: true || false,
- *     },
- *   },
- * };
+ * // { // GetIdentityNotificationAttributesResponse
+ * //   NotificationAttributes: { // NotificationAttributes // required
+ * //     "<keys>": { // IdentityNotificationAttributes
+ * //       BounceTopic: "STRING_VALUE", // required
+ * //       ComplaintTopic: "STRING_VALUE", // required
+ * //       DeliveryTopic: "STRING_VALUE", // required
+ * //       ForwardingEnabled: true || false, // required
+ * //       HeadersInBounceNotificationsEnabled: true || false,
+ * //       HeadersInComplaintNotificationsEnabled: true || false,
+ * //       HeadersInDeliveryNotificationsEnabled: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

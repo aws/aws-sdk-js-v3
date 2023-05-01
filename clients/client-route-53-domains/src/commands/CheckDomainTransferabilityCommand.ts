@@ -49,12 +49,11 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * };
  * const command = new CheckDomainTransferabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckDomainTransferabilityResponse
- *   Transferability: { // DomainTransferability
- *     Transferable: "TRANSFERABLE" || "UNTRANSFERABLE" || "DONT_KNOW" || "DOMAIN_IN_OWN_ACCOUNT" || "DOMAIN_IN_ANOTHER_ACCOUNT" || "PREMIUM_DOMAIN",
- *   },
- * };
+ * // { // CheckDomainTransferabilityResponse
+ * //   Transferability: { // DomainTransferability
+ * //     Transferable: "TRANSFERABLE" || "UNTRANSFERABLE" || "DONT_KNOW" || "DOMAIN_IN_OWN_ACCOUNT" || "DOMAIN_IN_ANOTHER_ACCOUNT" || "PREMIUM_DOMAIN",
+ * //   },
+ * // };
  *
  * ```
  *

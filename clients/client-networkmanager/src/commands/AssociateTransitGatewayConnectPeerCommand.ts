@@ -59,16 +59,15 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * };
  * const command = new AssociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTransitGatewayConnectPeerResponse
- *   TransitGatewayConnectPeerAssociation: { // TransitGatewayConnectPeerAssociation
- *     TransitGatewayConnectPeerArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // AssociateTransitGatewayConnectPeerResponse
+ * //   TransitGatewayConnectPeerAssociation: { // TransitGatewayConnectPeerAssociation
+ * //     TransitGatewayConnectPeerArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

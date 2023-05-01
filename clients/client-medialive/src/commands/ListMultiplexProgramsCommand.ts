@@ -46,16 +46,15 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * };
  * const command = new ListMultiplexProgramsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMultiplexProgramsResponse
- *   MultiplexPrograms: [ // __listOfMultiplexProgramSummary
- *     { // MultiplexProgramSummary
- *       ChannelId: "STRING_VALUE",
- *       ProgramName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMultiplexProgramsResponse
+ * //   MultiplexPrograms: [ // __listOfMultiplexProgramSummary
+ * //     { // MultiplexProgramSummary
+ * //       ChannelId: "STRING_VALUE",
+ * //       ProgramName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

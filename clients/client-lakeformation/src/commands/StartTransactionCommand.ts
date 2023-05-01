@@ -44,10 +44,9 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * };
  * const command = new StartTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTransactionResponse
- *   TransactionId: "STRING_VALUE",
- * };
+ * // { // StartTransactionResponse
+ * //   TransactionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

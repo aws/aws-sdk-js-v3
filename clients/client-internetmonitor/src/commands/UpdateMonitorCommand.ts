@@ -65,11 +65,10 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMonitorOutput
- *   MonitorArn: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
- * };
+ * // { // UpdateMonitorOutput
+ * //   MonitorArn: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

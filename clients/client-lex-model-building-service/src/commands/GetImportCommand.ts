@@ -49,18 +49,17 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImportResponse
- *   name: "STRING_VALUE",
- *   resourceType: "STRING_VALUE",
- *   mergeStrategy: "STRING_VALUE",
- *   importId: "STRING_VALUE",
- *   importStatus: "STRING_VALUE",
- *   failureReason: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   createdDate: new Date("TIMESTAMP"),
- * };
+ * // { // GetImportResponse
+ * //   name: "STRING_VALUE",
+ * //   resourceType: "STRING_VALUE",
+ * //   mergeStrategy: "STRING_VALUE",
+ * //   importId: "STRING_VALUE",
+ * //   importStatus: "STRING_VALUE",
+ * //   failureReason: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

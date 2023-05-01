@@ -51,26 +51,25 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobRunsResponse
- *   jobRuns: [ // JobRuns // required
- *     { // JobRunSummary
- *       applicationId: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE", // required
- *       createdBy: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       updatedAt: new Date("TIMESTAMP"), // required
- *       executionRole: "STRING_VALUE", // required
- *       state: "STRING_VALUE", // required
- *       stateDetails: "STRING_VALUE", // required
- *       releaseLabel: "STRING_VALUE", // required
- *       type: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListJobRunsResponse
+ * //   jobRuns: [ // JobRuns // required
+ * //     { // JobRunSummary
+ * //       applicationId: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       createdBy: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       executionRole: "STRING_VALUE", // required
+ * //       state: "STRING_VALUE", // required
+ * //       stateDetails: "STRING_VALUE", // required
+ * //       releaseLabel: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,23 +56,22 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryResultsResponse
- *   results: [ // QueryResults
- *     [ // ResultRows
- *       { // ResultField
- *         field: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *   ],
- *   statistics: { // QueryStatistics
- *     recordsMatched: Number("double"),
- *     recordsScanned: Number("double"),
- *     bytesScanned: Number("double"),
- *   },
- *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
- * };
+ * // { // GetQueryResultsResponse
+ * //   results: [ // QueryResults
+ * //     [ // ResultRows
+ * //       { // ResultField
+ * //         field: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   ],
+ * //   statistics: { // QueryStatistics
+ * //     recordsMatched: Number("double"),
+ * //     recordsScanned: Number("double"),
+ * //     bytesScanned: Number("double"),
+ * //   },
+ * //   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ * // };
  *
  * ```
  *

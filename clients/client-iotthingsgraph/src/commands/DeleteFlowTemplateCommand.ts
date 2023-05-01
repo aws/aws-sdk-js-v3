@@ -47,8 +47,7 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * };
  * const command = new DeleteFlowTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

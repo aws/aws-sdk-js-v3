@@ -52,23 +52,22 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * };
  * const command = new GetRegexMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegexMatchSetResponse
- *   RegexMatchSet: { // RegexMatchSet
- *     RegexMatchSetId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RegexMatchTuples: [ // RegexMatchTuples
- *       { // RegexMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         RegexPatternSetId: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetRegexMatchSetResponse
+ * //   RegexMatchSet: { // RegexMatchSet
+ * //     RegexMatchSetId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RegexMatchTuples: [ // RegexMatchTuples
+ * //       { // RegexMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         RegexPatternSetId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

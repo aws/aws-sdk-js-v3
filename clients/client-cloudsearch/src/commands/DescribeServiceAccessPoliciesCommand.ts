@@ -51,19 +51,18 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * };
  * const command = new DescribeServiceAccessPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServiceAccessPoliciesResponse
- *   AccessPolicies: { // AccessPoliciesStatus
- *     Options: "STRING_VALUE", // required
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DescribeServiceAccessPoliciesResponse
+ * //   AccessPolicies: { // AccessPoliciesStatus
+ * //     Options: "STRING_VALUE", // required
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

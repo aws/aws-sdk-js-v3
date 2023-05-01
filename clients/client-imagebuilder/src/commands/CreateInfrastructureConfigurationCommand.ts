@@ -82,12 +82,11 @@ export interface CreateInfrastructureConfigurationCommandOutput
  * };
  * const command = new CreateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInfrastructureConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   infrastructureConfigurationArn: "STRING_VALUE",
- * };
+ * // { // CreateInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

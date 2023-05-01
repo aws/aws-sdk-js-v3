@@ -55,8 +55,7 @@ export interface UpdateWirelessGatewayCommandOutput extends UpdateWirelessGatewa
  * };
  * const command = new UpdateWirelessGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

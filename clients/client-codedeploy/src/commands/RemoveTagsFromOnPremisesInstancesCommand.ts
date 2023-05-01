@@ -55,8 +55,7 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * };
  * const command = new RemoveTagsFromOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

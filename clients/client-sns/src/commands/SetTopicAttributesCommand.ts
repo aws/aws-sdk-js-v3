@@ -51,8 +51,7 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetTopicAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

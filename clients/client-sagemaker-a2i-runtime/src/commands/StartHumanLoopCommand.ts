@@ -57,10 +57,9 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartHumanLoopResponse
- *   HumanLoopArn: "STRING_VALUE",
- * };
+ * // { // StartHumanLoopResponse
+ * //   HumanLoopArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

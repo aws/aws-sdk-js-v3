@@ -47,8 +47,7 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * };
  * const command = new SetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

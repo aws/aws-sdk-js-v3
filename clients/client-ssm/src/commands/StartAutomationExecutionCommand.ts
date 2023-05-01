@@ -105,10 +105,9 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAutomationExecutionResult
- *   AutomationExecutionId: "STRING_VALUE",
- * };
+ * // { // StartAutomationExecutionResult
+ * //   AutomationExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

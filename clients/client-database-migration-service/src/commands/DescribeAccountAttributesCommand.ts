@@ -52,17 +52,16 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountAttributesResponse
- *   AccountQuotas: [ // AccountQuotaList
- *     { // AccountQuota
- *       AccountQuotaName: "STRING_VALUE",
- *       Used: Number("long"),
- *       Max: Number("long"),
- *     },
- *   ],
- *   UniqueAccountIdentifier: "STRING_VALUE",
- * };
+ * // { // DescribeAccountAttributesResponse
+ * //   AccountQuotas: [ // AccountQuotaList
+ * //     { // AccountQuota
+ * //       AccountQuotaName: "STRING_VALUE",
+ * //       Used: Number("long"),
+ * //       Max: Number("long"),
+ * //     },
+ * //   ],
+ * //   UniqueAccountIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

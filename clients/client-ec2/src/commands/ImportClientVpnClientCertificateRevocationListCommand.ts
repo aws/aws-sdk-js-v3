@@ -56,10 +56,9 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
  * };
  * const command = new ImportClientVpnClientCertificateRevocationListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportClientVpnClientCertificateRevocationListResult
- *   Return: true || false,
- * };
+ * // { // ImportClientVpnClientCertificateRevocationListResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

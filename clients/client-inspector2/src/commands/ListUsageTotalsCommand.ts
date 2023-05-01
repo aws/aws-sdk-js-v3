@@ -48,23 +48,22 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * };
  * const command = new ListUsageTotalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsageTotalsResponse
- *   nextToken: "STRING_VALUE",
- *   totals: [ // UsageTotalList
- *     { // UsageTotal
- *       accountId: "STRING_VALUE",
- *       usage: [ // UsageList
- *         { // Usage
- *           type: "STRING_VALUE",
- *           total: Number("double"),
- *           estimatedMonthlyCost: Number("double"),
- *           currency: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListUsageTotalsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   totals: [ // UsageTotalList
+ * //     { // UsageTotal
+ * //       accountId: "STRING_VALUE",
+ * //       usage: [ // UsageList
+ * //         { // Usage
+ * //           type: "STRING_VALUE",
+ * //           total: Number("double"),
+ * //           estimatedMonthlyCost: Number("double"),
+ * //           currency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

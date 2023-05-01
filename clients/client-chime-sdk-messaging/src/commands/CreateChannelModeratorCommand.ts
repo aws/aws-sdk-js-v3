@@ -76,14 +76,13 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelModeratorResponse
- *   ChannelArn: "STRING_VALUE",
- *   ChannelModerator: { // Identity
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateChannelModeratorResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   ChannelModerator: { // Identity
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

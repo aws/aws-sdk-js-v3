@@ -61,14 +61,13 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * const input = {};
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAdjustmentTypesAnswer
- *   AdjustmentTypes: [ // AdjustmentTypes
- *     { // AdjustmentType
- *       AdjustmentType: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeAdjustmentTypesAnswer
+ * //   AdjustmentTypes: [ // AdjustmentTypes
+ * //     { // AdjustmentType
+ * //       AdjustmentType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

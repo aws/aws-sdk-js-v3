@@ -50,26 +50,25 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEnvironmentsResult
- *   environments: [ // EnvironmentList
- *     { // Environment
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       type: "ssh" || "ec2", // required
- *       connectionType: "CONNECT_SSH" || "CONNECT_SSM",
- *       arn: "STRING_VALUE", // required
- *       ownerArn: "STRING_VALUE", // required
- *       lifecycle: { // EnvironmentLifecycle
- *         status: "CREATING" || "CREATED" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *         reason: "STRING_VALUE",
- *         failureResource: "STRING_VALUE",
- *       },
- *       managedCredentialsStatus: "ENABLED_ON_CREATE" || "ENABLED_BY_OWNER" || "DISABLED_BY_DEFAULT" || "DISABLED_BY_OWNER" || "DISABLED_BY_COLLABORATOR" || "PENDING_REMOVAL_BY_COLLABORATOR" || "PENDING_START_REMOVAL_BY_COLLABORATOR" || "PENDING_REMOVAL_BY_OWNER" || "PENDING_START_REMOVAL_BY_OWNER" || "FAILED_REMOVAL_BY_COLLABORATOR" || "FAILED_REMOVAL_BY_OWNER",
- *     },
- *   ],
- * };
+ * // { // DescribeEnvironmentsResult
+ * //   environments: [ // EnvironmentList
+ * //     { // Environment
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       type: "ssh" || "ec2", // required
+ * //       connectionType: "CONNECT_SSH" || "CONNECT_SSM",
+ * //       arn: "STRING_VALUE", // required
+ * //       ownerArn: "STRING_VALUE", // required
+ * //       lifecycle: { // EnvironmentLifecycle
+ * //         status: "CREATING" || "CREATED" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //         reason: "STRING_VALUE",
+ * //         failureResource: "STRING_VALUE",
+ * //       },
+ * //       managedCredentialsStatus: "ENABLED_ON_CREATE" || "ENABLED_BY_OWNER" || "DISABLED_BY_DEFAULT" || "DISABLED_BY_OWNER" || "DISABLED_BY_COLLABORATOR" || "PENDING_REMOVAL_BY_COLLABORATOR" || "PENDING_START_REMOVAL_BY_COLLABORATOR" || "PENDING_REMOVAL_BY_OWNER" || "PENDING_START_REMOVAL_BY_OWNER" || "FAILED_REMOVAL_BY_COLLABORATOR" || "FAILED_REMOVAL_BY_OWNER",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

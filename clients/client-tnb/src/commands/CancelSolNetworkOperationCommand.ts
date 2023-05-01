@@ -45,8 +45,7 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * };
  * const command = new CancelSolNetworkOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -178,12 +178,11 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  * };
  * const command = new UpdateEvaluationFormCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEvaluationFormResponse
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormArn: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"), // required
- * };
+ * // { // UpdateEvaluationFormResponse
+ * //   EvaluationFormId: "STRING_VALUE", // required
+ * //   EvaluationFormArn: "STRING_VALUE", // required
+ * //   EvaluationFormVersion: Number("int"), // required
+ * // };
  *
  * ```
  *

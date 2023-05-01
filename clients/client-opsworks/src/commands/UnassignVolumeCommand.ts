@@ -51,8 +51,7 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnassignVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,16 +51,15 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * };
  * const command = new RebootWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RebootWorkspacesResult
- *   FailedRequests: [ // FailedRebootWorkspaceRequests
- *     { // FailedWorkspaceChangeRequest
- *       WorkspaceId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RebootWorkspacesResult
+ * //   FailedRequests: [ // FailedRebootWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

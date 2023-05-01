@@ -71,10 +71,9 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * };
  * const command = new CreateHITTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHITTypeResponse
- *   HITTypeId: "STRING_VALUE",
- * };
+ * // { // CreateHITTypeResponse
+ * //   HITTypeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

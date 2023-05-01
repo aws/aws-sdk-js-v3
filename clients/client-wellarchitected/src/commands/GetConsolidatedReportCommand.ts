@@ -48,50 +48,49 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * };
  * const command = new GetConsolidatedReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConsolidatedReportOutput
- *   Metrics: [ // ConsolidatedReportMetrics
- *     { // ConsolidatedReportMetric
- *       MetricType: "WORKLOAD",
- *       RiskCounts: { // RiskCounts
- *         "<keys>": Number("int"),
- *       },
- *       WorkloadId: "STRING_VALUE",
- *       WorkloadName: "STRING_VALUE",
- *       WorkloadArn: "STRING_VALUE",
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       Lenses: [ // LensMetrics
- *         { // LensMetric
- *           LensArn: "STRING_VALUE",
- *           Pillars: [ // PillarMetrics
- *             { // PillarMetric
- *               PillarId: "STRING_VALUE",
- *               RiskCounts: {
- *                 "<keys>": Number("int"),
- *               },
- *               Questions: [ // QuestionMetrics
- *                 { // QuestionMetric
- *                   QuestionId: "STRING_VALUE",
- *                   Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
- *                   BestPractices: [ // BestPractices
- *                     { // BestPractice
- *                       ChoiceId: "STRING_VALUE",
- *                       ChoiceTitle: "STRING_VALUE",
- *                     },
- *                   ],
- *                 },
- *               ],
- *             },
- *           ],
- *           RiskCounts: "<RiskCounts>",
- *         },
- *       ],
- *       LensesAppliedCount: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Base64String: "STRING_VALUE",
- * };
+ * // { // GetConsolidatedReportOutput
+ * //   Metrics: [ // ConsolidatedReportMetrics
+ * //     { // ConsolidatedReportMetric
+ * //       MetricType: "WORKLOAD",
+ * //       RiskCounts: { // RiskCounts
+ * //         "<keys>": Number("int"),
+ * //       },
+ * //       WorkloadId: "STRING_VALUE",
+ * //       WorkloadName: "STRING_VALUE",
+ * //       WorkloadArn: "STRING_VALUE",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Lenses: [ // LensMetrics
+ * //         { // LensMetric
+ * //           LensArn: "STRING_VALUE",
+ * //           Pillars: [ // PillarMetrics
+ * //             { // PillarMetric
+ * //               PillarId: "STRING_VALUE",
+ * //               RiskCounts: {
+ * //                 "<keys>": Number("int"),
+ * //               },
+ * //               Questions: [ // QuestionMetrics
+ * //                 { // QuestionMetric
+ * //                   QuestionId: "STRING_VALUE",
+ * //                   Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
+ * //                   BestPractices: [ // BestPractices
+ * //                     { // BestPractice
+ * //                       ChoiceId: "STRING_VALUE",
+ * //                       ChoiceTitle: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           RiskCounts: "<RiskCounts>",
+ * //         },
+ * //       ],
+ * //       LensesAppliedCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Base64String: "STRING_VALUE",
+ * // };
  *
  * ```
  *

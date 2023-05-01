@@ -47,11 +47,10 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * };
  * const command = new GetVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVerifiedAccessGroupPolicyResult
- *   PolicyEnabled: true || false,
- *   PolicyDocument: "STRING_VALUE",
- * };
+ * // { // GetVerifiedAccessGroupPolicyResult
+ * //   PolicyEnabled: true || false,
+ * //   PolicyDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

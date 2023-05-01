@@ -50,20 +50,19 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLinkOutput
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Label: "STRING_VALUE",
- *   LabelTemplate: "STRING_VALUE",
- *   ResourceTypes: [ // ResourceTypesOutput
- *     "STRING_VALUE",
- *   ],
- *   SinkArn: "STRING_VALUE",
- *   Tags: { // TagMapOutput
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateLinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Label: "STRING_VALUE",
+ * //   LabelTemplate: "STRING_VALUE",
+ * //   ResourceTypes: [ // ResourceTypesOutput
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SinkArn: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

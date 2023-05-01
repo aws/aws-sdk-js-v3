@@ -58,16 +58,15 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * };
  * const command = new GetGroupQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupQueryOutput
- *   GroupQuery: { // GroupQuery
- *     GroupName: "STRING_VALUE", // required
- *     ResourceQuery: { // ResourceQuery
- *       Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
- *       Query: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // GetGroupQueryOutput
+ * //   GroupQuery: { // GroupQuery
+ * //     GroupName: "STRING_VALUE", // required
+ * //     ResourceQuery: { // ResourceQuery
+ * //       Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ * //       Query: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

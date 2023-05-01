@@ -110,38 +110,37 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * };
  * const command = new AuthorizeSecurityGroupEgressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AuthorizeSecurityGroupEgressResult
- *   Return: true || false,
- *   SecurityGroupRules: [ // SecurityGroupRuleList
- *     { // SecurityGroupRule
- *       SecurityGroupRuleId: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *       GroupOwnerId: "STRING_VALUE",
- *       IsEgress: true || false,
- *       IpProtocol: "STRING_VALUE",
- *       FromPort: Number("int"),
- *       ToPort: Number("int"),
- *       CidrIpv4: "STRING_VALUE",
- *       CidrIpv6: "STRING_VALUE",
- *       PrefixListId: "STRING_VALUE",
- *       ReferencedGroupInfo: { // ReferencedSecurityGroup
- *         GroupId: "STRING_VALUE",
- *         PeeringStatus: "STRING_VALUE",
- *         UserId: "STRING_VALUE",
- *         VpcId: "STRING_VALUE",
- *         VpcPeeringConnectionId: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // AuthorizeSecurityGroupEgressResult
+ * //   Return: true || false,
+ * //   SecurityGroupRules: [ // SecurityGroupRuleList
+ * //     { // SecurityGroupRule
+ * //       SecurityGroupRuleId: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       GroupOwnerId: "STRING_VALUE",
+ * //       IsEgress: true || false,
+ * //       IpProtocol: "STRING_VALUE",
+ * //       FromPort: Number("int"),
+ * //       ToPort: Number("int"),
+ * //       CidrIpv4: "STRING_VALUE",
+ * //       CidrIpv6: "STRING_VALUE",
+ * //       PrefixListId: "STRING_VALUE",
+ * //       ReferencedGroupInfo: { // ReferencedSecurityGroup
+ * //         GroupId: "STRING_VALUE",
+ * //         PeeringStatus: "STRING_VALUE",
+ * //         UserId: "STRING_VALUE",
+ * //         VpcId: "STRING_VALUE",
+ * //         VpcPeeringConnectionId: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

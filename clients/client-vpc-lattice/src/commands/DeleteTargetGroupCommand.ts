@@ -45,12 +45,11 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTargetGroupResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // DeleteTargetGroupResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

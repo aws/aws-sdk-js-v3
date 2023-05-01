@@ -48,27 +48,26 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMigrationWorkflowTemplateResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   inputs: [ // TemplateInputList
- *     { // TemplateInput
- *       inputName: "STRING_VALUE",
- *       dataType: "STRING_VALUE",
- *       required: true || false,
- *     },
- *   ],
- *   tools: [ // ToolsList
- *     { // Tool
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   status: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetMigrationWorkflowTemplateResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   inputs: [ // TemplateInputList
+ * //     { // TemplateInput
+ * //       inputName: "STRING_VALUE",
+ * //       dataType: "STRING_VALUE",
+ * //       required: true || false,
+ * //     },
+ * //   ],
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   status: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

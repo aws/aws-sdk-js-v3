@@ -50,26 +50,25 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * };
  * const command = new BatchStopUpdateActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateActionResultsMessage
- *   ProcessedUpdateActions: [ // ProcessedUpdateActionList
- *     { // ProcessedUpdateAction
- *       ReplicationGroupId: "STRING_VALUE",
- *       CacheClusterId: "STRING_VALUE",
- *       ServiceUpdateName: "STRING_VALUE",
- *       UpdateActionStatus: "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete" || "scheduling" || "scheduled" || "not-applicable",
- *     },
- *   ],
- *   UnprocessedUpdateActions: [ // UnprocessedUpdateActionList
- *     { // UnprocessedUpdateAction
- *       ReplicationGroupId: "STRING_VALUE",
- *       CacheClusterId: "STRING_VALUE",
- *       ServiceUpdateName: "STRING_VALUE",
- *       ErrorType: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UpdateActionResultsMessage
+ * //   ProcessedUpdateActions: [ // ProcessedUpdateActionList
+ * //     { // ProcessedUpdateAction
+ * //       ReplicationGroupId: "STRING_VALUE",
+ * //       CacheClusterId: "STRING_VALUE",
+ * //       ServiceUpdateName: "STRING_VALUE",
+ * //       UpdateActionStatus: "not-applied" || "waiting-to-start" || "in-progress" || "stopping" || "stopped" || "complete" || "scheduling" || "scheduled" || "not-applicable",
+ * //     },
+ * //   ],
+ * //   UnprocessedUpdateActions: [ // UnprocessedUpdateActionList
+ * //     { // UnprocessedUpdateAction
+ * //       ReplicationGroupId: "STRING_VALUE",
+ * //       CacheClusterId: "STRING_VALUE",
+ * //       ServiceUpdateName: "STRING_VALUE",
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

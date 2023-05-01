@@ -46,13 +46,12 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceAttributeResponse
- *   Attribute: { // Attribute
- *     AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING",
- *     Value: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeInstanceAttributeResponse
+ * //   Attribute: { // Attribute
+ * //     AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING",
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

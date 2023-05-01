@@ -99,8 +99,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * };
  * const command = new DisableAWSServiceAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

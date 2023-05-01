@@ -68,8 +68,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * };
  * const command = new StopDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

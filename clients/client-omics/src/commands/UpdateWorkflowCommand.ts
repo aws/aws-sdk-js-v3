@@ -46,8 +46,7 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

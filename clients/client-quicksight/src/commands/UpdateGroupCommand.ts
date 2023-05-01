@@ -47,17 +47,16 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGroupResponse
- *   Group: { // Group
- *     Arn: "STRING_VALUE",
- *     GroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     PrincipalId: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateGroupResponse
+ * //   Group: { // Group
+ * //     Arn: "STRING_VALUE",
+ * //     GroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     PrincipalId: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

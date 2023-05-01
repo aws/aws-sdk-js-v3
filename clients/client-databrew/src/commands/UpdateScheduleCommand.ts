@@ -48,10 +48,9 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * };
  * const command = new UpdateScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateScheduleResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateScheduleResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

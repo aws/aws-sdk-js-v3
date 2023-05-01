@@ -61,20 +61,19 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDBClusterSnapshotAttributesResult
- *   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
- *     DBClusterSnapshotIdentifier: "STRING_VALUE",
- *     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
- *       { // DBClusterSnapshotAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeValues: [ // AttributeValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeDBClusterSnapshotAttributesResult
+ * //   DBClusterSnapshotAttributesResult: { // DBClusterSnapshotAttributesResult
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterSnapshotAttributes: [ // DBClusterSnapshotAttributeList
+ * //       { // DBClusterSnapshotAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeValues: [ // AttributeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

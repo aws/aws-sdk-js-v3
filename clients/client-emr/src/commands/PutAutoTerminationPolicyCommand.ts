@@ -55,8 +55,7 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * };
  * const command = new PutAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

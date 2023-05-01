@@ -87,8 +87,7 @@ export interface UpdateIndexingConfigurationCommandOutput
  * };
  * const command = new UpdateIndexingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

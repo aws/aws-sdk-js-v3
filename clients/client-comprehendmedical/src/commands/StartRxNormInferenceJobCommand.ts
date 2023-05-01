@@ -62,10 +62,9 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * };
  * const command = new StartRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRxNormInferenceJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartRxNormInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

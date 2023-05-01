@@ -47,13 +47,12 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * };
  * const command = new ListFargateProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFargateProfilesResponse
- *   fargateProfileNames: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFargateProfilesResponse
+ * //   fargateProfileNames: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

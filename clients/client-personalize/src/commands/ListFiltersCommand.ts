@@ -46,21 +46,20 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * };
  * const command = new ListFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFiltersResponse
- *   Filters: [ // Filters
- *     { // FilterSummary
- *       name: "STRING_VALUE",
- *       filterArn: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       datasetGroupArn: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFiltersResponse
+ * //   Filters: [ // Filters
+ * //     { // FilterSummary
+ * //       name: "STRING_VALUE",
+ * //       filterArn: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       datasetGroupArn: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,16 +52,15 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * };
  * const command = new BatchDeleteTableRowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteTableRowsResult
- *   workbookCursor: Number("long"), // required
- *   failedBatchItems: [ // FailedBatchItems
- *     { // FailedBatchItem
- *       id: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchDeleteTableRowsResult
+ * //   workbookCursor: Number("long"), // required
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -151,27 +151,26 @@ export interface PostContentCommandOutput
  * };
  * const command = new PostContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PostContentResponse
- *   contentType: "STRING_VALUE",
- *   intentName: "STRING_VALUE",
- *   nluIntentConfidence: "STRING_VALUE",
- *   alternativeIntents: "STRING_VALUE",
- *   slots: "STRING_VALUE",
- *   sessionAttributes: "STRING_VALUE",
- *   sentimentResponse: "STRING_VALUE",
- *   message: "STRING_VALUE",
- *   encodedMessage: "STRING_VALUE",
- *   messageFormat: "STRING_VALUE",
- *   dialogState: "STRING_VALUE",
- *   slotToElicit: "STRING_VALUE",
- *   inputTranscript: "STRING_VALUE",
- *   encodedInputTranscript: "STRING_VALUE",
- *   audioStream: "STREAMING_BLOB_VALUE",
- *   botVersion: "STRING_VALUE",
- *   sessionId: "STRING_VALUE",
- *   activeContexts: "STRING_VALUE",
- * };
+ * // { // PostContentResponse
+ * //   contentType: "STRING_VALUE",
+ * //   intentName: "STRING_VALUE",
+ * //   nluIntentConfidence: "STRING_VALUE",
+ * //   alternativeIntents: "STRING_VALUE",
+ * //   slots: "STRING_VALUE",
+ * //   sessionAttributes: "STRING_VALUE",
+ * //   sentimentResponse: "STRING_VALUE",
+ * //   message: "STRING_VALUE",
+ * //   encodedMessage: "STRING_VALUE",
+ * //   messageFormat: "STRING_VALUE",
+ * //   dialogState: "STRING_VALUE",
+ * //   slotToElicit: "STRING_VALUE",
+ * //   inputTranscript: "STRING_VALUE",
+ * //   encodedInputTranscript: "STRING_VALUE",
+ * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * //   activeContexts: "STRING_VALUE",
+ * // };
  *
  * ```
  *

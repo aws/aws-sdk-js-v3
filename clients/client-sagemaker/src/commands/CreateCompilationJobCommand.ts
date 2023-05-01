@@ -112,10 +112,9 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * };
  * const command = new CreateCompilationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCompilationJobResponse
- *   CompilationJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateCompilationJobResponse
+ * //   CompilationJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

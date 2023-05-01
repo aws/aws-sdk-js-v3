@@ -50,17 +50,16 @@ export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __Met
  * };
  * const command = new ListActivitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListActivitiesOutput
- *   activities: [ // ActivityList // required
- *     { // ActivityListItem
- *       activityArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       creationDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListActivitiesOutput
+ * //   activities: [ // ActivityList // required
+ * //     { // ActivityListItem
+ * //       activityArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

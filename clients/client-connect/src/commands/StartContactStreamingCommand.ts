@@ -51,10 +51,9 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * };
  * const command = new StartContactStreamingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartContactStreamingResponse
- *   StreamingId: "STRING_VALUE", // required
- * };
+ * // { // StartContactStreamingResponse
+ * //   StreamingId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

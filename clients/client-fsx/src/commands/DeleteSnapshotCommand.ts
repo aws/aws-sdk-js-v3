@@ -49,11 +49,10 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSnapshotResponse
- *   SnapshotId: "STRING_VALUE",
- *   Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
- * };
+ * // { // DeleteSnapshotResponse
+ * //   SnapshotId: "STRING_VALUE",
+ * //   Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * // };
  *
  * ```
  *

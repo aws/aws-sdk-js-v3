@@ -61,8 +61,7 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

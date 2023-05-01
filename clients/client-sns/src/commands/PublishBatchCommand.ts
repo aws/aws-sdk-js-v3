@@ -81,24 +81,23 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * };
  * const command = new PublishBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishBatchResponse
- *   Successful: [ // PublishBatchResultEntryList
- *     { // PublishBatchResultEntry
- *       Id: "STRING_VALUE",
- *       MessageId: "STRING_VALUE",
- *       SequenceNumber: "STRING_VALUE",
- *     },
- *   ],
- *   Failed: [ // BatchResultErrorEntryList
- *     { // BatchResultErrorEntry
- *       Id: "STRING_VALUE", // required
- *       Code: "STRING_VALUE", // required
- *       Message: "STRING_VALUE",
- *       SenderFault: true || false, // required
- *     },
- *   ],
- * };
+ * // { // PublishBatchResponse
+ * //   Successful: [ // PublishBatchResultEntryList
+ * //     { // PublishBatchResultEntry
+ * //       Id: "STRING_VALUE",
+ * //       MessageId: "STRING_VALUE",
+ * //       SequenceNumber: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Failed: [ // BatchResultErrorEntryList
+ * //     { // BatchResultErrorEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       Code: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE",
+ * //       SenderFault: true || false, // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

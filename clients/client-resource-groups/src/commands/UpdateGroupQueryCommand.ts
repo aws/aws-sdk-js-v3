@@ -61,16 +61,15 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * };
  * const command = new UpdateGroupQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGroupQueryOutput
- *   GroupQuery: { // GroupQuery
- *     GroupName: "STRING_VALUE", // required
- *     ResourceQuery: { // ResourceQuery
- *       Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
- *       Query: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // UpdateGroupQueryOutput
+ * //   GroupQuery: { // GroupQuery
+ * //     GroupName: "STRING_VALUE", // required
+ * //     ResourceQuery: { // ResourceQuery
+ * //       Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
+ * //       Query: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

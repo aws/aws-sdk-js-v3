@@ -47,8 +47,7 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * const input = {};
  * const command = new CreateSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RestartAppServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,20 +50,19 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * };
  * const command = new ListPipelineExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelineExecutionsResponse
- *   PipelineExecutionSummaries: [ // PipelineExecutionSummaryList
- *     { // PipelineExecutionSummary
- *       PipelineExecutionArn: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
- *       PipelineExecutionDescription: "STRING_VALUE",
- *       PipelineExecutionDisplayName: "STRING_VALUE",
- *       PipelineExecutionFailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPipelineExecutionsResponse
+ * //   PipelineExecutionSummaries: [ // PipelineExecutionSummaryList
+ * //     { // PipelineExecutionSummary
+ * //       PipelineExecutionArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       PipelineExecutionStatus: "Executing" || "Stopping" || "Stopped" || "Failed" || "Succeeded",
+ * //       PipelineExecutionDescription: "STRING_VALUE",
+ * //       PipelineExecutionDisplayName: "STRING_VALUE",
+ * //       PipelineExecutionFailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

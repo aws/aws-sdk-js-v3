@@ -50,12 +50,11 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * };
  * const command = new GetQueueAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueueAttributesResult
- *   Attributes: { // QueueAttributeMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetQueueAttributesResult
+ * //   Attributes: { // QueueAttributeMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

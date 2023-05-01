@@ -44,8 +44,7 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * };
  * const command = new RemoveApplicationInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

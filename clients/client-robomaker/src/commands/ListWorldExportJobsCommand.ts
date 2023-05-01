@@ -53,24 +53,23 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * };
  * const command = new ListWorldExportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorldExportJobsResponse
- *   worldExportJobSummaries: [ // WorldExportJobSummaries // required
- *     { // WorldExportJobSummary
- *       arn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       worlds: [ // Arns
- *         "STRING_VALUE",
- *       ],
- *       outputLocation: { // OutputLocation
- *         s3Bucket: "STRING_VALUE",
- *         s3Prefix: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorldExportJobsResponse
+ * //   worldExportJobSummaries: [ // WorldExportJobSummaries // required
+ * //     { // WorldExportJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       worlds: [ // Arns
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       outputLocation: { // OutputLocation
+ * //         s3Bucket: "STRING_VALUE",
+ * //         s3Prefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

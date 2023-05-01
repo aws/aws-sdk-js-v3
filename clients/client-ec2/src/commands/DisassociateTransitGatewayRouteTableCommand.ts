@@ -54,16 +54,15 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * };
  * const command = new DisassociateTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateTransitGatewayRouteTableResult
- *   Association: { // TransitGatewayAssociation
- *     TransitGatewayRouteTableId: "STRING_VALUE",
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *     State: "associating" || "associated" || "disassociating" || "disassociated",
- *   },
- * };
+ * // { // DisassociateTransitGatewayRouteTableResult
+ * //   Association: { // TransitGatewayAssociation
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //   },
+ * // };
  *
  * ```
  *

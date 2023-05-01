@@ -68,17 +68,16 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowScheduleResult
- *   ScheduledWindowExecutions: [ // ScheduledWindowExecutionList
- *     { // ScheduledWindowExecution
- *       WindowId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       ExecutionTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowScheduleResult
+ * //   ScheduledWindowExecutions: [ // ScheduledWindowExecutionList
+ * //     { // ScheduledWindowExecution
+ * //       WindowId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ExecutionTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

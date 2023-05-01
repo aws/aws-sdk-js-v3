@@ -47,8 +47,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

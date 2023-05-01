@@ -57,27 +57,26 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
  * };
  * const command = new BatchDeleteCustomVocabularyItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteCustomVocabularyItemResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   errors: [ // FailedCustomVocabularyItems
- *     { // FailedCustomVocabularyItem
- *       itemId: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *       errorCode: "DUPLICATE_INPUT" || "RESOURCE_DOES_NOT_EXIST" || "RESOURCE_ALREADY_EXISTS" || "INTERNAL_SERVER_FAILURE",
- *     },
- *   ],
- *   resources: [ // CustomVocabularyItems
- *     { // CustomVocabularyItem
- *       itemId: "STRING_VALUE", // required
- *       phrase: "STRING_VALUE", // required
- *       weight: Number("int"),
- *       displayAs: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteCustomVocabularyItemResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   errors: [ // FailedCustomVocabularyItems
+ * //     { // FailedCustomVocabularyItem
+ * //       itemId: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //       errorCode: "DUPLICATE_INPUT" || "RESOURCE_DOES_NOT_EXIST" || "RESOURCE_ALREADY_EXISTS" || "INTERNAL_SERVER_FAILURE",
+ * //     },
+ * //   ],
+ * //   resources: [ // CustomVocabularyItems
+ * //     { // CustomVocabularyItem
+ * //       itemId: "STRING_VALUE", // required
+ * //       phrase: "STRING_VALUE", // required
+ * //       weight: Number("int"),
+ * //       displayAs: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

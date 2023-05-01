@@ -59,38 +59,37 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  * };
  * const command = new DescribeFleetAdvisorSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetAdvisorSchemasResponse
- *   FleetAdvisorSchemas: [ // FleetAdvisorSchemaList
- *     { // SchemaResponse
- *       CodeLineCount: Number("long"),
- *       CodeSize: Number("long"),
- *       Complexity: "STRING_VALUE",
- *       Server: { // ServerShortInfoResponse
- *         ServerId: "STRING_VALUE",
- *         IpAddress: "STRING_VALUE",
- *         ServerName: "STRING_VALUE",
- *       },
- *       DatabaseInstance: { // DatabaseShortInfoResponse
- *         DatabaseId: "STRING_VALUE",
- *         DatabaseName: "STRING_VALUE",
- *         DatabaseIpAddress: "STRING_VALUE",
- *         DatabaseEngine: "STRING_VALUE",
- *       },
- *       SchemaId: "STRING_VALUE",
- *       SchemaName: "STRING_VALUE",
- *       OriginalSchema: { // SchemaShortInfoResponse
- *         SchemaId: "STRING_VALUE",
- *         SchemaName: "STRING_VALUE",
- *         DatabaseId: "STRING_VALUE",
- *         DatabaseName: "STRING_VALUE",
- *         DatabaseIpAddress: "STRING_VALUE",
- *       },
- *       Similarity: Number("double"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFleetAdvisorSchemasResponse
+ * //   FleetAdvisorSchemas: [ // FleetAdvisorSchemaList
+ * //     { // SchemaResponse
+ * //       CodeLineCount: Number("long"),
+ * //       CodeSize: Number("long"),
+ * //       Complexity: "STRING_VALUE",
+ * //       Server: { // ServerShortInfoResponse
+ * //         ServerId: "STRING_VALUE",
+ * //         IpAddress: "STRING_VALUE",
+ * //         ServerName: "STRING_VALUE",
+ * //       },
+ * //       DatabaseInstance: { // DatabaseShortInfoResponse
+ * //         DatabaseId: "STRING_VALUE",
+ * //         DatabaseName: "STRING_VALUE",
+ * //         DatabaseIpAddress: "STRING_VALUE",
+ * //         DatabaseEngine: "STRING_VALUE",
+ * //       },
+ * //       SchemaId: "STRING_VALUE",
+ * //       SchemaName: "STRING_VALUE",
+ * //       OriginalSchema: { // SchemaShortInfoResponse
+ * //         SchemaId: "STRING_VALUE",
+ * //         SchemaName: "STRING_VALUE",
+ * //         DatabaseId: "STRING_VALUE",
+ * //         DatabaseName: "STRING_VALUE",
+ * //         DatabaseIpAddress: "STRING_VALUE",
+ * //       },
+ * //       Similarity: Number("double"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -78,12 +78,11 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * };
  * const command = new GetRoutingControlStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoutingControlStateResponse
- *   RoutingControlArn: "STRING_VALUE", // required
- *   RoutingControlState: "STRING_VALUE", // required
- *   RoutingControlName: "STRING_VALUE",
- * };
+ * // { // GetRoutingControlStateResponse
+ * //   RoutingControlArn: "STRING_VALUE", // required
+ * //   RoutingControlState: "STRING_VALUE", // required
+ * //   RoutingControlName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

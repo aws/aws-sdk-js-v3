@@ -94,19 +94,18 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * };
  * const command = new ListFragmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFragmentsOutput
- *   Fragments: [ // FragmentList
- *     { // Fragment
- *       FragmentNumber: "STRING_VALUE",
- *       FragmentSizeInBytes: Number("long"),
- *       ProducerTimestamp: new Date("TIMESTAMP"),
- *       ServerTimestamp: new Date("TIMESTAMP"),
- *       FragmentLengthInMilliseconds: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFragmentsOutput
+ * //   Fragments: [ // FragmentList
+ * //     { // Fragment
+ * //       FragmentNumber: "STRING_VALUE",
+ * //       FragmentSizeInBytes: Number("long"),
+ * //       ProducerTimestamp: new Date("TIMESTAMP"),
+ * //       ServerTimestamp: new Date("TIMESTAMP"),
+ * //       FragmentLengthInMilliseconds: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

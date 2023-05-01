@@ -48,8 +48,7 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * };
  * const command = new UpdateResourcePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * };
  * const command = new DeregisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

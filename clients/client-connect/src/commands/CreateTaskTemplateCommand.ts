@@ -94,11 +94,10 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * };
  * const command = new CreateTaskTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTaskTemplateResponse
- *   Id: "STRING_VALUE", // required
- *   Arn: "STRING_VALUE", // required
- * };
+ * // { // CreateTaskTemplateResponse
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

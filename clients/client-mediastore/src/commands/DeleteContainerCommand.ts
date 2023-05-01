@@ -46,8 +46,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * };
  * const command = new DeleteContainerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

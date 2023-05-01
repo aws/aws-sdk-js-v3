@@ -58,13 +58,12 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * };
  * const command = new ListAvailableManagementCidrRangesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableManagementCidrRangesResult
- *   ManagementCidrRanges: [ // DedicatedTenancyCidrRangeList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAvailableManagementCidrRangesResult
+ * //   ManagementCidrRanges: [ // DedicatedTenancyCidrRangeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

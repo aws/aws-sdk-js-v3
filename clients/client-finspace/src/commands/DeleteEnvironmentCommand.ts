@@ -44,8 +44,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteBotChannelAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

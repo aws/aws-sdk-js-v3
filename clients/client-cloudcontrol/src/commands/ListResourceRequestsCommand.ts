@@ -62,24 +62,23 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * };
  * const command = new ListResourceRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceRequestsOutput
- *   ResourceRequestStatusSummaries: [ // ResourceRequestStatusSummaries
- *     { // ProgressEvent
- *       TypeName: "STRING_VALUE",
- *       Identifier: "STRING_VALUE",
- *       RequestToken: "STRING_VALUE",
- *       Operation: "STRING_VALUE",
- *       OperationStatus: "STRING_VALUE",
- *       EventTime: new Date("TIMESTAMP"),
- *       ResourceModel: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       RetryAfter: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceRequestsOutput
+ * //   ResourceRequestStatusSummaries: [ // ResourceRequestStatusSummaries
+ * //     { // ProgressEvent
+ * //       TypeName: "STRING_VALUE",
+ * //       Identifier: "STRING_VALUE",
+ * //       RequestToken: "STRING_VALUE",
+ * //       Operation: "STRING_VALUE",
+ * //       OperationStatus: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       ResourceModel: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       RetryAfter: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

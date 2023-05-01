@@ -47,45 +47,44 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * };
  * const command = new ListActionTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListActionTypesOutput
- *   actionTypes: [ // ActionTypeList // required
- *     { // ActionType
- *       id: { // ActionTypeId
- *         category: "STRING_VALUE", // required
- *         owner: "STRING_VALUE", // required
- *         provider: "STRING_VALUE", // required
- *         version: "STRING_VALUE", // required
- *       },
- *       settings: { // ActionTypeSettings
- *         thirdPartyConfigurationUrl: "STRING_VALUE",
- *         entityUrlTemplate: "STRING_VALUE",
- *         executionUrlTemplate: "STRING_VALUE",
- *         revisionUrlTemplate: "STRING_VALUE",
- *       },
- *       actionConfigurationProperties: [ // ActionConfigurationPropertyList
- *         { // ActionConfigurationProperty
- *           name: "STRING_VALUE", // required
- *           required: true || false, // required
- *           key: true || false, // required
- *           secret: true || false, // required
- *           queryable: true || false,
- *           description: "STRING_VALUE",
- *           type: "STRING_VALUE",
- *         },
- *       ],
- *       inputArtifactDetails: { // ArtifactDetails
- *         minimumCount: Number("int"), // required
- *         maximumCount: Number("int"), // required
- *       },
- *       outputArtifactDetails: {
- *         minimumCount: Number("int"), // required
- *         maximumCount: Number("int"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListActionTypesOutput
+ * //   actionTypes: [ // ActionTypeList // required
+ * //     { // ActionType
+ * //       id: { // ActionTypeId
+ * //         category: "STRING_VALUE", // required
+ * //         owner: "STRING_VALUE", // required
+ * //         provider: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       settings: { // ActionTypeSettings
+ * //         thirdPartyConfigurationUrl: "STRING_VALUE",
+ * //         entityUrlTemplate: "STRING_VALUE",
+ * //         executionUrlTemplate: "STRING_VALUE",
+ * //         revisionUrlTemplate: "STRING_VALUE",
+ * //       },
+ * //       actionConfigurationProperties: [ // ActionConfigurationPropertyList
+ * //         { // ActionConfigurationProperty
+ * //           name: "STRING_VALUE", // required
+ * //           required: true || false, // required
+ * //           key: true || false, // required
+ * //           secret: true || false, // required
+ * //           queryable: true || false,
+ * //           description: "STRING_VALUE",
+ * //           type: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       inputArtifactDetails: { // ArtifactDetails
+ * //         minimumCount: Number("int"), // required
+ * //         maximumCount: Number("int"), // required
+ * //       },
+ * //       outputArtifactDetails: {
+ * //         minimumCount: Number("int"), // required
+ * //         maximumCount: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,17 +46,16 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * };
  * const command = new EnableAddressTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableAddressTransferResult
- *   AddressTransfer: { // AddressTransfer
- *     PublicIp: "STRING_VALUE",
- *     AllocationId: "STRING_VALUE",
- *     TransferAccountId: "STRING_VALUE",
- *     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
- *     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
- *     AddressTransferStatus: "pending" || "disabled" || "accepted",
- *   },
- * };
+ * // { // EnableAddressTransferResult
+ * //   AddressTransfer: { // AddressTransfer
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     TransferAccountId: "STRING_VALUE",
+ * //     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ * //     AddressTransferStatus: "pending" || "disabled" || "accepted",
+ * //   },
+ * // };
  *
  * ```
  *

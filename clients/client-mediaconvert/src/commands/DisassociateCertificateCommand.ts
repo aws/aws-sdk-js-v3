@@ -44,8 +44,7 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * };
  * const command = new DisassociateCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

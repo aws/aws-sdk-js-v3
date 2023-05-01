@@ -45,16 +45,15 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * };
  * const command = new CreateTagOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTagOptionOutput
- *   TagOptionDetail: { // TagOptionDetail
- *     Key: "STRING_VALUE",
- *     Value: "STRING_VALUE",
- *     Active: true || false,
- *     Id: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateTagOptionOutput
+ * //   TagOptionDetail: { // TagOptionDetail
+ * //     Key: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //     Active: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

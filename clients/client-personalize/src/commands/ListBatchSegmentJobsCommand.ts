@@ -47,21 +47,20 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * };
  * const command = new ListBatchSegmentJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBatchSegmentJobsResponse
- *   batchSegmentJobs: [ // BatchSegmentJobs
- *     { // BatchSegmentJobSummary
- *       batchSegmentJobArn: "STRING_VALUE",
- *       jobName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *       solutionVersionArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBatchSegmentJobsResponse
+ * //   batchSegmentJobs: [ // BatchSegmentJobs
+ * //     { // BatchSegmentJobSummary
+ * //       batchSegmentJobArn: "STRING_VALUE",
+ * //       jobName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //       solutionVersionArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

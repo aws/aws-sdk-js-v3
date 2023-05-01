@@ -49,17 +49,16 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * };
  * const command = new ListRoutingProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoutingProfilesResponse
- *   RoutingProfileSummaryList: [ // RoutingProfileSummaryList
- *     { // RoutingProfileSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRoutingProfilesResponse
+ * //   RoutingProfileSummaryList: [ // RoutingProfileSummaryList
+ * //     { // RoutingProfileSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

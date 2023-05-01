@@ -44,25 +44,24 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * };
  * const command = new DescribeMetricAttributionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMetricAttributionResponse
- *   metricAttribution: { // MetricAttribution
- *     name: "STRING_VALUE",
- *     metricAttributionArn: "STRING_VALUE",
- *     datasetGroupArn: "STRING_VALUE",
- *     metricsOutputConfig: { // MetricAttributionOutput
- *       s3DataDestination: { // S3DataConfig
- *         path: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *       },
- *       roleArn: "STRING_VALUE", // required
- *     },
- *     status: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     failureReason: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeMetricAttributionResponse
+ * //   metricAttribution: { // MetricAttribution
+ * //     name: "STRING_VALUE",
+ * //     metricAttributionArn: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     metricsOutputConfig: { // MetricAttributionOutput
+ * //       s3DataDestination: { // S3DataConfig
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

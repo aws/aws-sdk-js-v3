@@ -57,8 +57,7 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartMonitoringMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

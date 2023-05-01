@@ -47,13 +47,12 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * };
  * const command = new ConfigureLogsForChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigureLogsForChannelResponse
- *   ChannelName: "STRING_VALUE",
- *   LogTypes: [ // LogTypes
- *     "AS_RUN",
- *   ],
- * };
+ * // { // ConfigureLogsForChannelResponse
+ * //   ChannelName: "STRING_VALUE",
+ * //   LogTypes: [ // LogTypes
+ * //     "AS_RUN",
+ * //   ],
+ * // };
  *
  * ```
  *

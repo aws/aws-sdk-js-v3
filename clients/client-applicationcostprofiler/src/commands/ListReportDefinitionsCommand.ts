@@ -50,24 +50,23 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * };
  * const command = new ListReportDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReportDefinitionsResult
- *   reportDefinitions: [ // ReportDefinitionList
- *     { // ReportDefinition
- *       reportId: "STRING_VALUE",
- *       reportDescription: "STRING_VALUE",
- *       reportFrequency: "STRING_VALUE",
- *       format: "STRING_VALUE",
- *       destinationS3Location: { // S3Location
- *         bucket: "STRING_VALUE", // required
- *         prefix: "STRING_VALUE", // required
- *       },
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListReportDefinitionsResult
+ * //   reportDefinitions: [ // ReportDefinitionList
+ * //     { // ReportDefinition
+ * //       reportId: "STRING_VALUE",
+ * //       reportDescription: "STRING_VALUE",
+ * //       reportFrequency: "STRING_VALUE",
+ * //       format: "STRING_VALUE",
+ * //       destinationS3Location: { // S3Location
+ * //         bucket: "STRING_VALUE", // required
+ * //         prefix: "STRING_VALUE", // required
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,78 +53,77 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobRunsResponse
- *   jobRuns: [ // JobRuns
- *     { // JobRun
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       virtualClusterId: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       state: "PENDING" || "SUBMITTED" || "RUNNING" || "FAILED" || "CANCELLED" || "CANCEL_PENDING" || "COMPLETED",
- *       clientToken: "STRING_VALUE",
- *       executionRoleArn: "STRING_VALUE",
- *       releaseLabel: "STRING_VALUE",
- *       configurationOverrides: { // ConfigurationOverrides
- *         applicationConfiguration: [ // ConfigurationList
- *           { // Configuration
- *             classification: "STRING_VALUE", // required
- *             properties: { // SensitivePropertiesMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *             configurations: [
- *               {
- *                 classification: "STRING_VALUE", // required
- *                 properties: {
- *                   "<keys>": "STRING_VALUE",
- *                 },
- *                 configurations: "<ConfigurationList>",
- *               },
- *             ],
- *           },
- *         ],
- *         monitoringConfiguration: { // MonitoringConfiguration
- *           persistentAppUI: "ENABLED" || "DISABLED",
- *           cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
- *             logGroupName: "STRING_VALUE", // required
- *             logStreamNamePrefix: "STRING_VALUE",
- *           },
- *           s3MonitoringConfiguration: { // S3MonitoringConfiguration
- *             logUri: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *       jobDriver: { // JobDriver
- *         sparkSubmitJobDriver: { // SparkSubmitJobDriver
- *           entryPoint: "STRING_VALUE", // required
- *           entryPointArguments: [ // EntryPointArguments
- *             "STRING_VALUE",
- *           ],
- *           sparkSubmitParameters: "STRING_VALUE",
- *         },
- *         sparkSqlJobDriver: { // SparkSqlJobDriver
- *           entryPoint: "STRING_VALUE",
- *           sparkSqlParameters: "STRING_VALUE",
- *         },
- *       },
- *       createdAt: new Date("TIMESTAMP"),
- *       createdBy: "STRING_VALUE",
- *       finishedAt: new Date("TIMESTAMP"),
- *       stateDetails: "STRING_VALUE",
- *       failureReason: "INTERNAL_ERROR" || "USER_ERROR" || "VALIDATION_ERROR" || "CLUSTER_UNAVAILABLE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       retryPolicyConfiguration: { // RetryPolicyConfiguration
- *         maxAttempts: Number("int"), // required
- *       },
- *       retryPolicyExecution: { // RetryPolicyExecution
- *         currentAttemptCount: Number("int"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListJobRunsResponse
+ * //   jobRuns: [ // JobRuns
+ * //     { // JobRun
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       virtualClusterId: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       state: "PENDING" || "SUBMITTED" || "RUNNING" || "FAILED" || "CANCELLED" || "CANCEL_PENDING" || "COMPLETED",
+ * //       clientToken: "STRING_VALUE",
+ * //       executionRoleArn: "STRING_VALUE",
+ * //       releaseLabel: "STRING_VALUE",
+ * //       configurationOverrides: { // ConfigurationOverrides
+ * //         applicationConfiguration: [ // ConfigurationList
+ * //           { // Configuration
+ * //             classification: "STRING_VALUE", // required
+ * //             properties: { // SensitivePropertiesMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             configurations: [
+ * //               {
+ * //                 classification: "STRING_VALUE", // required
+ * //                 properties: {
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //                 configurations: "<ConfigurationList>",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         monitoringConfiguration: { // MonitoringConfiguration
+ * //           persistentAppUI: "ENABLED" || "DISABLED",
+ * //           cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
+ * //             logGroupName: "STRING_VALUE", // required
+ * //             logStreamNamePrefix: "STRING_VALUE",
+ * //           },
+ * //           s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ * //             logUri: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       jobDriver: { // JobDriver
+ * //         sparkSubmitJobDriver: { // SparkSubmitJobDriver
+ * //           entryPoint: "STRING_VALUE", // required
+ * //           entryPointArguments: [ // EntryPointArguments
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           sparkSubmitParameters: "STRING_VALUE",
+ * //         },
+ * //         sparkSqlJobDriver: { // SparkSqlJobDriver
+ * //           entryPoint: "STRING_VALUE",
+ * //           sparkSqlParameters: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       createdBy: "STRING_VALUE",
+ * //       finishedAt: new Date("TIMESTAMP"),
+ * //       stateDetails: "STRING_VALUE",
+ * //       failureReason: "INTERNAL_ERROR" || "USER_ERROR" || "VALIDATION_ERROR" || "CLUSTER_UNAVAILABLE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       retryPolicyConfiguration: { // RetryPolicyConfiguration
+ * //         maxAttempts: Number("int"), // required
+ * //       },
+ * //       retryPolicyExecution: { // RetryPolicyExecution
+ * //         currentAttemptCount: Number("int"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

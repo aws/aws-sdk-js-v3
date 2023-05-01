@@ -81,8 +81,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * };
  * const command = new ActivatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

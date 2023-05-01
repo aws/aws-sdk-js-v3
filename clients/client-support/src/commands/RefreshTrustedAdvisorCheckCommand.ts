@@ -69,14 +69,13 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * };
  * const command = new RefreshTrustedAdvisorCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RefreshTrustedAdvisorCheckResponse
- *   status: { // TrustedAdvisorCheckRefreshStatus
- *     checkId: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     millisUntilNextRefreshable: Number("long"), // required
- *   },
- * };
+ * // { // RefreshTrustedAdvisorCheckResponse
+ * //   status: { // TrustedAdvisorCheckRefreshStatus
+ * //     checkId: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     millisUntilNextRefreshable: Number("long"), // required
+ * //   },
+ * // };
  *
  * ```
  *

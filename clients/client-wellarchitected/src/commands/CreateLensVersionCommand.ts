@@ -53,11 +53,10 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * };
  * const command = new CreateLensVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLensVersionOutput
- *   LensArn: "STRING_VALUE",
- *   LensVersion: "STRING_VALUE",
- * };
+ * // { // CreateLensVersionOutput
+ * //   LensArn: "STRING_VALUE",
+ * //   LensVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,19 +48,18 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * };
  * const command = new DescribeCacheParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CacheParameterGroupsMessage
- *   Marker: "STRING_VALUE",
- *   CacheParameterGroups: [ // CacheParameterGroupList
- *     { // CacheParameterGroup
- *       CacheParameterGroupName: "STRING_VALUE",
- *       CacheParameterGroupFamily: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       IsGlobal: true || false,
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CacheParameterGroupsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   CacheParameterGroups: [ // CacheParameterGroupList
+ * //     { // CacheParameterGroup
+ * //       CacheParameterGroupName: "STRING_VALUE",
+ * //       CacheParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       IsGlobal: true || false,
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

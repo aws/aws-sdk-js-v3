@@ -60,20 +60,19 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * };
  * const command = new GetBotVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBotVersionsResponse
- *   bots: [ // BotMetadataList
- *     { // BotMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetBotVersionsResponse
+ * //   bots: [ // BotMetadataList
+ * //     { // BotMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

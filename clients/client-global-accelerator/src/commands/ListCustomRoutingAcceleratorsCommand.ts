@@ -54,31 +54,30 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
  * };
  * const command = new ListCustomRoutingAcceleratorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomRoutingAcceleratorsResponse
- *   Accelerators: [ // CustomRoutingAccelerators
- *     { // CustomRoutingAccelerator
- *       AcceleratorArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       IpAddressType: "IPV4" || "DUAL_STACK",
- *       Enabled: true || false,
- *       IpSets: [ // IpSets
- *         { // IpSet
- *           IpFamily: "STRING_VALUE",
- *           IpAddresses: [ // IpAddresses
- *             "STRING_VALUE",
- *           ],
- *           IpAddressFamily: "IPv4" || "IPv6",
- *         },
- *       ],
- *       DnsName: "STRING_VALUE",
- *       Status: "DEPLOYED" || "IN_PROGRESS",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomRoutingAcceleratorsResponse
+ * //   Accelerators: [ // CustomRoutingAccelerators
+ * //     { // CustomRoutingAccelerator
+ * //       AcceleratorArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
+ * //       Enabled: true || false,
+ * //       IpSets: [ // IpSets
+ * //         { // IpSet
+ * //           IpFamily: "STRING_VALUE",
+ * //           IpAddresses: [ // IpAddresses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           IpAddressFamily: "IPv4" || "IPv6",
+ * //         },
+ * //       ],
+ * //       DnsName: "STRING_VALUE",
+ * //       Status: "DEPLOYED" || "IN_PROGRESS",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -64,29 +64,28 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReservedDBInstancesOfferingMessage
- *   Marker: "STRING_VALUE",
- *   ReservedDBInstancesOfferings: [ // ReservedDBInstancesOfferingList
- *     { // ReservedDBInstancesOffering
- *       ReservedDBInstancesOfferingId: "STRING_VALUE",
- *       DBInstanceClass: "STRING_VALUE",
- *       Duration: Number("int"),
- *       FixedPrice: Number("double"),
- *       UsagePrice: Number("double"),
- *       CurrencyCode: "STRING_VALUE",
- *       ProductDescription: "STRING_VALUE",
- *       OfferingType: "STRING_VALUE",
- *       MultiAZ: true || false,
- *       RecurringCharges: [ // RecurringChargeList
- *         { // RecurringCharge
- *           RecurringChargeAmount: Number("double"),
- *           RecurringChargeFrequency: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ReservedDBInstancesOfferingMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedDBInstancesOfferings: [ // ReservedDBInstancesOfferingList
+ * //     { // ReservedDBInstancesOffering
+ * //       ReservedDBInstancesOfferingId: "STRING_VALUE",
+ * //       DBInstanceClass: "STRING_VALUE",
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       UsagePrice: Number("double"),
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       ProductDescription: "STRING_VALUE",
+ * //       OfferingType: "STRING_VALUE",
+ * //       MultiAZ: true || false,
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

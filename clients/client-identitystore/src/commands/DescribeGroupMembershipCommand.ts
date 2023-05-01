@@ -45,15 +45,14 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * };
  * const command = new DescribeGroupMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGroupMembershipResponse
- *   IdentityStoreId: "STRING_VALUE", // required
- *   MembershipId: "STRING_VALUE", // required
- *   GroupId: "STRING_VALUE", // required
- *   MemberId: { // MemberId Union: only one key present
- *     UserId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeGroupMembershipResponse
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * //   MembershipId: "STRING_VALUE", // required
+ * //   GroupId: "STRING_VALUE", // required
+ * //   MemberId: { // MemberId Union: only one key present
+ * //     UserId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

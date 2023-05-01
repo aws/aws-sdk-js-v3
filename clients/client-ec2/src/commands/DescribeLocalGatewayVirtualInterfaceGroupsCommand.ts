@@ -66,26 +66,25 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * };
  * const command = new DescribeLocalGatewayVirtualInterfaceGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocalGatewayVirtualInterfaceGroupsResult
- *   LocalGatewayVirtualInterfaceGroups: [ // LocalGatewayVirtualInterfaceGroupSet
- *     { // LocalGatewayVirtualInterfaceGroup
- *       LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
- *       LocalGatewayVirtualInterfaceIds: [ // LocalGatewayVirtualInterfaceIdSet
- *         "STRING_VALUE",
- *       ],
- *       LocalGatewayId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLocalGatewayVirtualInterfaceGroupsResult
+ * //   LocalGatewayVirtualInterfaceGroups: [ // LocalGatewayVirtualInterfaceGroupSet
+ * //     { // LocalGatewayVirtualInterfaceGroup
+ * //       LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceIds: [ // LocalGatewayVirtualInterfaceIdSet
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

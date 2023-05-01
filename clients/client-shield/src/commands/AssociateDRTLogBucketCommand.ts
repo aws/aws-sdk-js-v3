@@ -45,8 +45,7 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  * };
  * const command = new AssociateDRTLogBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

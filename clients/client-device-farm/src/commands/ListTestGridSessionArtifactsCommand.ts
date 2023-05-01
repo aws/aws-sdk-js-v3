@@ -56,17 +56,16 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * };
  * const command = new ListTestGridSessionArtifactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTestGridSessionArtifactsResult
- *   artifacts: [ // TestGridSessionArtifacts
- *     { // TestGridSessionArtifact
- *       filename: "STRING_VALUE",
- *       type: "UNKNOWN" || "VIDEO" || "SELENIUM_LOG",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTestGridSessionArtifactsResult
+ * //   artifacts: [ // TestGridSessionArtifacts
+ * //     { // TestGridSessionArtifact
+ * //       filename: "STRING_VALUE",
+ * //       type: "UNKNOWN" || "VIDEO" || "SELENIUM_LOG",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

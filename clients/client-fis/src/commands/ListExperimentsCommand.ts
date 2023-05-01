@@ -45,24 +45,23 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExperimentsResponse
- *   experiments: [ // ExperimentSummaryList
- *     { // ExperimentSummary
- *       id: "STRING_VALUE",
- *       experimentTemplateId: "STRING_VALUE",
- *       state: { // ExperimentState
- *         status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
- *         reason: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"),
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExperimentsResponse
+ * //   experiments: [ // ExperimentSummaryList
+ * //     { // ExperimentSummary
+ * //       id: "STRING_VALUE",
+ * //       experimentTemplateId: "STRING_VALUE",
+ * //       state: { // ExperimentState
+ * //         status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //         reason: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

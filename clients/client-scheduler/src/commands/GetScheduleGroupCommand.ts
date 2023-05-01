@@ -44,14 +44,13 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  * };
  * const command = new GetScheduleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetScheduleGroupOutput
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   LastModificationDate: new Date("TIMESTAMP"),
- * };
+ * // { // GetScheduleGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModificationDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

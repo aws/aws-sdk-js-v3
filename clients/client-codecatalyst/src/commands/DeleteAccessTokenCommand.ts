@@ -44,8 +44,7 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * };
  * const command = new DeleteAccessTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

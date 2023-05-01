@@ -44,13 +44,12 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * };
  * const command = new DescribeTimeToLiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTimeToLiveOutput
- *   TimeToLiveDescription: { // TimeToLiveDescription
- *     TimeToLiveStatus: "ENABLING" || "DISABLING" || "ENABLED" || "DISABLED",
- *     AttributeName: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeTimeToLiveOutput
+ * //   TimeToLiveDescription: { // TimeToLiveDescription
+ * //     TimeToLiveStatus: "ENABLING" || "DISABLING" || "ENABLED" || "DISABLED",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

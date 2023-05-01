@@ -55,30 +55,29 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * };
  * const command = new BatchGetRepositoryScanningConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetRepositoryScanningConfigurationResponse
- *   scanningConfigurations: [ // RepositoryScanningConfigurationList
- *     { // RepositoryScanningConfiguration
- *       repositoryArn: "STRING_VALUE",
- *       repositoryName: "STRING_VALUE",
- *       scanOnPush: true || false,
- *       scanFrequency: "STRING_VALUE",
- *       appliedScanFilters: [ // ScanningRepositoryFilterList
- *         { // ScanningRepositoryFilter
- *           filter: "STRING_VALUE", // required
- *           filterType: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   failures: [ // RepositoryScanningConfigurationFailureList
- *     { // RepositoryScanningConfigurationFailure
- *       repositoryName: "STRING_VALUE",
- *       failureCode: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetRepositoryScanningConfigurationResponse
+ * //   scanningConfigurations: [ // RepositoryScanningConfigurationList
+ * //     { // RepositoryScanningConfiguration
+ * //       repositoryArn: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       scanOnPush: true || false,
+ * //       scanFrequency: "STRING_VALUE",
+ * //       appliedScanFilters: [ // ScanningRepositoryFilterList
+ * //         { // ScanningRepositoryFilter
+ * //           filter: "STRING_VALUE", // required
+ * //           filterType: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   failures: [ // RepositoryScanningConfigurationFailureList
+ * //     { // RepositoryScanningConfigurationFailure
+ * //       repositoryName: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

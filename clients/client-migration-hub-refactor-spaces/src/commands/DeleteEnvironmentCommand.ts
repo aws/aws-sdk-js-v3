@@ -49,14 +49,13 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEnvironmentResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteEnvironmentResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

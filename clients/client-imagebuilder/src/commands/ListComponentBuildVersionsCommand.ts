@@ -56,36 +56,35 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * };
  * const command = new ListComponentBuildVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentBuildVersionsResponse
- *   requestId: "STRING_VALUE",
- *   componentSummaryList: [ // ComponentSummaryList
- *     { // ComponentSummary
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       supportedOsVersions: [ // OsVersionList
- *         "STRING_VALUE",
- *       ],
- *       state: { // ComponentState
- *         status: "DEPRECATED",
- *         reason: "STRING_VALUE",
- *       },
- *       type: "BUILD" || "TEST",
- *       owner: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       changeDescription: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       publisher: "STRING_VALUE",
- *       obfuscate: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentBuildVersionsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   componentSummaryList: [ // ComponentSummaryList
+ * //     { // ComponentSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       supportedOsVersions: [ // OsVersionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       state: { // ComponentState
+ * //         status: "DEPRECATED",
+ * //         reason: "STRING_VALUE",
+ * //       },
+ * //       type: "BUILD" || "TEST",
+ * //       owner: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       changeDescription: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       publisher: "STRING_VALUE",
+ * //       obfuscate: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

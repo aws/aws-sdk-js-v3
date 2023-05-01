@@ -50,11 +50,10 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * };
  * const command = new DeregisterRobotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterRobotResponse
- *   fleet: "STRING_VALUE",
- *   robot: "STRING_VALUE",
- * };
+ * // { // DeregisterRobotResponse
+ * //   fleet: "STRING_VALUE",
+ * //   robot: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * };
  * const command = new DeleteTrustCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrustResult
- *   TrustId: "STRING_VALUE",
- * };
+ * // { // DeleteTrustResult
+ * //   TrustId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

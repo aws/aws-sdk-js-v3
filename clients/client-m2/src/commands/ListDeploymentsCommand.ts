@@ -48,21 +48,20 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentsResponse
- *   deployments: [ // DeploymentList // required
- *     { // DeploymentSummary
- *       deploymentId: "STRING_VALUE", // required
- *       applicationId: "STRING_VALUE", // required
- *       environmentId: "STRING_VALUE", // required
- *       applicationVersion: Number("int"), // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       statusReason: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentsResponse
+ * //   deployments: [ // DeploymentList // required
+ * //     { // DeploymentSummary
+ * //       deploymentId: "STRING_VALUE", // required
+ * //       applicationId: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
+ * //       applicationVersion: Number("int"), // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

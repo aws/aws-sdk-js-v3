@@ -74,46 +74,45 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * };
  * const command = new BatchGetApplicationRevisionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetApplicationRevisionsOutput
- *   applicationName: "STRING_VALUE",
- *   errorMessage: "STRING_VALUE",
- *   revisions: [ // RevisionInfoList
- *     { // RevisionInfo
- *       revisionLocation: { // RevisionLocation
- *         revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
- *         s3Location: { // S3Location
- *           bucket: "STRING_VALUE",
- *           key: "STRING_VALUE",
- *           bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
- *           version: "STRING_VALUE",
- *           eTag: "STRING_VALUE",
- *         },
- *         gitHubLocation: { // GitHubLocation
- *           repository: "STRING_VALUE",
- *           commitId: "STRING_VALUE",
- *         },
- *         string: { // RawString
- *           content: "STRING_VALUE",
- *           sha256: "STRING_VALUE",
- *         },
- *         appSpecContent: { // AppSpecContent
- *           content: "STRING_VALUE",
- *           sha256: "STRING_VALUE",
- *         },
- *       },
- *       genericRevisionInfo: { // GenericRevisionInfo
- *         description: "STRING_VALUE",
- *         deploymentGroups: [ // DeploymentGroupsList
- *           "STRING_VALUE",
- *         ],
- *         firstUsedTime: new Date("TIMESTAMP"),
- *         lastUsedTime: new Date("TIMESTAMP"),
- *         registerTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchGetApplicationRevisionsOutput
+ * //   applicationName: "STRING_VALUE",
+ * //   errorMessage: "STRING_VALUE",
+ * //   revisions: [ // RevisionInfoList
+ * //     { // RevisionInfo
+ * //       revisionLocation: { // RevisionLocation
+ * //         revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ * //         s3Location: { // S3Location
+ * //           bucket: "STRING_VALUE",
+ * //           key: "STRING_VALUE",
+ * //           bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ * //           version: "STRING_VALUE",
+ * //           eTag: "STRING_VALUE",
+ * //         },
+ * //         gitHubLocation: { // GitHubLocation
+ * //           repository: "STRING_VALUE",
+ * //           commitId: "STRING_VALUE",
+ * //         },
+ * //         string: { // RawString
+ * //           content: "STRING_VALUE",
+ * //           sha256: "STRING_VALUE",
+ * //         },
+ * //         appSpecContent: { // AppSpecContent
+ * //           content: "STRING_VALUE",
+ * //           sha256: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       genericRevisionInfo: { // GenericRevisionInfo
+ * //         description: "STRING_VALUE",
+ * //         deploymentGroups: [ // DeploymentGroupsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         firstUsedTime: new Date("TIMESTAMP"),
+ * //         lastUsedTime: new Date("TIMESTAMP"),
+ * //         registerTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

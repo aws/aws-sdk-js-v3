@@ -51,8 +51,7 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

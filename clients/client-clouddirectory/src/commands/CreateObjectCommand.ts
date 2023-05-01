@@ -73,10 +73,9 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * };
  * const command = new CreateObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateObjectResponse
- *   ObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // CreateObjectResponse
+ * //   ObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

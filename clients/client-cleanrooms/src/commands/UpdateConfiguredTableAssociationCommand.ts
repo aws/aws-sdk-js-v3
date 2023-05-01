@@ -52,22 +52,21 @@ export interface UpdateConfiguredTableAssociationCommandOutput
  * };
  * const command = new UpdateConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConfiguredTableAssociationOutput
- *   configuredTableAssociation: { // ConfiguredTableAssociation
- *     arn: "STRING_VALUE", // required
- *     id: "STRING_VALUE", // required
- *     configuredTableId: "STRING_VALUE", // required
- *     configuredTableArn: "STRING_VALUE", // required
- *     membershipId: "STRING_VALUE", // required
- *     membershipArn: "STRING_VALUE", // required
- *     roleArn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // UpdateConfiguredTableAssociationOutput
+ * //   configuredTableAssociation: { // ConfiguredTableAssociation
+ * //     arn: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE", // required
+ * //     configuredTableId: "STRING_VALUE", // required
+ * //     configuredTableArn: "STRING_VALUE", // required
+ * //     membershipId: "STRING_VALUE", // required
+ * //     membershipArn: "STRING_VALUE", // required
+ * //     roleArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

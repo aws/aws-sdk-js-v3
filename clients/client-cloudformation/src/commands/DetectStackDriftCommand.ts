@@ -67,10 +67,9 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * };
  * const command = new DetectStackDriftCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectStackDriftOutput
- *   StackDriftDetectionId: "STRING_VALUE", // required
- * };
+ * // { // DetectStackDriftOutput
+ * //   StackDriftDetectionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

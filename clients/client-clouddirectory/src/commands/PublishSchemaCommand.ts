@@ -47,10 +47,9 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * };
  * const command = new PublishSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishSchemaResponse
- *   PublishedSchemaArn: "STRING_VALUE",
- * };
+ * // { // PublishSchemaResponse
+ * //   PublishedSchemaArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

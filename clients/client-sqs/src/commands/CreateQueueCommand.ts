@@ -101,10 +101,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQueueResult
- *   QueueUrl: "STRING_VALUE",
- * };
+ * // { // CreateQueueResult
+ * //   QueueUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,25 +66,24 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
  * };
  * const command = new GetBucketAclCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketAclOutput
- *   Owner: { // Owner
- *     DisplayName: "STRING_VALUE",
- *     ID: "STRING_VALUE",
- *   },
- *   Grants: [ // Grants
- *     { // Grant
- *       Grantee: { // Grantee
- *         DisplayName: "STRING_VALUE",
- *         EmailAddress: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *         URI: "STRING_VALUE",
- *         Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
- *       },
- *       Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
- *     },
- *   ],
- * };
+ * // { // GetBucketAclOutput
+ * //   Owner: { // Owner
+ * //     DisplayName: "STRING_VALUE",
+ * //     ID: "STRING_VALUE",
+ * //   },
+ * //   Grants: [ // Grants
+ * //     { // Grant
+ * //       Grantee: { // Grantee
+ * //         DisplayName: "STRING_VALUE",
+ * //         EmailAddress: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //         URI: "STRING_VALUE",
+ * //         Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ * //       },
+ * //       Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -44,16 +44,15 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * };
  * const command = new CreateRealtimeEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRealtimeEndpointOutput
- *   MLModelId: "STRING_VALUE",
- *   RealtimeEndpointInfo: { // RealtimeEndpointInfo
- *     PeakRequestsPerSecond: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     EndpointUrl: "STRING_VALUE",
- *     EndpointStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRealtimeEndpointOutput
+ * //   MLModelId: "STRING_VALUE",
+ * //   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ * //     PeakRequestsPerSecond: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     EndpointUrl: "STRING_VALUE",
+ * //     EndpointStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

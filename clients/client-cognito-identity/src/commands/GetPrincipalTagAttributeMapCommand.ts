@@ -48,15 +48,14 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * };
  * const command = new GetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPrincipalTagAttributeMapResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   IdentityProviderName: "STRING_VALUE",
- *   UseDefaults: true || false,
- *   PrincipalTags: { // PrincipalTags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetPrincipalTagAttributeMapResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   IdentityProviderName: "STRING_VALUE",
+ * //   UseDefaults: true || false,
+ * //   PrincipalTags: { // PrincipalTags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,15 +48,14 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  * };
  * const command = new GetReadinessCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadinessCheckResponse
- *   ReadinessCheckArn: "STRING_VALUE",
- *   ReadinessCheckName: "STRING_VALUE",
- *   ResourceSet: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetReadinessCheckResponse
+ * //   ReadinessCheckArn: "STRING_VALUE",
+ * //   ReadinessCheckName: "STRING_VALUE",
+ * //   ResourceSet: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

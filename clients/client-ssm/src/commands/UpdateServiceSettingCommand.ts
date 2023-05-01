@@ -58,8 +58,7 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  * };
  * const command = new UpdateServiceSettingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

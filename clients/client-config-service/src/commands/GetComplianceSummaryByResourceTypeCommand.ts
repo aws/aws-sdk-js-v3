@@ -57,25 +57,24 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * };
  * const command = new GetComplianceSummaryByResourceTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComplianceSummaryByResourceTypeResponse
- *   ComplianceSummariesByResourceType: [ // ComplianceSummariesByResourceType
- *     { // ComplianceSummaryByResourceType
- *       ResourceType: "STRING_VALUE",
- *       ComplianceSummary: { // ComplianceSummary
- *         CompliantResourceCount: { // ComplianceContributorCount
- *           CappedCount: Number("int"),
- *           CapExceeded: true || false,
- *         },
- *         NonCompliantResourceCount: {
- *           CappedCount: Number("int"),
- *           CapExceeded: true || false,
- *         },
- *         ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetComplianceSummaryByResourceTypeResponse
+ * //   ComplianceSummariesByResourceType: [ // ComplianceSummariesByResourceType
+ * //     { // ComplianceSummaryByResourceType
+ * //       ResourceType: "STRING_VALUE",
+ * //       ComplianceSummary: { // ComplianceSummary
+ * //         CompliantResourceCount: { // ComplianceContributorCount
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //         NonCompliantResourceCount: {
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //         ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

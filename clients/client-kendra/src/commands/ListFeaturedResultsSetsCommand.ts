@@ -48,19 +48,18 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  * };
  * const command = new ListFeaturedResultsSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFeaturedResultsSetsResponse
- *   FeaturedResultsSetSummaryItems: [ // FeaturedResultsSetSummaryItems
- *     { // FeaturedResultsSetSummary
- *       FeaturedResultsSetId: "STRING_VALUE",
- *       FeaturedResultsSetName: "STRING_VALUE",
- *       Status: "ACTIVE" || "INACTIVE",
- *       LastUpdatedTimestamp: Number("long"),
- *       CreationTimestamp: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFeaturedResultsSetsResponse
+ * //   FeaturedResultsSetSummaryItems: [ // FeaturedResultsSetSummaryItems
+ * //     { // FeaturedResultsSetSummary
+ * //       FeaturedResultsSetId: "STRING_VALUE",
+ * //       FeaturedResultsSetName: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       LastUpdatedTimestamp: Number("long"),
+ * //       CreationTimestamp: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

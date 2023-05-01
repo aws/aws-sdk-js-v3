@@ -70,25 +70,24 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  * };
  * const command = new RestoreTableFromClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreTableFromClusterSnapshotResult
- *   TableRestoreStatus: { // TableRestoreStatus
- *     TableRestoreRequestId: "STRING_VALUE",
- *     Status: "PENDING" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "CANCELED",
- *     Message: "STRING_VALUE",
- *     RequestTime: new Date("TIMESTAMP"),
- *     ProgressInMegaBytes: Number("long"),
- *     TotalDataInMegaBytes: Number("long"),
- *     ClusterIdentifier: "STRING_VALUE",
- *     SnapshotIdentifier: "STRING_VALUE",
- *     SourceDatabaseName: "STRING_VALUE",
- *     SourceSchemaName: "STRING_VALUE",
- *     SourceTableName: "STRING_VALUE",
- *     TargetDatabaseName: "STRING_VALUE",
- *     TargetSchemaName: "STRING_VALUE",
- *     NewTableName: "STRING_VALUE",
- *   },
- * };
+ * // { // RestoreTableFromClusterSnapshotResult
+ * //   TableRestoreStatus: { // TableRestoreStatus
+ * //     TableRestoreRequestId: "STRING_VALUE",
+ * //     Status: "PENDING" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "CANCELED",
+ * //     Message: "STRING_VALUE",
+ * //     RequestTime: new Date("TIMESTAMP"),
+ * //     ProgressInMegaBytes: Number("long"),
+ * //     TotalDataInMegaBytes: Number("long"),
+ * //     ClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotIdentifier: "STRING_VALUE",
+ * //     SourceDatabaseName: "STRING_VALUE",
+ * //     SourceSchemaName: "STRING_VALUE",
+ * //     SourceTableName: "STRING_VALUE",
+ * //     TargetDatabaseName: "STRING_VALUE",
+ * //     TargetSchemaName: "STRING_VALUE",
+ * //     NewTableName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

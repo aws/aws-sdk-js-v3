@@ -46,12 +46,11 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * };
  * const command = new DeleteGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGrantResponse
- *   GrantArn: "STRING_VALUE",
- *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
- *   Version: "STRING_VALUE",
- * };
+ * // { // DeleteGrantResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,17 +47,16 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * };
  * const command = new DescribeLDAPSSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLDAPSSettingsResult
- *   LDAPSSettingsInfo: [ // LDAPSSettingsInfo
- *     { // LDAPSSettingInfo
- *       LDAPSStatus: "Enabling" || "Enabled" || "EnableFailed" || "Disabled",
- *       LDAPSStatusReason: "STRING_VALUE",
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLDAPSSettingsResult
+ * //   LDAPSSettingsInfo: [ // LDAPSSettingsInfo
+ * //     { // LDAPSSettingInfo
+ * //       LDAPSStatus: "Enabling" || "Enabled" || "EnableFailed" || "Disabled",
+ * //       LDAPSStatusReason: "STRING_VALUE",
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,15 +66,14 @@ export interface PutPackageOriginConfigurationCommandOutput
  * };
  * const command = new PutPackageOriginConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutPackageOriginConfigurationResult
- *   originConfiguration: { // PackageOriginConfiguration
- *     restrictions: { // PackageOriginRestrictions
- *       publish: "ALLOW" || "BLOCK", // required
- *       upstream: "ALLOW" || "BLOCK", // required
- *     },
- *   },
- * };
+ * // { // PutPackageOriginConfigurationResult
+ * //   originConfiguration: { // PackageOriginConfiguration
+ * //     restrictions: { // PackageOriginRestrictions
+ * //       publish: "ALLOW" || "BLOCK", // required
+ * //       upstream: "ALLOW" || "BLOCK", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

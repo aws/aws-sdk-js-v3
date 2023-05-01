@@ -52,8 +52,7 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * };
  * const command = new CancelAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,13 +49,12 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * };
  * const command = new ListPullRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPullRequestsOutput
- *   pullRequestIds: [ // PullRequestIdList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPullRequestsOutput
+ * //   pullRequestIds: [ // PullRequestIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

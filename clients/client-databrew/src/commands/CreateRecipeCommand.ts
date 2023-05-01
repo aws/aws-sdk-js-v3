@@ -65,10 +65,9 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * };
  * const command = new CreateRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRecipeResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateRecipeResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

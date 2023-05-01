@@ -54,16 +54,15 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
  * };
  * const command = new AssociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTransitGatewayPolicyTableResult
- *   Association: { // TransitGatewayPolicyTableAssociation
- *     TransitGatewayPolicyTableId: "STRING_VALUE",
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *     State: "associating" || "associated" || "disassociating" || "disassociated",
- *   },
- * };
+ * // { // AssociateTransitGatewayPolicyTableResult
+ * //   Association: { // TransitGatewayPolicyTableAssociation
+ * //     TransitGatewayPolicyTableId: "STRING_VALUE",
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //   },
+ * // };
  *
  * ```
  *

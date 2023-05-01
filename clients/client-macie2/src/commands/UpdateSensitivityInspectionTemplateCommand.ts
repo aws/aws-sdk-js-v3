@@ -69,8 +69,7 @@ export interface UpdateSensitivityInspectionTemplateCommandOutput
  * };
  * const command = new UpdateSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

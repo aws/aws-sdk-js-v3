@@ -52,13 +52,12 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * };
  * const command = new GetFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFailbackReplicationConfigurationResponse
- *   recoveryInstanceID: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"),
- *   usePrivateIP: true || false,
- * };
+ * // { // GetFailbackReplicationConfigurationResponse
+ * //   recoveryInstanceID: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   bandwidthThrottling: Number("long"),
+ * //   usePrivateIP: true || false,
+ * // };
  *
  * ```
  *

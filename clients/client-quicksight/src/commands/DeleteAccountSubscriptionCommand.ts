@@ -44,11 +44,10 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * };
  * const command = new DeleteAccountSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAccountSubscriptionResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteAccountSubscriptionResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

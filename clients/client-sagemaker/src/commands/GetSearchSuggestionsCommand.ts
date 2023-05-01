@@ -52,14 +52,13 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  * };
  * const command = new GetSearchSuggestionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSearchSuggestionsResponse
- *   PropertyNameSuggestions: [ // PropertyNameSuggestionList
- *     { // PropertyNameSuggestion
- *       PropertyName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetSearchSuggestionsResponse
+ * //   PropertyNameSuggestions: [ // PropertyNameSuggestionList
+ * //     { // PropertyNameSuggestion
+ * //       PropertyName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

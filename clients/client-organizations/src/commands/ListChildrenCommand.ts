@@ -59,16 +59,15 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * };
  * const command = new ListChildrenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChildrenResponse
- *   Children: [ // Children
- *     { // Child
- *       Id: "STRING_VALUE",
- *       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChildrenResponse
+ * //   Children: [ // Children
+ * //     { // Child
+ * //       Id: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

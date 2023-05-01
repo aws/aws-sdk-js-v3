@@ -92,8 +92,7 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * };
  * const command = new TerminateWorkflowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

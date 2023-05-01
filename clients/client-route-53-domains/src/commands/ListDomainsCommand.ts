@@ -59,18 +59,17 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsResponse
- *   Domains: [ // DomainSummaryList
- *     { // DomainSummary
- *       DomainName: "STRING_VALUE",
- *       AutoRenew: true || false,
- *       TransferLock: true || false,
- *       Expiry: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextPageMarker: "STRING_VALUE",
- * };
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainSummaryList
+ * //     { // DomainSummary
+ * //       DomainName: "STRING_VALUE",
+ * //       AutoRenew: true || false,
+ * //       TransferLock: true || false,
+ * //       Expiry: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextPageMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * };
  * const command = new UpdateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

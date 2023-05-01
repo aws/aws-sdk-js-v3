@@ -45,10 +45,9 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * };
  * const command = new GetFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFirewallRuleGroupPolicyResponse
- *   FirewallRuleGroupPolicy: "STRING_VALUE",
- * };
+ * // { // GetFirewallRuleGroupPolicyResponse
+ * //   FirewallRuleGroupPolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

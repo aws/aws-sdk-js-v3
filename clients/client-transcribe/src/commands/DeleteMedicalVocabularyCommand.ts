@@ -46,8 +46,7 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteMedicalVocabularyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

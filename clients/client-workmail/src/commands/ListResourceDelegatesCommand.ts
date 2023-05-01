@@ -48,16 +48,15 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * };
  * const command = new ListResourceDelegatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceDelegatesResponse
- *   Delegates: [ // ResourceDelegates
- *     { // Delegate
- *       Id: "STRING_VALUE", // required
- *       Type: "GROUP" || "USER", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceDelegatesResponse
+ * //   Delegates: [ // ResourceDelegates
+ * //     { // Delegate
+ * //       Id: "STRING_VALUE", // required
+ * //       Type: "GROUP" || "USER", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,16 +45,15 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * };
  * const command = new GetRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryOutput
- *   repository: { // Repository
- *     arn: "STRING_VALUE", // required
- *     provider: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     connectionArn: "STRING_VALUE", // required
- *     encryptionKey: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRepositoryOutput
+ * //   repository: { // Repository
+ * //     arn: "STRING_VALUE", // required
+ * //     provider: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     connectionArn: "STRING_VALUE", // required
+ * //     encryptionKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

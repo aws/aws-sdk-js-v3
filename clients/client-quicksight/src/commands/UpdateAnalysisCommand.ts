@@ -4313,14 +4313,13 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  * };
  * const command = new UpdateAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnalysisResponse
- *   Arn: "STRING_VALUE",
- *   AnalysisId: "STRING_VALUE",
- *   UpdateStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateAnalysisResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AnalysisId: "STRING_VALUE",
+ * //   UpdateStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

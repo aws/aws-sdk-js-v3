@@ -68,10 +68,9 @@ export interface CreateLocationObjectStorageCommandOutput
  * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationObjectStorageResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationObjectStorageResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

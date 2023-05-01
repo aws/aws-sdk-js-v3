@@ -44,16 +44,15 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  * };
  * const command = new GetSiteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSiteResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   countryCode: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetSiteResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   countryCode: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -51,13 +51,12 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * };
  * const command = new ListReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReportsOutput
- *   nextToken: "STRING_VALUE",
- *   reports: [ // ReportArns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListReportsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reports: [ // ReportArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -61,21 +61,20 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  * };
  * const command = new UpdateFolderPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFolderPermissionsResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   FolderId: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateFolderPermissionsResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   FolderId: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

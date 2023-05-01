@@ -78,35 +78,34 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMeetingResponse
- *   Meeting: { // Meeting
- *     MeetingId: "STRING_VALUE",
- *     MeetingHostId: "STRING_VALUE",
- *     ExternalMeetingId: "STRING_VALUE",
- *     MediaRegion: "STRING_VALUE",
- *     MediaPlacement: { // MediaPlacement
- *       AudioHostUrl: "STRING_VALUE",
- *       AudioFallbackUrl: "STRING_VALUE",
- *       SignalingUrl: "STRING_VALUE",
- *       TurnControlUrl: "STRING_VALUE",
- *       ScreenDataUrl: "STRING_VALUE",
- *       ScreenViewingUrl: "STRING_VALUE",
- *       ScreenSharingUrl: "STRING_VALUE",
- *       EventIngestionUrl: "STRING_VALUE",
- *     },
- *     MeetingFeatures: { // MeetingFeaturesConfiguration
- *       Audio: { // AudioFeatures
- *         EchoReduction: "AVAILABLE" || "UNAVAILABLE",
- *       },
- *     },
- *     PrimaryMeetingId: "STRING_VALUE",
- *     TenantIds: [ // TenantIdList
- *       "STRING_VALUE",
- *     ],
- *     MeetingArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateMeetingResponse
+ * //   Meeting: { // Meeting
+ * //     MeetingId: "STRING_VALUE",
+ * //     MeetingHostId: "STRING_VALUE",
+ * //     ExternalMeetingId: "STRING_VALUE",
+ * //     MediaRegion: "STRING_VALUE",
+ * //     MediaPlacement: { // MediaPlacement
+ * //       AudioHostUrl: "STRING_VALUE",
+ * //       AudioFallbackUrl: "STRING_VALUE",
+ * //       SignalingUrl: "STRING_VALUE",
+ * //       TurnControlUrl: "STRING_VALUE",
+ * //       ScreenDataUrl: "STRING_VALUE",
+ * //       ScreenViewingUrl: "STRING_VALUE",
+ * //       ScreenSharingUrl: "STRING_VALUE",
+ * //       EventIngestionUrl: "STRING_VALUE",
+ * //     },
+ * //     MeetingFeatures: { // MeetingFeaturesConfiguration
+ * //       Audio: { // AudioFeatures
+ * //         EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ * //       },
+ * //     },
+ * //     PrimaryMeetingId: "STRING_VALUE",
+ * //     TenantIds: [ // TenantIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MeetingArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

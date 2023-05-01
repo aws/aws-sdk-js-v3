@@ -48,8 +48,7 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * };
  * const command = new EnableSsoCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

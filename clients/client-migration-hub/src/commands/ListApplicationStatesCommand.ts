@@ -50,17 +50,16 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * };
  * const command = new ListApplicationStatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationStatesResult
- *   ApplicationStateList: [ // ApplicationStateList
- *     { // ApplicationState
- *       ApplicationId: "STRING_VALUE",
- *       ApplicationStatus: "STRING_VALUE",
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationStatesResult
+ * //   ApplicationStateList: [ // ApplicationStateList
+ * //     { // ApplicationState
+ * //       ApplicationId: "STRING_VALUE",
+ * //       ApplicationStatus: "STRING_VALUE",
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

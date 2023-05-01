@@ -45,8 +45,7 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  * };
  * const command = new DeleteImpersonationRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

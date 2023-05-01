@@ -54,14 +54,13 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * };
  * const command = new GetRecoveryPointRestoreMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecoveryPointRestoreMetadataOutput
- *   BackupVaultArn: "STRING_VALUE",
- *   RecoveryPointArn: "STRING_VALUE",
- *   RestoreMetadata: { // Metadata
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetRecoveryPointRestoreMetadataOutput
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   RecoveryPointArn: "STRING_VALUE",
+ * //   RestoreMetadata: { // Metadata
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

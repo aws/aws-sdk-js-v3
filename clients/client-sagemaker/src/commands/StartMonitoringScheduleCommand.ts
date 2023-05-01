@@ -48,8 +48,7 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * };
  * const command = new StartMonitoringScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface UpdateDatalakeExceptionsSubscriptionCommandOutput
  * };
  * const command = new UpdateDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

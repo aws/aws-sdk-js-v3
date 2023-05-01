@@ -46,22 +46,21 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  * };
  * const command = new ListPagesByContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPagesByContactResult
- *   NextToken: "STRING_VALUE",
- *   Pages: [ // PagesList // required
- *     { // Page
- *       PageArn: "STRING_VALUE", // required
- *       EngagementArn: "STRING_VALUE", // required
- *       ContactArn: "STRING_VALUE", // required
- *       Sender: "STRING_VALUE", // required
- *       IncidentId: "STRING_VALUE",
- *       SentTime: new Date("TIMESTAMP"),
- *       DeliveryTime: new Date("TIMESTAMP"),
- *       ReadTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListPagesByContactResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Pages: [ // PagesList // required
+ * //     { // Page
+ * //       PageArn: "STRING_VALUE", // required
+ * //       EngagementArn: "STRING_VALUE", // required
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Sender: "STRING_VALUE", // required
+ * //       IncidentId: "STRING_VALUE",
+ * //       SentTime: new Date("TIMESTAMP"),
+ * //       DeliveryTime: new Date("TIMESTAMP"),
+ * //       ReadTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

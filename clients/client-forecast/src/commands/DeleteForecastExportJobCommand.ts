@@ -46,8 +46,7 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteForecastExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

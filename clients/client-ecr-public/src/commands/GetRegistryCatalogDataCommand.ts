@@ -42,12 +42,11 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * const input = {};
  * const command = new GetRegistryCatalogDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegistryCatalogDataResponse
- *   registryCatalogData: { // RegistryCatalogData
- *     displayName: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRegistryCatalogDataResponse
+ * //   registryCatalogData: { // RegistryCatalogData
+ * //     displayName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

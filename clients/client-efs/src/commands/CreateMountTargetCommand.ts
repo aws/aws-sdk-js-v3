@@ -188,19 +188,18 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * };
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MountTargetDescription
- *   OwnerId: "STRING_VALUE",
- *   MountTargetId: "STRING_VALUE", // required
- *   FileSystemId: "STRING_VALUE", // required
- *   SubnetId: "STRING_VALUE", // required
- *   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
- *   IpAddress: "STRING_VALUE",
- *   NetworkInterfaceId: "STRING_VALUE",
- *   AvailabilityZoneId: "STRING_VALUE",
- *   AvailabilityZoneName: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- * };
+ * // { // MountTargetDescription
+ * //   OwnerId: "STRING_VALUE",
+ * //   MountTargetId: "STRING_VALUE", // required
+ * //   FileSystemId: "STRING_VALUE", // required
+ * //   SubnetId: "STRING_VALUE", // required
+ * //   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
+ * //   IpAddress: "STRING_VALUE",
+ * //   NetworkInterfaceId: "STRING_VALUE",
+ * //   AvailabilityZoneId: "STRING_VALUE",
+ * //   AvailabilityZoneName: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

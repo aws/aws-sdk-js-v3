@@ -47,27 +47,26 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplatesResponse
- *   TemplatesResponse: { // TemplatesResponse
- *     Item: [ // ListOfTemplateResponse // required
- *       { // TemplateResponse
- *         Arn: "STRING_VALUE",
- *         CreationDate: "STRING_VALUE", // required
- *         DefaultSubstitutions: "STRING_VALUE",
- *         LastModifiedDate: "STRING_VALUE", // required
- *         tags: { // MapOf__string
- *           "<keys>": "STRING_VALUE",
- *         },
- *         TemplateDescription: "STRING_VALUE",
- *         TemplateName: "STRING_VALUE", // required
- *         TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
- *         Version: "STRING_VALUE",
- *       },
- *     ],
- *     NextToken: "STRING_VALUE",
- *   },
- * };
+ * // { // ListTemplatesResponse
+ * //   TemplatesResponse: { // TemplatesResponse
+ * //     Item: [ // ListOfTemplateResponse // required
+ * //       { // TemplateResponse
+ * //         Arn: "STRING_VALUE",
+ * //         CreationDate: "STRING_VALUE", // required
+ * //         DefaultSubstitutions: "STRING_VALUE",
+ * //         LastModifiedDate: "STRING_VALUE", // required
+ * //         tags: { // MapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         TemplateDescription: "STRING_VALUE",
+ * //         TemplateName: "STRING_VALUE", // required
+ * //         TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

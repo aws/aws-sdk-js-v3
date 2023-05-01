@@ -48,16 +48,15 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * };
  * const command = new GetObjectInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectInformationResponse
- *   SchemaFacets: [ // SchemaFacetList
- *     { // SchemaFacet
- *       SchemaArn: "STRING_VALUE",
- *       FacetName: "STRING_VALUE",
- *     },
- *   ],
- *   ObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // GetObjectInformationResponse
+ * //   SchemaFacets: [ // SchemaFacetList
+ * //     { // SchemaFacet
+ * //       SchemaArn: "STRING_VALUE",
+ * //       FacetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

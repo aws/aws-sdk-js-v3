@@ -91,8 +91,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RetireGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

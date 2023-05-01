@@ -52,10 +52,9 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * };
  * const command = new GetKeyPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKeyPolicyResponse
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetKeyPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

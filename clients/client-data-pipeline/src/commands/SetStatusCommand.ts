@@ -80,8 +80,7 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

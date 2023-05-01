@@ -69,10 +69,9 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * };
  * const command = new DeleteSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSqlInjectionMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteSqlInjectionMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

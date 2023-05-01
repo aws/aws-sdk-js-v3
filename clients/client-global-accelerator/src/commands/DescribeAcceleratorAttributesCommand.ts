@@ -54,14 +54,13 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * };
  * const command = new DescribeAcceleratorAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAcceleratorAttributesResponse
- *   AcceleratorAttributes: { // AcceleratorAttributes
- *     FlowLogsEnabled: true || false,
- *     FlowLogsS3Bucket: "STRING_VALUE",
- *     FlowLogsS3Prefix: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeAcceleratorAttributesResponse
+ * //   AcceleratorAttributes: { // AcceleratorAttributes
+ * //     FlowLogsEnabled: true || false,
+ * //     FlowLogsS3Bucket: "STRING_VALUE",
+ * //     FlowLogsS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

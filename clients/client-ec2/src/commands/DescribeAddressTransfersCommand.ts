@@ -49,20 +49,19 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * };
  * const command = new DescribeAddressTransfersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAddressTransfersResult
- *   AddressTransfers: [ // AddressTransferList
- *     { // AddressTransfer
- *       PublicIp: "STRING_VALUE",
- *       AllocationId: "STRING_VALUE",
- *       TransferAccountId: "STRING_VALUE",
- *       TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
- *       TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
- *       AddressTransferStatus: "pending" || "disabled" || "accepted",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAddressTransfersResult
+ * //   AddressTransfers: [ // AddressTransferList
+ * //     { // AddressTransfer
+ * //       PublicIp: "STRING_VALUE",
+ * //       AllocationId: "STRING_VALUE",
+ * //       TransferAccountId: "STRING_VALUE",
+ * //       TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ * //       TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ * //       AddressTransferStatus: "pending" || "disabled" || "accepted",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

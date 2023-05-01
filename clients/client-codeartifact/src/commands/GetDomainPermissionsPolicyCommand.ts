@@ -54,14 +54,13 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * };
  * const command = new GetDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainPermissionsPolicyResult
- *   policy: { // ResourcePolicy
- *     resourceArn: "STRING_VALUE",
- *     revision: "STRING_VALUE",
- *     document: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDomainPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

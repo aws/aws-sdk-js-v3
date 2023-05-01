@@ -66,16 +66,15 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * };
  * const command = new ValidateResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateResourcePolicyResponse
- *   PolicyValidationPassed: true || false,
- *   ValidationErrors: [ // ValidationErrorsType
- *     { // ValidationErrorsEntry
- *       CheckName: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ValidateResourcePolicyResponse
+ * //   PolicyValidationPassed: true || false,
+ * //   ValidationErrors: [ // ValidationErrorsType
+ * //     { // ValidationErrorsEntry
+ * //       CheckName: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

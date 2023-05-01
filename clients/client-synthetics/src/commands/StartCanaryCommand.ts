@@ -46,8 +46,7 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * };
  * const command = new StartCanaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

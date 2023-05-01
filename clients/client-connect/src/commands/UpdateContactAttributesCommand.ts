@@ -61,8 +61,7 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * };
  * const command = new UpdateContactAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,55 +46,54 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * };
  * const command = new GetSchemaAnalysisRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaAnalysisRuleOutput
- *   analysisRule: { // AnalysisRule
- *     collaborationId: "STRING_VALUE", // required
- *     type: "AGGREGATION" || "LIST", // required
- *     name: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *     policy: { // AnalysisRulePolicy Union: only one key present
- *       v1: { // AnalysisRulePolicyV1 Union: only one key present
- *         list: { // AnalysisRuleList
- *           joinColumns: [ // AnalysisRuleColumnList // required
- *             "STRING_VALUE",
- *           ],
- *           listColumns: [ // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *         aggregation: { // AnalysisRuleAggregation
- *           aggregateColumns: [ // AggregateColumnList // required
- *             { // AggregateColumn
- *               columnNames: [ // AnalysisRuleColumnNameList // required
- *                 "STRING_VALUE",
- *               ],
- *               function: "STRING_VALUE", // required
- *             },
- *           ],
- *           joinColumns: [ // required
- *             "STRING_VALUE",
- *           ],
- *           joinRequired: "STRING_VALUE",
- *           dimensionColumns: [ // required
- *             "STRING_VALUE",
- *           ],
- *           scalarFunctions: [ // ScalarFunctionsList // required
- *             "STRING_VALUE",
- *           ],
- *           outputConstraints: [ // AggregationConstraints // required
- *             { // AggregationConstraint
- *               columnName: "STRING_VALUE", // required
- *               minimum: Number("int"), // required
- *               type: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // GetSchemaAnalysisRuleOutput
+ * //   analysisRule: { // AnalysisRule
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     type: "AGGREGATION" || "LIST", // required
+ * //     name: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     policy: { // AnalysisRulePolicy Union: only one key present
+ * //       v1: { // AnalysisRulePolicyV1 Union: only one key present
+ * //         list: { // AnalysisRuleList
+ * //           joinColumns: [ // AnalysisRuleColumnList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           listColumns: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         aggregation: { // AnalysisRuleAggregation
+ * //           aggregateColumns: [ // AggregateColumnList // required
+ * //             { // AggregateColumn
+ * //               columnNames: [ // AnalysisRuleColumnNameList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               function: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           joinColumns: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           joinRequired: "STRING_VALUE",
+ * //           dimensionColumns: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           scalarFunctions: [ // ScalarFunctionsList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           outputConstraints: [ // AggregationConstraints // required
+ * //             { // AggregationConstraint
+ * //               columnName: "STRING_VALUE", // required
+ * //               minimum: Number("int"), // required
+ * //               type: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,19 +46,18 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AccountAttributeList
- *   AccountAttributes: [ // AttributeList
- *     { // AccountAttribute
- *       AttributeName: "STRING_VALUE",
- *       AttributeValues: [ // AttributeValueList
- *         { // AttributeValueTarget
- *           AttributeValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // AccountAttributeList
+ * //   AccountAttributes: [ // AttributeList
+ * //     { // AccountAttribute
+ * //       AttributeName: "STRING_VALUE",
+ * //       AttributeValues: [ // AttributeValueList
+ * //         { // AttributeValueTarget
+ * //           AttributeValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

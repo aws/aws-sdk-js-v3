@@ -86,10 +86,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateServiceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,13 +58,12 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * };
  * const command = new UpdateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSolNetworkInstanceOutput
- *   nsLcmOpOccId: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateSolNetworkInstanceOutput
+ * //   nsLcmOpOccId: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

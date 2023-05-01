@@ -46,19 +46,18 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * };
  * const command = new ListScheduledAuditsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScheduledAuditsResponse
- *   scheduledAudits: [ // ScheduledAuditMetadataList
- *     { // ScheduledAuditMetadata
- *       scheduledAuditName: "STRING_VALUE",
- *       scheduledAuditArn: "STRING_VALUE",
- *       frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
- *       dayOfMonth: "STRING_VALUE",
- *       dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListScheduledAuditsResponse
+ * //   scheduledAudits: [ // ScheduledAuditMetadataList
+ * //     { // ScheduledAuditMetadata
+ * //       scheduledAuditName: "STRING_VALUE",
+ * //       scheduledAuditArn: "STRING_VALUE",
+ * //       frequency: "DAILY" || "WEEKLY" || "BIWEEKLY" || "MONTHLY",
+ * //       dayOfMonth: "STRING_VALUE",
+ * //       dayOfWeek: "SUN" || "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

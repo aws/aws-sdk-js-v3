@@ -49,21 +49,20 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * };
  * const command = new GetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserPoolMfaConfigResponse
- *   SmsMfaConfiguration: { // SmsMfaConfigType
- *     SmsAuthenticationMessage: "STRING_VALUE",
- *     SmsConfiguration: { // SmsConfigurationType
- *       SnsCallerArn: "STRING_VALUE", // required
- *       ExternalId: "STRING_VALUE",
- *       SnsRegion: "STRING_VALUE",
- *     },
- *   },
- *   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
- *     Enabled: true || false,
- *   },
- *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
- * };
+ * // { // GetUserPoolMfaConfigResponse
+ * //   SmsMfaConfiguration: { // SmsMfaConfigType
+ * //     SmsAuthenticationMessage: "STRING_VALUE",
+ * //     SmsConfiguration: { // SmsConfigurationType
+ * //       SnsCallerArn: "STRING_VALUE", // required
+ * //       ExternalId: "STRING_VALUE",
+ * //       SnsRegion: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
+ * //     Enabled: true || false,
+ * //   },
+ * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * // };
  *
  * ```
  *

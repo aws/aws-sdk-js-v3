@@ -64,10 +64,9 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * };
  * const command = new CreateTapeWithBarcodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTapeWithBarcodeOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // CreateTapeWithBarcodeOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

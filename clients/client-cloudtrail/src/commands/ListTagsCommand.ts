@@ -47,21 +47,20 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsResponse
- *   ResourceTagList: [ // ResourceTagList
- *     { // ResourceTag
- *       ResourceId: "STRING_VALUE",
- *       TagsList: [ // TagsList
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTagsResponse
+ * //   ResourceTagList: [ // ResourceTagList
+ * //     { // ResourceTag
+ * //       ResourceId: "STRING_VALUE",
+ * //       TagsList: [ // TagsList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

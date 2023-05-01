@@ -53,17 +53,16 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * };
  * const command = new DisassociateFraudsterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateFraudsterResponse
- *   Fraudster: { // Fraudster
- *     DomainId: "STRING_VALUE",
- *     GeneratedFraudsterId: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     WatchlistIds: [ // ResponseWatchlistIds
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DisassociateFraudsterResponse
+ * //   Fraudster: { // Fraudster
+ * //     DomainId: "STRING_VALUE",
+ * //     GeneratedFraudsterId: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     WatchlistIds: [ // ResponseWatchlistIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

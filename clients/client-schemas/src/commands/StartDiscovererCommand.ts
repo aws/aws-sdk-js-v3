@@ -44,11 +44,10 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  * };
  * const command = new StartDiscovererCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDiscovererResponse
- *   DiscovererId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- * };
+ * // { // StartDiscovererResponse
+ * //   DiscovererId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

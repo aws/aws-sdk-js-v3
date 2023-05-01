@@ -44,18 +44,17 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectivityInfoResponse
- *   ConnectivityInfo: [ // __listOfConnectivityInfo
- *     { // ConnectivityInfo
- *       HostAddress: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *       PortNumber: Number("int"),
- *     },
- *   ],
- *   Message: "STRING_VALUE",
- * };
+ * // { // GetConnectivityInfoResponse
+ * //   ConnectivityInfo: [ // __listOfConnectivityInfo
+ * //     { // ConnectivityInfo
+ * //       HostAddress: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //       PortNumber: Number("int"),
+ * //     },
+ * //   ],
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

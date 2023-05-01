@@ -75,14 +75,13 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * };
  * const command = new UpdateApplicationMaintenanceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApplicationMaintenanceConfigurationResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationMaintenanceConfigurationDescription: { // ApplicationMaintenanceConfigurationDescription
- *     ApplicationMaintenanceWindowStartTime: "STRING_VALUE", // required
- *     ApplicationMaintenanceWindowEndTime: "STRING_VALUE", // required
- *   },
- * };
+ * // { // UpdateApplicationMaintenanceConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationMaintenanceConfigurationDescription: { // ApplicationMaintenanceConfigurationDescription
+ * //     ApplicationMaintenanceWindowStartTime: "STRING_VALUE", // required
+ * //     ApplicationMaintenanceWindowEndTime: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

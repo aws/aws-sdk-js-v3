@@ -85,8 +85,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

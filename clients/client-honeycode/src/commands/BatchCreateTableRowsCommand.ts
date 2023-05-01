@@ -72,19 +72,18 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * };
  * const command = new BatchCreateTableRowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateTableRowsResult
- *   workbookCursor: Number("long"), // required
- *   createdRows: { // CreatedRowsMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- *   failedBatchItems: [ // FailedBatchItems
- *     { // FailedBatchItem
- *       id: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchCreateTableRowsResult
+ * //   workbookCursor: Number("long"), // required
+ * //   createdRows: { // CreatedRowsMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

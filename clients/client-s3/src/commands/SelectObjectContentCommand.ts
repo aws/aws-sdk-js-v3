@@ -207,30 +207,29 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * };
  * const command = new SelectObjectContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SelectObjectContentOutput
- *   Payload: { // SelectObjectContentEventStream Union: only one key present
- *     Records: { // RecordsEvent
- *       Payload: "BLOB_VALUE",
- *     },
- *     Stats: { // StatsEvent
- *       Details: { // Stats
- *         BytesScanned: Number("long"),
- *         BytesProcessed: Number("long"),
- *         BytesReturned: Number("long"),
- *       },
- *     },
- *     Progress: { // ProgressEvent
- *       Details: { // Progress
- *         BytesScanned: Number("long"),
- *         BytesProcessed: Number("long"),
- *         BytesReturned: Number("long"),
- *       },
- *     },
- *     Cont: {},
- *     End: {},
- *   },
- * };
+ * // { // SelectObjectContentOutput
+ * //   Payload: { // SelectObjectContentEventStream Union: only one key present
+ * //     Records: { // RecordsEvent
+ * //       Payload: "BLOB_VALUE",
+ * //     },
+ * //     Stats: { // StatsEvent
+ * //       Details: { // Stats
+ * //         BytesScanned: Number("long"),
+ * //         BytesProcessed: Number("long"),
+ * //         BytesReturned: Number("long"),
+ * //       },
+ * //     },
+ * //     Progress: { // ProgressEvent
+ * //       Details: { // Progress
+ * //         BytesScanned: Number("long"),
+ * //         BytesProcessed: Number("long"),
+ * //         BytesReturned: Number("long"),
+ * //       },
+ * //     },
+ * //     Cont: {},
+ * //     End: {},
+ * //   },
+ * // };
  *
  * ```
  *

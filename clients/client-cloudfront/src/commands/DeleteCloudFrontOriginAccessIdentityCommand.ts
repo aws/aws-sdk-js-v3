@@ -48,8 +48,7 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * };
  * const command = new DeleteCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

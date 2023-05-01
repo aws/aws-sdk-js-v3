@@ -77,8 +77,7 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * };
  * const command = new UpdateEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

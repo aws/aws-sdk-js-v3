@@ -86,10 +86,9 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPointOutput
- *   DNSName: "STRING_VALUE",
- * };
+ * // { // CreateAccessPointOutput
+ * //   DNSName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

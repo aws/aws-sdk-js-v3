@@ -44,10 +44,9 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * };
  * const command = new GetAppliedSchemaVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppliedSchemaVersionResponse
- *   AppliedSchemaArn: "STRING_VALUE",
- * };
+ * // { // GetAppliedSchemaVersionResponse
+ * //   AppliedSchemaArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -42,20 +42,19 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoggingOptionsResponse
- *   loggingOptions: { // LoggingOptions
- *     roleArn: "STRING_VALUE", // required
- *     level: "STRING_VALUE", // required
- *     enabled: true || false, // required
- *     detectorDebugOptions: [ // DetectorDebugOptions
- *       { // DetectorDebugOption
- *         detectorModelName: "STRING_VALUE", // required
- *         keyValue: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeLoggingOptionsResponse
+ * //   loggingOptions: { // LoggingOptions
+ * //     roleArn: "STRING_VALUE", // required
+ * //     level: "STRING_VALUE", // required
+ * //     enabled: true || false, // required
+ * //     detectorDebugOptions: [ // DetectorDebugOptions
+ * //       { // DetectorDebugOption
+ * //         detectorModelName: "STRING_VALUE", // required
+ * //         keyValue: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

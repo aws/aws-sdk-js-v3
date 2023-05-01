@@ -44,17 +44,16 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * };
  * const command = new GetServiceNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceNetworkResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   arn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- *   numberOfAssociatedVPCs: Number("long"),
- *   numberOfAssociatedServices: Number("long"),
- * };
+ * // { // GetServiceNetworkResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   arn: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * //   numberOfAssociatedVPCs: Number("long"),
+ * //   numberOfAssociatedServices: Number("long"),
+ * // };
  *
  * ```
  *

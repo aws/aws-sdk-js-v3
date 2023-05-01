@@ -81,15 +81,14 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDBClusterParameterGroupResult
- *   DBClusterParameterGroup: { // DBClusterParameterGroup
- *     DBClusterParameterGroupName: "STRING_VALUE",
- *     DBParameterGroupFamily: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DBClusterParameterGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateDBClusterParameterGroupResult
+ * //   DBClusterParameterGroup: { // DBClusterParameterGroup
+ * //     DBClusterParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBClusterParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,12 +49,11 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * };
  * const command = new GetWirelessGatewayStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayStatisticsResponse
- *   WirelessGatewayId: "STRING_VALUE",
- *   LastUplinkReceivedAt: "STRING_VALUE",
- *   ConnectionStatus: "Connected" || "Disconnected",
- * };
+ * // { // GetWirelessGatewayStatisticsResponse
+ * //   WirelessGatewayId: "STRING_VALUE",
+ * //   LastUplinkReceivedAt: "STRING_VALUE",
+ * //   ConnectionStatus: "Connected" || "Disconnected",
+ * // };
  *
  * ```
  *

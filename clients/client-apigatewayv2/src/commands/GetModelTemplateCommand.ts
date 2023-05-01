@@ -45,10 +45,9 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelTemplateResponse
- *   Value: "STRING_VALUE",
- * };
+ * // { // GetModelTemplateResponse
+ * //   Value: "STRING_VALUE",
+ * // };
  *
  * ```
  *

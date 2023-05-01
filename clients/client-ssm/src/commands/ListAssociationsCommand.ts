@@ -53,45 +53,44 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociationsResult
- *   Associations: [ // AssociationList
- *     { // Association
- *       Name: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       AssociationVersion: "STRING_VALUE",
- *       DocumentVersion: "STRING_VALUE",
- *       Targets: [ // Targets
- *         { // Target
- *           Key: "STRING_VALUE",
- *           Values: [ // TargetValues
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       LastExecutionDate: new Date("TIMESTAMP"),
- *       Overview: { // AssociationOverview
- *         Status: "STRING_VALUE",
- *         DetailedStatus: "STRING_VALUE",
- *         AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
- *           "<keys>": Number("int"),
- *         },
- *       },
- *       ScheduleExpression: "STRING_VALUE",
- *       AssociationName: "STRING_VALUE",
- *       ScheduleOffset: Number("int"),
- *       TargetMaps: [ // TargetMaps
- *         { // TargetMap
- *           "<keys>": [ // TargetMapValueList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociationsResult
+ * //   Associations: [ // AssociationList
+ * //     { // Association
+ * //       Name: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       Targets: [ // Targets
+ * //         { // Target
+ * //           Key: "STRING_VALUE",
+ * //           Values: [ // TargetValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       LastExecutionDate: new Date("TIMESTAMP"),
+ * //       Overview: { // AssociationOverview
+ * //         Status: "STRING_VALUE",
+ * //         DetailedStatus: "STRING_VALUE",
+ * //         AssociationStatusAggregatedCount: { // AssociationStatusAggregatedCount
+ * //           "<keys>": Number("int"),
+ * //         },
+ * //       },
+ * //       ScheduleExpression: "STRING_VALUE",
+ * //       AssociationName: "STRING_VALUE",
+ * //       ScheduleOffset: Number("int"),
+ * //       TargetMaps: [ // TargetMaps
+ * //         { // TargetMap
+ * //           "<keys>": [ // TargetMapValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

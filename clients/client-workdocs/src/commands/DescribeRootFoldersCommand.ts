@@ -59,27 +59,26 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * };
  * const command = new DescribeRootFoldersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRootFoldersResponse
- *   Folders: [ // FolderMetadataList
- *     { // FolderMetadata
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       CreatorId: "STRING_VALUE",
- *       ParentFolderId: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       ModifiedTimestamp: new Date("TIMESTAMP"),
- *       ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
- *       Signature: "STRING_VALUE",
- *       Labels: [ // SharedLabels
- *         "STRING_VALUE",
- *       ],
- *       Size: Number("long"),
- *       LatestVersionSize: Number("long"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeRootFoldersResponse
+ * //   Folders: [ // FolderMetadataList
+ * //     { // FolderMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreatorId: "STRING_VALUE",
+ * //       ParentFolderId: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * //       Signature: "STRING_VALUE",
+ * //       Labels: [ // SharedLabels
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Size: Number("long"),
+ * //       LatestVersionSize: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

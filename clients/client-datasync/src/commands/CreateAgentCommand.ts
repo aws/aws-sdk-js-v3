@@ -69,10 +69,9 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * };
  * const command = new CreateAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAgentResponse
- *   AgentArn: "STRING_VALUE",
- * };
+ * // { // CreateAgentResponse
+ * //   AgentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

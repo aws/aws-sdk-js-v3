@@ -44,152 +44,151 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLifecyclePolicyResponse
- *   Policy: { // LifecyclePolicy
- *     PolicyId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     State: "ENABLED" || "DISABLED" || "ERROR",
- *     StatusMessage: "STRING_VALUE",
- *     ExecutionRoleArn: "STRING_VALUE",
- *     DateCreated: new Date("TIMESTAMP"),
- *     DateModified: new Date("TIMESTAMP"),
- *     PolicyDetails: { // PolicyDetails
- *       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
- *       ResourceTypes: [ // ResourceTypeValuesList
- *         "VOLUME" || "INSTANCE",
- *       ],
- *       ResourceLocations: [ // ResourceLocationList
- *         "CLOUD" || "OUTPOST",
- *       ],
- *       TargetTags: [ // TargetTagList
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       Schedules: [ // ScheduleList
- *         { // Schedule
- *           Name: "STRING_VALUE",
- *           CopyTags: true || false,
- *           TagsToAdd: [ // TagsToAddList
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *           VariableTags: [ // VariableTagsList
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *           CreateRule: { // CreateRule
- *             Location: "CLOUD" || "OUTPOST_LOCAL",
- *             Interval: Number("int"),
- *             IntervalUnit: "HOURS",
- *             Times: [ // TimesList
- *               "STRING_VALUE",
- *             ],
- *             CronExpression: "STRING_VALUE",
- *           },
- *           RetainRule: { // RetainRule
- *             Count: Number("int"),
- *             Interval: Number("int"),
- *             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *           },
- *           FastRestoreRule: { // FastRestoreRule
- *             Count: Number("int"),
- *             Interval: Number("int"),
- *             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *             AvailabilityZones: [ // AvailabilityZoneList // required
- *               "STRING_VALUE",
- *             ],
- *           },
- *           CrossRegionCopyRules: [ // CrossRegionCopyRules
- *             { // CrossRegionCopyRule
- *               TargetRegion: "STRING_VALUE",
- *               Target: "STRING_VALUE",
- *               Encrypted: true || false, // required
- *               CmkArn: "STRING_VALUE",
- *               CopyTags: true || false,
- *               RetainRule: { // CrossRegionCopyRetainRule
- *                 Interval: Number("int"),
- *                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *               },
- *               DeprecateRule: { // CrossRegionCopyDeprecateRule
- *                 Interval: Number("int"),
- *                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *               },
- *             },
- *           ],
- *           ShareRules: [ // ShareRules
- *             { // ShareRule
- *               TargetAccounts: [ // ShareTargetAccountList // required
- *                 "STRING_VALUE",
- *               ],
- *               UnshareInterval: Number("int"),
- *               UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *             },
- *           ],
- *           DeprecateRule: { // DeprecateRule
- *             Count: Number("int"),
- *             Interval: Number("int"),
- *             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *           },
- *           ArchiveRule: { // ArchiveRule
- *             RetainRule: { // ArchiveRetainRule
- *               RetentionArchiveTier: { // RetentionArchiveTier
- *                 Count: Number("int"),
- *                 Interval: Number("int"),
- *                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *               },
- *             },
- *           },
- *         },
- *       ],
- *       Parameters: { // Parameters
- *         ExcludeBootVolume: true || false,
- *         NoReboot: true || false,
- *         ExcludeDataVolumeTags: [ // ExcludeDataVolumeTagList
- *           "<Tag>",
- *         ],
- *       },
- *       EventSource: { // EventSource
- *         Type: "MANAGED_CWE", // required
- *         Parameters: { // EventParameters
- *           EventType: "shareSnapshot", // required
- *           SnapshotOwner: [ // SnapshotOwnerList // required
- *             "STRING_VALUE",
- *           ],
- *           DescriptionRegex: "STRING_VALUE", // required
- *         },
- *       },
- *       Actions: [ // ActionList
- *         { // Action
- *           Name: "STRING_VALUE", // required
- *           CrossRegionCopy: [ // CrossRegionCopyActionList // required
- *             { // CrossRegionCopyAction
- *               Target: "STRING_VALUE", // required
- *               EncryptionConfiguration: { // EncryptionConfiguration
- *                 Encrypted: true || false, // required
- *                 CmkArn: "STRING_VALUE",
- *               },
- *               RetainRule: {
- *                 Interval: Number("int"),
- *                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
- *               },
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     PolicyArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetLifecyclePolicyResponse
+ * //   Policy: { // LifecyclePolicy
+ * //     PolicyId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     State: "ENABLED" || "DISABLED" || "ERROR",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ExecutionRoleArn: "STRING_VALUE",
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateModified: new Date("TIMESTAMP"),
+ * //     PolicyDetails: { // PolicyDetails
+ * //       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ * //       ResourceTypes: [ // ResourceTypeValuesList
+ * //         "VOLUME" || "INSTANCE",
+ * //       ],
+ * //       ResourceLocations: [ // ResourceLocationList
+ * //         "CLOUD" || "OUTPOST",
+ * //       ],
+ * //       TargetTags: [ // TargetTagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Schedules: [ // ScheduleList
+ * //         { // Schedule
+ * //           Name: "STRING_VALUE",
+ * //           CopyTags: true || false,
+ * //           TagsToAdd: [ // TagsToAddList
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           VariableTags: [ // VariableTagsList
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           CreateRule: { // CreateRule
+ * //             Location: "CLOUD" || "OUTPOST_LOCAL",
+ * //             Interval: Number("int"),
+ * //             IntervalUnit: "HOURS",
+ * //             Times: [ // TimesList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             CronExpression: "STRING_VALUE",
+ * //           },
+ * //           RetainRule: { // RetainRule
+ * //             Count: Number("int"),
+ * //             Interval: Number("int"),
+ * //             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //           },
+ * //           FastRestoreRule: { // FastRestoreRule
+ * //             Count: Number("int"),
+ * //             Interval: Number("int"),
+ * //             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //             AvailabilityZones: [ // AvailabilityZoneList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           CrossRegionCopyRules: [ // CrossRegionCopyRules
+ * //             { // CrossRegionCopyRule
+ * //               TargetRegion: "STRING_VALUE",
+ * //               Target: "STRING_VALUE",
+ * //               Encrypted: true || false, // required
+ * //               CmkArn: "STRING_VALUE",
+ * //               CopyTags: true || false,
+ * //               RetainRule: { // CrossRegionCopyRetainRule
+ * //                 Interval: Number("int"),
+ * //                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //               },
+ * //               DeprecateRule: { // CrossRegionCopyDeprecateRule
+ * //                 Interval: Number("int"),
+ * //                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //               },
+ * //             },
+ * //           ],
+ * //           ShareRules: [ // ShareRules
+ * //             { // ShareRule
+ * //               TargetAccounts: [ // ShareTargetAccountList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               UnshareInterval: Number("int"),
+ * //               UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //             },
+ * //           ],
+ * //           DeprecateRule: { // DeprecateRule
+ * //             Count: Number("int"),
+ * //             Interval: Number("int"),
+ * //             IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //           },
+ * //           ArchiveRule: { // ArchiveRule
+ * //             RetainRule: { // ArchiveRetainRule
+ * //               RetentionArchiveTier: { // RetentionArchiveTier
+ * //                 Count: Number("int"),
+ * //                 Interval: Number("int"),
+ * //                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       Parameters: { // Parameters
+ * //         ExcludeBootVolume: true || false,
+ * //         NoReboot: true || false,
+ * //         ExcludeDataVolumeTags: [ // ExcludeDataVolumeTagList
+ * //           "<Tag>",
+ * //         ],
+ * //       },
+ * //       EventSource: { // EventSource
+ * //         Type: "MANAGED_CWE", // required
+ * //         Parameters: { // EventParameters
+ * //           EventType: "shareSnapshot", // required
+ * //           SnapshotOwner: [ // SnapshotOwnerList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DescriptionRegex: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       Actions: [ // ActionList
+ * //         { // Action
+ * //           Name: "STRING_VALUE", // required
+ * //           CrossRegionCopy: [ // CrossRegionCopyActionList // required
+ * //             { // CrossRegionCopyAction
+ * //               Target: "STRING_VALUE", // required
+ * //               EncryptionConfiguration: { // EncryptionConfiguration
+ * //                 Encrypted: true || false, // required
+ * //                 CmkArn: "STRING_VALUE",
+ * //               },
+ * //               RetainRule: {
+ * //                 Interval: Number("int"),
+ * //                 IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     PolicyArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,23 +51,22 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * };
  * const command = new RegisterTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterTargetsResponse
- *   successful: [ // TargetList
- *     { // Target
- *       id: "STRING_VALUE", // required
- *       port: Number("int"),
- *     },
- *   ],
- *   unsuccessful: [ // TargetFailureList
- *     { // TargetFailure
- *       id: "STRING_VALUE",
- *       port: Number("int"),
- *       failureCode: "STRING_VALUE",
- *       failureMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RegisterTargetsResponse
+ * //   successful: [ // TargetList
+ * //     { // Target
+ * //       id: "STRING_VALUE", // required
+ * //       port: Number("int"),
+ * //     },
+ * //   ],
+ * //   unsuccessful: [ // TargetFailureList
+ * //     { // TargetFailure
+ * //       id: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

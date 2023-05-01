@@ -48,16 +48,15 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * };
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEffectivePoliciesResponse
- *   effectivePolicies: [ // EffectivePolicies
- *     { // EffectivePolicy
- *       policyName: "STRING_VALUE",
- *       policyArn: "STRING_VALUE",
- *       policyDocument: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetEffectivePoliciesResponse
+ * //   effectivePolicies: [ // EffectivePolicies
+ * //     { // EffectivePolicy
+ * //       policyName: "STRING_VALUE",
+ * //       policyArn: "STRING_VALUE",
+ * //       policyDocument: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

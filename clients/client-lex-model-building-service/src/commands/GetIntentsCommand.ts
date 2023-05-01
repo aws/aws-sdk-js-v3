@@ -64,19 +64,18 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  * };
  * const command = new GetIntentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIntentsResponse
- *   intents: [ // IntentMetadataList
- *     { // IntentMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetIntentsResponse
+ * //   intents: [ // IntentMetadataList
+ * //     { // IntentMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

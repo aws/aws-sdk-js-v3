@@ -62,18 +62,17 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * };
  * const command = new GetLogEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLogEventsResponse
- *   events: [ // OutputLogEvents
- *     { // OutputLogEvent
- *       timestamp: Number("long"),
- *       message: "STRING_VALUE",
- *       ingestionTime: Number("long"),
- *     },
- *   ],
- *   nextForwardToken: "STRING_VALUE",
- *   nextBackwardToken: "STRING_VALUE",
- * };
+ * // { // GetLogEventsResponse
+ * //   events: [ // OutputLogEvents
+ * //     { // OutputLogEvent
+ * //       timestamp: Number("long"),
+ * //       message: "STRING_VALUE",
+ * //       ingestionTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextForwardToken: "STRING_VALUE",
+ * //   nextBackwardToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

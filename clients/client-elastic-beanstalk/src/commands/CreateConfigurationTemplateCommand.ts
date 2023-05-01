@@ -90,26 +90,25 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * };
  * const command = new CreateConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigurationSettingsDescription
- *   SolutionStackName: "STRING_VALUE",
- *   PlatformArn: "STRING_VALUE",
- *   ApplicationName: "STRING_VALUE",
- *   TemplateName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   EnvironmentName: "STRING_VALUE",
- *   DeploymentStatus: "deployed" || "pending" || "failed",
- *   DateCreated: new Date("TIMESTAMP"),
- *   DateUpdated: new Date("TIMESTAMP"),
- *   OptionSettings: [ // ConfigurationOptionSettingsList
- *     { // ConfigurationOptionSetting
- *       ResourceName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ConfigurationSettingsDescription
+ * //   SolutionStackName: "STRING_VALUE",
+ * //   PlatformArn: "STRING_VALUE",
+ * //   ApplicationName: "STRING_VALUE",
+ * //   TemplateName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EnvironmentName: "STRING_VALUE",
+ * //   DeploymentStatus: "deployed" || "pending" || "failed",
+ * //   DateCreated: new Date("TIMESTAMP"),
+ * //   DateUpdated: new Date("TIMESTAMP"),
+ * //   OptionSettings: [ // ConfigurationOptionSettingsList
+ * //     { // ConfigurationOptionSetting
+ * //       ResourceName: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //       OptionName: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

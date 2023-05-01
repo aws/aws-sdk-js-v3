@@ -53,13 +53,12 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  * };
  * const command = new UpdateNetworkResourceMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateNetworkResourceMetadataResponse
- *   ResourceArn: "STRING_VALUE",
- *   Metadata: { // NetworkResourceMetadataMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateNetworkResourceMetadataResponse
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Metadata: { // NetworkResourceMetadataMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

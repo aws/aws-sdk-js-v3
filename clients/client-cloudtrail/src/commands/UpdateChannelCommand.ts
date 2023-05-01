@@ -51,18 +51,17 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelResponse
- *   ChannelArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Source: "STRING_VALUE",
- *   Destinations: [ // Destinations
- *     { // Destination
- *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
- *       Location: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // UpdateChannelResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Source: "STRING_VALUE",
+ * //   Destinations: [ // Destinations
+ * //     { // Destination
+ * //       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ * //       Location: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

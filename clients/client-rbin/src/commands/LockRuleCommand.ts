@@ -50,30 +50,29 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * };
  * const command = new LockRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LockRuleResponse
- *   Identifier: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
- *   RetentionPeriod: { // RetentionPeriod
- *     RetentionPeriodValue: Number("int"), // required
- *     RetentionPeriodUnit: "DAYS", // required
- *   },
- *   ResourceTags: [ // ResourceTags
- *     { // ResourceTag
- *       ResourceTagKey: "STRING_VALUE", // required
- *       ResourceTagValue: "STRING_VALUE",
- *     },
- *   ],
- *   Status: "pending" || "available",
- *   LockConfiguration: { // LockConfiguration
- *     UnlockDelay: { // UnlockDelay
- *       UnlockDelayValue: Number("int"), // required
- *       UnlockDelayUnit: "DAYS", // required
- *     },
- *   },
- *   LockState: "locked" || "pending_unlock" || "unlocked",
- * };
+ * // { // LockRuleResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   RetentionPeriod: { // RetentionPeriod
+ * //     RetentionPeriodValue: Number("int"), // required
+ * //     RetentionPeriodUnit: "DAYS", // required
+ * //   },
+ * //   ResourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Status: "pending" || "available",
+ * //   LockConfiguration: { // LockConfiguration
+ * //     UnlockDelay: { // UnlockDelay
+ * //       UnlockDelayValue: Number("int"), // required
+ * //       UnlockDelayUnit: "DAYS", // required
+ * //     },
+ * //   },
+ * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * // };
  *
  * ```
  *

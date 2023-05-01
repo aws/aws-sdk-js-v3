@@ -99,11 +99,10 @@ export interface GetClipCommandOutput extends __WithSdkStreamMixin<GetClipOutput
  * };
  * const command = new GetClipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClipOutput
- *   ContentType: "STRING_VALUE",
- *   Payload: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetClipOutput
+ * //   ContentType: "STRING_VALUE",
+ * //   Payload: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

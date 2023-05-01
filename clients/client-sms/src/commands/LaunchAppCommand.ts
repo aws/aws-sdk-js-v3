@@ -44,8 +44,7 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * };
  * const command = new LaunchAppCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

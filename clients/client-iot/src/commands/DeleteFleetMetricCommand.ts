@@ -47,8 +47,7 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFleetMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

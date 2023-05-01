@@ -53,14 +53,13 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * };
  * const command = new CreateIngestionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIngestionResponse
- *   Arn: "STRING_VALUE",
- *   IngestionId: "STRING_VALUE",
- *   IngestionStatus: "INITIALIZED" || "QUEUED" || "RUNNING" || "FAILED" || "COMPLETED" || "CANCELLED",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CreateIngestionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   IngestionId: "STRING_VALUE",
+ * //   IngestionStatus: "INITIALIZED" || "QUEUED" || "RUNNING" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

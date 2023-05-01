@@ -46,27 +46,26 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * };
  * const command = new ListAnalyzersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnalyzersResponse
- *   analyzers: [ // AnalyzersList // required
- *     { // AnalyzerSummary
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastResourceAnalyzed: "STRING_VALUE",
- *       lastResourceAnalyzedAt: new Date("TIMESTAMP"),
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       status: "STRING_VALUE", // required
- *       statusReason: { // StatusReason
- *         code: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAnalyzersResponse
+ * //   analyzers: [ // AnalyzersList // required
+ * //     { // AnalyzerSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastResourceAnalyzed: "STRING_VALUE",
+ * //       lastResourceAnalyzedAt: new Date("TIMESTAMP"),
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       status: "STRING_VALUE", // required
+ * //       statusReason: { // StatusReason
+ * //         code: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

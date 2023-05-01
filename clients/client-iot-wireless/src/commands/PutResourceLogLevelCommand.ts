@@ -47,8 +47,7 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * };
  * const command = new PutResourceLogLevelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,8 +59,7 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFleetMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

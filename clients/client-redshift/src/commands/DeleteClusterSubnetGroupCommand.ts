@@ -44,8 +44,7 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteClusterSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

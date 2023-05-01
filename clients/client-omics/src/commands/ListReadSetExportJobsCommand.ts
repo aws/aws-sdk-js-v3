@@ -51,20 +51,19 @@ export interface ListReadSetExportJobsCommandOutput extends ListReadSetExportJob
  * };
  * const command = new ListReadSetExportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReadSetExportJobsResponse
- *   nextToken: "STRING_VALUE",
- *   exportJobs: [ // ExportReadSetJobDetailList
- *     { // ExportReadSetJobDetail
- *       id: "STRING_VALUE", // required
- *       sequenceStoreId: "STRING_VALUE", // required
- *       destination: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       completionTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListReadSetExportJobsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   exportJobs: [ // ExportReadSetJobDetailList
+ * //     { // ExportReadSetJobDetail
+ * //       id: "STRING_VALUE", // required
+ * //       sequenceStoreId: "STRING_VALUE", // required
+ * //       destination: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

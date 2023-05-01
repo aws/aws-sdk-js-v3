@@ -45,19 +45,18 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetResponse
- *   dataset: { // Dataset
- *     name: "STRING_VALUE",
- *     datasetArn: "STRING_VALUE",
- *     datasetGroupArn: "STRING_VALUE",
- *     datasetType: "STRING_VALUE",
- *     schemaArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeDatasetResponse
+ * //   dataset: { // Dataset
+ * //     name: "STRING_VALUE",
+ * //     datasetArn: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     datasetType: "STRING_VALUE",
+ * //     schemaArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

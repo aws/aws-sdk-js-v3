@@ -52,8 +52,7 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

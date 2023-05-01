@@ -60,32 +60,31 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseReservedDBInstancesOfferingResult
- *   ReservedDBInstance: { // ReservedDBInstance
- *     ReservedDBInstanceId: "STRING_VALUE",
- *     ReservedDBInstancesOfferingId: "STRING_VALUE",
- *     DBInstanceClass: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     Duration: Number("int"),
- *     FixedPrice: Number("double"),
- *     UsagePrice: Number("double"),
- *     CurrencyCode: "STRING_VALUE",
- *     DBInstanceCount: Number("int"),
- *     ProductDescription: "STRING_VALUE",
- *     OfferingType: "STRING_VALUE",
- *     MultiAZ: true || false,
- *     State: "STRING_VALUE",
- *     RecurringCharges: [ // RecurringChargeList
- *       { // RecurringCharge
- *         RecurringChargeAmount: Number("double"),
- *         RecurringChargeFrequency: "STRING_VALUE",
- *       },
- *     ],
- *     ReservedDBInstanceArn: "STRING_VALUE",
- *     LeaseId: "STRING_VALUE",
- *   },
- * };
+ * // { // PurchaseReservedDBInstancesOfferingResult
+ * //   ReservedDBInstance: { // ReservedDBInstance
+ * //     ReservedDBInstanceId: "STRING_VALUE",
+ * //     ReservedDBInstancesOfferingId: "STRING_VALUE",
+ * //     DBInstanceClass: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     Duration: Number("int"),
+ * //     FixedPrice: Number("double"),
+ * //     UsagePrice: Number("double"),
+ * //     CurrencyCode: "STRING_VALUE",
+ * //     DBInstanceCount: Number("int"),
+ * //     ProductDescription: "STRING_VALUE",
+ * //     OfferingType: "STRING_VALUE",
+ * //     MultiAZ: true || false,
+ * //     State: "STRING_VALUE",
+ * //     RecurringCharges: [ // RecurringChargeList
+ * //       { // RecurringCharge
+ * //         RecurringChargeAmount: Number("double"),
+ * //         RecurringChargeFrequency: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ReservedDBInstanceArn: "STRING_VALUE",
+ * //     LeaseId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

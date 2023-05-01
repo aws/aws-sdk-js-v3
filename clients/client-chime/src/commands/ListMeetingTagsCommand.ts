@@ -48,15 +48,14 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
  * };
  * const command = new ListMeetingTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMeetingTagsResponse
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListMeetingTagsResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

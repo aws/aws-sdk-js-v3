@@ -51,13 +51,12 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * };
  * const command = new ListObjectChildrenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectChildrenResponse
- *   Children: { // LinkNameToObjectIdentifierMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListObjectChildrenResponse
+ * //   Children: { // LinkNameToObjectIdentifierMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

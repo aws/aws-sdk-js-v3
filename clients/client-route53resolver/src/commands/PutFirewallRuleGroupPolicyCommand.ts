@@ -47,10 +47,9 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * };
  * const command = new PutFirewallRuleGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutFirewallRuleGroupPolicyResponse
- *   ReturnValue: true || false,
- * };
+ * // { // PutFirewallRuleGroupPolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

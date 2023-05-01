@@ -50,17 +50,16 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * };
  * const command = new MonitorInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MonitorInstancesResult
- *   InstanceMonitorings: [ // InstanceMonitoringList
- *     { // InstanceMonitoring
- *       InstanceId: "STRING_VALUE",
- *       Monitoring: { // Monitoring
- *         State: "disabled" || "disabling" || "enabled" || "pending",
- *       },
- *     },
- *   ],
- * };
+ * // { // MonitorInstancesResult
+ * //   InstanceMonitorings: [ // InstanceMonitoringList
+ * //     { // InstanceMonitoring
+ * //       InstanceId: "STRING_VALUE",
+ * //       Monitoring: { // Monitoring
+ * //         State: "disabled" || "disabling" || "enabled" || "pending",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

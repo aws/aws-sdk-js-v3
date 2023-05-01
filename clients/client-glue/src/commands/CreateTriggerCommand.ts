@@ -82,10 +82,9 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * };
  * const command = new CreateTriggerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTriggerResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateTriggerResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

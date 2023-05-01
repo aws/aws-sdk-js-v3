@@ -47,10 +47,9 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * };
  * const command = new TestRenderEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestRenderEmailTemplateResponse
- *   RenderedTemplate: "STRING_VALUE", // required
- * };
+ * // { // TestRenderEmailTemplateResponse
+ * //   RenderedTemplate: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

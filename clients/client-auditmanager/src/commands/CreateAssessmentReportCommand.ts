@@ -47,20 +47,19 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * };
  * const command = new CreateAssessmentReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAssessmentReportResponse
- *   assessmentReport: { // AssessmentReport
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     awsAccountId: "STRING_VALUE",
- *     assessmentId: "STRING_VALUE",
- *     assessmentName: "STRING_VALUE",
- *     author: "STRING_VALUE",
- *     status: "COMPLETE" || "IN_PROGRESS" || "FAILED",
- *     creationTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateAssessmentReportResponse
+ * //   assessmentReport: { // AssessmentReport
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     awsAccountId: "STRING_VALUE",
+ * //     assessmentId: "STRING_VALUE",
+ * //     assessmentName: "STRING_VALUE",
+ * //     author: "STRING_VALUE",
+ * //     status: "COMPLETE" || "IN_PROGRESS" || "FAILED",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

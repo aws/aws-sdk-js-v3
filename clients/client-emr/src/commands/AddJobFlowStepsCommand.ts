@@ -82,12 +82,11 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * };
  * const command = new AddJobFlowStepsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddJobFlowStepsOutput
- *   StepIds: [ // StepIdsList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AddJobFlowStepsOutput
+ * //   StepIds: [ // StepIdsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

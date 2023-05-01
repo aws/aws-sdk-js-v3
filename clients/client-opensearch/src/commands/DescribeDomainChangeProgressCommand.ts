@@ -51,29 +51,28 @@ export interface DescribeDomainChangeProgressCommandOutput
  * };
  * const command = new DescribeDomainChangeProgressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDomainChangeProgressResponse
- *   ChangeProgressStatus: { // ChangeProgressStatusDetails
- *     ChangeId: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     Status: "PENDING" || "PROCESSING" || "COMPLETED" || "FAILED",
- *     PendingProperties: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     CompletedProperties: [
- *       "STRING_VALUE",
- *     ],
- *     TotalNumberOfStages: Number("int"),
- *     ChangeProgressStages: [ // ChangeProgressStageList
- *       { // ChangeProgressStage
- *         Name: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         LastUpdated: new Date("TIMESTAMP"),
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeDomainChangeProgressResponse
+ * //   ChangeProgressStatus: { // ChangeProgressStatusDetails
+ * //     ChangeId: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     Status: "PENDING" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //     PendingProperties: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CompletedProperties: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     TotalNumberOfStages: Number("int"),
+ * //     ChangeProgressStages: [ // ChangeProgressStageList
+ * //       { // ChangeProgressStage
+ * //         Name: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         LastUpdated: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

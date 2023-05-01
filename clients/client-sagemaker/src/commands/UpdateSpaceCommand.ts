@@ -81,10 +81,9 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  * };
  * const command = new UpdateSpaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSpaceResponse
- *   SpaceArn: "STRING_VALUE",
- * };
+ * // { // UpdateSpaceResponse
+ * //   SpaceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,10 +61,9 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * };
  * const command = new UpdateMissionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MissionProfileIdResponse
- *   missionProfileId: "STRING_VALUE",
- * };
+ * // { // MissionProfileIdResponse
+ * //   missionProfileId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

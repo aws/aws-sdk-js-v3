@@ -47,10 +47,9 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * };
  * const command = new UpgradePublishedSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpgradePublishedSchemaResponse
- *   UpgradedSchemaArn: "STRING_VALUE",
- * };
+ * // { // UpgradePublishedSchemaResponse
+ * //   UpgradedSchemaArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

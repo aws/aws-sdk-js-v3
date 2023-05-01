@@ -63,11 +63,10 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * };
  * const command = new CreateParallelDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateParallelDataResponse
- *   Name: "STRING_VALUE",
- *   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- * };
+ * // { // CreateParallelDataResponse
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * // };
  *
  * ```
  *

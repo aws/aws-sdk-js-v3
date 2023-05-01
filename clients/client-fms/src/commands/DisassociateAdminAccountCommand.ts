@@ -43,8 +43,7 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * const input = {};
  * const command = new DisassociateAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,13 +46,12 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  * };
  * const command = new ListPublishedSchemaArnsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPublishedSchemaArnsResponse
- *   SchemaArns: [ // Arns
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPublishedSchemaArnsResponse
+ * //   SchemaArns: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

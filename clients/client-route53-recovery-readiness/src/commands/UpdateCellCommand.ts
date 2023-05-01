@@ -51,20 +51,19 @@ export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataB
  * };
  * const command = new UpdateCellCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCellResponse
- *   CellArn: "STRING_VALUE",
- *   CellName: "STRING_VALUE",
- *   Cells: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   ParentReadinessScopes: [
- *     "STRING_VALUE",
- *   ],
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateCellResponse
+ * //   CellArn: "STRING_VALUE",
+ * //   CellName: "STRING_VALUE",
+ * //   Cells: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ParentReadinessScopes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

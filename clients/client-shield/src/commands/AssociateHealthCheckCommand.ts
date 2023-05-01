@@ -46,8 +46,7 @@ export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckR
  * };
  * const command = new AssociateHealthCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

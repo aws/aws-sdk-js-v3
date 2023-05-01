@@ -64,8 +64,7 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

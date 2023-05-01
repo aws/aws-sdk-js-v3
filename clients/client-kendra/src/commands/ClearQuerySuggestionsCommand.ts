@@ -53,8 +53,7 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ClearQuerySuggestionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

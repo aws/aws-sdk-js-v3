@@ -48,8 +48,7 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * };
  * const command = new StopEarthObservationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,12 +48,11 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * };
  * const command = new UpdateIpRestrictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIpRestrictionResponse
- *   AwsAccountId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateIpRestrictionResponse
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

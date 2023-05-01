@@ -53,11 +53,10 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * };
  * const command = new JoinDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // JoinDomainOutput
- *   GatewayARN: "STRING_VALUE",
- *   ActiveDirectoryStatus: "STRING_VALUE",
- * };
+ * // { // JoinDomainOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

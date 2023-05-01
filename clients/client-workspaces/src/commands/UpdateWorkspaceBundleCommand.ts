@@ -52,8 +52,7 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * };
  * const command = new UpdateWorkspaceBundleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

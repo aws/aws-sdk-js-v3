@@ -49,21 +49,20 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  * };
  * const command = new ListSubjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubjectsResponse
- *   subjects: [ // SubjectSummaries
- *     { // SubjectSummary
- *       subjectArn: "STRING_VALUE",
- *       subjectId: "STRING_VALUE",
- *       enabled: true || false,
- *       x509Subject: "STRING_VALUE",
- *       lastSeenAt: new Date("TIMESTAMP"),
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSubjectsResponse
+ * //   subjects: [ // SubjectSummaries
+ * //     { // SubjectSummary
+ * //       subjectArn: "STRING_VALUE",
+ * //       subjectId: "STRING_VALUE",
+ * //       enabled: true || false,
+ * //       x509Subject: "STRING_VALUE",
+ * //       lastSeenAt: new Date("TIMESTAMP"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

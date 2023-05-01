@@ -48,15 +48,14 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * };
  * const command = new MoveByoipCidrToIpamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MoveByoipCidrToIpamResult
- *   ByoipCidr: { // ByoipCidr
- *     Cidr: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
- *   },
- * };
+ * // { // MoveByoipCidrToIpamResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
  *
  * ```
  *

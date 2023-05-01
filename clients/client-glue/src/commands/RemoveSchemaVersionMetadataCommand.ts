@@ -59,17 +59,16 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * };
  * const command = new RemoveSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveSchemaVersionMetadataResponse
- *   SchemaArn: "STRING_VALUE",
- *   SchemaName: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE",
- *   LatestVersion: true || false,
- *   VersionNumber: Number("long"),
- *   SchemaVersionId: "STRING_VALUE",
- *   MetadataKey: "STRING_VALUE",
- *   MetadataValue: "STRING_VALUE",
- * };
+ * // { // RemoveSchemaVersionMetadataResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   LatestVersion: true || false,
+ * //   VersionNumber: Number("long"),
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   MetadataKey: "STRING_VALUE",
+ * //   MetadataValue: "STRING_VALUE",
+ * // };
  *
  * ```
  *

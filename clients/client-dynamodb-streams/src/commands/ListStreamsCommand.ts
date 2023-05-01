@@ -51,17 +51,16 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamsOutput
- *   Streams: [ // StreamList
- *     { // Stream
- *       StreamArn: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       StreamLabel: "STRING_VALUE",
- *     },
- *   ],
- *   LastEvaluatedStreamArn: "STRING_VALUE",
- * };
+ * // { // ListStreamsOutput
+ * //   Streams: [ // StreamList
+ * //     { // Stream
+ * //       StreamArn: "STRING_VALUE",
+ * //       TableName: "STRING_VALUE",
+ * //       StreamLabel: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LastEvaluatedStreamArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

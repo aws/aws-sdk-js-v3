@@ -49,16 +49,15 @@ export interface ListThingGroupsCommandOutput extends ListThingGroupsResponse, _
  * };
  * const command = new ListThingGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingGroupsResponse
- *   thingGroups: [ // ThingGroupNameAndArnList
- *     { // GroupNameAndArn
- *       groupName: "STRING_VALUE",
- *       groupArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingGroupsResponse
+ * //   thingGroups: [ // ThingGroupNameAndArnList
+ * //     { // GroupNameAndArn
+ * //       groupName: "STRING_VALUE",
+ * //       groupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

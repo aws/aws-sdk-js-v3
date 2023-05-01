@@ -54,8 +54,7 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

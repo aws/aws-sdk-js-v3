@@ -77,8 +77,7 @@ export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {
  * };
  * const command = new SetLoadBasedAutoScalingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,10 +62,9 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * };
  * const command = new CopyProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyProductOutput
- *   CopyProductToken: "STRING_VALUE",
- * };
+ * // { // CopyProductOutput
+ * //   CopyProductToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

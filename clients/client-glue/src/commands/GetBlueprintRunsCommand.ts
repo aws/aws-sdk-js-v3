@@ -46,24 +46,23 @@ export interface GetBlueprintRunsCommandOutput extends GetBlueprintRunsResponse,
  * };
  * const command = new GetBlueprintRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBlueprintRunsResponse
- *   BlueprintRuns: [ // BlueprintRuns
- *     { // BlueprintRun
- *       BlueprintName: "STRING_VALUE",
- *       RunId: "STRING_VALUE",
- *       WorkflowName: "STRING_VALUE",
- *       State: "RUNNING" || "SUCCEEDED" || "FAILED" || "ROLLING_BACK",
- *       StartedOn: new Date("TIMESTAMP"),
- *       CompletedOn: new Date("TIMESTAMP"),
- *       ErrorMessage: "STRING_VALUE",
- *       RollbackErrorMessage: "STRING_VALUE",
- *       Parameters: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetBlueprintRunsResponse
+ * //   BlueprintRuns: [ // BlueprintRuns
+ * //     { // BlueprintRun
+ * //       BlueprintName: "STRING_VALUE",
+ * //       RunId: "STRING_VALUE",
+ * //       WorkflowName: "STRING_VALUE",
+ * //       State: "RUNNING" || "SUCCEEDED" || "FAILED" || "ROLLING_BACK",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       CompletedOn: new Date("TIMESTAMP"),
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       RollbackErrorMessage: "STRING_VALUE",
+ * //       Parameters: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

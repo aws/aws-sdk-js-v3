@@ -86,32 +86,31 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
  * };
  * const command = new DescribeSavingsPlansOfferingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSavingsPlansOfferingsResponse
- *   searchResults: [ // SavingsPlanOfferingsList
- *     { // SavingsPlanOffering
- *       offeringId: "STRING_VALUE",
- *       productTypes: [ // SavingsPlanProductTypeList
- *         "STRING_VALUE",
- *       ],
- *       planType: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       paymentOption: "STRING_VALUE",
- *       durationSeconds: Number("long"),
- *       currency: "STRING_VALUE",
- *       serviceCode: "STRING_VALUE",
- *       usageType: "STRING_VALUE",
- *       operation: "STRING_VALUE",
- *       properties: [ // SavingsPlanOfferingPropertyList
- *         { // SavingsPlanOfferingProperty
- *           name: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSavingsPlansOfferingsResponse
+ * //   searchResults: [ // SavingsPlanOfferingsList
+ * //     { // SavingsPlanOffering
+ * //       offeringId: "STRING_VALUE",
+ * //       productTypes: [ // SavingsPlanProductTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       planType: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       paymentOption: "STRING_VALUE",
+ * //       durationSeconds: Number("long"),
+ * //       currency: "STRING_VALUE",
+ * //       serviceCode: "STRING_VALUE",
+ * //       usageType: "STRING_VALUE",
+ * //       operation: "STRING_VALUE",
+ * //       properties: [ // SavingsPlanOfferingPropertyList
+ * //         { // SavingsPlanOfferingProperty
+ * //           name: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,10 +52,9 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * };
  * const command = new UpdateOpsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateOpsMetadataResult
- *   OpsMetadataArn: "STRING_VALUE",
- * };
+ * // { // UpdateOpsMetadataResult
+ * //   OpsMetadataArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -74,11 +74,10 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutPermissionResponse
- *   policy: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
- * };
+ * // { // PutPermissionResponse
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

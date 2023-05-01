@@ -45,39 +45,38 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * };
  * const command = new GetFindingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingResponse
- *   finding: { // Finding
- *     id: "STRING_VALUE", // required
- *     principal: { // PrincipalMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     action: [ // ActionList
- *       "STRING_VALUE",
- *     ],
- *     resource: "STRING_VALUE",
- *     isPublic: true || false,
- *     resourceType: "STRING_VALUE", // required
- *     condition: { // ConditionKeyMap // required
- *       "<keys>": "STRING_VALUE",
- *     },
- *     createdAt: new Date("TIMESTAMP"), // required
- *     analyzedAt: new Date("TIMESTAMP"), // required
- *     updatedAt: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE", // required
- *     resourceOwnerAccount: "STRING_VALUE", // required
- *     error: "STRING_VALUE",
- *     sources: [ // FindingSourceList
- *       { // FindingSource
- *         type: "STRING_VALUE", // required
- *         detail: { // FindingSourceDetail
- *           accessPointArn: "STRING_VALUE",
- *           accessPointAccount: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // GetFindingResponse
+ * //   finding: { // Finding
+ * //     id: "STRING_VALUE", // required
+ * //     principal: { // PrincipalMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     action: [ // ActionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     resource: "STRING_VALUE",
+ * //     isPublic: true || false,
+ * //     resourceType: "STRING_VALUE", // required
+ * //     condition: { // ConditionKeyMap // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     analyzedAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     resourceOwnerAccount: "STRING_VALUE", // required
+ * //     error: "STRING_VALUE",
+ * //     sources: [ // FindingSourceList
+ * //       { // FindingSource
+ * //         type: "STRING_VALUE", // required
+ * //         detail: { // FindingSourceDetail
+ * //           accessPointArn: "STRING_VALUE",
+ * //           accessPointAccount: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

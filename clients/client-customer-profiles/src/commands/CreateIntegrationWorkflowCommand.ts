@@ -127,11 +127,10 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * };
  * const command = new CreateIntegrationWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIntegrationWorkflowResponse
- *   WorkflowId: "STRING_VALUE", // required
- *   Message: "STRING_VALUE", // required
- * };
+ * // { // CreateIntegrationWorkflowResponse
+ * //   WorkflowId: "STRING_VALUE", // required
+ * //   Message: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

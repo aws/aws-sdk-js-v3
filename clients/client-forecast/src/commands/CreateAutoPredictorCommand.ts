@@ -147,10 +147,9 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * };
  * const command = new CreateAutoPredictorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAutoPredictorResponse
- *   PredictorArn: "STRING_VALUE",
- * };
+ * // { // CreateAutoPredictorResponse
+ * //   PredictorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

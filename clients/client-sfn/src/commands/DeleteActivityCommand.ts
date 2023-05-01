@@ -44,8 +44,7 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * };
  * const command = new DeleteActivityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

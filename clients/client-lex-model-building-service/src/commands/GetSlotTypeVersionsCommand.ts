@@ -60,19 +60,18 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  * };
  * const command = new GetSlotTypeVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSlotTypeVersionsResponse
- *   slotTypes: [ // SlotTypeMetadataList
- *     { // SlotTypeMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetSlotTypeVersionsResponse
+ * //   slotTypes: [ // SlotTypeMetadataList
+ * //     { // SlotTypeMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

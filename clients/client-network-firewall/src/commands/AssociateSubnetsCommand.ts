@@ -57,18 +57,17 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * };
  * const command = new AssociateSubnetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateSubnetsResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   SubnetMappings: [ // SubnetMappings
- *     { // SubnetMapping
- *       SubnetId: "STRING_VALUE", // required
- *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
- *     },
- *   ],
- *   UpdateToken: "STRING_VALUE",
- * };
+ * // { // AssociateSubnetsResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   SubnetMappings: [ // SubnetMappings
+ * //     { // SubnetMapping
+ * //       SubnetId: "STRING_VALUE", // required
+ * //       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ * //     },
+ * //   ],
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

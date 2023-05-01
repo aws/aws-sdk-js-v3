@@ -58,8 +58,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * };
  * const command = new ContinueUpdateRollbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

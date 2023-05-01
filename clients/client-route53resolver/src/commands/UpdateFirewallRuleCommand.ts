@@ -52,23 +52,22 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * };
  * const command = new UpdateFirewallRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallRuleResponse
- *   FirewallRule: { // FirewallRule
- *     FirewallRuleGroupId: "STRING_VALUE",
- *     FirewallDomainListId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Priority: Number("int"),
- *     Action: "ALLOW" || "BLOCK" || "ALERT",
- *     BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
- *     BlockOverrideDomain: "STRING_VALUE",
- *     BlockOverrideDnsType: "CNAME",
- *     BlockOverrideTtl: Number("int"),
- *     CreatorRequestId: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateFirewallRuleResponse
+ * //   FirewallRule: { // FirewallRule
+ * //     FirewallRuleGroupId: "STRING_VALUE",
+ * //     FirewallDomainListId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Priority: Number("int"),
+ * //     Action: "ALLOW" || "BLOCK" || "ALERT",
+ * //     BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
+ * //     BlockOverrideDomain: "STRING_VALUE",
+ * //     BlockOverrideDnsType: "CNAME",
+ * //     BlockOverrideTtl: Number("int"),
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

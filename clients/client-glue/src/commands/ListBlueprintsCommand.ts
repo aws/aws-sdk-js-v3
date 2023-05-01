@@ -48,13 +48,12 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * };
  * const command = new ListBlueprintsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBlueprintsResponse
- *   Blueprints: [ // BlueprintNames
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBlueprintsResponse
+ * //   Blueprints: [ // BlueprintNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

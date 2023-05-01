@@ -50,10 +50,9 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * };
  * const command = new UpdateFeatureGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFeatureGroupResponse
- *   FeatureGroupArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateFeatureGroupResponse
+ * //   FeatureGroupArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

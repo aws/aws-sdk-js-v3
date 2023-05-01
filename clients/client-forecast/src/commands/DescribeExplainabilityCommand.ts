@@ -44,39 +44,38 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  * };
  * const command = new DescribeExplainabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExplainabilityResponse
- *   ExplainabilityArn: "STRING_VALUE",
- *   ExplainabilityName: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   ExplainabilityConfig: { // ExplainabilityConfig
- *     TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
- *     TimePointGranularity: "ALL" || "SPECIFIC", // required
- *   },
- *   EnableVisualization: true || false,
- *   DataSource: { // DataSource
- *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
- *     },
- *   },
- *   Schema: { // Schema
- *     Attributes: [ // SchemaAttributes
- *       { // SchemaAttribute
- *         AttributeName: "STRING_VALUE",
- *         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
- *       },
- *     ],
- *   },
- *   StartDateTime: "STRING_VALUE",
- *   EndDateTime: "STRING_VALUE",
- *   EstimatedTimeRemainingInMinutes: Number("long"),
- *   Message: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeExplainabilityResponse
+ * //   ExplainabilityArn: "STRING_VALUE",
+ * //   ExplainabilityName: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   ExplainabilityConfig: { // ExplainabilityConfig
+ * //     TimeSeriesGranularity: "ALL" || "SPECIFIC", // required
+ * //     TimePointGranularity: "ALL" || "SPECIFIC", // required
+ * //   },
+ * //   EnableVisualization: true || false,
+ * //   DataSource: { // DataSource
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Schema: { // Schema
+ * //     Attributes: [ // SchemaAttributes
+ * //       { // SchemaAttribute
+ * //         AttributeName: "STRING_VALUE",
+ * //         AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ * //       },
+ * //     ],
+ * //   },
+ * //   StartDateTime: "STRING_VALUE",
+ * //   EndDateTime: "STRING_VALUE",
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   Message: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

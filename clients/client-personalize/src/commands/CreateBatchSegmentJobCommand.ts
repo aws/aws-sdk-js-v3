@@ -68,10 +68,9 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * };
  * const command = new CreateBatchSegmentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBatchSegmentJobResponse
- *   batchSegmentJobArn: "STRING_VALUE",
- * };
+ * // { // CreateBatchSegmentJobResponse
+ * //   batchSegmentJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

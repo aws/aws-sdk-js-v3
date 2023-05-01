@@ -60,28 +60,27 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * };
  * const command = new DescribeElasticLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeElasticLoadBalancersResult
- *   ElasticLoadBalancers: [ // ElasticLoadBalancers
- *     { // ElasticLoadBalancer
- *       ElasticLoadBalancerName: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       DnsName: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       LayerId: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       AvailabilityZones: [ // Strings
- *         "STRING_VALUE",
- *       ],
- *       SubnetIds: [
- *         "STRING_VALUE",
- *       ],
- *       Ec2InstanceIds: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeElasticLoadBalancersResult
+ * //   ElasticLoadBalancers: [ // ElasticLoadBalancers
+ * //     { // ElasticLoadBalancer
+ * //       ElasticLoadBalancerName: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       DnsName: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       LayerId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       AvailabilityZones: [ // Strings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Ec2InstanceIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

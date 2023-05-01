@@ -45,10 +45,9 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * };
  * const command = new DeleteResiliencyPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResiliencyPolicyResponse
- *   policyArn: "STRING_VALUE", // required
- * };
+ * // { // DeleteResiliencyPolicyResponse
+ * //   policyArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

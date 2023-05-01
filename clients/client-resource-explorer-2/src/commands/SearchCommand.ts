@@ -63,32 +63,31 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchOutput
- *   Resources: [ // ResourceList
- *     { // Resource
- *       Arn: "STRING_VALUE",
- *       OwningAccountId: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Service: "STRING_VALUE",
- *       LastReportedAt: new Date("TIMESTAMP"),
- *       Properties: [ // ResourcePropertyList
- *         { // ResourceProperty
- *           Name: "STRING_VALUE",
- *           LastReportedAt: new Date("TIMESTAMP"),
- *           Data: "DOCUMENT_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ViewArn: "STRING_VALUE",
- *   Count: { // ResourceCount
- *     TotalResources: Number("long"),
- *     Complete: true || false,
- *   },
- * };
+ * // { // SearchOutput
+ * //   Resources: [ // ResourceList
+ * //     { // Resource
+ * //       Arn: "STRING_VALUE",
+ * //       OwningAccountId: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       Service: "STRING_VALUE",
+ * //       LastReportedAt: new Date("TIMESTAMP"),
+ * //       Properties: [ // ResourcePropertyList
+ * //         { // ResourceProperty
+ * //           Name: "STRING_VALUE",
+ * //           LastReportedAt: new Date("TIMESTAMP"),
+ * //           Data: "DOCUMENT_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ViewArn: "STRING_VALUE",
+ * //   Count: { // ResourceCount
+ * //     TotalResources: Number("long"),
+ * //     Complete: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

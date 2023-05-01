@@ -73,60 +73,59 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * };
  * const command = new UpdateStreamingDistributionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStreamingDistributionResult
- *   StreamingDistribution: { // StreamingDistribution
- *     Id: "STRING_VALUE", // required
- *     ARN: "STRING_VALUE", // required
- *     Status: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     DomainName: "STRING_VALUE", // required
- *     ActiveTrustedSigners: { // ActiveTrustedSigners
- *       Enabled: true || false, // required
- *       Quantity: Number("int"), // required
- *       Items: [ // SignerList
- *         { // Signer
- *           AwsAccountNumber: "STRING_VALUE",
- *           KeyPairIds: { // KeyPairIds
- *             Quantity: Number("int"), // required
- *             Items: [ // KeyPairIdList
- *               "STRING_VALUE",
- *             ],
- *           },
- *         },
- *       ],
- *     },
- *     StreamingDistributionConfig: { // StreamingDistributionConfig
- *       CallerReference: "STRING_VALUE", // required
- *       S3Origin: { // S3Origin
- *         DomainName: "STRING_VALUE", // required
- *         OriginAccessIdentity: "STRING_VALUE", // required
- *       },
- *       Aliases: { // Aliases
- *         Quantity: Number("int"), // required
- *         Items: [ // AliasList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Comment: "STRING_VALUE", // required
- *       Logging: { // StreamingLoggingConfig
- *         Enabled: true || false, // required
- *         Bucket: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE", // required
- *       },
- *       TrustedSigners: { // TrustedSigners
- *         Enabled: true || false, // required
- *         Quantity: Number("int"), // required
- *         Items: [ // AwsAccountNumberList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
- *       Enabled: true || false, // required
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // UpdateStreamingDistributionResult
+ * //   StreamingDistribution: { // StreamingDistribution
+ * //     Id: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE", // required
+ * //     Status: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     DomainName: "STRING_VALUE", // required
+ * //     ActiveTrustedSigners: { // ActiveTrustedSigners
+ * //       Enabled: true || false, // required
+ * //       Quantity: Number("int"), // required
+ * //       Items: [ // SignerList
+ * //         { // Signer
+ * //           AwsAccountNumber: "STRING_VALUE",
+ * //           KeyPairIds: { // KeyPairIds
+ * //             Quantity: Number("int"), // required
+ * //             Items: [ // KeyPairIdList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //     StreamingDistributionConfig: { // StreamingDistributionConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       S3Origin: { // S3Origin
+ * //         DomainName: "STRING_VALUE", // required
+ * //         OriginAccessIdentity: "STRING_VALUE", // required
+ * //       },
+ * //       Aliases: { // Aliases
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // AliasList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Comment: "STRING_VALUE", // required
+ * //       Logging: { // StreamingLoggingConfig
+ * //         Enabled: true || false, // required
+ * //         Bucket: "STRING_VALUE", // required
+ * //         Prefix: "STRING_VALUE", // required
+ * //       },
+ * //       TrustedSigners: { // TrustedSigners
+ * //         Enabled: true || false, // required
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // AwsAccountNumberList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       Enabled: true || false, // required
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

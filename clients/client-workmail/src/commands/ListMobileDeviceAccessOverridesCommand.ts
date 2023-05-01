@@ -53,20 +53,19 @@ export interface ListMobileDeviceAccessOverridesCommandOutput
  * };
  * const command = new ListMobileDeviceAccessOverridesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMobileDeviceAccessOverridesResponse
- *   Overrides: [ // MobileDeviceAccessOverridesList
- *     { // MobileDeviceAccessOverride
- *       UserId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       Effect: "ALLOW" || "DENY",
- *       Description: "STRING_VALUE",
- *       DateCreated: new Date("TIMESTAMP"),
- *       DateModified: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMobileDeviceAccessOverridesResponse
+ * //   Overrides: [ // MobileDeviceAccessOverridesList
+ * //     { // MobileDeviceAccessOverride
+ * //       UserId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       Effect: "ALLOW" || "DENY",
+ * //       Description: "STRING_VALUE",
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

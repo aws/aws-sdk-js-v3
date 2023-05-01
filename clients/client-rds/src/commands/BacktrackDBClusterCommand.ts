@@ -54,15 +54,14 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * };
  * const command = new BacktrackDBClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBClusterBacktrack
- *   DBClusterIdentifier: "STRING_VALUE",
- *   BacktrackIdentifier: "STRING_VALUE",
- *   BacktrackTo: new Date("TIMESTAMP"),
- *   BacktrackedFrom: new Date("TIMESTAMP"),
- *   BacktrackRequestCreationTime: new Date("TIMESTAMP"),
- *   Status: "STRING_VALUE",
- * };
+ * // { // DBClusterBacktrack
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   BacktrackIdentifier: "STRING_VALUE",
+ * //   BacktrackTo: new Date("TIMESTAMP"),
+ * //   BacktrackedFrom: new Date("TIMESTAMP"),
+ * //   BacktrackRequestCreationTime: new Date("TIMESTAMP"),
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

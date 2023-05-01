@@ -46,28 +46,27 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * };
  * const command = new ListSipRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSipRulesResponse
- *   SipRules: [ // SipRuleList
- *     { // SipRule
- *       SipRuleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Disabled: true || false,
- *       TriggerType: "ToPhoneNumber" || "RequestUriHostname",
- *       TriggerValue: "STRING_VALUE",
- *       TargetApplications: [ // SipRuleTargetApplicationList
- *         { // SipRuleTargetApplication
- *           SipMediaApplicationId: "STRING_VALUE",
- *           Priority: Number("int"),
- *           AwsRegion: "STRING_VALUE",
- *         },
- *       ],
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSipRulesResponse
+ * //   SipRules: [ // SipRuleList
+ * //     { // SipRule
+ * //       SipRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Disabled: true || false,
+ * //       TriggerType: "ToPhoneNumber" || "RequestUriHostname",
+ * //       TriggerValue: "STRING_VALUE",
+ * //       TargetApplications: [ // SipRuleTargetApplicationList
+ * //         { // SipRuleTargetApplication
+ * //           SipMediaApplicationId: "STRING_VALUE",
+ * //           Priority: Number("int"),
+ * //           AwsRegion: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

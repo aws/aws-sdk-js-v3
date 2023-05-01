@@ -49,56 +49,55 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationResponse
- *   ApplicationId: "STRING_VALUE",
- *   Author: "STRING_VALUE",
- *   CreationTime: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   HomePageUrl: "STRING_VALUE",
- *   IsVerifiedAuthor: true || false,
- *   Labels: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   LicenseUrl: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   ReadmeUrl: "STRING_VALUE",
- *   SpdxLicenseId: "STRING_VALUE",
- *   VerifiedAuthorUrl: "STRING_VALUE",
- *   Version: { // Version
- *     ApplicationId: "STRING_VALUE", // required
- *     CreationTime: "STRING_VALUE", // required
- *     ParameterDefinitions: [ // __listOfParameterDefinition // required
- *       { // ParameterDefinition
- *         AllowedPattern: "STRING_VALUE",
- *         AllowedValues: [
- *           "STRING_VALUE",
- *         ],
- *         ConstraintDescription: "STRING_VALUE",
- *         DefaultValue: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         MaxLength: Number("int"),
- *         MaxValue: Number("int"),
- *         MinLength: Number("int"),
- *         MinValue: Number("int"),
- *         Name: "STRING_VALUE", // required
- *         NoEcho: true || false,
- *         ReferencedByResources: [ // required
- *           "STRING_VALUE",
- *         ],
- *         Type: "STRING_VALUE",
- *       },
- *     ],
- *     RequiredCapabilities: [ // __listOfCapability // required
- *       "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND" || "CAPABILITY_RESOURCE_POLICY",
- *     ],
- *     ResourcesSupported: true || false, // required
- *     SemanticVersion: "STRING_VALUE", // required
- *     SourceCodeArchiveUrl: "STRING_VALUE",
- *     SourceCodeUrl: "STRING_VALUE",
- *     TemplateUrl: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetApplicationResponse
+ * //   ApplicationId: "STRING_VALUE",
+ * //   Author: "STRING_VALUE",
+ * //   CreationTime: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   HomePageUrl: "STRING_VALUE",
+ * //   IsVerifiedAuthor: true || false,
+ * //   Labels: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LicenseUrl: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   ReadmeUrl: "STRING_VALUE",
+ * //   SpdxLicenseId: "STRING_VALUE",
+ * //   VerifiedAuthorUrl: "STRING_VALUE",
+ * //   Version: { // Version
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     CreationTime: "STRING_VALUE", // required
+ * //     ParameterDefinitions: [ // __listOfParameterDefinition // required
+ * //       { // ParameterDefinition
+ * //         AllowedPattern: "STRING_VALUE",
+ * //         AllowedValues: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ConstraintDescription: "STRING_VALUE",
+ * //         DefaultValue: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         MaxLength: Number("int"),
+ * //         MaxValue: Number("int"),
+ * //         MinLength: Number("int"),
+ * //         MinValue: Number("int"),
+ * //         Name: "STRING_VALUE", // required
+ * //         NoEcho: true || false,
+ * //         ReferencedByResources: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Type: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     RequiredCapabilities: [ // __listOfCapability // required
+ * //       "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND" || "CAPABILITY_RESOURCE_POLICY",
+ * //     ],
+ * //     ResourcesSupported: true || false, // required
+ * //     SemanticVersion: "STRING_VALUE", // required
+ * //     SourceCodeArchiveUrl: "STRING_VALUE",
+ * //     SourceCodeUrl: "STRING_VALUE",
+ * //     TemplateUrl: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

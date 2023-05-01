@@ -73,8 +73,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

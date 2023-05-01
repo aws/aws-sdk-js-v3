@@ -53,11 +53,10 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * };
  * const command = new DeregisterTaskFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterTaskFromMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- *   WindowTaskId: "STRING_VALUE",
- * };
+ * // { // DeregisterTaskFromMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTaskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

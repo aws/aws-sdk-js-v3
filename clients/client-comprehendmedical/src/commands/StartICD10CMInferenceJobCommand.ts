@@ -62,10 +62,9 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  * };
  * const command = new StartICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartICD10CMInferenceJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartICD10CMInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

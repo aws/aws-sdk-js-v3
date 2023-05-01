@@ -46,11 +46,10 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResourcePolicyResponse
- *   resourceArn: "STRING_VALUE",
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // DeleteResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

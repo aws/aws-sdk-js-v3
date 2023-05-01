@@ -49,23 +49,22 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  * };
  * const command = new GetDatalakeStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatalakeStatusResponse
- *   accountSourcesList: [ // AccountSourcesList // required
- *     { // AccountSources
- *       account: "STRING_VALUE", // required
- *       sourceType: "STRING_VALUE", // required
- *       logsStatus: [ // LogsStatusList
- *         { // LogsStatus
- *           pathToLogs: "STRING_VALUE", // required
- *           healthStatus: "STRING_VALUE", // required
- *         },
- *       ],
- *       eventClass: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetDatalakeStatusResponse
+ * //   accountSourcesList: [ // AccountSourcesList // required
+ * //     { // AccountSources
+ * //       account: "STRING_VALUE", // required
+ * //       sourceType: "STRING_VALUE", // required
+ * //       logsStatus: [ // LogsStatusList
+ * //         { // LogsStatus
+ * //           pathToLogs: "STRING_VALUE", // required
+ * //           healthStatus: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       eventClass: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

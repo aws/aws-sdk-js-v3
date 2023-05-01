@@ -47,8 +47,7 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * };
  * const command = new DeleteWarmPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

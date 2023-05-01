@@ -45,11 +45,10 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  * };
  * const command = new ModifyAuthenticationProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyAuthenticationProfileResult
- *   AuthenticationProfileName: "STRING_VALUE",
- *   AuthenticationProfileContent: "STRING_VALUE",
- * };
+ * // { // ModifyAuthenticationProfileResult
+ * //   AuthenticationProfileName: "STRING_VALUE",
+ * //   AuthenticationProfileContent: "STRING_VALUE",
+ * // };
  *
  * ```
  *

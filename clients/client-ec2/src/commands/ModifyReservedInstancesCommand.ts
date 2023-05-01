@@ -60,10 +60,9 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * };
  * const command = new ModifyReservedInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyReservedInstancesResult
- *   ReservedInstancesModificationId: "STRING_VALUE",
- * };
+ * // { // ModifyReservedInstancesResult
+ * //   ReservedInstancesModificationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

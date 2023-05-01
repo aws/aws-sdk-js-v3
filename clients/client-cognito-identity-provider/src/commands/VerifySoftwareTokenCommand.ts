@@ -58,11 +58,10 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * };
  * const command = new VerifySoftwareTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifySoftwareTokenResponse
- *   Status: "SUCCESS" || "ERROR",
- *   Session: "STRING_VALUE",
- * };
+ * // { // VerifySoftwareTokenResponse
+ * //   Status: "SUCCESS" || "ERROR",
+ * //   Session: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,23 +45,22 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  * };
  * const command = new DescribeAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAuthorizerResponse
- *   authorizerDescription: { // AuthorizerDescription
- *     authorizerName: "STRING_VALUE",
- *     authorizerArn: "STRING_VALUE",
- *     authorizerFunctionArn: "STRING_VALUE",
- *     tokenKeyName: "STRING_VALUE",
- *     tokenSigningPublicKeys: { // PublicKeyMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     status: "ACTIVE" || "INACTIVE",
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     signingDisabled: true || false,
- *     enableCachingForHttp: true || false,
- *   },
- * };
+ * // { // DescribeAuthorizerResponse
+ * //   authorizerDescription: { // AuthorizerDescription
+ * //     authorizerName: "STRING_VALUE",
+ * //     authorizerArn: "STRING_VALUE",
+ * //     authorizerFunctionArn: "STRING_VALUE",
+ * //     tokenKeyName: "STRING_VALUE",
+ * //     tokenSigningPublicKeys: { // PublicKeyMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     status: "ACTIVE" || "INACTIVE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     signingDisabled: true || false,
+ * //     enableCachingForHttp: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

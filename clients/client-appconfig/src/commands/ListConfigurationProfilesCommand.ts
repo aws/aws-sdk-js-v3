@@ -47,22 +47,21 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * };
  * const command = new ListConfigurationProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigurationProfiles
- *   Items: [ // ConfigurationProfileSummaryList
- *     { // ConfigurationProfileSummary
- *       ApplicationId: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       LocationUri: "STRING_VALUE",
- *       ValidatorTypes: [ // ValidatorTypeList
- *         "JSON_SCHEMA" || "LAMBDA",
- *       ],
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ConfigurationProfiles
+ * //   Items: [ // ConfigurationProfileSummaryList
+ * //     { // ConfigurationProfileSummary
+ * //       ApplicationId: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       LocationUri: "STRING_VALUE",
+ * //       ValidatorTypes: [ // ValidatorTypeList
+ * //         "JSON_SCHEMA" || "LAMBDA",
+ * //       ],
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
  * };
  * const command = new ListDiscoverersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDiscoverersResponse
- *   Discoverers: [ // __listOfDiscovererSummary
- *     { // DiscovererSummary
- *       DiscovererArn: "STRING_VALUE",
- *       DiscovererId: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       CrossAccount: true || false,
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDiscoverersResponse
+ * //   Discoverers: [ // __listOfDiscovererSummary
+ * //     { // DiscovererSummary
+ * //       DiscovererArn: "STRING_VALUE",
+ * //       DiscovererId: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       CrossAccount: true || false,
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

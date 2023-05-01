@@ -45,8 +45,7 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * };
  * const command = new StopWorkflowRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,17 +44,16 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * const input = {};
  * const command = new GetServicesInScopeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServicesInScopeResponse
- *   serviceMetadata: [ // ServiceMetadataList
- *     { // ServiceMetadata
- *       name: "STRING_VALUE",
- *       displayName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       category: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetServicesInScopeResponse
+ * //   serviceMetadata: [ // ServiceMetadataList
+ * //     { // ServiceMetadata
+ * //       name: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

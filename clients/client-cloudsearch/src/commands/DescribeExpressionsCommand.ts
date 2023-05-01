@@ -48,24 +48,23 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  * };
  * const command = new DescribeExpressionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExpressionsResponse
- *   Expressions: [ // ExpressionStatusList // required
- *     { // ExpressionStatus
- *       Options: { // Expression
- *         ExpressionName: "STRING_VALUE", // required
- *         ExpressionValue: "STRING_VALUE", // required
- *       },
- *       Status: { // OptionStatus
- *         CreationDate: new Date("TIMESTAMP"), // required
- *         UpdateDate: new Date("TIMESTAMP"), // required
- *         UpdateVersion: Number("int"),
- *         State: "STRING_VALUE", // required
- *         PendingDeletion: true || false,
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeExpressionsResponse
+ * //   Expressions: [ // ExpressionStatusList // required
+ * //     { // ExpressionStatus
+ * //       Options: { // Expression
+ * //         ExpressionName: "STRING_VALUE", // required
+ * //         ExpressionValue: "STRING_VALUE", // required
+ * //       },
+ * //       Status: { // OptionStatus
+ * //         CreationDate: new Date("TIMESTAMP"), // required
+ * //         UpdateDate: new Date("TIMESTAMP"), // required
+ * //         UpdateVersion: Number("int"),
+ * //         State: "STRING_VALUE", // required
+ * //         PendingDeletion: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

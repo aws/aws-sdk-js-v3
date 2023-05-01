@@ -54,24 +54,23 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * };
  * const command = new DescribeContinuousExportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContinuousExportsResponse
- *   descriptions: [ // ContinuousExportDescriptions
- *     { // ContinuousExportDescription
- *       exportId: "STRING_VALUE",
- *       status: "START_IN_PROGRESS" || "START_FAILED" || "ACTIVE" || "ERROR" || "STOP_IN_PROGRESS" || "STOP_FAILED" || "INACTIVE",
- *       statusDetail: "STRING_VALUE",
- *       s3Bucket: "STRING_VALUE",
- *       startTime: new Date("TIMESTAMP"),
- *       stopTime: new Date("TIMESTAMP"),
- *       dataSource: "AGENT",
- *       schemaStorageConfig: { // SchemaStorageConfig
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeContinuousExportsResponse
+ * //   descriptions: [ // ContinuousExportDescriptions
+ * //     { // ContinuousExportDescription
+ * //       exportId: "STRING_VALUE",
+ * //       status: "START_IN_PROGRESS" || "START_FAILED" || "ACTIVE" || "ERROR" || "STOP_IN_PROGRESS" || "STOP_FAILED" || "INACTIVE",
+ * //       statusDetail: "STRING_VALUE",
+ * //       s3Bucket: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       stopTime: new Date("TIMESTAMP"),
+ * //       dataSource: "AGENT",
+ * //       schemaStorageConfig: { // SchemaStorageConfig
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

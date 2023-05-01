@@ -47,19 +47,18 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWebACLsResponse
- *   NextMarker: "STRING_VALUE",
- *   WebACLs: [ // WebACLSummaries
- *     { // WebACLSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       LockToken: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWebACLsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   WebACLs: [ // WebACLSummaries
+ * //     { // WebACLSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LockToken: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

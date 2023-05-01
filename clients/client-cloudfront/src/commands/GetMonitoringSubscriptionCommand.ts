@@ -45,14 +45,13 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * };
  * const command = new GetMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMonitoringSubscriptionResult
- *   MonitoringSubscription: { // MonitoringSubscription
- *     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
- *       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
- *     },
- *   },
- * };
+ * // { // GetMonitoringSubscriptionResult
+ * //   MonitoringSubscription: { // MonitoringSubscription
+ * //     RealtimeMetricsSubscriptionConfig: { // RealtimeMetricsSubscriptionConfig
+ * //       RealtimeMetricsSubscriptionStatus: "Enabled" || "Disabled", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

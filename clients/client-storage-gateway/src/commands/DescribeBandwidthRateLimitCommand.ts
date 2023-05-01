@@ -52,12 +52,11 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBandwidthRateLimitOutput
- *   GatewayARN: "STRING_VALUE",
- *   AverageUploadRateLimitInBitsPerSec: Number("long"),
- *   AverageDownloadRateLimitInBitsPerSec: Number("long"),
- * };
+ * // { // DescribeBandwidthRateLimitOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   AverageUploadRateLimitInBitsPerSec: Number("long"),
+ * //   AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ * // };
  *
  * ```
  *

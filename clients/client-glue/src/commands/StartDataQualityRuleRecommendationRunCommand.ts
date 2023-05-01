@@ -68,10 +68,9 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDataQualityRuleRecommendationRunResponse
- *   RunId: "STRING_VALUE",
- * };
+ * // { // StartDataQualityRuleRecommendationRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

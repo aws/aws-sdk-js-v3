@@ -46,22 +46,21 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * };
  * const command = new DescribeStandardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStandardsResponse
- *   Standards: [ // Standards
- *     { // Standard
- *       StandardsArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       EnabledByDefault: true || false,
- *       StandardsManagedBy: { // StandardsManagedBy
- *         Company: "STRING_VALUE",
- *         Product: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeStandardsResponse
+ * //   Standards: [ // Standards
+ * //     { // Standard
+ * //       StandardsArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EnabledByDefault: true || false,
+ * //       StandardsManagedBy: { // StandardsManagedBy
+ * //         Company: "STRING_VALUE",
+ * //         Product: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

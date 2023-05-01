@@ -58,10 +58,9 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * };
  * const command = new ModifyHapgCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyHapgResponse
- *   HapgArn: "STRING_VALUE",
- * };
+ * // { // ModifyHapgResponse
+ * //   HapgArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

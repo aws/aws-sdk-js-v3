@@ -46,8 +46,7 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * };
  * const command = new UpdateContactScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -95,8 +95,7 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * };
  * const command = new PutPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

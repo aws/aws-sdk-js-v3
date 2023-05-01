@@ -67,21 +67,20 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * };
  * const command = new DescribeHostReservationOfferingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHostReservationOfferingsResult
- *   NextToken: "STRING_VALUE",
- *   OfferingSet: [ // HostOfferingSet
- *     { // HostOffering
- *       CurrencyCode: "USD",
- *       Duration: Number("int"),
- *       HourlyPrice: "STRING_VALUE",
- *       InstanceFamily: "STRING_VALUE",
- *       OfferingId: "STRING_VALUE",
- *       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
- *       UpfrontPrice: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeHostReservationOfferingsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   OfferingSet: [ // HostOfferingSet
+ * //     { // HostOffering
+ * //       CurrencyCode: "USD",
+ * //       Duration: Number("int"),
+ * //       HourlyPrice: "STRING_VALUE",
+ * //       InstanceFamily: "STRING_VALUE",
+ * //       OfferingId: "STRING_VALUE",
+ * //       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ * //       UpfrontPrice: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

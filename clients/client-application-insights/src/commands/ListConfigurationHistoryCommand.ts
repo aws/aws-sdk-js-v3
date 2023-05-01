@@ -66,20 +66,19 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * };
  * const command = new ListConfigurationHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfigurationHistoryResponse
- *   EventList: [ // ConfigurationEventList
- *     { // ConfigurationEvent
- *       MonitoredResourceARN: "STRING_VALUE",
- *       EventStatus: "STRING_VALUE",
- *       EventResourceType: "STRING_VALUE",
- *       EventTime: new Date("TIMESTAMP"),
- *       EventDetail: "STRING_VALUE",
- *       EventResourceName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConfigurationHistoryResponse
+ * //   EventList: [ // ConfigurationEventList
+ * //     { // ConfigurationEvent
+ * //       MonitoredResourceARN: "STRING_VALUE",
+ * //       EventStatus: "STRING_VALUE",
+ * //       EventResourceType: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       EventDetail: "STRING_VALUE",
+ * //       EventResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

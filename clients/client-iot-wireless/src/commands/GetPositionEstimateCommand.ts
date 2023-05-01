@@ -186,10 +186,9 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateRes
  * };
  * const command = new GetPositionEstimateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPositionEstimateResponse
- *   GeoJsonPayload: "BLOB_VALUE",
- * };
+ * // { // GetPositionEstimateResponse
+ * //   GeoJsonPayload: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

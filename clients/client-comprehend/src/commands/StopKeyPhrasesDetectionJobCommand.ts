@@ -53,11 +53,10 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * };
  * const command = new StopKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopKeyPhrasesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopKeyPhrasesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

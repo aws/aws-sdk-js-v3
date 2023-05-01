@@ -45,8 +45,7 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * };
  * const command = new DeregisterCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

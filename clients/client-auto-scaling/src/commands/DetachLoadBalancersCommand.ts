@@ -60,8 +60,7 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * };
  * const command = new DetachLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

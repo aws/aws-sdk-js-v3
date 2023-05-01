@@ -44,18 +44,17 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * };
  * const command = new GetConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectInstanceConfigResponse
- *   connectInstanceConfig: { // InstanceConfig
- *     connectInstanceId: "STRING_VALUE", // required
- *     serviceLinkedRoleArn: "STRING_VALUE", // required
- *     encryptionConfig: { // EncryptionConfig
- *       enabled: true || false, // required
- *       encryptionType: "STRING_VALUE",
- *       keyArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetConnectInstanceConfigResponse
+ * //   connectInstanceConfig: { // InstanceConfig
+ * //     connectInstanceId: "STRING_VALUE", // required
+ * //     serviceLinkedRoleArn: "STRING_VALUE", // required
+ * //     encryptionConfig: { // EncryptionConfig
+ * //       enabled: true || false, // required
+ * //       encryptionType: "STRING_VALUE",
+ * //       keyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

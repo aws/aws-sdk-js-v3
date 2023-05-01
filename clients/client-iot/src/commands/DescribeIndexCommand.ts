@@ -45,12 +45,11 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * };
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIndexResponse
- *   indexName: "STRING_VALUE",
- *   indexStatus: "ACTIVE" || "BUILDING" || "REBUILDING",
- *   schema: "STRING_VALUE",
- * };
+ * // { // DescribeIndexResponse
+ * //   indexName: "STRING_VALUE",
+ * //   indexStatus: "ACTIVE" || "BUILDING" || "REBUILDING",
+ * //   schema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * };
  * const command = new PutPositionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

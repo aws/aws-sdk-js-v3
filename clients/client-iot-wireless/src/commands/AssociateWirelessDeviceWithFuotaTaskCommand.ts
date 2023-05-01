@@ -53,8 +53,7 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  * };
  * const command = new AssociateWirelessDeviceWithFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

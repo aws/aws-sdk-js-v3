@@ -69,14 +69,13 @@ export interface ExportServerEngineAttributeCommandOutput
  * };
  * const command = new ExportServerEngineAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportServerEngineAttributeResponse
- *   EngineAttribute: { // EngineAttribute
- *     Name: "STRING_VALUE",
- *     Value: "STRING_VALUE",
- *   },
- *   ServerName: "STRING_VALUE",
- * };
+ * // { // ExportServerEngineAttributeResponse
+ * //   EngineAttribute: { // EngineAttribute
+ * //     Name: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   ServerName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

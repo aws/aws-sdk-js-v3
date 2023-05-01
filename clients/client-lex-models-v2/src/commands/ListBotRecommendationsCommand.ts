@@ -49,21 +49,20 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * };
  * const command = new ListBotRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotRecommendationsResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botRecommendationSummaries: [ // BotRecommendationSummaryList
- *     { // BotRecommendationSummary
- *       botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped", // required
- *       botRecommendationId: "STRING_VALUE", // required
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBotRecommendationsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationSummaries: [ // BotRecommendationSummaryList
+ * //     { // BotRecommendationSummary
+ * //       botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped", // required
+ * //       botRecommendationId: "STRING_VALUE", // required
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

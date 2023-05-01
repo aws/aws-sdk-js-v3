@@ -68,21 +68,20 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * };
  * const command = new DescribeStoreImageTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStoreImageTasksResult
- *   StoreImageTaskResults: [ // StoreImageTaskResultSet
- *     { // StoreImageTaskResult
- *       AmiId: "STRING_VALUE",
- *       TaskStartTime: new Date("TIMESTAMP"),
- *       Bucket: "STRING_VALUE",
- *       S3objectKey: "STRING_VALUE",
- *       ProgressPercentage: Number("int"),
- *       StoreTaskState: "STRING_VALUE",
- *       StoreTaskFailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeStoreImageTasksResult
+ * //   StoreImageTaskResults: [ // StoreImageTaskResultSet
+ * //     { // StoreImageTaskResult
+ * //       AmiId: "STRING_VALUE",
+ * //       TaskStartTime: new Date("TIMESTAMP"),
+ * //       Bucket: "STRING_VALUE",
+ * //       S3objectKey: "STRING_VALUE",
+ * //       ProgressPercentage: Number("int"),
+ * //       StoreTaskState: "STRING_VALUE",
+ * //       StoreTaskFailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

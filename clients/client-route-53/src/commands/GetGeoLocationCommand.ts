@@ -71,17 +71,16 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * };
  * const command = new GetGeoLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGeoLocationResponse
- *   GeoLocationDetails: { // GeoLocationDetails
- *     ContinentCode: "STRING_VALUE",
- *     ContinentName: "STRING_VALUE",
- *     CountryCode: "STRING_VALUE",
- *     CountryName: "STRING_VALUE",
- *     SubdivisionCode: "STRING_VALUE",
- *     SubdivisionName: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGeoLocationResponse
+ * //   GeoLocationDetails: { // GeoLocationDetails
+ * //     ContinentCode: "STRING_VALUE",
+ * //     ContinentName: "STRING_VALUE",
+ * //     CountryCode: "STRING_VALUE",
+ * //     CountryName: "STRING_VALUE",
+ * //     SubdivisionCode: "STRING_VALUE",
+ * //     SubdivisionName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -64,8 +64,7 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSlotTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

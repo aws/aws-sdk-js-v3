@@ -46,8 +46,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

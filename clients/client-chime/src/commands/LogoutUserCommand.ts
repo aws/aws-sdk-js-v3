@@ -45,8 +45,7 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * };
  * const command = new LogoutUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

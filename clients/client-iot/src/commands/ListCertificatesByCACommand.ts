@@ -48,19 +48,18 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * };
  * const command = new ListCertificatesByCACommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCertificatesByCAResponse
- *   certificates: [ // Certificates
- *     { // Certificate
- *       certificateArn: "STRING_VALUE",
- *       certificateId: "STRING_VALUE",
- *       status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
- *       certificateMode: "DEFAULT" || "SNI_ONLY",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListCertificatesByCAResponse
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ * //       certificateMode: "DEFAULT" || "SNI_ONLY",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

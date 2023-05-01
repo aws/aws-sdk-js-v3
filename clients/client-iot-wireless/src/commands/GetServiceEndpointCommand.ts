@@ -44,12 +44,11 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * };
  * const command = new GetServiceEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceEndpointResponse
- *   ServiceType: "CUPS" || "LNS",
- *   ServiceEndpoint: "STRING_VALUE",
- *   ServerTrust: "STRING_VALUE",
- * };
+ * // { // GetServiceEndpointResponse
+ * //   ServiceType: "CUPS" || "LNS",
+ * //   ServiceEndpoint: "STRING_VALUE",
+ * //   ServerTrust: "STRING_VALUE",
+ * // };
  *
  * ```
  *

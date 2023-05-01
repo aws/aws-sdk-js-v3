@@ -131,8 +131,7 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * };
  * const command = new UpdateCrawlerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

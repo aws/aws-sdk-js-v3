@@ -90,21 +90,20 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * };
  * const command = new GetMatchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMatchesResponse
- *   NextToken: "STRING_VALUE",
- *   MatchGenerationDate: new Date("TIMESTAMP"),
- *   PotentialMatches: Number("int"),
- *   Matches: [ // MatchesList
- *     { // MatchItem
- *       MatchId: "STRING_VALUE",
- *       ProfileIds: [ // ProfileIdList
- *         "STRING_VALUE",
- *       ],
- *       ConfidenceScore: Number("double"),
- *     },
- *   ],
- * };
+ * // { // GetMatchesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MatchGenerationDate: new Date("TIMESTAMP"),
+ * //   PotentialMatches: Number("int"),
+ * //   Matches: [ // MatchesList
+ * //     { // MatchItem
+ * //       MatchId: "STRING_VALUE",
+ * //       ProfileIds: [ // ProfileIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConfidenceScore: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

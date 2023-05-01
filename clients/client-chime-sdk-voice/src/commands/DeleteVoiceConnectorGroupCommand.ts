@@ -46,8 +46,7 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

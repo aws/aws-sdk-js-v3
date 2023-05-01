@@ -49,26 +49,25 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * };
  * const command = new GetRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRulesResult
- *   ruleDetails: [ // RuleDetailList
- *     { // RuleDetail
- *       ruleId: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       detectorId: "STRING_VALUE",
- *       ruleVersion: "STRING_VALUE",
- *       expression: "STRING_VALUE",
- *       language: "DETECTORPL",
- *       outcomes: [ // NonEmptyListOfStrings
- *         "STRING_VALUE",
- *       ],
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetRulesResult
+ * //   ruleDetails: [ // RuleDetailList
+ * //     { // RuleDetail
+ * //       ruleId: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       detectorId: "STRING_VALUE",
+ * //       ruleVersion: "STRING_VALUE",
+ * //       expression: "STRING_VALUE",
+ * //       language: "DETECTORPL",
+ * //       outcomes: [ // NonEmptyListOfStrings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

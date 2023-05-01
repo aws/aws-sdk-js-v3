@@ -66,10 +66,9 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * };
  * const command = new SendDataToWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendDataToWirelessDeviceResponse
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendDataToWirelessDeviceResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

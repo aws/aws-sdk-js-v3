@@ -46,35 +46,34 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * };
  * const command = new DescribeJobLogItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJobLogItemsResponse
- *   items: [ // JobLogs
- *     { // JobLog
- *       logDateTime: "STRING_VALUE",
- *       event: "STRING_VALUE",
- *       eventData: { // JobLogEventData
- *         sourceServerID: "STRING_VALUE",
- *         conversionServerID: "STRING_VALUE",
- *         targetInstanceID: "STRING_VALUE",
- *         rawError: "STRING_VALUE",
- *         conversionProperties: { // ConversionProperties
- *           volumeToConversionMap: { // VolumeToConversionMap
- *             "<keys>": { // ConversionMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *           rootVolumeName: "STRING_VALUE",
- *           forceUefi: true || false,
- *           dataTimestamp: "STRING_VALUE",
- *           volumeToVolumeSize: { // VolumeToSizeMap
- *             "<keys>": Number("long"),
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeJobLogItemsResponse
+ * //   items: [ // JobLogs
+ * //     { // JobLog
+ * //       logDateTime: "STRING_VALUE",
+ * //       event: "STRING_VALUE",
+ * //       eventData: { // JobLogEventData
+ * //         sourceServerID: "STRING_VALUE",
+ * //         conversionServerID: "STRING_VALUE",
+ * //         targetInstanceID: "STRING_VALUE",
+ * //         rawError: "STRING_VALUE",
+ * //         conversionProperties: { // ConversionProperties
+ * //           volumeToConversionMap: { // VolumeToConversionMap
+ * //             "<keys>": { // ConversionMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           rootVolumeName: "STRING_VALUE",
+ * //           forceUefi: true || false,
+ * //           dataTimestamp: "STRING_VALUE",
+ * //           volumeToVolumeSize: { // VolumeToSizeMap
+ * //             "<keys>": Number("long"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

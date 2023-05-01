@@ -57,10 +57,9 @@ export interface ModifyCapacityReservationFleetCommandOutput
  * };
  * const command = new ModifyCapacityReservationFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyCapacityReservationFleetResult
- *   Return: true || false,
- * };
+ * // { // ModifyCapacityReservationFleetResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

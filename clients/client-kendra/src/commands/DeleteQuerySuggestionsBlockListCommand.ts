@@ -54,8 +54,7 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * };
  * const command = new DeleteQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

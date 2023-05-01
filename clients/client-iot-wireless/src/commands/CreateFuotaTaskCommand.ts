@@ -60,11 +60,10 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFuotaTaskResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateFuotaTaskResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

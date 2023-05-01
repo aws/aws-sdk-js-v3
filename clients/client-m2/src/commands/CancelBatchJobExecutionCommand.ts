@@ -45,8 +45,7 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * };
  * const command = new CancelBatchJobExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

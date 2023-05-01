@@ -49,16 +49,15 @@ export interface ListMediaPipelinesCommandOutput extends ListMediaPipelinesRespo
  * };
  * const command = new ListMediaPipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMediaPipelinesResponse
- *   MediaPipelines: [ // MediaPipelineList
- *     { // MediaPipelineSummary
- *       MediaPipelineId: "STRING_VALUE",
- *       MediaPipelineArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMediaPipelinesResponse
+ * //   MediaPipelines: [ // MediaPipelineList
+ * //     { // MediaPipelineSummary
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

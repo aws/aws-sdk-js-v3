@@ -67,8 +67,7 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * };
  * const command = new StartContactRecordingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

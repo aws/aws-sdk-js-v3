@@ -57,41 +57,40 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * };
  * const command = new UpdateBotRecommendationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBotRecommendationResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped",
- *   botRecommendationId: "STRING_VALUE",
- *   creationDateTime: new Date("TIMESTAMP"),
- *   lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   transcriptSourceSetting: { // TranscriptSourceSetting
- *     s3BucketTranscriptSource: { // S3BucketTranscriptSource
- *       s3BucketName: "STRING_VALUE", // required
- *       pathFormat: { // PathFormat
- *         objectPrefixes: [ // ObjectPrefixes
- *           "STRING_VALUE",
- *         ],
- *       },
- *       transcriptFormat: "Lex", // required
- *       transcriptFilter: { // TranscriptFilter
- *         lexTranscriptFilter: { // LexTranscriptFilter
- *           dateRangeFilter: { // DateRangeFilter
- *             startDateTime: new Date("TIMESTAMP"), // required
- *             endDateTime: new Date("TIMESTAMP"), // required
- *           },
- *         },
- *       },
- *       kmsKeyArn: "STRING_VALUE",
- *     },
- *   },
- *   encryptionSetting: { // EncryptionSetting
- *     kmsKeyArn: "STRING_VALUE",
- *     botLocaleExportPassword: "STRING_VALUE",
- *     associatedTranscriptsPassword: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateBotRecommendationResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationStatus: "Processing" || "Deleting" || "Deleted" || "Downloading" || "Updating" || "Available" || "Failed" || "Stopping" || "Stopped",
+ * //   botRecommendationId: "STRING_VALUE",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   transcriptSourceSetting: { // TranscriptSourceSetting
+ * //     s3BucketTranscriptSource: { // S3BucketTranscriptSource
+ * //       s3BucketName: "STRING_VALUE", // required
+ * //       pathFormat: { // PathFormat
+ * //         objectPrefixes: [ // ObjectPrefixes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       transcriptFormat: "Lex", // required
+ * //       transcriptFilter: { // TranscriptFilter
+ * //         lexTranscriptFilter: { // LexTranscriptFilter
+ * //           dateRangeFilter: { // DateRangeFilter
+ * //             startDateTime: new Date("TIMESTAMP"), // required
+ * //             endDateTime: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //       kmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   encryptionSetting: { // EncryptionSetting
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     botLocaleExportPassword: "STRING_VALUE",
+ * //     associatedTranscriptsPassword: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -58,15 +58,14 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * };
  * const command = new ListPricingPlansAssociatedWithPricingRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPricingPlansAssociatedWithPricingRuleOutput
- *   BillingPeriod: "STRING_VALUE",
- *   PricingRuleArn: "STRING_VALUE",
- *   PricingPlanArns: [ // PricingPlanArns
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPricingPlansAssociatedWithPricingRuleOutput
+ * //   BillingPeriod: "STRING_VALUE",
+ * //   PricingRuleArn: "STRING_VALUE",
+ * //   PricingPlanArns: [ // PricingPlanArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

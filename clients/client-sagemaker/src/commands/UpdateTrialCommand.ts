@@ -45,10 +45,9 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * };
  * const command = new UpdateTrialCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrialResponse
- *   TrialArn: "STRING_VALUE",
- * };
+ * // { // UpdateTrialResponse
+ * //   TrialArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

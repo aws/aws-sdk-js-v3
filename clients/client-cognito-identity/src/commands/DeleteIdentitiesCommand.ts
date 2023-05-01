@@ -49,15 +49,14 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * };
  * const command = new DeleteIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteIdentitiesResponse
- *   UnprocessedIdentityIds: [ // UnprocessedIdentityIdList
- *     { // UnprocessedIdentityId
- *       IdentityId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteIdentitiesResponse
+ * //   UnprocessedIdentityIds: [ // UnprocessedIdentityIdList
+ * //     { // UnprocessedIdentityId
+ * //       IdentityId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

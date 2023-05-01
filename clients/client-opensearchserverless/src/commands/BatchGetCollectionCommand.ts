@@ -55,32 +55,31 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * };
  * const command = new BatchGetCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetCollectionResponse
- *   collectionDetails: [ // CollectionDetails
- *     { // CollectionDetail
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       kmsKeyArn: "STRING_VALUE",
- *       createdDate: Number("long"),
- *       lastModifiedDate: Number("long"),
- *       collectionEndpoint: "STRING_VALUE",
- *       dashboardEndpoint: "STRING_VALUE",
- *     },
- *   ],
- *   collectionErrorDetails: [ // CollectionErrorDetails
- *     { // CollectionErrorDetail
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetCollectionResponse
+ * //   collectionDetails: [ // CollectionDetails
+ * //     { // CollectionDetail
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       kmsKeyArn: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //       collectionEndpoint: "STRING_VALUE",
+ * //       dashboardEndpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   collectionErrorDetails: [ // CollectionErrorDetails
+ * //     { // CollectionErrorDetail
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

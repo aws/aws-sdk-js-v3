@@ -57,20 +57,19 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * };
  * const command = new GetBotChannelAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBotChannelAssociationResponse
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   botAlias: "STRING_VALUE",
- *   botName: "STRING_VALUE",
- *   createdDate: new Date("TIMESTAMP"),
- *   type: "STRING_VALUE",
- *   botConfiguration: { // ChannelConfigurationMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE",
- *   failureReason: "STRING_VALUE",
- * };
+ * // { // GetBotChannelAssociationResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botAlias: "STRING_VALUE",
+ * //   botName: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   type: "STRING_VALUE",
+ * //   botConfiguration: { // ChannelConfigurationMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE",
+ * //   failureReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

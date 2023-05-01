@@ -52,8 +52,7 @@ export interface UpdateAuditStreamConfigurationCommandOutput
  * };
  * const command = new UpdateAuditStreamConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

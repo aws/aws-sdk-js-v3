@@ -66,32 +66,31 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * };
  * const command = new DescribePhoneNumbersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePhoneNumbersResult
- *   PhoneNumbers: [ // PhoneNumberInformationList
- *     { // PhoneNumberInformation
- *       PhoneNumberArn: "STRING_VALUE", // required
- *       PhoneNumberId: "STRING_VALUE",
- *       PhoneNumber: "STRING_VALUE", // required
- *       Status: "STRING_VALUE", // required
- *       IsoCountryCode: "STRING_VALUE", // required
- *       MessageType: "STRING_VALUE", // required
- *       NumberCapabilities: [ // NumberCapabilityList // required
- *         "STRING_VALUE",
- *       ],
- *       NumberType: "STRING_VALUE", // required
- *       MonthlyLeasingPrice: "STRING_VALUE", // required
- *       TwoWayEnabled: true || false, // required
- *       TwoWayChannelArn: "STRING_VALUE",
- *       SelfManagedOptOutsEnabled: true || false, // required
- *       OptOutListName: "STRING_VALUE", // required
- *       DeletionProtectionEnabled: true || false, // required
- *       PoolId: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePhoneNumbersResult
+ * //   PhoneNumbers: [ // PhoneNumberInformationList
+ * //     { // PhoneNumberInformation
+ * //       PhoneNumberArn: "STRING_VALUE", // required
+ * //       PhoneNumberId: "STRING_VALUE",
+ * //       PhoneNumber: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       IsoCountryCode: "STRING_VALUE", // required
+ * //       MessageType: "STRING_VALUE", // required
+ * //       NumberCapabilities: [ // NumberCapabilityList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NumberType: "STRING_VALUE", // required
+ * //       MonthlyLeasingPrice: "STRING_VALUE", // required
+ * //       TwoWayEnabled: true || false, // required
+ * //       TwoWayChannelArn: "STRING_VALUE",
+ * //       SelfManagedOptOutsEnabled: true || false, // required
+ * //       OptOutListName: "STRING_VALUE", // required
+ * //       DeletionProtectionEnabled: true || false, // required
+ * //       PoolId: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

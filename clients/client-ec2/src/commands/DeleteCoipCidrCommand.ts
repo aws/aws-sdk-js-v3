@@ -48,14 +48,13 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  * };
  * const command = new DeleteCoipCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCoipCidrResult
- *   CoipCidr: { // CoipCidr
- *     Cidr: "STRING_VALUE",
- *     CoipPoolId: "STRING_VALUE",
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteCoipCidrResult
+ * //   CoipCidr: { // CoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     CoipPoolId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

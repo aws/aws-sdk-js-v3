@@ -46,16 +46,15 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * };
  * const command = new UpdateTagOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTagOptionOutput
- *   TagOptionDetail: { // TagOptionDetail
- *     Key: "STRING_VALUE",
- *     Value: "STRING_VALUE",
- *     Active: true || false,
- *     Id: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateTagOptionOutput
+ * //   TagOptionDetail: { // TagOptionDetail
+ * //     Key: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //     Active: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

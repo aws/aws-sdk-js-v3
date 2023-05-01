@@ -47,8 +47,7 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

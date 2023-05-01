@@ -4300,15 +4300,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTemplateResponse
- *   TemplateId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   VersionArn: "STRING_VALUE",
- *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateTemplateResponse
+ * //   TemplateId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   VersionArn: "STRING_VALUE",
+ * //   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

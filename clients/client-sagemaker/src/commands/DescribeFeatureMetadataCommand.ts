@@ -45,22 +45,21 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * };
  * const command = new DescribeFeatureMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFeatureMetadataResponse
- *   FeatureGroupArn: "STRING_VALUE", // required
- *   FeatureGroupName: "STRING_VALUE", // required
- *   FeatureName: "STRING_VALUE", // required
- *   FeatureType: "Integral" || "Fractional" || "String", // required
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   LastModifiedTime: new Date("TIMESTAMP"), // required
- *   Description: "STRING_VALUE",
- *   Parameters: [ // FeatureParameters
- *     { // FeatureParameter
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeFeatureMetadataResponse
+ * //   FeatureGroupArn: "STRING_VALUE", // required
+ * //   FeatureGroupName: "STRING_VALUE", // required
+ * //   FeatureName: "STRING_VALUE", // required
+ * //   FeatureType: "Integral" || "Fractional" || "String", // required
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //   Description: "STRING_VALUE",
+ * //   Parameters: [ // FeatureParameters
+ * //     { // FeatureParameter
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

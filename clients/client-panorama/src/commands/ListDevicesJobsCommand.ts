@@ -46,19 +46,18 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * };
  * const command = new ListDevicesJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicesJobsResponse
- *   DeviceJobs: [ // DeviceJobList
- *     { // DeviceJob
- *       DeviceName: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       JobId: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       JobType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDevicesJobsResponse
+ * //   DeviceJobs: [ // DeviceJobList
+ * //     { // DeviceJob
+ * //       DeviceName: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       JobType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

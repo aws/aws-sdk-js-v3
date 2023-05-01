@@ -44,8 +44,7 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  * };
  * const command = new DeleteProtectionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

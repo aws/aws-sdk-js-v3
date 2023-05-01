@@ -51,8 +51,7 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * };
  * const command = new SendTaskSuccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

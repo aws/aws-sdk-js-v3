@@ -65,10 +65,9 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * };
  * const command = new CreateConferenceProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConferenceProviderResponse
- *   ConferenceProviderArn: "STRING_VALUE",
- * };
+ * // { // CreateConferenceProviderResponse
+ * //   ConferenceProviderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

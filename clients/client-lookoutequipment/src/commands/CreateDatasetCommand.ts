@@ -58,12 +58,11 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetResponse
- *   DatasetName: "STRING_VALUE",
- *   DatasetArn: "STRING_VALUE",
- *   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
- * };
+ * // { // CreateDatasetResponse
+ * //   DatasetName: "STRING_VALUE",
+ * //   DatasetArn: "STRING_VALUE",
+ * //   Status: "CREATED" || "INGESTION_IN_PROGRESS" || "ACTIVE",
+ * // };
  *
  * ```
  *

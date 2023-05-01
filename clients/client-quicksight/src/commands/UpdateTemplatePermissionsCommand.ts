@@ -61,21 +61,20 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * };
  * const command = new UpdateTemplatePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTemplatePermissionsResponse
- *   TemplateId: "STRING_VALUE",
- *   TemplateArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateTemplatePermissionsResponse
+ * //   TemplateId: "STRING_VALUE",
+ * //   TemplateArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

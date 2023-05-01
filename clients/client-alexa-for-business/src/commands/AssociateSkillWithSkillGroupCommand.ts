@@ -50,8 +50,7 @@ export interface AssociateSkillWithSkillGroupCommandOutput
  * };
  * const command = new AssociateSkillWithSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

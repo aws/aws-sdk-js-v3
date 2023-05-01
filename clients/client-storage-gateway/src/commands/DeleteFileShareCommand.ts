@@ -46,10 +46,9 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  * };
  * const command = new DeleteFileShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFileShareOutput
- *   FileShareARN: "STRING_VALUE",
- * };
+ * // { // DeleteFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

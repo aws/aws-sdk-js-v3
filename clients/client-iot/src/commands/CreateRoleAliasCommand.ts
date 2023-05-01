@@ -53,11 +53,10 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * };
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoleAliasResponse
- *   roleAlias: "STRING_VALUE",
- *   roleAliasArn: "STRING_VALUE",
- * };
+ * // { // CreateRoleAliasResponse
+ * //   roleAlias: "STRING_VALUE",
+ * //   roleAliasArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

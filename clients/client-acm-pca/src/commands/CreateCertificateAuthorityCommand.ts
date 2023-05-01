@@ -170,10 +170,9 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * };
  * const command = new CreateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCertificateAuthorityResponse
- *   CertificateAuthorityArn: "STRING_VALUE",
- * };
+ * // { // CreateCertificateAuthorityResponse
+ * //   CertificateAuthorityArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

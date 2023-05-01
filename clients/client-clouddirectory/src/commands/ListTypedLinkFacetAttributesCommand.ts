@@ -52,33 +52,32 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  * };
  * const command = new ListTypedLinkFacetAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypedLinkFacetAttributesResponse
- *   Attributes: [ // TypedLinkAttributeDefinitionList
- *     { // TypedLinkAttributeDefinition
- *       Name: "STRING_VALUE", // required
- *       Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
- *       DefaultValue: { // TypedAttributeValue Union: only one key present
- *         StringValue: "STRING_VALUE",
- *         BinaryValue: "BLOB_VALUE",
- *         BooleanValue: true || false,
- *         NumberValue: "STRING_VALUE",
- *         DatetimeValue: new Date("TIMESTAMP"),
- *       },
- *       IsImmutable: true || false,
- *       Rules: { // RuleMap
- *         "<keys>": { // Rule
- *           Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
- *           Parameters: { // RuleParameterMap
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *       },
- *       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTypedLinkFacetAttributesResponse
+ * //   Attributes: [ // TypedLinkAttributeDefinitionList
+ * //     { // TypedLinkAttributeDefinition
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ * //       DefaultValue: { // TypedAttributeValue Union: only one key present
+ * //         StringValue: "STRING_VALUE",
+ * //         BinaryValue: "BLOB_VALUE",
+ * //         BooleanValue: true || false,
+ * //         NumberValue: "STRING_VALUE",
+ * //         DatetimeValue: new Date("TIMESTAMP"),
+ * //       },
+ * //       IsImmutable: true || false,
+ * //       Rules: { // RuleMap
+ * //         "<keys>": { // Rule
+ * //           Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ * //           Parameters: { // RuleParameterMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

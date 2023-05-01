@@ -54,13 +54,12 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * };
  * const command = new GetVoiceConnectorTerminationHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorTerminationHealthResponse
- *   TerminationHealth: { // TerminationHealth
- *     Timestamp: new Date("TIMESTAMP"),
- *     Source: "STRING_VALUE",
- *   },
- * };
+ * // { // GetVoiceConnectorTerminationHealthResponse
+ * //   TerminationHealth: { // TerminationHealth
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //     Source: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * };
  * const command = new DeleteRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRulesetResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // DeleteRulesetResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

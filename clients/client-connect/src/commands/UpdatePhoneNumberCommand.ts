@@ -52,11 +52,10 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePhoneNumberResponse
- *   PhoneNumberId: "STRING_VALUE",
- *   PhoneNumberArn: "STRING_VALUE",
- * };
+ * // { // UpdatePhoneNumberResponse
+ * //   PhoneNumberId: "STRING_VALUE",
+ * //   PhoneNumberArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

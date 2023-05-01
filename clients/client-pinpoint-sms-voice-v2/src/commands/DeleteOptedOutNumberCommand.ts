@@ -53,14 +53,13 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * };
  * const command = new DeleteOptedOutNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteOptedOutNumberResult
- *   OptOutListArn: "STRING_VALUE",
- *   OptOutListName: "STRING_VALUE",
- *   OptedOutNumber: "STRING_VALUE",
- *   OptedOutTimestamp: new Date("TIMESTAMP"),
- *   EndUserOptedOut: true || false,
- * };
+ * // { // DeleteOptedOutNumberResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   OptedOutNumber: "STRING_VALUE",
+ * //   OptedOutTimestamp: new Date("TIMESTAMP"),
+ * //   EndUserOptedOut: true || false,
+ * // };
  *
  * ```
  *

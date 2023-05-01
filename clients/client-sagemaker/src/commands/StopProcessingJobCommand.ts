@@ -44,8 +44,7 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopProcessingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

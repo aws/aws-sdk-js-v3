@@ -49,20 +49,19 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * };
  * const command = new BatchDeleteClusterSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteClusterSnapshotsResult
- *   Resources: [ // SnapshotIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   Errors: [ // BatchSnapshotOperationErrorList
- *     { // SnapshotErrorMessage
- *       SnapshotIdentifier: "STRING_VALUE",
- *       SnapshotClusterIdentifier: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteClusterSnapshotsResult
+ * //   Resources: [ // SnapshotIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Errors: [ // BatchSnapshotOperationErrorList
+ * //     { // SnapshotErrorMessage
+ * //       SnapshotIdentifier: "STRING_VALUE",
+ * //       SnapshotClusterIdentifier: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

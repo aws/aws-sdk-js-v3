@@ -60,10 +60,9 @@ export interface ModifySecurityGroupRulesCommandOutput extends ModifySecurityGro
  * };
  * const command = new ModifySecurityGroupRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifySecurityGroupRulesResult
- *   Return: true || false,
- * };
+ * // { // ModifySecurityGroupRulesResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

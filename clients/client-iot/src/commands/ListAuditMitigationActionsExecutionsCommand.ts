@@ -58,23 +58,22 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * };
  * const command = new ListAuditMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAuditMitigationActionsExecutionsResponse
- *   actionsExecutions: [ // AuditMitigationActionExecutionMetadataList
- *     { // AuditMitigationActionExecutionMetadata
- *       taskId: "STRING_VALUE",
- *       findingId: "STRING_VALUE",
- *       actionName: "STRING_VALUE",
- *       actionId: "STRING_VALUE",
- *       status: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED" || "SKIPPED" || "PENDING",
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *       errorCode: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAuditMitigationActionsExecutionsResponse
+ * //   actionsExecutions: [ // AuditMitigationActionExecutionMetadataList
+ * //     { // AuditMitigationActionExecutionMetadata
+ * //       taskId: "STRING_VALUE",
+ * //       findingId: "STRING_VALUE",
+ * //       actionName: "STRING_VALUE",
+ * //       actionId: "STRING_VALUE",
+ * //       status: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED" || "SKIPPED" || "PENDING",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       errorCode: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

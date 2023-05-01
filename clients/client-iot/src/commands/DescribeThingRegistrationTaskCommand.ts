@@ -50,21 +50,20 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * };
  * const command = new DescribeThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeThingRegistrationTaskResponse
- *   taskId: "STRING_VALUE",
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- *   templateBody: "STRING_VALUE",
- *   inputFileBucket: "STRING_VALUE",
- *   inputFileKey: "STRING_VALUE",
- *   roleArn: "STRING_VALUE",
- *   status: "InProgress" || "Completed" || "Failed" || "Cancelled" || "Cancelling",
- *   message: "STRING_VALUE",
- *   successCount: Number("int"),
- *   failureCount: Number("int"),
- *   percentageProgress: Number("int"),
- * };
+ * // { // DescribeThingRegistrationTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   templateBody: "STRING_VALUE",
+ * //   inputFileBucket: "STRING_VALUE",
+ * //   inputFileKey: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
+ * //   status: "InProgress" || "Completed" || "Failed" || "Cancelled" || "Cancelling",
+ * //   message: "STRING_VALUE",
+ * //   successCount: Number("int"),
+ * //   failureCount: Number("int"),
+ * //   percentageProgress: Number("int"),
+ * // };
  *
  * ```
  *

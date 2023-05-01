@@ -50,17 +50,16 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * };
  * const command = new DetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectKeyPhrasesResponse
- *   KeyPhrases: [ // ListOfKeyPhrases
- *     { // KeyPhrase
- *       Score: Number("float"),
- *       Text: "STRING_VALUE",
- *       BeginOffset: Number("int"),
- *       EndOffset: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DetectKeyPhrasesResponse
+ * //   KeyPhrases: [ // ListOfKeyPhrases
+ * //     { // KeyPhrase
+ * //       Score: Number("float"),
+ * //       Text: "STRING_VALUE",
+ * //       BeginOffset: Number("int"),
+ * //       EndOffset: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

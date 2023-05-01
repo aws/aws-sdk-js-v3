@@ -44,42 +44,41 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * };
  * const command = new GetWorkGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkGroupOutput
- *   WorkGroup: { // WorkGroup
- *     Name: "STRING_VALUE", // required
- *     State: "ENABLED" || "DISABLED",
- *     Configuration: { // WorkGroupConfiguration
- *       ResultConfiguration: { // ResultConfiguration
- *         OutputLocation: "STRING_VALUE",
- *         EncryptionConfiguration: { // EncryptionConfiguration
- *           EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
- *           KmsKey: "STRING_VALUE",
- *         },
- *         ExpectedBucketOwner: "STRING_VALUE",
- *         AclConfiguration: { // AclConfiguration
- *           S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
- *         },
- *       },
- *       EnforceWorkGroupConfiguration: true || false,
- *       PublishCloudWatchMetricsEnabled: true || false,
- *       BytesScannedCutoffPerQuery: Number("long"),
- *       RequesterPaysEnabled: true || false,
- *       EngineVersion: { // EngineVersion
- *         SelectedEngineVersion: "STRING_VALUE",
- *         EffectiveEngineVersion: "STRING_VALUE",
- *       },
- *       AdditionalConfiguration: "STRING_VALUE",
- *       ExecutionRole: "STRING_VALUE",
- *       CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
- *         KmsKey: "STRING_VALUE", // required
- *       },
- *       EnableMinimumEncryptionConfiguration: true || false,
- *     },
- *     Description: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetWorkGroupOutput
+ * //   WorkGroup: { // WorkGroup
+ * //     Name: "STRING_VALUE", // required
+ * //     State: "ENABLED" || "DISABLED",
+ * //     Configuration: { // WorkGroupConfiguration
+ * //       ResultConfiguration: { // ResultConfiguration
+ * //         OutputLocation: "STRING_VALUE",
+ * //         EncryptionConfiguration: { // EncryptionConfiguration
+ * //           EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ * //           KmsKey: "STRING_VALUE",
+ * //         },
+ * //         ExpectedBucketOwner: "STRING_VALUE",
+ * //         AclConfiguration: { // AclConfiguration
+ * //           S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ * //         },
+ * //       },
+ * //       EnforceWorkGroupConfiguration: true || false,
+ * //       PublishCloudWatchMetricsEnabled: true || false,
+ * //       BytesScannedCutoffPerQuery: Number("long"),
+ * //       RequesterPaysEnabled: true || false,
+ * //       EngineVersion: { // EngineVersion
+ * //         SelectedEngineVersion: "STRING_VALUE",
+ * //         EffectiveEngineVersion: "STRING_VALUE",
+ * //       },
+ * //       AdditionalConfiguration: "STRING_VALUE",
+ * //       ExecutionRole: "STRING_VALUE",
+ * //       CustomerContentEncryptionConfiguration: { // CustomerContentEncryptionConfiguration
+ * //         KmsKey: "STRING_VALUE", // required
+ * //       },
+ * //       EnableMinimumEncryptionConfiguration: true || false,
+ * //     },
+ * //     Description: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

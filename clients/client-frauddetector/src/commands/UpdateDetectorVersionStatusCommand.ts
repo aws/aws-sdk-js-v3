@@ -47,8 +47,7 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * };
  * const command = new UpdateDetectorVersionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,29 +51,28 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * };
  * const command = new ListTableRestoreStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTableRestoreStatusResponse
- *   nextToken: "STRING_VALUE",
- *   tableRestoreStatuses: [ // TableRestoreStatusList
- *     { // TableRestoreStatus
- *       tableRestoreRequestId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *       requestTime: new Date("TIMESTAMP"),
- *       namespaceName: "STRING_VALUE",
- *       workgroupName: "STRING_VALUE",
- *       snapshotName: "STRING_VALUE",
- *       progressInMegaBytes: Number("long"),
- *       totalDataInMegaBytes: Number("long"),
- *       sourceDatabaseName: "STRING_VALUE",
- *       sourceSchemaName: "STRING_VALUE",
- *       sourceTableName: "STRING_VALUE",
- *       targetDatabaseName: "STRING_VALUE",
- *       targetSchemaName: "STRING_VALUE",
- *       newTableName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListTableRestoreStatusResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   tableRestoreStatuses: [ // TableRestoreStatusList
+ * //     { // TableRestoreStatus
+ * //       tableRestoreRequestId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //       requestTime: new Date("TIMESTAMP"),
+ * //       namespaceName: "STRING_VALUE",
+ * //       workgroupName: "STRING_VALUE",
+ * //       snapshotName: "STRING_VALUE",
+ * //       progressInMegaBytes: Number("long"),
+ * //       totalDataInMegaBytes: Number("long"),
+ * //       sourceDatabaseName: "STRING_VALUE",
+ * //       sourceSchemaName: "STRING_VALUE",
+ * //       sourceTableName: "STRING_VALUE",
+ * //       targetDatabaseName: "STRING_VALUE",
+ * //       targetSchemaName: "STRING_VALUE",
+ * //       newTableName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

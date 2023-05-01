@@ -44,14 +44,13 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * const input = {};
  * const command = new DescribeAccountHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountHealthResponse
- *   OpenReactiveInsights: Number("int"), // required
- *   OpenProactiveInsights: Number("int"), // required
- *   MetricsAnalyzed: Number("int"), // required
- *   ResourceHours: Number("long"), // required
- *   AnalyzedResourceCount: Number("long"),
- * };
+ * // { // DescribeAccountHealthResponse
+ * //   OpenReactiveInsights: Number("int"), // required
+ * //   OpenProactiveInsights: Number("int"), // required
+ * //   MetricsAnalyzed: Number("int"), // required
+ * //   ResourceHours: Number("long"), // required
+ * //   AnalyzedResourceCount: Number("long"),
+ * // };
  *
  * ```
  *

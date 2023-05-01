@@ -64,11 +64,10 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * };
  * const command = new CreateRescoreExecutionPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRescoreExecutionPlanResponse
- *   Id: "STRING_VALUE", // required
- *   Arn: "STRING_VALUE", // required
- * };
+ * // { // CreateRescoreExecutionPlanResponse
+ * //   Id: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

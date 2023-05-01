@@ -45,13 +45,12 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentsOutput
- *   Environments: [ // EnvironmentList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEnvironmentsOutput
+ * //   Environments: [ // EnvironmentList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,21 +60,20 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * };
  * const command = new DescribeDirectConnectGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDirectConnectGatewayAttachmentsResult
- *   directConnectGatewayAttachments: [ // DirectConnectGatewayAttachmentList
- *     { // DirectConnectGatewayAttachment
- *       directConnectGatewayId: "STRING_VALUE",
- *       virtualInterfaceId: "STRING_VALUE",
- *       virtualInterfaceRegion: "STRING_VALUE",
- *       virtualInterfaceOwnerAccount: "STRING_VALUE",
- *       attachmentState: "attaching" || "attached" || "detaching" || "detached",
- *       attachmentType: "TransitVirtualInterface" || "PrivateVirtualInterface",
- *       stateChangeError: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDirectConnectGatewayAttachmentsResult
+ * //   directConnectGatewayAttachments: [ // DirectConnectGatewayAttachmentList
+ * //     { // DirectConnectGatewayAttachment
+ * //       directConnectGatewayId: "STRING_VALUE",
+ * //       virtualInterfaceId: "STRING_VALUE",
+ * //       virtualInterfaceRegion: "STRING_VALUE",
+ * //       virtualInterfaceOwnerAccount: "STRING_VALUE",
+ * //       attachmentState: "attaching" || "attached" || "detaching" || "detached",
+ * //       attachmentType: "TransitVirtualInterface" || "PrivateVirtualInterface",
+ * //       stateChangeError: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

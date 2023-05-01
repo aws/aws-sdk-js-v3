@@ -52,13 +52,12 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * };
  * const command = new UpdateSubnetChangeProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSubnetChangeProtectionResponse
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   SubnetChangeProtection: true || false,
- * };
+ * // { // UpdateSubnetChangeProtectionResponse
+ * //   UpdateToken: "STRING_VALUE",
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   SubnetChangeProtection: true || false,
+ * // };
  *
  * ```
  *

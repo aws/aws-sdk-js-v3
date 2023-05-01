@@ -83,15 +83,14 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * };
  * const command = new AssociateVPCWithHostedZoneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateVPCWithHostedZoneResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateVPCWithHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

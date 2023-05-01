@@ -59,8 +59,7 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * };
  * const command = new DeleteConnectionAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

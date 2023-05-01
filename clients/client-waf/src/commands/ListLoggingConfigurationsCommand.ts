@@ -53,24 +53,23 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLoggingConfigurationsResponse
- *   LoggingConfigurations: [ // LoggingConfigurations
- *     { // LoggingConfiguration
- *       ResourceArn: "STRING_VALUE", // required
- *       LogDestinationConfigs: [ // LogDestinationConfigs // required
- *         "STRING_VALUE",
- *       ],
- *       RedactedFields: [ // RedactedFields
- *         { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // ListLoggingConfigurationsResponse
+ * //   LoggingConfigurations: [ // LoggingConfigurations
+ * //     { // LoggingConfiguration
+ * //       ResourceArn: "STRING_VALUE", // required
+ * //       LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       RedactedFields: [ // RedactedFields
+ * //         { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

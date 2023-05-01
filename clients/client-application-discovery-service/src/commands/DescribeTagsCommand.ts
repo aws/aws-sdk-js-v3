@@ -72,19 +72,18 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTagsResponse
- *   tags: [ // ConfigurationTagSet
- *     { // ConfigurationTag
- *       configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION",
- *       configurationId: "STRING_VALUE",
- *       key: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       timeOfCreation: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTagsResponse
+ * //   tags: [ // ConfigurationTagSet
+ * //     { // ConfigurationTag
+ * //       configurationType: "SERVER" || "PROCESS" || "CONNECTION" || "APPLICATION",
+ * //       configurationId: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //       timeOfCreation: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,33 +58,32 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * };
  * const command = new DeleteCapacityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCapacityProviderResponse
- *   capacityProvider: { // CapacityProvider
- *     capacityProviderArn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "ACTIVE" || "INACTIVE",
- *     autoScalingGroupProvider: { // AutoScalingGroupProvider
- *       autoScalingGroupArn: "STRING_VALUE", // required
- *       managedScaling: { // ManagedScaling
- *         status: "ENABLED" || "DISABLED",
- *         targetCapacity: Number("int"),
- *         minimumScalingStepSize: Number("int"),
- *         maximumScalingStepSize: Number("int"),
- *         instanceWarmupPeriod: Number("int"),
- *       },
- *       managedTerminationProtection: "ENABLED" || "DISABLED",
- *     },
- *     updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
- *     updateStatusReason: "STRING_VALUE",
- *     tags: [ // Tags
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteCapacityProviderResponse
+ * //   capacityProvider: { // CapacityProvider
+ * //     capacityProviderArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "ACTIVE" || "INACTIVE",
+ * //     autoScalingGroupProvider: { // AutoScalingGroupProvider
+ * //       autoScalingGroupArn: "STRING_VALUE", // required
+ * //       managedScaling: { // ManagedScaling
+ * //         status: "ENABLED" || "DISABLED",
+ * //         targetCapacity: Number("int"),
+ * //         minimumScalingStepSize: Number("int"),
+ * //         maximumScalingStepSize: Number("int"),
+ * //         instanceWarmupPeriod: Number("int"),
+ * //       },
+ * //       managedTerminationProtection: "ENABLED" || "DISABLED",
+ * //     },
+ * //     updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //     updateStatusReason: "STRING_VALUE",
+ * //     tags: [ // Tags
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

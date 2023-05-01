@@ -53,8 +53,7 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  * };
  * const command = new AssociateWirelessGatewayWithThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

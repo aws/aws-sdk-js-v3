@@ -46,10 +46,9 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * };
  * const command = new ConfirmConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfirmConnectionResponse
- *   connectionState: "ordering" || "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
- * };
+ * // { // ConfirmConnectionResponse
+ * //   connectionState: "ordering" || "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
  *
  * ```
  *

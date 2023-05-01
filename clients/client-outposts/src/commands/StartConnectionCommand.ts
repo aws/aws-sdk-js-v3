@@ -57,11 +57,10 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * };
  * const command = new StartConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartConnectionResponse
- *   ConnectionId: "STRING_VALUE",
- *   UnderlayIpAddress: "STRING_VALUE",
- * };
+ * // { // StartConnectionResponse
+ * //   ConnectionId: "STRING_VALUE",
+ * //   UnderlayIpAddress: "STRING_VALUE",
+ * // };
  *
  * ```
  *

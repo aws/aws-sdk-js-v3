@@ -45,27 +45,26 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   users: [ // UserList
- *     { // User
- *       userId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       firstName: "STRING_VALUE",
- *       lastName: "STRING_VALUE",
- *       emailAddress: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       apiAccess: "STRING_VALUE",
- *       apiAccessPrincipalArn: "STRING_VALUE",
- *       createTime: Number("long"),
- *       lastEnabledTime: Number("long"),
- *       lastDisabledTime: Number("long"),
- *       lastModifiedTime: Number("long"),
- *       lastLoginTime: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersResponse
+ * //   users: [ // UserList
+ * //     { // User
+ * //       userId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       firstName: "STRING_VALUE",
+ * //       lastName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       apiAccess: "STRING_VALUE",
+ * //       apiAccessPrincipalArn: "STRING_VALUE",
+ * //       createTime: Number("long"),
+ * //       lastEnabledTime: Number("long"),
+ * //       lastDisabledTime: Number("long"),
+ * //       lastModifiedTime: Number("long"),
+ * //       lastLoginTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

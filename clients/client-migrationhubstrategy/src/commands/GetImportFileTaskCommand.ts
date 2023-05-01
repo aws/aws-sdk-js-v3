@@ -48,20 +48,19 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  * };
  * const command = new GetImportFileTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImportFileTaskResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   startTime: new Date("TIMESTAMP"),
- *   inputS3Bucket: "STRING_VALUE",
- *   inputS3Key: "STRING_VALUE",
- *   statusReportS3Bucket: "STRING_VALUE",
- *   statusReportS3Key: "STRING_VALUE",
- *   completionTime: new Date("TIMESTAMP"),
- *   numberOfRecordsSuccess: Number("int"),
- *   numberOfRecordsFailed: Number("int"),
- *   importName: "STRING_VALUE",
- * };
+ * // { // GetImportFileTaskResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   inputS3Bucket: "STRING_VALUE",
+ * //   inputS3Key: "STRING_VALUE",
+ * //   statusReportS3Bucket: "STRING_VALUE",
+ * //   statusReportS3Key: "STRING_VALUE",
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   numberOfRecordsSuccess: Number("int"),
+ * //   numberOfRecordsFailed: Number("int"),
+ * //   importName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

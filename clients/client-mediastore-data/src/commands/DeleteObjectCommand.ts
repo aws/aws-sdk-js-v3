@@ -44,8 +44,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

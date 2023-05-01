@@ -47,18 +47,17 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePackageResponse
- *   PackageId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   StorageLocation: { // StorageLocation
- *     Bucket: "STRING_VALUE", // required
- *     RepoPrefixLocation: "STRING_VALUE", // required
- *     GeneratedPrefixLocation: "STRING_VALUE", // required
- *     BinaryPrefixLocation: "STRING_VALUE", // required
- *     ManifestPrefixLocation: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreatePackageResponse
+ * //   PackageId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   StorageLocation: { // StorageLocation
+ * //     Bucket: "STRING_VALUE", // required
+ * //     RepoPrefixLocation: "STRING_VALUE", // required
+ * //     GeneratedPrefixLocation: "STRING_VALUE", // required
+ * //     BinaryPrefixLocation: "STRING_VALUE", // required
+ * //     ManifestPrefixLocation: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

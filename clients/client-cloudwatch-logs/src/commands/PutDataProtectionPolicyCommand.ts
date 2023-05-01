@@ -59,12 +59,11 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * };
  * const command = new PutDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDataProtectionPolicyResponse
- *   logGroupIdentifier: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE",
- *   lastUpdatedTime: Number("long"),
- * };
+ * // { // PutDataProtectionPolicyResponse
+ * //   logGroupIdentifier: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   lastUpdatedTime: Number("long"),
+ * // };
  *
  * ```
  *

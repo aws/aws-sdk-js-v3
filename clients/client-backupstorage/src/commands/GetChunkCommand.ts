@@ -48,13 +48,12 @@ export interface GetChunkCommandOutput extends __WithSdkStreamMixin<GetChunkOutp
  * };
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChunkOutput
- *   Data: "STREAMING_BLOB_VALUE", // required
- *   Length: Number("long"), // required
- *   Checksum: "STRING_VALUE", // required
- *   ChecksumAlgorithm: "STRING_VALUE", // required
- * };
+ * // { // GetChunkOutput
+ * //   Data: "STREAMING_BLOB_VALUE", // required
+ * //   Length: Number("long"), // required
+ * //   Checksum: "STRING_VALUE", // required
+ * //   ChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

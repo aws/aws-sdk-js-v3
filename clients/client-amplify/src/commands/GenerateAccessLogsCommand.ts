@@ -48,10 +48,9 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * };
  * const command = new GenerateAccessLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateAccessLogsResult
- *   logUrl: "STRING_VALUE",
- * };
+ * // { // GenerateAccessLogsResult
+ * //   logUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

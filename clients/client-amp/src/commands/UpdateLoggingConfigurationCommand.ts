@@ -46,13 +46,12 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLoggingConfigurationResponse
- *   status: { // LoggingConfigurationStatus
- *     statusCode: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateLoggingConfigurationResponse
+ * //   status: { // LoggingConfigurationStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

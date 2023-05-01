@@ -45,8 +45,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

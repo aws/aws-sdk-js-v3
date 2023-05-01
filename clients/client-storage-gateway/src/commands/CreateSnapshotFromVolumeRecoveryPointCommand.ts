@@ -79,12 +79,11 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * };
  * const command = new CreateSnapshotFromVolumeRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSnapshotFromVolumeRecoveryPointOutput
- *   SnapshotId: "STRING_VALUE",
- *   VolumeARN: "STRING_VALUE",
- *   VolumeRecoveryPointTime: "STRING_VALUE",
- * };
+ * // { // CreateSnapshotFromVolumeRecoveryPointOutput
+ * //   SnapshotId: "STRING_VALUE",
+ * //   VolumeARN: "STRING_VALUE",
+ * //   VolumeRecoveryPointTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

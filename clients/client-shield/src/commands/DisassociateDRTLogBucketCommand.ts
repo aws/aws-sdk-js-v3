@@ -44,8 +44,7 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * };
  * const command = new DisassociateDRTLogBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

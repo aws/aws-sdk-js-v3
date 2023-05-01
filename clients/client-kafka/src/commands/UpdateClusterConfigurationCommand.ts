@@ -49,11 +49,10 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * };
  * const command = new UpdateClusterConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateClusterConfigurationResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateClusterConfigurationResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

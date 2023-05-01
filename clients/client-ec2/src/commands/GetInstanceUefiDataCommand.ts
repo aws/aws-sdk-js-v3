@@ -55,11 +55,10 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * };
  * const command = new GetInstanceUefiDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceUefiDataResult
- *   InstanceId: "STRING_VALUE",
- *   UefiData: "STRING_VALUE",
- * };
+ * // { // GetInstanceUefiDataResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   UefiData: "STRING_VALUE",
+ * // };
  *
  * ```
  *

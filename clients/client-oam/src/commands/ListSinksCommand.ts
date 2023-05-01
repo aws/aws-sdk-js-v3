@@ -45,17 +45,16 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * };
  * const command = new ListSinksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSinksOutput
- *   Items: [ // ListSinksItems // required
- *     { // ListSinksItem
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSinksOutput
+ * //   Items: [ // ListSinksItems // required
+ * //     { // ListSinksItem
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

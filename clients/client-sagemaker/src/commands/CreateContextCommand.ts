@@ -64,10 +64,9 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * };
  * const command = new CreateContextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContextResponse
- *   ContextArn: "STRING_VALUE",
- * };
+ * // { // CreateContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

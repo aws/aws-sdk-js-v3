@@ -46,8 +46,7 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

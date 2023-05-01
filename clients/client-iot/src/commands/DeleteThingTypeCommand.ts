@@ -47,8 +47,7 @@ export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, _
  * };
  * const command = new DeleteThingTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,10 +55,9 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConfigurationResponse
- *   AutoEnable: true || false,
- * };
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   AutoEnable: true || false,
+ * // };
  *
  * ```
  *

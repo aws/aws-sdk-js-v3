@@ -44,10 +44,9 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSnapshotResult
- *   SnapshotId: "STRING_VALUE",
- * };
+ * // { // DeleteSnapshotResult
+ * //   SnapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

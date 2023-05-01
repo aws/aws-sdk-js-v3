@@ -44,8 +44,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

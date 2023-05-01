@@ -62,194 +62,193 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * };
  * const command = new DescribeAutoScalingGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AutoScalingGroupsType
- *   AutoScalingGroups: [ // AutoScalingGroups // required
- *     { // AutoScalingGroup
- *       AutoScalingGroupName: "STRING_VALUE", // required
- *       AutoScalingGroupARN: "STRING_VALUE",
- *       LaunchConfigurationName: "STRING_VALUE",
- *       LaunchTemplate: { // LaunchTemplateSpecification
- *         LaunchTemplateId: "STRING_VALUE",
- *         LaunchTemplateName: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *       MixedInstancesPolicy: { // MixedInstancesPolicy
- *         LaunchTemplate: { // LaunchTemplate
- *           LaunchTemplateSpecification: {
- *             LaunchTemplateId: "STRING_VALUE",
- *             LaunchTemplateName: "STRING_VALUE",
- *             Version: "STRING_VALUE",
- *           },
- *           Overrides: [ // Overrides
- *             { // LaunchTemplateOverrides
- *               InstanceType: "STRING_VALUE",
- *               WeightedCapacity: "STRING_VALUE",
- *               LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
- *               InstanceRequirements: { // InstanceRequirements
- *                 VCpuCount: { // VCpuCountRequest
- *                   Min: Number("int"), // required
- *                   Max: Number("int"),
- *                 },
- *                 MemoryMiB: { // MemoryMiBRequest
- *                   Min: Number("int"), // required
- *                   Max: Number("int"),
- *                 },
- *                 CpuManufacturers: [ // CpuManufacturers
- *                   "intel" || "amd" || "amazon-web-services",
- *                 ],
- *                 MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
- *                   Min: Number("double"),
- *                   Max: Number("double"),
- *                 },
- *                 ExcludedInstanceTypes: [ // ExcludedInstanceTypes
- *                   "STRING_VALUE",
- *                 ],
- *                 InstanceGenerations: [ // InstanceGenerations
- *                   "current" || "previous",
- *                 ],
- *                 SpotMaxPricePercentageOverLowestPrice: Number("int"),
- *                 OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
- *                 BareMetal: "included" || "excluded" || "required",
- *                 BurstablePerformance: "included" || "excluded" || "required",
- *                 RequireHibernateSupport: true || false,
- *                 NetworkInterfaceCount: { // NetworkInterfaceCountRequest
- *                   Min: Number("int"),
- *                   Max: Number("int"),
- *                 },
- *                 LocalStorage: "included" || "excluded" || "required",
- *                 LocalStorageTypes: [ // LocalStorageTypes
- *                   "hdd" || "ssd",
- *                 ],
- *                 TotalLocalStorageGB: { // TotalLocalStorageGBRequest
- *                   Min: Number("double"),
- *                   Max: Number("double"),
- *                 },
- *                 BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
- *                   Min: Number("int"),
- *                   Max: Number("int"),
- *                 },
- *                 AcceleratorTypes: [ // AcceleratorTypes
- *                   "gpu" || "fpga" || "inference",
- *                 ],
- *                 AcceleratorCount: { // AcceleratorCountRequest
- *                   Min: Number("int"),
- *                   Max: Number("int"),
- *                 },
- *                 AcceleratorManufacturers: [ // AcceleratorManufacturers
- *                   "nvidia" || "amd" || "amazon-web-services" || "xilinx",
- *                 ],
- *                 AcceleratorNames: [ // AcceleratorNames
- *                   "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
- *                 ],
- *                 AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
- *                   Min: Number("int"),
- *                   Max: Number("int"),
- *                 },
- *                 NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
- *                   Min: Number("double"),
- *                   Max: Number("double"),
- *                 },
- *                 AllowedInstanceTypes: [ // AllowedInstanceTypes
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *             },
- *           ],
- *         },
- *         InstancesDistribution: { // InstancesDistribution
- *           OnDemandAllocationStrategy: "STRING_VALUE",
- *           OnDemandBaseCapacity: Number("int"),
- *           OnDemandPercentageAboveBaseCapacity: Number("int"),
- *           SpotAllocationStrategy: "STRING_VALUE",
- *           SpotInstancePools: Number("int"),
- *           SpotMaxPrice: "STRING_VALUE",
- *         },
- *       },
- *       MinSize: Number("int"), // required
- *       MaxSize: Number("int"), // required
- *       DesiredCapacity: Number("int"), // required
- *       PredictedCapacity: Number("int"),
- *       DefaultCooldown: Number("int"), // required
- *       AvailabilityZones: [ // AvailabilityZones // required
- *         "STRING_VALUE",
- *       ],
- *       LoadBalancerNames: [ // LoadBalancerNames
- *         "STRING_VALUE",
- *       ],
- *       TargetGroupARNs: [ // TargetGroupARNs
- *         "STRING_VALUE",
- *       ],
- *       HealthCheckType: "STRING_VALUE", // required
- *       HealthCheckGracePeriod: Number("int"),
- *       Instances: [ // Instances
- *         { // Instance
- *           InstanceId: "STRING_VALUE", // required
- *           InstanceType: "STRING_VALUE",
- *           AvailabilityZone: "STRING_VALUE", // required
- *           LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
- *           HealthStatus: "STRING_VALUE", // required
- *           LaunchConfigurationName: "STRING_VALUE",
- *           LaunchTemplate: "<LaunchTemplateSpecification>",
- *           ProtectedFromScaleIn: true || false, // required
- *           WeightedCapacity: "STRING_VALUE",
- *         },
- *       ],
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       SuspendedProcesses: [ // SuspendedProcesses
- *         { // SuspendedProcess
- *           ProcessName: "STRING_VALUE",
- *           SuspensionReason: "STRING_VALUE",
- *         },
- *       ],
- *       PlacementGroup: "STRING_VALUE",
- *       VPCZoneIdentifier: "STRING_VALUE",
- *       EnabledMetrics: [ // EnabledMetrics
- *         { // EnabledMetric
- *           Metric: "STRING_VALUE",
- *           Granularity: "STRING_VALUE",
- *         },
- *       ],
- *       Status: "STRING_VALUE",
- *       Tags: [ // TagDescriptionList
- *         { // TagDescription
- *           ResourceId: "STRING_VALUE",
- *           ResourceType: "STRING_VALUE",
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           PropagateAtLaunch: true || false,
- *         },
- *       ],
- *       TerminationPolicies: [ // TerminationPolicies
- *         "STRING_VALUE",
- *       ],
- *       NewInstancesProtectedFromScaleIn: true || false,
- *       ServiceLinkedRoleARN: "STRING_VALUE",
- *       MaxInstanceLifetime: Number("int"),
- *       CapacityRebalance: true || false,
- *       WarmPoolConfiguration: { // WarmPoolConfiguration
- *         MaxGroupPreparedCapacity: Number("int"),
- *         MinSize: Number("int"),
- *         PoolState: "Stopped" || "Running" || "Hibernated",
- *         Status: "PendingDelete",
- *         InstanceReusePolicy: { // InstanceReusePolicy
- *           ReuseOnScaleIn: true || false,
- *         },
- *       },
- *       WarmPoolSize: Number("int"),
- *       Context: "STRING_VALUE",
- *       DesiredCapacityType: "STRING_VALUE",
- *       DefaultInstanceWarmup: Number("int"),
- *       TrafficSources: [ // TrafficSources
- *         { // TrafficSourceIdentifier
- *           Identifier: "STRING_VALUE", // required
- *           Type: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // AutoScalingGroupsType
+ * //   AutoScalingGroups: [ // AutoScalingGroups // required
+ * //     { // AutoScalingGroup
+ * //       AutoScalingGroupName: "STRING_VALUE", // required
+ * //       AutoScalingGroupARN: "STRING_VALUE",
+ * //       LaunchConfigurationName: "STRING_VALUE",
+ * //       LaunchTemplate: { // LaunchTemplateSpecification
+ * //         LaunchTemplateId: "STRING_VALUE",
+ * //         LaunchTemplateName: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       MixedInstancesPolicy: { // MixedInstancesPolicy
+ * //         LaunchTemplate: { // LaunchTemplate
+ * //           LaunchTemplateSpecification: {
+ * //             LaunchTemplateId: "STRING_VALUE",
+ * //             LaunchTemplateName: "STRING_VALUE",
+ * //             Version: "STRING_VALUE",
+ * //           },
+ * //           Overrides: [ // Overrides
+ * //             { // LaunchTemplateOverrides
+ * //               InstanceType: "STRING_VALUE",
+ * //               WeightedCapacity: "STRING_VALUE",
+ * //               LaunchTemplateSpecification: "<LaunchTemplateSpecification>",
+ * //               InstanceRequirements: { // InstanceRequirements
+ * //                 VCpuCount: { // VCpuCountRequest
+ * //                   Min: Number("int"), // required
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 MemoryMiB: { // MemoryMiBRequest
+ * //                   Min: Number("int"), // required
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 CpuManufacturers: [ // CpuManufacturers
+ * //                   "intel" || "amd" || "amazon-web-services",
+ * //                 ],
+ * //                 MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
+ * //                   Min: Number("double"),
+ * //                   Max: Number("double"),
+ * //                 },
+ * //                 ExcludedInstanceTypes: [ // ExcludedInstanceTypes
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 InstanceGenerations: [ // InstanceGenerations
+ * //                   "current" || "previous",
+ * //                 ],
+ * //                 SpotMaxPricePercentageOverLowestPrice: Number("int"),
+ * //                 OnDemandMaxPricePercentageOverLowestPrice: Number("int"),
+ * //                 BareMetal: "included" || "excluded" || "required",
+ * //                 BurstablePerformance: "included" || "excluded" || "required",
+ * //                 RequireHibernateSupport: true || false,
+ * //                 NetworkInterfaceCount: { // NetworkInterfaceCountRequest
+ * //                   Min: Number("int"),
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 LocalStorage: "included" || "excluded" || "required",
+ * //                 LocalStorageTypes: [ // LocalStorageTypes
+ * //                   "hdd" || "ssd",
+ * //                 ],
+ * //                 TotalLocalStorageGB: { // TotalLocalStorageGBRequest
+ * //                   Min: Number("double"),
+ * //                   Max: Number("double"),
+ * //                 },
+ * //                 BaselineEbsBandwidthMbps: { // BaselineEbsBandwidthMbpsRequest
+ * //                   Min: Number("int"),
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 AcceleratorTypes: [ // AcceleratorTypes
+ * //                   "gpu" || "fpga" || "inference",
+ * //                 ],
+ * //                 AcceleratorCount: { // AcceleratorCountRequest
+ * //                   Min: Number("int"),
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 AcceleratorManufacturers: [ // AcceleratorManufacturers
+ * //                   "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ * //                 ],
+ * //                 AcceleratorNames: [ // AcceleratorNames
+ * //                   "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p",
+ * //                 ],
+ * //                 AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
+ * //                   Min: Number("int"),
+ * //                   Max: Number("int"),
+ * //                 },
+ * //                 NetworkBandwidthGbps: { // NetworkBandwidthGbpsRequest
+ * //                   Min: Number("double"),
+ * //                   Max: Number("double"),
+ * //                 },
+ * //                 AllowedInstanceTypes: [ // AllowedInstanceTypes
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //         InstancesDistribution: { // InstancesDistribution
+ * //           OnDemandAllocationStrategy: "STRING_VALUE",
+ * //           OnDemandBaseCapacity: Number("int"),
+ * //           OnDemandPercentageAboveBaseCapacity: Number("int"),
+ * //           SpotAllocationStrategy: "STRING_VALUE",
+ * //           SpotInstancePools: Number("int"),
+ * //           SpotMaxPrice: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       MinSize: Number("int"), // required
+ * //       MaxSize: Number("int"), // required
+ * //       DesiredCapacity: Number("int"), // required
+ * //       PredictedCapacity: Number("int"),
+ * //       DefaultCooldown: Number("int"), // required
+ * //       AvailabilityZones: [ // AvailabilityZones // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LoadBalancerNames: [ // LoadBalancerNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TargetGroupARNs: [ // TargetGroupARNs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       HealthCheckType: "STRING_VALUE", // required
+ * //       HealthCheckGracePeriod: Number("int"),
+ * //       Instances: [ // Instances
+ * //         { // Instance
+ * //           InstanceId: "STRING_VALUE", // required
+ * //           InstanceType: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE", // required
+ * //           LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
+ * //           HealthStatus: "STRING_VALUE", // required
+ * //           LaunchConfigurationName: "STRING_VALUE",
+ * //           LaunchTemplate: "<LaunchTemplateSpecification>",
+ * //           ProtectedFromScaleIn: true || false, // required
+ * //           WeightedCapacity: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       SuspendedProcesses: [ // SuspendedProcesses
+ * //         { // SuspendedProcess
+ * //           ProcessName: "STRING_VALUE",
+ * //           SuspensionReason: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PlacementGroup: "STRING_VALUE",
+ * //       VPCZoneIdentifier: "STRING_VALUE",
+ * //       EnabledMetrics: [ // EnabledMetrics
+ * //         { // EnabledMetric
+ * //           Metric: "STRING_VALUE",
+ * //           Granularity: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Status: "STRING_VALUE",
+ * //       Tags: [ // TagDescriptionList
+ * //         { // TagDescription
+ * //           ResourceId: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           PropagateAtLaunch: true || false,
+ * //         },
+ * //       ],
+ * //       TerminationPolicies: [ // TerminationPolicies
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       NewInstancesProtectedFromScaleIn: true || false,
+ * //       ServiceLinkedRoleARN: "STRING_VALUE",
+ * //       MaxInstanceLifetime: Number("int"),
+ * //       CapacityRebalance: true || false,
+ * //       WarmPoolConfiguration: { // WarmPoolConfiguration
+ * //         MaxGroupPreparedCapacity: Number("int"),
+ * //         MinSize: Number("int"),
+ * //         PoolState: "Stopped" || "Running" || "Hibernated",
+ * //         Status: "PendingDelete",
+ * //         InstanceReusePolicy: { // InstanceReusePolicy
+ * //           ReuseOnScaleIn: true || false,
+ * //         },
+ * //       },
+ * //       WarmPoolSize: Number("int"),
+ * //       Context: "STRING_VALUE",
+ * //       DesiredCapacityType: "STRING_VALUE",
+ * //       DefaultInstanceWarmup: Number("int"),
+ * //       TrafficSources: [ // TrafficSources
+ * //         { // TrafficSourceIdentifier
+ * //           Identifier: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

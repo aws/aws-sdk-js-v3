@@ -45,10 +45,9 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * };
  * const command = new PublishRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishRecipeResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // PublishRecipeResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

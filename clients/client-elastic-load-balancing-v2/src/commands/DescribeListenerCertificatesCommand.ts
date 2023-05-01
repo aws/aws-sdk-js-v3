@@ -59,16 +59,15 @@ export interface DescribeListenerCertificatesCommandOutput
  * };
  * const command = new DescribeListenerCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeListenerCertificatesOutput
- *   Certificates: [ // CertificateList
- *     { // Certificate
- *       CertificateArn: "STRING_VALUE",
- *       IsDefault: true || false,
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeListenerCertificatesOutput
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateArn: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

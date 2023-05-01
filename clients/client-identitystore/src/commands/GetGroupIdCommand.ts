@@ -54,11 +54,10 @@ export interface GetGroupIdCommandOutput extends GetGroupIdResponse, __MetadataB
  * };
  * const command = new GetGroupIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupIdResponse
- *   GroupId: "STRING_VALUE", // required
- *   IdentityStoreId: "STRING_VALUE", // required
- * };
+ * // { // GetGroupIdResponse
+ * //   GroupId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

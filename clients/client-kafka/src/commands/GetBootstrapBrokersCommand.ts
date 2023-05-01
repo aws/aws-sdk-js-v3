@@ -44,19 +44,18 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * };
  * const command = new GetBootstrapBrokersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBootstrapBrokersResponse
- *   BootstrapBrokerString: "STRING_VALUE",
- *   BootstrapBrokerStringTls: "STRING_VALUE",
- *   BootstrapBrokerStringSaslScram: "STRING_VALUE",
- *   BootstrapBrokerStringSaslIam: "STRING_VALUE",
- *   BootstrapBrokerStringPublicTls: "STRING_VALUE",
- *   BootstrapBrokerStringPublicSaslScram: "STRING_VALUE",
- *   BootstrapBrokerStringPublicSaslIam: "STRING_VALUE",
- *   BootstrapBrokerStringVpcConnectivityTls: "STRING_VALUE",
- *   BootstrapBrokerStringVpcConnectivitySaslScram: "STRING_VALUE",
- *   BootstrapBrokerStringVpcConnectivitySaslIam: "STRING_VALUE",
- * };
+ * // { // GetBootstrapBrokersResponse
+ * //   BootstrapBrokerString: "STRING_VALUE",
+ * //   BootstrapBrokerStringTls: "STRING_VALUE",
+ * //   BootstrapBrokerStringSaslScram: "STRING_VALUE",
+ * //   BootstrapBrokerStringSaslIam: "STRING_VALUE",
+ * //   BootstrapBrokerStringPublicTls: "STRING_VALUE",
+ * //   BootstrapBrokerStringPublicSaslScram: "STRING_VALUE",
+ * //   BootstrapBrokerStringPublicSaslIam: "STRING_VALUE",
+ * //   BootstrapBrokerStringVpcConnectivityTls: "STRING_VALUE",
+ * //   BootstrapBrokerStringVpcConnectivitySaslScram: "STRING_VALUE",
+ * //   BootstrapBrokerStringVpcConnectivitySaslIam: "STRING_VALUE",
+ * // };
  *
  * ```
  *

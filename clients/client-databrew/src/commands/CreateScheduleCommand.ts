@@ -52,10 +52,9 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScheduleResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateScheduleResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

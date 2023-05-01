@@ -47,13 +47,12 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetsForPolicyResponse
- *   targets: [ // PolicyTargets
- *     "STRING_VALUE",
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListTargetsForPolicyResponse
+ * //   targets: [ // PolicyTargets
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

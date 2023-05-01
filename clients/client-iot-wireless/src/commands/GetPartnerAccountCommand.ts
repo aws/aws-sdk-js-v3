@@ -49,15 +49,14 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * };
  * const command = new GetPartnerAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPartnerAccountResponse
- *   Sidewalk: { // SidewalkAccountInfoWithFingerprint
- *     AmazonId: "STRING_VALUE",
- *     Fingerprint: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *   },
- *   AccountLinked: true || false,
- * };
+ * // { // GetPartnerAccountResponse
+ * //   Sidewalk: { // SidewalkAccountInfoWithFingerprint
+ * //     AmazonId: "STRING_VALUE",
+ * //     Fingerprint: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * //   AccountLinked: true || false,
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

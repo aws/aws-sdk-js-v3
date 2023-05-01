@@ -56,11 +56,10 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * };
  * const command = new UpdateGatewayInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGatewayInformationOutput
- *   GatewayARN: "STRING_VALUE",
- *   GatewayName: "STRING_VALUE",
- * };
+ * // { // UpdateGatewayInformationOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   GatewayName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

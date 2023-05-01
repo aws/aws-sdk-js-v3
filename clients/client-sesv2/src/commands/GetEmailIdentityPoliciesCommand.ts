@@ -55,12 +55,11 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * };
  * const command = new GetEmailIdentityPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEmailIdentityPoliciesResponse
- *   Policies: { // PolicyMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetEmailIdentityPoliciesResponse
+ * //   Policies: { // PolicyMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

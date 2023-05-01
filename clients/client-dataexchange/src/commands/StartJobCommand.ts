@@ -44,8 +44,7 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

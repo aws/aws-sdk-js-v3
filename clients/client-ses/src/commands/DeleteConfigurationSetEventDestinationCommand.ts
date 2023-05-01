@@ -57,8 +57,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,25 +48,24 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * };
  * const command = new GetCommentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCommentOutput
- *   comment: { // Comment
- *     commentId: "STRING_VALUE",
- *     content: "STRING_VALUE",
- *     inReplyTo: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     authorArn: "STRING_VALUE",
- *     deleted: true || false,
- *     clientRequestToken: "STRING_VALUE",
- *     callerReactions: [ // CallerReactions
- *       "STRING_VALUE",
- *     ],
- *     reactionCounts: { // ReactionCountsMap
- *       "<keys>": Number("int"),
- *     },
- *   },
- * };
+ * // { // GetCommentOutput
+ * //   comment: { // Comment
+ * //     commentId: "STRING_VALUE",
+ * //     content: "STRING_VALUE",
+ * //     inReplyTo: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     authorArn: "STRING_VALUE",
+ * //     deleted: true || false,
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     callerReactions: [ // CallerReactions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     reactionCounts: { // ReactionCountsMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

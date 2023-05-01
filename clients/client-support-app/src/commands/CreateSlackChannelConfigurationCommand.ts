@@ -76,8 +76,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * };
  * const command = new CreateSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

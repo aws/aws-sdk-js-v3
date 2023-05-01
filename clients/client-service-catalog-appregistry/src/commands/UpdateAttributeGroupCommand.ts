@@ -51,20 +51,19 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * };
  * const command = new UpdateAttributeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAttributeGroupResponse
- *   attributeGroup: { // AttributeGroup
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateAttributeGroupResponse
+ * //   attributeGroup: { // AttributeGroup
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

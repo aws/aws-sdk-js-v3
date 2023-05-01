@@ -49,19 +49,18 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * };
  * const command = new ListPolicyVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyVersionsResponse
- *   Versions: [ // policyDocumentVersionListType
- *     { // PolicyVersion
- *       Document: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       IsDefaultVersion: true || false,
- *       CreateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListPolicyVersionsResponse
+ * //   Versions: [ // policyDocumentVersionListType
+ * //     { // PolicyVersion
+ * //       Document: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsDefaultVersion: true || false,
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

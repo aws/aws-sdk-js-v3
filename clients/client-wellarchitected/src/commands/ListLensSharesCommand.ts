@@ -48,18 +48,17 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * };
  * const command = new ListLensSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLensSharesOutput
- *   LensShareSummaries: [ // LensShareSummaries
- *     { // LensShareSummary
- *       ShareId: "STRING_VALUE",
- *       SharedWith: "STRING_VALUE",
- *       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLensSharesOutput
+ * //   LensShareSummaries: [ // LensShareSummaries
+ * //     { // LensShareSummary
+ * //       ShareId: "STRING_VALUE",
+ * //       SharedWith: "STRING_VALUE",
+ * //       Status: "ACCEPTED" || "REJECTED" || "PENDING" || "REVOKED" || "EXPIRED" || "ASSOCIATING" || "ASSOCIATED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

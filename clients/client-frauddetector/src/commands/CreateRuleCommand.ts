@@ -57,14 +57,13 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRuleResult
- *   rule: { // Rule
- *     detectorId: "STRING_VALUE", // required
- *     ruleId: "STRING_VALUE", // required
- *     ruleVersion: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreateRuleResult
+ * //   rule: { // Rule
+ * //     detectorId: "STRING_VALUE", // required
+ * //     ruleId: "STRING_VALUE", // required
+ * //     ruleVersion: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

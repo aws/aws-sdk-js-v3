@@ -79,10 +79,9 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBClusterParameterGroupNameMessage
- *   DBClusterParameterGroupName: "STRING_VALUE",
- * };
+ * // { // DBClusterParameterGroupNameMessage
+ * //   DBClusterParameterGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

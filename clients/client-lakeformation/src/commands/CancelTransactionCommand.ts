@@ -44,8 +44,7 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * };
  * const command = new CancelTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,19 +52,18 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * };
  * const command = new CreateWorkspaceImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkspaceImageResult
- *   ImageId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   OperatingSystem: { // OperatingSystem
- *     Type: "WINDOWS" || "LINUX",
- *   },
- *   State: "AVAILABLE" || "PENDING" || "ERROR",
- *   RequiredTenancy: "DEFAULT" || "DEDICATED",
- *   Created: new Date("TIMESTAMP"),
- *   OwnerAccountId: "STRING_VALUE",
- * };
+ * // { // CreateWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   OperatingSystem: { // OperatingSystem
+ * //     Type: "WINDOWS" || "LINUX",
+ * //   },
+ * //   State: "AVAILABLE" || "PENDING" || "ERROR",
+ * //   RequiredTenancy: "DEFAULT" || "DEDICATED",
+ * //   Created: new Date("TIMESTAMP"),
+ * //   OwnerAccountId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

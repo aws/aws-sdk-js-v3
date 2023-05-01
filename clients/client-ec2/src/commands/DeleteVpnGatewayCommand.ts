@@ -48,8 +48,7 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVpnGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

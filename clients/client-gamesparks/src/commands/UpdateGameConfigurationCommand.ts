@@ -52,20 +52,19 @@ export interface UpdateGameConfigurationCommandOutput extends UpdateGameConfigur
  * };
  * const command = new UpdateGameConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGameConfigurationResult
- *   GameConfiguration: { // GameConfigurationDetails
- *     Sections: { // Sections
- *       "<keys>": { // Section
- *         Name: "STRING_VALUE",
- *         Size: Number("int"),
- *         Attributes: "DOCUMENT_VALUE",
- *       },
- *     },
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateGameConfigurationResult
+ * //   GameConfiguration: { // GameConfigurationDetails
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -108,24 +108,23 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * };
  * const command = new RemoveLFTagsFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveLFTagsFromResourceResponse
- *   Failures: [ // LFTagErrors
- *     { // LFTagError
- *       LFTag: { // LFTagPair
- *         CatalogId: "STRING_VALUE",
- *         TagKey: "STRING_VALUE", // required
- *         TagValues: [ // TagValueList // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Error: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // RemoveLFTagsFromResourceResponse
+ * //   Failures: [ // LFTagErrors
+ * //     { // LFTagError
+ * //       LFTag: { // LFTagPair
+ * //         CatalogId: "STRING_VALUE",
+ * //         TagKey: "STRING_VALUE", // required
+ * //         TagValues: [ // TagValueList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Error: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

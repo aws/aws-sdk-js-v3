@@ -63,8 +63,7 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

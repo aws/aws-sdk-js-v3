@@ -98,27 +98,26 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * };
  * const command = new SendMessageBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendMessageBatchResult
- *   Successful: [ // SendMessageBatchResultEntryList // required
- *     { // SendMessageBatchResultEntry
- *       Id: "STRING_VALUE", // required
- *       MessageId: "STRING_VALUE", // required
- *       MD5OfMessageBody: "STRING_VALUE", // required
- *       MD5OfMessageAttributes: "STRING_VALUE",
- *       MD5OfMessageSystemAttributes: "STRING_VALUE",
- *       SequenceNumber: "STRING_VALUE",
- *     },
- *   ],
- *   Failed: [ // BatchResultErrorEntryList // required
- *     { // BatchResultErrorEntry
- *       Id: "STRING_VALUE", // required
- *       SenderFault: true || false, // required
- *       Code: "STRING_VALUE", // required
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // SendMessageBatchResult
+ * //   Successful: [ // SendMessageBatchResultEntryList // required
+ * //     { // SendMessageBatchResultEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       MessageId: "STRING_VALUE", // required
+ * //       MD5OfMessageBody: "STRING_VALUE", // required
+ * //       MD5OfMessageAttributes: "STRING_VALUE",
+ * //       MD5OfMessageSystemAttributes: "STRING_VALUE",
+ * //       SequenceNumber: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Failed: [ // BatchResultErrorEntryList // required
+ * //     { // BatchResultErrorEntry
+ * //       Id: "STRING_VALUE", // required
+ * //       SenderFault: true || false, // required
+ * //       Code: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

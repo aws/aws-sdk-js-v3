@@ -79,14 +79,13 @@ export interface CreateProvisionedProductPlanCommandOutput
  * };
  * const command = new CreateProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProvisionedProductPlanOutput
- *   PlanName: "STRING_VALUE",
- *   PlanId: "STRING_VALUE",
- *   ProvisionProductId: "STRING_VALUE",
- *   ProvisionedProductName: "STRING_VALUE",
- *   ProvisioningArtifactId: "STRING_VALUE",
- * };
+ * // { // CreateProvisionedProductPlanOutput
+ * //   PlanName: "STRING_VALUE",
+ * //   PlanId: "STRING_VALUE",
+ * //   ProvisionProductId: "STRING_VALUE",
+ * //   ProvisionedProductName: "STRING_VALUE",
+ * //   ProvisioningArtifactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

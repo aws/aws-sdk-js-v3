@@ -57,14 +57,13 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInputDeviceThumbnailResponse
- *   Body: "STREAMING_BLOB_VALUE",
- *   ContentType: "image/jpeg",
- *   ContentLength: Number("long"),
- *   ETag: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeInputDeviceThumbnailResponse
+ * //   Body: "STREAMING_BLOB_VALUE",
+ * //   ContentType: "image/jpeg",
+ * //   ContentLength: Number("long"),
+ * //   ETag: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

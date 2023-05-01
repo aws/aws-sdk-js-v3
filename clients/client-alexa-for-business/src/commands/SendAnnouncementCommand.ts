@@ -74,10 +74,9 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * };
  * const command = new SendAnnouncementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendAnnouncementResponse
- *   AnnouncementArn: "STRING_VALUE",
- * };
+ * // { // SendAnnouncementResponse
+ * //   AnnouncementArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

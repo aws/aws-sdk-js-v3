@@ -47,16 +47,15 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  * };
  * const command = new CreateTemplateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTemplateAliasResponse
- *   TemplateAlias: { // TemplateAlias
- *     AliasName: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     TemplateVersionNumber: Number("long"),
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateTemplateAliasResponse
+ * //   TemplateAlias: { // TemplateAlias
+ * //     AliasName: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     TemplateVersionNumber: Number("long"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

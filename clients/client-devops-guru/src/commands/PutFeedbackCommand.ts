@@ -47,8 +47,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * };
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

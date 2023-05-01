@@ -56,17 +56,16 @@ export interface ListObservabilityConfigurationsCommandOutput
  * };
  * const command = new ListObservabilityConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObservabilityConfigurationsResponse
- *   ObservabilityConfigurationSummaryList: [ // ObservabilityConfigurationSummaryList // required
- *     { // ObservabilityConfigurationSummary
- *       ObservabilityConfigurationArn: "STRING_VALUE",
- *       ObservabilityConfigurationName: "STRING_VALUE",
- *       ObservabilityConfigurationRevision: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListObservabilityConfigurationsResponse
+ * //   ObservabilityConfigurationSummaryList: [ // ObservabilityConfigurationSummaryList // required
+ * //     { // ObservabilityConfigurationSummary
+ * //       ObservabilityConfigurationArn: "STRING_VALUE",
+ * //       ObservabilityConfigurationName: "STRING_VALUE",
+ * //       ObservabilityConfigurationRevision: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

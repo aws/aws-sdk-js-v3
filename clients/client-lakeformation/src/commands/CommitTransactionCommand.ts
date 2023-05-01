@@ -44,10 +44,9 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CommitTransactionResponse
- *   TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
- * };
+ * // { // CommitTransactionResponse
+ * //   TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
+ * // };
  *
  * ```
  *

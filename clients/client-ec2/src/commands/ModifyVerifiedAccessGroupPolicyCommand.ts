@@ -53,11 +53,10 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * };
  * const command = new ModifyVerifiedAccessGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVerifiedAccessGroupPolicyResult
- *   PolicyEnabled: true || false,
- *   PolicyDocument: "STRING_VALUE",
- * };
+ * // { // ModifyVerifiedAccessGroupPolicyResult
+ * //   PolicyEnabled: true || false,
+ * //   PolicyDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

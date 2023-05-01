@@ -58,26 +58,25 @@ export interface ListDistributionConfigurationsCommandOutput
  * };
  * const command = new ListDistributionConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDistributionConfigurationsResponse
- *   requestId: "STRING_VALUE",
- *   distributionConfigurationSummaryList: [ // DistributionConfigurationSummaryList
- *     { // DistributionConfigurationSummary
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *       dateUpdated: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       regions: [ // RegionList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDistributionConfigurationsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   distributionConfigurationSummaryList: [ // DistributionConfigurationSummaryList
+ * //     { // DistributionConfigurationSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       dateUpdated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       regions: [ // RegionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

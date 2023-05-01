@@ -44,25 +44,24 @@ export interface GetVariantImportJobCommandOutput extends GetVariantImportRespon
  * };
  * const command = new GetVariantImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVariantImportResponse
- *   id: "STRING_VALUE", // required
- *   destinationName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusMessage: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   updateTime: new Date("TIMESTAMP"), // required
- *   completionTime: new Date("TIMESTAMP"),
- *   items: [ // VariantImportItemDetails // required
- *     { // VariantImportItemDetail
- *       source: "STRING_VALUE", // required
- *       jobStatus: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *     },
- *   ],
- *   runLeftNormalization: true || false, // required
- * };
+ * // { // GetVariantImportResponse
+ * //   id: "STRING_VALUE", // required
+ * //   destinationName: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   items: [ // VariantImportItemDetails // required
+ * //     { // VariantImportItemDetail
+ * //       source: "STRING_VALUE", // required
+ * //       jobStatus: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   runLeftNormalization: true || false, // required
+ * // };
  *
  * ```
  *

@@ -47,21 +47,20 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * };
  * const command = new ListSegmentReferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSegmentReferencesResponse
- *   referencedBy: [ // RefResourceList
- *     { // RefResource
- *       name: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       arn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       startTime: "STRING_VALUE",
- *       endTime: "STRING_VALUE",
- *       lastUpdatedOn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSegmentReferencesResponse
+ * //   referencedBy: [ // RefResourceList
+ * //     { // RefResource
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       startTime: "STRING_VALUE",
+ * //       endTime: "STRING_VALUE",
+ * //       lastUpdatedOn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

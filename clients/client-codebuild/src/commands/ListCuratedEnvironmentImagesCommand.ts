@@ -47,28 +47,27 @@ export interface ListCuratedEnvironmentImagesCommandOutput
  * const input = {};
  * const command = new ListCuratedEnvironmentImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCuratedEnvironmentImagesOutput
- *   platforms: [ // EnvironmentPlatforms
- *     { // EnvironmentPlatform
- *       platform: "STRING_VALUE",
- *       languages: [ // EnvironmentLanguages
- *         { // EnvironmentLanguage
- *           language: "STRING_VALUE",
- *           images: [ // EnvironmentImages
- *             { // EnvironmentImage
- *               name: "STRING_VALUE",
- *               description: "STRING_VALUE",
- *               versions: [ // ImageVersions
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListCuratedEnvironmentImagesOutput
+ * //   platforms: [ // EnvironmentPlatforms
+ * //     { // EnvironmentPlatform
+ * //       platform: "STRING_VALUE",
+ * //       languages: [ // EnvironmentLanguages
+ * //         { // EnvironmentLanguage
+ * //           language: "STRING_VALUE",
+ * //           images: [ // EnvironmentImages
+ * //             { // EnvironmentImage
+ * //               name: "STRING_VALUE",
+ * //               description: "STRING_VALUE",
+ * //               versions: [ // ImageVersions
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

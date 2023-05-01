@@ -50,18 +50,17 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  * };
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAgentVersionsResult
- *   AgentVersions: [ // AgentVersions
- *     { // AgentVersion
- *       Version: "STRING_VALUE",
- *       ConfigurationManager: { // StackConfigurationManager
- *         Name: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeAgentVersionsResult
+ * //   AgentVersions: [ // AgentVersions
+ * //     { // AgentVersion
+ * //       Version: "STRING_VALUE",
+ * //       ConfigurationManager: { // StackConfigurationManager
+ * //         Name: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

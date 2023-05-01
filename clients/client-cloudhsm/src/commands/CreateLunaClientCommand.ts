@@ -55,10 +55,9 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  * };
  * const command = new CreateLunaClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLunaClientResponse
- *   ClientArn: "STRING_VALUE",
- * };
+ * // { // CreateLunaClientResponse
+ * //   ClientArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

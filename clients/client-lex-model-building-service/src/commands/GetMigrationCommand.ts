@@ -50,30 +50,29 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * };
  * const command = new GetMigrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMigrationResponse
- *   migrationId: "STRING_VALUE",
- *   v1BotName: "STRING_VALUE",
- *   v1BotVersion: "STRING_VALUE",
- *   v1BotLocale: "STRING_VALUE",
- *   v2BotId: "STRING_VALUE",
- *   v2BotRole: "STRING_VALUE",
- *   migrationStatus: "STRING_VALUE",
- *   migrationStrategy: "STRING_VALUE",
- *   migrationTimestamp: new Date("TIMESTAMP"),
- *   alerts: [ // MigrationAlerts
- *     { // MigrationAlert
- *       type: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *       details: [ // MigrationAlertDetails
- *         "STRING_VALUE",
- *       ],
- *       referenceURLs: [ // MigrationAlertReferenceURLs
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetMigrationResponse
+ * //   migrationId: "STRING_VALUE",
+ * //   v1BotName: "STRING_VALUE",
+ * //   v1BotVersion: "STRING_VALUE",
+ * //   v1BotLocale: "STRING_VALUE",
+ * //   v2BotId: "STRING_VALUE",
+ * //   v2BotRole: "STRING_VALUE",
+ * //   migrationStatus: "STRING_VALUE",
+ * //   migrationStrategy: "STRING_VALUE",
+ * //   migrationTimestamp: new Date("TIMESTAMP"),
+ * //   alerts: [ // MigrationAlerts
+ * //     { // MigrationAlert
+ * //       type: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //       details: [ // MigrationAlertDetails
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       referenceURLs: [ // MigrationAlertReferenceURLs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

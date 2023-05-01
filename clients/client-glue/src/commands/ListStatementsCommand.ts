@@ -46,32 +46,31 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * };
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStatementsResponse
- *   Statements: [ // StatementList
- *     { // Statement
- *       Id: Number("int"),
- *       Code: "STRING_VALUE",
- *       State: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
- *       Output: { // StatementOutput
- *         Data: { // StatementOutputData
- *           TextPlain: "STRING_VALUE",
- *         },
- *         ExecutionCount: Number("int"),
- *         Status: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
- *         ErrorName: "STRING_VALUE",
- *         ErrorValue: "STRING_VALUE",
- *         Traceback: [ // OrchestrationStringList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Progress: Number("double"),
- *       StartedOn: Number("long"),
- *       CompletedOn: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStatementsResponse
+ * //   Statements: [ // StatementList
+ * //     { // Statement
+ * //       Id: Number("int"),
+ * //       Code: "STRING_VALUE",
+ * //       State: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
+ * //       Output: { // StatementOutput
+ * //         Data: { // StatementOutputData
+ * //           TextPlain: "STRING_VALUE",
+ * //         },
+ * //         ExecutionCount: Number("int"),
+ * //         Status: "WAITING" || "RUNNING" || "AVAILABLE" || "CANCELLING" || "CANCELLED" || "ERROR",
+ * //         ErrorName: "STRING_VALUE",
+ * //         ErrorValue: "STRING_VALUE",
+ * //         Traceback: [ // OrchestrationStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Progress: Number("double"),
+ * //       StartedOn: Number("long"),
+ * //       CompletedOn: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

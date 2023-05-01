@@ -70,19 +70,18 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * };
  * const command = new AddEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddEndpointsResponse
- *   EndpointDescriptions: [ // EndpointDescriptions
- *     { // EndpointDescription
- *       EndpointId: "STRING_VALUE",
- *       Weight: Number("int"),
- *       HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
- *       HealthReason: "STRING_VALUE",
- *       ClientIPPreservationEnabled: true || false,
- *     },
- *   ],
- *   EndpointGroupArn: "STRING_VALUE",
- * };
+ * // { // AddEndpointsResponse
+ * //   EndpointDescriptions: [ // EndpointDescriptions
+ * //     { // EndpointDescription
+ * //       EndpointId: "STRING_VALUE",
+ * //       Weight: Number("int"),
+ * //       HealthState: "INITIAL" || "HEALTHY" || "UNHEALTHY",
+ * //       HealthReason: "STRING_VALUE",
+ * //       ClientIPPreservationEnabled: true || false,
+ * //     },
+ * //   ],
+ * //   EndpointGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

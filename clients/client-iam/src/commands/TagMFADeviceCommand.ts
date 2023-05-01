@@ -86,8 +86,7 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

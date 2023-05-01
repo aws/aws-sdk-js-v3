@@ -57,8 +57,7 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

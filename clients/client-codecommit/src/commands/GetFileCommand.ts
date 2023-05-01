@@ -46,15 +46,14 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * };
  * const command = new GetFileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFileOutput
- *   commitId: "STRING_VALUE", // required
- *   blobId: "STRING_VALUE", // required
- *   filePath: "STRING_VALUE", // required
- *   fileMode: "STRING_VALUE", // required
- *   fileSize: Number("long"), // required
- *   fileContent: "BLOB_VALUE", // required
- * };
+ * // { // GetFileOutput
+ * //   commitId: "STRING_VALUE", // required
+ * //   blobId: "STRING_VALUE", // required
+ * //   filePath: "STRING_VALUE", // required
+ * //   fileMode: "STRING_VALUE", // required
+ * //   fileSize: Number("long"), // required
+ * //   fileContent: "BLOB_VALUE", // required
+ * // };
  *
  * ```
  *

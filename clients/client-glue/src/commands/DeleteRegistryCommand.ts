@@ -47,12 +47,11 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRegistryResponse
- *   RegistryName: "STRING_VALUE",
- *   RegistryArn: "STRING_VALUE",
- *   Status: "AVAILABLE" || "DELETING",
- * };
+ * // { // DeleteRegistryResponse
+ * //   RegistryName: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   Status: "AVAILABLE" || "DELETING",
+ * // };
  *
  * ```
  *

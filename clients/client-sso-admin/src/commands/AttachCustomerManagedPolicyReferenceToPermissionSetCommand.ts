@@ -58,8 +58,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * };
  * const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

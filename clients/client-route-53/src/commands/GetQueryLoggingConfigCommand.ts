@@ -47,14 +47,13 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * };
  * const command = new GetQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryLoggingConfigResponse
- *   QueryLoggingConfig: { // QueryLoggingConfig
- *     Id: "STRING_VALUE", // required
- *     HostedZoneId: "STRING_VALUE", // required
- *     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetQueryLoggingConfigResponse
+ * //   QueryLoggingConfig: { // QueryLoggingConfig
+ * //     Id: "STRING_VALUE", // required
+ * //     HostedZoneId: "STRING_VALUE", // required
+ * //     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

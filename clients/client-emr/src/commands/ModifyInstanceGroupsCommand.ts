@@ -85,8 +85,7 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyInstanceGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

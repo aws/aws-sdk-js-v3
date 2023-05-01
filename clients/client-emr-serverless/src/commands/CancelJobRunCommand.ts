@@ -45,11 +45,10 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelJobRunResponse
- *   applicationId: "STRING_VALUE", // required
- *   jobRunId: "STRING_VALUE", // required
- * };
+ * // { // CancelJobRunResponse
+ * //   applicationId: "STRING_VALUE", // required
+ * //   jobRunId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  * };
  * const command = new StartFileTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFileTransferResponse
- *   TransferId: "STRING_VALUE", // required
- * };
+ * // { // StartFileTransferResponse
+ * //   TransferId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -44,16 +44,15 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * };
  * const command = new GetDecoderManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDecoderManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   modelManifestArn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   modelManifestArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

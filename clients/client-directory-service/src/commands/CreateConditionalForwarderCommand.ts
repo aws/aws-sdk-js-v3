@@ -50,8 +50,7 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * };
  * const command = new CreateConditionalForwarderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -82,33 +82,32 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupResourcesOutput
- *   Resources: [ // ListGroupResourcesItemList
- *     { // ListGroupResourcesItem
- *       Identifier: { // ResourceIdentifier
- *         ResourceArn: "STRING_VALUE",
- *         ResourceType: "STRING_VALUE",
- *       },
- *       Status: { // ResourceStatus
- *         Name: "PENDING",
- *       },
- *     },
- *   ],
- *   ResourceIdentifiers: [ // ResourceIdentifierList
- *     {
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   QueryErrors: [ // QueryErrorList
- *     { // QueryError
- *       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListGroupResourcesOutput
+ * //   Resources: [ // ListGroupResourcesItemList
+ * //     { // ListGroupResourcesItem
+ * //       Identifier: { // ResourceIdentifier
+ * //         ResourceArn: "STRING_VALUE",
+ * //         ResourceType: "STRING_VALUE",
+ * //       },
+ * //       Status: { // ResourceStatus
+ * //         Name: "PENDING",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ResourceIdentifiers: [ // ResourceIdentifierList
+ * //     {
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   QueryErrors: [ // QueryErrorList
+ * //     { // QueryError
+ * //       ErrorCode: "CLOUDFORMATION_STACK_INACTIVE" || "CLOUDFORMATION_STACK_NOT_EXISTING" || "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

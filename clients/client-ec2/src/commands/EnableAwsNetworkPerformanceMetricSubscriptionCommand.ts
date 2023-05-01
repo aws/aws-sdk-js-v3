@@ -57,10 +57,9 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * };
  * const command = new EnableAwsNetworkPerformanceMetricSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableAwsNetworkPerformanceMetricSubscriptionResult
- *   Output: true || false,
- * };
+ * // { // EnableAwsNetworkPerformanceMetricSubscriptionResult
+ * //   Output: true || false,
+ * // };
  *
  * ```
  *

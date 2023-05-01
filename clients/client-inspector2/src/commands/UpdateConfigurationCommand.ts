@@ -46,8 +46,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

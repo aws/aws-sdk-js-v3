@@ -44,8 +44,7 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

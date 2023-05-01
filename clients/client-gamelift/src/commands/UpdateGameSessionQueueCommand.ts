@@ -81,40 +81,39 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * };
  * const command = new UpdateGameSessionQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGameSessionQueueOutput
- *   GameSessionQueue: { // GameSessionQueue
- *     Name: "STRING_VALUE",
- *     GameSessionQueueArn: "STRING_VALUE",
- *     TimeoutInSeconds: Number("int"),
- *     PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
- *       { // PlayerLatencyPolicy
- *         MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
- *         PolicyDurationSeconds: Number("int"),
- *       },
- *     ],
- *     Destinations: [ // GameSessionQueueDestinationList
- *       { // GameSessionQueueDestination
- *         DestinationArn: "STRING_VALUE",
- *       },
- *     ],
- *     FilterConfiguration: { // FilterConfiguration
- *       AllowedLocations: [ // LocationList
- *         "STRING_VALUE",
- *       ],
- *     },
- *     PriorityConfiguration: { // PriorityConfiguration
- *       PriorityOrder: [ // PriorityTypeList
- *         "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
- *       ],
- *       LocationOrder: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     CustomEventData: "STRING_VALUE",
- *     NotificationTarget: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateGameSessionQueueOutput
+ * //   GameSessionQueue: { // GameSessionQueue
+ * //     Name: "STRING_VALUE",
+ * //     GameSessionQueueArn: "STRING_VALUE",
+ * //     TimeoutInSeconds: Number("int"),
+ * //     PlayerLatencyPolicies: [ // PlayerLatencyPolicyList
+ * //       { // PlayerLatencyPolicy
+ * //         MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ * //         PolicyDurationSeconds: Number("int"),
+ * //       },
+ * //     ],
+ * //     Destinations: [ // GameSessionQueueDestinationList
+ * //       { // GameSessionQueueDestination
+ * //         DestinationArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     FilterConfiguration: { // FilterConfiguration
+ * //       AllowedLocations: [ // LocationList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     PriorityConfiguration: { // PriorityConfiguration
+ * //       PriorityOrder: [ // PriorityTypeList
+ * //         "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ * //       ],
+ * //       LocationOrder: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CustomEventData: "STRING_VALUE",
+ * //     NotificationTarget: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

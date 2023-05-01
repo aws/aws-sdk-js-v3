@@ -52,26 +52,25 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * };
  * const command = new DescribeReplayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReplayResponse
- *   ReplayName: "STRING_VALUE",
- *   ReplayArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- *   EventSourceArn: "STRING_VALUE",
- *   Destination: { // ReplayDestination
- *     Arn: "STRING_VALUE", // required
- *     FilterArns: [ // ReplayDestinationFilters
- *       "STRING_VALUE",
- *     ],
- *   },
- *   EventStartTime: new Date("TIMESTAMP"),
- *   EventEndTime: new Date("TIMESTAMP"),
- *   EventLastReplayedTime: new Date("TIMESTAMP"),
- *   ReplayStartTime: new Date("TIMESTAMP"),
- *   ReplayEndTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeReplayResponse
+ * //   ReplayName: "STRING_VALUE",
+ * //   ReplayArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   EventSourceArn: "STRING_VALUE",
+ * //   Destination: { // ReplayDestination
+ * //     Arn: "STRING_VALUE", // required
+ * //     FilterArns: [ // ReplayDestinationFilters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   EventStartTime: new Date("TIMESTAMP"),
+ * //   EventEndTime: new Date("TIMESTAMP"),
+ * //   EventLastReplayedTime: new Date("TIMESTAMP"),
+ * //   ReplayStartTime: new Date("TIMESTAMP"),
+ * //   ReplayEndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

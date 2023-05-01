@@ -54,30 +54,29 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * };
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportTableToPointInTimeOutput
- *   ExportDescription: { // ExportDescription
- *     ExportArn: "STRING_VALUE",
- *     ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     ExportManifest: "STRING_VALUE",
- *     TableArn: "STRING_VALUE",
- *     TableId: "STRING_VALUE",
- *     ExportTime: new Date("TIMESTAMP"),
- *     ClientToken: "STRING_VALUE",
- *     S3Bucket: "STRING_VALUE",
- *     S3BucketOwner: "STRING_VALUE",
- *     S3Prefix: "STRING_VALUE",
- *     S3SseAlgorithm: "AES256" || "KMS",
- *     S3SseKmsKeyId: "STRING_VALUE",
- *     FailureCode: "STRING_VALUE",
- *     FailureMessage: "STRING_VALUE",
- *     ExportFormat: "DYNAMODB_JSON" || "ION",
- *     BilledSizeBytes: Number("long"),
- *     ItemCount: Number("long"),
- *   },
- * };
+ * // { // ExportTableToPointInTimeOutput
+ * //   ExportDescription: { // ExportDescription
+ * //     ExportArn: "STRING_VALUE",
+ * //     ExportStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     ExportManifest: "STRING_VALUE",
+ * //     TableArn: "STRING_VALUE",
+ * //     TableId: "STRING_VALUE",
+ * //     ExportTime: new Date("TIMESTAMP"),
+ * //     ClientToken: "STRING_VALUE",
+ * //     S3Bucket: "STRING_VALUE",
+ * //     S3BucketOwner: "STRING_VALUE",
+ * //     S3Prefix: "STRING_VALUE",
+ * //     S3SseAlgorithm: "AES256" || "KMS",
+ * //     S3SseKmsKeyId: "STRING_VALUE",
+ * //     FailureCode: "STRING_VALUE",
+ * //     FailureMessage: "STRING_VALUE",
+ * //     ExportFormat: "DYNAMODB_JSON" || "ION",
+ * //     BilledSizeBytes: Number("long"),
+ * //     ItemCount: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

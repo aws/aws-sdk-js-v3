@@ -47,8 +47,7 @@ export interface DeleteLabelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

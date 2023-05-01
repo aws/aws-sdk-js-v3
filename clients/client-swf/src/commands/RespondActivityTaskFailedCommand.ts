@@ -78,8 +78,7 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  * };
  * const command = new RespondActivityTaskFailedCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

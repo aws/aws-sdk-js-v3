@@ -54,8 +54,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

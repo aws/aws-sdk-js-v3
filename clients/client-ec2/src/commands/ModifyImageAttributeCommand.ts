@@ -92,8 +92,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyImageAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

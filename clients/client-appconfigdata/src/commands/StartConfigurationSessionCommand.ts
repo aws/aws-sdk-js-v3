@@ -50,10 +50,9 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * };
  * const command = new StartConfigurationSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartConfigurationSessionResponse
- *   InitialConfigurationToken: "STRING_VALUE",
- * };
+ * // { // StartConfigurationSessionResponse
+ * //   InitialConfigurationToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

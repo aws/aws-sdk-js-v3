@@ -49,8 +49,7 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * };
  * const command = new PutInvitationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

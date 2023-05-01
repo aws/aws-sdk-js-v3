@@ -58,15 +58,14 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * };
  * const command = new RegisterStreamConsumerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterStreamConsumerOutput
- *   Consumer: { // Consumer
- *     ConsumerName: "STRING_VALUE", // required
- *     ConsumerARN: "STRING_VALUE", // required
- *     ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
- *     ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // RegisterStreamConsumerOutput
+ * //   Consumer: { // Consumer
+ * //     ConsumerName: "STRING_VALUE", // required
+ * //     ConsumerARN: "STRING_VALUE", // required
+ * //     ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
+ * //     ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

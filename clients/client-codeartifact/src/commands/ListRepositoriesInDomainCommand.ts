@@ -54,21 +54,20 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  * };
  * const command = new ListRepositoriesInDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRepositoriesInDomainResult
- *   repositories: [ // RepositorySummaryList
- *     { // RepositorySummary
- *       name: "STRING_VALUE",
- *       administratorAccount: "STRING_VALUE",
- *       domainName: "STRING_VALUE",
- *       domainOwner: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRepositoriesInDomainResult
+ * //   repositories: [ // RepositorySummaryList
+ * //     { // RepositorySummary
+ * //       name: "STRING_VALUE",
+ * //       administratorAccount: "STRING_VALUE",
+ * //       domainName: "STRING_VALUE",
+ * //       domainOwner: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

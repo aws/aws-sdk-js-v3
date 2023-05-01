@@ -48,10 +48,9 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  * };
  * const command = new DeleteNotificationRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNotificationRuleResult
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeleteNotificationRuleResult
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

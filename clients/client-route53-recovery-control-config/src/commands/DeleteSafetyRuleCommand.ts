@@ -48,8 +48,7 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * };
  * const command = new DeleteSafetyRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

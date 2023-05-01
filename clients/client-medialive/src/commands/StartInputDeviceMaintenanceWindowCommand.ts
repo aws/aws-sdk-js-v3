@@ -50,8 +50,7 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * };
  * const command = new StartInputDeviceMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

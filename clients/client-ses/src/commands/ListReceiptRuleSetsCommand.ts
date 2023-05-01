@@ -49,16 +49,15 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReceiptRuleSetsResponse
- *   RuleSets: [ // ReceiptRuleSetsLists
- *     { // ReceiptRuleSetMetadata
- *       Name: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListReceiptRuleSetsResponse
+ * //   RuleSets: [ // ReceiptRuleSetsLists
+ * //     { // ReceiptRuleSetMetadata
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

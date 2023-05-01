@@ -54,17 +54,16 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * };
  * const command = new CreateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSolFunctionPackageOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
- *   operationalState: "ENABLED" || "DISABLED", // required
- *   usageState: "IN_USE" || "NOT_IN_USE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSolFunctionPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   onboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   operationalState: "ENABLED" || "DISABLED", // required
+ * //   usageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -56,19 +56,18 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  * };
  * const command = new ExportVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportVectorEnrichmentJobOutput
- *   Arn: "STRING_VALUE", // required
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   ExecutionRoleArn: "STRING_VALUE", // required
- *   ExportStatus: "STRING_VALUE", // required
- *   OutputConfig: { // ExportVectorEnrichmentJobOutputConfig
- *     S3Data: { // VectorEnrichmentJobS3Data
- *       S3Uri: "STRING_VALUE", // required
- *       KmsKeyId: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // ExportVectorEnrichmentJobOutput
+ * //   Arn: "STRING_VALUE", // required
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   ExecutionRoleArn: "STRING_VALUE", // required
+ * //   ExportStatus: "STRING_VALUE", // required
+ * //   OutputConfig: { // ExportVectorEnrichmentJobOutputConfig
+ * //     S3Data: { // VectorEnrichmentJobS3Data
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetsResponse
- *   Assets: [ // __listOfAssetShallow
- *     { // AssetShallow
- *       Arn: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       PackagingGroupId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE",
- *       SourceRoleArn: "STRING_VALUE",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetsResponse
+ * //   Assets: [ // __listOfAssetShallow
+ * //     { // AssetShallow
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       PackagingGroupId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       SourceRoleArn: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

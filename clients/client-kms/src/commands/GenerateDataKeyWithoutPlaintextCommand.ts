@@ -128,11 +128,10 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateDataKeyWithoutPlaintextResponse
- *   CiphertextBlob: "BLOB_VALUE",
- *   KeyId: "STRING_VALUE",
- * };
+ * // { // GenerateDataKeyWithoutPlaintextResponse
+ * //   CiphertextBlob: "BLOB_VALUE",
+ * //   KeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

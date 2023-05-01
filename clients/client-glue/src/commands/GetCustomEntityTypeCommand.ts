@@ -44,14 +44,13 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  * };
  * const command = new GetCustomEntityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCustomEntityTypeResponse
- *   Name: "STRING_VALUE",
- *   RegexString: "STRING_VALUE",
- *   ContextWords: [ // ContextWords
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetCustomEntityTypeResponse
+ * //   Name: "STRING_VALUE",
+ * //   RegexString: "STRING_VALUE",
+ * //   ContextWords: [ // ContextWords
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

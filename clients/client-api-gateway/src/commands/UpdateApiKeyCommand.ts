@@ -52,23 +52,22 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApiKey
- *   id: "STRING_VALUE",
- *   value: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   customerId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   enabled: true || false,
- *   createdDate: new Date("TIMESTAMP"),
- *   lastUpdatedDate: new Date("TIMESTAMP"),
- *   stageKeys: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   tags: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ApiKey
+ * //   id: "STRING_VALUE",
+ * //   value: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   customerId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   enabled: true || false,
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   stageKeys: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

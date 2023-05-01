@@ -51,11 +51,10 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * };
  * const command = new StartCalculationExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartCalculationExecutionResponse
- *   CalculationExecutionId: "STRING_VALUE",
- *   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- * };
+ * // { // StartCalculationExecutionResponse
+ * //   CalculationExecutionId: "STRING_VALUE",
+ * //   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * };
  * const command = new DeleteLiveSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

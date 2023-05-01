@@ -50,10 +50,9 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * const input = {};
  * const command = new DescribeHealthServiceStatusForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHealthServiceStatusForOrganizationResponse
- *   healthServiceAccessStatusForOrganization: "STRING_VALUE",
- * };
+ * // { // DescribeHealthServiceStatusForOrganizationResponse
+ * //   healthServiceAccessStatusForOrganization: "STRING_VALUE",
+ * // };
  *
  * ```
  *

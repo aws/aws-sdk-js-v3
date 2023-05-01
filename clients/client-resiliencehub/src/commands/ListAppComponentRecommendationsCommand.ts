@@ -51,57 +51,56 @@ export interface ListAppComponentRecommendationsCommandOutput
  * };
  * const command = new ListAppComponentRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppComponentRecommendationsResponse
- *   componentRecommendations: [ // ComponentRecommendationList // required
- *     { // ComponentRecommendation
- *       appComponentName: "STRING_VALUE", // required
- *       recommendationStatus: "STRING_VALUE", // required
- *       configRecommendations: [ // ConfigRecommendationList // required
- *         { // ConfigRecommendation
- *           cost: { // Cost
- *             amount: Number("double"), // required
- *             currency: "STRING_VALUE", // required
- *             frequency: "STRING_VALUE", // required
- *           },
- *           appComponentName: "STRING_VALUE",
- *           compliance: { // AssessmentCompliance
- *             "<keys>": { // DisruptionCompliance
- *               achievableRtoInSecs: Number("int"),
- *               currentRtoInSecs: Number("int"),
- *               rtoReferenceId: "STRING_VALUE",
- *               rtoDescription: "STRING_VALUE",
- *               currentRpoInSecs: Number("int"),
- *               rpoReferenceId: "STRING_VALUE",
- *               rpoDescription: "STRING_VALUE",
- *               complianceStatus: "STRING_VALUE", // required
- *               achievableRpoInSecs: Number("int"),
- *               message: "STRING_VALUE",
- *             },
- *           },
- *           recommendationCompliance: { // RecommendationCompliance
- *             "<keys>": { // RecommendationDisruptionCompliance
- *               expectedComplianceStatus: "STRING_VALUE", // required
- *               expectedRtoInSecs: Number("int"),
- *               expectedRtoDescription: "STRING_VALUE",
- *               expectedRpoInSecs: Number("int"),
- *               expectedRpoDescription: "STRING_VALUE",
- *             },
- *           },
- *           optimizationType: "STRING_VALUE", // required
- *           name: "STRING_VALUE", // required
- *           description: "STRING_VALUE",
- *           suggestedChanges: [ // SuggestedChangesList
- *             "STRING_VALUE",
- *           ],
- *           haArchitecture: "STRING_VALUE",
- *           referenceId: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppComponentRecommendationsResponse
+ * //   componentRecommendations: [ // ComponentRecommendationList // required
+ * //     { // ComponentRecommendation
+ * //       appComponentName: "STRING_VALUE", // required
+ * //       recommendationStatus: "STRING_VALUE", // required
+ * //       configRecommendations: [ // ConfigRecommendationList // required
+ * //         { // ConfigRecommendation
+ * //           cost: { // Cost
+ * //             amount: Number("double"), // required
+ * //             currency: "STRING_VALUE", // required
+ * //             frequency: "STRING_VALUE", // required
+ * //           },
+ * //           appComponentName: "STRING_VALUE",
+ * //           compliance: { // AssessmentCompliance
+ * //             "<keys>": { // DisruptionCompliance
+ * //               achievableRtoInSecs: Number("int"),
+ * //               currentRtoInSecs: Number("int"),
+ * //               rtoReferenceId: "STRING_VALUE",
+ * //               rtoDescription: "STRING_VALUE",
+ * //               currentRpoInSecs: Number("int"),
+ * //               rpoReferenceId: "STRING_VALUE",
+ * //               rpoDescription: "STRING_VALUE",
+ * //               complianceStatus: "STRING_VALUE", // required
+ * //               achievableRpoInSecs: Number("int"),
+ * //               message: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           recommendationCompliance: { // RecommendationCompliance
+ * //             "<keys>": { // RecommendationDisruptionCompliance
+ * //               expectedComplianceStatus: "STRING_VALUE", // required
+ * //               expectedRtoInSecs: Number("int"),
+ * //               expectedRtoDescription: "STRING_VALUE",
+ * //               expectedRpoInSecs: Number("int"),
+ * //               expectedRpoDescription: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           optimizationType: "STRING_VALUE", // required
+ * //           name: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           suggestedChanges: [ // SuggestedChangesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           haArchitecture: "STRING_VALUE",
+ * //           referenceId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

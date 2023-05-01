@@ -53,8 +53,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * };
  * const command = new RemoveClientIDFromOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

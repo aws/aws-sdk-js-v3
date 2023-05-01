@@ -60,8 +60,7 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new UpdateConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * };
  * const command = new DeleteAccessorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface UpdateNotificationConfigurationCommandOutput
  * };
  * const command = new UpdateNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

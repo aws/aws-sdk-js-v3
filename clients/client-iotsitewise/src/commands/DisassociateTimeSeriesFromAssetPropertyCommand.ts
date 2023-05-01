@@ -51,8 +51,7 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * };
  * const command = new DisassociateTimeSeriesFromAssetPropertyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,27 +54,26 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * };
  * const command = new ListInferenceExperimentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInferenceExperimentsResponse
- *   InferenceExperiments: [ // InferenceExperimentList
- *     { // InferenceExperimentSummary
- *       Name: "STRING_VALUE", // required
- *       Type: "ShadowMode", // required
- *       Schedule: { // InferenceExperimentSchedule
- *         StartTime: new Date("TIMESTAMP"),
- *         EndTime: new Date("TIMESTAMP"),
- *       },
- *       Status: "Creating" || "Created" || "Updating" || "Running" || "Starting" || "Stopping" || "Completed" || "Cancelled", // required
- *       StatusReason: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       CompletionTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       RoleArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInferenceExperimentsResponse
+ * //   InferenceExperiments: [ // InferenceExperimentList
+ * //     { // InferenceExperimentSummary
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "ShadowMode", // required
+ * //       Schedule: { // InferenceExperimentSchedule
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         EndTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       Status: "Creating" || "Created" || "Updating" || "Running" || "Starting" || "Stopping" || "Completed" || "Cancelled", // required
+ * //       StatusReason: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       CompletionTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       RoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,18 +52,17 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  * };
  * const command = new CreateWatchlistCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWatchlistResponse
- *   Watchlist: { // Watchlist
- *     DomainId: "STRING_VALUE",
- *     WatchlistId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DefaultWatchlist: true || false,
- *     CreatedAt: new Date("TIMESTAMP"),
- *     UpdatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateWatchlistResponse
+ * //   Watchlist: { // Watchlist
+ * //     DomainId: "STRING_VALUE",
+ * //     WatchlistId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DefaultWatchlist: true || false,
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

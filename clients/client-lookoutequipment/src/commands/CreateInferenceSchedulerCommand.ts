@@ -78,12 +78,11 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * };
  * const command = new CreateInferenceSchedulerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInferenceSchedulerResponse
- *   InferenceSchedulerArn: "STRING_VALUE",
- *   InferenceSchedulerName: "STRING_VALUE",
- *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- * };
+ * // { // CreateInferenceSchedulerResponse
+ * //   InferenceSchedulerArn: "STRING_VALUE",
+ * //   InferenceSchedulerName: "STRING_VALUE",
+ * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * // };
  *
  * ```
  *

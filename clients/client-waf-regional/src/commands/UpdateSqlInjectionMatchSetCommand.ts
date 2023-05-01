@@ -106,10 +106,9 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * };
  * const command = new UpdateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSqlInjectionMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateSqlInjectionMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

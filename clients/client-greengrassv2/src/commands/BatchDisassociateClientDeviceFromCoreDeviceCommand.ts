@@ -60,16 +60,15 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
  * };
  * const command = new BatchDisassociateClientDeviceFromCoreDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateClientDeviceFromCoreDeviceResponse
- *   errorEntries: [ // DisassociateClientDeviceFromCoreDeviceErrorList
- *     { // DisassociateClientDeviceFromCoreDeviceErrorEntry
- *       thingName: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateClientDeviceFromCoreDeviceResponse
+ * //   errorEntries: [ // DisassociateClientDeviceFromCoreDeviceErrorList
+ * //     { // DisassociateClientDeviceFromCoreDeviceErrorEntry
+ * //       thingName: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * };
  * const command = new NotifyRecommendationsReceivedCommand(input);
  * const response = await client.send(command);
- * /**
- * { // NotifyRecommendationsReceivedResponse
- *   recommendationIds: [ // RecommendationIdList
- *     "STRING_VALUE",
- *   ],
- *   errors: [ // NotifyRecommendationsReceivedErrorList
- *     { // NotifyRecommendationsReceivedError
- *       recommendationId: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // NotifyRecommendationsReceivedResponse
+ * //   recommendationIds: [ // RecommendationIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   errors: [ // NotifyRecommendationsReceivedErrorList
+ * //     { // NotifyRecommendationsReceivedError
+ * //       recommendationId: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

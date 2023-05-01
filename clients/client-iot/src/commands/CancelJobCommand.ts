@@ -48,12 +48,11 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelJobResponse
- *   jobArn: "STRING_VALUE",
- *   jobId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- * };
+ * // { // CancelJobResponse
+ * //   jobArn: "STRING_VALUE",
+ * //   jobId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

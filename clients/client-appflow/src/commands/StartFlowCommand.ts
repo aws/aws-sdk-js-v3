@@ -46,12 +46,11 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFlowResponse
- *   flowArn: "STRING_VALUE",
- *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
- *   executionId: "STRING_VALUE",
- * };
+ * // { // StartFlowResponse
+ * //   flowArn: "STRING_VALUE",
+ * //   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * //   executionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

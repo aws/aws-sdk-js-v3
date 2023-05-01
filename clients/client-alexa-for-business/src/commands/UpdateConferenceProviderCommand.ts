@@ -58,8 +58,7 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * };
  * const command = new UpdateConferenceProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

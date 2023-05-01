@@ -45,11 +45,10 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteClusterResponse
- *   ClusterArn: "STRING_VALUE",
- *   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
- * };
+ * // { // DeleteClusterResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   State: "ACTIVE" || "CREATING" || "DELETING" || "FAILED" || "HEALING" || "MAINTENANCE" || "REBOOTING_BROKER" || "UPDATING",
+ * // };
  *
  * ```
  *

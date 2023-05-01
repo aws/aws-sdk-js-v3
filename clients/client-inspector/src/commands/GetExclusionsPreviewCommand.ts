@@ -50,30 +50,29 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * };
  * const command = new GetExclusionsPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExclusionsPreviewResponse
- *   previewStatus: "STRING_VALUE", // required
- *   exclusionPreviews: [ // ExclusionPreviewList
- *     { // ExclusionPreview
- *       title: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       recommendation: "STRING_VALUE", // required
- *       scopes: [ // ScopeList // required
- *         { // Scope
- *           key: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       attributes: [ // AttributeList
- *         { // Attribute
- *           key: "STRING_VALUE", // required
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetExclusionsPreviewResponse
+ * //   previewStatus: "STRING_VALUE", // required
+ * //   exclusionPreviews: [ // ExclusionPreviewList
+ * //     { // ExclusionPreview
+ * //       title: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       recommendation: "STRING_VALUE", // required
+ * //       scopes: [ // ScopeList // required
+ * //         { // Scope
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       attributes: [ // AttributeList
+ * //         { // Attribute
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

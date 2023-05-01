@@ -47,8 +47,7 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * };
  * const command = new RemoveIpRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

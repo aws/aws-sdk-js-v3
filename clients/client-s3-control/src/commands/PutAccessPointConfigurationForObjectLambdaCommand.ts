@@ -79,8 +79,7 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * };
  * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

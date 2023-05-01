@@ -50,8 +50,7 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * };
  * const command = new DeleteReceiptRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

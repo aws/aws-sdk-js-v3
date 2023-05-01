@@ -55,8 +55,7 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * };
  * const command = new DisassociateDeviceFromPlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,10 +52,9 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * };
  * const command = new InitiateDeviceClaimCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InitiateDeviceClaimResponse
- *   State: "STRING_VALUE",
- * };
+ * // { // InitiateDeviceClaimResponse
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

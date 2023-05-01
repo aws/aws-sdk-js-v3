@@ -54,8 +54,7 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * };
  * const command = new PutDedicatedIpInPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

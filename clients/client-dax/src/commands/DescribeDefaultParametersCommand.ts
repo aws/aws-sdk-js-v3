@@ -46,29 +46,28 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * };
  * const command = new DescribeDefaultParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDefaultParametersResponse
- *   NextToken: "STRING_VALUE",
- *   Parameters: [ // ParameterList
- *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterType: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
- *         { // NodeTypeSpecificValue
- *           NodeType: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       IsModifiable: "STRING_VALUE",
- *       ChangeType: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeDefaultParametersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Parameters: [ // ParameterList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       NodeTypeSpecificValues: [ // NodeTypeSpecificValueList
+ * //         { // NodeTypeSpecificValue
+ * //           NodeType: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: "STRING_VALUE",
+ * //       ChangeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

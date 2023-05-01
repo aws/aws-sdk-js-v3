@@ -63,11 +63,10 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProjectOutput
- *   ProjectArn: "STRING_VALUE", // required
- *   ProjectId: "STRING_VALUE", // required
- * };
+ * // { // CreateProjectOutput
+ * //   ProjectArn: "STRING_VALUE", // required
+ * //   ProjectId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

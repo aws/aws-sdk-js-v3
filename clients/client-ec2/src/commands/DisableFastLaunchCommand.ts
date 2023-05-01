@@ -51,24 +51,23 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * };
  * const command = new DisableFastLaunchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableFastLaunchResult
- *   ImageId: "STRING_VALUE",
- *   ResourceType: "snapshot",
- *   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationResponse
- *     TargetResourceCount: Number("int"),
- *   },
- *   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationResponse
- *     LaunchTemplateId: "STRING_VALUE",
- *     LaunchTemplateName: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *   },
- *   MaxParallelLaunches: Number("int"),
- *   OwnerId: "STRING_VALUE",
- *   State: "enabling" || "enabling-failed" || "enabled" || "enabled-failed" || "disabling" || "disabling-failed",
- *   StateTransitionReason: "STRING_VALUE",
- *   StateTransitionTime: new Date("TIMESTAMP"),
- * };
+ * // { // DisableFastLaunchResult
+ * //   ImageId: "STRING_VALUE",
+ * //   ResourceType: "snapshot",
+ * //   SnapshotConfiguration: { // FastLaunchSnapshotConfigurationResponse
+ * //     TargetResourceCount: Number("int"),
+ * //   },
+ * //   LaunchTemplate: { // FastLaunchLaunchTemplateSpecificationResponse
+ * //     LaunchTemplateId: "STRING_VALUE",
+ * //     LaunchTemplateName: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * //   MaxParallelLaunches: Number("int"),
+ * //   OwnerId: "STRING_VALUE",
+ * //   State: "enabling" || "enabling-failed" || "enabled" || "enabled-failed" || "disabling" || "disabling-failed",
+ * //   StateTransitionReason: "STRING_VALUE",
+ * //   StateTransitionTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

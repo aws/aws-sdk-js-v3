@@ -48,17 +48,16 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * };
  * const command = new ListRumMetricsDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRumMetricsDestinationsResponse
- *   Destinations: [ // MetricDestinationSummaryList
- *     { // MetricDestinationSummary
- *       Destination: "STRING_VALUE",
- *       DestinationArn: "STRING_VALUE",
- *       IamRoleArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRumMetricsDestinationsResponse
+ * //   Destinations: [ // MetricDestinationSummaryList
+ * //     { // MetricDestinationSummary
+ * //       Destination: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

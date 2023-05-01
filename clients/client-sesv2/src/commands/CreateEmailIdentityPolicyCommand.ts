@@ -56,8 +56,7 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * };
  * const command = new CreateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -61,31 +61,30 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  * };
  * const command = new UpdateFlowMediaStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFlowMediaStreamResponse
- *   FlowArn: "STRING_VALUE",
- *   MediaStream: { // MediaStream
- *     Attributes: { // MediaStreamAttributes
- *       Fmtp: { // Fmtp
- *         ChannelOrder: "STRING_VALUE",
- *         Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
- *         ExactFramerate: "STRING_VALUE",
- *         Par: "STRING_VALUE",
- *         Range: "NARROW" || "FULL" || "FULLPROTECT",
- *         ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
- *         Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
- *       },
- *       Lang: "STRING_VALUE",
- *     },
- *     ClockRate: Number("int"),
- *     Description: "STRING_VALUE",
- *     Fmt: Number("int"), // required
- *     MediaStreamId: Number("int"), // required
- *     MediaStreamName: "STRING_VALUE", // required
- *     MediaStreamType: "video" || "audio" || "ancillary-data", // required
- *     VideoFormat: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateFlowMediaStreamResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   MediaStream: { // MediaStream
+ * //     Attributes: { // MediaStreamAttributes
+ * //       Fmtp: { // Fmtp
+ * //         ChannelOrder: "STRING_VALUE",
+ * //         Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
+ * //         ExactFramerate: "STRING_VALUE",
+ * //         Par: "STRING_VALUE",
+ * //         Range: "NARROW" || "FULL" || "FULLPROTECT",
+ * //         ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
+ * //         Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
+ * //       },
+ * //       Lang: "STRING_VALUE",
+ * //     },
+ * //     ClockRate: Number("int"),
+ * //     Description: "STRING_VALUE",
+ * //     Fmt: Number("int"), // required
+ * //     MediaStreamId: Number("int"), // required
+ * //     MediaStreamName: "STRING_VALUE", // required
+ * //     MediaStreamType: "video" || "audio" || "ancillary-data", // required
+ * //     VideoFormat: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

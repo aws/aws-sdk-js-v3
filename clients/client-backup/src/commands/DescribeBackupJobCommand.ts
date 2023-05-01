@@ -44,43 +44,42 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  * };
  * const command = new DescribeBackupJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBackupJobOutput
- *   AccountId: "STRING_VALUE",
- *   BackupJobId: "STRING_VALUE",
- *   BackupVaultName: "STRING_VALUE",
- *   BackupVaultArn: "STRING_VALUE",
- *   RecoveryPointArn: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   CompletionDate: new Date("TIMESTAMP"),
- *   State: "CREATED" || "PENDING" || "RUNNING" || "ABORTING" || "ABORTED" || "COMPLETED" || "FAILED" || "EXPIRED" || "PARTIAL",
- *   StatusMessage: "STRING_VALUE",
- *   PercentDone: "STRING_VALUE",
- *   BackupSizeInBytes: Number("long"),
- *   IamRoleArn: "STRING_VALUE",
- *   CreatedBy: { // RecoveryPointCreator
- *     BackupPlanId: "STRING_VALUE",
- *     BackupPlanArn: "STRING_VALUE",
- *     BackupPlanVersion: "STRING_VALUE",
- *     BackupRuleId: "STRING_VALUE",
- *   },
- *   ResourceType: "STRING_VALUE",
- *   BytesTransferred: Number("long"),
- *   ExpectedCompletionDate: new Date("TIMESTAMP"),
- *   StartBy: new Date("TIMESTAMP"),
- *   BackupOptions: { // BackupOptions
- *     "<keys>": "STRING_VALUE",
- *   },
- *   BackupType: "STRING_VALUE",
- *   ParentJobId: "STRING_VALUE",
- *   IsParent: true || false,
- *   NumberOfChildJobs: Number("long"),
- *   ChildJobsInState: { // BackupJobChildJobsInState
- *     "<keys>": Number("long"),
- *   },
- *   ResourceName: "STRING_VALUE",
- * };
+ * // { // DescribeBackupJobOutput
+ * //   AccountId: "STRING_VALUE",
+ * //   BackupJobId: "STRING_VALUE",
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   RecoveryPointArn: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   CompletionDate: new Date("TIMESTAMP"),
+ * //   State: "CREATED" || "PENDING" || "RUNNING" || "ABORTING" || "ABORTED" || "COMPLETED" || "FAILED" || "EXPIRED" || "PARTIAL",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   PercentDone: "STRING_VALUE",
+ * //   BackupSizeInBytes: Number("long"),
+ * //   IamRoleArn: "STRING_VALUE",
+ * //   CreatedBy: { // RecoveryPointCreator
+ * //     BackupPlanId: "STRING_VALUE",
+ * //     BackupPlanArn: "STRING_VALUE",
+ * //     BackupPlanVersion: "STRING_VALUE",
+ * //     BackupRuleId: "STRING_VALUE",
+ * //   },
+ * //   ResourceType: "STRING_VALUE",
+ * //   BytesTransferred: Number("long"),
+ * //   ExpectedCompletionDate: new Date("TIMESTAMP"),
+ * //   StartBy: new Date("TIMESTAMP"),
+ * //   BackupOptions: { // BackupOptions
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   BackupType: "STRING_VALUE",
+ * //   ParentJobId: "STRING_VALUE",
+ * //   IsParent: true || false,
+ * //   NumberOfChildJobs: Number("long"),
+ * //   ChildJobsInState: { // BackupJobChildJobsInState
+ * //     "<keys>": Number("long"),
+ * //   },
+ * //   ResourceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

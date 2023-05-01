@@ -50,21 +50,20 @@ export interface DescribeDataSourcePermissionsCommandOutput
  * };
  * const command = new DescribeDataSourcePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDataSourcePermissionsResponse
- *   DataSourceArn: "STRING_VALUE",
- *   DataSourceId: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeDataSourcePermissionsResponse
+ * //   DataSourceArn: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

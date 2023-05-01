@@ -44,43 +44,42 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  * };
  * const command = new GetIncidentRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIncidentRecordOutput
- *   incidentRecord: { // IncidentRecord
- *     arn: "STRING_VALUE", // required
- *     title: "STRING_VALUE", // required
- *     summary: "STRING_VALUE",
- *     status: "STRING_VALUE", // required
- *     impact: Number("int"), // required
- *     creationTime: new Date("TIMESTAMP"), // required
- *     resolvedTime: new Date("TIMESTAMP"),
- *     lastModifiedTime: new Date("TIMESTAMP"), // required
- *     lastModifiedBy: "STRING_VALUE", // required
- *     automationExecutions: [ // AutomationExecutionSet
- *       { // AutomationExecution Union: only one key present
- *         ssmExecutionArn: "STRING_VALUE",
- *       },
- *     ],
- *     incidentRecordSource: { // IncidentRecordSource
- *       createdBy: "STRING_VALUE", // required
- *       invokedBy: "STRING_VALUE",
- *       resourceArn: "STRING_VALUE",
- *       source: "STRING_VALUE", // required
- *     },
- *     dedupeString: "STRING_VALUE", // required
- *     chatChannel: { // ChatChannel Union: only one key present
- *       empty: {},
- *       chatbotSns: [ // ChatbotSnsConfigurationSet
- *         "STRING_VALUE",
- *       ],
- *     },
- *     notificationTargets: [ // NotificationTargetSet
- *       { // NotificationTargetItem Union: only one key present
- *         snsTopicArn: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetIncidentRecordOutput
+ * //   incidentRecord: { // IncidentRecord
+ * //     arn: "STRING_VALUE", // required
+ * //     title: "STRING_VALUE", // required
+ * //     summary: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     impact: Number("int"), // required
+ * //     creationTime: new Date("TIMESTAMP"), // required
+ * //     resolvedTime: new Date("TIMESTAMP"),
+ * //     lastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     lastModifiedBy: "STRING_VALUE", // required
+ * //     automationExecutions: [ // AutomationExecutionSet
+ * //       { // AutomationExecution Union: only one key present
+ * //         ssmExecutionArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     incidentRecordSource: { // IncidentRecordSource
+ * //       createdBy: "STRING_VALUE", // required
+ * //       invokedBy: "STRING_VALUE",
+ * //       resourceArn: "STRING_VALUE",
+ * //       source: "STRING_VALUE", // required
+ * //     },
+ * //     dedupeString: "STRING_VALUE", // required
+ * //     chatChannel: { // ChatChannel Union: only one key present
+ * //       empty: {},
+ * //       chatbotSns: [ // ChatbotSnsConfigurationSet
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     notificationTargets: [ // NotificationTargetSet
+ * //       { // NotificationTargetItem Union: only one key present
+ * //         snsTopicArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

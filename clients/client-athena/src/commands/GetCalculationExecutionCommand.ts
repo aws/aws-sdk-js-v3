@@ -44,29 +44,28 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * };
  * const command = new GetCalculationExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCalculationExecutionResponse
- *   CalculationExecutionId: "STRING_VALUE",
- *   SessionId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   WorkingDirectory: "STRING_VALUE",
- *   Status: { // CalculationStatus
- *     SubmissionDateTime: new Date("TIMESTAMP"),
- *     CompletionDateTime: new Date("TIMESTAMP"),
- *     State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- *     StateChangeReason: "STRING_VALUE",
- *   },
- *   Statistics: { // CalculationStatistics
- *     DpuExecutionInMillis: Number("long"),
- *     Progress: "STRING_VALUE",
- *   },
- *   Result: { // CalculationResult
- *     StdOutS3Uri: "STRING_VALUE",
- *     StdErrorS3Uri: "STRING_VALUE",
- *     ResultS3Uri: "STRING_VALUE",
- *     ResultType: "STRING_VALUE",
- *   },
- * };
+ * // { // GetCalculationExecutionResponse
+ * //   CalculationExecutionId: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   WorkingDirectory: "STRING_VALUE",
+ * //   Status: { // CalculationStatus
+ * //     SubmissionDateTime: new Date("TIMESTAMP"),
+ * //     CompletionDateTime: new Date("TIMESTAMP"),
+ * //     State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * //     StateChangeReason: "STRING_VALUE",
+ * //   },
+ * //   Statistics: { // CalculationStatistics
+ * //     DpuExecutionInMillis: Number("long"),
+ * //     Progress: "STRING_VALUE",
+ * //   },
+ * //   Result: { // CalculationResult
+ * //     StdOutS3Uri: "STRING_VALUE",
+ * //     StdErrorS3Uri: "STRING_VALUE",
+ * //     ResultS3Uri: "STRING_VALUE",
+ * //     ResultType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

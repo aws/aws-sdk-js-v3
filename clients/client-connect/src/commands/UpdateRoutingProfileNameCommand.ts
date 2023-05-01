@@ -48,8 +48,7 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateRoutingProfileNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

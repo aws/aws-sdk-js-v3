@@ -60,11 +60,10 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * };
  * const command = new ClaimPhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClaimPhoneNumberResponse
- *   PhoneNumberId: "STRING_VALUE",
- *   PhoneNumberArn: "STRING_VALUE",
- * };
+ * // { // ClaimPhoneNumberResponse
+ * //   PhoneNumberId: "STRING_VALUE",
+ * //   PhoneNumberArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

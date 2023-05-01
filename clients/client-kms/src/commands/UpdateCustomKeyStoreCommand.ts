@@ -151,8 +151,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *
@@ -349,7 +348,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * ```javascript
  * // This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
  * const input = {
- *   "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *   "CloudHsmClusterId": "cluster-234abcdefABC",
  *   "CustomKeyStoreId": "cks-1234567890abcdef0"
  * };
  * const command = new UpdateCustomKeyStoreCommand(input);

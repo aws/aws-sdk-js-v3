@@ -47,16 +47,15 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountAttributesResponse
- *   Attributes: [ // AccountAttributes
- *     { // AccountAttribute
- *       Name: "STRING_VALUE",
- *       Maximum: Number("int"),
- *       Used: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeAccountAttributesResponse
+ * //   Attributes: [ // AccountAttributes
+ * //     { // AccountAttribute
+ * //       Name: "STRING_VALUE",
+ * //       Maximum: Number("int"),
+ * //       Used: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

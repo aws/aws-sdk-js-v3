@@ -47,12 +47,11 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePermissionResponse
- *   returnValue: true || false,
- *   clientToken: "STRING_VALUE",
- *   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
- * };
+ * // { // DeletePermissionResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * //   permissionStatus: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * // };
  *
  * ```
  *

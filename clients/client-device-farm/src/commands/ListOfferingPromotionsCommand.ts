@@ -46,16 +46,15 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * };
  * const command = new ListOfferingPromotionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOfferingPromotionsResult
- *   offeringPromotions: [ // OfferingPromotions
- *     { // OfferingPromotion
- *       id: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOfferingPromotionsResult
+ * //   offeringPromotions: [ // OfferingPromotions
+ * //     { // OfferingPromotion
+ * //       id: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

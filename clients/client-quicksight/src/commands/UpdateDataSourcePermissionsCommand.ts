@@ -66,13 +66,12 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * };
  * const command = new UpdateDataSourcePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDataSourcePermissionsResponse
- *   DataSourceArn: "STRING_VALUE",
- *   DataSourceId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateDataSourcePermissionsResponse
+ * //   DataSourceArn: "STRING_VALUE",
+ * //   DataSourceId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

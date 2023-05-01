@@ -45,8 +45,7 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * };
  * const command = new CheckInLicenseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

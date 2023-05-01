@@ -60,26 +60,25 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * };
  * const command = new CreateDBProxyEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDBProxyEndpointResponse
- *   DBProxyEndpoint: { // DBProxyEndpoint
- *     DBProxyEndpointName: "STRING_VALUE",
- *     DBProxyEndpointArn: "STRING_VALUE",
- *     DBProxyName: "STRING_VALUE",
- *     Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting",
- *     VpcId: "STRING_VALUE",
- *     VpcSecurityGroupIds: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     VpcSubnetIds: [
- *       "STRING_VALUE",
- *     ],
- *     Endpoint: "STRING_VALUE",
- *     CreatedDate: new Date("TIMESTAMP"),
- *     TargetRole: "READ_WRITE" || "READ_ONLY",
- *     IsDefault: true || false,
- *   },
- * };
+ * // { // CreateDBProxyEndpointResponse
+ * //   DBProxyEndpoint: { // DBProxyEndpoint
+ * //     DBProxyEndpointName: "STRING_VALUE",
+ * //     DBProxyEndpointArn: "STRING_VALUE",
+ * //     DBProxyName: "STRING_VALUE",
+ * //     Status: "available" || "modifying" || "incompatible-network" || "insufficient-resource-limits" || "creating" || "deleting",
+ * //     VpcId: "STRING_VALUE",
+ * //     VpcSecurityGroupIds: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     VpcSubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Endpoint: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     TargetRole: "READ_WRITE" || "READ_ONLY",
+ * //     IsDefault: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

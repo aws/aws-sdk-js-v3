@@ -49,8 +49,7 @@ export interface DeleteSuppressedDestinationCommandOutput
  * };
  * const command = new DeleteSuppressedDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -78,15 +78,14 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * };
  * const command = new ExportEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportEC2InstanceRecommendationsResponse
- *   jobId: "STRING_VALUE",
- *   s3Destination: { // S3Destination
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *     metadataKey: "STRING_VALUE",
- *   },
- * };
+ * // { // ExportEC2InstanceRecommendationsResponse
+ * //   jobId: "STRING_VALUE",
+ * //   s3Destination: { // S3Destination
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     metadataKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -64,28 +64,27 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAvailabilityZonesResult
- *   AvailabilityZones: [ // AvailabilityZoneList
- *     { // AvailabilityZone
- *       State: "available" || "information" || "impaired" || "unavailable",
- *       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
- *       Messages: [ // AvailabilityZoneMessageList
- *         { // AvailabilityZoneMessage
- *           Message: "STRING_VALUE",
- *         },
- *       ],
- *       RegionName: "STRING_VALUE",
- *       ZoneName: "STRING_VALUE",
- *       ZoneId: "STRING_VALUE",
- *       GroupName: "STRING_VALUE",
- *       NetworkBorderGroup: "STRING_VALUE",
- *       ZoneType: "STRING_VALUE",
- *       ParentZoneName: "STRING_VALUE",
- *       ParentZoneId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeAvailabilityZonesResult
+ * //   AvailabilityZones: [ // AvailabilityZoneList
+ * //     { // AvailabilityZone
+ * //       State: "available" || "information" || "impaired" || "unavailable",
+ * //       OptInStatus: "opt-in-not-required" || "opted-in" || "not-opted-in",
+ * //       Messages: [ // AvailabilityZoneMessageList
+ * //         { // AvailabilityZoneMessage
+ * //           Message: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       RegionName: "STRING_VALUE",
+ * //       ZoneName: "STRING_VALUE",
+ * //       ZoneId: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       NetworkBorderGroup: "STRING_VALUE",
+ * //       ZoneType: "STRING_VALUE",
+ * //       ParentZoneName: "STRING_VALUE",
+ * //       ParentZoneId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

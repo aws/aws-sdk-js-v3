@@ -106,8 +106,7 @@ export interface SubmitMultiRegionAccessPointRoutesCommandOutput
  * };
  * const command = new SubmitMultiRegionAccessPointRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

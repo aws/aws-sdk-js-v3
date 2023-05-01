@@ -53,29 +53,28 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContactsResponse
- *   Contacts: [ // ListOfContacts
- *     { // Contact
- *       EmailAddress: "STRING_VALUE",
- *       TopicPreferences: [ // TopicPreferenceList
- *         { // TopicPreference
- *           TopicName: "STRING_VALUE", // required
- *           SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
- *         },
- *       ],
- *       TopicDefaultPreferences: [
- *         {
- *           TopicName: "STRING_VALUE", // required
- *           SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
- *         },
- *       ],
- *       UnsubscribeAll: true || false,
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListContactsResponse
+ * //   Contacts: [ // ListOfContacts
+ * //     { // Contact
+ * //       EmailAddress: "STRING_VALUE",
+ * //       TopicPreferences: [ // TopicPreferenceList
+ * //         { // TopicPreference
+ * //           TopicName: "STRING_VALUE", // required
+ * //           SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //         },
+ * //       ],
+ * //       TopicDefaultPreferences: [
+ * //         {
+ * //           TopicName: "STRING_VALUE", // required
+ * //           SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ * //         },
+ * //       ],
+ * //       UnsubscribeAll: true || false,
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

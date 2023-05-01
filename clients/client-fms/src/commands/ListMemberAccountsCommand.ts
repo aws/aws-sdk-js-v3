@@ -47,13 +47,12 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * };
  * const command = new ListMemberAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMemberAccountsResponse
- *   MemberAccounts: [ // MemberAccounts
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMemberAccountsResponse
+ * //   MemberAccounts: [ // MemberAccounts
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

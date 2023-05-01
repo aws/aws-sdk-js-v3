@@ -44,8 +44,7 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  * };
  * const command = new DeleteAlertCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

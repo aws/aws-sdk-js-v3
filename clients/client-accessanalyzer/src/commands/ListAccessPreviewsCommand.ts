@@ -46,21 +46,20 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * };
  * const command = new ListAccessPreviewsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessPreviewsResponse
- *   accessPreviews: [ // AccessPreviewsList // required
- *     { // AccessPreviewSummary
- *       id: "STRING_VALUE", // required
- *       analyzerArn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       status: "STRING_VALUE", // required
- *       statusReason: { // AccessPreviewStatusReason
- *         code: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessPreviewsResponse
+ * //   accessPreviews: [ // AccessPreviewsList // required
+ * //     { // AccessPreviewSummary
+ * //       id: "STRING_VALUE", // required
+ * //       analyzerArn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       status: "STRING_VALUE", // required
+ * //       statusReason: { // AccessPreviewStatusReason
+ * //         code: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

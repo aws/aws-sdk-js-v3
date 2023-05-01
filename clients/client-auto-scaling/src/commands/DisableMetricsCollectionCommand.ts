@@ -47,8 +47,7 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * };
  * const command = new DisableMetricsCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

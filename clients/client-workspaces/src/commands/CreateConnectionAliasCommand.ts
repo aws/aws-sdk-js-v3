@@ -52,10 +52,9 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * };
  * const command = new CreateConnectionAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectionAliasResult
- *   AliasId: "STRING_VALUE",
- * };
+ * // { // CreateConnectionAliasResult
+ * //   AliasId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

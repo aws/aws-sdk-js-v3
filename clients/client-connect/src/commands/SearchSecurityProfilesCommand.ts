@@ -92,23 +92,22 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * };
  * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchSecurityProfilesResponse
- *   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
- *     { // SecurityProfileSearchSummary
- *       Id: "STRING_VALUE",
- *       OrganizationResourceId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       SecurityProfileName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ApproximateTotalCount: Number("long"),
- * };
+ * // { // SearchSecurityProfilesResponse
+ * //   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
+ * //     { // SecurityProfileSearchSummary
+ * //       Id: "STRING_VALUE",
+ * //       OrganizationResourceId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       SecurityProfileName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ApproximateTotalCount: Number("long"),
+ * // };
  *
  * ```
  *

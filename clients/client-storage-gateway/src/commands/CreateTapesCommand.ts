@@ -64,12 +64,11 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * };
  * const command = new CreateTapesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTapesOutput
- *   TapeARNs: [ // TapeARNs
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // CreateTapesOutput
+ * //   TapeARNs: [ // TapeARNs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

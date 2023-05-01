@@ -48,14 +48,13 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * };
  * const command = new StopWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopMigrationWorkflowResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   statusMessage: "STRING_VALUE",
- *   lastStopTime: new Date("TIMESTAMP"),
- * };
+ * // { // StopMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   lastStopTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

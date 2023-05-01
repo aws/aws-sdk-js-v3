@@ -94,8 +94,7 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * };
  * const command = new UpdateReceiptRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

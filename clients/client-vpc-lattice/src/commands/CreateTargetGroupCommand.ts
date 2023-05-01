@@ -73,35 +73,34 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * };
  * const command = new CreateTargetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTargetGroupResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   type: "STRING_VALUE",
- *   config: { // TargetGroupConfig
- *     port: Number("int"), // required
- *     protocol: "STRING_VALUE", // required
- *     protocolVersion: "STRING_VALUE",
- *     ipAddressType: "STRING_VALUE",
- *     vpcIdentifier: "STRING_VALUE", // required
- *     healthCheck: { // HealthCheckConfig
- *       enabled: true || false,
- *       protocol: "STRING_VALUE",
- *       protocolVersion: "STRING_VALUE",
- *       port: Number("int"),
- *       path: "STRING_VALUE",
- *       healthCheckIntervalSeconds: Number("int"),
- *       healthCheckTimeoutSeconds: Number("int"),
- *       healthyThresholdCount: Number("int"),
- *       unhealthyThresholdCount: Number("int"),
- *       matcher: { // Matcher Union: only one key present
- *         httpCode: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   status: "STRING_VALUE",
- * };
+ * // { // CreateTargetGroupResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   type: "STRING_VALUE",
+ * //   config: { // TargetGroupConfig
+ * //     port: Number("int"), // required
+ * //     protocol: "STRING_VALUE", // required
+ * //     protocolVersion: "STRING_VALUE",
+ * //     ipAddressType: "STRING_VALUE",
+ * //     vpcIdentifier: "STRING_VALUE", // required
+ * //     healthCheck: { // HealthCheckConfig
+ * //       enabled: true || false,
+ * //       protocol: "STRING_VALUE",
+ * //       protocolVersion: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       path: "STRING_VALUE",
+ * //       healthCheckIntervalSeconds: Number("int"),
+ * //       healthCheckTimeoutSeconds: Number("int"),
+ * //       healthyThresholdCount: Number("int"),
+ * //       unhealthyThresholdCount: Number("int"),
+ * //       matcher: { // Matcher Union: only one key present
+ * //         httpCode: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

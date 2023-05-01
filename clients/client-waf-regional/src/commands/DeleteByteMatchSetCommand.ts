@@ -68,10 +68,9 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  * };
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteByteMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteByteMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

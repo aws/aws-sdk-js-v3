@@ -50,8 +50,7 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * };
  * const command = new AssociateTimeSeriesToAssetPropertyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

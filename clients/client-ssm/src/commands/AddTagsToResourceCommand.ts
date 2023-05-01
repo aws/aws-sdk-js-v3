@@ -97,8 +97,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

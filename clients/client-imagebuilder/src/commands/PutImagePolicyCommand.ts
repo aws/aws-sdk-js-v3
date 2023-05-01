@@ -47,11 +47,10 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * };
  * const command = new PutImagePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutImagePolicyResponse
- *   requestId: "STRING_VALUE",
- *   imageArn: "STRING_VALUE",
- * };
+ * // { // PutImagePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

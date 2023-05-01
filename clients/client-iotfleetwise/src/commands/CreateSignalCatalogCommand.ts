@@ -96,11 +96,10 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * };
  * const command = new CreateSignalCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSignalCatalogResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateSignalCatalogResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

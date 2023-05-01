@@ -46,17 +46,16 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * };
  * const command = new ListDetectorModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDetectorModelsResponse
- *   detectorModelSummaries: [ // DetectorModelSummaries
- *     { // DetectorModelSummary
- *       detectorModelName: "STRING_VALUE",
- *       detectorModelDescription: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDetectorModelsResponse
+ * //   detectorModelSummaries: [ // DetectorModelSummaries
+ * //     { // DetectorModelSummary
+ * //       detectorModelName: "STRING_VALUE",
+ * //       detectorModelDescription: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

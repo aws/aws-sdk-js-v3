@@ -49,10 +49,9 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryOutput
- *   repositoryId: "STRING_VALUE",
- * };
+ * // { // DeleteRepositoryOutput
+ * //   repositoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

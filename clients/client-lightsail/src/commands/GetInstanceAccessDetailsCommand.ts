@@ -49,34 +49,33 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * };
  * const command = new GetInstanceAccessDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceAccessDetailsResult
- *   accessDetails: { // InstanceAccessDetails
- *     certKey: "STRING_VALUE",
- *     expiresAt: new Date("TIMESTAMP"),
- *     ipAddress: "STRING_VALUE",
- *     password: "STRING_VALUE",
- *     passwordData: { // PasswordData
- *       ciphertext: "STRING_VALUE",
- *       keyPairName: "STRING_VALUE",
- *     },
- *     privateKey: "STRING_VALUE",
- *     protocol: "ssh" || "rdp",
- *     instanceName: "STRING_VALUE",
- *     username: "STRING_VALUE",
- *     hostKeys: [ // HostKeysList
- *       { // HostKeyAttributes
- *         algorithm: "STRING_VALUE",
- *         publicKey: "STRING_VALUE",
- *         witnessedAt: new Date("TIMESTAMP"),
- *         fingerprintSHA1: "STRING_VALUE",
- *         fingerprintSHA256: "STRING_VALUE",
- *         notValidBefore: new Date("TIMESTAMP"),
- *         notValidAfter: new Date("TIMESTAMP"),
- *       },
- *     ],
- *   },
- * };
+ * // { // GetInstanceAccessDetailsResult
+ * //   accessDetails: { // InstanceAccessDetails
+ * //     certKey: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     ipAddress: "STRING_VALUE",
+ * //     password: "STRING_VALUE",
+ * //     passwordData: { // PasswordData
+ * //       ciphertext: "STRING_VALUE",
+ * //       keyPairName: "STRING_VALUE",
+ * //     },
+ * //     privateKey: "STRING_VALUE",
+ * //     protocol: "ssh" || "rdp",
+ * //     instanceName: "STRING_VALUE",
+ * //     username: "STRING_VALUE",
+ * //     hostKeys: [ // HostKeysList
+ * //       { // HostKeyAttributes
+ * //         algorithm: "STRING_VALUE",
+ * //         publicKey: "STRING_VALUE",
+ * //         witnessedAt: new Date("TIMESTAMP"),
+ * //         fingerprintSHA1: "STRING_VALUE",
+ * //         fingerprintSHA256: "STRING_VALUE",
+ * //         notValidBefore: new Date("TIMESTAMP"),
+ * //         notValidAfter: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

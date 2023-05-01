@@ -50,36 +50,35 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  * };
  * const command = new DeleteTLSInspectionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTLSInspectionConfigurationResponse
- *   TLSInspectionConfigurationResponse: { // TLSInspectionConfigurationResponse
- *     TLSInspectionConfigurationArn: "STRING_VALUE", // required
- *     TLSInspectionConfigurationName: "STRING_VALUE", // required
- *     TLSInspectionConfigurationId: "STRING_VALUE", // required
- *     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     NumberOfAssociations: Number("int"),
- *     EncryptionConfiguration: { // EncryptionConfiguration
- *       KeyId: "STRING_VALUE",
- *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
- *     },
- *     Certificates: [ // Certificates
- *       { // TlsCertificateData
- *         CertificateArn: "STRING_VALUE",
- *         CertificateSerial: "STRING_VALUE",
- *         Status: "STRING_VALUE",
- *         StatusMessage: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTLSInspectionConfigurationResponse
+ * //   TLSInspectionConfigurationResponse: { // TLSInspectionConfigurationResponse
+ * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     NumberOfAssociations: Number("int"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //     Certificates: [ // Certificates
+ * //       { // TlsCertificateData
+ * //         CertificateArn: "STRING_VALUE",
+ * //         CertificateSerial: "STRING_VALUE",
+ * //         Status: "STRING_VALUE",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

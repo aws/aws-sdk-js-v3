@@ -58,19 +58,18 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * };
  * const command = new GetTransitGatewayConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayConnectPeerAssociationsResponse
- *   TransitGatewayConnectPeerAssociations: [ // TransitGatewayConnectPeerAssociationList
- *     { // TransitGatewayConnectPeerAssociation
- *       TransitGatewayConnectPeerArn: "STRING_VALUE",
- *       GlobalNetworkId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       LinkId: "STRING_VALUE",
- *       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayConnectPeerAssociationsResponse
+ * //   TransitGatewayConnectPeerAssociations: [ // TransitGatewayConnectPeerAssociationList
+ * //     { // TransitGatewayConnectPeerAssociation
+ * //       TransitGatewayConnectPeerArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       LinkId: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

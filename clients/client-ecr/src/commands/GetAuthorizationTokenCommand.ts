@@ -53,16 +53,15 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAuthorizationTokenResponse
- *   authorizationData: [ // AuthorizationDataList
- *     { // AuthorizationData
- *       authorizationToken: "STRING_VALUE",
- *       expiresAt: new Date("TIMESTAMP"),
- *       proxyEndpoint: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetAuthorizationTokenResponse
+ * //   authorizationData: [ // AuthorizationDataList
+ * //     { // AuthorizationData
+ * //       authorizationToken: "STRING_VALUE",
+ * //       expiresAt: new Date("TIMESTAMP"),
+ * //       proxyEndpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

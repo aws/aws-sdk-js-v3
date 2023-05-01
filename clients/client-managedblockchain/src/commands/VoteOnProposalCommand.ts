@@ -52,8 +52,7 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * };
  * const command = new VoteOnProposalCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionRespo
  * };
  * const command = new UpdateMacieSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

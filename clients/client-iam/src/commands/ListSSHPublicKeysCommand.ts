@@ -53,19 +53,18 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * };
  * const command = new ListSSHPublicKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSSHPublicKeysResponse
- *   SSHPublicKeys: [ // SSHPublicKeyListType
- *     { // SSHPublicKeyMetadata
- *       UserName: "STRING_VALUE", // required
- *       SSHPublicKeyId: "STRING_VALUE", // required
- *       Status: "Active" || "Inactive", // required
- *       UploadDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListSSHPublicKeysResponse
+ * //   SSHPublicKeys: [ // SSHPublicKeyListType
+ * //     { // SSHPublicKeyMetadata
+ * //       UserName: "STRING_VALUE", // required
+ * //       SSHPublicKeyId: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //       UploadDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

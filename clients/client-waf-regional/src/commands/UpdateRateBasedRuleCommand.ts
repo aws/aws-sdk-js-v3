@@ -110,10 +110,9 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * };
  * const command = new UpdateRateBasedRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRateBasedRuleResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateRateBasedRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

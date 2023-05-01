@@ -98,60 +98,59 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketLifecycleConfigurationResult
- *   Rules: [ // LifecycleRules
- *     { // LifecycleRule
- *       Expiration: { // LifecycleExpiration
- *         Date: new Date("TIMESTAMP"),
- *         Days: Number("int"),
- *         ExpiredObjectDeleteMarker: true || false,
- *       },
- *       ID: "STRING_VALUE",
- *       Filter: { // LifecycleRuleFilter
- *         Prefix: "STRING_VALUE",
- *         Tag: { // S3Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *         And: { // LifecycleRuleAndOperator
- *           Prefix: "STRING_VALUE",
- *           Tags: [ // S3TagSet
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *           ObjectSizeGreaterThan: Number("long"),
- *           ObjectSizeLessThan: Number("long"),
- *         },
- *         ObjectSizeGreaterThan: Number("long"),
- *         ObjectSizeLessThan: Number("long"),
- *       },
- *       Status: "Enabled" || "Disabled", // required
- *       Transitions: [ // TransitionList
- *         { // Transition
- *           Date: new Date("TIMESTAMP"),
- *           Days: Number("int"),
- *           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
- *         },
- *       ],
- *       NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
- *         { // NoncurrentVersionTransition
- *           NoncurrentDays: Number("int"),
- *           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
- *         },
- *       ],
- *       NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
- *         NoncurrentDays: Number("int"),
- *         NewerNoncurrentVersions: Number("int"),
- *       },
- *       AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
- *         DaysAfterInitiation: Number("int"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetBucketLifecycleConfigurationResult
+ * //   Rules: [ // LifecycleRules
+ * //     { // LifecycleRule
+ * //       Expiration: { // LifecycleExpiration
+ * //         Date: new Date("TIMESTAMP"),
+ * //         Days: Number("int"),
+ * //         ExpiredObjectDeleteMarker: true || false,
+ * //       },
+ * //       ID: "STRING_VALUE",
+ * //       Filter: { // LifecycleRuleFilter
+ * //         Prefix: "STRING_VALUE",
+ * //         Tag: { // S3Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         And: { // LifecycleRuleAndOperator
+ * //           Prefix: "STRING_VALUE",
+ * //           Tags: [ // S3TagSet
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           ObjectSizeGreaterThan: Number("long"),
+ * //           ObjectSizeLessThan: Number("long"),
+ * //         },
+ * //         ObjectSizeGreaterThan: Number("long"),
+ * //         ObjectSizeLessThan: Number("long"),
+ * //       },
+ * //       Status: "Enabled" || "Disabled", // required
+ * //       Transitions: [ // TransitionList
+ * //         { // Transition
+ * //           Date: new Date("TIMESTAMP"),
+ * //           Days: Number("int"),
+ * //           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
+ * //         },
+ * //       ],
+ * //       NoncurrentVersionTransitions: [ // NoncurrentVersionTransitionList
+ * //         { // NoncurrentVersionTransition
+ * //           NoncurrentDays: Number("int"),
+ * //           StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE",
+ * //         },
+ * //       ],
+ * //       NoncurrentVersionExpiration: { // NoncurrentVersionExpiration
+ * //         NoncurrentDays: Number("int"),
+ * //         NewerNoncurrentVersions: Number("int"),
+ * //       },
+ * //       AbortIncompleteMultipartUpload: { // AbortIncompleteMultipartUpload
+ * //         DaysAfterInitiation: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

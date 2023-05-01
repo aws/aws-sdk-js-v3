@@ -57,21 +57,20 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * };
  * const command = new DeploySystemInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeploySystemInstanceResponse
- *   summary: { // SystemInstanceSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     target: "STRING_VALUE",
- *     greengrassGroupName: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *     greengrassGroupId: "STRING_VALUE",
- *     greengrassGroupVersionId: "STRING_VALUE",
- *   },
- *   greengrassDeploymentId: "STRING_VALUE",
- * };
+ * // { // DeploySystemInstanceResponse
+ * //   summary: { // SystemInstanceSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     target: "STRING_VALUE",
+ * //     greengrassGroupName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     greengrassGroupId: "STRING_VALUE",
+ * //     greengrassGroupVersionId: "STRING_VALUE",
+ * //   },
+ * //   greengrassDeploymentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

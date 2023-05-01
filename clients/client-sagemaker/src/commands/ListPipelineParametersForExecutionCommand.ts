@@ -54,16 +54,15 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * };
  * const command = new ListPipelineParametersForExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPipelineParametersForExecutionResponse
- *   PipelineParameters: [ // ParameterList
- *     { // Parameter
- *       Name: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPipelineParametersForExecutionResponse
+ * //   PipelineParameters: [ // ParameterList
+ * //     { // Parameter
+ * //       Name: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

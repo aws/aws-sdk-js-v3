@@ -50,22 +50,21 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAssetResponse
- *   assetStatus: { // AssetStatus
- *     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
- *     error: { // ErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *       details: [ // DetailedErrors
- *         { // DetailedError
- *           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *           message: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // DeleteAssetResponse
+ * //   assetStatus: { // AssetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

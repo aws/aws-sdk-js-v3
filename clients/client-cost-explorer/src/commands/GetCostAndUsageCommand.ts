@@ -131,52 +131,51 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  * };
  * const command = new GetCostAndUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCostAndUsageResponse
- *   NextPageToken: "STRING_VALUE",
- *   GroupDefinitions: [ // GroupDefinitions
- *     { // GroupDefinition
- *       Type: "DIMENSION" || "TAG" || "COST_CATEGORY",
- *       Key: "STRING_VALUE",
- *     },
- *   ],
- *   ResultsByTime: [ // ResultsByTime
- *     { // ResultByTime
- *       TimePeriod: { // DateInterval
- *         Start: "STRING_VALUE", // required
- *         End: "STRING_VALUE", // required
- *       },
- *       Total: { // Metrics
- *         "<keys>": { // MetricValue
- *           Amount: "STRING_VALUE",
- *           Unit: "STRING_VALUE",
- *         },
- *       },
- *       Groups: [ // Groups
- *         { // Group
- *           Keys: [ // Keys
- *             "STRING_VALUE",
- *           ],
- *           Metrics: {
- *             "<keys>": {
- *               Amount: "STRING_VALUE",
- *               Unit: "STRING_VALUE",
- *             },
- *           },
- *         },
- *       ],
- *       Estimated: true || false,
- *     },
- *   ],
- *   DimensionValueAttributes: [ // DimensionValuesWithAttributesList
- *     { // DimensionValuesWithAttributes
- *       Value: "STRING_VALUE",
- *       Attributes: { // Attributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetCostAndUsageResponse
+ * //   NextPageToken: "STRING_VALUE",
+ * //   GroupDefinitions: [ // GroupDefinitions
+ * //     { // GroupDefinition
+ * //       Type: "DIMENSION" || "TAG" || "COST_CATEGORY",
+ * //       Key: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ResultsByTime: [ // ResultsByTime
+ * //     { // ResultByTime
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       Total: { // Metrics
+ * //         "<keys>": { // MetricValue
+ * //           Amount: "STRING_VALUE",
+ * //           Unit: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Groups: [ // Groups
+ * //         { // Group
+ * //           Keys: [ // Keys
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Metrics: {
+ * //             "<keys>": {
+ * //               Amount: "STRING_VALUE",
+ * //               Unit: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       Estimated: true || false,
+ * //     },
+ * //   ],
+ * //   DimensionValueAttributes: [ // DimensionValuesWithAttributesList
+ * //     { // DimensionValuesWithAttributes
+ * //       Value: "STRING_VALUE",
+ * //       Attributes: { // Attributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

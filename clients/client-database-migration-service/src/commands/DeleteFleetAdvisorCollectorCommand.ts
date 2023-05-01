@@ -48,8 +48,7 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

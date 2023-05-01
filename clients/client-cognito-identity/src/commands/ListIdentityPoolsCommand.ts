@@ -47,16 +47,15 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  * };
  * const command = new ListIdentityPoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityPoolsResponse
- *   IdentityPools: [ // IdentityPoolsList
- *     { // IdentityPoolShortDescription
- *       IdentityPoolId: "STRING_VALUE",
- *       IdentityPoolName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentityPoolsResponse
+ * //   IdentityPools: [ // IdentityPoolsList
+ * //     { // IdentityPoolShortDescription
+ * //       IdentityPoolId: "STRING_VALUE",
+ * //       IdentityPoolName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

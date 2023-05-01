@@ -68,8 +68,7 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

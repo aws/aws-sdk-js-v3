@@ -44,11 +44,10 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * };
  * const command = new GetQueryStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryStateResponse
- *   Error: "STRING_VALUE",
- *   State: "PENDING" || "WORKUNITS_AVAILABLE" || "ERROR" || "FINISHED" || "EXPIRED", // required
- * };
+ * // { // GetQueryStateResponse
+ * //   Error: "STRING_VALUE",
+ * //   State: "PENDING" || "WORKUNITS_AVAILABLE" || "ERROR" || "FINISHED" || "EXPIRED", // required
+ * // };
  *
  * ```
  *

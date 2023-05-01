@@ -49,25 +49,24 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * };
  * const command = new ListAppInputSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInputSourcesResponse
- *   appInputSources: [ // AppInputSourceList // required
- *     { // AppInputSource
- *       sourceName: "STRING_VALUE",
- *       importType: "STRING_VALUE", // required
- *       sourceArn: "STRING_VALUE",
- *       terraformSource: { // TerraformSource
- *         s3StateFileUrl: "STRING_VALUE", // required
- *       },
- *       resourceCount: Number("int"),
- *       eksSourceClusterNamespace: { // EksSourceClusterNamespace
- *         eksClusterArn: "STRING_VALUE", // required
- *         namespace: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInputSourcesResponse
+ * //   appInputSources: [ // AppInputSourceList // required
+ * //     { // AppInputSource
+ * //       sourceName: "STRING_VALUE",
+ * //       importType: "STRING_VALUE", // required
+ * //       sourceArn: "STRING_VALUE",
+ * //       terraformSource: { // TerraformSource
+ * //         s3StateFileUrl: "STRING_VALUE", // required
+ * //       },
+ * //       resourceCount: Number("int"),
+ * //       eksSourceClusterNamespace: { // EksSourceClusterNamespace
+ * //         eksClusterArn: "STRING_VALUE", // required
+ * //         namespace: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

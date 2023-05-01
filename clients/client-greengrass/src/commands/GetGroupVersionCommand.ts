@@ -45,22 +45,21 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * };
  * const command = new GetGroupVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // GroupVersion
- *     ConnectorDefinitionVersionArn: "STRING_VALUE",
- *     CoreDefinitionVersionArn: "STRING_VALUE",
- *     DeviceDefinitionVersionArn: "STRING_VALUE",
- *     FunctionDefinitionVersionArn: "STRING_VALUE",
- *     LoggerDefinitionVersionArn: "STRING_VALUE",
- *     ResourceDefinitionVersionArn: "STRING_VALUE",
- *     SubscriptionDefinitionVersionArn: "STRING_VALUE",
- *   },
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetGroupVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // GroupVersion
+ * //     ConnectorDefinitionVersionArn: "STRING_VALUE",
+ * //     CoreDefinitionVersionArn: "STRING_VALUE",
+ * //     DeviceDefinitionVersionArn: "STRING_VALUE",
+ * //     FunctionDefinitionVersionArn: "STRING_VALUE",
+ * //     LoggerDefinitionVersionArn: "STRING_VALUE",
+ * //     ResourceDefinitionVersionArn: "STRING_VALUE",
+ * //     SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

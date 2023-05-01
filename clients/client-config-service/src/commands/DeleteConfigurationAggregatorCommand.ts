@@ -48,8 +48,7 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

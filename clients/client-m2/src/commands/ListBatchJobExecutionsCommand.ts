@@ -54,32 +54,31 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * };
  * const command = new ListBatchJobExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBatchJobExecutionsResponse
- *   batchJobExecutions: [ // BatchJobExecutionSummaryList // required
- *     { // BatchJobExecutionSummary
- *       executionId: "STRING_VALUE", // required
- *       applicationId: "STRING_VALUE", // required
- *       jobId: "STRING_VALUE",
- *       jobName: "STRING_VALUE",
- *       jobType: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       startTime: new Date("TIMESTAMP"), // required
- *       endTime: new Date("TIMESTAMP"),
- *       returnCode: "STRING_VALUE",
- *       batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
- *         fileBatchJobIdentifier: { // FileBatchJobIdentifier
- *           fileName: "STRING_VALUE", // required
- *           folderPath: "STRING_VALUE",
- *         },
- *         scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
- *           scriptName: "STRING_VALUE", // required
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBatchJobExecutionsResponse
+ * //   batchJobExecutions: [ // BatchJobExecutionSummaryList // required
+ * //     { // BatchJobExecutionSummary
+ * //       executionId: "STRING_VALUE", // required
+ * //       applicationId: "STRING_VALUE", // required
+ * //       jobId: "STRING_VALUE",
+ * //       jobName: "STRING_VALUE",
+ * //       jobType: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       returnCode: "STRING_VALUE",
+ * //       batchJobIdentifier: { // BatchJobIdentifier Union: only one key present
+ * //         fileBatchJobIdentifier: { // FileBatchJobIdentifier
+ * //           fileName: "STRING_VALUE", // required
+ * //           folderPath: "STRING_VALUE",
+ * //         },
+ * //         scriptBatchJobIdentifier: { // ScriptBatchJobIdentifier
+ * //           scriptName: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

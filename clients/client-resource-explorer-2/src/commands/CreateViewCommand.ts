@@ -72,23 +72,22 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * };
  * const command = new CreateViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateViewOutput
- *   View: { // View
- *     ViewArn: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     Scope: "STRING_VALUE",
- *     IncludedProperties: [ // IncludedPropertyList
- *       { // IncludedProperty
- *         Name: "STRING_VALUE", // required
- *       },
- *     ],
- *     Filters: { // SearchFilter
- *       FilterString: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // CreateViewOutput
+ * //   View: { // View
+ * //     ViewArn: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Scope: "STRING_VALUE",
+ * //     IncludedProperties: [ // IncludedPropertyList
+ * //       { // IncludedProperty
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     Filters: { // SearchFilter
+ * //       FilterString: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

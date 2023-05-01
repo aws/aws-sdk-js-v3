@@ -44,8 +44,7 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * };
  * const command = new DeleteClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

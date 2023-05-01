@@ -45,8 +45,7 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

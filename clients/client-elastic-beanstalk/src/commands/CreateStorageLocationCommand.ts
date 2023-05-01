@@ -46,10 +46,9 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStorageLocationResultMessage
- *   S3Bucket: "STRING_VALUE",
- * };
+ * // { // CreateStorageLocationResultMessage
+ * //   S3Bucket: "STRING_VALUE",
+ * // };
  *
  * ```
  *

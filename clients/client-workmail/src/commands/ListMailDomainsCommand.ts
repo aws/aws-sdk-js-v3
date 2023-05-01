@@ -46,16 +46,15 @@ export interface ListMailDomainsCommandOutput extends ListMailDomainsResponse, _
  * };
  * const command = new ListMailDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMailDomainsResponse
- *   MailDomains: [ // MailDomains
- *     { // MailDomainSummary
- *       DomainName: "STRING_VALUE",
- *       DefaultDomain: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMailDomainsResponse
+ * //   MailDomains: [ // MailDomains
+ * //     { // MailDomainSummary
+ * //       DomainName: "STRING_VALUE",
+ * //       DefaultDomain: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

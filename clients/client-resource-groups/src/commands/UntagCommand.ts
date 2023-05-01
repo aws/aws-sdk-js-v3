@@ -58,13 +58,12 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * };
  * const command = new UntagCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UntagOutput
- *   Arn: "STRING_VALUE",
- *   Keys: [ // TagKeyList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UntagOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Keys: [ // TagKeyList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

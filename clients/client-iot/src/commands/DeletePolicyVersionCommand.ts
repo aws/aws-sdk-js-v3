@@ -48,8 +48,7 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePolicyVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

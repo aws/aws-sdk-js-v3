@@ -50,19 +50,18 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * };
  * const command = new DescribeCacheEngineVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CacheEngineVersionMessage
- *   Marker: "STRING_VALUE",
- *   CacheEngineVersions: [ // CacheEngineVersionList
- *     { // CacheEngineVersion
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       CacheParameterGroupFamily: "STRING_VALUE",
- *       CacheEngineDescription: "STRING_VALUE",
- *       CacheEngineVersionDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CacheEngineVersionMessage
+ * //   Marker: "STRING_VALUE",
+ * //   CacheEngineVersions: [ // CacheEngineVersionList
+ * //     { // CacheEngineVersion
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       CacheParameterGroupFamily: "STRING_VALUE",
+ * //       CacheEngineDescription: "STRING_VALUE",
+ * //       CacheEngineVersionDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

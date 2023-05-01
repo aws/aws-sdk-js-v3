@@ -127,10 +127,9 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIPSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateIPSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

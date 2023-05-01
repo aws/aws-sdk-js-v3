@@ -47,12 +47,11 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  * };
  * const command = new ActivateEvaluationFormCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivateEvaluationFormResponse
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormArn: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"), // required
- * };
+ * // { // ActivateEvaluationFormResponse
+ * //   EvaluationFormId: "STRING_VALUE", // required
+ * //   EvaluationFormArn: "STRING_VALUE", // required
+ * //   EvaluationFormVersion: Number("int"), // required
+ * // };
  *
  * ```
  *

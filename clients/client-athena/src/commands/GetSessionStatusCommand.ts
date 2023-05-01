@@ -44,18 +44,17 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * };
  * const command = new GetSessionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSessionStatusResponse
- *   SessionId: "STRING_VALUE",
- *   Status: { // SessionStatus
- *     StartDateTime: new Date("TIMESTAMP"),
- *     LastModifiedDateTime: new Date("TIMESTAMP"),
- *     EndDateTime: new Date("TIMESTAMP"),
- *     IdleSinceDateTime: new Date("TIMESTAMP"),
- *     State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
- *     StateChangeReason: "STRING_VALUE",
- *   },
- * };
+ * // { // GetSessionStatusResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   Status: { // SessionStatus
+ * //     StartDateTime: new Date("TIMESTAMP"),
+ * //     LastModifiedDateTime: new Date("TIMESTAMP"),
+ * //     EndDateTime: new Date("TIMESTAMP"),
+ * //     IdleSinceDateTime: new Date("TIMESTAMP"),
+ * //     State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * //     StateChangeReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

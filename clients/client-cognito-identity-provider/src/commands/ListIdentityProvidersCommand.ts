@@ -51,18 +51,17 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityProvidersResponse
- *   Providers: [ // ProvidersListType // required
- *     { // ProviderDescription
- *       ProviderName: "STRING_VALUE",
- *       ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       CreationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentityProvidersResponse
+ * //   Providers: [ // ProvidersListType // required
+ * //     { // ProviderDescription
+ * //       ProviderName: "STRING_VALUE",
+ * //       ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -413,11 +413,10 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * };
  * const command = new RestoreObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreObjectOutput
- *   RequestCharged: "requester",
- *   RestoreOutputPath: "STRING_VALUE",
- * };
+ * // { // RestoreObjectOutput
+ * //   RequestCharged: "requester",
+ * //   RestoreOutputPath: "STRING_VALUE",
+ * // };
  *
  * ```
  *

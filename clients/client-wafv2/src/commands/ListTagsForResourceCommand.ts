@@ -53,19 +53,18 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForResourceResponse
- *   NextMarker: "STRING_VALUE",
- *   TagInfoForResource: { // TagInfoForResource
- *     ResourceARN: "STRING_VALUE",
- *     TagList: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // ListTagsForResourceResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   TagInfoForResource: { // TagInfoForResource
+ * //     ResourceARN: "STRING_VALUE",
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

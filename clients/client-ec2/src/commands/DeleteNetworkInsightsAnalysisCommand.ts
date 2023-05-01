@@ -47,10 +47,9 @@ export interface DeleteNetworkInsightsAnalysisCommandOutput
  * };
  * const command = new DeleteNetworkInsightsAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNetworkInsightsAnalysisResult
- *   NetworkInsightsAnalysisId: "STRING_VALUE",
- * };
+ * // { // DeleteNetworkInsightsAnalysisResult
+ * //   NetworkInsightsAnalysisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

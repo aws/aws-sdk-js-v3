@@ -45,25 +45,24 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
  * };
  * const command = new DescribeFHIRExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFHIRExportJobResponse
- *   ExportJobProperties: { // ExportJobProperties
- *     JobId: "STRING_VALUE", // required
- *     JobName: "STRING_VALUE",
- *     JobStatus: "STRING_VALUE", // required
- *     SubmitTime: new Date("TIMESTAMP"), // required
- *     EndTime: new Date("TIMESTAMP"),
- *     DatastoreId: "STRING_VALUE", // required
- *     OutputDataConfig: { // OutputDataConfig Union: only one key present
- *       S3Configuration: { // S3Configuration
- *         S3Uri: "STRING_VALUE", // required
- *         KmsKeyId: "STRING_VALUE", // required
- *       },
- *     },
- *     DataAccessRoleArn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFHIRExportJobResponse
+ * //   ExportJobProperties: { // ExportJobProperties
+ * //     JobId: "STRING_VALUE", // required
+ * //     JobName: "STRING_VALUE",
+ * //     JobStatus: "STRING_VALUE", // required
+ * //     SubmitTime: new Date("TIMESTAMP"), // required
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     DatastoreId: "STRING_VALUE", // required
+ * //     OutputDataConfig: { // OutputDataConfig Union: only one key present
+ * //       S3Configuration: { // S3Configuration
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         KmsKeyId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     DataAccessRoleArn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

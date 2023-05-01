@@ -119,12 +119,11 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectorResponse
- *   connectorArn: "STRING_VALUE",
- *   connectorName: "STRING_VALUE",
- *   connectorState: "STRING_VALUE",
- * };
+ * // { // CreateConnectorResponse
+ * //   connectorArn: "STRING_VALUE",
+ * //   connectorName: "STRING_VALUE",
+ * //   connectorState: "STRING_VALUE",
+ * // };
  *
  * ```
  *

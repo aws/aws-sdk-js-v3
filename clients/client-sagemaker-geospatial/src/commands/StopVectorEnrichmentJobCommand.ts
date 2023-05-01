@@ -48,8 +48,7 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * };
  * const command = new StopVectorEnrichmentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

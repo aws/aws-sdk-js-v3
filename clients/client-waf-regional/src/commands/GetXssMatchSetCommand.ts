@@ -52,22 +52,21 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  * };
  * const command = new GetXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetXssMatchSetResponse
- *   XssMatchSet: { // XssMatchSet
- *     XssMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     XssMatchTuples: [ // XssMatchTuples // required
- *       { // XssMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetXssMatchSetResponse
+ * //   XssMatchSet: { // XssMatchSet
+ * //     XssMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     XssMatchTuples: [ // XssMatchTuples // required
+ * //       { // XssMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

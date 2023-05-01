@@ -52,21 +52,20 @@ export interface DescribeApplicationInstanceDetailsCommandOutput
  * };
  * const command = new DescribeApplicationInstanceDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationInstanceDetailsResponse
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   DefaultRuntimeContextDevice: "STRING_VALUE",
- *   ManifestPayload: { // ManifestPayload Union: only one key present
- *     PayloadData: "STRING_VALUE",
- *   },
- *   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
- *     PayloadData: "STRING_VALUE",
- *   },
- *   ApplicationInstanceIdToReplace: "STRING_VALUE",
- *   CreatedTime: new Date("TIMESTAMP"),
- *   ApplicationInstanceId: "STRING_VALUE",
- * };
+ * // { // DescribeApplicationInstanceDetailsResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DefaultRuntimeContextDevice: "STRING_VALUE",
+ * //   ManifestPayload: { // ManifestPayload Union: only one key present
+ * //     PayloadData: "STRING_VALUE",
+ * //   },
+ * //   ManifestOverridesPayload: { // ManifestOverridesPayload Union: only one key present
+ * //     PayloadData: "STRING_VALUE",
+ * //   },
+ * //   ApplicationInstanceIdToReplace: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   ApplicationInstanceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

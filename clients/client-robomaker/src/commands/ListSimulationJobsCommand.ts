@@ -54,28 +54,27 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * };
  * const command = new ListSimulationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSimulationJobsResponse
- *   simulationJobSummaries: [ // SimulationJobSummaries // required
- *     { // SimulationJobSummary
- *       arn: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       simulationApplicationNames: [ // SimulationApplicationNames
- *         "STRING_VALUE",
- *       ],
- *       robotApplicationNames: [ // RobotApplicationNames
- *         "STRING_VALUE",
- *       ],
- *       dataSourceNames: [ // DataSourceNames
- *         "STRING_VALUE",
- *       ],
- *       computeType: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSimulationJobsResponse
+ * //   simulationJobSummaries: [ // SimulationJobSummaries // required
+ * //     { // SimulationJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       simulationApplicationNames: [ // SimulationApplicationNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       robotApplicationNames: [ // RobotApplicationNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       dataSourceNames: [ // DataSourceNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       computeType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteOriginAccessControlCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

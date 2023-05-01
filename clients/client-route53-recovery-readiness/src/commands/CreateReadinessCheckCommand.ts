@@ -52,15 +52,14 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * };
  * const command = new CreateReadinessCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReadinessCheckResponse
- *   ReadinessCheckArn: "STRING_VALUE",
- *   ReadinessCheckName: "STRING_VALUE",
- *   ResourceSet: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateReadinessCheckResponse
+ * //   ReadinessCheckArn: "STRING_VALUE",
+ * //   ReadinessCheckName: "STRING_VALUE",
+ * //   ResourceSet: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

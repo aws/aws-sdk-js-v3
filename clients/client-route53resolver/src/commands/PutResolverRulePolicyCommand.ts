@@ -46,10 +46,9 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * };
  * const command = new PutResolverRulePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResolverRulePolicyResponse
- *   ReturnValue: true || false,
- * };
+ * // { // PutResolverRulePolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

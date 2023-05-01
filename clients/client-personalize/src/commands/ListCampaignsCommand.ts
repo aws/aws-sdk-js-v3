@@ -49,20 +49,19 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCampaignsResponse
- *   campaigns: [ // Campaigns
- *     { // CampaignSummary
- *       name: "STRING_VALUE",
- *       campaignArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCampaignsResponse
+ * //   campaigns: [ // Campaigns
+ * //     { // CampaignSummary
+ * //       name: "STRING_VALUE",
+ * //       campaignArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

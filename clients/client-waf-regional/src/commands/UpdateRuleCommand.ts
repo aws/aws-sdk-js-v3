@@ -104,10 +104,9 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuleResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateRuleResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

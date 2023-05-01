@@ -76,10 +76,9 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * };
  * const command = new RegisterAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterAgentResponse
- *   agentId: "STRING_VALUE",
- * };
+ * // { // RegisterAgentResponse
+ * //   agentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

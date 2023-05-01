@@ -48,29 +48,28 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * };
  * const command = new GetAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssessmentResponse
- *   id: "STRING_VALUE",
- *   dataCollectionDetails: { // DataCollectionDetails
- *     status: "STRING_VALUE",
- *     servers: Number("int"),
- *     failed: Number("int"),
- *     success: Number("int"),
- *     inProgress: Number("int"),
- *     startTime: new Date("TIMESTAMP"),
- *     completionTime: new Date("TIMESTAMP"),
- *     statusMessage: "STRING_VALUE",
- *   },
- *   assessmentTargets: [ // AssessmentTargets
- *     { // AssessmentTarget
- *       condition: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       values: [ // AssessmentTargetValues // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetAssessmentResponse
+ * //   id: "STRING_VALUE",
+ * //   dataCollectionDetails: { // DataCollectionDetails
+ * //     status: "STRING_VALUE",
+ * //     servers: Number("int"),
+ * //     failed: Number("int"),
+ * //     success: Number("int"),
+ * //     inProgress: Number("int"),
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     completionTime: new Date("TIMESTAMP"),
+ * //     statusMessage: "STRING_VALUE",
+ * //   },
+ * //   assessmentTargets: [ // AssessmentTargets
+ * //     { // AssessmentTarget
+ * //       condition: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       values: [ // AssessmentTargetValues // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -62,27 +62,26 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * };
  * const command = new BatchDisassociateResourcesFromCustomLineItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateResourcesFromCustomLineItemOutput
- *   SuccessfullyDisassociatedResources: [ // DisassociateResourcesResponseList
- *     { // DisassociateResourceResponseElement
- *       Arn: "STRING_VALUE",
- *       Error: { // AssociateResourceError
- *         Message: "STRING_VALUE",
- *         Reason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   FailedDisassociatedResources: [
- *     {
- *       Arn: "STRING_VALUE",
- *       Error: {
- *         Message: "STRING_VALUE",
- *         Reason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateResourcesFromCustomLineItemOutput
+ * //   SuccessfullyDisassociatedResources: [ // DisassociateResourcesResponseList
+ * //     { // DisassociateResourceResponseElement
+ * //       Arn: "STRING_VALUE",
+ * //       Error: { // AssociateResourceError
+ * //         Message: "STRING_VALUE",
+ * //         Reason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   FailedDisassociatedResources: [
+ * //     {
+ * //       Arn: "STRING_VALUE",
+ * //       Error: {
+ * //         Message: "STRING_VALUE",
+ * //         Reason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

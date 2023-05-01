@@ -49,18 +49,17 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * };
  * const command = new DescribeRuleGroupMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRuleGroupMetadataResponse
- *   RuleGroupArn: "STRING_VALUE", // required
- *   RuleGroupName: "STRING_VALUE", // required
- *   Description: "STRING_VALUE",
- *   Type: "STATELESS" || "STATEFUL",
- *   Capacity: Number("int"),
- *   StatefulRuleOptions: { // StatefulRuleOptions
- *     RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeRuleGroupMetadataResponse
+ * //   RuleGroupArn: "STRING_VALUE", // required
+ * //   RuleGroupName: "STRING_VALUE", // required
+ * //   Description: "STRING_VALUE",
+ * //   Type: "STATELESS" || "STATEFUL",
+ * //   Capacity: Number("int"),
+ * //   StatefulRuleOptions: { // StatefulRuleOptions
+ * //     RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

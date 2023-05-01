@@ -64,8 +64,7 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * };
  * const command = new UpdateUserHierarchyStructureCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

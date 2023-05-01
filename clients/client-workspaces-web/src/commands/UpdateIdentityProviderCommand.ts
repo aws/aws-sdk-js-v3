@@ -55,17 +55,16 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIdentityProviderResponse
- *   identityProvider: { // IdentityProvider
- *     identityProviderArn: "STRING_VALUE", // required
- *     identityProviderName: "STRING_VALUE",
- *     identityProviderType: "STRING_VALUE",
- *     identityProviderDetails: { // IdentityProviderDetails
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateIdentityProviderResponse
+ * //   identityProvider: { // IdentityProvider
+ * //     identityProviderArn: "STRING_VALUE", // required
+ * //     identityProviderName: "STRING_VALUE",
+ * //     identityProviderType: "STRING_VALUE",
+ * //     identityProviderDetails: { // IdentityProviderDetails
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

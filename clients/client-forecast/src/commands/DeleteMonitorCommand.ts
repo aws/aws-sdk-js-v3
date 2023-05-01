@@ -44,8 +44,7 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

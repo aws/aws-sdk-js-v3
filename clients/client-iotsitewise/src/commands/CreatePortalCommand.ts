@@ -67,20 +67,19 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePortalResponse
- *   portalId: "STRING_VALUE", // required
- *   portalArn: "STRING_VALUE", // required
- *   portalStartUrl: "STRING_VALUE", // required
- *   portalStatus: { // PortalStatus
- *     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
- *     error: { // MonitorErrorDetails
- *       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
- *       message: "STRING_VALUE",
- *     },
- *   },
- *   ssoApplicationId: "STRING_VALUE", // required
- * };
+ * // { // CreatePortalResponse
+ * //   portalId: "STRING_VALUE", // required
+ * //   portalArn: "STRING_VALUE", // required
+ * //   portalStartUrl: "STRING_VALUE", // required
+ * //   portalStatus: { // PortalStatus
+ * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     error: { // MonitorErrorDetails
+ * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ssoApplicationId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

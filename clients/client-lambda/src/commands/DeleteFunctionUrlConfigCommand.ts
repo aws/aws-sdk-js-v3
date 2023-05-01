@@ -46,8 +46,7 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * };
  * const command = new DeleteCollaborationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

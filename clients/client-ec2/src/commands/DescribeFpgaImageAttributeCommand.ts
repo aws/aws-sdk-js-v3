@@ -46,26 +46,25 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * };
  * const command = new DescribeFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFpgaImageAttributeResult
- *   FpgaImageAttribute: { // FpgaImageAttribute
- *     FpgaImageId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LoadPermissions: [ // LoadPermissionList
- *       { // LoadPermission
- *         UserId: "STRING_VALUE",
- *         Group: "all",
- *       },
- *     ],
- *     ProductCodes: [ // ProductCodeList
- *       { // ProductCode
- *         ProductCodeId: "STRING_VALUE",
- *         ProductCodeType: "devpay" || "marketplace",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeFpgaImageAttributeResult
+ * //   FpgaImageAttribute: { // FpgaImageAttribute
+ * //     FpgaImageId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LoadPermissions: [ // LoadPermissionList
+ * //       { // LoadPermission
+ * //         UserId: "STRING_VALUE",
+ * //         Group: "all",
+ * //       },
+ * //     ],
+ * //     ProductCodes: [ // ProductCodeList
+ * //       { // ProductCode
+ * //         ProductCodeId: "STRING_VALUE",
+ * //         ProductCodeType: "devpay" || "marketplace",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

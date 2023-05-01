@@ -47,21 +47,20 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   NextToken: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
- *   Users: [ // ListedUsers // required
- *     { // ListedUser
- *       Arn: "STRING_VALUE", // required
- *       HomeDirectory: "STRING_VALUE",
- *       HomeDirectoryType: "PATH" || "LOGICAL",
- *       Role: "STRING_VALUE",
- *       SshPublicKeyCount: Number("int"),
- *       UserName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListUsersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ServerId: "STRING_VALUE", // required
+ * //   Users: [ // ListedUsers // required
+ * //     { // ListedUser
+ * //       Arn: "STRING_VALUE", // required
+ * //       HomeDirectory: "STRING_VALUE",
+ * //       HomeDirectoryType: "PATH" || "LOGICAL",
+ * //       Role: "STRING_VALUE",
+ * //       SshPublicKeyCount: Number("int"),
+ * //       UserName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

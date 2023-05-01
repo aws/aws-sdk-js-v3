@@ -45,17 +45,16 @@ export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfi
  * };
  * const command = new GetTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemplateSyncConfigOutput
- *   templateSyncConfig: { // TemplateSyncConfig
- *     templateName: "STRING_VALUE", // required
- *     templateType: "STRING_VALUE", // required
- *     repositoryProvider: "STRING_VALUE", // required
- *     repositoryName: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
- *     subdirectory: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTemplateSyncConfigOutput
+ * //   templateSyncConfig: { // TemplateSyncConfig
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateType: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     subdirectory: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -61,15 +61,14 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  * };
  * const command = new PutAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAppInstanceStreamingConfigurationsResponse
- *   AppInstanceStreamingConfigurations: [ // AppInstanceStreamingConfigurationList
- *     { // AppInstanceStreamingConfiguration
- *       AppInstanceDataType: "Channel" || "ChannelMessage", // required
- *       ResourceArn: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // PutAppInstanceStreamingConfigurationsResponse
+ * //   AppInstanceStreamingConfigurations: [ // AppInstanceStreamingConfigurationList
+ * //     { // AppInstanceStreamingConfiguration
+ * //       AppInstanceDataType: "Channel" || "ChannelMessage", // required
+ * //       ResourceArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

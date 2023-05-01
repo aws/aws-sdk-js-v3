@@ -45,40 +45,39 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * };
  * const command = new DescribeAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAnalysisResponse
- *   Analysis: { // Analysis
- *     AnalysisId: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *     Errors: [ // AnalysisErrorList
- *       { // AnalysisError
- *         Type: "ACCESS_DENIED" || "SOURCE_NOT_FOUND" || "DATA_SET_NOT_FOUND" || "INTERNAL_FAILURE" || "PARAMETER_VALUE_INCOMPATIBLE" || "PARAMETER_TYPE_INVALID" || "PARAMETER_NOT_FOUND" || "COLUMN_TYPE_MISMATCH" || "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" || "COLUMN_REPLACEMENT_MISSING",
- *         Message: "STRING_VALUE",
- *         ViolatedEntities: [ // EntityList
- *           { // Entity
- *             Path: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     DataSetArns: [ // DataSetArnsList
- *       "STRING_VALUE",
- *     ],
- *     ThemeArn: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *     Sheets: [ // SheetList
- *       { // Sheet
- *         SheetId: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeAnalysisResponse
+ * //   Analysis: { // Analysis
+ * //     AnalysisId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //     Errors: [ // AnalysisErrorList
+ * //       { // AnalysisError
+ * //         Type: "ACCESS_DENIED" || "SOURCE_NOT_FOUND" || "DATA_SET_NOT_FOUND" || "INTERNAL_FAILURE" || "PARAMETER_VALUE_INCOMPATIBLE" || "PARAMETER_TYPE_INVALID" || "PARAMETER_NOT_FOUND" || "COLUMN_TYPE_MISMATCH" || "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" || "COLUMN_REPLACEMENT_MISSING",
+ * //         Message: "STRING_VALUE",
+ * //         ViolatedEntities: [ // EntityList
+ * //           { // Entity
+ * //             Path: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     DataSetArns: [ // DataSetArnsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ThemeArn: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     Sheets: [ // SheetList
+ * //       { // Sheet
+ * //         SheetId: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

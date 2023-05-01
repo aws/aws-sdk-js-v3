@@ -45,20 +45,19 @@ export interface ListStagesCommandOutput extends ListStagesResponse, __MetadataB
  * };
  * const command = new ListStagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStagesResponse
- *   stages: [ // StageSummaryList // required
- *     { // StageSummary
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       activeSessionId: "STRING_VALUE",
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStagesResponse
+ * //   stages: [ // StageSummaryList // required
+ * //     { // StageSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       activeSessionId: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

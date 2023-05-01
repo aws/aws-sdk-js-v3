@@ -49,8 +49,7 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * };
  * const command = new RegisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

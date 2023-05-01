@@ -79,8 +79,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

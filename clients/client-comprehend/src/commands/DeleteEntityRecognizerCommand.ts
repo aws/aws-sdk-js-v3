@@ -50,8 +50,7 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * };
  * const command = new DeleteEntityRecognizerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

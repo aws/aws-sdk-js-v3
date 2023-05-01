@@ -56,23 +56,22 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesResponse
- *   resources: [ // ResourceList
- *     { // Resource
- *       arn: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       resourceShareArn: "STRING_VALUE",
- *       resourceGroupArn: "STRING_VALUE",
- *       status: "AVAILABLE" || "ZONAL_RESOURCE_INACCESSIBLE" || "LIMIT_EXCEEDED" || "UNAVAILABLE" || "PENDING",
- *       statusMessage: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       resourceRegionScope: "REGIONAL" || "GLOBAL",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesResponse
+ * //   resources: [ // ResourceList
+ * //     { // Resource
+ * //       arn: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       resourceGroupArn: "STRING_VALUE",
+ * //       status: "AVAILABLE" || "ZONAL_RESOURCE_INACCESSIBLE" || "LIMIT_EXCEEDED" || "UNAVAILABLE" || "PENDING",
+ * //       statusMessage: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       resourceRegionScope: "REGIONAL" || "GLOBAL",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

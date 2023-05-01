@@ -46,25 +46,24 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSecurityProfileResponse
- *   SecurityProfile: { // SecurityProfile
- *     Id: "STRING_VALUE",
- *     OrganizationResourceId: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     SecurityProfileName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     AllowedAccessControlTags: { // AllowedAccessControlTags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     TagRestrictedResources: [ // TagRestrictedResourceList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeSecurityProfileResponse
+ * //   SecurityProfile: { // SecurityProfile
+ * //     Id: "STRING_VALUE",
+ * //     OrganizationResourceId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     SecurityProfileName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     AllowedAccessControlTags: { // AllowedAccessControlTags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TagRestrictedResources: [ // TagRestrictedResourceList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

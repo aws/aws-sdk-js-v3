@@ -49,15 +49,14 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInvitationsResponse
- *   UnprocessedAccounts: [ // ResultList
- *     { // Result
- *       AccountId: "STRING_VALUE",
- *       ProcessingResult: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteInvitationsResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

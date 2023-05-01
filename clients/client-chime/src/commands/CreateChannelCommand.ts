@@ -68,10 +68,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelResponse
- *   ChannelArn: "STRING_VALUE",
- * };
+ * // { // CreateChannelResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

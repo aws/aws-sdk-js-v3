@@ -66,20 +66,19 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * };
  * const command = new DescribeRecommendationLimitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRecommendationLimitationsResponse
- *   NextToken: "STRING_VALUE",
- *   Limitations: [ // LimitationList
- *     { // Limitation
- *       DatabaseId: "STRING_VALUE",
- *       EngineName: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Impact: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeRecommendationLimitationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Limitations: [ // LimitationList
+ * //     { // Limitation
+ * //       DatabaseId: "STRING_VALUE",
+ * //       EngineName: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Impact: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

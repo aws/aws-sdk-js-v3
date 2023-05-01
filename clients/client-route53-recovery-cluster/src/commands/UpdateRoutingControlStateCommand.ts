@@ -85,8 +85,7 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * };
  * const command = new UpdateRoutingControlStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,21 +48,20 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotsResponse
- *   LexBots: [ // LexBotConfigList
- *     { // LexBotConfig
- *       LexBot: { // LexBot
- *         Name: "STRING_VALUE", // required
- *         LexRegion: "STRING_VALUE", // required
- *       },
- *       LexV2Bot: { // LexV2Bot
- *         AliasArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBotsResponse
+ * //   LexBots: [ // LexBotConfigList
+ * //     { // LexBotConfig
+ * //       LexBot: { // LexBot
+ * //         Name: "STRING_VALUE", // required
+ * //         LexRegion: "STRING_VALUE", // required
+ * //       },
+ * //       LexV2Bot: { // LexV2Bot
+ * //         AliasArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

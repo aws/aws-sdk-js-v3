@@ -48,42 +48,41 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * };
  * const command = new DescribeSafetyRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSafetyRuleResponse
- *   AssertionRule: { // AssertionRule
- *     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
- *       "STRING_VALUE",
- *     ],
- *     ControlPanelArn: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     RuleConfig: { // RuleConfig
- *       Inverted: true || false, // required
- *       Threshold: Number("int"), // required
- *       Type: "ATLEAST" || "AND" || "OR", // required
- *     },
- *     SafetyRuleArn: "STRING_VALUE", // required
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
- *     WaitPeriodMs: Number("int"), // required
- *   },
- *   GatingRule: { // GatingRule
- *     ControlPanelArn: "STRING_VALUE", // required
- *     GatingControls: [ // required
- *       "STRING_VALUE",
- *     ],
- *     Name: "STRING_VALUE", // required
- *     RuleConfig: {
- *       Inverted: true || false, // required
- *       Threshold: Number("int"), // required
- *       Type: "ATLEAST" || "AND" || "OR", // required
- *     },
- *     SafetyRuleArn: "STRING_VALUE", // required
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
- *     TargetControls: [ // required
- *       "STRING_VALUE",
- *     ],
- *     WaitPeriodMs: Number("int"), // required
- *   },
- * };
+ * // { // DescribeSafetyRuleResponse
+ * //   AssertionRule: { // AssertionRule
+ * //     AssertedControls: [ // __listOf__stringMin1Max256PatternAZaZ09 // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ControlPanelArn: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     RuleConfig: { // RuleConfig
+ * //       Inverted: true || false, // required
+ * //       Threshold: Number("int"), // required
+ * //       Type: "ATLEAST" || "AND" || "OR", // required
+ * //     },
+ * //     SafetyRuleArn: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
+ * //     WaitPeriodMs: Number("int"), // required
+ * //   },
+ * //   GatingRule: { // GatingRule
+ * //     ControlPanelArn: "STRING_VALUE", // required
+ * //     GatingControls: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Name: "STRING_VALUE", // required
+ * //     RuleConfig: {
+ * //       Inverted: true || false, // required
+ * //       Threshold: Number("int"), // required
+ * //       Type: "ATLEAST" || "AND" || "OR", // required
+ * //     },
+ * //     SafetyRuleArn: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION", // required
+ * //     TargetControls: [ // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     WaitPeriodMs: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

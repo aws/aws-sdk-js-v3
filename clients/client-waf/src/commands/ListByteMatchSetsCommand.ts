@@ -53,16 +53,15 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  * };
  * const command = new ListByteMatchSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListByteMatchSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   ByteMatchSets: [ // ByteMatchSetSummaries
- *     { // ByteMatchSetSummary
- *       ByteMatchSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListByteMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ByteMatchSets: [ // ByteMatchSetSummaries
+ * //     { // ByteMatchSetSummary
+ * //       ByteMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

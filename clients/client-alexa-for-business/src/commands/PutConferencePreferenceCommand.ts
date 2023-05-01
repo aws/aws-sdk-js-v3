@@ -47,8 +47,7 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * };
  * const command = new PutConferencePreferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

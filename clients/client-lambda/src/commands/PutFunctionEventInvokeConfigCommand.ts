@@ -68,21 +68,20 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * };
  * const command = new PutFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FunctionEventInvokeConfig
- *   LastModified: new Date("TIMESTAMP"),
- *   FunctionArn: "STRING_VALUE",
- *   MaximumRetryAttempts: Number("int"),
- *   MaximumEventAgeInSeconds: Number("int"),
- *   DestinationConfig: { // DestinationConfig
- *     OnSuccess: { // OnSuccess
- *       Destination: "STRING_VALUE",
- *     },
- *     OnFailure: { // OnFailure
- *       Destination: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // FunctionEventInvokeConfig
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   FunctionArn: "STRING_VALUE",
+ * //   MaximumRetryAttempts: Number("int"),
+ * //   MaximumEventAgeInSeconds: Number("int"),
+ * //   DestinationConfig: { // DestinationConfig
+ * //     OnSuccess: { // OnSuccess
+ * //       Destination: "STRING_VALUE",
+ * //     },
+ * //     OnFailure: { // OnFailure
+ * //       Destination: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

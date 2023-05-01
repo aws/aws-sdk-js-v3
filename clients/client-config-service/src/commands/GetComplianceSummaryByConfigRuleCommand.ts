@@ -48,20 +48,19 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * const input = {};
  * const command = new GetComplianceSummaryByConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComplianceSummaryByConfigRuleResponse
- *   ComplianceSummary: { // ComplianceSummary
- *     CompliantResourceCount: { // ComplianceContributorCount
- *       CappedCount: Number("int"),
- *       CapExceeded: true || false,
- *     },
- *     NonCompliantResourceCount: {
- *       CappedCount: Number("int"),
- *       CapExceeded: true || false,
- *     },
- *     ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetComplianceSummaryByConfigRuleResponse
+ * //   ComplianceSummary: { // ComplianceSummary
+ * //     CompliantResourceCount: { // ComplianceContributorCount
+ * //       CappedCount: Number("int"),
+ * //       CapExceeded: true || false,
+ * //     },
+ * //     NonCompliantResourceCount: {
+ * //       CappedCount: Number("int"),
+ * //       CapExceeded: true || false,
+ * //     },
+ * //     ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

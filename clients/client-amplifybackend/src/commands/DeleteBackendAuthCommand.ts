@@ -46,15 +46,14 @@ export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthRespons
  * };
  * const command = new DeleteBackendAuthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBackendAuthResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // DeleteBackendAuthResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

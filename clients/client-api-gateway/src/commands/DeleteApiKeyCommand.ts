@@ -44,8 +44,7 @@ export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

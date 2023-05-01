@@ -49,8 +49,7 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

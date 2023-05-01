@@ -45,11 +45,10 @@ export interface RemoveFlowOutputCommandOutput extends RemoveFlowOutputResponse,
  * };
  * const command = new RemoveFlowOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveFlowOutputResponse
- *   FlowArn: "STRING_VALUE",
- *   OutputArn: "STRING_VALUE",
- * };
+ * // { // RemoveFlowOutputResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   OutputArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,26 +57,25 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * };
  * const command = new DescribeLaunchConfigurationTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLaunchConfigurationTemplatesResponse
- *   items: [ // LaunchConfigurationTemplates
- *     { // LaunchConfigurationTemplate
- *       launchConfigurationTemplateID: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       launchDisposition: "STRING_VALUE",
- *       targetInstanceTypeRightSizingMethod: "STRING_VALUE",
- *       copyPrivateIp: true || false,
- *       copyTags: true || false,
- *       licensing: { // Licensing
- *         osByol: true || false,
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLaunchConfigurationTemplatesResponse
+ * //   items: [ // LaunchConfigurationTemplates
+ * //     { // LaunchConfigurationTemplate
+ * //       launchConfigurationTemplateID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       launchDisposition: "STRING_VALUE",
+ * //       targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ * //       copyPrivateIp: true || false,
+ * //       copyTags: true || false,
+ * //       licensing: { // Licensing
+ * //         osByol: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

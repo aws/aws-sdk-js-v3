@@ -59,19 +59,18 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * };
  * const command = new BatchDeleteRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteRumMetricDefinitionsResponse
- *   Errors: [ // BatchDeleteRumMetricDefinitionsErrors // required
- *     { // BatchDeleteRumMetricDefinitionsError
- *       MetricDefinitionId: "STRING_VALUE", // required
- *       ErrorCode: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- *   MetricDefinitionIds: [ // MetricDefinitionIds
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // BatchDeleteRumMetricDefinitionsResponse
+ * //   Errors: [ // BatchDeleteRumMetricDefinitionsErrors // required
+ * //     { // BatchDeleteRumMetricDefinitionsError
+ * //       MetricDefinitionId: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   MetricDefinitionIds: [ // MetricDefinitionIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

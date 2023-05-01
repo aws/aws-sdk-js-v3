@@ -69,10 +69,9 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * };
  * const command = new StartDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDetectMitigationActionsTaskResponse
- *   taskId: "STRING_VALUE",
- * };
+ * // { // StartDetectMitigationActionsTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

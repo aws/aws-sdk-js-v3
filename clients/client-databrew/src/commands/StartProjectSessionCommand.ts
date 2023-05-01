@@ -50,11 +50,10 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * };
  * const command = new StartProjectSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartProjectSessionResponse
- *   Name: "STRING_VALUE", // required
- *   ClientSessionId: "STRING_VALUE",
- * };
+ * // { // StartProjectSessionResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   ClientSessionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

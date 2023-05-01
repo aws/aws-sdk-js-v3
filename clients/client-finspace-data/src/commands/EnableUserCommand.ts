@@ -45,10 +45,9 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableUserResponse
- *   userId: "STRING_VALUE",
- * };
+ * // { // EnableUserResponse
+ * //   userId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

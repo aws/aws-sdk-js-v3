@@ -51,20 +51,19 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
  * };
  * const command = new SearchFlowExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchFlowExecutionsResponse
- *   summaries: [ // FlowExecutionSummaries
- *     { // FlowExecutionSummary
- *       flowExecutionId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       systemInstanceId: "STRING_VALUE",
- *       flowTemplateId: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchFlowExecutionsResponse
+ * //   summaries: [ // FlowExecutionSummaries
+ * //     { // FlowExecutionSummary
+ * //       flowExecutionId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       systemInstanceId: "STRING_VALUE",
+ * //       flowTemplateId: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

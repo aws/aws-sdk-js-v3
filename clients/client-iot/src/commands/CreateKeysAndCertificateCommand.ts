@@ -54,16 +54,15 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * };
  * const command = new CreateKeysAndCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateKeysAndCertificateResponse
- *   certificateArn: "STRING_VALUE",
- *   certificateId: "STRING_VALUE",
- *   certificatePem: "STRING_VALUE",
- *   keyPair: { // KeyPair
- *     PublicKey: "STRING_VALUE",
- *     PrivateKey: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateKeysAndCertificateResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * //   certificatePem: "STRING_VALUE",
+ * //   keyPair: { // KeyPair
+ * //     PublicKey: "STRING_VALUE",
+ * //     PrivateKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

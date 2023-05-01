@@ -48,11 +48,10 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * };
  * const command = new DeleteSignalCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSignalCatalogResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // DeleteSignalCatalogResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

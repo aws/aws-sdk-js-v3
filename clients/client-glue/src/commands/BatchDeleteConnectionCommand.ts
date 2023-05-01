@@ -47,18 +47,17 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * };
  * const command = new BatchDeleteConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteConnectionResponse
- *   Succeeded: [ // NameStringList
- *     "STRING_VALUE",
- *   ],
- *   Errors: { // ErrorByName
- *     "<keys>": { // ErrorDetail
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // BatchDeleteConnectionResponse
+ * //   Succeeded: [ // NameStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Errors: { // ErrorByName
+ * //     "<keys>": { // ErrorDetail
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

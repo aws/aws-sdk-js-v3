@@ -54,18 +54,17 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * };
  * const command = new ListRetainedMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRetainedMessagesResponse
- *   retainedTopics: [ // RetainedMessageList
- *     { // RetainedMessageSummary
- *       topic: "STRING_VALUE",
- *       payloadSize: Number("long"),
- *       qos: Number("int"),
- *       lastModifiedTime: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRetainedMessagesResponse
+ * //   retainedTopics: [ // RetainedMessageList
+ * //     { // RetainedMessageSummary
+ * //       topic: "STRING_VALUE",
+ * //       payloadSize: Number("long"),
+ * //       qos: Number("int"),
+ * //       lastModifiedTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

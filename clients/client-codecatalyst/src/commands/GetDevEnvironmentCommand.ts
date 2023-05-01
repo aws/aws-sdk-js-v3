@@ -46,34 +46,33 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * };
  * const command = new GetDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDevEnvironmentResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   lastUpdatedTime: new Date("TIMESTAMP"), // required
- *   creatorId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusReason: "STRING_VALUE",
- *   repositories: [ // DevEnvironmentRepositorySummaries // required
- *     { // DevEnvironmentRepositorySummary
- *       repositoryName: "STRING_VALUE", // required
- *       branchName: "STRING_VALUE",
- *     },
- *   ],
- *   alias: "STRING_VALUE",
- *   ides: [ // Ides
- *     { // Ide
- *       runtime: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   instanceType: "STRING_VALUE", // required
- *   inactivityTimeoutMinutes: Number("int"), // required
- *   persistentStorage: { // PersistentStorage
- *     sizeInGiB: Number("int"), // required
- *   },
- * };
+ * // { // GetDevEnvironmentResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //   creatorId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusReason: "STRING_VALUE",
+ * //   repositories: [ // DevEnvironmentRepositorySummaries // required
+ * //     { // DevEnvironmentRepositorySummary
+ * //       repositoryName: "STRING_VALUE", // required
+ * //       branchName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   alias: "STRING_VALUE",
+ * //   ides: [ // Ides
+ * //     { // Ide
+ * //       runtime: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   instanceType: "STRING_VALUE", // required
+ * //   inactivityTimeoutMinutes: Number("int"), // required
+ * //   persistentStorage: { // PersistentStorage
+ * //     sizeInGiB: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

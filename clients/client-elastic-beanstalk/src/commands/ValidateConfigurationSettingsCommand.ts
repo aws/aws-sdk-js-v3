@@ -62,17 +62,16 @@ export interface ValidateConfigurationSettingsCommandOutput
  * };
  * const command = new ValidateConfigurationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigurationSettingsValidationMessages
- *   Messages: [ // ValidationMessagesList
- *     { // ValidationMessage
- *       Message: "STRING_VALUE",
- *       Severity: "error" || "warning",
- *       Namespace: "STRING_VALUE",
- *       OptionName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ConfigurationSettingsValidationMessages
+ * //   Messages: [ // ValidationMessagesList
+ * //     { // ValidationMessage
+ * //       Message: "STRING_VALUE",
+ * //       Severity: "error" || "warning",
+ * //       Namespace: "STRING_VALUE",
+ * //       OptionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

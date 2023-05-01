@@ -46,8 +46,7 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetStackPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

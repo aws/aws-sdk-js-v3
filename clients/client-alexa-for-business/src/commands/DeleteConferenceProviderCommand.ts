@@ -44,8 +44,7 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * };
  * const command = new DeleteConferenceProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -74,8 +74,7 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,8 +62,7 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * };
  * const command = new PutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

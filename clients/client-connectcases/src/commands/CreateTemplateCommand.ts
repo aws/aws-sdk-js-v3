@@ -60,11 +60,10 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTemplateResponse
- *   templateId: "STRING_VALUE", // required
- *   templateArn: "STRING_VALUE", // required
- * };
+ * // { // CreateTemplateResponse
+ * //   templateId: "STRING_VALUE", // required
+ * //   templateArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

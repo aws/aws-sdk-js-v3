@@ -52,10 +52,9 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * };
  * const command = new StopReplicationToReplicaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopReplicationToReplicaResponse
- *   ARN: "STRING_VALUE",
- * };
+ * // { // StopReplicationToReplicaResponse
+ * //   ARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

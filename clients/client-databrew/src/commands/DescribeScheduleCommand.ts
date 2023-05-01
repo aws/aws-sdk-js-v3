@@ -44,22 +44,21 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * };
  * const command = new DescribeScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScheduleResponse
- *   CreateDate: new Date("TIMESTAMP"),
- *   CreatedBy: "STRING_VALUE",
- *   JobNames: [ // JobNameList
- *     "STRING_VALUE",
- *   ],
- *   LastModifiedBy: "STRING_VALUE",
- *   LastModifiedDate: new Date("TIMESTAMP"),
- *   ResourceArn: "STRING_VALUE",
- *   CronExpression: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // DescribeScheduleResponse
+ * //   CreateDate: new Date("TIMESTAMP"),
+ * //   CreatedBy: "STRING_VALUE",
+ * //   JobNames: [ // JobNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LastModifiedBy: "STRING_VALUE",
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   ResourceArn: "STRING_VALUE",
+ * //   CronExpression: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

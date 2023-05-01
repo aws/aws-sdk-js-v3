@@ -52,8 +52,7 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateRepositoryDescriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

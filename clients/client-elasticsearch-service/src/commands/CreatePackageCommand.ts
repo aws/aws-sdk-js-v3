@@ -54,23 +54,22 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePackageResponse
- *   PackageDetails: { // PackageDetails
- *     PackageID: "STRING_VALUE",
- *     PackageName: "STRING_VALUE",
- *     PackageType: "TXT-DICTIONARY",
- *     PackageDescription: "STRING_VALUE",
- *     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     AvailablePackageVersion: "STRING_VALUE",
- *     ErrorDetails: { // ErrorDetails
- *       ErrorType: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreatePackageResponse
+ * //   PackageDetails: { // PackageDetails
+ * //     PackageID: "STRING_VALUE",
+ * //     PackageName: "STRING_VALUE",
+ * //     PackageType: "TXT-DICTIONARY",
+ * //     PackageDescription: "STRING_VALUE",
+ * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     AvailablePackageVersion: "STRING_VALUE",
+ * //     ErrorDetails: { // ErrorDetails
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

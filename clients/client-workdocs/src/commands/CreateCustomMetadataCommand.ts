@@ -54,8 +54,7 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * };
  * const command = new CreateCustomMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * };
  * const command = new DeleteAnomalyMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

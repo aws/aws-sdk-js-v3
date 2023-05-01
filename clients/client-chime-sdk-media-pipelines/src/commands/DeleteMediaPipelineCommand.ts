@@ -48,8 +48,7 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMediaPipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

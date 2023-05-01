@@ -44,16 +44,15 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  * };
  * const command = new GetAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessLogSubscriptionResponse
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
- *   destinationArn: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   lastUpdatedAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetAccessLogSubscriptionResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   resourceId: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   destinationArn: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

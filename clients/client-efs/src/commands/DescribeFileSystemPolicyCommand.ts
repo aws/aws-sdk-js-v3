@@ -45,11 +45,10 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * };
  * const command = new DescribeFileSystemPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FileSystemPolicyDescription
- *   FileSystemId: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // FileSystemPolicyDescription
+ * //   FileSystemId: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,10 +51,9 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * };
  * const command = new CreateSavingsPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSavingsPlanResponse
- *   savingsPlanId: "STRING_VALUE",
- * };
+ * // { // CreateSavingsPlanResponse
+ * //   savingsPlanId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

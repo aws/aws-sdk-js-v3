@@ -52,31 +52,30 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * };
  * const command = new BatchGetVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetVpcEndpointResponse
- *   vpcEndpointDetails: [ // VpcEndpointDetails
- *     { // VpcEndpointDetail
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       vpcId: "STRING_VALUE",
- *       subnetIds: [ // SubnetIds
- *         "STRING_VALUE",
- *       ],
- *       securityGroupIds: [ // SecurityGroupIds
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE",
- *       createdDate: Number("long"),
- *     },
- *   ],
- *   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails
- *     { // VpcEndpointErrorDetail
- *       id: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetVpcEndpointResponse
+ * //   vpcEndpointDetails: [ // VpcEndpointDetails
+ * //     { // VpcEndpointDetail
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       vpcId: "STRING_VALUE",
+ * //       subnetIds: [ // SubnetIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroupIds: [ // SecurityGroupIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   vpcEndpointErrorDetails: [ // VpcEndpointErrorDetails
+ * //     { // VpcEndpointErrorDetail
+ * //       id: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

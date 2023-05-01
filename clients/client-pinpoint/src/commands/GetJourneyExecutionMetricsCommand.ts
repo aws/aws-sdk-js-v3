@@ -47,17 +47,16 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * };
  * const command = new GetJourneyExecutionMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJourneyExecutionMetricsResponse
- *   JourneyExecutionMetricsResponse: { // JourneyExecutionMetricsResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     JourneyId: "STRING_VALUE", // required
- *     LastEvaluatedTime: "STRING_VALUE", // required
- *     Metrics: { // MapOf__string // required
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetJourneyExecutionMetricsResponse
+ * //   JourneyExecutionMetricsResponse: { // JourneyExecutionMetricsResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     JourneyId: "STRING_VALUE", // required
+ * //     LastEvaluatedTime: "STRING_VALUE", // required
+ * //     Metrics: { // MapOf__string // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

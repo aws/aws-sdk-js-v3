@@ -46,8 +46,7 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * };
  * const command = new DeleteCidrCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

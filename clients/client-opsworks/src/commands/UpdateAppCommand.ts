@@ -86,8 +86,7 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

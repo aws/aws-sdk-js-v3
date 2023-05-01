@@ -65,10 +65,9 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * };
  * const command = new CreateIpGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIpGroupResult
- *   GroupId: "STRING_VALUE",
- * };
+ * // { // CreateIpGroupResult
+ * //   GroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

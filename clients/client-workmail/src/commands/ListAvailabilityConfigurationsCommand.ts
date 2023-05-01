@@ -51,25 +51,24 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * };
  * const command = new ListAvailabilityConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailabilityConfigurationsResponse
- *   AvailabilityConfigurations: [ // AvailabilityConfigurationList
- *     { // AvailabilityConfiguration
- *       DomainName: "STRING_VALUE",
- *       ProviderType: "EWS" || "LAMBDA",
- *       EwsProvider: { // RedactedEwsAvailabilityProvider
- *         EwsEndpoint: "STRING_VALUE",
- *         EwsUsername: "STRING_VALUE",
- *       },
- *       LambdaProvider: { // LambdaAvailabilityProvider
- *         LambdaArn: "STRING_VALUE", // required
- *       },
- *       DateCreated: new Date("TIMESTAMP"),
- *       DateModified: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAvailabilityConfigurationsResponse
+ * //   AvailabilityConfigurations: [ // AvailabilityConfigurationList
+ * //     { // AvailabilityConfiguration
+ * //       DomainName: "STRING_VALUE",
+ * //       ProviderType: "EWS" || "LAMBDA",
+ * //       EwsProvider: { // RedactedEwsAvailabilityProvider
+ * //         EwsEndpoint: "STRING_VALUE",
+ * //         EwsUsername: "STRING_VALUE",
+ * //       },
+ * //       LambdaProvider: { // LambdaAvailabilityProvider
+ * //         LambdaArn: "STRING_VALUE", // required
+ * //       },
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

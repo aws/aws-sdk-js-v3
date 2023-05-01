@@ -52,16 +52,15 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * };
  * const command = new BatchEnableAlarmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchEnableAlarmResponse
- *   errorEntries: [ // BatchAlarmActionErrorEntries
- *     { // BatchAlarmActionErrorEntry
- *       requestId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchEnableAlarmResponse
+ * //   errorEntries: [ // BatchAlarmActionErrorEntries
+ * //     { // BatchAlarmActionErrorEntry
+ * //       requestId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

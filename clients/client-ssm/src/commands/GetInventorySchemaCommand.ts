@@ -49,23 +49,22 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * };
  * const command = new GetInventorySchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInventorySchemaResult
- *   Schemas: [ // InventoryItemSchemaResultList
- *     { // InventoryItemSchema
- *       TypeName: "STRING_VALUE", // required
- *       Version: "STRING_VALUE",
- *       Attributes: [ // InventoryItemAttributeList // required
- *         { // InventoryItemAttribute
- *           Name: "STRING_VALUE", // required
- *           DataType: "string" || "number", // required
- *         },
- *       ],
- *       DisplayName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInventorySchemaResult
+ * //   Schemas: [ // InventoryItemSchemaResultList
+ * //     { // InventoryItemSchema
+ * //       TypeName: "STRING_VALUE", // required
+ * //       Version: "STRING_VALUE",
+ * //       Attributes: [ // InventoryItemAttributeList // required
+ * //         { // InventoryItemAttribute
+ * //           Name: "STRING_VALUE", // required
+ * //           DataType: "string" || "number", // required
+ * //         },
+ * //       ],
+ * //       DisplayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

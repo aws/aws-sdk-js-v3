@@ -46,11 +46,10 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  * };
  * const command = new UpgradeAppliedSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpgradeAppliedSchemaResponse
- *   UpgradedSchemaArn: "STRING_VALUE",
- *   DirectoryArn: "STRING_VALUE",
- * };
+ * // { // UpgradeAppliedSchemaResponse
+ * //   UpgradedSchemaArn: "STRING_VALUE",
+ * //   DirectoryArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

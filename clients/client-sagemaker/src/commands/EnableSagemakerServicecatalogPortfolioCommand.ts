@@ -52,8 +52,7 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * const input = {};
  * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

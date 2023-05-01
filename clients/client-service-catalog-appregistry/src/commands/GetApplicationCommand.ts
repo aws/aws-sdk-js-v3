@@ -66,26 +66,25 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- *   lastUpdateTime: new Date("TIMESTAMP"),
- *   associatedResourceCount: Number("int"),
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   integrations: { // Integrations
- *     resourceGroup: { // ResourceGroup
- *       state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
- *       arn: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetApplicationResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastUpdateTime: new Date("TIMESTAMP"),
+ * //   associatedResourceCount: Number("int"),
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   integrations: { // Integrations
+ * //     resourceGroup: { // ResourceGroup
+ * //       state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //       arn: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -60,8 +60,7 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterGameServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

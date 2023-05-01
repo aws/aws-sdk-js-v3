@@ -50,16 +50,15 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * };
  * const command = new ListVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVpcEndpointAccessResponse
- *   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
- *     { // AuthorizedPrincipal
- *       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
- *       Principal: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE", // required
- * };
+ * // { // ListVpcEndpointAccessResponse
+ * //   AuthorizedPrincipalList: [ // AuthorizedPrincipalList // required
+ * //     { // AuthorizedPrincipal
+ * //       PrincipalType: "AWS_ACCOUNT" || "AWS_SERVICE",
+ * //       Principal: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

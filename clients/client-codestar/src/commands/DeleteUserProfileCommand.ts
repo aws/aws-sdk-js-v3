@@ -46,10 +46,9 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * };
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteUserProfileResult
- *   userArn: "STRING_VALUE", // required
- * };
+ * // { // DeleteUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

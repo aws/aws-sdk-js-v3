@@ -92,10 +92,9 @@ export interface CreateRotationCommandOutput extends CreateRotationResult, __Met
  * };
  * const command = new CreateRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRotationResult
- *   RotationArn: "STRING_VALUE", // required
- * };
+ * // { // CreateRotationResult
+ * //   RotationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

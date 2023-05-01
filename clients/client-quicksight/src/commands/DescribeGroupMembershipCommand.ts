@@ -49,15 +49,14 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * };
  * const command = new DescribeGroupMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGroupMembershipResponse
- *   GroupMember: { // GroupMember
- *     Arn: "STRING_VALUE",
- *     MemberName: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeGroupMembershipResponse
+ * //   GroupMember: { // GroupMember
+ * //     Arn: "STRING_VALUE",
+ * //     MemberName: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

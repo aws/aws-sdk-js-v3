@@ -45,8 +45,7 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * };
  * const command = new DeregisterResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

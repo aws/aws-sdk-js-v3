@@ -45,8 +45,7 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * };
  * const command = new DeleteGameSessionQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

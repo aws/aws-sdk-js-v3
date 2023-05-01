@@ -51,16 +51,15 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * };
  * const command = new DetectSentimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectSentimentResponse
- *   Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
- *   SentimentScore: { // SentimentScore
- *     Positive: Number("float"),
- *     Negative: Number("float"),
- *     Neutral: Number("float"),
- *     Mixed: Number("float"),
- *   },
- * };
+ * // { // DetectSentimentResponse
+ * //   Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ * //   SentimentScore: { // SentimentScore
+ * //     Positive: Number("float"),
+ * //     Negative: Number("float"),
+ * //     Neutral: Number("float"),
+ * //     Mixed: Number("float"),
+ * //   },
+ * // };
  *
  * ```
  *

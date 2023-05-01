@@ -69,11 +69,10 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * };
  * const command = new CreateRoutingProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoutingProfileResponse
- *   RoutingProfileArn: "STRING_VALUE",
- *   RoutingProfileId: "STRING_VALUE",
- * };
+ * // { // CreateRoutingProfileResponse
+ * //   RoutingProfileArn: "STRING_VALUE",
+ * //   RoutingProfileId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

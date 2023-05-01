@@ -53,22 +53,21 @@ export interface ListIntegrationAssociationsCommandOutput
  * };
  * const command = new ListIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIntegrationAssociationsResponse
- *   IntegrationAssociationSummaryList: [ // IntegrationAssociationSummaryList
- *     { // IntegrationAssociationSummary
- *       IntegrationAssociationId: "STRING_VALUE",
- *       IntegrationAssociationArn: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
- *       IntegrationArn: "STRING_VALUE",
- *       SourceApplicationUrl: "STRING_VALUE",
- *       SourceApplicationName: "STRING_VALUE",
- *       SourceType: "SALESFORCE" || "ZENDESK",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIntegrationAssociationsResponse
+ * //   IntegrationAssociationSummaryList: [ // IntegrationAssociationSummaryList
+ * //     { // IntegrationAssociationSummary
+ * //       IntegrationAssociationId: "STRING_VALUE",
+ * //       IntegrationAssociationArn: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
+ * //       IntegrationArn: "STRING_VALUE",
+ * //       SourceApplicationUrl: "STRING_VALUE",
+ * //       SourceApplicationName: "STRING_VALUE",
+ * //       SourceType: "SALESFORCE" || "ZENDESK",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

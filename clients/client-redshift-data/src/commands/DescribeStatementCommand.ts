@@ -49,47 +49,46 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * };
  * const command = new DescribeStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStatementResponse
- *   Id: "STRING_VALUE", // required
- *   SecretArn: "STRING_VALUE",
- *   DbUser: "STRING_VALUE",
- *   Database: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE",
- *   Duration: Number("long"),
- *   Error: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   UpdatedAt: new Date("TIMESTAMP"),
- *   RedshiftPid: Number("long"),
- *   HasResultSet: true || false,
- *   QueryString: "STRING_VALUE",
- *   ResultRows: Number("long"),
- *   ResultSize: Number("long"),
- *   RedshiftQueryId: Number("long"),
- *   QueryParameters: [ // SqlParametersList
- *     { // SqlParameter
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *     },
- *   ],
- *   SubStatements: [ // SubStatementList
- *     { // SubStatementData
- *       Id: "STRING_VALUE", // required
- *       Duration: Number("long"),
- *       Error: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       QueryString: "STRING_VALUE",
- *       ResultRows: Number("long"),
- *       ResultSize: Number("long"),
- *       RedshiftQueryId: Number("long"),
- *       HasResultSet: true || false,
- *     },
- *   ],
- *   WorkgroupName: "STRING_VALUE",
- * };
+ * // { // DescribeStatementResponse
+ * //   Id: "STRING_VALUE", // required
+ * //   SecretArn: "STRING_VALUE",
+ * //   DbUser: "STRING_VALUE",
+ * //   Database: "STRING_VALUE",
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   Duration: Number("long"),
+ * //   Error: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   RedshiftPid: Number("long"),
+ * //   HasResultSet: true || false,
+ * //   QueryString: "STRING_VALUE",
+ * //   ResultRows: Number("long"),
+ * //   ResultSize: Number("long"),
+ * //   RedshiftQueryId: Number("long"),
+ * //   QueryParameters: [ // SqlParametersList
+ * //     { // SqlParameter
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   SubStatements: [ // SubStatementList
+ * //     { // SubStatementData
+ * //       Id: "STRING_VALUE", // required
+ * //       Duration: Number("long"),
+ * //       Error: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       QueryString: "STRING_VALUE",
+ * //       ResultRows: Number("long"),
+ * //       ResultSize: Number("long"),
+ * //       RedshiftQueryId: Number("long"),
+ * //       HasResultSet: true || false,
+ * //     },
+ * //   ],
+ * //   WorkgroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

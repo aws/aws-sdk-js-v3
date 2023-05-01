@@ -47,25 +47,24 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplateVersionsResponse
- *   TemplateVersionsResponse: { // TemplateVersionsResponse
- *     Item: [ // ListOfTemplateVersionResponse // required
- *       { // TemplateVersionResponse
- *         CreationDate: "STRING_VALUE", // required
- *         DefaultSubstitutions: "STRING_VALUE",
- *         LastModifiedDate: "STRING_VALUE", // required
- *         TemplateDescription: "STRING_VALUE",
- *         TemplateName: "STRING_VALUE", // required
- *         TemplateType: "STRING_VALUE", // required
- *         Version: "STRING_VALUE",
- *       },
- *     ],
- *     Message: "STRING_VALUE",
- *     NextToken: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // ListTemplateVersionsResponse
+ * //   TemplateVersionsResponse: { // TemplateVersionsResponse
+ * //     Item: [ // ListOfTemplateVersionResponse // required
+ * //       { // TemplateVersionResponse
+ * //         CreationDate: "STRING_VALUE", // required
+ * //         DefaultSubstitutions: "STRING_VALUE",
+ * //         LastModifiedDate: "STRING_VALUE", // required
+ * //         TemplateDescription: "STRING_VALUE",
+ * //         TemplateName: "STRING_VALUE", // required
+ * //         TemplateType: "STRING_VALUE", // required
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Message: "STRING_VALUE",
+ * //     NextToken: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

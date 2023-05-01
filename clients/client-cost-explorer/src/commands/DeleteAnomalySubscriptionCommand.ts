@@ -44,8 +44,7 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

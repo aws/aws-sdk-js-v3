@@ -62,8 +62,7 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * };
  * const command = new CreateDataCellsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

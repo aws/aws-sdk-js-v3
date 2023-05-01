@@ -49,18 +49,17 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppResponse
- *   ApplicationResponse: { // ApplicationResponse
- *     Arn: "STRING_VALUE", // required
- *     Id: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     CreationDate: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateAppResponse
+ * //   ApplicationResponse: { // ApplicationResponse
+ * //     Arn: "STRING_VALUE", // required
+ * //     Id: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     tags: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     CreationDate: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

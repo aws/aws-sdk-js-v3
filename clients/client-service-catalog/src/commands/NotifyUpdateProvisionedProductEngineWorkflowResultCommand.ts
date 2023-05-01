@@ -67,8 +67,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput
  * };
  * const command = new NotifyUpdateProvisionedProductEngineWorkflowResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

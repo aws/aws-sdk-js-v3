@@ -56,12 +56,11 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * };
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGrantVersionResponse
- *   GrantArn: "STRING_VALUE",
- *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateGrantVersionResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

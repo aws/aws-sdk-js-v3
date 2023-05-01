@@ -52,21 +52,20 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * };
  * const command = new DescribeDeliveryChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeliveryChannelsResponse
- *   DeliveryChannels: [ // DeliveryChannelList
- *     { // DeliveryChannel
- *       name: "STRING_VALUE",
- *       s3BucketName: "STRING_VALUE",
- *       s3KeyPrefix: "STRING_VALUE",
- *       s3KmsKeyArn: "STRING_VALUE",
- *       snsTopicARN: "STRING_VALUE",
- *       configSnapshotDeliveryProperties: { // ConfigSnapshotDeliveryProperties
- *         deliveryFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeDeliveryChannelsResponse
+ * //   DeliveryChannels: [ // DeliveryChannelList
+ * //     { // DeliveryChannel
+ * //       name: "STRING_VALUE",
+ * //       s3BucketName: "STRING_VALUE",
+ * //       s3KeyPrefix: "STRING_VALUE",
+ * //       s3KmsKeyArn: "STRING_VALUE",
+ * //       snsTopicARN: "STRING_VALUE",
+ * //       configSnapshotDeliveryProperties: { // ConfigSnapshotDeliveryProperties
+ * //         deliveryFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

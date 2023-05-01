@@ -47,19 +47,18 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * };
  * const command = new DescribePackageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePackageVersionResponse
- *   OwnerAccount: "STRING_VALUE",
- *   PackageId: "STRING_VALUE", // required
- *   PackageArn: "STRING_VALUE",
- *   PackageName: "STRING_VALUE", // required
- *   PackageVersion: "STRING_VALUE", // required
- *   PatchVersion: "STRING_VALUE", // required
- *   IsLatestPatch: true || false, // required
- *   Status: "STRING_VALUE", // required
- *   StatusDescription: "STRING_VALUE",
- *   RegisteredTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribePackageVersionResponse
+ * //   OwnerAccount: "STRING_VALUE",
+ * //   PackageId: "STRING_VALUE", // required
+ * //   PackageArn: "STRING_VALUE",
+ * //   PackageName: "STRING_VALUE", // required
+ * //   PackageVersion: "STRING_VALUE", // required
+ * //   PatchVersion: "STRING_VALUE", // required
+ * //   IsLatestPatch: true || false, // required
+ * //   Status: "STRING_VALUE", // required
+ * //   StatusDescription: "STRING_VALUE",
+ * //   RegisteredTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

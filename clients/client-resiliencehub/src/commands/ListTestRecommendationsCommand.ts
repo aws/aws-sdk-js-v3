@@ -46,34 +46,33 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * };
  * const command = new ListTestRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTestRecommendationsResponse
- *   nextToken: "STRING_VALUE",
- *   testRecommendations: [ // TestRecommendationList // required
- *     { // TestRecommendation
- *       recommendationId: "STRING_VALUE",
- *       referenceId: "STRING_VALUE", // required
- *       appComponentName: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       intent: "STRING_VALUE",
- *       risk: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       items: [ // RecommendationItemList
- *         { // RecommendationItem
- *           resourceId: "STRING_VALUE",
- *           targetAccountId: "STRING_VALUE",
- *           targetRegion: "STRING_VALUE",
- *           alreadyImplemented: true || false,
- *         },
- *       ],
- *       prerequisite: "STRING_VALUE",
- *       dependsOnAlarms: [ // AlarmReferenceIdList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListTestRecommendationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   testRecommendations: [ // TestRecommendationList // required
+ * //     { // TestRecommendation
+ * //       recommendationId: "STRING_VALUE",
+ * //       referenceId: "STRING_VALUE", // required
+ * //       appComponentName: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       intent: "STRING_VALUE",
+ * //       risk: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       items: [ // RecommendationItemList
+ * //         { // RecommendationItem
+ * //           resourceId: "STRING_VALUE",
+ * //           targetAccountId: "STRING_VALUE",
+ * //           targetRegion: "STRING_VALUE",
+ * //           alreadyImplemented: true || false,
+ * //         },
+ * //       ],
+ * //       prerequisite: "STRING_VALUE",
+ * //       dependsOnAlarms: [ // AlarmReferenceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

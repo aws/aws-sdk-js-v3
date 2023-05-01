@@ -73,14 +73,13 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * };
  * const command = new DescribeConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationsResponse
- *   configurations: [ // DescribeConfigurationsAttributes
- *     { // DescribeConfigurationsAttribute
- *       "<keys>": "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeConfigurationsResponse
+ * //   configurations: [ // DescribeConfigurationsAttributes
+ * //     { // DescribeConfigurationsAttribute
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

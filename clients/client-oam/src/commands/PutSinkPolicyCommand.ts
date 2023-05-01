@@ -68,12 +68,11 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * };
  * const command = new PutSinkPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSinkPolicyOutput
- *   SinkArn: "STRING_VALUE",
- *   SinkId: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // PutSinkPolicyOutput
+ * //   SinkArn: "STRING_VALUE",
+ * //   SinkId: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

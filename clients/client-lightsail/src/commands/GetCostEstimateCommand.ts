@@ -46,34 +46,33 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * };
  * const command = new GetCostEstimateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCostEstimateResult
- *   resourcesBudgetEstimate: [ // ResourcesBudgetEstimate
- *     { // ResourceBudgetEstimate
- *       resourceName: "STRING_VALUE",
- *       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
- *       costEstimates: [ // CostEstimates
- *         { // CostEstimate
- *           usageType: "STRING_VALUE",
- *           resultsByTime: [ // EstimatesByTime
- *             { // EstimateByTime
- *               usageCost: Number("double"),
- *               pricingUnit: "GB" || "Hrs" || "GB-Mo" || "Bundles" || "Queries",
- *               unit: Number("double"),
- *               currency: "USD",
- *               timePeriod: { // TimePeriod
- *                 start: new Date("TIMESTAMP"),
- *                 end: new Date("TIMESTAMP"),
- *               },
- *             },
- *           ],
- *         },
- *       ],
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // GetCostEstimateResult
+ * //   resourcesBudgetEstimate: [ // ResourcesBudgetEstimate
+ * //     { // ResourceBudgetEstimate
+ * //       resourceName: "STRING_VALUE",
+ * //       resourceType: "ContainerService" || "Instance" || "StaticIp" || "KeyPair" || "InstanceSnapshot" || "Domain" || "PeeredVpc" || "LoadBalancer" || "LoadBalancerTlsCertificate" || "Disk" || "DiskSnapshot" || "RelationalDatabase" || "RelationalDatabaseSnapshot" || "ExportSnapshotRecord" || "CloudFormationStackRecord" || "Alarm" || "ContactMethod" || "Distribution" || "Certificate" || "Bucket",
+ * //       costEstimates: [ // CostEstimates
+ * //         { // CostEstimate
+ * //           usageType: "STRING_VALUE",
+ * //           resultsByTime: [ // EstimatesByTime
+ * //             { // EstimateByTime
+ * //               usageCost: Number("double"),
+ * //               pricingUnit: "GB" || "Hrs" || "GB-Mo" || "Bundles" || "Queries",
+ * //               unit: Number("double"),
+ * //               currency: "USD",
+ * //               timePeriod: { // TimePeriod
+ * //                 start: new Date("TIMESTAMP"),
+ * //                 end: new Date("TIMESTAMP"),
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

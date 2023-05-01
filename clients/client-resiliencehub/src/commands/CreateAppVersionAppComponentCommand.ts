@@ -61,21 +61,20 @@ export interface CreateAppVersionAppComponentCommandOutput
  * };
  * const command = new CreateAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppVersionAppComponentResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appComponent: { // AppComponent
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     id: "STRING_VALUE",
- *     additionalInfo: { // AdditionalInfoMap
- *       "<keys>": [ // AdditionalInfoValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // CreateAppVersionAppComponentResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appComponent: { // AppComponent
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE",
+ * //     additionalInfo: { // AdditionalInfoMap
+ * //       "<keys>": [ // AdditionalInfoValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

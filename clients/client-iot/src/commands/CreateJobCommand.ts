@@ -110,12 +110,11 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobResponse
- *   jobArn: "STRING_VALUE",
- *   jobId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- * };
+ * // { // CreateJobResponse
+ * //   jobArn: "STRING_VALUE",
+ * //   jobId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopDataSourceSyncJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

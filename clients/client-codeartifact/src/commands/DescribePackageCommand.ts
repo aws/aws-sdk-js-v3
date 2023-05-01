@@ -51,20 +51,19 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePackageResult
- *   package: { // PackageDescription
- *     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *     namespace: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     originConfiguration: { // PackageOriginConfiguration
- *       restrictions: { // PackageOriginRestrictions
- *         publish: "ALLOW" || "BLOCK", // required
- *         upstream: "ALLOW" || "BLOCK", // required
- *       },
- *     },
- *   },
- * };
+ * // { // DescribePackageResult
+ * //   package: { // PackageDescription
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //     namespace: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     originConfiguration: { // PackageOriginConfiguration
+ * //       restrictions: { // PackageOriginRestrictions
+ * //         publish: "ALLOW" || "BLOCK", // required
+ * //         upstream: "ALLOW" || "BLOCK", // required
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

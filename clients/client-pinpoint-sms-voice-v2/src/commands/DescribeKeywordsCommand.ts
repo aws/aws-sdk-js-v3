@@ -68,19 +68,18 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * };
  * const command = new DescribeKeywordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeKeywordsResult
- *   OriginationIdentityArn: "STRING_VALUE",
- *   OriginationIdentity: "STRING_VALUE",
- *   Keywords: [ // KeywordInformationList
- *     { // KeywordInformation
- *       Keyword: "STRING_VALUE", // required
- *       KeywordMessage: "STRING_VALUE", // required
- *       KeywordAction: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeKeywordsResult
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   Keywords: [ // KeywordInformationList
+ * //     { // KeywordInformation
+ * //       Keyword: "STRING_VALUE", // required
+ * //       KeywordMessage: "STRING_VALUE", // required
+ * //       KeywordAction: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

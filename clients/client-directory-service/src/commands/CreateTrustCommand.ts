@@ -58,10 +58,9 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * };
  * const command = new CreateTrustCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrustResult
- *   TrustId: "STRING_VALUE",
- * };
+ * // { // CreateTrustResult
+ * //   TrustId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

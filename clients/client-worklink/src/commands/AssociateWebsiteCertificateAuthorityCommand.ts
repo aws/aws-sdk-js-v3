@@ -57,10 +57,9 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * };
  * const command = new AssociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateWebsiteCertificateAuthorityResponse
- *   WebsiteCaId: "STRING_VALUE",
- * };
+ * // { // AssociateWebsiteCertificateAuthorityResponse
+ * //   WebsiteCaId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,15 +46,14 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * };
  * const command = new GetAccessKeyLastUsedCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessKeyLastUsedResponse
- *   UserName: "STRING_VALUE",
- *   AccessKeyLastUsed: { // AccessKeyLastUsed
- *     LastUsedDate: new Date("TIMESTAMP"), // required
- *     ServiceName: "STRING_VALUE", // required
- *     Region: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetAccessKeyLastUsedResponse
+ * //   UserName: "STRING_VALUE",
+ * //   AccessKeyLastUsed: { // AccessKeyLastUsed
+ * //     LastUsedDate: new Date("TIMESTAMP"), // required
+ * //     ServiceName: "STRING_VALUE", // required
+ * //     Region: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

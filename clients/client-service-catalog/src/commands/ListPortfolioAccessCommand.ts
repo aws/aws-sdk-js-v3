@@ -49,13 +49,12 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * };
  * const command = new ListPortfolioAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPortfolioAccessOutput
- *   AccountIds: [ // AccountIds
- *     "STRING_VALUE",
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListPortfolioAccessOutput
+ * //   AccountIds: [ // AccountIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

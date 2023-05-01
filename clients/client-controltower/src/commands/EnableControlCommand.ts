@@ -47,10 +47,9 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * };
  * const command = new EnableControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableControlOutput
- *   operationIdentifier: "STRING_VALUE", // required
- * };
+ * // { // EnableControlOutput
+ * //   operationIdentifier: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

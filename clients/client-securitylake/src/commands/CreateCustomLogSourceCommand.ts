@@ -52,14 +52,13 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * };
  * const command = new CreateCustomLogSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomLogSourceResponse
- *   customDataLocation: "STRING_VALUE", // required
- *   glueCrawlerName: "STRING_VALUE", // required
- *   glueTableName: "STRING_VALUE", // required
- *   glueDatabaseName: "STRING_VALUE", // required
- *   logProviderAccessRoleArn: "STRING_VALUE", // required
- * };
+ * // { // CreateCustomLogSourceResponse
+ * //   customDataLocation: "STRING_VALUE", // required
+ * //   glueCrawlerName: "STRING_VALUE", // required
+ * //   glueTableName: "STRING_VALUE", // required
+ * //   glueDatabaseName: "STRING_VALUE", // required
+ * //   logProviderAccessRoleArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

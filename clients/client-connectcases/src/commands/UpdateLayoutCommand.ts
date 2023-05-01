@@ -86,8 +86,7 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * };
  * const command = new UpdateLayoutCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

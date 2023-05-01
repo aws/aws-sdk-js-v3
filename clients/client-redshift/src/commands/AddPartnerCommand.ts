@@ -49,11 +49,10 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * };
  * const command = new AddPartnerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PartnerIntegrationOutputMessage
- *   DatabaseName: "STRING_VALUE",
- *   PartnerName: "STRING_VALUE",
- * };
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,11 +53,10 @@ export interface SetDefaultPermissionVersionCommandOutput
  * };
  * const command = new SetDefaultPermissionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetDefaultPermissionVersionResponse
- *   returnValue: true || false,
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // SetDefaultPermissionVersionResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

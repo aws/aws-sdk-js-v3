@@ -65,34 +65,33 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * };
  * const command = new GetBucketWebsiteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketWebsiteOutput
- *   RedirectAllRequestsTo: { // RedirectAllRequestsTo
- *     HostName: "STRING_VALUE", // required
- *     Protocol: "http" || "https",
- *   },
- *   IndexDocument: { // IndexDocument
- *     Suffix: "STRING_VALUE", // required
- *   },
- *   ErrorDocument: { // ErrorDocument
- *     Key: "STRING_VALUE", // required
- *   },
- *   RoutingRules: [ // RoutingRules
- *     { // RoutingRule
- *       Condition: { // Condition
- *         HttpErrorCodeReturnedEquals: "STRING_VALUE",
- *         KeyPrefixEquals: "STRING_VALUE",
- *       },
- *       Redirect: { // Redirect
- *         HostName: "STRING_VALUE",
- *         HttpRedirectCode: "STRING_VALUE",
- *         Protocol: "http" || "https",
- *         ReplaceKeyPrefixWith: "STRING_VALUE",
- *         ReplaceKeyWith: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetBucketWebsiteOutput
+ * //   RedirectAllRequestsTo: { // RedirectAllRequestsTo
+ * //     HostName: "STRING_VALUE", // required
+ * //     Protocol: "http" || "https",
+ * //   },
+ * //   IndexDocument: { // IndexDocument
+ * //     Suffix: "STRING_VALUE", // required
+ * //   },
+ * //   ErrorDocument: { // ErrorDocument
+ * //     Key: "STRING_VALUE", // required
+ * //   },
+ * //   RoutingRules: [ // RoutingRules
+ * //     { // RoutingRule
+ * //       Condition: { // Condition
+ * //         HttpErrorCodeReturnedEquals: "STRING_VALUE",
+ * //         KeyPrefixEquals: "STRING_VALUE",
+ * //       },
+ * //       Redirect: { // Redirect
+ * //         HostName: "STRING_VALUE",
+ * //         HttpRedirectCode: "STRING_VALUE",
+ * //         Protocol: "http" || "https",
+ * //         ReplaceKeyPrefixWith: "STRING_VALUE",
+ * //         ReplaceKeyWith: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

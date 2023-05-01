@@ -51,11 +51,10 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * };
  * const command = new UpdateStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStorageResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateStorageResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

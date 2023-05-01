@@ -49,8 +49,7 @@ export interface CancelMulticastGroupSessionCommandOutput
  * };
  * const command = new CancelMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

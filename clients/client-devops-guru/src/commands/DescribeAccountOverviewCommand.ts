@@ -47,12 +47,11 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * };
  * const command = new DescribeAccountOverviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountOverviewResponse
- *   ReactiveInsights: Number("int"), // required
- *   ProactiveInsights: Number("int"), // required
- *   MeanTimeToRecoverInMilliseconds: Number("long"), // required
- * };
+ * // { // DescribeAccountOverviewResponse
+ * //   ReactiveInsights: Number("int"), // required
+ * //   ProactiveInsights: Number("int"), // required
+ * //   MeanTimeToRecoverInMilliseconds: Number("long"), // required
+ * // };
  *
  * ```
  *

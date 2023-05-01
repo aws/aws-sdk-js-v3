@@ -69,21 +69,20 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * };
  * const command = new UpdateKeyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateKeyGroupResult
- *   KeyGroup: { // KeyGroup
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     KeyGroupConfig: { // KeyGroupConfig
- *       Name: "STRING_VALUE", // required
- *       Items: [ // PublicKeyIdList // required
- *         "STRING_VALUE",
- *       ],
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // UpdateKeyGroupResult
+ * //   KeyGroup: { // KeyGroup
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     KeyGroupConfig: { // KeyGroupConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Items: [ // PublicKeyIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
  * };
  * const command = new SearchSystemTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchSystemTemplatesResponse
- *   summaries: [ // SystemTemplateSummaries
- *     { // SystemTemplateSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       revisionNumber: Number("long"),
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchSystemTemplatesResponse
+ * //   summaries: [ // SystemTemplateSummaries
+ * //     { // SystemTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,25 +46,24 @@ export interface DeleteVerifiedAccessGroupCommandOutput extends DeleteVerifiedAc
  * };
  * const command = new DeleteVerifiedAccessGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVerifiedAccessGroupResult
- *   VerifiedAccessGroup: { // VerifiedAccessGroup
- *     VerifiedAccessGroupId: "STRING_VALUE",
- *     VerifiedAccessInstanceId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     VerifiedAccessGroupArn: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     LastUpdatedTime: "STRING_VALUE",
- *     DeletionTime: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteVerifiedAccessGroupResult
+ * //   VerifiedAccessGroup: { // VerifiedAccessGroup
+ * //     VerifiedAccessGroupId: "STRING_VALUE",
+ * //     VerifiedAccessInstanceId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     VerifiedAccessGroupArn: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     LastUpdatedTime: "STRING_VALUE",
+ * //     DeletionTime: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

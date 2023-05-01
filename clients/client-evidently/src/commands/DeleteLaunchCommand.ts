@@ -46,8 +46,7 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * };
  * const command = new DeleteLaunchCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

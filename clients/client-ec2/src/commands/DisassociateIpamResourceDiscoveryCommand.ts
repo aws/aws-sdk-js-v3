@@ -50,27 +50,26 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput
  * };
  * const command = new DisassociateIpamResourceDiscoveryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateIpamResourceDiscoveryResult
- *   IpamResourceDiscoveryAssociation: { // IpamResourceDiscoveryAssociation
- *     OwnerId: "STRING_VALUE",
- *     IpamResourceDiscoveryAssociationId: "STRING_VALUE",
- *     IpamResourceDiscoveryAssociationArn: "STRING_VALUE",
- *     IpamResourceDiscoveryId: "STRING_VALUE",
- *     IpamId: "STRING_VALUE",
- *     IpamArn: "STRING_VALUE",
- *     IpamRegion: "STRING_VALUE",
- *     IsDefault: true || false,
- *     ResourceDiscoveryStatus: "active" || "not-found",
- *     State: "associate-in-progress" || "associate-complete" || "associate-failed" || "disassociate-in-progress" || "disassociate-complete" || "disassociate-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DisassociateIpamResourceDiscoveryResult
+ * //   IpamResourceDiscoveryAssociation: { // IpamResourceDiscoveryAssociation
+ * //     OwnerId: "STRING_VALUE",
+ * //     IpamResourceDiscoveryAssociationId: "STRING_VALUE",
+ * //     IpamResourceDiscoveryAssociationArn: "STRING_VALUE",
+ * //     IpamResourceDiscoveryId: "STRING_VALUE",
+ * //     IpamId: "STRING_VALUE",
+ * //     IpamArn: "STRING_VALUE",
+ * //     IpamRegion: "STRING_VALUE",
+ * //     IsDefault: true || false,
+ * //     ResourceDiscoveryStatus: "active" || "not-found",
+ * //     State: "associate-in-progress" || "associate-complete" || "associate-failed" || "disassociate-in-progress" || "disassociate-complete" || "disassociate-failed" || "isolate-in-progress" || "isolate-complete" || "restore-in-progress",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

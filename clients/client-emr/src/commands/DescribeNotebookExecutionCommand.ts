@@ -44,33 +44,32 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * };
  * const command = new DescribeNotebookExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotebookExecutionOutput
- *   NotebookExecution: { // NotebookExecution
- *     NotebookExecutionId: "STRING_VALUE",
- *     EditorId: "STRING_VALUE",
- *     ExecutionEngine: { // ExecutionEngineConfig
- *       Id: "STRING_VALUE", // required
- *       Type: "EMR",
- *       MasterInstanceSecurityGroupId: "STRING_VALUE",
- *     },
- *     NotebookExecutionName: "STRING_VALUE",
- *     NotebookParams: "STRING_VALUE",
- *     Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     Arn: "STRING_VALUE",
- *     OutputNotebookURI: "STRING_VALUE",
- *     LastStateChangeReason: "STRING_VALUE",
- *     NotebookInstanceSecurityGroupId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeNotebookExecutionOutput
+ * //   NotebookExecution: { // NotebookExecution
+ * //     NotebookExecutionId: "STRING_VALUE",
+ * //     EditorId: "STRING_VALUE",
+ * //     ExecutionEngine: { // ExecutionEngineConfig
+ * //       Id: "STRING_VALUE", // required
+ * //       Type: "EMR",
+ * //       MasterInstanceSecurityGroupId: "STRING_VALUE",
+ * //     },
+ * //     NotebookExecutionName: "STRING_VALUE",
+ * //     NotebookParams: "STRING_VALUE",
+ * //     Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     Arn: "STRING_VALUE",
+ * //     OutputNotebookURI: "STRING_VALUE",
+ * //     LastStateChangeReason: "STRING_VALUE",
+ * //     NotebookInstanceSecurityGroupId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

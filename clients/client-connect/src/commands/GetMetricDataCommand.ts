@@ -75,39 +75,38 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricDataResponse
- *   NextToken: "STRING_VALUE",
- *   MetricResults: [ // HistoricalMetricResults
- *     { // HistoricalMetricResult
- *       Dimensions: { // Dimensions
- *         Queue: { // QueueReference
- *           Id: "STRING_VALUE",
- *           Arn: "STRING_VALUE",
- *         },
- *         Channel: "VOICE" || "CHAT" || "TASK",
- *         RoutingProfile: { // RoutingProfileReference
- *           Id: "STRING_VALUE",
- *           Arn: "STRING_VALUE",
- *         },
- *       },
- *       Collections: [ // HistoricalMetricDataCollections
- *         { // HistoricalMetricData
- *           Metric: { // HistoricalMetric
- *             Name: "CONTACTS_QUEUED" || "CONTACTS_HANDLED" || "CONTACTS_ABANDONED" || "CONTACTS_CONSULTED" || "CONTACTS_AGENT_HUNG_UP_FIRST" || "CONTACTS_HANDLED_INCOMING" || "CONTACTS_HANDLED_OUTBOUND" || "CONTACTS_HOLD_ABANDONS" || "CONTACTS_TRANSFERRED_IN" || "CONTACTS_TRANSFERRED_OUT" || "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" || "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" || "CONTACTS_MISSED" || "CALLBACK_CONTACTS_HANDLED" || "API_CONTACTS_HANDLED" || "OCCUPANCY" || "HANDLE_TIME" || "AFTER_CONTACT_WORK_TIME" || "QUEUED_TIME" || "ABANDON_TIME" || "QUEUE_ANSWER_TIME" || "HOLD_TIME" || "INTERACTION_TIME" || "INTERACTION_AND_HOLD_TIME" || "SERVICE_LEVEL",
- *             Threshold: { // Threshold
- *               Comparison: "LT",
- *               ThresholdValue: Number("double"),
- *             },
- *             Statistic: "SUM" || "MAX" || "AVG",
- *             Unit: "SECONDS" || "COUNT" || "PERCENT",
- *           },
- *           Value: Number("double"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetMetricDataResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MetricResults: [ // HistoricalMetricResults
+ * //     { // HistoricalMetricResult
+ * //       Dimensions: { // Dimensions
+ * //         Queue: { // QueueReference
+ * //           Id: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         RoutingProfile: { // RoutingProfileReference
+ * //           Id: "STRING_VALUE",
+ * //           Arn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Collections: [ // HistoricalMetricDataCollections
+ * //         { // HistoricalMetricData
+ * //           Metric: { // HistoricalMetric
+ * //             Name: "CONTACTS_QUEUED" || "CONTACTS_HANDLED" || "CONTACTS_ABANDONED" || "CONTACTS_CONSULTED" || "CONTACTS_AGENT_HUNG_UP_FIRST" || "CONTACTS_HANDLED_INCOMING" || "CONTACTS_HANDLED_OUTBOUND" || "CONTACTS_HOLD_ABANDONS" || "CONTACTS_TRANSFERRED_IN" || "CONTACTS_TRANSFERRED_OUT" || "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" || "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" || "CONTACTS_MISSED" || "CALLBACK_CONTACTS_HANDLED" || "API_CONTACTS_HANDLED" || "OCCUPANCY" || "HANDLE_TIME" || "AFTER_CONTACT_WORK_TIME" || "QUEUED_TIME" || "ABANDON_TIME" || "QUEUE_ANSWER_TIME" || "HOLD_TIME" || "INTERACTION_TIME" || "INTERACTION_AND_HOLD_TIME" || "SERVICE_LEVEL",
+ * //             Threshold: { // Threshold
+ * //               Comparison: "LT",
+ * //               ThresholdValue: Number("double"),
+ * //             },
+ * //             Statistic: "SUM" || "MAX" || "AVG",
+ * //             Unit: "SECONDS" || "COUNT" || "PERCENT",
+ * //           },
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

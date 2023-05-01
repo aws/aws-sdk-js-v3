@@ -50,10 +50,9 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * };
  * const command = new UpdateSMBLocalGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSMBLocalGroupsOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateSMBLocalGroupsOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

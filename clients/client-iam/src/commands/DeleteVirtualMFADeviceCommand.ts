@@ -48,8 +48,7 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVirtualMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

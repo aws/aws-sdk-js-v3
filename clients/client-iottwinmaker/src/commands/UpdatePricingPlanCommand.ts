@@ -47,35 +47,34 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePricingPlanResponse
- *   currentPricingPlan: { // PricingPlan
- *     billableEntityCount: Number("long"),
- *     bundleInformation: { // BundleInformation
- *       bundleNames: [ // PricingBundles // required
- *         "STRING_VALUE",
- *       ],
- *       pricingTier: "STRING_VALUE",
- *     },
- *     effectiveDateTime: new Date("TIMESTAMP"), // required
- *     pricingMode: "STRING_VALUE", // required
- *     updateDateTime: new Date("TIMESTAMP"), // required
- *     updateReason: "STRING_VALUE", // required
- *   },
- *   pendingPricingPlan: {
- *     billableEntityCount: Number("long"),
- *     bundleInformation: {
- *       bundleNames: [ // required
- *         "STRING_VALUE",
- *       ],
- *       pricingTier: "STRING_VALUE",
- *     },
- *     effectiveDateTime: new Date("TIMESTAMP"), // required
- *     pricingMode: "STRING_VALUE", // required
- *     updateDateTime: new Date("TIMESTAMP"), // required
- *     updateReason: "STRING_VALUE", // required
- *   },
- * };
+ * // { // UpdatePricingPlanResponse
+ * //   currentPricingPlan: { // PricingPlan
+ * //     billableEntityCount: Number("long"),
+ * //     bundleInformation: { // BundleInformation
+ * //       bundleNames: [ // PricingBundles // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       pricingTier: "STRING_VALUE",
+ * //     },
+ * //     effectiveDateTime: new Date("TIMESTAMP"), // required
+ * //     pricingMode: "STRING_VALUE", // required
+ * //     updateDateTime: new Date("TIMESTAMP"), // required
+ * //     updateReason: "STRING_VALUE", // required
+ * //   },
+ * //   pendingPricingPlan: {
+ * //     billableEntityCount: Number("long"),
+ * //     bundleInformation: {
+ * //       bundleNames: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       pricingTier: "STRING_VALUE",
+ * //     },
+ * //     effectiveDateTime: new Date("TIMESTAMP"), // required
+ * //     pricingMode: "STRING_VALUE", // required
+ * //     updateDateTime: new Date("TIMESTAMP"), // required
+ * //     updateReason: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

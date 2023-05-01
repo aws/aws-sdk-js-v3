@@ -48,19 +48,18 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * };
  * const command = new ListSubscribedWorkteamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscribedWorkteamsResponse
- *   SubscribedWorkteams: [ // SubscribedWorkteams // required
- *     { // SubscribedWorkteam
- *       WorkteamArn: "STRING_VALUE", // required
- *       MarketplaceTitle: "STRING_VALUE",
- *       SellerName: "STRING_VALUE",
- *       MarketplaceDescription: "STRING_VALUE",
- *       ListingId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSubscribedWorkteamsResponse
+ * //   SubscribedWorkteams: [ // SubscribedWorkteams // required
+ * //     { // SubscribedWorkteam
+ * //       WorkteamArn: "STRING_VALUE", // required
+ * //       MarketplaceTitle: "STRING_VALUE",
+ * //       SellerName: "STRING_VALUE",
+ * //       MarketplaceDescription: "STRING_VALUE",
+ * //       ListingId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

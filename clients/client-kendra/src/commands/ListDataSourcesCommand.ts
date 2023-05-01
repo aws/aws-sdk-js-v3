@@ -46,21 +46,20 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * };
  * const command = new ListDataSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataSourcesResponse
- *   SummaryItems: [ // DataSourceSummaryList
- *     { // DataSourceSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Type: "S3" || "SHAREPOINT" || "DATABASE" || "SALESFORCE" || "ONEDRIVE" || "SERVICENOW" || "CUSTOM" || "CONFLUENCE" || "GOOGLEDRIVE" || "WEBCRAWLER" || "WORKDOCS" || "FSX" || "SLACK" || "BOX" || "QUIP" || "JIRA" || "GITHUB" || "ALFRESCO" || "TEMPLATE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       Status: "CREATING" || "DELETING" || "FAILED" || "UPDATING" || "ACTIVE",
- *       LanguageCode: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataSourcesResponse
+ * //   SummaryItems: [ // DataSourceSummaryList
+ * //     { // DataSourceSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Type: "S3" || "SHAREPOINT" || "DATABASE" || "SALESFORCE" || "ONEDRIVE" || "SERVICENOW" || "CUSTOM" || "CONFLUENCE" || "GOOGLEDRIVE" || "WEBCRAWLER" || "WORKDOCS" || "FSX" || "SLACK" || "BOX" || "QUIP" || "JIRA" || "GITHUB" || "ALFRESCO" || "TEMPLATE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "DELETING" || "FAILED" || "UPDATING" || "ACTIVE",
+ * //       LanguageCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

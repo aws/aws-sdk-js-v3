@@ -55,8 +55,7 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

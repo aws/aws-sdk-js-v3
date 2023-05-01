@@ -67,10 +67,9 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * };
  * const command = new StopPipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopPipelineExecutionResponse
- *   PipelineExecutionArn: "STRING_VALUE",
- * };
+ * // { // StopPipelineExecutionResponse
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

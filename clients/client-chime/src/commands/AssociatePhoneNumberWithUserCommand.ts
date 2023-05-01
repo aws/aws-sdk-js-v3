@@ -55,8 +55,7 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  * };
  * const command = new AssociatePhoneNumberWithUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

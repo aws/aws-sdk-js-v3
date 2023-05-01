@@ -48,23 +48,22 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExecuteQueryResponse
- *   columnDescriptions: [ // ColumnDescriptions
- *     { // ColumnDescription
- *       name: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *     },
- *   ],
- *   rows: [ // Rows
- *     { // Row
- *       rowData: [ // RowData
- *         "DOCUMENT_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ExecuteQueryResponse
+ * //   columnDescriptions: [ // ColumnDescriptions
+ * //     { // ColumnDescription
+ * //       name: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   rows: [ // Rows
+ * //     { // Row
+ * //       rowData: [ // RowData
+ * //         "DOCUMENT_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

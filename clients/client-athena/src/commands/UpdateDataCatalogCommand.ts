@@ -49,8 +49,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * };
  * const command = new UpdateDataCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

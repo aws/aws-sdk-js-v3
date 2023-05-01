@@ -84,51 +84,50 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * };
  * const command = new UpdateProgramCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProgramResponse
- *   AdBreaks: [ // __listOfAdBreak
- *     { // AdBreak
- *       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
- *       OffsetMillis: Number("long"),
- *       Slate: { // SlateSource
- *         SourceLocationName: "STRING_VALUE",
- *         VodSourceName: "STRING_VALUE",
- *       },
- *       SpliceInsertMessage: { // SpliceInsertMessage
- *         AvailNum: Number("int"),
- *         AvailsExpected: Number("int"),
- *         SpliceEventId: Number("int"),
- *         UniqueProgramId: Number("int"),
- *       },
- *       TimeSignalMessage: { // TimeSignalMessage
- *         SegmentationDescriptors: [ // SegmentationDescriptorList
- *           { // SegmentationDescriptor
- *             SegmentationEventId: Number("int"),
- *             SegmentationUpidType: Number("int"),
- *             SegmentationUpid: "STRING_VALUE",
- *             SegmentationTypeId: Number("int"),
- *             SegmentNum: Number("int"),
- *             SegmentsExpected: Number("int"),
- *             SubSegmentNum: Number("int"),
- *             SubSegmentsExpected: Number("int"),
- *           },
- *         ],
- *       },
- *     },
- *   ],
- *   Arn: "STRING_VALUE",
- *   ChannelName: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   ProgramName: "STRING_VALUE",
- *   SourceLocationName: "STRING_VALUE",
- *   VodSourceName: "STRING_VALUE",
- *   LiveSourceName: "STRING_VALUE",
- *   ClipRange: { // ClipRange
- *     EndOffsetMillis: Number("long"), // required
- *   },
- *   DurationMillis: Number("long"),
- *   ScheduledStartTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateProgramResponse
+ * //   AdBreaks: [ // __listOfAdBreak
+ * //     { // AdBreak
+ * //       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
+ * //       OffsetMillis: Number("long"),
+ * //       Slate: { // SlateSource
+ * //         SourceLocationName: "STRING_VALUE",
+ * //         VodSourceName: "STRING_VALUE",
+ * //       },
+ * //       SpliceInsertMessage: { // SpliceInsertMessage
+ * //         AvailNum: Number("int"),
+ * //         AvailsExpected: Number("int"),
+ * //         SpliceEventId: Number("int"),
+ * //         UniqueProgramId: Number("int"),
+ * //       },
+ * //       TimeSignalMessage: { // TimeSignalMessage
+ * //         SegmentationDescriptors: [ // SegmentationDescriptorList
+ * //           { // SegmentationDescriptor
+ * //             SegmentationEventId: Number("int"),
+ * //             SegmentationUpidType: Number("int"),
+ * //             SegmentationUpid: "STRING_VALUE",
+ * //             SegmentationTypeId: Number("int"),
+ * //             SegmentNum: Number("int"),
+ * //             SegmentsExpected: Number("int"),
+ * //             SubSegmentNum: Number("int"),
+ * //             SubSegmentsExpected: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   Arn: "STRING_VALUE",
+ * //   ChannelName: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ProgramName: "STRING_VALUE",
+ * //   SourceLocationName: "STRING_VALUE",
+ * //   VodSourceName: "STRING_VALUE",
+ * //   LiveSourceName: "STRING_VALUE",
+ * //   ClipRange: { // ClipRange
+ * //     EndOffsetMillis: Number("long"), // required
+ * //   },
+ * //   DurationMillis: Number("long"),
+ * //   ScheduledStartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

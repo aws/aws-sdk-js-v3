@@ -50,17 +50,16 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * };
  * const command = new ListPermissionGroupsByUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionGroupsByUserResponse
- *   permissionGroups: [ // PermissionGroupByUserList
- *     { // PermissionGroupByUser
- *       permissionGroupId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       membershipStatus: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionGroupsByUserResponse
+ * //   permissionGroups: [ // PermissionGroupByUserList
+ * //     { // PermissionGroupByUser
+ * //       permissionGroupId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       membershipStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

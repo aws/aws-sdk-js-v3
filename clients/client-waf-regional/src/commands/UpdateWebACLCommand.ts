@@ -148,10 +148,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWebACLResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateWebACLResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,19 +47,18 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRuleResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   ScheduleExpression: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- *   ManagedBy: "STRING_VALUE",
- *   EventBusName: "STRING_VALUE",
- *   CreatedBy: "STRING_VALUE",
- * };
+ * // { // DescribeRuleResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   EventPattern: "STRING_VALUE",
+ * //   ScheduleExpression: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * //   ManagedBy: "STRING_VALUE",
+ * //   EventBusName: "STRING_VALUE",
+ * //   CreatedBy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,18 +48,17 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * };
  * const command = new DescribeCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCacheOutput
- *   GatewayARN: "STRING_VALUE",
- *   DiskIds: [ // DiskIds
- *     "STRING_VALUE",
- *   ],
- *   CacheAllocatedInBytes: Number("long"),
- *   CacheUsedPercentage: Number("double"),
- *   CacheDirtyPercentage: Number("double"),
- *   CacheHitPercentage: Number("double"),
- *   CacheMissPercentage: Number("double"),
- * };
+ * // { // DescribeCacheOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   DiskIds: [ // DiskIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CacheAllocatedInBytes: Number("long"),
+ * //   CacheUsedPercentage: Number("double"),
+ * //   CacheDirtyPercentage: Number("double"),
+ * //   CacheHitPercentage: Number("double"),
+ * //   CacheMissPercentage: Number("double"),
+ * // };
  *
  * ```
  *

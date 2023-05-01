@@ -63,26 +63,25 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
  * };
  * const command = new DescribeTransitGatewayRouteTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayRouteTablesResult
- *   TransitGatewayRouteTables: [ // TransitGatewayRouteTableList
- *     { // TransitGatewayRouteTable
- *       TransitGatewayRouteTableId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       DefaultAssociationRouteTable: true || false,
- *       DefaultPropagationRouteTable: true || false,
- *       CreationTime: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayRouteTablesResult
+ * //   TransitGatewayRouteTables: [ // TransitGatewayRouteTableList
+ * //     { // TransitGatewayRouteTable
+ * //       TransitGatewayRouteTableId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       DefaultAssociationRouteTable: true || false,
+ * //       DefaultPropagationRouteTable: true || false,
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

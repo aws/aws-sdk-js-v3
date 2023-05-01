@@ -63,32 +63,31 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAddressesResult
- *   Addresses: [ // AddressList
- *     { // Address
- *       InstanceId: "STRING_VALUE",
- *       PublicIp: "STRING_VALUE",
- *       AllocationId: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       Domain: "vpc" || "standard",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       NetworkInterfaceOwnerId: "STRING_VALUE",
- *       PrivateIpAddress: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       PublicIpv4Pool: "STRING_VALUE",
- *       NetworkBorderGroup: "STRING_VALUE",
- *       CustomerOwnedIp: "STRING_VALUE",
- *       CustomerOwnedIpv4Pool: "STRING_VALUE",
- *       CarrierIp: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeAddressesResult
+ * //   Addresses: [ // AddressList
+ * //     { // Address
+ * //       InstanceId: "STRING_VALUE",
+ * //       PublicIp: "STRING_VALUE",
+ * //       AllocationId: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       Domain: "vpc" || "standard",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       NetworkInterfaceOwnerId: "STRING_VALUE",
+ * //       PrivateIpAddress: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PublicIpv4Pool: "STRING_VALUE",
+ * //       NetworkBorderGroup: "STRING_VALUE",
+ * //       CustomerOwnedIp: "STRING_VALUE",
+ * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //       CarrierIp: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

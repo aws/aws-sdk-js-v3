@@ -45,16 +45,15 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * };
  * const command = new ListSkillsStoreCategoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSkillsStoreCategoriesResponse
- *   CategoryList: [ // CategoryList
- *     { // Category
- *       CategoryId: Number("long"),
- *       CategoryName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSkillsStoreCategoriesResponse
+ * //   CategoryList: [ // CategoryList
+ * //     { // Category
+ * //       CategoryId: Number("long"),
+ * //       CategoryName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

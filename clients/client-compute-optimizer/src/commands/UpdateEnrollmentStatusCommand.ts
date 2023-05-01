@@ -52,11 +52,10 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * };
  * const command = new UpdateEnrollmentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnrollmentStatusResponse
- *   status: "Active" || "Inactive" || "Pending" || "Failed",
- *   statusReason: "STRING_VALUE",
- * };
+ * // { // UpdateEnrollmentStatusResponse
+ * //   status: "Active" || "Inactive" || "Pending" || "Failed",
+ * //   statusReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -68,8 +68,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

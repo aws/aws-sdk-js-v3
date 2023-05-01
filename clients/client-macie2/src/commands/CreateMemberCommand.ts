@@ -50,10 +50,9 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMemberResponse
- *   arn: "STRING_VALUE",
- * };
+ * // { // CreateMemberResponse
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  * };
  * const command = new UpdateFieldCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

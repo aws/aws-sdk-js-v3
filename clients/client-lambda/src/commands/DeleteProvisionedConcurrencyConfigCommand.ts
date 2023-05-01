@@ -48,8 +48,7 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  * };
  * const command = new DeleteProvisionedConcurrencyConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,8 +57,7 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * };
  * const command = new RejectAssignmentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

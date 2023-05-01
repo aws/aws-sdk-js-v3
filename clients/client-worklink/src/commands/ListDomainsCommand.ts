@@ -48,18 +48,17 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsResponse
- *   Domains: [ // DomainSummaryList
- *     { // DomainSummary
- *       DomainName: "STRING_VALUE", // required
- *       DisplayName: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       DomainStatus: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainSummaryList
+ * //     { // DomainSummary
+ * //       DomainName: "STRING_VALUE", // required
+ * //       DisplayName: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       DomainStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

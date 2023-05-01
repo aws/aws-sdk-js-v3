@@ -49,8 +49,7 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * const input = {};
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

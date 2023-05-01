@@ -49,8 +49,7 @@ export interface DisassociateBrowserSettingsCommandOutput
  * };
  * const command = new DisassociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

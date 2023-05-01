@@ -61,28 +61,27 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * };
  * const command = new AssociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateVpcCidrBlockResult
- *   Ipv6CidrBlockAssociation: { // VpcIpv6CidrBlockAssociation
- *     AssociationId: "STRING_VALUE",
- *     Ipv6CidrBlock: "STRING_VALUE",
- *     Ipv6CidrBlockState: { // VpcCidrBlockState
- *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *     NetworkBorderGroup: "STRING_VALUE",
- *     Ipv6Pool: "STRING_VALUE",
- *   },
- *   CidrBlockAssociation: { // VpcCidrBlockAssociation
- *     AssociationId: "STRING_VALUE",
- *     CidrBlock: "STRING_VALUE",
- *     CidrBlockState: {
- *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   },
- *   VpcId: "STRING_VALUE",
- * };
+ * // { // AssociateVpcCidrBlockResult
+ * //   Ipv6CidrBlockAssociation: { // VpcIpv6CidrBlockAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     Ipv6CidrBlock: "STRING_VALUE",
+ * //     Ipv6CidrBlockState: { // VpcCidrBlockState
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //     NetworkBorderGroup: "STRING_VALUE",
+ * //     Ipv6Pool: "STRING_VALUE",
+ * //   },
+ * //   CidrBlockAssociation: { // VpcCidrBlockAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     CidrBlock: "STRING_VALUE",
+ * //     CidrBlockState: {
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   VpcId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

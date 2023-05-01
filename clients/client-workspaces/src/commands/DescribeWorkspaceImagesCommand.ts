@@ -50,30 +50,29 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * };
  * const command = new DescribeWorkspaceImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspaceImagesResult
- *   Images: [ // WorkspaceImageList
- *     { // WorkspaceImage
- *       ImageId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       OperatingSystem: { // OperatingSystem
- *         Type: "WINDOWS" || "LINUX",
- *       },
- *       State: "AVAILABLE" || "PENDING" || "ERROR",
- *       RequiredTenancy: "DEFAULT" || "DEDICATED",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       Created: new Date("TIMESTAMP"),
- *       OwnerAccountId: "STRING_VALUE",
- *       Updates: { // UpdateResult
- *         UpdateAvailable: true || false,
- *         Description: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeWorkspaceImagesResult
+ * //   Images: [ // WorkspaceImageList
+ * //     { // WorkspaceImage
+ * //       ImageId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       OperatingSystem: { // OperatingSystem
+ * //         Type: "WINDOWS" || "LINUX",
+ * //       },
+ * //       State: "AVAILABLE" || "PENDING" || "ERROR",
+ * //       RequiredTenancy: "DEFAULT" || "DEDICATED",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       Created: new Date("TIMESTAMP"),
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       Updates: { // UpdateResult
+ * //         UpdateAvailable: true || false,
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

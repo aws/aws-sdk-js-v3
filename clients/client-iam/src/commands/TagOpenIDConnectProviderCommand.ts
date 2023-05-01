@@ -87,8 +87,7 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * };
  * const command = new TagOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

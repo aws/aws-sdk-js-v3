@@ -45,25 +45,24 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * };
  * const command = new DescribeAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAgentResponse
- *   AgentArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Status: "ONLINE" || "OFFLINE",
- *   LastConnectionTime: new Date("TIMESTAMP"),
- *   CreationTime: new Date("TIMESTAMP"),
- *   EndpointType: "PUBLIC" || "PRIVATE_LINK" || "FIPS",
- *   PrivateLinkConfig: { // PrivateLinkConfig
- *     VpcEndpointId: "STRING_VALUE",
- *     PrivateLinkEndpoint: "STRING_VALUE",
- *     SubnetArns: [ // PLSubnetArnList
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroupArns: [ // PLSecurityGroupArnList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeAgentResponse
+ * //   AgentArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Status: "ONLINE" || "OFFLINE",
+ * //   LastConnectionTime: new Date("TIMESTAMP"),
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   EndpointType: "PUBLIC" || "PRIVATE_LINK" || "FIPS",
+ * //   PrivateLinkConfig: { // PrivateLinkConfig
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     PrivateLinkEndpoint: "STRING_VALUE",
+ * //     SubnetArns: [ // PLSubnetArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroupArns: [ // PLSecurityGroupArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

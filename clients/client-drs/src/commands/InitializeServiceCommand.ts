@@ -42,8 +42,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

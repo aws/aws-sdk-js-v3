@@ -67,8 +67,7 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * };
  * const command = new RegisterApplicationRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

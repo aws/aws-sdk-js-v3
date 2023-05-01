@@ -69,30 +69,29 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  * };
  * const command = new DescribeNetworkInsightsAccessScopeAnalysesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNetworkInsightsAccessScopeAnalysesResult
- *   NetworkInsightsAccessScopeAnalyses: [ // NetworkInsightsAccessScopeAnalysisList
- *     { // NetworkInsightsAccessScopeAnalysis
- *       NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
- *       NetworkInsightsAccessScopeAnalysisArn: "STRING_VALUE",
- *       NetworkInsightsAccessScopeId: "STRING_VALUE",
- *       Status: "running" || "succeeded" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *       WarningMessage: "STRING_VALUE",
- *       StartDate: new Date("TIMESTAMP"),
- *       EndDate: new Date("TIMESTAMP"),
- *       FindingsFound: "true" || "false" || "unknown",
- *       AnalyzedEniCount: Number("int"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNetworkInsightsAccessScopeAnalysesResult
+ * //   NetworkInsightsAccessScopeAnalyses: [ // NetworkInsightsAccessScopeAnalysisList
+ * //     { // NetworkInsightsAccessScopeAnalysis
+ * //       NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * //       NetworkInsightsAccessScopeAnalysisArn: "STRING_VALUE",
+ * //       NetworkInsightsAccessScopeId: "STRING_VALUE",
+ * //       Status: "running" || "succeeded" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       WarningMessage: "STRING_VALUE",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       FindingsFound: "true" || "false" || "unknown",
+ * //       AnalyzedEniCount: Number("int"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

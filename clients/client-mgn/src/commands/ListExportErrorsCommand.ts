@@ -46,18 +46,17 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * };
  * const command = new ListExportErrorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExportErrorsResponse
- *   items: [ // ExportErrors
- *     { // ExportTaskError
- *       errorDateTime: "STRING_VALUE",
- *       errorData: { // ExportErrorData
- *         rawError: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExportErrorsResponse
+ * //   items: [ // ExportErrors
+ * //     { // ExportTaskError
+ * //       errorDateTime: "STRING_VALUE",
+ * //       errorData: { // ExportErrorData
+ * //         rawError: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

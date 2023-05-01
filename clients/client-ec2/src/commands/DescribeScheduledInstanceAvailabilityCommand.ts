@@ -81,35 +81,34 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * };
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScheduledInstanceAvailabilityResult
- *   NextToken: "STRING_VALUE",
- *   ScheduledInstanceAvailabilitySet: [ // ScheduledInstanceAvailabilitySet
- *     { // ScheduledInstanceAvailability
- *       AvailabilityZone: "STRING_VALUE",
- *       AvailableInstanceCount: Number("int"),
- *       FirstSlotStartTime: new Date("TIMESTAMP"),
- *       HourlyPrice: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE",
- *       MaxTermDurationInDays: Number("int"),
- *       MinTermDurationInDays: Number("int"),
- *       NetworkPlatform: "STRING_VALUE",
- *       Platform: "STRING_VALUE",
- *       PurchaseToken: "STRING_VALUE",
- *       Recurrence: { // ScheduledInstanceRecurrence
- *         Frequency: "STRING_VALUE",
- *         Interval: Number("int"),
- *         OccurrenceDaySet: [ // OccurrenceDaySet
- *           Number("int"),
- *         ],
- *         OccurrenceRelativeToEnd: true || false,
- *         OccurrenceUnit: "STRING_VALUE",
- *       },
- *       SlotDurationInHours: Number("int"),
- *       TotalScheduledInstanceHours: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeScheduledInstanceAvailabilityResult
+ * //   NextToken: "STRING_VALUE",
+ * //   ScheduledInstanceAvailabilitySet: [ // ScheduledInstanceAvailabilitySet
+ * //     { // ScheduledInstanceAvailability
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailableInstanceCount: Number("int"),
+ * //       FirstSlotStartTime: new Date("TIMESTAMP"),
+ * //       HourlyPrice: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       MaxTermDurationInDays: Number("int"),
+ * //       MinTermDurationInDays: Number("int"),
+ * //       NetworkPlatform: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       PurchaseToken: "STRING_VALUE",
+ * //       Recurrence: { // ScheduledInstanceRecurrence
+ * //         Frequency: "STRING_VALUE",
+ * //         Interval: Number("int"),
+ * //         OccurrenceDaySet: [ // OccurrenceDaySet
+ * //           Number("int"),
+ * //         ],
+ * //         OccurrenceRelativeToEnd: true || false,
+ * //         OccurrenceUnit: "STRING_VALUE",
+ * //       },
+ * //       SlotDurationInHours: Number("int"),
+ * //       TotalScheduledInstanceHours: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

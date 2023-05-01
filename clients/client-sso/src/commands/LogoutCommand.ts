@@ -59,8 +59,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * };
  * const command = new LogoutCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -58,19 +58,18 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  * };
  * const command = new ListAssociationsForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociationsForLicenseConfigurationResponse
- *   LicenseConfigurationAssociations: [ // LicenseConfigurationAssociations
- *     { // LicenseConfigurationAssociation
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
- *       ResourceOwnerId: "STRING_VALUE",
- *       AssociationTime: new Date("TIMESTAMP"),
- *       AmiAssociationScope: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociationsForLicenseConfigurationResponse
+ * //   LicenseConfigurationAssociations: [ // LicenseConfigurationAssociations
+ * //     { // LicenseConfigurationAssociation
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       AssociationTime: new Date("TIMESTAMP"),
+ * //       AmiAssociationScope: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCustomerGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

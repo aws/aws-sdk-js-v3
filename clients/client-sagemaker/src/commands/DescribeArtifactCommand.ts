@@ -44,53 +44,52 @@ export interface DescribeArtifactCommandOutput extends DescribeArtifactResponse,
  * };
  * const command = new DescribeArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeArtifactResponse
- *   ArtifactName: "STRING_VALUE",
- *   ArtifactArn: "STRING_VALUE",
- *   Source: { // ArtifactSource
- *     SourceUri: "STRING_VALUE", // required
- *     SourceTypes: [ // ArtifactSourceTypes
- *       { // ArtifactSourceType
- *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ArtifactType: "STRING_VALUE",
- *   Properties: { // LineageEntityParameters
- *     "<keys>": "STRING_VALUE",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   MetadataProperties: { // MetadataProperties
- *     CommitId: "STRING_VALUE",
- *     Repository: "STRING_VALUE",
- *     GeneratedBy: "STRING_VALUE",
- *     ProjectId: "STRING_VALUE",
- *   },
- *   LineageGroupArn: "STRING_VALUE",
- * };
+ * // { // DescribeArtifactResponse
+ * //   ArtifactName: "STRING_VALUE",
+ * //   ArtifactArn: "STRING_VALUE",
+ * //   Source: { // ArtifactSource
+ * //     SourceUri: "STRING_VALUE", // required
+ * //     SourceTypes: [ // ArtifactSourceTypes
+ * //       { // ArtifactSourceType
+ * //         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ArtifactType: "STRING_VALUE",
+ * //   Properties: { // LineageEntityParameters
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   MetadataProperties: { // MetadataProperties
+ * //     CommitId: "STRING_VALUE",
+ * //     Repository: "STRING_VALUE",
+ * //     GeneratedBy: "STRING_VALUE",
+ * //     ProjectId: "STRING_VALUE",
+ * //   },
+ * //   LineageGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

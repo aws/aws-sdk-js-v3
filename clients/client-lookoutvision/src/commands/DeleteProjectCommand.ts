@@ -52,10 +52,9 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProjectResponse
- *   ProjectArn: "STRING_VALUE",
- * };
+ * // { // DeleteProjectResponse
+ * //   ProjectArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

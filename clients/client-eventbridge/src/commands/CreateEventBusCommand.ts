@@ -53,10 +53,9 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * };
  * const command = new CreateEventBusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEventBusResponse
- *   EventBusArn: "STRING_VALUE",
- * };
+ * // { // CreateEventBusResponse
+ * //   EventBusArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

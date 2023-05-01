@@ -51,18 +51,17 @@ export interface ListLoggerDefinitionVersionsCommandOutput
  * };
  * const command = new ListLoggerDefinitionVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLoggerDefinitionVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   Versions: [ // __listOfVersionInformation
- *     { // VersionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListLoggerDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

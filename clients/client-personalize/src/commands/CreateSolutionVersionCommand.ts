@@ -118,10 +118,9 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * };
  * const command = new CreateSolutionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSolutionVersionResponse
- *   solutionVersionArn: "STRING_VALUE",
- * };
+ * // { // CreateSolutionVersionResponse
+ * //   solutionVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

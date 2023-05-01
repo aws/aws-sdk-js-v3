@@ -49,8 +49,7 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  * };
  * const command = new NotifyAppValidationOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

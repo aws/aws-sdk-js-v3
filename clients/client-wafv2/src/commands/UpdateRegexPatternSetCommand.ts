@@ -70,10 +70,9 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRegexPatternSetResponse
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // UpdateRegexPatternSetResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

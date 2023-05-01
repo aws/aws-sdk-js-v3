@@ -44,10 +44,9 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * };
  * const command = new BulkPublishCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BulkPublishResponse
- *   IdentityPoolId: "STRING_VALUE",
- * };
+ * // { // BulkPublishResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

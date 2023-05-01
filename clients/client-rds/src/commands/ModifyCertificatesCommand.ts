@@ -69,19 +69,18 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * };
  * const command = new ModifyCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyCertificatesResult
- *   Certificate: { // Certificate
- *     CertificateIdentifier: "STRING_VALUE",
- *     CertificateType: "STRING_VALUE",
- *     Thumbprint: "STRING_VALUE",
- *     ValidFrom: new Date("TIMESTAMP"),
- *     ValidTill: new Date("TIMESTAMP"),
- *     CertificateArn: "STRING_VALUE",
- *     CustomerOverride: true || false,
- *     CustomerOverrideValidTill: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ModifyCertificatesResult
+ * //   Certificate: { // Certificate
+ * //     CertificateIdentifier: "STRING_VALUE",
+ * //     CertificateType: "STRING_VALUE",
+ * //     Thumbprint: "STRING_VALUE",
+ * //     ValidFrom: new Date("TIMESTAMP"),
+ * //     ValidTill: new Date("TIMESTAMP"),
+ * //     CertificateArn: "STRING_VALUE",
+ * //     CustomerOverride: true || false,
+ * //     CustomerOverrideValidTill: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

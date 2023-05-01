@@ -74,8 +74,7 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

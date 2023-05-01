@@ -45,42 +45,41 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSessionResponse
- *   SessionId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   WorkGroup: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
- *   EngineConfiguration: { // EngineConfiguration
- *     CoordinatorDpuSize: Number("int"),
- *     MaxConcurrentDpus: Number("int"), // required
- *     DefaultExecutorDpuSize: Number("int"),
- *     AdditionalConfigs: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   NotebookVersion: "STRING_VALUE",
- *   SessionConfiguration: { // SessionConfiguration
- *     ExecutionRole: "STRING_VALUE",
- *     WorkingDirectory: "STRING_VALUE",
- *     IdleTimeoutSeconds: Number("long"),
- *     EncryptionConfiguration: { // EncryptionConfiguration
- *       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
- *       KmsKey: "STRING_VALUE",
- *     },
- *   },
- *   Status: { // SessionStatus
- *     StartDateTime: new Date("TIMESTAMP"),
- *     LastModifiedDateTime: new Date("TIMESTAMP"),
- *     EndDateTime: new Date("TIMESTAMP"),
- *     IdleSinceDateTime: new Date("TIMESTAMP"),
- *     State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
- *     StateChangeReason: "STRING_VALUE",
- *   },
- *   Statistics: { // SessionStatistics
- *     DpuExecutionInMillis: Number("long"),
- *   },
- * };
+ * // { // GetSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   WorkGroup: "STRING_VALUE",
+ * //   EngineVersion: "STRING_VALUE",
+ * //   EngineConfiguration: { // EngineConfiguration
+ * //     CoordinatorDpuSize: Number("int"),
+ * //     MaxConcurrentDpus: Number("int"), // required
+ * //     DefaultExecutorDpuSize: Number("int"),
+ * //     AdditionalConfigs: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   NotebookVersion: "STRING_VALUE",
+ * //   SessionConfiguration: { // SessionConfiguration
+ * //     ExecutionRole: "STRING_VALUE",
+ * //     WorkingDirectory: "STRING_VALUE",
+ * //     IdleTimeoutSeconds: Number("long"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ * //       KmsKey: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Status: { // SessionStatus
+ * //     StartDateTime: new Date("TIMESTAMP"),
+ * //     LastModifiedDateTime: new Date("TIMESTAMP"),
+ * //     EndDateTime: new Date("TIMESTAMP"),
+ * //     IdleSinceDateTime: new Date("TIMESTAMP"),
+ * //     State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * //     StateChangeReason: "STRING_VALUE",
+ * //   },
+ * //   Statistics: { // SessionStatistics
+ * //     DpuExecutionInMillis: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

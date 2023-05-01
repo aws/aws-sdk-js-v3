@@ -46,15 +46,14 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * };
  * const command = new CreateApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApiKeyResponse
- *   apiKey: { // ApiKey
- *     id: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     expires: Number("long"),
- *     deletes: Number("long"),
- *   },
- * };
+ * // { // CreateApiKeyResponse
+ * //   apiKey: { // ApiKey
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     expires: Number("long"),
+ * //     deletes: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,10 +50,9 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  * };
  * const command = new AssociateAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateAccountsOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // AssociateAccountsOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

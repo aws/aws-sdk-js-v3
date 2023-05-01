@@ -55,10 +55,9 @@ export interface ModifyVpcEndpointServicePayerResponsibilityCommandOutput
  * };
  * const command = new ModifyVpcEndpointServicePayerResponsibilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVpcEndpointServicePayerResponsibilityResult
- *   ReturnValue: true || false,
- * };
+ * // { // ModifyVpcEndpointServicePayerResponsibilityResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

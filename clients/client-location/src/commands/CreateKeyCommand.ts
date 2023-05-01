@@ -68,13 +68,12 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * };
  * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateKeyResponse
- *   Key: "STRING_VALUE", // required
- *   KeyArn: "STRING_VALUE", // required
- *   KeyName: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateKeyResponse
+ * //   Key: "STRING_VALUE", // required
+ * //   KeyArn: "STRING_VALUE", // required
+ * //   KeyName: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

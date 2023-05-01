@@ -51,10 +51,9 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * };
  * const command = new SetSMBGuestPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetSMBGuestPasswordOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // SetSMBGuestPasswordOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

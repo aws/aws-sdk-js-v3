@@ -49,23 +49,22 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
  * };
  * const command = new ListPermissionGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionGroupsResponse
- *   permissionGroups: [ // PermissionGroupList
- *     { // PermissionGroup
- *       permissionGroupId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       applicationPermissions: [ // ApplicationPermissionList
- *         "STRING_VALUE",
- *       ],
- *       createTime: Number("long"),
- *       lastModifiedTime: Number("long"),
- *       membershipStatus: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPermissionGroupsResponse
+ * //   permissionGroups: [ // PermissionGroupList
+ * //     { // PermissionGroup
+ * //       permissionGroupId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       applicationPermissions: [ // ApplicationPermissionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       createTime: Number("long"),
+ * //       lastModifiedTime: Number("long"),
+ * //       membershipStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

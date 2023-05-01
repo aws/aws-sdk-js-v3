@@ -64,23 +64,22 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupsOutput
- *   GroupIdentifiers: [ // GroupIdentifierList
- *     { // GroupIdentifier
- *       GroupName: "STRING_VALUE",
- *       GroupArn: "STRING_VALUE",
- *     },
- *   ],
- *   Groups: [ // GroupList
- *     { // Group
- *       GroupArn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupsOutput
+ * //   GroupIdentifiers: [ // GroupIdentifierList
+ * //     { // GroupIdentifier
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Groups: [ // GroupList
+ * //     { // Group
+ * //       GroupArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

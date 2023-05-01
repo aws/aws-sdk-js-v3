@@ -44,8 +44,7 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * };
  * const command = new DeleteSequenceStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * };
  * const command = new PutBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

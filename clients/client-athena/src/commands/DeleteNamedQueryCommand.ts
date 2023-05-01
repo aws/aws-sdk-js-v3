@@ -48,8 +48,7 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * };
  * const command = new DeleteNamedQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

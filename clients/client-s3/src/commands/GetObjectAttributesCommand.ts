@@ -210,39 +210,38 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * };
  * const command = new GetObjectAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectAttributesOutput
- *   DeleteMarker: true || false,
- *   LastModified: new Date("TIMESTAMP"),
- *   VersionId: "STRING_VALUE",
- *   RequestCharged: "requester",
- *   ETag: "STRING_VALUE",
- *   Checksum: { // Checksum
- *     ChecksumCRC32: "STRING_VALUE",
- *     ChecksumCRC32C: "STRING_VALUE",
- *     ChecksumSHA1: "STRING_VALUE",
- *     ChecksumSHA256: "STRING_VALUE",
- *   },
- *   ObjectParts: { // GetObjectAttributesParts
- *     TotalPartsCount: Number("int"),
- *     PartNumberMarker: "STRING_VALUE",
- *     NextPartNumberMarker: "STRING_VALUE",
- *     MaxParts: Number("int"),
- *     IsTruncated: true || false,
- *     Parts: [ // PartsList
- *       { // ObjectPart
- *         PartNumber: Number("int"),
- *         Size: Number("long"),
- *         ChecksumCRC32: "STRING_VALUE",
- *         ChecksumCRC32C: "STRING_VALUE",
- *         ChecksumSHA1: "STRING_VALUE",
- *         ChecksumSHA256: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
- *   ObjectSize: Number("long"),
- * };
+ * // { // GetObjectAttributesOutput
+ * //   DeleteMarker: true || false,
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   VersionId: "STRING_VALUE",
+ * //   RequestCharged: "requester",
+ * //   ETag: "STRING_VALUE",
+ * //   Checksum: { // Checksum
+ * //     ChecksumCRC32: "STRING_VALUE",
+ * //     ChecksumCRC32C: "STRING_VALUE",
+ * //     ChecksumSHA1: "STRING_VALUE",
+ * //     ChecksumSHA256: "STRING_VALUE",
+ * //   },
+ * //   ObjectParts: { // GetObjectAttributesParts
+ * //     TotalPartsCount: Number("int"),
+ * //     PartNumberMarker: "STRING_VALUE",
+ * //     NextPartNumberMarker: "STRING_VALUE",
+ * //     MaxParts: Number("int"),
+ * //     IsTruncated: true || false,
+ * //     Parts: [ // PartsList
+ * //       { // ObjectPart
+ * //         PartNumber: Number("int"),
+ * //         Size: Number("long"),
+ * //         ChecksumCRC32: "STRING_VALUE",
+ * //         ChecksumCRC32C: "STRING_VALUE",
+ * //         ChecksumSHA1: "STRING_VALUE",
+ * //         ChecksumSHA256: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //   ObjectSize: Number("long"),
+ * // };
  *
  * ```
  *

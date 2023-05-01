@@ -53,8 +53,7 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateElasticIpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

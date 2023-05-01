@@ -67,30 +67,29 @@ export interface GetOrganizationsAccessReportCommandOutput
  * };
  * const command = new GetOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOrganizationsAccessReportResponse
- *   JobStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
- *   JobCreationDate: new Date("TIMESTAMP"), // required
- *   JobCompletionDate: new Date("TIMESTAMP"),
- *   NumberOfServicesAccessible: Number("int"),
- *   NumberOfServicesNotAccessed: Number("int"),
- *   AccessDetails: [ // AccessDetails
- *     { // AccessDetail
- *       ServiceName: "STRING_VALUE", // required
- *       ServiceNamespace: "STRING_VALUE", // required
- *       Region: "STRING_VALUE",
- *       EntityPath: "STRING_VALUE",
- *       LastAuthenticatedTime: new Date("TIMESTAMP"),
- *       TotalAuthenticatedEntities: Number("int"),
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- *   ErrorDetails: { // ErrorDetails
- *     Message: "STRING_VALUE", // required
- *     Code: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetOrganizationsAccessReportResponse
+ * //   JobStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED", // required
+ * //   JobCreationDate: new Date("TIMESTAMP"), // required
+ * //   JobCompletionDate: new Date("TIMESTAMP"),
+ * //   NumberOfServicesAccessible: Number("int"),
+ * //   NumberOfServicesNotAccessed: Number("int"),
+ * //   AccessDetails: [ // AccessDetails
+ * //     { // AccessDetail
+ * //       ServiceName: "STRING_VALUE", // required
+ * //       ServiceNamespace: "STRING_VALUE", // required
+ * //       Region: "STRING_VALUE",
+ * //       EntityPath: "STRING_VALUE",
+ * //       LastAuthenticatedTime: new Date("TIMESTAMP"),
+ * //       TotalAuthenticatedEntities: Number("int"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * //   ErrorDetails: { // ErrorDetails
+ * //     Message: "STRING_VALUE", // required
+ * //     Code: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -66,8 +66,7 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * };
  * const command = new UpdateQueueOutboundCallerConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

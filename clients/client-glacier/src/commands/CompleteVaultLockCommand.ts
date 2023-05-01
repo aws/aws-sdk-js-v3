@@ -59,8 +59,7 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CompleteVaultLockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

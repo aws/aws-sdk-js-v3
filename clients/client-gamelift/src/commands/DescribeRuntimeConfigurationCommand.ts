@@ -66,20 +66,19 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * };
  * const command = new DescribeRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRuntimeConfigurationOutput
- *   RuntimeConfiguration: { // RuntimeConfiguration
- *     ServerProcesses: [ // ServerProcessList
- *       { // ServerProcess
- *         LaunchPath: "STRING_VALUE", // required
- *         Parameters: "STRING_VALUE",
- *         ConcurrentExecutions: Number("int"), // required
- *       },
- *     ],
- *     MaxConcurrentGameSessionActivations: Number("int"),
- *     GameSessionActivationTimeoutSeconds: Number("int"),
- *   },
- * };
+ * // { // DescribeRuntimeConfigurationOutput
+ * //   RuntimeConfiguration: { // RuntimeConfiguration
+ * //     ServerProcesses: [ // ServerProcessList
+ * //       { // ServerProcess
+ * //         LaunchPath: "STRING_VALUE", // required
+ * //         Parameters: "STRING_VALUE",
+ * //         ConcurrentExecutions: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     MaxConcurrentGameSessionActivations: Number("int"),
+ * //     GameSessionActivationTimeoutSeconds: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

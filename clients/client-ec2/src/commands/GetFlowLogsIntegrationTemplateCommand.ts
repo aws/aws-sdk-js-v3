@@ -78,10 +78,9 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * };
  * const command = new GetFlowLogsIntegrationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFlowLogsIntegrationTemplateResult
- *   Result: "STRING_VALUE",
- * };
+ * // { // GetFlowLogsIntegrationTemplateResult
+ * //   Result: "STRING_VALUE",
+ * // };
  *
  * ```
  *

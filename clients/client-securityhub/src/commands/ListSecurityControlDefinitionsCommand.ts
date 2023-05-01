@@ -53,20 +53,19 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityControlDefinitionsResponse
- *   SecurityControlDefinitions: [ // SecurityControlDefinitions // required
- *     { // SecurityControlDefinition
- *       SecurityControlId: "STRING_VALUE", // required
- *       Title: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       RemediationUrl: "STRING_VALUE", // required
- *       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
- *       CurrentRegionAvailability: "AVAILABLE" || "UNAVAILABLE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityControlDefinitionsResponse
+ * //   SecurityControlDefinitions: [ // SecurityControlDefinitions // required
+ * //     { // SecurityControlDefinition
+ * //       SecurityControlId: "STRING_VALUE", // required
+ * //       Title: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       RemediationUrl: "STRING_VALUE", // required
+ * //       SeverityRating: "LOW" || "MEDIUM" || "HIGH" || "CRITICAL", // required
+ * //       CurrentRegionAvailability: "AVAILABLE" || "UNAVAILABLE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

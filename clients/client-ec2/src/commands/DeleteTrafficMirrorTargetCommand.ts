@@ -46,10 +46,9 @@ export interface DeleteTrafficMirrorTargetCommandOutput extends DeleteTrafficMir
  * };
  * const command = new DeleteTrafficMirrorTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrafficMirrorTargetResult
- *   TrafficMirrorTargetId: "STRING_VALUE",
- * };
+ * // { // DeleteTrafficMirrorTargetResult
+ * //   TrafficMirrorTargetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

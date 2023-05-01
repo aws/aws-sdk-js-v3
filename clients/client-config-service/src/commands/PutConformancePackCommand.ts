@@ -67,10 +67,9 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * };
  * const command = new PutConformancePackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutConformancePackResponse
- *   ConformancePackArn: "STRING_VALUE",
- * };
+ * // { // PutConformancePackResponse
+ * //   ConformancePackArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

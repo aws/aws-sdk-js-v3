@@ -45,21 +45,20 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * };
  * const command = new ListStudiosCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStudiosOutput
- *   Studios: [ // StudioSummaryList
- *     { // StudioSummary
- *       StudioId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Url: "STRING_VALUE",
- *       AuthMode: "SSO" || "IAM",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListStudiosOutput
+ * //   Studios: [ // StudioSummaryList
+ * //     { // StudioSummary
+ * //       StudioId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Url: "STRING_VALUE",
+ * //       AuthMode: "SSO" || "IAM",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

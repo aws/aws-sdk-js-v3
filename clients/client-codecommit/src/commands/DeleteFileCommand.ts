@@ -53,13 +53,12 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * };
  * const command = new DeleteFileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFileOutput
- *   commitId: "STRING_VALUE", // required
- *   blobId: "STRING_VALUE", // required
- *   treeId: "STRING_VALUE", // required
- *   filePath: "STRING_VALUE", // required
- * };
+ * // { // DeleteFileOutput
+ * //   commitId: "STRING_VALUE", // required
+ * //   blobId: "STRING_VALUE", // required
+ * //   treeId: "STRING_VALUE", // required
+ * //   filePath: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

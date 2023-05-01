@@ -54,16 +54,15 @@ export interface GetPermissionsBoundaryForPermissionSetCommandOutput
  * };
  * const command = new GetPermissionsBoundaryForPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPermissionsBoundaryForPermissionSetResponse
- *   PermissionsBoundary: { // PermissionsBoundary
- *     CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
- *       Name: "STRING_VALUE", // required
- *       Path: "STRING_VALUE",
- *     },
- *     ManagedPolicyArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetPermissionsBoundaryForPermissionSetResponse
+ * //   PermissionsBoundary: { // PermissionsBoundary
+ * //     CustomerManagedPolicyReference: { // CustomerManagedPolicyReference
+ * //       Name: "STRING_VALUE", // required
+ * //       Path: "STRING_VALUE",
+ * //     },
+ * //     ManagedPolicyArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

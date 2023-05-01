@@ -85,13 +85,12 @@ export interface StartDocumentClassificationJobCommandOutput
  * };
  * const command = new StartDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDocumentClassificationJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *   DocumentClassifierArn: "STRING_VALUE",
- * };
+ * // { // StartDocumentClassificationJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //   DocumentClassifierArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

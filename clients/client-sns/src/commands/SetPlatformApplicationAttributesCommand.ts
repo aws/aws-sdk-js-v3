@@ -54,8 +54,7 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  * };
  * const command = new SetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

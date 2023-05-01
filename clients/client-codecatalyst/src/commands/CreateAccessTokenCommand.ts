@@ -53,13 +53,12 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * };
  * const command = new CreateAccessTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessTokenResponse
- *   secret: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   expiresTime: new Date("TIMESTAMP"), // required
- *   accessTokenId: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessTokenResponse
+ * //   secret: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   expiresTime: new Date("TIMESTAMP"), // required
+ * //   accessTokenId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

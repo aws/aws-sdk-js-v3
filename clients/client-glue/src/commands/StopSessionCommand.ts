@@ -45,10 +45,9 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * };
  * const command = new StopSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopSessionResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // StopSessionResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

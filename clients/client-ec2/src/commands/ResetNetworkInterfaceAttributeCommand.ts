@@ -49,8 +49,7 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * };
  * const command = new ResetNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

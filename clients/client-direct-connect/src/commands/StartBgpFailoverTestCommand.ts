@@ -51,21 +51,20 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * };
  * const command = new StartBgpFailoverTestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartBgpFailoverTestResponse
- *   virtualInterfaceTest: { // VirtualInterfaceTestHistory
- *     testId: "STRING_VALUE",
- *     virtualInterfaceId: "STRING_VALUE",
- *     bgpPeers: [ // BGPPeerIdList
- *       "STRING_VALUE",
- *     ],
- *     status: "STRING_VALUE",
- *     ownerAccount: "STRING_VALUE",
- *     testDurationInMinutes: Number("int"),
- *     startTime: new Date("TIMESTAMP"),
- *     endTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // StartBgpFailoverTestResponse
+ * //   virtualInterfaceTest: { // VirtualInterfaceTestHistory
+ * //     testId: "STRING_VALUE",
+ * //     virtualInterfaceId: "STRING_VALUE",
+ * //     bgpPeers: [ // BGPPeerIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //     ownerAccount: "STRING_VALUE",
+ * //     testDurationInMinutes: Number("int"),
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

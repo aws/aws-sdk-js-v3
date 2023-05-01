@@ -56,22 +56,21 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * };
  * const command = new GetIpamDiscoveredAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIpamDiscoveredAccountsResult
- *   IpamDiscoveredAccounts: [ // IpamDiscoveredAccountSet
- *     { // IpamDiscoveredAccount
- *       AccountId: "STRING_VALUE",
- *       DiscoveryRegion: "STRING_VALUE",
- *       FailureReason: { // IpamDiscoveryFailureReason
- *         Code: "assume-role-failure" || "throttling-failure" || "unauthorized-failure",
- *         Message: "STRING_VALUE",
- *       },
- *       LastAttemptedDiscoveryTime: new Date("TIMESTAMP"),
- *       LastSuccessfulDiscoveryTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetIpamDiscoveredAccountsResult
+ * //   IpamDiscoveredAccounts: [ // IpamDiscoveredAccountSet
+ * //     { // IpamDiscoveredAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       DiscoveryRegion: "STRING_VALUE",
+ * //       FailureReason: { // IpamDiscoveryFailureReason
+ * //         Code: "assume-role-failure" || "throttling-failure" || "unauthorized-failure",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       LastAttemptedDiscoveryTime: new Date("TIMESTAMP"),
+ * //       LastSuccessfulDiscoveryTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

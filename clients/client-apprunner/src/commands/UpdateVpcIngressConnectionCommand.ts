@@ -65,23 +65,22 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * };
  * const command = new UpdateVpcIngressConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVpcIngressConnectionResponse
- *   VpcIngressConnection: { // VpcIngressConnection
- *     VpcIngressConnectionArn: "STRING_VALUE",
- *     VpcIngressConnectionName: "STRING_VALUE",
- *     ServiceArn: "STRING_VALUE",
- *     Status: "AVAILABLE" || "PENDING_CREATION" || "PENDING_UPDATE" || "PENDING_DELETION" || "FAILED_CREATION" || "FAILED_UPDATE" || "FAILED_DELETION" || "DELETED",
- *     AccountId: "STRING_VALUE",
- *     DomainName: "STRING_VALUE",
- *     IngressVpcConfiguration: { // IngressVpcConfiguration
- *       VpcId: "STRING_VALUE",
- *       VpcEndpointId: "STRING_VALUE",
- *     },
- *     CreatedAt: new Date("TIMESTAMP"),
- *     DeletedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateVpcIngressConnectionResponse
+ * //   VpcIngressConnection: { // VpcIngressConnection
+ * //     VpcIngressConnectionArn: "STRING_VALUE",
+ * //     VpcIngressConnectionName: "STRING_VALUE",
+ * //     ServiceArn: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "PENDING_CREATION" || "PENDING_UPDATE" || "PENDING_DELETION" || "FAILED_CREATION" || "FAILED_UPDATE" || "FAILED_DELETION" || "DELETED",
+ * //     AccountId: "STRING_VALUE",
+ * //     DomainName: "STRING_VALUE",
+ * //     IngressVpcConfiguration: { // IngressVpcConfiguration
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

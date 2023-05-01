@@ -54,8 +54,7 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * };
  * const command = new ModifySamlPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

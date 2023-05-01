@@ -73,11 +73,10 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * };
  * const command = new UpdateMonitoringCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMonitoringResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateMonitoringResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

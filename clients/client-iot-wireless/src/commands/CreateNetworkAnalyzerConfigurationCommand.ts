@@ -70,11 +70,10 @@ export interface CreateNetworkAnalyzerConfigurationCommandOutput
  * };
  * const command = new CreateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkAnalyzerConfigurationResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateNetworkAnalyzerConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

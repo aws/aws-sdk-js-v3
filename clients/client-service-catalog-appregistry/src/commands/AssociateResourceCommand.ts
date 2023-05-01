@@ -57,11 +57,10 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateResourceResponse
- *   applicationArn: "STRING_VALUE",
- *   resourceArn: "STRING_VALUE",
- * };
+ * // { // AssociateResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

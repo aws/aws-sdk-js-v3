@@ -55,27 +55,26 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * };
  * const command = new ListExplainabilityExportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExplainabilityExportsResponse
- *   ExplainabilityExports: [ // ExplainabilityExports
- *     { // ExplainabilityExportSummary
- *       ExplainabilityExportArn: "STRING_VALUE",
- *       ExplainabilityExportName: "STRING_VALUE",
- *       Destination: { // DataDestination
- *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
- *         },
- *       },
- *       Status: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExplainabilityExportsResponse
+ * //   ExplainabilityExports: [ // ExplainabilityExports
+ * //     { // ExplainabilityExportSummary
+ * //       ExplainabilityExportArn: "STRING_VALUE",
+ * //       ExplainabilityExportName: "STRING_VALUE",
+ * //       Destination: { // DataDestination
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

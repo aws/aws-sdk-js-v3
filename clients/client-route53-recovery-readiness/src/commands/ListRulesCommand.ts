@@ -50,17 +50,16 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRulesResponse
- *   NextToken: "STRING_VALUE",
- *   Rules: [ // __listOfListRulesOutput
- *     { // ListRulesOutput
- *       ResourceType: "STRING_VALUE", // required
- *       RuleDescription: "STRING_VALUE", // required
- *       RuleId: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRulesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Rules: [ // __listOfListRulesOutput
+ * //     { // ListRulesOutput
+ * //       ResourceType: "STRING_VALUE", // required
+ * //       RuleDescription: "STRING_VALUE", // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

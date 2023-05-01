@@ -88,31 +88,30 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * };
  * const command = new CreateFargateProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFargateProfileResponse
- *   fargateProfile: { // FargateProfile
- *     fargateProfileName: "STRING_VALUE",
- *     fargateProfileArn: "STRING_VALUE",
- *     clusterName: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     podExecutionRoleArn: "STRING_VALUE",
- *     subnets: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     selectors: [ // FargateProfileSelectors
- *       { // FargateProfileSelector
- *         namespace: "STRING_VALUE",
- *         labels: { // FargateProfileLabel
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     status: "CREATING" || "ACTIVE" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateFargateProfileResponse
+ * //   fargateProfile: { // FargateProfile
+ * //     fargateProfileName: "STRING_VALUE",
+ * //     fargateProfileArn: "STRING_VALUE",
+ * //     clusterName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     podExecutionRoleArn: "STRING_VALUE",
+ * //     subnets: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     selectors: [ // FargateProfileSelectors
+ * //       { // FargateProfileSelector
+ * //         namespace: "STRING_VALUE",
+ * //         labels: { // FargateProfileLabel
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     status: "CREATING" || "ACTIVE" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

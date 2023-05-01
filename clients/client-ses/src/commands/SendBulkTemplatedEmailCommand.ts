@@ -124,16 +124,15 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendBulkTemplatedEmailResponse
- *   Status: [ // BulkEmailDestinationStatusList // required
- *     { // BulkEmailDestinationStatus
- *       Status: "STRING_VALUE",
- *       Error: "STRING_VALUE",
- *       MessageId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // SendBulkTemplatedEmailResponse
+ * //   Status: [ // BulkEmailDestinationStatusList // required
+ * //     { // BulkEmailDestinationStatus
+ * //       Status: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //       MessageId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

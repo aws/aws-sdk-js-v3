@@ -120,25 +120,24 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventsResponse
- *   events: [ // EventList
- *     { // Event
- *       arn: "STRING_VALUE",
- *       service: "STRING_VALUE",
- *       eventTypeCode: "STRING_VALUE",
- *       eventTypeCategory: "STRING_VALUE",
- *       region: "STRING_VALUE",
- *       availabilityZone: "STRING_VALUE",
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       statusCode: "STRING_VALUE",
- *       eventScopeCode: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEventsResponse
+ * //   events: [ // EventList
+ * //     { // Event
+ * //       arn: "STRING_VALUE",
+ * //       service: "STRING_VALUE",
+ * //       eventTypeCode: "STRING_VALUE",
+ * //       eventTypeCategory: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       availabilityZone: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       statusCode: "STRING_VALUE",
+ * //       eventScopeCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

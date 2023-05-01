@@ -50,18 +50,17 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoutingControlsResponse
- *   NextToken: "STRING_VALUE",
- *   RoutingControls: [ // __listOfRoutingControl
- *     { // RoutingControl
- *       ControlPanelArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       RoutingControlArn: "STRING_VALUE",
- *       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *     },
- *   ],
- * };
+ * // { // ListRoutingControlsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   RoutingControls: [ // __listOfRoutingControl
+ * //     { // RoutingControl
+ * //       ControlPanelArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       RoutingControlArn: "STRING_VALUE",
+ * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

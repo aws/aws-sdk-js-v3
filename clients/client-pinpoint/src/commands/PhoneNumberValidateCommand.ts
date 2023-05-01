@@ -47,25 +47,24 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  * };
  * const command = new PhoneNumberValidateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PhoneNumberValidateResponse
- *   NumberValidateResponse: { // NumberValidateResponse
- *     Carrier: "STRING_VALUE",
- *     City: "STRING_VALUE",
- *     CleansedPhoneNumberE164: "STRING_VALUE",
- *     CleansedPhoneNumberNational: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     CountryCodeIso2: "STRING_VALUE",
- *     CountryCodeNumeric: "STRING_VALUE",
- *     County: "STRING_VALUE",
- *     OriginalCountryCodeIso2: "STRING_VALUE",
- *     OriginalPhoneNumber: "STRING_VALUE",
- *     PhoneType: "STRING_VALUE",
- *     PhoneTypeCode: Number("int"),
- *     Timezone: "STRING_VALUE",
- *     ZipCode: "STRING_VALUE",
- *   },
- * };
+ * // { // PhoneNumberValidateResponse
+ * //   NumberValidateResponse: { // NumberValidateResponse
+ * //     Carrier: "STRING_VALUE",
+ * //     City: "STRING_VALUE",
+ * //     CleansedPhoneNumberE164: "STRING_VALUE",
+ * //     CleansedPhoneNumberNational: "STRING_VALUE",
+ * //     Country: "STRING_VALUE",
+ * //     CountryCodeIso2: "STRING_VALUE",
+ * //     CountryCodeNumeric: "STRING_VALUE",
+ * //     County: "STRING_VALUE",
+ * //     OriginalCountryCodeIso2: "STRING_VALUE",
+ * //     OriginalPhoneNumber: "STRING_VALUE",
+ * //     PhoneType: "STRING_VALUE",
+ * //     PhoneTypeCode: Number("int"),
+ * //     Timezone: "STRING_VALUE",
+ * //     ZipCode: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

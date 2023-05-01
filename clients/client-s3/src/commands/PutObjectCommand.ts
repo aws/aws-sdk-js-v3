@@ -197,23 +197,22 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectOutput
- *   Expiration: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- *   ChecksumCRC32: "STRING_VALUE",
- *   ChecksumCRC32C: "STRING_VALUE",
- *   ChecksumSHA1: "STRING_VALUE",
- *   ChecksumSHA256: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   VersionId: "STRING_VALUE",
- *   SSECustomerAlgorithm: "STRING_VALUE",
- *   SSECustomerKeyMD5: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   SSEKMSEncryptionContext: "STRING_VALUE",
- *   BucketKeyEnabled: true || false,
- *   RequestCharged: "requester",
- * };
+ * // { // PutObjectOutput
+ * //   Expiration: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   ChecksumCRC32: "STRING_VALUE",
+ * //   ChecksumCRC32C: "STRING_VALUE",
+ * //   ChecksumSHA1: "STRING_VALUE",
+ * //   ChecksumSHA256: "STRING_VALUE",
+ * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   VersionId: "STRING_VALUE",
+ * //   SSECustomerAlgorithm: "STRING_VALUE",
+ * //   SSECustomerKeyMD5: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   SSEKMSEncryptionContext: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

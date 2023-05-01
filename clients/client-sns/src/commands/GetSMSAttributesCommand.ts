@@ -47,12 +47,11 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * };
  * const command = new GetSMSAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSMSAttributesResponse
- *   attributes: { // MapStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSMSAttributesResponse
+ * //   attributes: { // MapStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

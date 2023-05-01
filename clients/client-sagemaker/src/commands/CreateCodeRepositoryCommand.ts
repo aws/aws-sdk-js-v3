@@ -61,10 +61,9 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * };
  * const command = new CreateCodeRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCodeRepositoryOutput
- *   CodeRepositoryArn: "STRING_VALUE", // required
- * };
+ * // { // CreateCodeRepositoryOutput
+ * //   CodeRepositoryArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * };
  * const command = new StartObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartObjectOutput
- *   UploadId: "STRING_VALUE", // required
- * };
+ * // { // StartObjectOutput
+ * //   UploadId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

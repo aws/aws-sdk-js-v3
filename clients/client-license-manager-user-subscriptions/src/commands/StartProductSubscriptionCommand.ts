@@ -60,23 +60,22 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * };
  * const command = new StartProductSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartProductSubscriptionResponse
- *   ProductUserSummary: { // ProductUserSummary
- *     Username: "STRING_VALUE", // required
- *     Product: "STRING_VALUE", // required
- *     IdentityProvider: { // IdentityProvider Union: only one key present
- *       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *         DirectoryId: "STRING_VALUE",
- *       },
- *     },
- *     Status: "STRING_VALUE", // required
- *     StatusMessage: "STRING_VALUE",
- *     Domain: "STRING_VALUE",
- *     SubscriptionStartDate: "STRING_VALUE",
- *     SubscriptionEndDate: "STRING_VALUE",
- *   },
- * };
+ * // { // StartProductSubscriptionResponse
+ * //   ProductUserSummary: { // ProductUserSummary
+ * //     Username: "STRING_VALUE", // required
+ * //     Product: "STRING_VALUE", // required
+ * //     IdentityProvider: { // IdentityProvider Union: only one key present
+ * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //         DirectoryId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: "STRING_VALUE", // required
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Domain: "STRING_VALUE",
+ * //     SubscriptionStartDate: "STRING_VALUE",
+ * //     SubscriptionEndDate: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

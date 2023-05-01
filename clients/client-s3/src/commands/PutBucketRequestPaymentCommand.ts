@@ -68,8 +68,7 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

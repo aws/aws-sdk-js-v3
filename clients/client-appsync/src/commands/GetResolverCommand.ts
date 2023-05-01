@@ -46,42 +46,41 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * };
  * const command = new GetResolverCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverResponse
- *   resolver: { // Resolver
- *     typeName: "STRING_VALUE",
- *     fieldName: "STRING_VALUE",
- *     dataSourceName: "STRING_VALUE",
- *     resolverArn: "STRING_VALUE",
- *     requestMappingTemplate: "STRING_VALUE",
- *     responseMappingTemplate: "STRING_VALUE",
- *     kind: "UNIT" || "PIPELINE",
- *     pipelineConfig: { // PipelineConfig
- *       functions: [ // FunctionsIds
- *         "STRING_VALUE",
- *       ],
- *     },
- *     syncConfig: { // SyncConfig
- *       conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
- *       conflictDetection: "VERSION" || "NONE",
- *       lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
- *         lambdaConflictHandlerArn: "STRING_VALUE",
- *       },
- *     },
- *     cachingConfig: { // CachingConfig
- *       ttl: Number("long"), // required
- *       cachingKeys: [ // CachingKeys
- *         "STRING_VALUE",
- *       ],
- *     },
- *     maxBatchSize: Number("int"),
- *     runtime: { // AppSyncRuntime
- *       name: "APPSYNC_JS", // required
- *       runtimeVersion: "STRING_VALUE", // required
- *     },
- *     code: "STRING_VALUE",
- *   },
- * };
+ * // { // GetResolverResponse
+ * //   resolver: { // Resolver
+ * //     typeName: "STRING_VALUE",
+ * //     fieldName: "STRING_VALUE",
+ * //     dataSourceName: "STRING_VALUE",
+ * //     resolverArn: "STRING_VALUE",
+ * //     requestMappingTemplate: "STRING_VALUE",
+ * //     responseMappingTemplate: "STRING_VALUE",
+ * //     kind: "UNIT" || "PIPELINE",
+ * //     pipelineConfig: { // PipelineConfig
+ * //       functions: [ // FunctionsIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     syncConfig: { // SyncConfig
+ * //       conflictHandler: "OPTIMISTIC_CONCURRENCY" || "LAMBDA" || "AUTOMERGE" || "NONE",
+ * //       conflictDetection: "VERSION" || "NONE",
+ * //       lambdaConflictHandlerConfig: { // LambdaConflictHandlerConfig
+ * //         lambdaConflictHandlerArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     cachingConfig: { // CachingConfig
+ * //       ttl: Number("long"), // required
+ * //       cachingKeys: [ // CachingKeys
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     maxBatchSize: Number("int"),
+ * //     runtime: { // AppSyncRuntime
+ * //       name: "APPSYNC_JS", // required
+ * //       runtimeVersion: "STRING_VALUE", // required
+ * //     },
+ * //     code: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

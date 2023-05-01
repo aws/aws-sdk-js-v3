@@ -50,8 +50,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * };
  * const command = new ModifyWorkspaceStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

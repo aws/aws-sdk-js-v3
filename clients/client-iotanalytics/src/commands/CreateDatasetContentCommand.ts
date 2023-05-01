@@ -46,10 +46,9 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * };
  * const command = new CreateDatasetContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetContentResponse
- *   versionId: "STRING_VALUE",
- * };
+ * // { // CreateDatasetContentResponse
+ * //   versionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

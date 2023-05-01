@@ -419,10 +419,9 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * };
  * const command = new StartDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDetectorModelAnalysisResponse
- *   analysisId: "STRING_VALUE",
- * };
+ * // { // StartDetectorModelAnalysisResponse
+ * //   analysisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

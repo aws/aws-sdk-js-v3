@@ -54,13 +54,12 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * };
  * const command = new DescribeTypeRegistrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTypeRegistrationOutput
- *   ProgressStatus: "COMPLETE" || "IN_PROGRESS" || "FAILED",
- *   Description: "STRING_VALUE",
- *   TypeArn: "STRING_VALUE",
- *   TypeVersionArn: "STRING_VALUE",
- * };
+ * // { // DescribeTypeRegistrationOutput
+ * //   ProgressStatus: "COMPLETE" || "IN_PROGRESS" || "FAILED",
+ * //   Description: "STRING_VALUE",
+ * //   TypeArn: "STRING_VALUE",
+ * //   TypeVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

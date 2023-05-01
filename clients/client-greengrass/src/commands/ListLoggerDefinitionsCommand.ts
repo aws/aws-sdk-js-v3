@@ -45,24 +45,23 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
  * };
  * const command = new ListLoggerDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLoggerDefinitionsResponse
- *   Definitions: [ // __listOfDefinitionInformation
- *     { // DefinitionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       LastUpdatedTimestamp: "STRING_VALUE",
- *       LatestVersion: "STRING_VALUE",
- *       LatestVersionArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLoggerDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

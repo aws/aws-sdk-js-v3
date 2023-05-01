@@ -59,11 +59,10 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationVpcConfigurationResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- * };
+ * // { // DeleteApplicationVpcConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
  *
  * ```
  *

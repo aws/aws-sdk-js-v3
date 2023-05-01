@@ -49,19 +49,18 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * };
  * const command = new GetConnectPeerAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectPeerAssociationsResponse
- *   ConnectPeerAssociations: [ // ConnectPeerAssociationList
- *     { // ConnectPeerAssociation
- *       ConnectPeerId: "STRING_VALUE",
- *       GlobalNetworkId: "STRING_VALUE",
- *       DeviceId: "STRING_VALUE",
- *       LinkId: "STRING_VALUE",
- *       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetConnectPeerAssociationsResponse
+ * //   ConnectPeerAssociations: [ // ConnectPeerAssociationList
+ * //     { // ConnectPeerAssociation
+ * //       ConnectPeerId: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       DeviceId: "STRING_VALUE",
+ * //       LinkId: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

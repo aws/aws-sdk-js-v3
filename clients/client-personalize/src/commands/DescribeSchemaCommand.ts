@@ -45,17 +45,16 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSchemaResponse
- *   schema: { // DatasetSchema
- *     name: "STRING_VALUE",
- *     schemaArn: "STRING_VALUE",
- *     schema: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- *   },
- * };
+ * // { // DescribeSchemaResponse
+ * //   schema: { // DatasetSchema
+ * //     name: "STRING_VALUE",
+ * //     schemaArn: "STRING_VALUE",
+ * //     schema: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //   },
+ * // };
  *
  * ```
  *

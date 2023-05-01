@@ -50,24 +50,23 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * };
  * const command = new DescribeLanguageModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLanguageModelResponse
- *   LanguageModel: { // LanguageModel
- *     ModelName: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
- *     BaseModelName: "NarrowBand" || "WideBand",
- *     ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *     UpgradeAvailability: true || false,
- *     FailureReason: "STRING_VALUE",
- *     InputDataConfig: { // InputDataConfig
- *       S3Uri: "STRING_VALUE", // required
- *       TuningDataS3Uri: "STRING_VALUE",
- *       DataAccessRoleArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // DescribeLanguageModelResponse
+ * //   LanguageModel: { // LanguageModel
+ * //     ModelName: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LanguageCode: "en-US" || "hi-IN" || "es-US" || "en-GB" || "en-AU" || "de-DE" || "ja-JP",
+ * //     BaseModelName: "NarrowBand" || "WideBand",
+ * //     ModelStatus: "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //     UpgradeAvailability: true || false,
+ * //     FailureReason: "STRING_VALUE",
+ * //     InputDataConfig: { // InputDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       TuningDataS3Uri: "STRING_VALUE",
+ * //       DataAccessRoleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

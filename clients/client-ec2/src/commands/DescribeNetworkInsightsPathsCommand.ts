@@ -59,55 +59,54 @@ export interface DescribeNetworkInsightsPathsCommandOutput
  * };
  * const command = new DescribeNetworkInsightsPathsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNetworkInsightsPathsResult
- *   NetworkInsightsPaths: [ // NetworkInsightsPathList
- *     { // NetworkInsightsPath
- *       NetworkInsightsPathId: "STRING_VALUE",
- *       NetworkInsightsPathArn: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       Source: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
- *       SourceArn: "STRING_VALUE",
- *       DestinationArn: "STRING_VALUE",
- *       SourceIp: "STRING_VALUE",
- *       DestinationIp: "STRING_VALUE",
- *       Protocol: "tcp" || "udp",
- *       DestinationPort: Number("int"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       FilterAtSource: { // PathFilter
- *         SourceAddress: "STRING_VALUE",
- *         SourcePortRange: { // FilterPortRange
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *         DestinationAddress: "STRING_VALUE",
- *         DestinationPortRange: {
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *       },
- *       FilterAtDestination: {
- *         SourceAddress: "STRING_VALUE",
- *         SourcePortRange: {
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *         DestinationAddress: "STRING_VALUE",
- *         DestinationPortRange: {
- *           FromPort: Number("int"),
- *           ToPort: Number("int"),
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNetworkInsightsPathsResult
+ * //   NetworkInsightsPaths: [ // NetworkInsightsPathList
+ * //     { // NetworkInsightsPath
+ * //       NetworkInsightsPathId: "STRING_VALUE",
+ * //       NetworkInsightsPathArn: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       Source: "STRING_VALUE",
+ * //       Destination: "STRING_VALUE",
+ * //       SourceArn: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       SourceIp: "STRING_VALUE",
+ * //       DestinationIp: "STRING_VALUE",
+ * //       Protocol: "tcp" || "udp",
+ * //       DestinationPort: Number("int"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       FilterAtSource: { // PathFilter
+ * //         SourceAddress: "STRING_VALUE",
+ * //         SourcePortRange: { // FilterPortRange
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         DestinationAddress: "STRING_VALUE",
+ * //         DestinationPortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       },
+ * //       FilterAtDestination: {
+ * //         SourceAddress: "STRING_VALUE",
+ * //         SourcePortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //         DestinationAddress: "STRING_VALUE",
+ * //         DestinationPortRange: {
+ * //           FromPort: Number("int"),
+ * //           ToPort: Number("int"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

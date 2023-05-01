@@ -44,28 +44,27 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * const input = {};
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRegistryResponse
- *   registryId: "STRING_VALUE",
- *   replicationConfiguration: { // ReplicationConfiguration
- *     rules: [ // ReplicationRuleList // required
- *       { // ReplicationRule
- *         destinations: [ // ReplicationDestinationList // required
- *           { // ReplicationDestination
- *             region: "STRING_VALUE", // required
- *             registryId: "STRING_VALUE", // required
- *           },
- *         ],
- *         repositoryFilters: [ // RepositoryFilterList
- *           { // RepositoryFilter
- *             filter: "STRING_VALUE", // required
- *             filterType: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeRegistryResponse
+ * //   registryId: "STRING_VALUE",
+ * //   replicationConfiguration: { // ReplicationConfiguration
+ * //     rules: [ // ReplicationRuleList // required
+ * //       { // ReplicationRule
+ * //         destinations: [ // ReplicationDestinationList // required
+ * //           { // ReplicationDestination
+ * //             region: "STRING_VALUE", // required
+ * //             registryId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         repositoryFilters: [ // RepositoryFilterList
+ * //           { // RepositoryFilter
+ * //             filter: "STRING_VALUE", // required
+ * //             filterType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

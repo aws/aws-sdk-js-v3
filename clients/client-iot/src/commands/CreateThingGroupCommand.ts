@@ -65,12 +65,11 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * };
  * const command = new CreateThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateThingGroupResponse
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupArn: "STRING_VALUE",
- *   thingGroupId: "STRING_VALUE",
- * };
+ * // { // CreateThingGroupResponse
+ * //   thingGroupName: "STRING_VALUE",
+ * //   thingGroupArn: "STRING_VALUE",
+ * //   thingGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

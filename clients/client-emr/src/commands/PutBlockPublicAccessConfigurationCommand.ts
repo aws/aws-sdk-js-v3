@@ -79,8 +79,7 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * };
  * const command = new PutBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

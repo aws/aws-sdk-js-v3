@@ -46,8 +46,7 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

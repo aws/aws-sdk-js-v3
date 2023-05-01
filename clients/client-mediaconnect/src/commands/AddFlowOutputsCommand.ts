@@ -95,78 +95,77 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * };
  * const command = new AddFlowOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddFlowOutputsResponse
- *   FlowArn: "STRING_VALUE",
- *   Outputs: [ // __listOfOutput
- *     { // Output
- *       DataTransferSubscriberFeePercent: Number("int"),
- *       Description: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
- *       Encryption: { // Encryption
- *         Algorithm: "aes128" || "aes192" || "aes256",
- *         ConstantInitializationVector: "STRING_VALUE",
- *         DeviceId: "STRING_VALUE",
- *         KeyType: "speke" || "static-key" || "srt-password",
- *         Region: "STRING_VALUE",
- *         ResourceId: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE", // required
- *         SecretArn: "STRING_VALUE",
- *         Url: "STRING_VALUE",
- *       },
- *       EntitlementArn: "STRING_VALUE",
- *       ListenerAddress: "STRING_VALUE",
- *       MediaLiveInputArn: "STRING_VALUE",
- *       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfiguration
- *         { // MediaStreamOutputConfiguration
- *           DestinationConfigurations: [ // __listOfDestinationConfiguration
- *             { // DestinationConfiguration
- *               DestinationIp: "STRING_VALUE", // required
- *               DestinationPort: Number("int"), // required
- *               Interface: { // Interface
- *                 Name: "STRING_VALUE", // required
- *               },
- *               OutboundIp: "STRING_VALUE", // required
- *             },
- *           ],
- *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
- *           EncodingParameters: { // EncodingParameters
- *             CompressionFactor: Number("double"), // required
- *             EncoderProfile: "main" || "high", // required
- *           },
- *           MediaStreamName: "STRING_VALUE", // required
- *         },
- *       ],
- *       Name: "STRING_VALUE", // required
- *       OutputArn: "STRING_VALUE", // required
- *       Port: Number("int"),
- *       Transport: { // Transport
- *         CidrAllowList: [ // __listOf__string
- *           "STRING_VALUE",
- *         ],
- *         MaxBitrate: Number("int"),
- *         MaxLatency: Number("int"),
- *         MaxSyncBuffer: Number("int"),
- *         MinLatency: Number("int"),
- *         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *         RemoteId: "STRING_VALUE",
- *         SenderControlPort: Number("int"),
- *         SenderIpAddress: "STRING_VALUE",
- *         SmoothingLatency: Number("int"),
- *         SourceListenerAddress: "STRING_VALUE",
- *         SourceListenerPort: Number("int"),
- *         StreamId: "STRING_VALUE",
- *       },
- *       VpcInterfaceAttachment: { // VpcInterfaceAttachment
- *         VpcInterfaceName: "STRING_VALUE",
- *       },
- *       BridgeArn: "STRING_VALUE",
- *       BridgePorts: [ // __listOf__integer
- *         Number("int"),
- *       ],
- *     },
- *   ],
- * };
+ * // { // AddFlowOutputsResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Outputs: [ // __listOfOutput
+ * //     { // Output
+ * //       DataTransferSubscriberFeePercent: Number("int"),
+ * //       Description: "STRING_VALUE",
+ * //       Destination: "STRING_VALUE",
+ * //       Encryption: { // Encryption
+ * //         Algorithm: "aes128" || "aes192" || "aes256",
+ * //         ConstantInitializationVector: "STRING_VALUE",
+ * //         DeviceId: "STRING_VALUE",
+ * //         KeyType: "speke" || "static-key" || "srt-password",
+ * //         Region: "STRING_VALUE",
+ * //         ResourceId: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE", // required
+ * //         SecretArn: "STRING_VALUE",
+ * //         Url: "STRING_VALUE",
+ * //       },
+ * //       EntitlementArn: "STRING_VALUE",
+ * //       ListenerAddress: "STRING_VALUE",
+ * //       MediaLiveInputArn: "STRING_VALUE",
+ * //       MediaStreamOutputConfigurations: [ // __listOfMediaStreamOutputConfiguration
+ * //         { // MediaStreamOutputConfiguration
+ * //           DestinationConfigurations: [ // __listOfDestinationConfiguration
+ * //             { // DestinationConfiguration
+ * //               DestinationIp: "STRING_VALUE", // required
+ * //               DestinationPort: Number("int"), // required
+ * //               Interface: { // Interface
+ * //                 Name: "STRING_VALUE", // required
+ * //               },
+ * //               OutboundIp: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ * //           EncodingParameters: { // EncodingParameters
+ * //             CompressionFactor: Number("double"), // required
+ * //             EncoderProfile: "main" || "high", // required
+ * //           },
+ * //           MediaStreamName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE", // required
+ * //       OutputArn: "STRING_VALUE", // required
+ * //       Port: Number("int"),
+ * //       Transport: { // Transport
+ * //         CidrAllowList: [ // __listOf__string
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MaxBitrate: Number("int"),
+ * //         MaxLatency: Number("int"),
+ * //         MaxSyncBuffer: Number("int"),
+ * //         MinLatency: Number("int"),
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //         RemoteId: "STRING_VALUE",
+ * //         SenderControlPort: Number("int"),
+ * //         SenderIpAddress: "STRING_VALUE",
+ * //         SmoothingLatency: Number("int"),
+ * //         SourceListenerAddress: "STRING_VALUE",
+ * //         SourceListenerPort: Number("int"),
+ * //         StreamId: "STRING_VALUE",
+ * //       },
+ * //       VpcInterfaceAttachment: { // VpcInterfaceAttachment
+ * //         VpcInterfaceName: "STRING_VALUE",
+ * //       },
+ * //       BridgeArn: "STRING_VALUE",
+ * //       BridgePorts: [ // __listOf__integer
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

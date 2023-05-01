@@ -46,13 +46,12 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * };
  * const command = new ListApprovalRuleTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApprovalRuleTemplatesOutput
- *   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListApprovalRuleTemplatesOutput
+ * //   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

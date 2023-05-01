@@ -55,13 +55,12 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * };
  * const command = new ListRepositoriesForApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRepositoriesForApprovalRuleTemplateOutput
- *   repositoryNames: [ // RepositoryNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRepositoriesForApprovalRuleTemplateOutput
+ * //   repositoryNames: [ // RepositoryNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

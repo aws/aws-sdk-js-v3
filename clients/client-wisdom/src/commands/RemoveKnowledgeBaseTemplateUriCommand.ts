@@ -49,8 +49,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * };
  * const command = new RemoveKnowledgeBaseTemplateUriCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

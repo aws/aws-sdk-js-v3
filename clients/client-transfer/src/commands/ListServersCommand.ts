@@ -46,22 +46,21 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServersResponse
- *   NextToken: "STRING_VALUE",
- *   Servers: [ // ListedServers // required
- *     { // ListedServer
- *       Arn: "STRING_VALUE", // required
- *       Domain: "S3" || "EFS",
- *       IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
- *       EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
- *       LoggingRole: "STRING_VALUE",
- *       ServerId: "STRING_VALUE",
- *       State: "OFFLINE" || "ONLINE" || "STARTING" || "STOPPING" || "START_FAILED" || "STOP_FAILED",
- *       UserCount: Number("int"),
- *     },
- *   ],
- * };
+ * // { // ListServersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Servers: [ // ListedServers // required
+ * //     { // ListedServer
+ * //       Arn: "STRING_VALUE", // required
+ * //       Domain: "S3" || "EFS",
+ * //       IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
+ * //       EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
+ * //       LoggingRole: "STRING_VALUE",
+ * //       ServerId: "STRING_VALUE",
+ * //       State: "OFFLINE" || "ONLINE" || "STARTING" || "STOPPING" || "START_FAILED" || "STOP_FAILED",
+ * //       UserCount: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * };
  * const command = new CancelOrderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

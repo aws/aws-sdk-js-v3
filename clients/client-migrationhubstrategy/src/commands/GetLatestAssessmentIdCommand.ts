@@ -46,10 +46,9 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * const input = {};
  * const command = new GetLatestAssessmentIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLatestAssessmentIdResponse
- *   id: "STRING_VALUE",
- * };
+ * // { // GetLatestAssessmentIdResponse
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -83,8 +83,7 @@ export interface UpdateJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

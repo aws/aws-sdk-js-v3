@@ -52,8 +52,7 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  * };
  * const command = new DeleteAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

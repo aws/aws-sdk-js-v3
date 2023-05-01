@@ -48,13 +48,12 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
  * };
  * const command = new RevokeClientVpnIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RevokeClientVpnIngressResult
- *   Status: { // ClientVpnAuthorizationRuleStatus
- *     Code: "authorizing" || "active" || "failed" || "revoking",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // RevokeClientVpnIngressResult
+ * //   Status: { // ClientVpnAuthorizationRuleStatus
+ * //     Code: "authorizing" || "active" || "failed" || "revoking",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -59,10 +59,9 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * };
  * const command = new ModifyVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVpcEndpointConnectionNotificationResult
- *   ReturnValue: true || false,
- * };
+ * // { // ModifyVpcEndpointConnectionNotificationResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

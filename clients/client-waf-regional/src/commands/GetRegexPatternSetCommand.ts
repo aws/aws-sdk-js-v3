@@ -52,16 +52,15 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * };
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegexPatternSetResponse
- *   RegexPatternSet: { // RegexPatternSet
- *     RegexPatternSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     RegexPatternStrings: [ // RegexPatternStrings // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetRegexPatternSetResponse
+ * //   RegexPatternSet: { // RegexPatternSet
+ * //     RegexPatternSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     RegexPatternStrings: [ // RegexPatternStrings // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

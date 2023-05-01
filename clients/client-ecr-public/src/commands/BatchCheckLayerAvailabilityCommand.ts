@@ -56,24 +56,23 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * };
  * const command = new BatchCheckLayerAvailabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCheckLayerAvailabilityResponse
- *   layers: [ // LayerList
- *     { // Layer
- *       layerDigest: "STRING_VALUE",
- *       layerAvailability: "AVAILABLE" || "UNAVAILABLE",
- *       layerSize: Number("long"),
- *       mediaType: "STRING_VALUE",
- *     },
- *   ],
- *   failures: [ // LayerFailureList
- *     { // LayerFailure
- *       layerDigest: "STRING_VALUE",
- *       failureCode: "InvalidLayerDigest" || "MissingLayerDigest",
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCheckLayerAvailabilityResponse
+ * //   layers: [ // LayerList
+ * //     { // Layer
+ * //       layerDigest: "STRING_VALUE",
+ * //       layerAvailability: "AVAILABLE" || "UNAVAILABLE",
+ * //       layerSize: Number("long"),
+ * //       mediaType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failures: [ // LayerFailureList
+ * //     { // LayerFailure
+ * //       layerDigest: "STRING_VALUE",
+ * //       failureCode: "InvalidLayerDigest" || "MissingLayerDigest",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

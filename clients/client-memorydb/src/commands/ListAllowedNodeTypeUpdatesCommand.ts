@@ -46,15 +46,14 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * };
  * const command = new ListAllowedNodeTypeUpdatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAllowedNodeTypeUpdatesResponse
- *   ScaleUpNodeTypes: [ // NodeTypeList
- *     "STRING_VALUE",
- *   ],
- *   ScaleDownNodeTypes: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListAllowedNodeTypeUpdatesResponse
+ * //   ScaleUpNodeTypes: [ // NodeTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ScaleDownNodeTypes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -44,16 +44,15 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * };
  * const command = new GetWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkspaceResponse
- *   workspaceId: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   s3Location: "STRING_VALUE", // required
- *   role: "STRING_VALUE", // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- *   updateDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetWorkspaceResponse
+ * //   workspaceId: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   s3Location: "STRING_VALUE", // required
+ * //   role: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

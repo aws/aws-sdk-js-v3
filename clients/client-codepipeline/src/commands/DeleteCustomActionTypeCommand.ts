@@ -54,8 +54,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCustomActionTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

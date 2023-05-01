@@ -47,20 +47,19 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * };
  * const command = new GetJourneyRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJourneyRunsResponse
- *   JourneyRunsResponse: { // JourneyRunsResponse
- *     Item: [ // ListOfJourneyRunResponse // required
- *       { // JourneyRunResponse
- *         CreationTime: "STRING_VALUE", // required
- *         LastUpdateTime: "STRING_VALUE", // required
- *         RunId: "STRING_VALUE", // required
- *         Status: "SCHEDULED" || "RUNNING" || "COMPLETED" || "CANCELLED", // required
- *       },
- *     ],
- *     NextToken: "STRING_VALUE",
- *   },
- * };
+ * // { // GetJourneyRunsResponse
+ * //   JourneyRunsResponse: { // JourneyRunsResponse
+ * //     Item: [ // ListOfJourneyRunResponse // required
+ * //       { // JourneyRunResponse
+ * //         CreationTime: "STRING_VALUE", // required
+ * //         LastUpdateTime: "STRING_VALUE", // required
+ * //         RunId: "STRING_VALUE", // required
+ * //         Status: "SCHEDULED" || "RUNNING" || "COMPLETED" || "CANCELLED", // required
+ * //       },
+ * //     ],
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

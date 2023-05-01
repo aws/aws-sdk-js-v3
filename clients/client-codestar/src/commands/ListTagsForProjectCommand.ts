@@ -46,13 +46,12 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  * };
  * const command = new ListTagsForProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForProjectResult
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTagsForProjectResult
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

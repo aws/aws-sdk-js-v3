@@ -48,22 +48,21 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetResponse
- *   DatasetDescription: { // DatasetDescription
- *     CreationTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
- *     StatusMessage: "STRING_VALUE",
- *     StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
- *     DatasetStats: { // DatasetStats
- *       LabeledEntries: Number("int"),
- *       TotalEntries: Number("int"),
- *       TotalLabels: Number("int"),
- *       ErrorEntries: Number("int"),
- *     },
- *   },
- * };
+ * // { // DescribeDatasetResponse
+ * //   DatasetDescription: { // DatasetDescription
+ * //     CreationTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ * //     DatasetStats: { // DatasetStats
+ * //       LabeledEntries: Number("int"),
+ * //       TotalEntries: Number("int"),
+ * //       TotalLabels: Number("int"),
+ * //       ErrorEntries: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -87,8 +87,7 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

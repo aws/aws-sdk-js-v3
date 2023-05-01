@@ -60,20 +60,19 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * };
  * const command = new CreateClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClusterParameterGroupResult
- *   ClusterParameterGroup: { // ClusterParameterGroup
- *     ParameterGroupName: "STRING_VALUE",
- *     ParameterGroupFamily: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateClusterParameterGroupResult
+ * //   ClusterParameterGroup: { // ClusterParameterGroup
+ * //     ParameterGroupName: "STRING_VALUE",
+ * //     ParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

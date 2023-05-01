@@ -48,8 +48,7 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

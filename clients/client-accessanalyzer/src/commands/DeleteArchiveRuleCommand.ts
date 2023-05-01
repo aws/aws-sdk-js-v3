@@ -46,8 +46,7 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

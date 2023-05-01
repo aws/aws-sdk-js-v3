@@ -50,17 +50,16 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * };
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDatabaseResponse
- *   Database: { // Database
- *     Arn: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     TableCount: Number("long"),
- *     KmsKeyId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateDatabaseResponse
+ * //   Database: { // Database
+ * //     Arn: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableCount: Number("long"),
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

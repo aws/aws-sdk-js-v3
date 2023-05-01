@@ -53,8 +53,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * };
  * const command = new RegisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

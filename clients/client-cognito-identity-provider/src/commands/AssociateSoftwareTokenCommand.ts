@@ -71,11 +71,10 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateSoftwareTokenResponse
- *   SecretCode: "STRING_VALUE",
- *   Session: "STRING_VALUE",
- * };
+ * // { // AssociateSoftwareTokenResponse
+ * //   SecretCode: "STRING_VALUE",
+ * //   Session: "STRING_VALUE",
+ * // };
  *
  * ```
  *

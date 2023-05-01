@@ -63,17 +63,16 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * };
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCompatibleElasticsearchVersionsResponse
- *   CompatibleElasticsearchVersions: [ // CompatibleElasticsearchVersionsList
- *     { // CompatibleVersionsMap
- *       SourceVersion: "STRING_VALUE",
- *       TargetVersions: [ // ElasticsearchVersionList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetCompatibleElasticsearchVersionsResponse
+ * //   CompatibleElasticsearchVersions: [ // CompatibleElasticsearchVersionsList
+ * //     { // CompatibleVersionsMap
+ * //       SourceVersion: "STRING_VALUE",
+ * //       TargetVersions: [ // ElasticsearchVersionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -86,29 +86,28 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * };
  * const command = new DescribeWorkflowTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WorkflowTypeDetail
- *   typeInfo: { // WorkflowTypeInfo
- *     workflowType: { // WorkflowType
- *       name: "STRING_VALUE", // required
- *       version: "STRING_VALUE", // required
- *     },
- *     status: "REGISTERED" || "DEPRECATED", // required
- *     description: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"), // required
- *     deprecationDate: new Date("TIMESTAMP"),
- *   },
- *   configuration: { // WorkflowTypeConfiguration
- *     defaultTaskStartToCloseTimeout: "STRING_VALUE",
- *     defaultExecutionStartToCloseTimeout: "STRING_VALUE",
- *     defaultTaskList: { // TaskList
- *       name: "STRING_VALUE", // required
- *     },
- *     defaultTaskPriority: "STRING_VALUE",
- *     defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
- *     defaultLambdaRole: "STRING_VALUE",
- *   },
- * };
+ * // { // WorkflowTypeDetail
+ * //   typeInfo: { // WorkflowTypeInfo
+ * //     workflowType: { // WorkflowType
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"), // required
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   configuration: { // WorkflowTypeConfiguration
+ * //     defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultExecutionStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultTaskList: { // TaskList
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     defaultTaskPriority: "STRING_VALUE",
+ * //     defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ * //     defaultLambdaRole: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

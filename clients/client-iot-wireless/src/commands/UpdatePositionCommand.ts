@@ -54,8 +54,7 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * };
  * const command = new UpdatePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

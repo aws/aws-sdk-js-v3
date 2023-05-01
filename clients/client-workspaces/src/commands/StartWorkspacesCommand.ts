@@ -50,16 +50,15 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartWorkspacesResult
- *   FailedRequests: [ // FailedStartWorkspaceRequests
- *     { // FailedWorkspaceChangeRequest
- *       WorkspaceId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // StartWorkspacesResult
+ * //   FailedRequests: [ // FailedStartWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

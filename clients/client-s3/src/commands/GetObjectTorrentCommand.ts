@@ -72,11 +72,10 @@ export interface GetObjectTorrentCommandOutput
  * };
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectTorrentOutput
- *   Body: "STREAMING_BLOB_VALUE",
- *   RequestCharged: "requester",
- * };
+ * // { // GetObjectTorrentOutput
+ * //   Body: "STREAMING_BLOB_VALUE",
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

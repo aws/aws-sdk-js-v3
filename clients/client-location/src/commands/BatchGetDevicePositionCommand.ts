@@ -51,34 +51,33 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * };
  * const command = new BatchGetDevicePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetDevicePositionResponse
- *   Errors: [ // BatchGetDevicePositionErrorList // required
- *     { // BatchGetDevicePositionError
- *       DeviceId: "STRING_VALUE", // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   DevicePositions: [ // DevicePositionList // required
- *     { // DevicePosition
- *       DeviceId: "STRING_VALUE",
- *       SampleTime: new Date("TIMESTAMP"), // required
- *       ReceivedTime: new Date("TIMESTAMP"), // required
- *       Position: [ // Position // required
- *         Number("double"),
- *       ],
- *       Accuracy: { // PositionalAccuracy
- *         Horizontal: Number("double"), // required
- *       },
- *       PositionProperties: { // PropertyMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchGetDevicePositionResponse
+ * //   Errors: [ // BatchGetDevicePositionErrorList // required
+ * //     { // BatchGetDevicePositionError
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   DevicePositions: [ // DevicePositionList // required
+ * //     { // DevicePosition
+ * //       DeviceId: "STRING_VALUE",
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       ReceivedTime: new Date("TIMESTAMP"), // required
+ * //       Position: [ // Position // required
+ * //         Number("double"),
+ * //       ],
+ * //       Accuracy: { // PositionalAccuracy
+ * //         Horizontal: Number("double"), // required
+ * //       },
+ * //       PositionProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

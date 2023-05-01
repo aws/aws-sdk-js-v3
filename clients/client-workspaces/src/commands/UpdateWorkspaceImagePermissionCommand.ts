@@ -73,8 +73,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * };
  * const command = new UpdateWorkspaceImagePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

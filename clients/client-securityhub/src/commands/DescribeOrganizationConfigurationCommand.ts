@@ -51,12 +51,11 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConfigurationResponse
- *   AutoEnable: true || false,
- *   MemberAccountLimitReached: true || false,
- *   AutoEnableStandards: "NONE" || "DEFAULT",
- * };
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   AutoEnable: true || false,
+ * //   MemberAccountLimitReached: true || false,
+ * //   AutoEnableStandards: "NONE" || "DEFAULT",
+ * // };
  *
  * ```
  *

@@ -53,28 +53,27 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSessionsResponse
- *   Sessions: [ // SessionList
- *     { // Session
- *       SessionId: "STRING_VALUE",
- *       Target: "STRING_VALUE",
- *       Status: "Connected" || "Connecting" || "Disconnected" || "Terminated" || "Terminating" || "Failed",
- *       StartDate: new Date("TIMESTAMP"),
- *       EndDate: new Date("TIMESTAMP"),
- *       DocumentName: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *       Details: "STRING_VALUE",
- *       OutputUrl: { // SessionManagerOutputUrl
- *         S3OutputUrl: "STRING_VALUE",
- *         CloudWatchOutputUrl: "STRING_VALUE",
- *       },
- *       MaxSessionDuration: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSessionsResponse
+ * //   Sessions: [ // SessionList
+ * //     { // Session
+ * //       SessionId: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       Status: "Connected" || "Connecting" || "Disconnected" || "Terminated" || "Terminating" || "Failed",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       DocumentName: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //       Details: "STRING_VALUE",
+ * //       OutputUrl: { // SessionManagerOutputUrl
+ * //         S3OutputUrl: "STRING_VALUE",
+ * //         CloudWatchOutputUrl: "STRING_VALUE",
+ * //       },
+ * //       MaxSessionDuration: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,15 +53,14 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * };
  * const command = new PutInsightSelectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutInsightSelectorsResponse
- *   TrailARN: "STRING_VALUE",
- *   InsightSelectors: [ // InsightSelectors
- *     { // InsightSelector
- *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
- *     },
- *   ],
- * };
+ * // { // PutInsightSelectorsResponse
+ * //   TrailARN: "STRING_VALUE",
+ * //   InsightSelectors: [ // InsightSelectors
+ * //     { // InsightSelector
+ * //       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

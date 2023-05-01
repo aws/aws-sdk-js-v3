@@ -54,12 +54,11 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * };
  * const command = new AttachLoadBalancerToSubnetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachLoadBalancerToSubnetsOutput
- *   Subnets: [ // Subnets
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AttachLoadBalancerToSubnetsOutput
+ * //   Subnets: [ // Subnets
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

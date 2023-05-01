@@ -50,11 +50,10 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * };
  * const command = new ModifySnapshotTierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifySnapshotTierResult
- *   SnapshotId: "STRING_VALUE",
- *   TieringStartTime: new Date("TIMESTAMP"),
- * };
+ * // { // ModifySnapshotTierResult
+ * //   SnapshotId: "STRING_VALUE",
+ * //   TieringStartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

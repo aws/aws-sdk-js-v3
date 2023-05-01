@@ -59,47 +59,46 @@ export interface BatchDetectTargetedSentimentCommandOutput
  * };
  * const command = new BatchDetectTargetedSentimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDetectTargetedSentimentResponse
- *   ResultList: [ // ListOfDetectTargetedSentimentResult // required
- *     { // BatchDetectTargetedSentimentItemResult
- *       Index: Number("int"),
- *       Entities: [ // ListOfTargetedSentimentEntities
- *         { // TargetedSentimentEntity
- *           DescriptiveMentionIndex: [ // ListOfDescriptiveMentionIndices
- *             Number("int"),
- *           ],
- *           Mentions: [ // ListOfMentions
- *             { // TargetedSentimentMention
- *               Score: Number("float"),
- *               GroupScore: Number("float"),
- *               Text: "STRING_VALUE",
- *               Type: "PERSON" || "LOCATION" || "ORGANIZATION" || "FACILITY" || "BRAND" || "COMMERCIAL_ITEM" || "MOVIE" || "MUSIC" || "BOOK" || "SOFTWARE" || "GAME" || "PERSONAL_TITLE" || "EVENT" || "DATE" || "QUANTITY" || "ATTRIBUTE" || "OTHER",
- *               MentionSentiment: { // MentionSentiment
- *                 Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
- *                 SentimentScore: { // SentimentScore
- *                   Positive: Number("float"),
- *                   Negative: Number("float"),
- *                   Neutral: Number("float"),
- *                   Mixed: Number("float"),
- *                 },
- *               },
- *               BeginOffset: Number("int"),
- *               EndOffset: Number("int"),
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   ErrorList: [ // BatchItemErrorList // required
- *     { // BatchItemError
- *       Index: Number("int"),
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDetectTargetedSentimentResponse
+ * //   ResultList: [ // ListOfDetectTargetedSentimentResult // required
+ * //     { // BatchDetectTargetedSentimentItemResult
+ * //       Index: Number("int"),
+ * //       Entities: [ // ListOfTargetedSentimentEntities
+ * //         { // TargetedSentimentEntity
+ * //           DescriptiveMentionIndex: [ // ListOfDescriptiveMentionIndices
+ * //             Number("int"),
+ * //           ],
+ * //           Mentions: [ // ListOfMentions
+ * //             { // TargetedSentimentMention
+ * //               Score: Number("float"),
+ * //               GroupScore: Number("float"),
+ * //               Text: "STRING_VALUE",
+ * //               Type: "PERSON" || "LOCATION" || "ORGANIZATION" || "FACILITY" || "BRAND" || "COMMERCIAL_ITEM" || "MOVIE" || "MUSIC" || "BOOK" || "SOFTWARE" || "GAME" || "PERSONAL_TITLE" || "EVENT" || "DATE" || "QUANTITY" || "ATTRIBUTE" || "OTHER",
+ * //               MentionSentiment: { // MentionSentiment
+ * //                 Sentiment: "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ * //                 SentimentScore: { // SentimentScore
+ * //                   Positive: Number("float"),
+ * //                   Negative: Number("float"),
+ * //                   Neutral: Number("float"),
+ * //                   Mixed: Number("float"),
+ * //                 },
+ * //               },
+ * //               BeginOffset: Number("int"),
+ * //               EndOffset: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ErrorList: [ // BatchItemErrorList // required
+ * //     { // BatchItemError
+ * //       Index: Number("int"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

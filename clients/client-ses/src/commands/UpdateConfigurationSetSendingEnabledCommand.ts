@@ -53,8 +53,7 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -81,8 +81,7 @@ export interface CreateDatalakeCommandOutput extends CreateDatalakeResponse, __M
  * };
  * const command = new CreateDatalakeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

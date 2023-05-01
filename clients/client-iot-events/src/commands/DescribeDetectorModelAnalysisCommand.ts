@@ -52,10 +52,9 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * };
  * const command = new DescribeDetectorModelAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDetectorModelAnalysisResponse
- *   status: "STRING_VALUE",
- * };
+ * // { // DescribeDetectorModelAnalysisResponse
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

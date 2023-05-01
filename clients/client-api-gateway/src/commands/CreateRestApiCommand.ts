@@ -65,35 +65,34 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * };
  * const command = new CreateRestApiCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestApi
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   createdDate: new Date("TIMESTAMP"),
- *   version: "STRING_VALUE",
- *   warnings: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   binaryMediaTypes: [
- *     "STRING_VALUE",
- *   ],
- *   minimumCompressionSize: Number("int"),
- *   apiKeySource: "HEADER" || "AUTHORIZER",
- *   endpointConfiguration: { // EndpointConfiguration
- *     types: [ // ListOfEndpointType
- *       "REGIONAL" || "EDGE" || "PRIVATE",
- *     ],
- *     vpcEndpointIds: [
- *       "STRING_VALUE",
- *     ],
- *   },
- *   policy: "STRING_VALUE",
- *   tags: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- *   disableExecuteApiEndpoint: true || false,
- * };
+ * // { // RestApi
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   version: "STRING_VALUE",
+ * //   warnings: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   binaryMediaTypes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   minimumCompressionSize: Number("int"),
+ * //   apiKeySource: "HEADER" || "AUTHORIZER",
+ * //   endpointConfiguration: { // EndpointConfiguration
+ * //     types: [ // ListOfEndpointType
+ * //       "REGIONAL" || "EDGE" || "PRIVATE",
+ * //     ],
+ * //     vpcEndpointIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   policy: "STRING_VALUE",
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   disableExecuteApiEndpoint: true || false,
+ * // };
  *
  * ```
  *

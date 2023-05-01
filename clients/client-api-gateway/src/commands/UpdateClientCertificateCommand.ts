@@ -52,17 +52,16 @@ export interface UpdateClientCertificateCommandOutput extends ClientCertificate,
  * };
  * const command = new UpdateClientCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClientCertificate
- *   clientCertificateId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   pemEncodedCertificate: "STRING_VALUE",
- *   createdDate: new Date("TIMESTAMP"),
- *   expirationDate: new Date("TIMESTAMP"),
- *   tags: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ClientCertificate
+ * //   clientCertificateId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   pemEncodedCertificate: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   expirationDate: new Date("TIMESTAMP"),
+ * //   tags: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

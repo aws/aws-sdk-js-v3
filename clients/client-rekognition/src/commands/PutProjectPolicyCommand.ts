@@ -60,10 +60,9 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * };
  * const command = new PutProjectPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutProjectPolicyResponse
- *   PolicyRevisionId: "STRING_VALUE",
- * };
+ * // { // PutProjectPolicyResponse
+ * //   PolicyRevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

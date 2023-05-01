@@ -58,23 +58,22 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * };
  * const command = new CreateEntitlementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEntitlementResult
- *   Entitlement: { // Entitlement
- *     Name: "STRING_VALUE", // required
- *     StackName: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     AppVisibility: "ALL" || "ASSOCIATED", // required
- *     Attributes: [ // EntitlementAttributeList // required
- *       { // EntitlementAttribute
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     CreatedTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateEntitlementResult
+ * //   Entitlement: { // Entitlement
+ * //     Name: "STRING_VALUE", // required
+ * //     StackName: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     AppVisibility: "ALL" || "ASSOCIATED", // required
+ * //     Attributes: [ // EntitlementAttributeList // required
+ * //       { // EntitlementAttribute
+ * //         Name: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

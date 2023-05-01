@@ -48,13 +48,12 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  * };
  * const command = new DeleteBotLocaleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBotLocaleResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
- * };
+ * // { // DeleteBotLocaleResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * // };
  *
  * ```
  *

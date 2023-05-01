@@ -55,19 +55,18 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEnvironmentMembershipsResult
- *   memberships: [ // EnvironmentMembersList
- *     { // EnvironmentMember
- *       permissions: "owner" || "read-write" || "read-only", // required
- *       userId: "STRING_VALUE", // required
- *       userArn: "STRING_VALUE", // required
- *       environmentId: "STRING_VALUE", // required
- *       lastAccess: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEnvironmentMembershipsResult
+ * //   memberships: [ // EnvironmentMembersList
+ * //     { // EnvironmentMember
+ * //       permissions: "owner" || "read-write" || "read-only", // required
+ * //       userId: "STRING_VALUE", // required
+ * //       userArn: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
+ * //       lastAccess: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

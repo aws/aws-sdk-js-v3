@@ -49,25 +49,24 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * };
  * const command = new CreateMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMembershipOutput
- *   membership: { // Membership
- *     id: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     collaborationArn: "STRING_VALUE", // required
- *     collaborationId: "STRING_VALUE", // required
- *     collaborationCreatorAccountId: "STRING_VALUE", // required
- *     collaborationCreatorDisplayName: "STRING_VALUE", // required
- *     collaborationName: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE", // required
- *     memberAbilities: [ // MemberAbilities // required
- *       "STRING_VALUE",
- *     ],
- *     queryLogStatus: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CreateMembershipOutput
+ * //   membership: { // Membership
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     collaborationArn: "STRING_VALUE", // required
+ * //     collaborationId: "STRING_VALUE", // required
+ * //     collaborationCreatorAccountId: "STRING_VALUE", // required
+ * //     collaborationCreatorDisplayName: "STRING_VALUE", // required
+ * //     collaborationName: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     memberAbilities: [ // MemberAbilities // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     queryLogStatus: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

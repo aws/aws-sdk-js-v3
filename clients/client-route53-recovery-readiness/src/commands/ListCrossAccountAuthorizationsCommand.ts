@@ -54,13 +54,12 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  * };
  * const command = new ListCrossAccountAuthorizationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCrossAccountAuthorizationsResponse
- *   CrossAccountAuthorizations: [ // __listOfCrossAccountAuthorization
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCrossAccountAuthorizationsResponse
+ * //   CrossAccountAuthorizations: [ // __listOfCrossAccountAuthorization
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

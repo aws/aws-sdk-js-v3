@@ -48,8 +48,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

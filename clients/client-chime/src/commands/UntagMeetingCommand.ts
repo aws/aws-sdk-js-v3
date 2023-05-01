@@ -47,8 +47,7 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagMeetingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

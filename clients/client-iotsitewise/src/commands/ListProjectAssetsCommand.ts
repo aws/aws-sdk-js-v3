@@ -46,13 +46,12 @@ export interface ListProjectAssetsCommandOutput extends ListProjectAssetsRespons
  * };
  * const command = new ListProjectAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectAssetsResponse
- *   assetIds: [ // AssetIDs // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectAssetsResponse
+ * //   assetIds: [ // AssetIDs // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * };
  * const command = new ListCollaborationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCollaborationsOutput
- *   nextToken: "STRING_VALUE",
- *   collaborationList: [ // CollaborationSummaryList // required
- *     { // CollaborationSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       creatorAccountId: "STRING_VALUE", // required
- *       creatorDisplayName: "STRING_VALUE", // required
- *       createTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       memberStatus: "STRING_VALUE", // required
- *       membershipId: "STRING_VALUE",
- *       membershipArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCollaborationsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   collaborationList: [ // CollaborationSummaryList // required
+ * //     { // CollaborationSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       creatorAccountId: "STRING_VALUE", // required
+ * //       creatorDisplayName: "STRING_VALUE", // required
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       memberStatus: "STRING_VALUE", // required
+ * //       membershipId: "STRING_VALUE",
+ * //       membershipArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

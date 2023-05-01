@@ -54,15 +54,14 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AllowedNodeTypeModificationsMessage
- *   ScaleUpModifications: [ // NodeTypeList
- *     "STRING_VALUE",
- *   ],
- *   ScaleDownModifications: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // AllowedNodeTypeModificationsMessage
+ * //   ScaleUpModifications: [ // NodeTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ScaleDownModifications: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

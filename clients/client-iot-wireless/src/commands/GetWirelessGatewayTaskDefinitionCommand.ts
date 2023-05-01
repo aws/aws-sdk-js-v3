@@ -49,30 +49,29 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  * };
  * const command = new GetWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayTaskDefinitionResponse
- *   AutoCreateTasks: true || false,
- *   Name: "STRING_VALUE",
- *   Update: { // UpdateWirelessGatewayTaskCreate
- *     UpdateDataSource: "STRING_VALUE",
- *     UpdateDataRole: "STRING_VALUE",
- *     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
- *       UpdateSignature: "STRING_VALUE",
- *       SigKeyCrc: Number("long"),
- *       CurrentVersion: { // LoRaWANGatewayVersion
- *         PackageVersion: "STRING_VALUE",
- *         Model: "STRING_VALUE",
- *         Station: "STRING_VALUE",
- *       },
- *       UpdateVersion: {
- *         PackageVersion: "STRING_VALUE",
- *         Model: "STRING_VALUE",
- *         Station: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   Arn: "STRING_VALUE",
- * };
+ * // { // GetWirelessGatewayTaskDefinitionResponse
+ * //   AutoCreateTasks: true || false,
+ * //   Name: "STRING_VALUE",
+ * //   Update: { // UpdateWirelessGatewayTaskCreate
+ * //     UpdateDataSource: "STRING_VALUE",
+ * //     UpdateDataRole: "STRING_VALUE",
+ * //     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
+ * //       UpdateSignature: "STRING_VALUE",
+ * //       SigKeyCrc: Number("long"),
+ * //       CurrentVersion: { // LoRaWANGatewayVersion
+ * //         PackageVersion: "STRING_VALUE",
+ * //         Model: "STRING_VALUE",
+ * //         Station: "STRING_VALUE",
+ * //       },
+ * //       UpdateVersion: {
+ * //         PackageVersion: "STRING_VALUE",
+ * //         Model: "STRING_VALUE",
+ * //         Station: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,52 +44,51 @@ export interface GetRotationCommandOutput extends GetRotationResult, __MetadataB
  * };
  * const command = new GetRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRotationResult
- *   RotationArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   ContactIds: [ // RotationContactsArnList // required
- *     "STRING_VALUE",
- *   ],
- *   StartTime: new Date("TIMESTAMP"), // required
- *   TimeZoneId: "STRING_VALUE", // required
- *   Recurrence: { // RecurrenceSettings
- *     MonthlySettings: [ // MonthlySettings
- *       { // MonthlySetting
- *         DayOfMonth: Number("int"), // required
- *         HandOffTime: { // HandOffTime
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
- *         },
- *       },
- *     ],
- *     WeeklySettings: [ // WeeklySettings
- *       { // WeeklySetting
- *         DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
- *         HandOffTime: {
- *           HourOfDay: Number("int"), // required
- *           MinuteOfHour: Number("int"), // required
- *         },
- *       },
- *     ],
- *     DailySettings: [ // DailySettings
- *       {
- *         HourOfDay: Number("int"), // required
- *         MinuteOfHour: Number("int"), // required
- *       },
- *     ],
- *     NumberOfOnCalls: Number("int"), // required
- *     ShiftCoverages: { // ShiftCoveragesMap
- *       "<keys>": [ // CoverageTimes
- *         { // CoverageTime
- *           Start: "<HandOffTime>",
- *           End: "<HandOffTime>",
- *         },
- *       ],
- *     },
- *     RecurrenceMultiplier: Number("int"), // required
- *   },
- * };
+ * // { // GetRotationResult
+ * //   RotationArn: "STRING_VALUE", // required
+ * //   Name: "STRING_VALUE", // required
+ * //   ContactIds: [ // RotationContactsArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   StartTime: new Date("TIMESTAMP"), // required
+ * //   TimeZoneId: "STRING_VALUE", // required
+ * //   Recurrence: { // RecurrenceSettings
+ * //     MonthlySettings: [ // MonthlySettings
+ * //       { // MonthlySetting
+ * //         DayOfMonth: Number("int"), // required
+ * //         HandOffTime: { // HandOffTime
+ * //           HourOfDay: Number("int"), // required
+ * //           MinuteOfHour: Number("int"), // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     WeeklySettings: [ // WeeklySettings
+ * //       { // WeeklySetting
+ * //         DayOfWeek: "MON" || "TUE" || "WED" || "THU" || "FRI" || "SAT" || "SUN", // required
+ * //         HandOffTime: {
+ * //           HourOfDay: Number("int"), // required
+ * //           MinuteOfHour: Number("int"), // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     DailySettings: [ // DailySettings
+ * //       {
+ * //         HourOfDay: Number("int"), // required
+ * //         MinuteOfHour: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     NumberOfOnCalls: Number("int"), // required
+ * //     ShiftCoverages: { // ShiftCoveragesMap
+ * //       "<keys>": [ // CoverageTimes
+ * //         { // CoverageTime
+ * //           Start: "<HandOffTime>",
+ * //           End: "<HandOffTime>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     RecurrenceMultiplier: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

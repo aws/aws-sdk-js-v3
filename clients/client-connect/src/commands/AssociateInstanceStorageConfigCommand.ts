@@ -82,10 +82,9 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateInstanceStorageConfigResponse
- *   AssociationId: "STRING_VALUE",
- * };
+ * // { // AssociateInstanceStorageConfigResponse
+ * //   AssociationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

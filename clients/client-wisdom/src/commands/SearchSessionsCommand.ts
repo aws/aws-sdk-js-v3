@@ -55,18 +55,17 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * };
  * const command = new SearchSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchSessionsResponse
- *   sessionSummaries: [ // SessionSummaries // required
- *     { // SessionSummary
- *       sessionId: "STRING_VALUE", // required
- *       sessionArn: "STRING_VALUE", // required
- *       assistantId: "STRING_VALUE", // required
- *       assistantArn: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchSessionsResponse
+ * //   sessionSummaries: [ // SessionSummaries // required
+ * //     { // SessionSummary
+ * //       sessionId: "STRING_VALUE", // required
+ * //       sessionArn: "STRING_VALUE", // required
+ * //       assistantId: "STRING_VALUE", // required
+ * //       assistantArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * };
  * const command = new DeleteMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- * };
+ * // { // DeleteMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

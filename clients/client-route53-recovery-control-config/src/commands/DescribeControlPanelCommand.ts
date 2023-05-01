@@ -48,17 +48,16 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * };
  * const command = new DescribeControlPanelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeControlPanelResponse
- *   ControlPanel: { // ControlPanel
- *     ClusterArn: "STRING_VALUE",
- *     ControlPanelArn: "STRING_VALUE",
- *     DefaultControlPanel: true || false,
- *     Name: "STRING_VALUE",
- *     RoutingControlCount: Number("int"),
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // DescribeControlPanelResponse
+ * //   ControlPanel: { // ControlPanel
+ * //     ClusterArn: "STRING_VALUE",
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     DefaultControlPanel: true || false,
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlCount: Number("int"),
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

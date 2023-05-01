@@ -62,10 +62,9 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * };
  * const command = new CopyWorkspaceImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyWorkspaceImageResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // CopyWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

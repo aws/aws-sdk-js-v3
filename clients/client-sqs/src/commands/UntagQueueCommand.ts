@@ -53,8 +53,7 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

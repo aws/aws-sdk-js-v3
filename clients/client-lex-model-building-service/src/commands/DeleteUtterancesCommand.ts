@@ -60,8 +60,7 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

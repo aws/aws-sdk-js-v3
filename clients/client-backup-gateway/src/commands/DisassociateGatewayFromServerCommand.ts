@@ -50,10 +50,9 @@ export interface DisassociateGatewayFromServerCommandOutput
  * };
  * const command = new DisassociateGatewayFromServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateGatewayFromServerOutput
- *   GatewayArn: "STRING_VALUE",
- * };
+ * // { // DisassociateGatewayFromServerOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

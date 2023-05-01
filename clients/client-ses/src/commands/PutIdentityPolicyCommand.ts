@@ -56,8 +56,7 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * };
  * const command = new PutIdentityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

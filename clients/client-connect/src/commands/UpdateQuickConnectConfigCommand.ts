@@ -59,8 +59,7 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateQuickConnectConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -42,8 +42,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * const input = {};
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

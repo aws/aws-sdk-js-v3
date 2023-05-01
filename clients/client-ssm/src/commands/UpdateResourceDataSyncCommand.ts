@@ -70,8 +70,7 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * };
  * const command = new UpdateResourceDataSyncCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

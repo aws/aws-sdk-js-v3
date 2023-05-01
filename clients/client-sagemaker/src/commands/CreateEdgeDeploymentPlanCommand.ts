@@ -73,10 +73,9 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * };
  * const command = new CreateEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEdgeDeploymentPlanResponse
- *   EdgeDeploymentPlanArn: "STRING_VALUE", // required
- * };
+ * // { // CreateEdgeDeploymentPlanResponse
+ * //   EdgeDeploymentPlanArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

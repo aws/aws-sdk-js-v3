@@ -54,30 +54,29 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   Users: [ // UserList
- *     { // User
- *       UserId: "STRING_VALUE", // required
- *       AccountId: "STRING_VALUE",
- *       PrimaryEmail: "STRING_VALUE",
- *       PrimaryProvisionedNumber: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
- *       UserType: "PrivateUser" || "SharedDevice",
- *       UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
- *       UserInvitationStatus: "Pending" || "Accepted" || "Failed",
- *       RegisteredOn: new Date("TIMESTAMP"),
- *       InvitedOn: new Date("TIMESTAMP"),
- *       AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
- *         IsAlexaForBusinessEnabled: true || false,
- *         AlexaForBusinessRoomArn: "STRING_VALUE",
- *       },
- *       PersonalPIN: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersResponse
+ * //   Users: [ // UserList
+ * //     { // User
+ * //       UserId: "STRING_VALUE", // required
+ * //       AccountId: "STRING_VALUE",
+ * //       PrimaryEmail: "STRING_VALUE",
+ * //       PrimaryProvisionedNumber: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ * //       UserType: "PrivateUser" || "SharedDevice",
+ * //       UserRegistrationStatus: "Unregistered" || "Registered" || "Suspended",
+ * //       UserInvitationStatus: "Pending" || "Accepted" || "Failed",
+ * //       RegisteredOn: new Date("TIMESTAMP"),
+ * //       InvitedOn: new Date("TIMESTAMP"),
+ * //       AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
+ * //         IsAlexaForBusinessEnabled: true || false,
+ * //         AlexaForBusinessRoomArn: "STRING_VALUE",
+ * //       },
+ * //       PersonalPIN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,10 +57,9 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  * };
  * const command = new PutObjectLegalHoldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectLegalHoldOutput
- *   RequestCharged: "requester",
- * };
+ * // { // PutObjectLegalHoldOutput
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

@@ -67,15 +67,14 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfigurationsResponse
- *   configurations: [ // Configurations
- *     { // Configuration
- *       "<keys>": "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListConfigurationsResponse
+ * //   configurations: [ // Configurations
+ * //     { // Configuration
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,18 +54,17 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupResponse
- *   Group: { // GroupType
- *     GroupName: "STRING_VALUE",
- *     UserPoolId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     Precedence: Number("int"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateGroupResponse
+ * //   Group: { // GroupType
+ * //     GroupName: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     Precedence: Number("int"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

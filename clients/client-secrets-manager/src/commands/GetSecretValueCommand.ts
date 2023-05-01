@@ -66,18 +66,17 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * };
  * const command = new GetSecretValueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSecretValueResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
- *   SecretString: "STRING_VALUE",
- *   VersionStages: [ // SecretVersionStagesType
- *     "STRING_VALUE",
- *   ],
- *   CreatedDate: new Date("TIMESTAMP"),
- * };
+ * // { // GetSecretValueResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * //   SecretBinary: "BLOB_VALUE",
+ * //   SecretString: "STRING_VALUE",
+ * //   VersionStages: [ // SecretVersionStagesType
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

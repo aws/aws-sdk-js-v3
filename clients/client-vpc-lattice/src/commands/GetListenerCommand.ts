@@ -45,31 +45,30 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  * };
  * const command = new GetListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetListenerResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   protocol: "STRING_VALUE",
- *   port: Number("int"),
- *   serviceArn: "STRING_VALUE",
- *   serviceId: "STRING_VALUE",
- *   defaultAction: { // RuleAction Union: only one key present
- *     forward: { // ForwardAction
- *       targetGroups: [ // WeightedTargetGroupList // required
- *         { // WeightedTargetGroup
- *           targetGroupIdentifier: "STRING_VALUE", // required
- *           weight: Number("int"),
- *         },
- *       ],
- *     },
- *     fixedResponse: { // FixedResponseAction
- *       statusCode: Number("int"), // required
- *     },
- *   },
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetListenerResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   protocol: "STRING_VALUE",
+ * //   port: Number("int"),
+ * //   serviceArn: "STRING_VALUE",
+ * //   serviceId: "STRING_VALUE",
+ * //   defaultAction: { // RuleAction Union: only one key present
+ * //     forward: { // ForwardAction
+ * //       targetGroups: [ // WeightedTargetGroupList // required
+ * //         { // WeightedTargetGroup
+ * //           targetGroupIdentifier: "STRING_VALUE", // required
+ * //           weight: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     fixedResponse: { // FixedResponseAction
+ * //       statusCode: Number("int"), // required
+ * //     },
+ * //   },
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

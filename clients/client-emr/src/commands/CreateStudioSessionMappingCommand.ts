@@ -52,8 +52,7 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * };
  * const command = new CreateStudioSessionMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

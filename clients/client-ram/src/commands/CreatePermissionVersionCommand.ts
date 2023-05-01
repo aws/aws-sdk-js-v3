@@ -51,30 +51,29 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  * };
  * const command = new CreatePermissionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePermissionVersionResponse
- *   permission: { // ResourceSharePermissionDetail
- *     arn: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     defaultVersion: true || false,
- *     name: "STRING_VALUE",
- *     resourceType: "STRING_VALUE",
- *     permission: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdatedTime: new Date("TIMESTAMP"),
- *     isResourceTypeDefault: true || false,
- *     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
- *     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
- *     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
- *     tags: [ // TagList
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // CreatePermissionVersionResponse
+ * //   permission: { // ResourceSharePermissionDetail
+ * //     arn: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     defaultVersion: true || false,
+ * //     name: "STRING_VALUE",
+ * //     resourceType: "STRING_VALUE",
+ * //     permission: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedTime: new Date("TIMESTAMP"),
+ * //     isResourceTypeDefault: true || false,
+ * //     permissionType: "CUSTOMER_MANAGED" || "AWS_MANAGED",
+ * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //     status: "ATTACHABLE" || "UNATTACHABLE" || "DELETING" || "DELETED",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

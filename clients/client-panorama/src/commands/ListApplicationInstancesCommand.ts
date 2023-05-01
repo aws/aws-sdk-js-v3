@@ -47,35 +47,34 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * };
  * const command = new ListApplicationInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationInstancesResponse
- *   ApplicationInstances: [ // ApplicationInstances
- *     { // ApplicationInstance
- *       Name: "STRING_VALUE",
- *       ApplicationInstanceId: "STRING_VALUE",
- *       DefaultRuntimeContextDevice: "STRING_VALUE",
- *       DefaultRuntimeContextDeviceName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       HealthStatus: "STRING_VALUE",
- *       StatusDescription: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Arn: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       RuntimeContextStates: [ // ReportedRuntimeContextStates
- *         { // ReportedRuntimeContextState
- *           DesiredState: "STRING_VALUE", // required
- *           RuntimeContextName: "STRING_VALUE", // required
- *           DeviceReportedStatus: "STRING_VALUE", // required
- *           DeviceReportedTime: new Date("TIMESTAMP"), // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationInstancesResponse
+ * //   ApplicationInstances: [ // ApplicationInstances
+ * //     { // ApplicationInstance
+ * //       Name: "STRING_VALUE",
+ * //       ApplicationInstanceId: "STRING_VALUE",
+ * //       DefaultRuntimeContextDevice: "STRING_VALUE",
+ * //       DefaultRuntimeContextDeviceName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       HealthStatus: "STRING_VALUE",
+ * //       StatusDescription: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RuntimeContextStates: [ // ReportedRuntimeContextStates
+ * //         { // ReportedRuntimeContextState
+ * //           DesiredState: "STRING_VALUE", // required
+ * //           RuntimeContextName: "STRING_VALUE", // required
+ * //           DeviceReportedStatus: "STRING_VALUE", // required
+ * //           DeviceReportedTime: new Date("TIMESTAMP"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

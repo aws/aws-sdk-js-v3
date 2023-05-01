@@ -45,10 +45,9 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  * };
  * const command = new EnableDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableDirectoryResponse
- *   DirectoryArn: "STRING_VALUE", // required
- * };
+ * // { // EnableDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

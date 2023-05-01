@@ -54,8 +54,7 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * };
  * const command = new UpdateSchedulingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

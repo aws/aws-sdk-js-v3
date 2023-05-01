@@ -44,16 +44,15 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  * };
  * const command = new GetStoredQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStoredQueryResponse
- *   StoredQuery: { // StoredQuery
- *     QueryId: "STRING_VALUE",
- *     QueryArn: "STRING_VALUE",
- *     QueryName: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Expression: "STRING_VALUE",
- *   },
- * };
+ * // { // GetStoredQueryResponse
+ * //   StoredQuery: { // StoredQuery
+ * //     QueryId: "STRING_VALUE",
+ * //     QueryArn: "STRING_VALUE",
+ * //     QueryName: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Expression: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

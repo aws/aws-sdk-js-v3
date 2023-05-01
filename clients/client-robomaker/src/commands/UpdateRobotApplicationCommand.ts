@@ -59,29 +59,28 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  * };
  * const command = new UpdateRobotApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRobotApplicationResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   sources: [ // Sources
- *     { // Source
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       etag: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
- *     },
- *   ],
- *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   revisionId: "STRING_VALUE",
- *   environment: { // Environment
- *     uri: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateRobotApplicationResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   sources: [ // Sources
+ * //     { // Source
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Key: "STRING_VALUE",
+ * //       etag: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   robotSoftwareSuite: { // RobotSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   revisionId: "STRING_VALUE",
+ * //   environment: { // Environment
+ * //     uri: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

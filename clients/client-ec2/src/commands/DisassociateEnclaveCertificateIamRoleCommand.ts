@@ -59,10 +59,9 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * };
  * const command = new DisassociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateEnclaveCertificateIamRoleResult
- *   Return: true || false,
- * };
+ * // { // DisassociateEnclaveCertificateIamRoleResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

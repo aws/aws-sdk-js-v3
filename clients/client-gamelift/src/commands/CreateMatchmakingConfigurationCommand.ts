@@ -100,35 +100,34 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * };
  * const command = new CreateMatchmakingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMatchmakingConfigurationOutput
- *   Configuration: { // MatchmakingConfiguration
- *     Name: "STRING_VALUE",
- *     ConfigurationArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     GameSessionQueueArns: [ // QueueArnsList
- *       "STRING_VALUE",
- *     ],
- *     RequestTimeoutSeconds: Number("int"),
- *     AcceptanceTimeoutSeconds: Number("int"),
- *     AcceptanceRequired: true || false,
- *     RuleSetName: "STRING_VALUE",
- *     RuleSetArn: "STRING_VALUE",
- *     NotificationTarget: "STRING_VALUE",
- *     AdditionalPlayerCount: Number("int"),
- *     CustomEventData: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     GameProperties: [ // GamePropertyList
- *       { // GameProperty
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     GameSessionData: "STRING_VALUE",
- *     BackfillMode: "AUTOMATIC" || "MANUAL",
- *     FlexMatchMode: "STANDALONE" || "WITH_QUEUE",
- *   },
- * };
+ * // { // CreateMatchmakingConfigurationOutput
+ * //   Configuration: { // MatchmakingConfiguration
+ * //     Name: "STRING_VALUE",
+ * //     ConfigurationArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     GameSessionQueueArns: [ // QueueArnsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RequestTimeoutSeconds: Number("int"),
+ * //     AcceptanceTimeoutSeconds: Number("int"),
+ * //     AcceptanceRequired: true || false,
+ * //     RuleSetName: "STRING_VALUE",
+ * //     RuleSetArn: "STRING_VALUE",
+ * //     NotificationTarget: "STRING_VALUE",
+ * //     AdditionalPlayerCount: Number("int"),
+ * //     CustomEventData: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     GameProperties: [ // GamePropertyList
+ * //       { // GameProperty
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     GameSessionData: "STRING_VALUE",
+ * //     BackfillMode: "AUTOMATIC" || "MANUAL",
+ * //     FlexMatchMode: "STANDALONE" || "WITH_QUEUE",
+ * //   },
+ * // };
  *
  * ```
  *

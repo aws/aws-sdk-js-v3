@@ -63,15 +63,14 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * };
  * const command = new CreateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDynamicThingGroupResponse
- *   thingGroupName: "STRING_VALUE",
- *   thingGroupArn: "STRING_VALUE",
- *   thingGroupId: "STRING_VALUE",
- *   indexName: "STRING_VALUE",
- *   queryString: "STRING_VALUE",
- *   queryVersion: "STRING_VALUE",
- * };
+ * // { // CreateDynamicThingGroupResponse
+ * //   thingGroupName: "STRING_VALUE",
+ * //   thingGroupArn: "STRING_VALUE",
+ * //   thingGroupId: "STRING_VALUE",
+ * //   indexName: "STRING_VALUE",
+ * //   queryString: "STRING_VALUE",
+ * //   queryVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

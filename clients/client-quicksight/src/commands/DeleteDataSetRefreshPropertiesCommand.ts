@@ -50,11 +50,10 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new DeleteDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDataSetRefreshPropertiesResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteDataSetRefreshPropertiesResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

@@ -50,18 +50,17 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserProfilesResult
- *   UserProfiles: [ // UserProfiles
- *     { // UserProfile
- *       IamUserArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       SshUsername: "STRING_VALUE",
- *       SshPublicKey: "STRING_VALUE",
- *       AllowSelfManagement: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeUserProfilesResult
+ * //   UserProfiles: [ // UserProfiles
+ * //     { // UserProfile
+ * //       IamUserArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       SshUsername: "STRING_VALUE",
+ * //       SshPublicKey: "STRING_VALUE",
+ * //       AllowSelfManagement: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

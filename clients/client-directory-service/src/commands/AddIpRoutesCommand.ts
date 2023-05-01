@@ -58,8 +58,7 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * };
  * const command = new AddIpRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

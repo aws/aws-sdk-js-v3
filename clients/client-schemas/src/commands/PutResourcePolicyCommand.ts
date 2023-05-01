@@ -46,11 +46,10 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutResourcePolicyResponse
- *   Policy: "STRING_VALUE",
- *   RevisionId: "STRING_VALUE",
- * };
+ * // { // PutResourcePolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * //   RevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

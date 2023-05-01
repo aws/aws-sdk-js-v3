@@ -50,17 +50,16 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * };
  * const command = new CreateDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDirectConnectGatewayResult
- *   directConnectGateway: { // DirectConnectGateway
- *     directConnectGatewayId: "STRING_VALUE",
- *     directConnectGatewayName: "STRING_VALUE",
- *     amazonSideAsn: Number("long"),
- *     ownerAccount: "STRING_VALUE",
- *     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
- *     stateChangeError: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateDirectConnectGatewayResult
+ * //   directConnectGateway: { // DirectConnectGateway
+ * //     directConnectGatewayId: "STRING_VALUE",
+ * //     directConnectGatewayName: "STRING_VALUE",
+ * //     amazonSideAsn: Number("long"),
+ * //     ownerAccount: "STRING_VALUE",
+ * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
+ * //     stateChangeError: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

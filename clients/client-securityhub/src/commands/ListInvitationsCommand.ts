@@ -47,18 +47,17 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInvitationsResponse
- *   Invitations: [ // InvitationList
- *     { // Invitation
- *       AccountId: "STRING_VALUE",
- *       InvitationId: "STRING_VALUE",
- *       InvitedAt: new Date("TIMESTAMP"),
- *       MemberStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInvitationsResponse
+ * //   Invitations: [ // InvitationList
+ * //     { // Invitation
+ * //       AccountId: "STRING_VALUE",
+ * //       InvitationId: "STRING_VALUE",
+ * //       InvitedAt: new Date("TIMESTAMP"),
+ * //       MemberStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

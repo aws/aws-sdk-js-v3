@@ -50,15 +50,14 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * };
  * const command = new GetPlayerConnectionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPlayerConnectionStatusResult
- *   Connections: [ // ConnectionList
- *     { // Connection
- *       Id: "STRING_VALUE",
- *       Created: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // GetPlayerConnectionStatusResult
+ * //   Connections: [ // ConnectionList
+ * //     { // Connection
+ * //       Id: "STRING_VALUE",
+ * //       Created: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * };
  * const command = new UpdateListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

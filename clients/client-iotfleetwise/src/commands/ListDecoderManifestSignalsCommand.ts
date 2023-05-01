@@ -49,38 +49,37 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * };
  * const command = new ListDecoderManifestSignalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDecoderManifestSignalsResponse
- *   signalDecoders: [ // SignalDecoders
- *     { // SignalDecoder
- *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       interfaceId: "STRING_VALUE", // required
- *       canSignal: { // CanSignal
- *         messageId: Number("int"), // required
- *         isBigEndian: true || false, // required
- *         isSigned: true || false, // required
- *         startBit: Number("int"), // required
- *         offset: Number("double"), // required
- *         factor: Number("double"), // required
- *         length: Number("int"), // required
- *         name: "STRING_VALUE",
- *       },
- *       obdSignal: { // ObdSignal
- *         pidResponseLength: Number("int"), // required
- *         serviceMode: Number("int"), // required
- *         pid: Number("int"), // required
- *         scaling: Number("double"), // required
- *         offset: Number("double"), // required
- *         startByte: Number("int"), // required
- *         byteLength: Number("int"), // required
- *         bitRightShift: Number("int"),
- *         bitMaskLength: Number("int"),
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDecoderManifestSignalsResponse
+ * //   signalDecoders: [ // SignalDecoders
+ * //     { // SignalDecoder
+ * //       fullyQualifiedName: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       interfaceId: "STRING_VALUE", // required
+ * //       canSignal: { // CanSignal
+ * //         messageId: Number("int"), // required
+ * //         isBigEndian: true || false, // required
+ * //         isSigned: true || false, // required
+ * //         startBit: Number("int"), // required
+ * //         offset: Number("double"), // required
+ * //         factor: Number("double"), // required
+ * //         length: Number("int"), // required
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //       obdSignal: { // ObdSignal
+ * //         pidResponseLength: Number("int"), // required
+ * //         serviceMode: Number("int"), // required
+ * //         pid: Number("int"), // required
+ * //         scaling: Number("double"), // required
+ * //         offset: Number("double"), // required
+ * //         startByte: Number("int"), // required
+ * //         byteLength: Number("int"), // required
+ * //         bitRightShift: Number("int"),
+ * //         bitMaskLength: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -152,10 +152,9 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * };
  * const command = new CreateAccessPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPreviewResponse
- *   id: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessPreviewResponse
+ * //   id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

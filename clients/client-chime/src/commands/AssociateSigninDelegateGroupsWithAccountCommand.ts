@@ -58,8 +58,7 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  * };
  * const command = new AssociateSigninDelegateGroupsWithAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

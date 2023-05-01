@@ -45,8 +45,7 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * };
  * const command = new DeleteRobotApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

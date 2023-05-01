@@ -49,8 +49,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

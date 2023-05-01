@@ -43,14 +43,13 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * const input = {};
  * const command = new GetInvitationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInvitationConfigurationResponse
- *   OrganizationName: "STRING_VALUE",
- *   ContactEmail: "STRING_VALUE",
- *   PrivateSkillIds: [ // ShortSkillIdList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetInvitationConfigurationResponse
+ * //   OrganizationName: "STRING_VALUE",
+ * //   ContactEmail: "STRING_VALUE",
+ * //   PrivateSkillIds: [ // ShortSkillIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

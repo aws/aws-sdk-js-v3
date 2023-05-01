@@ -44,22 +44,21 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * };
  * const command = new DescribeMapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMapResponse
- *   MapName: "STRING_VALUE", // required
- *   MapArn: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   DataSource: "STRING_VALUE", // required
- *   Configuration: { // MapConfiguration
- *     Style: "STRING_VALUE", // required
- *   },
- *   Description: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeMapResponse
+ * //   MapName: "STRING_VALUE", // required
+ * //   MapArn: "STRING_VALUE", // required
+ * //   PricingPlan: "STRING_VALUE",
+ * //   DataSource: "STRING_VALUE", // required
+ * //   Configuration: { // MapConfiguration
+ * //     Style: "STRING_VALUE", // required
+ * //   },
+ * //   Description: "STRING_VALUE", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

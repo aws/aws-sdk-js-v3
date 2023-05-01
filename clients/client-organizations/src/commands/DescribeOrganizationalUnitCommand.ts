@@ -46,14 +46,13 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationalUnitResponse
- *   OrganizationalUnit: { // OrganizationalUnit
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeOrganizationalUnitResponse
+ * //   OrganizationalUnit: { // OrganizationalUnit
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

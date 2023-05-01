@@ -51,20 +51,19 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * };
  * const command = new GetDetectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDetectorsResult
- *   detectors: [ // DetectorList
- *     { // Detector
- *       detectorId: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       eventTypeName: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetDetectorsResult
+ * //   detectors: [ // DetectorList
+ * //     { // Detector
+ * //       detectorId: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       eventTypeName: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

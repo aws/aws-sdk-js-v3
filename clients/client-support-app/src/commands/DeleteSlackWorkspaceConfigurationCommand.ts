@@ -50,8 +50,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * };
  * const command = new DeleteSlackWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

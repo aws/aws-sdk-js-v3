@@ -53,12 +53,11 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * };
  * const command = new UpdateBasePathMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BasePathMapping
- *   basePath: "STRING_VALUE",
- *   restApiId: "STRING_VALUE",
- *   stage: "STRING_VALUE",
- * };
+ * // { // BasePathMapping
+ * //   basePath: "STRING_VALUE",
+ * //   restApiId: "STRING_VALUE",
+ * //   stage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

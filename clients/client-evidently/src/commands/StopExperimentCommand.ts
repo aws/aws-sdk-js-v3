@@ -48,10 +48,9 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * };
  * const command = new StopExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopExperimentResponse
- *   endedTime: new Date("TIMESTAMP"),
- * };
+ * // { // StopExperimentResponse
+ * //   endedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -69,8 +69,7 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new DetachLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

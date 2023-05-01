@@ -64,10 +64,9 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRandomPasswordResponse
- *   RandomPassword: "STRING_VALUE",
- * };
+ * // { // GetRandomPasswordResponse
+ * //   RandomPassword: "STRING_VALUE",
+ * // };
  *
  * ```
  *

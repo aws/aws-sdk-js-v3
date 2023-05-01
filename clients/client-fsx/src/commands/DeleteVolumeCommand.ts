@@ -60,20 +60,19 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * };
  * const command = new DeleteVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVolumeResponse
- *   VolumeId: "STRING_VALUE",
- *   Lifecycle: "CREATING" || "CREATED" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING" || "AVAILABLE",
- *   OntapResponse: { // DeleteVolumeOntapResponse
- *     FinalBackupId: "STRING_VALUE",
- *     FinalBackupTags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteVolumeResponse
+ * //   VolumeId: "STRING_VALUE",
+ * //   Lifecycle: "CREATING" || "CREATED" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING" || "AVAILABLE",
+ * //   OntapResponse: { // DeleteVolumeOntapResponse
+ * //     FinalBackupId: "STRING_VALUE",
+ * //     FinalBackupTags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

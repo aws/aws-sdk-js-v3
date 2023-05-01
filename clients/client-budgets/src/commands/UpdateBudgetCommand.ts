@@ -103,8 +103,7 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  * };
  * const command = new UpdateBudgetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

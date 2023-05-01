@@ -46,18 +46,17 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  * };
  * const command = new ListGatewayInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewayInstancesResponse
- *   Instances: [ // __listOfListedGatewayInstance
- *     { // ListedGatewayInstance
- *       GatewayArn: "STRING_VALUE", // required
- *       GatewayInstanceArn: "STRING_VALUE", // required
- *       InstanceId: "STRING_VALUE", // required
- *       InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGatewayInstancesResponse
+ * //   Instances: [ // __listOfListedGatewayInstance
+ * //     { // ListedGatewayInstance
+ * //       GatewayArn: "STRING_VALUE", // required
+ * //       GatewayInstanceArn: "STRING_VALUE", // required
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

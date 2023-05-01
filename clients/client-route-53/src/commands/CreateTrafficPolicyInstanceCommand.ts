@@ -56,21 +56,20 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * };
  * const command = new CreateTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrafficPolicyInstanceResponse
- *   TrafficPolicyInstance: { // TrafficPolicyInstance
- *     Id: "STRING_VALUE", // required
- *     HostedZoneId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     TTL: Number("long"), // required
- *     State: "STRING_VALUE", // required
- *     Message: "STRING_VALUE", // required
- *     TrafficPolicyId: "STRING_VALUE", // required
- *     TrafficPolicyVersion: Number("int"), // required
- *     TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
- *   },
- *   Location: "STRING_VALUE", // required
- * };
+ * // { // CreateTrafficPolicyInstanceResponse
+ * //   TrafficPolicyInstance: { // TrafficPolicyInstance
+ * //     Id: "STRING_VALUE", // required
+ * //     HostedZoneId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     TTL: Number("long"), // required
+ * //     State: "STRING_VALUE", // required
+ * //     Message: "STRING_VALUE", // required
+ * //     TrafficPolicyId: "STRING_VALUE", // required
+ * //     TrafficPolicyVersion: Number("int"), // required
+ * //     TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

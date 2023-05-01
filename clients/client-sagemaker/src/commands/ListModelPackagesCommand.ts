@@ -53,22 +53,21 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * };
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelPackagesOutput
- *   ModelPackageSummaryList: [ // ModelPackageSummaryList // required
- *     { // ModelPackageSummary
- *       ModelPackageName: "STRING_VALUE", // required
- *       ModelPackageGroupName: "STRING_VALUE",
- *       ModelPackageVersion: Number("int"),
- *       ModelPackageArn: "STRING_VALUE", // required
- *       ModelPackageDescription: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
- *       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelPackagesOutput
+ * //   ModelPackageSummaryList: [ // ModelPackageSummaryList // required
+ * //     { // ModelPackageSummary
+ * //       ModelPackageName: "STRING_VALUE", // required
+ * //       ModelPackageGroupName: "STRING_VALUE",
+ * //       ModelPackageVersion: Number("int"),
+ * //       ModelPackageArn: "STRING_VALUE", // required
+ * //       ModelPackageDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
+ * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

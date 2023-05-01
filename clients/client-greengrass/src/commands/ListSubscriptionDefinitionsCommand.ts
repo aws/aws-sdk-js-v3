@@ -50,24 +50,23 @@ export interface ListSubscriptionDefinitionsCommandOutput
  * };
  * const command = new ListSubscriptionDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscriptionDefinitionsResponse
- *   Definitions: [ // __listOfDefinitionInformation
- *     { // DefinitionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       LastUpdatedTimestamp: "STRING_VALUE",
- *       LatestVersion: "STRING_VALUE",
- *       LatestVersionArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSubscriptionDefinitionsResponse
+ * //   Definitions: [ // __listOfDefinitionInformation
+ * //     { // DefinitionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: "STRING_VALUE",
+ * //       LatestVersion: "STRING_VALUE",
+ * //       LatestVersionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

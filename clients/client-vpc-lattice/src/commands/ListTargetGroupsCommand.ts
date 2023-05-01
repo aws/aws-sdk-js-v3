@@ -48,28 +48,27 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  * };
  * const command = new ListTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetGroupsResponse
- *   items: [ // TargetGroupList
- *     { // TargetGroupSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       port: Number("int"),
- *       protocol: "STRING_VALUE",
- *       ipAddressType: "STRING_VALUE",
- *       vpcIdentifier: "STRING_VALUE",
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       serviceArns: [ // ServiceArnList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetGroupsResponse
+ * //   items: [ // TargetGroupList
+ * //     { // TargetGroupSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       port: Number("int"),
+ * //       protocol: "STRING_VALUE",
+ * //       ipAddressType: "STRING_VALUE",
+ * //       vpcIdentifier: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       serviceArns: [ // ServiceArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,11 +54,10 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * };
  * const command = new StartDataIngestionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDataIngestionJobResponse
- *   JobId: "STRING_VALUE",
- *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
- * };
+ * // { // StartDataIngestionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * // };
  *
  * ```
  *

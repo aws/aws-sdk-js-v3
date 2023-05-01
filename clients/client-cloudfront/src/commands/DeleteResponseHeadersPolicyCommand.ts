@@ -51,8 +51,7 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,34 +47,33 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  * };
  * const command = new GetPartitionIndexesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPartitionIndexesResponse
- *   PartitionIndexDescriptorList: [ // PartitionIndexDescriptorList
- *     { // PartitionIndexDescriptor
- *       IndexName: "STRING_VALUE", // required
- *       Keys: [ // KeySchemaElementList // required
- *         { // KeySchemaElement
- *           Name: "STRING_VALUE", // required
- *           Type: "STRING_VALUE", // required
- *         },
- *       ],
- *       IndexStatus: "CREATING" || "ACTIVE" || "DELETING" || "FAILED", // required
- *       BackfillErrors: [ // BackfillErrors
- *         { // BackfillError
- *           Code: "ENCRYPTED_PARTITION_ERROR" || "INTERNAL_ERROR" || "INVALID_PARTITION_TYPE_DATA_ERROR" || "MISSING_PARTITION_VALUE_ERROR" || "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
- *           Partitions: [ // BackfillErroredPartitionsList
- *             { // PartitionValueList
- *               Values: [ // ValueStringList // required
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetPartitionIndexesResponse
+ * //   PartitionIndexDescriptorList: [ // PartitionIndexDescriptorList
+ * //     { // PartitionIndexDescriptor
+ * //       IndexName: "STRING_VALUE", // required
+ * //       Keys: [ // KeySchemaElementList // required
+ * //         { // KeySchemaElement
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       IndexStatus: "CREATING" || "ACTIVE" || "DELETING" || "FAILED", // required
+ * //       BackfillErrors: [ // BackfillErrors
+ * //         { // BackfillError
+ * //           Code: "ENCRYPTED_PARTITION_ERROR" || "INTERNAL_ERROR" || "INVALID_PARTITION_TYPE_DATA_ERROR" || "MISSING_PARTITION_VALUE_ERROR" || "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+ * //           Partitions: [ // BackfillErroredPartitionsList
+ * //             { // PartitionValueList
+ * //               Values: [ // ValueStringList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

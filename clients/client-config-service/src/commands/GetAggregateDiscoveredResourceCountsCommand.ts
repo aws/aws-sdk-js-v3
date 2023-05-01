@@ -62,18 +62,17 @@ export interface GetAggregateDiscoveredResourceCountsCommandOutput
  * };
  * const command = new GetAggregateDiscoveredResourceCountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAggregateDiscoveredResourceCountsResponse
- *   TotalDiscoveredResources: Number("long"), // required
- *   GroupByKey: "STRING_VALUE",
- *   GroupedResourceCounts: [ // GroupedResourceCountList
- *     { // GroupedResourceCount
- *       GroupName: "STRING_VALUE", // required
- *       ResourceCount: Number("long"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAggregateDiscoveredResourceCountsResponse
+ * //   TotalDiscoveredResources: Number("long"), // required
+ * //   GroupByKey: "STRING_VALUE",
+ * //   GroupedResourceCounts: [ // GroupedResourceCountList
+ * //     { // GroupedResourceCount
+ * //       GroupName: "STRING_VALUE", // required
+ * //       ResourceCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

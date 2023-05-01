@@ -48,19 +48,18 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * };
  * const command = new RestoreSnapshotFromRecycleBinCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreSnapshotFromRecycleBinResult
- *   SnapshotId: "STRING_VALUE",
- *   OutpostArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Encrypted: true || false,
- *   OwnerId: "STRING_VALUE",
- *   Progress: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
- *   VolumeId: "STRING_VALUE",
- *   VolumeSize: Number("int"),
- * };
+ * // { // RestoreSnapshotFromRecycleBinResult
+ * //   SnapshotId: "STRING_VALUE",
+ * //   OutpostArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Encrypted: true || false,
+ * //   OwnerId: "STRING_VALUE",
+ * //   Progress: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   State: "pending" || "completed" || "error" || "recoverable" || "recovering",
+ * //   VolumeId: "STRING_VALUE",
+ * //   VolumeSize: Number("int"),
+ * // };
  *
  * ```
  *

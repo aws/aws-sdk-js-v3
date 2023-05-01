@@ -57,17 +57,16 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * };
  * const command = new DescribeConnectionAliasPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConnectionAliasPermissionsResult
- *   AliasId: "STRING_VALUE",
- *   ConnectionAliasPermissions: [ // ConnectionAliasPermissions
- *     { // ConnectionAliasPermission
- *       SharedAccountId: "STRING_VALUE", // required
- *       AllowAssociation: true || false, // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConnectionAliasPermissionsResult
+ * //   AliasId: "STRING_VALUE",
+ * //   ConnectionAliasPermissions: [ // ConnectionAliasPermissions
+ * //     { // ConnectionAliasPermission
+ * //       SharedAccountId: "STRING_VALUE", // required
+ * //       AllowAssociation: true || false, // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

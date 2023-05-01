@@ -46,20 +46,19 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * };
  * const command = new DescribeContributorInsightsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContributorInsightsOutput
- *   TableName: "STRING_VALUE",
- *   IndexName: "STRING_VALUE",
- *   ContributorInsightsRuleList: [ // ContributorInsightsRuleList
- *     "STRING_VALUE",
- *   ],
- *   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
- *   LastUpdateDateTime: new Date("TIMESTAMP"),
- *   FailureException: { // FailureException
- *     ExceptionName: "STRING_VALUE",
- *     ExceptionDescription: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeContributorInsightsOutput
+ * //   TableName: "STRING_VALUE",
+ * //   IndexName: "STRING_VALUE",
+ * //   ContributorInsightsRuleList: [ // ContributorInsightsRuleList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //   LastUpdateDateTime: new Date("TIMESTAMP"),
+ * //   FailureException: { // FailureException
+ * //     ExceptionName: "STRING_VALUE",
+ * //     ExceptionDescription: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * };
  * const command = new DeleteBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

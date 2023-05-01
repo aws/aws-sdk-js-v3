@@ -50,19 +50,18 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * };
  * const command = new ListModelPackageGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelPackageGroupsOutput
- *   ModelPackageGroupSummaryList: [ // ModelPackageGroupSummaryList // required
- *     { // ModelPackageGroupSummary
- *       ModelPackageGroupName: "STRING_VALUE", // required
- *       ModelPackageGroupArn: "STRING_VALUE", // required
- *       ModelPackageGroupDescription: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelPackageGroupsOutput
+ * //   ModelPackageGroupSummaryList: [ // ModelPackageGroupSummaryList // required
+ * //     { // ModelPackageGroupSummary
+ * //       ModelPackageGroupName: "STRING_VALUE", // required
+ * //       ModelPackageGroupArn: "STRING_VALUE", // required
+ * //       ModelPackageGroupDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       ModelPackageGroupStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting" || "DeleteFailed", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

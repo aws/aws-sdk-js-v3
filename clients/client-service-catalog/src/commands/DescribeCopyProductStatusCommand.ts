@@ -45,12 +45,11 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * };
  * const command = new DescribeCopyProductStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCopyProductStatusOutput
- *   CopyProductStatus: "SUCCEEDED" || "IN_PROGRESS" || "FAILED",
- *   TargetProductId: "STRING_VALUE",
- *   StatusDetail: "STRING_VALUE",
- * };
+ * // { // DescribeCopyProductStatusOutput
+ * //   CopyProductStatus: "SUCCEEDED" || "IN_PROGRESS" || "FAILED",
+ * //   TargetProductId: "STRING_VALUE",
+ * //   StatusDetail: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,19 +58,18 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * };
  * const command = new ExecuteCommandCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExecuteCommandResponse
- *   clusterArn: "STRING_VALUE",
- *   containerArn: "STRING_VALUE",
- *   containerName: "STRING_VALUE",
- *   interactive: true || false,
- *   session: { // Session
- *     sessionId: "STRING_VALUE",
- *     streamUrl: "STRING_VALUE",
- *     tokenValue: "STRING_VALUE",
- *   },
- *   taskArn: "STRING_VALUE",
- * };
+ * // { // ExecuteCommandResponse
+ * //   clusterArn: "STRING_VALUE",
+ * //   containerArn: "STRING_VALUE",
+ * //   containerName: "STRING_VALUE",
+ * //   interactive: true || false,
+ * //   session: { // Session
+ * //     sessionId: "STRING_VALUE",
+ * //     streamUrl: "STRING_VALUE",
+ * //     tokenValue: "STRING_VALUE",
+ * //   },
+ * //   taskArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

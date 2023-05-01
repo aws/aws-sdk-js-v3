@@ -91,8 +91,7 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * };
  * const command = new StartConfigRulesEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,18 +45,17 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * };
  * const command = new GetSuppressedDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSuppressedDestinationResponse
- *   SuppressedDestination: { // SuppressedDestination
- *     EmailAddress: "STRING_VALUE", // required
- *     Reason: "BOUNCE" || "COMPLAINT", // required
- *     LastUpdateTime: new Date("TIMESTAMP"), // required
- *     Attributes: { // SuppressedDestinationAttributes
- *       MessageId: "STRING_VALUE",
- *       FeedbackId: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetSuppressedDestinationResponse
+ * //   SuppressedDestination: { // SuppressedDestination
+ * //     EmailAddress: "STRING_VALUE", // required
+ * //     Reason: "BOUNCE" || "COMPLAINT", // required
+ * //     LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     Attributes: { // SuppressedDestinationAttributes
+ * //       MessageId: "STRING_VALUE",
+ * //       FeedbackId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

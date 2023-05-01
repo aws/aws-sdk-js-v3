@@ -48,8 +48,7 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RenewCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

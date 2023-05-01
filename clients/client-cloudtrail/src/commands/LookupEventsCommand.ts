@@ -101,28 +101,27 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * };
  * const command = new LookupEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LookupEventsResponse
- *   Events: [ // EventsList
- *     { // Event
- *       EventId: "STRING_VALUE",
- *       EventName: "STRING_VALUE",
- *       ReadOnly: "STRING_VALUE",
- *       AccessKeyId: "STRING_VALUE",
- *       EventTime: new Date("TIMESTAMP"),
- *       EventSource: "STRING_VALUE",
- *       Username: "STRING_VALUE",
- *       Resources: [ // ResourceList
- *         { // Resource
- *           ResourceType: "STRING_VALUE",
- *           ResourceName: "STRING_VALUE",
- *         },
- *       ],
- *       CloudTrailEvent: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // LookupEventsResponse
+ * //   Events: [ // EventsList
+ * //     { // Event
+ * //       EventId: "STRING_VALUE",
+ * //       EventName: "STRING_VALUE",
+ * //       ReadOnly: "STRING_VALUE",
+ * //       AccessKeyId: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       EventSource: "STRING_VALUE",
+ * //       Username: "STRING_VALUE",
+ * //       Resources: [ // ResourceList
+ * //         { // Resource
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CloudTrailEvent: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -77,15 +77,14 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * };
  * const command = new UpdateMemberDetectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMemberDetectorsResponse
- *   UnprocessedAccounts: [ // UnprocessedAccounts // required
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE", // required
- *       Result: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // UpdateMemberDetectorsResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

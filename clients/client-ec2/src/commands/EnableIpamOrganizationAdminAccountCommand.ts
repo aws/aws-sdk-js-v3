@@ -54,10 +54,9 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * };
  * const command = new EnableIpamOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableIpamOrganizationAdminAccountResult
- *   Success: true || false,
- * };
+ * // { // EnableIpamOrganizationAdminAccountResult
+ * //   Success: true || false,
+ * // };
  *
  * ```
  *

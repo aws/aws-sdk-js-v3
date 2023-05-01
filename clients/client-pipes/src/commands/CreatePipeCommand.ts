@@ -344,15 +344,14 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * };
  * const command = new CreatePipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePipeResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE",
- *   CurrentState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreatePipeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DesiredState: "STRING_VALUE",
+ * //   CurrentState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -60,8 +60,7 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

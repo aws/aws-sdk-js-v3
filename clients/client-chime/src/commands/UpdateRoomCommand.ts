@@ -51,17 +51,16 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRoomResponse
- *   Room: { // Room
- *     RoomId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     AccountId: "STRING_VALUE",
- *     CreatedBy: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateRoomResponse
+ * //   Room: { // Room
+ * //     RoomId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     AccountId: "STRING_VALUE",
+ * //     CreatedBy: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

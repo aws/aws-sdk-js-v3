@@ -63,10 +63,9 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * };
  * const command = new CreateNodeFromTemplateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNodeFromTemplateJobResponse
- *   JobId: "STRING_VALUE", // required
- * };
+ * // { // CreateNodeFromTemplateJobResponse
+ * //   JobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

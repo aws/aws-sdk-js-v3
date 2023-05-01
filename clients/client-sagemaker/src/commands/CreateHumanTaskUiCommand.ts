@@ -53,10 +53,9 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * };
  * const command = new CreateHumanTaskUiCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHumanTaskUiResponse
- *   HumanTaskUiArn: "STRING_VALUE", // required
- * };
+ * // { // CreateHumanTaskUiResponse
+ * //   HumanTaskUiArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

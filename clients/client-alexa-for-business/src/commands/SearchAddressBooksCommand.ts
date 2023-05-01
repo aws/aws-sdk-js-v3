@@ -60,18 +60,17 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * };
  * const command = new SearchAddressBooksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchAddressBooksResponse
- *   AddressBooks: [ // AddressBookDataList
- *     { // AddressBookData
- *       AddressBookArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchAddressBooksResponse
+ * //   AddressBooks: [ // AddressBookDataList
+ * //     { // AddressBookData
+ * //       AddressBookArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

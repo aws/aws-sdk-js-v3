@@ -47,14 +47,13 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDomainResponse
- *   DomainName: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   CreatedTime: new Date("TIMESTAMP"),
- *   DomainStatus: "STRING_VALUE",
- *   AcmCertificateArn: "STRING_VALUE",
- * };
+ * // { // DescribeDomainResponse
+ * //   DomainName: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   DomainStatus: "STRING_VALUE",
+ * //   AcmCertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

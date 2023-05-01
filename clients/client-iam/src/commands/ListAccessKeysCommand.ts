@@ -59,19 +59,18 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * };
  * const command = new ListAccessKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessKeysResponse
- *   AccessKeyMetadata: [ // accessKeyMetadataListType // required
- *     { // AccessKeyMetadata
- *       UserName: "STRING_VALUE",
- *       AccessKeyId: "STRING_VALUE",
- *       Status: "Active" || "Inactive",
- *       CreateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListAccessKeysResponse
+ * //   AccessKeyMetadata: [ // accessKeyMetadataListType // required
+ * //     { // AccessKeyMetadata
+ * //       UserName: "STRING_VALUE",
+ * //       AccessKeyId: "STRING_VALUE",
+ * //       Status: "Active" || "Inactive",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -65,21 +65,20 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * };
  * const command = new UpdatePackageVersionsStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePackageVersionsStatusResult
- *   successfulVersions: { // SuccessfulPackageVersionInfoMap
- *     "<keys>": { // SuccessfulPackageVersionInfo
- *       revision: "STRING_VALUE",
- *       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
- *     },
- *   },
- *   failedVersions: { // PackageVersionErrorMap
- *     "<keys>": { // PackageVersionError
- *       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdatePackageVersionsStatusResult
+ * //   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ * //     "<keys>": { // SuccessfulPackageVersionInfo
+ * //       revision: "STRING_VALUE",
+ * //       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * //     },
+ * //   },
+ * //   failedVersions: { // PackageVersionErrorMap
+ * //     "<keys>": { // PackageVersionError
+ * //       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

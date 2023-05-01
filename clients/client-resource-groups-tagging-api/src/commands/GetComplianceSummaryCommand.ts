@@ -76,20 +76,19 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * };
  * const command = new GetComplianceSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComplianceSummaryOutput
- *   SummaryList: [ // SummaryList
- *     { // Summary
- *       LastUpdated: "STRING_VALUE",
- *       TargetId: "STRING_VALUE",
- *       TargetIdType: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       NonCompliantResources: Number("long"),
- *     },
- *   ],
- *   PaginationToken: "STRING_VALUE",
- * };
+ * // { // GetComplianceSummaryOutput
+ * //   SummaryList: [ // SummaryList
+ * //     { // Summary
+ * //       LastUpdated: "STRING_VALUE",
+ * //       TargetId: "STRING_VALUE",
+ * //       TargetIdType: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       NonCompliantResources: Number("long"),
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

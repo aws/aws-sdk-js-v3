@@ -105,10 +105,9 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateByteMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateByteMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,28 +57,27 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * };
  * const command = new DescribeInternetGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInternetGatewaysResult
- *   InternetGateways: [ // InternetGatewayList
- *     { // InternetGateway
- *       Attachments: [ // InternetGatewayAttachmentList
- *         { // InternetGatewayAttachment
- *           State: "attaching" || "attached" || "detaching" || "detached",
- *           VpcId: "STRING_VALUE",
- *         },
- *       ],
- *       InternetGatewayId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInternetGatewaysResult
+ * //   InternetGateways: [ // InternetGatewayList
+ * //     { // InternetGateway
+ * //       Attachments: [ // InternetGatewayAttachmentList
+ * //         { // InternetGatewayAttachment
+ * //           State: "attaching" || "attached" || "detaching" || "detached",
+ * //           VpcId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       InternetGatewayId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

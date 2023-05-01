@@ -49,8 +49,7 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetEndpointAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

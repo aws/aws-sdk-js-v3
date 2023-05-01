@@ -51,8 +51,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * };
  * const command = new UpdateDirectorySetupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

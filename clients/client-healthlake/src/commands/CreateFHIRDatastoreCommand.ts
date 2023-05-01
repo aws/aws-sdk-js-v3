@@ -61,13 +61,12 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * };
  * const command = new CreateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFHIRDatastoreResponse
- *   DatastoreId: "STRING_VALUE", // required
- *   DatastoreArn: "STRING_VALUE", // required
- *   DatastoreStatus: "STRING_VALUE", // required
- *   DatastoreEndpoint: "STRING_VALUE", // required
- * };
+ * // { // CreateFHIRDatastoreResponse
+ * //   DatastoreId: "STRING_VALUE", // required
+ * //   DatastoreArn: "STRING_VALUE", // required
+ * //   DatastoreStatus: "STRING_VALUE", // required
+ * //   DatastoreEndpoint: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -53,21 +53,20 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * };
  * const command = new ListQualificationRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQualificationRequestsResponse
- *   NumResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   QualificationRequests: [ // QualificationRequestList
- *     { // QualificationRequest
- *       QualificationRequestId: "STRING_VALUE",
- *       QualificationTypeId: "STRING_VALUE",
- *       WorkerId: "STRING_VALUE",
- *       Test: "STRING_VALUE",
- *       Answer: "STRING_VALUE",
- *       SubmitTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListQualificationRequestsResponse
+ * //   NumResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   QualificationRequests: [ // QualificationRequestList
+ * //     { // QualificationRequest
+ * //       QualificationRequestId: "STRING_VALUE",
+ * //       QualificationTypeId: "STRING_VALUE",
+ * //       WorkerId: "STRING_VALUE",
+ * //       Test: "STRING_VALUE",
+ * //       Answer: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * };
  * const command = new DeleteLexiconCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

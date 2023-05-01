@@ -58,34 +58,33 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * };
  * const command = new ValidateE911AddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateE911AddressResponse
- *   ValidationResult: Number("int"),
- *   AddressExternalId: "STRING_VALUE",
- *   Address: { // Address
- *     streetName: "STRING_VALUE",
- *     streetSuffix: "STRING_VALUE",
- *     postDirectional: "STRING_VALUE",
- *     preDirectional: "STRING_VALUE",
- *     streetNumber: "STRING_VALUE",
- *     city: "STRING_VALUE",
- *     state: "STRING_VALUE",
- *     postalCode: "STRING_VALUE",
- *     postalCodePlus4: "STRING_VALUE",
- *     country: "STRING_VALUE",
- *   },
- *   CandidateAddressList: [ // CandidateAddressList
- *     { // CandidateAddress
- *       streetInfo: "STRING_VALUE",
- *       streetNumber: "STRING_VALUE",
- *       city: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *       postalCode: "STRING_VALUE",
- *       postalCodePlus4: "STRING_VALUE",
- *       country: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ValidateE911AddressResponse
+ * //   ValidationResult: Number("int"),
+ * //   AddressExternalId: "STRING_VALUE",
+ * //   Address: { // Address
+ * //     streetName: "STRING_VALUE",
+ * //     streetSuffix: "STRING_VALUE",
+ * //     postDirectional: "STRING_VALUE",
+ * //     preDirectional: "STRING_VALUE",
+ * //     streetNumber: "STRING_VALUE",
+ * //     city: "STRING_VALUE",
+ * //     state: "STRING_VALUE",
+ * //     postalCode: "STRING_VALUE",
+ * //     postalCodePlus4: "STRING_VALUE",
+ * //     country: "STRING_VALUE",
+ * //   },
+ * //   CandidateAddressList: [ // CandidateAddressList
+ * //     { // CandidateAddress
+ * //       streetInfo: "STRING_VALUE",
+ * //       streetNumber: "STRING_VALUE",
+ * //       city: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //       postalCode: "STRING_VALUE",
+ * //       postalCodePlus4: "STRING_VALUE",
+ * //       country: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

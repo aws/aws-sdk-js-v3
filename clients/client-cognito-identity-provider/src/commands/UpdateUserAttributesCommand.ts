@@ -79,16 +79,15 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * };
  * const command = new UpdateUserAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserAttributesResponse
- *   CodeDeliveryDetailsList: [ // CodeDeliveryDetailsListType
- *     { // CodeDeliveryDetailsType
- *       Destination: "STRING_VALUE",
- *       DeliveryMedium: "SMS" || "EMAIL",
- *       AttributeName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UpdateUserAttributesResponse
+ * //   CodeDeliveryDetailsList: [ // CodeDeliveryDetailsListType
+ * //     { // CodeDeliveryDetailsType
+ * //       Destination: "STRING_VALUE",
+ * //       DeliveryMedium: "SMS" || "EMAIL",
+ * //       AttributeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

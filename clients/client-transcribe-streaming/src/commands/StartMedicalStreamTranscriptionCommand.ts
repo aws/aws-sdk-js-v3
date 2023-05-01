@@ -113,75 +113,74 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * };
  * const command = new StartMedicalStreamTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMedicalStreamTranscriptionResponse
- *   RequestId: "STRING_VALUE",
- *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
- *   MediaSampleRateHertz: Number("int"),
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac",
- *   VocabularyName: "STRING_VALUE",
- *   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY",
- *   Type: "CONVERSATION" || "DICTATION",
- *   ShowSpeakerLabel: true || false,
- *   SessionId: "STRING_VALUE",
- *   TranscriptResultStream: { // MedicalTranscriptResultStream Union: only one key present
- *     TranscriptEvent: { // MedicalTranscriptEvent
- *       Transcript: { // MedicalTranscript
- *         Results: [ // MedicalResultList
- *           { // MedicalResult
- *             ResultId: "STRING_VALUE",
- *             StartTime: Number("double"),
- *             EndTime: Number("double"),
- *             IsPartial: true || false,
- *             Alternatives: [ // MedicalAlternativeList
- *               { // MedicalAlternative
- *                 Transcript: "STRING_VALUE",
- *                 Items: [ // MedicalItemList
- *                   { // MedicalItem
- *                     StartTime: Number("double"),
- *                     EndTime: Number("double"),
- *                     Type: "pronunciation" || "punctuation",
- *                     Content: "STRING_VALUE",
- *                     Confidence: Number("double"),
- *                     Speaker: "STRING_VALUE",
- *                   },
- *                 ],
- *                 Entities: [ // MedicalEntityList
- *                   { // MedicalEntity
- *                     StartTime: Number("double"),
- *                     EndTime: Number("double"),
- *                     Category: "STRING_VALUE",
- *                     Content: "STRING_VALUE",
- *                     Confidence: Number("double"),
- *                   },
- *                 ],
- *               },
- *             ],
- *             ChannelId: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     },
- *     BadRequestException: { // BadRequestException
- *       Message: "STRING_VALUE",
- *     },
- *     LimitExceededException: { // LimitExceededException
- *       Message: "STRING_VALUE",
- *     },
- *     InternalFailureException: { // InternalFailureException
- *       Message: "STRING_VALUE",
- *     },
- *     ConflictException: { // ConflictException
- *       Message: "STRING_VALUE",
- *     },
- *     ServiceUnavailableException: { // ServiceUnavailableException
- *       Message: "STRING_VALUE",
- *     },
- *   },
- *   EnableChannelIdentification: true || false,
- *   NumberOfChannels: Number("int"),
- *   ContentIdentificationType: "PHI",
- * };
+ * // { // StartMedicalStreamTranscriptionResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //   MediaSampleRateHertz: Number("int"),
+ * //   MediaEncoding: "pcm" || "ogg-opus" || "flac",
+ * //   VocabularyName: "STRING_VALUE",
+ * //   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY",
+ * //   Type: "CONVERSATION" || "DICTATION",
+ * //   ShowSpeakerLabel: true || false,
+ * //   SessionId: "STRING_VALUE",
+ * //   TranscriptResultStream: { // MedicalTranscriptResultStream Union: only one key present
+ * //     TranscriptEvent: { // MedicalTranscriptEvent
+ * //       Transcript: { // MedicalTranscript
+ * //         Results: [ // MedicalResultList
+ * //           { // MedicalResult
+ * //             ResultId: "STRING_VALUE",
+ * //             StartTime: Number("double"),
+ * //             EndTime: Number("double"),
+ * //             IsPartial: true || false,
+ * //             Alternatives: [ // MedicalAlternativeList
+ * //               { // MedicalAlternative
+ * //                 Transcript: "STRING_VALUE",
+ * //                 Items: [ // MedicalItemList
+ * //                   { // MedicalItem
+ * //                     StartTime: Number("double"),
+ * //                     EndTime: Number("double"),
+ * //                     Type: "pronunciation" || "punctuation",
+ * //                     Content: "STRING_VALUE",
+ * //                     Confidence: Number("double"),
+ * //                     Speaker: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //                 Entities: [ // MedicalEntityList
+ * //                   { // MedicalEntity
+ * //                     StartTime: Number("double"),
+ * //                     EndTime: Number("double"),
+ * //                     Category: "STRING_VALUE",
+ * //                     Content: "STRING_VALUE",
+ * //                     Confidence: Number("double"),
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             ChannelId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     BadRequestException: { // BadRequestException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     LimitExceededException: { // LimitExceededException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InternalFailureException: { // InternalFailureException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ConflictException: { // ConflictException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     ServiceUnavailableException: { // ServiceUnavailableException
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   EnableChannelIdentification: true || false,
+ * //   NumberOfChannels: Number("int"),
+ * //   ContentIdentificationType: "PHI",
+ * // };
  *
  * ```
  *

@@ -46,29 +46,28 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  * };
  * const command = new ListVodSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVodSourcesResponse
- *   Items: [ // __listOfVodSource
- *     { // VodSource
- *       Arn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"),
- *       HttpPackageConfigurations: [ // HttpPackageConfigurations // required
- *         { // HttpPackageConfiguration
- *           Path: "STRING_VALUE", // required
- *           SourceGroup: "STRING_VALUE", // required
- *           Type: "DASH" || "HLS", // required
- *         },
- *       ],
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       SourceLocationName: "STRING_VALUE", // required
- *       Tags: { // __mapOf__string
- *         "<keys>": "STRING_VALUE",
- *       },
- *       VodSourceName: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVodSourcesResponse
+ * //   Items: [ // __listOfVodSource
+ * //     { // VodSource
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       HttpPackageConfigurations: [ // HttpPackageConfigurations // required
+ * //         { // HttpPackageConfiguration
+ * //           Path: "STRING_VALUE", // required
+ * //           SourceGroup: "STRING_VALUE", // required
+ * //           Type: "DASH" || "HLS", // required
+ * //         },
+ * //       ],
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       SourceLocationName: "STRING_VALUE", // required
+ * //       Tags: { // __mapOf__string
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       VodSourceName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

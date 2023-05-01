@@ -54,8 +54,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * };
  * const command = new DeleteDeliveryStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

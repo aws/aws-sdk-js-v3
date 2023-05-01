@@ -68,21 +68,20 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEnvironmentResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   NetworkFabricType: "STRING_VALUE",
- *   OwnerAccountId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- *   CreatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateEnvironmentResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   NetworkFabricType: "STRING_VALUE",
+ * //   OwnerAccountId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

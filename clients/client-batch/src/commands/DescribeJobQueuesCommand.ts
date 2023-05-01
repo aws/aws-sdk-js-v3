@@ -48,30 +48,29 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * };
  * const command = new DescribeJobQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJobQueuesResponse
- *   jobQueues: [ // JobQueueDetailList
- *     { // JobQueueDetail
- *       jobQueueName: "STRING_VALUE", // required
- *       jobQueueArn: "STRING_VALUE", // required
- *       state: "ENABLED" || "DISABLED", // required
- *       schedulingPolicyArn: "STRING_VALUE",
- *       status: "CREATING" || "UPDATING" || "DELETING" || "DELETED" || "VALID" || "INVALID",
- *       statusReason: "STRING_VALUE",
- *       priority: Number("int"), // required
- *       computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
- *         { // ComputeEnvironmentOrder
- *           order: Number("int"), // required
- *           computeEnvironment: "STRING_VALUE", // required
- *         },
- *       ],
- *       tags: { // TagrisTagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeJobQueuesResponse
+ * //   jobQueues: [ // JobQueueDetailList
+ * //     { // JobQueueDetail
+ * //       jobQueueName: "STRING_VALUE", // required
+ * //       jobQueueArn: "STRING_VALUE", // required
+ * //       state: "ENABLED" || "DISABLED", // required
+ * //       schedulingPolicyArn: "STRING_VALUE",
+ * //       status: "CREATING" || "UPDATING" || "DELETING" || "DELETED" || "VALID" || "INVALID",
+ * //       statusReason: "STRING_VALUE",
+ * //       priority: Number("int"), // required
+ * //       computeEnvironmentOrder: [ // ComputeEnvironmentOrders // required
+ * //         { // ComputeEnvironmentOrder
+ * //           order: Number("int"), // required
+ * //           computeEnvironment: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       tags: { // TagrisTagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

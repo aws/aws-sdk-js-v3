@@ -76,8 +76,7 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

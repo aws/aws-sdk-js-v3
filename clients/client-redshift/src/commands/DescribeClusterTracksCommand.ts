@@ -46,27 +46,26 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * };
  * const command = new DescribeClusterTracksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TrackListMessage
- *   MaintenanceTracks: [ // TrackList
- *     { // MaintenanceTrack
- *       MaintenanceTrackName: "STRING_VALUE",
- *       DatabaseVersion: "STRING_VALUE",
- *       UpdateTargets: [ // EligibleTracksToUpdateList
- *         { // UpdateTarget
- *           MaintenanceTrackName: "STRING_VALUE",
- *           DatabaseVersion: "STRING_VALUE",
- *           SupportedOperations: [ // SupportedOperationList
- *             { // SupportedOperation
- *               OperationName: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // TrackListMessage
+ * //   MaintenanceTracks: [ // TrackList
+ * //     { // MaintenanceTrack
+ * //       MaintenanceTrackName: "STRING_VALUE",
+ * //       DatabaseVersion: "STRING_VALUE",
+ * //       UpdateTargets: [ // EligibleTracksToUpdateList
+ * //         { // UpdateTarget
+ * //           MaintenanceTrackName: "STRING_VALUE",
+ * //           DatabaseVersion: "STRING_VALUE",
+ * //           SupportedOperations: [ // SupportedOperationList
+ * //             { // SupportedOperation
+ * //               OperationName: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -99,10 +99,9 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * };
  * const command = new CreateWorkforceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkforceResponse
- *   WorkforceArn: "STRING_VALUE", // required
- * };
+ * // { // CreateWorkforceResponse
+ * //   WorkforceArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

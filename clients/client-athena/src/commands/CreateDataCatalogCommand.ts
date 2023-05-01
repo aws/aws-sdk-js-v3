@@ -56,8 +56,7 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * };
  * const command = new CreateDataCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

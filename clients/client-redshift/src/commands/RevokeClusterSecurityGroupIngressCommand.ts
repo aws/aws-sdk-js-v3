@@ -56,44 +56,43 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * };
  * const command = new RevokeClusterSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RevokeClusterSecurityGroupIngressResult
- *   ClusterSecurityGroup: { // ClusterSecurityGroup
- *     ClusterSecurityGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     EC2SecurityGroups: [ // EC2SecurityGroupList
- *       { // EC2SecurityGroup
- *         Status: "STRING_VALUE",
- *         EC2SecurityGroupName: "STRING_VALUE",
- *         EC2SecurityGroupOwnerId: "STRING_VALUE",
- *         Tags: [ // TagList
- *           { // Tag
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     IPRanges: [ // IPRangeList
- *       { // IPRange
- *         Status: "STRING_VALUE",
- *         CIDRIP: "STRING_VALUE",
- *         Tags: [
- *           {
- *             Key: "STRING_VALUE",
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     Tags: [
- *       {
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // RevokeClusterSecurityGroupIngressResult
+ * //   ClusterSecurityGroup: { // ClusterSecurityGroup
+ * //     ClusterSecurityGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     EC2SecurityGroups: [ // EC2SecurityGroupList
+ * //       { // EC2SecurityGroup
+ * //         Status: "STRING_VALUE",
+ * //         EC2SecurityGroupName: "STRING_VALUE",
+ * //         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     IPRanges: [ // IPRangeList
+ * //       { // IPRange
+ * //         Status: "STRING_VALUE",
+ * //         CIDRIP: "STRING_VALUE",
+ * //         Tags: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

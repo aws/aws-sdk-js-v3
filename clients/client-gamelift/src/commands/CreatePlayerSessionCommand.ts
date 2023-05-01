@@ -63,23 +63,22 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * };
  * const command = new CreatePlayerSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePlayerSessionOutput
- *   PlayerSession: { // PlayerSession
- *     PlayerSessionId: "STRING_VALUE",
- *     PlayerId: "STRING_VALUE",
- *     GameSessionId: "STRING_VALUE",
- *     FleetId: "STRING_VALUE",
- *     FleetArn: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     TerminationTime: new Date("TIMESTAMP"),
- *     Status: "RESERVED" || "ACTIVE" || "COMPLETED" || "TIMEDOUT",
- *     IpAddress: "STRING_VALUE",
- *     DnsName: "STRING_VALUE",
- *     Port: Number("int"),
- *     PlayerData: "STRING_VALUE",
- *   },
- * };
+ * // { // CreatePlayerSessionOutput
+ * //   PlayerSession: { // PlayerSession
+ * //     PlayerSessionId: "STRING_VALUE",
+ * //     PlayerId: "STRING_VALUE",
+ * //     GameSessionId: "STRING_VALUE",
+ * //     FleetId: "STRING_VALUE",
+ * //     FleetArn: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     TerminationTime: new Date("TIMESTAMP"),
+ * //     Status: "RESERVED" || "ACTIVE" || "COMPLETED" || "TIMEDOUT",
+ * //     IpAddress: "STRING_VALUE",
+ * //     DnsName: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     PlayerData: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

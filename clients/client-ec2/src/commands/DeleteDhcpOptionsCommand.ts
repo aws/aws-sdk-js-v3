@@ -45,8 +45,7 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

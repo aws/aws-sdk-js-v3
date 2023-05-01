@@ -46,19 +46,18 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  * };
  * const command = new ListImpersonationRolesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImpersonationRolesResponse
- *   Roles: [ // ImpersonationRoleList
- *     { // ImpersonationRole
- *       ImpersonationRoleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "FULL_ACCESS" || "READ_ONLY",
- *       DateCreated: new Date("TIMESTAMP"),
- *       DateModified: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImpersonationRolesResponse
+ * //   Roles: [ // ImpersonationRoleList
+ * //     { // ImpersonationRole
+ * //       ImpersonationRoleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "FULL_ACCESS" || "READ_ONLY",
+ * //       DateCreated: new Date("TIMESTAMP"),
+ * //       DateModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

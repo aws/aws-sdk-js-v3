@@ -44,8 +44,7 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * };
  * const command = new ClaimDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

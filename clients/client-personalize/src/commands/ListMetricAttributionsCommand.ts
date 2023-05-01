@@ -46,20 +46,19 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * };
  * const command = new ListMetricAttributionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricAttributionsResponse
- *   metricAttributions: [ // MetricAttributions
- *     { // MetricAttributionSummary
- *       name: "STRING_VALUE",
- *       metricAttributionArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMetricAttributionsResponse
+ * //   metricAttributions: [ // MetricAttributions
+ * //     { // MetricAttributionSummary
+ * //       name: "STRING_VALUE",
+ * //       metricAttributionArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

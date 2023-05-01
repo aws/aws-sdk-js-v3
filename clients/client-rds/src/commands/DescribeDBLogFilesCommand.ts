@@ -58,17 +58,16 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDBLogFilesResponse
- *   DescribeDBLogFiles: [ // DescribeDBLogFilesList
- *     { // DescribeDBLogFilesDetails
- *       LogFileName: "STRING_VALUE",
- *       LastWritten: Number("long"),
- *       Size: Number("long"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeDBLogFilesResponse
+ * //   DescribeDBLogFiles: [ // DescribeDBLogFilesList
+ * //     { // DescribeDBLogFilesDetails
+ * //       LogFileName: "STRING_VALUE",
+ * //       LastWritten: Number("long"),
+ * //       Size: Number("long"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

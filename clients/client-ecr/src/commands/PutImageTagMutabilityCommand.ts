@@ -48,12 +48,11 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * };
  * const command = new PutImageTagMutabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutImageTagMutabilityResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   imageTagMutability: "STRING_VALUE",
- * };
+ * // { // PutImageTagMutabilityResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   imageTagMutability: "STRING_VALUE",
+ * // };
  *
  * ```
  *

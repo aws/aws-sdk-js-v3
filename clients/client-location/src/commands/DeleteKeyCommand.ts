@@ -45,8 +45,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * };
  * const command = new DeleteKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

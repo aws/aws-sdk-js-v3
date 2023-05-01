@@ -186,24 +186,23 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssumeRoleWithWebIdentityResponse
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     SessionToken: "STRING_VALUE", // required
- *     Expiration: new Date("TIMESTAMP"), // required
- *   },
- *   SubjectFromWebIdentityToken: "STRING_VALUE",
- *   AssumedRoleUser: { // AssumedRoleUser
- *     AssumedRoleId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *   },
- *   PackedPolicySize: Number("int"),
- *   Provider: "STRING_VALUE",
- *   Audience: "STRING_VALUE",
- *   SourceIdentity: "STRING_VALUE",
- * };
+ * // { // AssumeRoleWithWebIdentityResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   SubjectFromWebIdentityToken: "STRING_VALUE",
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   Provider: "STRING_VALUE",
+ * //   Audience: "STRING_VALUE",
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -101,14 +101,13 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * };
  * const command = new CreatePushTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePushTemplateResponse
- *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
- *     Arn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // CreatePushTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

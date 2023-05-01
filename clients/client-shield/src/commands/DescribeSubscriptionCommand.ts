@@ -42,41 +42,40 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * const input = {};
  * const command = new DescribeSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSubscriptionResponse
- *   Subscription: { // Subscription
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     TimeCommitmentInSeconds: Number("long"),
- *     AutoRenew: "STRING_VALUE",
- *     Limits: [ // Limits
- *       { // Limit
- *         Type: "STRING_VALUE",
- *         Max: Number("long"),
- *       },
- *     ],
- *     ProactiveEngagementStatus: "STRING_VALUE",
- *     SubscriptionLimits: { // SubscriptionLimits
- *       ProtectionLimits: { // ProtectionLimits
- *         ProtectedResourceTypeLimits: [ // required
- *           {
- *             Type: "STRING_VALUE",
- *             Max: Number("long"),
- *           },
- *         ],
- *       },
- *       ProtectionGroupLimits: { // ProtectionGroupLimits
- *         MaxProtectionGroups: Number("long"), // required
- *         PatternTypeLimits: { // ProtectionGroupPatternTypeLimits
- *           ArbitraryPatternLimits: { // ProtectionGroupArbitraryPatternLimits
- *             MaxMembers: Number("long"), // required
- *           },
- *         },
- *       },
- *     },
- *     SubscriptionArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeSubscriptionResponse
+ * //   Subscription: { // Subscription
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     TimeCommitmentInSeconds: Number("long"),
+ * //     AutoRenew: "STRING_VALUE",
+ * //     Limits: [ // Limits
+ * //       { // Limit
+ * //         Type: "STRING_VALUE",
+ * //         Max: Number("long"),
+ * //       },
+ * //     ],
+ * //     ProactiveEngagementStatus: "STRING_VALUE",
+ * //     SubscriptionLimits: { // SubscriptionLimits
+ * //       ProtectionLimits: { // ProtectionLimits
+ * //         ProtectedResourceTypeLimits: [ // required
+ * //           {
+ * //             Type: "STRING_VALUE",
+ * //             Max: Number("long"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       ProtectionGroupLimits: { // ProtectionGroupLimits
+ * //         MaxProtectionGroups: Number("long"), // required
+ * //         PatternTypeLimits: { // ProtectionGroupPatternTypeLimits
+ * //           ArbitraryPatternLimits: { // ProtectionGroupArbitraryPatternLimits
+ * //             MaxMembers: Number("long"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     SubscriptionArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

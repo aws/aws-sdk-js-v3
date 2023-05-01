@@ -49,21 +49,20 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * };
  * const command = new GetVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorOriginationResponse
- *   Origination: { // Origination
- *     Routes: [ // OriginationRouteList
- *       { // OriginationRoute
- *         Host: "STRING_VALUE",
- *         Port: Number("int"),
- *         Protocol: "TCP" || "UDP",
- *         Priority: Number("int"),
- *         Weight: Number("int"),
- *       },
- *     ],
- *     Disabled: true || false,
- *   },
- * };
+ * // { // GetVoiceConnectorOriginationResponse
+ * //   Origination: { // Origination
+ * //     Routes: [ // OriginationRouteList
+ * //       { // OriginationRoute
+ * //         Host: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         Protocol: "TCP" || "UDP",
+ * //         Priority: Number("int"),
+ * //         Weight: Number("int"),
+ * //       },
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

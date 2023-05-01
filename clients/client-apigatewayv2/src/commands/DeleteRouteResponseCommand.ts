@@ -46,8 +46,7 @@ export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRouteResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

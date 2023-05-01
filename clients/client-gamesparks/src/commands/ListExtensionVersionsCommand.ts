@@ -51,18 +51,17 @@ export interface ListExtensionVersionsCommandOutput extends ListExtensionVersion
  * };
  * const command = new ListExtensionVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExtensionVersionsResult
- *   ExtensionVersions: [ // ExtensionVersionDetailsList
- *     { // ExtensionVersionDetails
- *       Namespace: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Schema: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExtensionVersionsResult
+ * //   ExtensionVersions: [ // ExtensionVersionDetailsList
+ * //     { // ExtensionVersionDetails
+ * //       Namespace: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Schema: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

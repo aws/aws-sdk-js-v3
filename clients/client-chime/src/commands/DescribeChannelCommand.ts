@@ -55,23 +55,22 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelResponse
- *   Channel: { // Channel
- *     Name: "STRING_VALUE",
- *     ChannelArn: "STRING_VALUE",
- *     Mode: "UNRESTRICTED" || "RESTRICTED",
- *     Privacy: "PUBLIC" || "PRIVATE",
- *     Metadata: "STRING_VALUE",
- *     CreatedBy: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastMessageTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeChannelResponse
+ * //   Channel: { // Channel
+ * //     Name: "STRING_VALUE",
+ * //     ChannelArn: "STRING_VALUE",
+ * //     Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //     Privacy: "PUBLIC" || "PRIVATE",
+ * //     Metadata: "STRING_VALUE",
+ * //     CreatedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

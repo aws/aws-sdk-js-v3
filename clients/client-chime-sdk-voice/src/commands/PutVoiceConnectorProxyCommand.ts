@@ -55,17 +55,16 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * };
  * const command = new PutVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutVoiceConnectorProxyResponse
- *   Proxy: { // Proxy
- *     DefaultSessionExpiryMinutes: Number("int"),
- *     Disabled: true || false,
- *     FallBackPhoneNumber: "STRING_VALUE",
- *     PhoneNumberCountries: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // PutVoiceConnectorProxyResponse
+ * //   Proxy: { // Proxy
+ * //     DefaultSessionExpiryMinutes: Number("int"),
+ * //     Disabled: true || false,
+ * //     FallBackPhoneNumber: "STRING_VALUE",
+ * //     PhoneNumberCountries: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

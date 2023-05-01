@@ -50,13 +50,12 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentTargetsResponse
- *   assessmentTargetArns: [ // ListReturnedArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentTargetsResponse
+ * //   assessmentTargetArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

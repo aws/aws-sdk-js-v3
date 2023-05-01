@@ -45,13 +45,12 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * };
  * const command = new ListDetectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDetectorsResponse
- *   DetectorIds: [ // DetectorIds // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDetectorsResponse
+ * //   DetectorIds: [ // DetectorIds // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

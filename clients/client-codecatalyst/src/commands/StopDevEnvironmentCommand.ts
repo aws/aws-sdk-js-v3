@@ -46,13 +46,12 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  * };
  * const command = new StopDevEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopDevEnvironmentResponse
- *   spaceName: "STRING_VALUE", // required
- *   projectName: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- * };
+ * // { // StopDevEnvironmentResponse
+ * //   spaceName: "STRING_VALUE", // required
+ * //   projectName: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

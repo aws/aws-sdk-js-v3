@@ -42,10 +42,9 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * const input = {};
  * const command = new PingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PingResponse
- *   status: "STRING_VALUE",
- * };
+ * // { // PingResponse
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

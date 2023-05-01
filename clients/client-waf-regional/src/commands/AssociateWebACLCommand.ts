@@ -53,8 +53,7 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * };
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

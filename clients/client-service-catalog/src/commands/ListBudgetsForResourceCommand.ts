@@ -47,15 +47,14 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * };
  * const command = new ListBudgetsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBudgetsForResourceOutput
- *   Budgets: [ // Budgets
- *     { // BudgetDetail
- *       BudgetName: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListBudgetsForResourceOutput
+ * //   Budgets: [ // Budgets
+ * //     { // BudgetDetail
+ * //       BudgetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

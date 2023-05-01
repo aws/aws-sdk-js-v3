@@ -51,19 +51,18 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * };
  * const command = new ListModelCardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelCardsResponse
- *   ModelCardSummaries: [ // ModelCardSummaryList // required
- *     { // ModelCardSummary
- *       ModelCardName: "STRING_VALUE", // required
- *       ModelCardArn: "STRING_VALUE", // required
- *       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelCardsResponse
+ * //   ModelCardSummaries: [ // ModelCardSummaryList // required
+ * //     { // ModelCardSummary
+ * //       ModelCardName: "STRING_VALUE", // required
+ * //       ModelCardArn: "STRING_VALUE", // required
+ * //       ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

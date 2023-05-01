@@ -65,10 +65,9 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);
- * /**
- * { // ExportJournalToS3Response
- *   ExportId: "STRING_VALUE", // required
- * };
+ * // { // ExportJournalToS3Response
+ * //   ExportId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

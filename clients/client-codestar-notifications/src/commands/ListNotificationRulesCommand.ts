@@ -55,16 +55,15 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * };
  * const command = new ListNotificationRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotificationRulesResult
- *   NextToken: "STRING_VALUE",
- *   NotificationRules: [ // NotificationRuleBatch
- *     { // NotificationRuleSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListNotificationRulesResult
+ * //   NextToken: "STRING_VALUE",
+ * //   NotificationRules: [ // NotificationRuleBatch
+ * //     { // NotificationRuleSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

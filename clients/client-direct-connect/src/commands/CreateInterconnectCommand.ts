@@ -69,29 +69,28 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * };
  * const command = new CreateInterconnectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Interconnect
- *   interconnectId: "STRING_VALUE",
- *   interconnectName: "STRING_VALUE",
- *   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
- *   region: "STRING_VALUE",
- *   location: "STRING_VALUE",
- *   bandwidth: "STRING_VALUE",
- *   loaIssueTime: new Date("TIMESTAMP"),
- *   lagId: "STRING_VALUE",
- *   awsDevice: "STRING_VALUE",
- *   jumboFrameCapable: true || false,
- *   awsDeviceV2: "STRING_VALUE",
- *   awsLogicalDeviceId: "STRING_VALUE",
- *   hasLogicalRedundancy: "unknown" || "yes" || "no",
- *   tags: [ // TagList
- *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
- *     },
- *   ],
- *   providerName: "STRING_VALUE",
- * };
+ * // { // Interconnect
+ * //   interconnectId: "STRING_VALUE",
+ * //   interconnectName: "STRING_VALUE",
+ * //   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * //   region: "STRING_VALUE",
+ * //   location: "STRING_VALUE",
+ * //   bandwidth: "STRING_VALUE",
+ * //   loaIssueTime: new Date("TIMESTAMP"),
+ * //   lagId: "STRING_VALUE",
+ * //   awsDevice: "STRING_VALUE",
+ * //   jumboFrameCapable: true || false,
+ * //   awsDeviceV2: "STRING_VALUE",
+ * //   awsLogicalDeviceId: "STRING_VALUE",
+ * //   hasLogicalRedundancy: "unknown" || "yes" || "no",
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   providerName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandb
  * };
  * const command = new DeleteSMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

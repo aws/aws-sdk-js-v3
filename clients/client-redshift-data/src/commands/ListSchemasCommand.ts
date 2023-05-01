@@ -88,13 +88,12 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchemasResponse
- *   Schemas: [ // SchemaList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSchemasResponse
+ * //   Schemas: [ // SchemaList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

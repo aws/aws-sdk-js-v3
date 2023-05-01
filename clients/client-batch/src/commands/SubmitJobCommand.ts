@@ -172,12 +172,11 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubmitJobResponse
- *   jobArn: "STRING_VALUE",
- *   jobName: "STRING_VALUE", // required
- *   jobId: "STRING_VALUE", // required
- * };
+ * // { // SubmitJobResponse
+ * //   jobArn: "STRING_VALUE",
+ * //   jobName: "STRING_VALUE", // required
+ * //   jobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

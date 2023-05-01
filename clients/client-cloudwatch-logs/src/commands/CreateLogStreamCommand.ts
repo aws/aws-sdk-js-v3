@@ -61,8 +61,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateLogStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

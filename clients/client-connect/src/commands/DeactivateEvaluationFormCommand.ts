@@ -47,12 +47,11 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * };
  * const command = new DeactivateEvaluationFormCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeactivateEvaluationFormResponse
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormArn: "STRING_VALUE", // required
- *   EvaluationFormVersion: Number("int"), // required
- * };
+ * // { // DeactivateEvaluationFormResponse
+ * //   EvaluationFormId: "STRING_VALUE", // required
+ * //   EvaluationFormArn: "STRING_VALUE", // required
+ * //   EvaluationFormVersion: Number("int"), // required
+ * // };
  *
  * ```
  *

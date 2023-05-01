@@ -44,8 +44,7 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * };
  * const command = new StopClockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

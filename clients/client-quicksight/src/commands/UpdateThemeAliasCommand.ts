@@ -47,16 +47,15 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
  * };
  * const command = new UpdateThemeAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateThemeAliasResponse
- *   ThemeAlias: { // ThemeAlias
- *     Arn: "STRING_VALUE",
- *     AliasName: "STRING_VALUE",
- *     ThemeVersionNumber: Number("long"),
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateThemeAliasResponse
+ * //   ThemeAlias: { // ThemeAlias
+ * //     Arn: "STRING_VALUE",
+ * //     AliasName: "STRING_VALUE",
+ * //     ThemeVersionNumber: Number("long"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

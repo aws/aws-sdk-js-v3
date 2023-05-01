@@ -45,35 +45,34 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelResponse
- *   channel: { // Channel
- *     name: "STRING_VALUE",
- *     storage: { // ChannelStorage
- *       serviceManagedS3: {},
- *       customerManagedS3: { // CustomerManagedChannelS3Storage
- *         bucket: "STRING_VALUE", // required
- *         keyPrefix: "STRING_VALUE",
- *         roleArn: "STRING_VALUE", // required
- *       },
- *     },
- *     arn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     retentionPeriod: { // RetentionPeriod
- *       unlimited: true || false,
- *       numberOfDays: Number("int"),
- *     },
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *     lastMessageArrivalTime: new Date("TIMESTAMP"),
- *   },
- *   statistics: { // ChannelStatistics
- *     size: { // EstimatedResourceSize
- *       estimatedSizeInBytes: Number("double"),
- *       estimatedOn: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // DescribeChannelResponse
+ * //   channel: { // Channel
+ * //     name: "STRING_VALUE",
+ * //     storage: { // ChannelStorage
+ * //       serviceManagedS3: {},
+ * //       customerManagedS3: { // CustomerManagedChannelS3Storage
+ * //         bucket: "STRING_VALUE", // required
+ * //         keyPrefix: "STRING_VALUE",
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     arn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     retentionPeriod: { // RetentionPeriod
+ * //       unlimited: true || false,
+ * //       numberOfDays: Number("int"),
+ * //     },
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     lastMessageArrivalTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   statistics: { // ChannelStatistics
+ * //     size: { // EstimatedResourceSize
+ * //       estimatedSizeInBytes: Number("double"),
+ * //       estimatedOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

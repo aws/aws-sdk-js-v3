@@ -74,11 +74,10 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * };
  * const command = new CreateFrameworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFrameworkOutput
- *   FrameworkName: "STRING_VALUE",
- *   FrameworkArn: "STRING_VALUE",
- * };
+ * // { // CreateFrameworkOutput
+ * //   FrameworkName: "STRING_VALUE",
+ * //   FrameworkArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

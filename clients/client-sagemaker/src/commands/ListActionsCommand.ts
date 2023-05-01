@@ -51,25 +51,24 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListActionsResponse
- *   ActionSummaries: [ // ActionSummaries
- *     { // ActionSummary
- *       ActionArn: "STRING_VALUE",
- *       ActionName: "STRING_VALUE",
- *       Source: { // ActionSource
- *         SourceUri: "STRING_VALUE", // required
- *         SourceType: "STRING_VALUE",
- *         SourceId: "STRING_VALUE",
- *       },
- *       ActionType: "STRING_VALUE",
- *       Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListActionsResponse
+ * //   ActionSummaries: [ // ActionSummaries
+ * //     { // ActionSummary
+ * //       ActionArn: "STRING_VALUE",
+ * //       ActionName: "STRING_VALUE",
+ * //       Source: { // ActionSource
+ * //         SourceUri: "STRING_VALUE", // required
+ * //         SourceType: "STRING_VALUE",
+ * //         SourceId: "STRING_VALUE",
+ * //       },
+ * //       ActionType: "STRING_VALUE",
+ * //       Status: "Unknown" || "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

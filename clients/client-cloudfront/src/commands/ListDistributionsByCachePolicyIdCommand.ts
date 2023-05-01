@@ -57,19 +57,18 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * };
  * const command = new ListDistributionsByCachePolicyIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDistributionsByCachePolicyIdResult
- *   DistributionIdList: { // DistributionIdList
- *     Marker: "STRING_VALUE", // required
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     IsTruncated: true || false, // required
- *     Quantity: Number("int"), // required
- *     Items: [ // DistributionIdListSummary
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // ListDistributionsByCachePolicyIdResult
+ * //   DistributionIdList: { // DistributionIdList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // DistributionIdListSummary
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

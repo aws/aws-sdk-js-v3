@@ -54,64 +54,63 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * };
  * const command = new DescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMergeConflictsOutput
- *   conflictMetadata: { // ConflictMetadata
- *     filePath: "STRING_VALUE",
- *     fileSizes: { // FileSizes
- *       source: Number("long"),
- *       destination: Number("long"),
- *       base: Number("long"),
- *     },
- *     fileModes: { // FileModes
- *       source: "STRING_VALUE",
- *       destination: "STRING_VALUE",
- *       base: "STRING_VALUE",
- *     },
- *     objectTypes: { // ObjectTypes
- *       source: "STRING_VALUE",
- *       destination: "STRING_VALUE",
- *       base: "STRING_VALUE",
- *     },
- *     numberOfConflicts: Number("int"),
- *     isBinaryFile: { // IsBinaryFile
- *       source: true || false,
- *       destination: true || false,
- *       base: true || false,
- *     },
- *     contentConflict: true || false,
- *     fileModeConflict: true || false,
- *     objectTypeConflict: true || false,
- *     mergeOperations: { // MergeOperations
- *       source: "STRING_VALUE",
- *       destination: "STRING_VALUE",
- *     },
- *   },
- *   mergeHunks: [ // MergeHunks // required
- *     { // MergeHunk
- *       isConflict: true || false,
- *       source: { // MergeHunkDetail
- *         startLine: Number("int"),
- *         endLine: Number("int"),
- *         hunkContent: "STRING_VALUE",
- *       },
- *       destination: {
- *         startLine: Number("int"),
- *         endLine: Number("int"),
- *         hunkContent: "STRING_VALUE",
- *       },
- *       base: {
- *         startLine: Number("int"),
- *         endLine: Number("int"),
- *         hunkContent: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   destinationCommitId: "STRING_VALUE", // required
- *   sourceCommitId: "STRING_VALUE", // required
- *   baseCommitId: "STRING_VALUE",
- * };
+ * // { // DescribeMergeConflictsOutput
+ * //   conflictMetadata: { // ConflictMetadata
+ * //     filePath: "STRING_VALUE",
+ * //     fileSizes: { // FileSizes
+ * //       source: Number("long"),
+ * //       destination: Number("long"),
+ * //       base: Number("long"),
+ * //     },
+ * //     fileModes: { // FileModes
+ * //       source: "STRING_VALUE",
+ * //       destination: "STRING_VALUE",
+ * //       base: "STRING_VALUE",
+ * //     },
+ * //     objectTypes: { // ObjectTypes
+ * //       source: "STRING_VALUE",
+ * //       destination: "STRING_VALUE",
+ * //       base: "STRING_VALUE",
+ * //     },
+ * //     numberOfConflicts: Number("int"),
+ * //     isBinaryFile: { // IsBinaryFile
+ * //       source: true || false,
+ * //       destination: true || false,
+ * //       base: true || false,
+ * //     },
+ * //     contentConflict: true || false,
+ * //     fileModeConflict: true || false,
+ * //     objectTypeConflict: true || false,
+ * //     mergeOperations: { // MergeOperations
+ * //       source: "STRING_VALUE",
+ * //       destination: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   mergeHunks: [ // MergeHunks // required
+ * //     { // MergeHunk
+ * //       isConflict: true || false,
+ * //       source: { // MergeHunkDetail
+ * //         startLine: Number("int"),
+ * //         endLine: Number("int"),
+ * //         hunkContent: "STRING_VALUE",
+ * //       },
+ * //       destination: {
+ * //         startLine: Number("int"),
+ * //         endLine: Number("int"),
+ * //         hunkContent: "STRING_VALUE",
+ * //       },
+ * //       base: {
+ * //         startLine: Number("int"),
+ * //         endLine: Number("int"),
+ * //         hunkContent: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   destinationCommitId: "STRING_VALUE", // required
+ * //   sourceCommitId: "STRING_VALUE", // required
+ * //   baseCommitId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

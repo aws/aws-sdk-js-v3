@@ -50,13 +50,12 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * };
  * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicesByNamespaceResponse
- *   serviceArns: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListServicesByNamespaceResponse
+ * //   serviceArns: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,21 +49,20 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * };
  * const command = new ListRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecommendationsResponse
- *   Recommendations: [ // RecommendationsList
- *     { // Recommendation
- *       ResourceArn: "STRING_VALUE",
- *       Type: "DKIM" || "DMARC" || "SPF" || "BIMI",
- *       Description: "STRING_VALUE",
- *       Status: "OPEN" || "FIXED",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *       Impact: "LOW" || "HIGH",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRecommendationsResponse
+ * //   Recommendations: [ // RecommendationsList
+ * //     { // Recommendation
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Type: "DKIM" || "DMARC" || "SPF" || "BIMI",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "OPEN" || "FIXED",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       Impact: "LOW" || "HIGH",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

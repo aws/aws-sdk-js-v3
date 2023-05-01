@@ -105,36 +105,35 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * };
  * const command = new CreateFileSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FileSystemDescription
- *   OwnerId: "STRING_VALUE", // required
- *   CreationToken: "STRING_VALUE", // required
- *   FileSystemId: "STRING_VALUE", // required
- *   FileSystemArn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
- *   Name: "STRING_VALUE",
- *   NumberOfMountTargets: Number("int"), // required
- *   SizeInBytes: { // FileSystemSize
- *     Value: Number("long"), // required
- *     Timestamp: new Date("TIMESTAMP"),
- *     ValueInIA: Number("long"),
- *     ValueInStandard: Number("long"),
- *   },
- *   PerformanceMode: "generalPurpose" || "maxIO", // required
- *   Encrypted: true || false,
- *   KmsKeyId: "STRING_VALUE",
- *   ThroughputMode: "bursting" || "provisioned" || "elastic",
- *   ProvisionedThroughputInMibps: Number("double"),
- *   AvailabilityZoneName: "STRING_VALUE",
- *   AvailabilityZoneId: "STRING_VALUE",
- *   Tags: [ // Tags // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // FileSystemDescription
+ * //   OwnerId: "STRING_VALUE", // required
+ * //   CreationToken: "STRING_VALUE", // required
+ * //   FileSystemId: "STRING_VALUE", // required
+ * //   FileSystemArn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error", // required
+ * //   Name: "STRING_VALUE",
+ * //   NumberOfMountTargets: Number("int"), // required
+ * //   SizeInBytes: { // FileSystemSize
+ * //     Value: Number("long"), // required
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //     ValueInIA: Number("long"),
+ * //     ValueInStandard: Number("long"),
+ * //   },
+ * //   PerformanceMode: "generalPurpose" || "maxIO", // required
+ * //   Encrypted: true || false,
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   ThroughputMode: "bursting" || "provisioned" || "elastic",
+ * //   ProvisionedThroughputInMibps: Number("double"),
+ * //   AvailabilityZoneName: "STRING_VALUE",
+ * //   AvailabilityZoneId: "STRING_VALUE",
+ * //   Tags: [ // Tags // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

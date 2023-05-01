@@ -54,20 +54,19 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   customDomainName: "STRING_VALUE",
- *   certificateArn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- *   dnsEntry: { // DnsEntry
- *     domainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateServiceResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   customDomainName: "STRING_VALUE",
+ * //   certificateArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * //   dnsEntry: { // DnsEntry
+ * //     domainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

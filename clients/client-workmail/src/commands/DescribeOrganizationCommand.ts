@@ -45,18 +45,17 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationResponse
- *   OrganizationId: "STRING_VALUE",
- *   Alias: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   DirectoryId: "STRING_VALUE",
- *   DirectoryType: "STRING_VALUE",
- *   DefaultMailDomain: "STRING_VALUE",
- *   CompletedDate: new Date("TIMESTAMP"),
- *   ErrorMessage: "STRING_VALUE",
- *   ARN: "STRING_VALUE",
- * };
+ * // { // DescribeOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   DirectoryId: "STRING_VALUE",
+ * //   DirectoryType: "STRING_VALUE",
+ * //   DefaultMailDomain: "STRING_VALUE",
+ * //   CompletedDate: new Date("TIMESTAMP"),
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   ARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

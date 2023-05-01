@@ -49,23 +49,22 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClustersResponse
- *   Clusters: [ // __listOfCluster
- *     { // Cluster
- *       ClusterArn: "STRING_VALUE",
- *       ClusterEndpoints: [ // __listOfClusterEndpoint
- *         { // ClusterEndpoint
- *           Endpoint: "STRING_VALUE",
- *           Region: "STRING_VALUE",
- *         },
- *       ],
- *       Name: "STRING_VALUE",
- *       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListClustersResponse
+ * //   Clusters: [ // __listOfCluster
+ * //     { // Cluster
+ * //       ClusterArn: "STRING_VALUE",
+ * //       ClusterEndpoints: [ // __listOfClusterEndpoint
+ * //         { // ClusterEndpoint
+ * //           Endpoint: "STRING_VALUE",
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

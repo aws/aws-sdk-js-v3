@@ -45,8 +45,7 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVpcCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

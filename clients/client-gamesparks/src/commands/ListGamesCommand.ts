@@ -45,20 +45,19 @@ export interface ListGamesCommandOutput extends ListGamesResult, __MetadataBeare
  * };
  * const command = new ListGamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGamesResult
- *   Games: [ // GameSummaryList
- *     { // GameSummary
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGamesResult
+ * //   Games: [ // GameSummaryList
+ * //     { // GameSummary
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,16 +46,15 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * };
  * const command = new ListResourceSetResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceSetResourcesResponse
- *   Items: [ // ResourceList // required
- *     { // Resource
- *       URI: "STRING_VALUE", // required
- *       AccountId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceSetResourcesResponse
+ * //   Items: [ // ResourceList // required
+ * //     { // Resource
+ * //       URI: "STRING_VALUE", // required
+ * //       AccountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

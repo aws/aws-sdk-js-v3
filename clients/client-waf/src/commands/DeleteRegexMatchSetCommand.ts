@@ -68,10 +68,9 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  * };
  * const command = new DeleteRegexMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRegexMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteRegexMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,15 +51,14 @@ export interface CreateRoutingControlCommandOutput extends CreateRoutingControlR
  * };
  * const command = new CreateRoutingControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoutingControlResponse
- *   RoutingControl: { // RoutingControl
- *     ControlPanelArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RoutingControlArn: "STRING_VALUE",
- *     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
- *   },
- * };
+ * // { // CreateRoutingControlResponse
+ * //   RoutingControl: { // RoutingControl
+ * //     ControlPanelArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RoutingControlArn: "STRING_VALUE",
+ * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
+ * //   },
+ * // };
  *
  * ```
  *

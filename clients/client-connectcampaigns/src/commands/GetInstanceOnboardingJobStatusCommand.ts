@@ -49,14 +49,13 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * };
  * const command = new GetInstanceOnboardingJobStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceOnboardingJobStatusResponse
- *   connectInstanceOnboardingJobStatus: { // InstanceOnboardingJobStatus
- *     connectInstanceId: "STRING_VALUE", // required
- *     status: "STRING_VALUE", // required
- *     failureCode: "STRING_VALUE",
- *   },
- * };
+ * // { // GetInstanceOnboardingJobStatusResponse
+ * //   connectInstanceOnboardingJobStatus: { // InstanceOnboardingJobStatus
+ * //     connectInstanceId: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     failureCode: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

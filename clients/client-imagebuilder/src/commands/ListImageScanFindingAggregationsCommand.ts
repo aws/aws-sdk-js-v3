@@ -82,52 +82,51 @@ export interface ListImageScanFindingAggregationsCommandOutput
  * };
  * const command = new ListImageScanFindingAggregationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImageScanFindingAggregationsResponse
- *   requestId: "STRING_VALUE",
- *   aggregationType: "STRING_VALUE",
- *   responses: [ // ImageScanFindingAggregationsList
- *     { // ImageScanFindingAggregation
- *       accountAggregation: { // AccountAggregation
- *         accountId: "STRING_VALUE",
- *         severityCounts: { // SeverityCounts
- *           all: Number("long"),
- *           critical: Number("long"),
- *           high: Number("long"),
- *           medium: Number("long"),
- *         },
- *       },
- *       imageAggregation: { // ImageAggregation
- *         imageBuildVersionArn: "STRING_VALUE",
- *         severityCounts: {
- *           all: Number("long"),
- *           critical: Number("long"),
- *           high: Number("long"),
- *           medium: Number("long"),
- *         },
- *       },
- *       imagePipelineAggregation: { // ImagePipelineAggregation
- *         imagePipelineArn: "STRING_VALUE",
- *         severityCounts: {
- *           all: Number("long"),
- *           critical: Number("long"),
- *           high: Number("long"),
- *           medium: Number("long"),
- *         },
- *       },
- *       vulnerabilityIdAggregation: { // VulnerabilityIdAggregation
- *         vulnerabilityId: "STRING_VALUE",
- *         severityCounts: {
- *           all: Number("long"),
- *           critical: Number("long"),
- *           high: Number("long"),
- *           medium: Number("long"),
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImageScanFindingAggregationsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   aggregationType: "STRING_VALUE",
+ * //   responses: [ // ImageScanFindingAggregationsList
+ * //     { // ImageScanFindingAggregation
+ * //       accountAggregation: { // AccountAggregation
+ * //         accountId: "STRING_VALUE",
+ * //         severityCounts: { // SeverityCounts
+ * //           all: Number("long"),
+ * //           critical: Number("long"),
+ * //           high: Number("long"),
+ * //           medium: Number("long"),
+ * //         },
+ * //       },
+ * //       imageAggregation: { // ImageAggregation
+ * //         imageBuildVersionArn: "STRING_VALUE",
+ * //         severityCounts: {
+ * //           all: Number("long"),
+ * //           critical: Number("long"),
+ * //           high: Number("long"),
+ * //           medium: Number("long"),
+ * //         },
+ * //       },
+ * //       imagePipelineAggregation: { // ImagePipelineAggregation
+ * //         imagePipelineArn: "STRING_VALUE",
+ * //         severityCounts: {
+ * //           all: Number("long"),
+ * //           critical: Number("long"),
+ * //           high: Number("long"),
+ * //           medium: Number("long"),
+ * //         },
+ * //       },
+ * //       vulnerabilityIdAggregation: { // VulnerabilityIdAggregation
+ * //         vulnerabilityId: "STRING_VALUE",
+ * //         severityCounts: {
+ * //           all: Number("long"),
+ * //           critical: Number("long"),
+ * //           high: Number("long"),
+ * //           medium: Number("long"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

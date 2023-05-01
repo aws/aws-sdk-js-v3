@@ -46,8 +46,7 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortEnvironmentUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

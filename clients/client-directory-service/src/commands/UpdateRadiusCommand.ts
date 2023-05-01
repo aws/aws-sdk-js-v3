@@ -57,8 +57,7 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * };
  * const command = new UpdateRadiusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

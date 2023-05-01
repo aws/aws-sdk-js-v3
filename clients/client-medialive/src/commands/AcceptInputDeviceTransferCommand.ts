@@ -44,8 +44,7 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * };
  * const command = new AcceptInputDeviceTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -58,22 +58,21 @@ export interface PutDialRequestBatchCommandOutput extends PutDialRequestBatchRes
  * };
  * const command = new PutDialRequestBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDialRequestBatchResponse
- *   successfulRequests: [ // SuccessfulRequestList
- *     { // SuccessfulRequest
- *       clientToken: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *     },
- *   ],
- *   failedRequests: [ // FailedRequestList
- *     { // FailedRequest
- *       clientToken: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       failureCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutDialRequestBatchResponse
+ * //   successfulRequests: [ // SuccessfulRequestList
+ * //     { // SuccessfulRequest
+ * //       clientToken: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedRequests: [ // FailedRequestList
+ * //     { // FailedRequest
+ * //       clientToken: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

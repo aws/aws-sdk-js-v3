@@ -62,29 +62,28 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * };
  * const command = new SearchFacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchFacesResponse
- *   SearchedFaceId: "STRING_VALUE",
- *   FaceMatches: [ // FaceMatchList
- *     { // FaceMatch
- *       Similarity: Number("float"),
- *       Face: { // Face
- *         FaceId: "STRING_VALUE",
- *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *         },
- *         ImageId: "STRING_VALUE",
- *         ExternalImageId: "STRING_VALUE",
- *         Confidence: Number("float"),
- *         IndexFacesModelVersion: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   FaceModelVersion: "STRING_VALUE",
- * };
+ * // { // SearchFacesResponse
+ * //   SearchedFaceId: "STRING_VALUE",
+ * //   FaceMatches: [ // FaceMatchList
+ * //     { // FaceMatch
+ * //       Similarity: Number("float"),
+ * //       Face: { // Face
+ * //         FaceId: "STRING_VALUE",
+ * //         BoundingBox: { // BoundingBox
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         ImageId: "STRING_VALUE",
+ * //         ExternalImageId: "STRING_VALUE",
+ * //         Confidence: Number("float"),
+ * //         IndexFacesModelVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

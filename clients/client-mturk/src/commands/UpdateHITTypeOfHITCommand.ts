@@ -52,8 +52,7 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * };
  * const command = new UpdateHITTypeOfHITCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

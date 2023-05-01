@@ -55,17 +55,16 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * };
  * const command = new ListBuiltInIntentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuiltInIntentsResponse
- *   builtInIntentSummaries: [ // BuiltInIntentSummaryList
- *     { // BuiltInIntentSummary
- *       intentSignature: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- * };
+ * // { // ListBuiltInIntentsResponse
+ * //   builtInIntentSummaries: [ // BuiltInIntentSummaryList
+ * //     { // BuiltInIntentSummary
+ * //       intentSignature: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

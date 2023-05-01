@@ -51,8 +51,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
  * };
  * const command = new UpdateContactFlowModuleContentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

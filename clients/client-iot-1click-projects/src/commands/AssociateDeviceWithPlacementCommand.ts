@@ -56,8 +56,7 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * };
  * const command = new AssociateDeviceWithPlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,16 +50,15 @@ export interface DisassociateCustomerGatewayCommandOutput
  * };
  * const command = new DisassociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateCustomerGatewayResponse
- *   CustomerGatewayAssociation: { // CustomerGatewayAssociation
- *     CustomerGatewayArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // DisassociateCustomerGatewayResponse
+ * //   CustomerGatewayAssociation: { // CustomerGatewayAssociation
+ * //     CustomerGatewayArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

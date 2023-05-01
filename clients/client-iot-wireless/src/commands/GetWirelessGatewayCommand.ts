@@ -45,37 +45,36 @@ export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayRespo
  * };
  * const command = new GetWirelessGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWirelessGatewayResponse
- *   Name: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   LoRaWAN: { // LoRaWANGateway
- *     GatewayEui: "STRING_VALUE",
- *     RfRegion: "STRING_VALUE",
- *     JoinEuiFilters: [ // JoinEuiFilters
- *       [ // JoinEuiRange
- *         "STRING_VALUE",
- *       ],
- *     ],
- *     NetIdFilters: [ // NetIdFilters
- *       "STRING_VALUE",
- *     ],
- *     SubBands: [ // SubBands
- *       Number("int"),
- *     ],
- *     Beaconing: { // Beaconing
- *       DataRate: Number("int"),
- *       Frequencies: [ // BeaconingFrequencies
- *         Number("int"),
- *       ],
- *     },
- *     MaxEirp: Number("float"),
- *   },
- *   Arn: "STRING_VALUE",
- *   ThingName: "STRING_VALUE",
- *   ThingArn: "STRING_VALUE",
- * };
+ * // { // GetWirelessGatewayResponse
+ * //   Name: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   LoRaWAN: { // LoRaWANGateway
+ * //     GatewayEui: "STRING_VALUE",
+ * //     RfRegion: "STRING_VALUE",
+ * //     JoinEuiFilters: [ // JoinEuiFilters
+ * //       [ // JoinEuiRange
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     ],
+ * //     NetIdFilters: [ // NetIdFilters
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SubBands: [ // SubBands
+ * //       Number("int"),
+ * //     ],
+ * //     Beaconing: { // Beaconing
+ * //       DataRate: Number("int"),
+ * //       Frequencies: [ // BeaconingFrequencies
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //     MaxEirp: Number("float"),
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * //   ThingName: "STRING_VALUE",
+ * //   ThingArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

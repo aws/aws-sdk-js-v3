@@ -50,8 +50,7 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RebootInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

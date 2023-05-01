@@ -61,10 +61,9 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
  * };
  * const command = new CreateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSubscriptionNotificationConfigurationResponse
- *   queueArn: "STRING_VALUE",
- * };
+ * // { // CreateSubscriptionNotificationConfigurationResponse
+ * //   queueArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

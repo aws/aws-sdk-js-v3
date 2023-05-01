@@ -94,15 +94,14 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * };
  * const command = new CreateDatastoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatastoreResponse
- *   datastoreName: "STRING_VALUE",
- *   datastoreArn: "STRING_VALUE",
- *   retentionPeriod: { // RetentionPeriod
- *     unlimited: true || false,
- *     numberOfDays: Number("int"),
- *   },
- * };
+ * // { // CreateDatastoreResponse
+ * //   datastoreName: "STRING_VALUE",
+ * //   datastoreArn: "STRING_VALUE",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     unlimited: true || false,
+ * //     numberOfDays: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

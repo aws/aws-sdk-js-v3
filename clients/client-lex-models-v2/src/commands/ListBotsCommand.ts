@@ -58,21 +58,20 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotsResponse
- *   botSummaries: [ // BotSummaryList
- *     { // BotSummary
- *       botId: "STRING_VALUE",
- *       botName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- *       latestBotVersion: "STRING_VALUE",
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       botType: "Bot" || "BotNetwork",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBotsResponse
+ * //   botSummaries: [ // BotSummaryList
+ * //     { // BotSummary
+ * //       botId: "STRING_VALUE",
+ * //       botName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //       latestBotVersion: "STRING_VALUE",
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       botType: "Bot" || "BotNetwork",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

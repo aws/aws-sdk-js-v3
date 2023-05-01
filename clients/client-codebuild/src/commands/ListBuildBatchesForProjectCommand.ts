@@ -50,13 +50,12 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
  * };
  * const command = new ListBuildBatchesForProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuildBatchesForProjectOutput
- *   ids: [ // BuildBatchIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBuildBatchesForProjectOutput
+ * //   ids: [ // BuildBatchIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

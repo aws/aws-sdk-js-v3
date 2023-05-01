@@ -54,10 +54,9 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetShardIteratorOutput
- *   ShardIterator: "STRING_VALUE",
- * };
+ * // { // GetShardIteratorOutput
+ * //   ShardIterator: "STRING_VALUE",
+ * // };
  *
  * ```
  *

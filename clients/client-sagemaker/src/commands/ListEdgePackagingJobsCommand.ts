@@ -54,22 +54,21 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
  * };
  * const command = new ListEdgePackagingJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEdgePackagingJobsResponse
- *   EdgePackagingJobSummaries: [ // EdgePackagingJobSummaries // required
- *     { // EdgePackagingJobSummary
- *       EdgePackagingJobArn: "STRING_VALUE", // required
- *       EdgePackagingJobName: "STRING_VALUE", // required
- *       EdgePackagingJobStatus: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
- *       CompilationJobName: "STRING_VALUE",
- *       ModelName: "STRING_VALUE",
- *       ModelVersion: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEdgePackagingJobsResponse
+ * //   EdgePackagingJobSummaries: [ // EdgePackagingJobSummaries // required
+ * //     { // EdgePackagingJobSummary
+ * //       EdgePackagingJobArn: "STRING_VALUE", // required
+ * //       EdgePackagingJobName: "STRING_VALUE", // required
+ * //       EdgePackagingJobStatus: "STARTING" || "INPROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //       CompilationJobName: "STRING_VALUE",
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelVersion: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

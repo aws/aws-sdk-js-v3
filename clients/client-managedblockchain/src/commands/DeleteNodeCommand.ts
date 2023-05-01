@@ -51,8 +51,7 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * };
  * const command = new DeleteNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -65,10 +65,9 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkProfileResponse
- *   NetworkProfileArn: "STRING_VALUE",
- * };
+ * // { // CreateNetworkProfileResponse
+ * //   NetworkProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

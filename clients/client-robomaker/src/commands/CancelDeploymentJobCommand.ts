@@ -49,8 +49,7 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
  * };
  * const command = new CancelDeploymentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

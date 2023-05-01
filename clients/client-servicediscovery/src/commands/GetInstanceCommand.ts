@@ -45,16 +45,15 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceResponse
- *   Instance: { // Instance
- *     Id: "STRING_VALUE", // required
- *     CreatorRequestId: "STRING_VALUE",
- *     Attributes: { // Attributes
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetInstanceResponse
+ * //   Instance: { // Instance
+ * //     Id: "STRING_VALUE", // required
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     Attributes: { // Attributes
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

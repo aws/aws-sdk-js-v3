@@ -45,11 +45,10 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * };
  * const command = new DeleteLicenseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLicenseResponse
- *   Status: "PENDING_DELETE" || "DELETED",
- *   DeletionDate: "STRING_VALUE",
- * };
+ * // { // DeleteLicenseResponse
+ * //   Status: "PENDING_DELETE" || "DELETED",
+ * //   DeletionDate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

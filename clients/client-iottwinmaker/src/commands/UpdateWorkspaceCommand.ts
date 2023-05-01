@@ -46,10 +46,9 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkspaceResponse
- *   updateDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateWorkspaceResponse
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

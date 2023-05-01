@@ -49,26 +49,25 @@ export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClie
  * };
  * const command = new DescribeVcenterClientsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVcenterClientsResponse
- *   items: [ // VcenterClientList
- *     { // VcenterClient
- *       vcenterClientID: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       hostname: "STRING_VALUE",
- *       vcenterUUID: "STRING_VALUE",
- *       datacenterName: "STRING_VALUE",
- *       lastSeenDatetime: "STRING_VALUE",
- *       sourceServerTags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       tags: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVcenterClientsResponse
+ * //   items: [ // VcenterClientList
+ * //     { // VcenterClient
+ * //       vcenterClientID: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       hostname: "STRING_VALUE",
+ * //       vcenterUUID: "STRING_VALUE",
+ * //       datacenterName: "STRING_VALUE",
+ * //       lastSeenDatetime: "STRING_VALUE",
+ * //       sourceServerTags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       tags: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

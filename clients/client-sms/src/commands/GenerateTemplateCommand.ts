@@ -46,13 +46,12 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * };
  * const command = new GenerateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateTemplateResponse
- *   s3Location: { // S3Location
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *   },
- * };
+ * // { // GenerateTemplateResponse
+ * //   s3Location: { // S3Location
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

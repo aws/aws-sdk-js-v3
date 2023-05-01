@@ -54,25 +54,24 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * };
  * const command = new ListContainerRecipesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContainerRecipesResponse
- *   requestId: "STRING_VALUE",
- *   containerRecipeSummaryList: [ // ContainerRecipeSummaryList
- *     { // ContainerRecipeSummary
- *       arn: "STRING_VALUE",
- *       containerType: "DOCKER",
- *       name: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       owner: "STRING_VALUE",
- *       parentImage: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListContainerRecipesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   containerRecipeSummaryList: [ // ContainerRecipeSummaryList
+ * //     { // ContainerRecipeSummary
+ * //       arn: "STRING_VALUE",
+ * //       containerType: "DOCKER",
+ * //       name: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       parentImage: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

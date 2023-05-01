@@ -46,11 +46,10 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * };
  * const command = new CreateMilestoneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMilestoneOutput
- *   WorkloadId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- * };
+ * // { // CreateMilestoneOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * // };
  *
  * ```
  *

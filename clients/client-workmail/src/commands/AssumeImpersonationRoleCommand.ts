@@ -46,11 +46,10 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * };
  * const command = new AssumeImpersonationRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssumeImpersonationRoleResponse
- *   Token: "STRING_VALUE",
- *   ExpiresIn: Number("long"),
- * };
+ * // { // AssumeImpersonationRoleResponse
+ * //   Token: "STRING_VALUE",
+ * //   ExpiresIn: Number("long"),
+ * // };
  *
  * ```
  *

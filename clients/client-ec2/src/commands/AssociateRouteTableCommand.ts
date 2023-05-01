@@ -53,14 +53,13 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * };
  * const command = new AssociateRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateRouteTableResult
- *   AssociationId: "STRING_VALUE",
- *   AssociationState: { // RouteTableAssociationState
- *     State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
- *     StatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateRouteTableResult
+ * //   AssociationId: "STRING_VALUE",
+ * //   AssociationState: { // RouteTableAssociationState
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated" || "failed",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

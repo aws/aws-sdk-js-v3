@@ -50,12 +50,11 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * };
  * const command = new SyncResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SyncResourceResponse
- *   applicationArn: "STRING_VALUE",
- *   resourceArn: "STRING_VALUE",
- *   actionTaken: "START_SYNC" || "NO_ACTION",
- * };
+ * // { // SyncResourceResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   resourceArn: "STRING_VALUE",
+ * //   actionTaken: "START_SYNC" || "NO_ACTION",
+ * // };
  *
  * ```
  *

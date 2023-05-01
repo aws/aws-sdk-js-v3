@@ -50,8 +50,7 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

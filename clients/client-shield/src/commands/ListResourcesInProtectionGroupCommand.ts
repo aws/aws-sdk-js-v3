@@ -51,13 +51,12 @@ export interface ListResourcesInProtectionGroupCommandOutput
  * };
  * const command = new ListResourcesInProtectionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesInProtectionGroupResponse
- *   ResourceArns: [ // ResourceArnList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesInProtectionGroupResponse
+ * //   ResourceArns: [ // ResourceArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

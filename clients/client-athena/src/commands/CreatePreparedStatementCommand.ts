@@ -47,8 +47,7 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * };
  * const command = new CreatePreparedStatementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

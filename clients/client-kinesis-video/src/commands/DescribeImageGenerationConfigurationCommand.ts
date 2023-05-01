@@ -53,24 +53,23 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * };
  * const command = new DescribeImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeImageGenerationConfigurationOutput
- *   ImageGenerationConfiguration: { // ImageGenerationConfiguration
- *     Status: "ENABLED" || "DISABLED", // required
- *     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
- *     DestinationConfig: { // ImageGenerationDestinationConfig
- *       Uri: "STRING_VALUE", // required
- *       DestinationRegion: "STRING_VALUE", // required
- *     },
- *     SamplingInterval: Number("int"), // required
- *     Format: "JPEG" || "PNG", // required
- *     FormatConfig: { // FormatConfig
- *       "<keys>": "STRING_VALUE",
- *     },
- *     WidthPixels: Number("int"),
- *     HeightPixels: Number("int"),
- *   },
- * };
+ * // { // DescribeImageGenerationConfigurationOutput
+ * //   ImageGenerationConfiguration: { // ImageGenerationConfiguration
+ * //     Status: "ENABLED" || "DISABLED", // required
+ * //     ImageSelectorType: "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP", // required
+ * //     DestinationConfig: { // ImageGenerationDestinationConfig
+ * //       Uri: "STRING_VALUE", // required
+ * //       DestinationRegion: "STRING_VALUE", // required
+ * //     },
+ * //     SamplingInterval: Number("int"), // required
+ * //     Format: "JPEG" || "PNG", // required
+ * //     FormatConfig: { // FormatConfig
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     WidthPixels: Number("int"),
+ * //     HeightPixels: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

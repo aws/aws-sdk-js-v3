@@ -72,11 +72,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagResourceResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // TagResourceResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

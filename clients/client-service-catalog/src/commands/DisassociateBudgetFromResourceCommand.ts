@@ -50,8 +50,7 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * };
  * const command = new DisassociateBudgetFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

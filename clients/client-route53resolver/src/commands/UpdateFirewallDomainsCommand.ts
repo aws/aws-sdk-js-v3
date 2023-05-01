@@ -48,13 +48,12 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * };
  * const command = new UpdateFirewallDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallDomainsResponse
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
- *   StatusMessage: "STRING_VALUE",
- * };
+ * // { // UpdateFirewallDomainsResponse
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ * //   StatusMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -69,25 +69,24 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * };
  * const command = new DescribePoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePoolsResult
- *   Pools: [ // PoolInformationList
- *     { // PoolInformation
- *       PoolArn: "STRING_VALUE", // required
- *       PoolId: "STRING_VALUE", // required
- *       Status: "STRING_VALUE", // required
- *       MessageType: "STRING_VALUE", // required
- *       TwoWayEnabled: true || false, // required
- *       TwoWayChannelArn: "STRING_VALUE",
- *       SelfManagedOptOutsEnabled: true || false, // required
- *       OptOutListName: "STRING_VALUE", // required
- *       SharedRoutesEnabled: true || false, // required
- *       DeletionProtectionEnabled: true || false, // required
- *       CreatedTimestamp: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePoolsResult
+ * //   Pools: [ // PoolInformationList
+ * //     { // PoolInformation
+ * //       PoolArn: "STRING_VALUE", // required
+ * //       PoolId: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       MessageType: "STRING_VALUE", // required
+ * //       TwoWayEnabled: true || false, // required
+ * //       TwoWayChannelArn: "STRING_VALUE",
+ * //       SelfManagedOptOutsEnabled: true || false, // required
+ * //       OptOutListName: "STRING_VALUE", // required
+ * //       SharedRoutesEnabled: true || false, // required
+ * //       DeletionProtectionEnabled: true || false, // required
+ * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

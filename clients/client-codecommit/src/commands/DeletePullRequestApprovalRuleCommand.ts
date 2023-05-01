@@ -52,10 +52,9 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * };
  * const command = new DeletePullRequestApprovalRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePullRequestApprovalRuleOutput
- *   approvalRuleId: "STRING_VALUE", // required
- * };
+ * // { // DeletePullRequestApprovalRuleOutput
+ * //   approvalRuleId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

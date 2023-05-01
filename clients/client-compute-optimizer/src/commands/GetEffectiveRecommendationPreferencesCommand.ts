@@ -58,13 +58,12 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * };
  * const command = new GetEffectiveRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEffectiveRecommendationPreferencesResponse
- *   enhancedInfrastructureMetrics: "Active" || "Inactive",
- *   externalMetricsPreference: { // ExternalMetricsPreference
- *     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
- *   },
- * };
+ * // { // GetEffectiveRecommendationPreferencesResponse
+ * //   enhancedInfrastructureMetrics: "Active" || "Inactive",
+ * //   externalMetricsPreference: { // ExternalMetricsPreference
+ * //     source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ * //   },
+ * // };
  *
  * ```
  *

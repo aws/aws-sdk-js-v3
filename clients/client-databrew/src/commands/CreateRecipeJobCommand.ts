@@ -118,10 +118,9 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * };
  * const command = new CreateRecipeJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRecipeJobResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateRecipeJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

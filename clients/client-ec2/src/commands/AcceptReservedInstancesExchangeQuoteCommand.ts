@@ -61,10 +61,9 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
  * };
  * const command = new AcceptReservedInstancesExchangeQuoteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptReservedInstancesExchangeQuoteResult
- *   ExchangeId: "STRING_VALUE",
- * };
+ * // { // AcceptReservedInstancesExchangeQuoteResult
+ * //   ExchangeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

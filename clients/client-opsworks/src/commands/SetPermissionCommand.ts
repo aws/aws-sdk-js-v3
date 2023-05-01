@@ -54,8 +54,7 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

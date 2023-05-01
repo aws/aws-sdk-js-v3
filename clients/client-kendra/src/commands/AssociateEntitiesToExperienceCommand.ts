@@ -60,15 +60,14 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * };
  * const command = new AssociateEntitiesToExperienceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateEntitiesToExperienceResponse
- *   FailedEntityList: [ // AssociateEntitiesToExperienceFailedEntityList
- *     { // FailedEntity
- *       EntityId: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssociateEntitiesToExperienceResponse
+ * //   FailedEntityList: [ // AssociateEntitiesToExperienceFailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

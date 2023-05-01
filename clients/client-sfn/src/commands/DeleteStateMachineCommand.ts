@@ -55,8 +55,7 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * };
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

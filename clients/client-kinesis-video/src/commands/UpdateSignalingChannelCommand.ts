@@ -53,8 +53,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * };
  * const command = new UpdateSignalingChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

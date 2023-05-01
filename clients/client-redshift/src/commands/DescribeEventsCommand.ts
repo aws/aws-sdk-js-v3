@@ -53,23 +53,22 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EventsMessage
- *   Marker: "STRING_VALUE",
- *   Events: [ // EventList
- *     { // Event
- *       SourceIdentifier: "STRING_VALUE",
- *       SourceType: "cluster" || "cluster-parameter-group" || "cluster-security-group" || "cluster-snapshot" || "scheduled-action",
- *       Message: "STRING_VALUE",
- *       EventCategories: [ // EventCategoriesList
- *         "STRING_VALUE",
- *       ],
- *       Severity: "STRING_VALUE",
- *       Date: new Date("TIMESTAMP"),
- *       EventId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // EventsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   Events: [ // EventList
+ * //     { // Event
+ * //       SourceIdentifier: "STRING_VALUE",
+ * //       SourceType: "cluster" || "cluster-parameter-group" || "cluster-security-group" || "cluster-snapshot" || "scheduled-action",
+ * //       Message: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Severity: "STRING_VALUE",
+ * //       Date: new Date("TIMESTAMP"),
+ * //       EventId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

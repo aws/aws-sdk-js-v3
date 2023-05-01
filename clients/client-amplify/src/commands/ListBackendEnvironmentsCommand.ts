@@ -47,20 +47,19 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * };
  * const command = new ListBackendEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackendEnvironmentsResult
- *   backendEnvironments: [ // BackendEnvironments // required
- *     { // BackendEnvironment
- *       backendEnvironmentArn: "STRING_VALUE", // required
- *       environmentName: "STRING_VALUE", // required
- *       stackName: "STRING_VALUE",
- *       deploymentArtifacts: "STRING_VALUE",
- *       createTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBackendEnvironmentsResult
+ * //   backendEnvironments: [ // BackendEnvironments // required
+ * //     { // BackendEnvironment
+ * //       backendEnvironmentArn: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       stackName: "STRING_VALUE",
+ * //       deploymentArtifacts: "STRING_VALUE",
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeleteDatalakeCommandOutput extends DeleteDatalakeResponse, __M
  * const input = {};
  * const command = new DeleteDatalakeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

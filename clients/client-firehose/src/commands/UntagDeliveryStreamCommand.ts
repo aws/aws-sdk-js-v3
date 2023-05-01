@@ -50,8 +50,7 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * };
  * const command = new UntagDeliveryStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

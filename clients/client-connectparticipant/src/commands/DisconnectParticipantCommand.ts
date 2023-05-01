@@ -56,8 +56,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * };
  * const command = new DisconnectParticipantCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,19 +60,18 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * };
  * const command = new ReplaceIamInstanceProfileAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplaceIamInstanceProfileAssociationResult
- *   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
- *     AssociationId: "STRING_VALUE",
- *     InstanceId: "STRING_VALUE",
- *     IamInstanceProfile: { // IamInstanceProfile
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *     },
- *     State: "associating" || "associated" || "disassociating" || "disassociated",
- *     Timestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ReplaceIamInstanceProfileAssociationResult
+ * //   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     IamInstanceProfile: { // IamInstanceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

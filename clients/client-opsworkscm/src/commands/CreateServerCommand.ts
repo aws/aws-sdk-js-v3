@@ -110,44 +110,43 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServerResponse
- *   Server: { // Server
- *     AssociatePublicIpAddress: true || false,
- *     BackupRetentionCount: Number("int"),
- *     ServerName: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     CloudFormationStackArn: "STRING_VALUE",
- *     CustomDomain: "STRING_VALUE",
- *     DisableAutomatedBackup: true || false,
- *     Endpoint: "STRING_VALUE",
- *     Engine: "STRING_VALUE",
- *     EngineModel: "STRING_VALUE",
- *     EngineAttributes: [ // EngineAttributes
- *       { // EngineAttribute
- *         Name: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     EngineVersion: "STRING_VALUE",
- *     InstanceProfileArn: "STRING_VALUE",
- *     InstanceType: "STRING_VALUE",
- *     KeyPair: "STRING_VALUE",
- *     MaintenanceStatus: "STRING_VALUE",
- *     PreferredMaintenanceWindow: "STRING_VALUE",
- *     PreferredBackupWindow: "STRING_VALUE",
- *     SecurityGroupIds: [ // Strings
- *       "STRING_VALUE",
- *     ],
- *     ServiceRoleArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     StatusReason: "STRING_VALUE",
- *     SubnetIds: [
- *       "STRING_VALUE",
- *     ],
- *     ServerArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateServerResponse
+ * //   Server: { // Server
+ * //     AssociatePublicIpAddress: true || false,
+ * //     BackupRetentionCount: Number("int"),
+ * //     ServerName: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     CloudFormationStackArn: "STRING_VALUE",
+ * //     CustomDomain: "STRING_VALUE",
+ * //     DisableAutomatedBackup: true || false,
+ * //     Endpoint: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineModel: "STRING_VALUE",
+ * //     EngineAttributes: [ // EngineAttributes
+ * //       { // EngineAttribute
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EngineVersion: "STRING_VALUE",
+ * //     InstanceProfileArn: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     KeyPair: "STRING_VALUE",
+ * //     MaintenanceStatus: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // Strings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceRoleArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusReason: "STRING_VALUE",
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServerArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

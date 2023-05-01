@@ -92,8 +92,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutPublicAccessBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

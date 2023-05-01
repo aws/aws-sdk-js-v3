@@ -53,8 +53,7 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddTagsToVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

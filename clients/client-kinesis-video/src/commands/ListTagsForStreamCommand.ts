@@ -48,13 +48,12 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForStreamOutput
- *   NextToken: "STRING_VALUE",
- *   Tags: { // ResourceTags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListTagsForStreamOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   Tags: { // ResourceTags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

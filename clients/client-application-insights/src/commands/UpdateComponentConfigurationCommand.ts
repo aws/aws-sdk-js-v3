@@ -60,8 +60,7 @@ export interface UpdateComponentConfigurationCommandOutput
  * };
  * const command = new UpdateComponentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

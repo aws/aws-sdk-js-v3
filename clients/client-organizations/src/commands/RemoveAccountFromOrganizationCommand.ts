@@ -84,8 +84,7 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * };
  * const command = new RemoveAccountFromOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

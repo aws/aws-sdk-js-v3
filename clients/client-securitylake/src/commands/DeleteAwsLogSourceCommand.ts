@@ -75,15 +75,14 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * };
  * const command = new DeleteAwsLogSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAwsLogSourceResponse
- *   processing: [ // AccountList
- *     "STRING_VALUE",
- *   ],
- *   failed: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DeleteAwsLogSourceResponse
+ * //   processing: [ // AccountList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   failed: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

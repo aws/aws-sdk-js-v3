@@ -44,8 +44,7 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * };
  * const command = new DeleteDevEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -74,21 +74,20 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * };
  * const command = new AddApplicationVpcConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddApplicationVpcConfigurationResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- *   VpcConfigurationDescription: { // VpcConfigurationDescription
- *     VpcConfigurationId: "STRING_VALUE", // required
- *     VpcId: "STRING_VALUE", // required
- *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // AddApplicationVpcConfigurationResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * //   VpcConfigurationDescription: { // VpcConfigurationDescription
+ * //     VpcConfigurationId: "STRING_VALUE", // required
+ * //     VpcId: "STRING_VALUE", // required
+ * //     SubnetIds: [ // SubnetIds // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroupIds: [ // SecurityGroupIds // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

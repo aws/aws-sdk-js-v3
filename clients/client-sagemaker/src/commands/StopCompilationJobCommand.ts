@@ -49,8 +49,7 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopCompilationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

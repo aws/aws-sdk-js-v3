@@ -66,27 +66,26 @@ export interface ExportImageCommandOutput extends ExportImageResult, __MetadataB
  * };
  * const command = new ExportImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportImageResult
- *   Description: "STRING_VALUE",
- *   DiskImageFormat: "VMDK" || "RAW" || "VHD",
- *   ExportImageTaskId: "STRING_VALUE",
- *   ImageId: "STRING_VALUE",
- *   RoleName: "STRING_VALUE",
- *   Progress: "STRING_VALUE",
- *   S3ExportLocation: { // ExportTaskS3Location
- *     S3Bucket: "STRING_VALUE",
- *     S3Prefix: "STRING_VALUE",
- *   },
- *   Status: "STRING_VALUE",
- *   StatusMessage: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ExportImageResult
+ * //   Description: "STRING_VALUE",
+ * //   DiskImageFormat: "VMDK" || "RAW" || "VHD",
+ * //   ExportImageTaskId: "STRING_VALUE",
+ * //   ImageId: "STRING_VALUE",
+ * //   RoleName: "STRING_VALUE",
+ * //   Progress: "STRING_VALUE",
+ * //   S3ExportLocation: { // ExportTaskS3Location
+ * //     S3Bucket: "STRING_VALUE",
+ * //     S3Prefix: "STRING_VALUE",
+ * //   },
+ * //   Status: "STRING_VALUE",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

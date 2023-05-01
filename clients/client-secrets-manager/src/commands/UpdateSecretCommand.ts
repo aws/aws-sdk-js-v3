@@ -75,12 +75,11 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // UpdateSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

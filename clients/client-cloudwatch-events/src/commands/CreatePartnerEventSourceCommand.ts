@@ -68,10 +68,9 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * };
  * const command = new CreatePartnerEventSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePartnerEventSourceResponse
- *   EventSourceArn: "STRING_VALUE",
- * };
+ * // { // CreatePartnerEventSourceResponse
+ * //   EventSourceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

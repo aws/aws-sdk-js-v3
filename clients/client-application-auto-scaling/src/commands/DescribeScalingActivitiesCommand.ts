@@ -57,33 +57,32 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * };
  * const command = new DescribeScalingActivitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScalingActivitiesResponse
- *   ScalingActivities: [ // ScalingActivities
- *     { // ScalingActivity
- *       ActivityId: "STRING_VALUE", // required
- *       ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
- *       ResourceId: "STRING_VALUE", // required
- *       ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
- *       Description: "STRING_VALUE", // required
- *       Cause: "STRING_VALUE", // required
- *       StartTime: new Date("TIMESTAMP"), // required
- *       EndTime: new Date("TIMESTAMP"),
- *       StatusCode: "Pending" || "InProgress" || "Successful" || "Overridden" || "Unfulfilled" || "Failed", // required
- *       StatusMessage: "STRING_VALUE",
- *       Details: "STRING_VALUE",
- *       NotScaledReasons: [ // NotScaledReasons
- *         { // NotScaledReason
- *           Code: "STRING_VALUE", // required
- *           MaxCapacity: Number("int"),
- *           MinCapacity: Number("int"),
- *           CurrentCapacity: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeScalingActivitiesResponse
+ * //   ScalingActivities: [ // ScalingActivities
+ * //     { // ScalingActivity
+ * //       ActivityId: "STRING_VALUE", // required
+ * //       ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ * //       ResourceId: "STRING_VALUE", // required
+ * //       ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       Cause: "STRING_VALUE", // required
+ * //       StartTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       StatusCode: "Pending" || "InProgress" || "Successful" || "Overridden" || "Unfulfilled" || "Failed", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Details: "STRING_VALUE",
+ * //       NotScaledReasons: [ // NotScaledReasons
+ * //         { // NotScaledReason
+ * //           Code: "STRING_VALUE", // required
+ * //           MaxCapacity: Number("int"),
+ * //           MinCapacity: Number("int"),
+ * //           CurrentCapacity: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

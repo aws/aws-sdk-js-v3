@@ -52,22 +52,21 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * };
  * const command = new ListFeatureGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFeatureGroupsResponse
- *   FeatureGroupSummaries: [ // FeatureGroupSummaries // required
- *     { // FeatureGroupSummary
- *       FeatureGroupName: "STRING_VALUE", // required
- *       FeatureGroupArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
- *       OfflineStoreStatus: { // OfflineStoreStatus
- *         Status: "Active" || "Blocked" || "Disabled", // required
- *         BlockedReason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE", // required
- * };
+ * // { // ListFeatureGroupsResponse
+ * //   FeatureGroupSummaries: [ // FeatureGroupSummaries // required
+ * //     { // FeatureGroupSummary
+ * //       FeatureGroupName: "STRING_VALUE", // required
+ * //       FeatureGroupArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
+ * //       OfflineStoreStatus: { // OfflineStoreStatus
+ * //         Status: "Active" || "Blocked" || "Disabled", // required
+ * //         BlockedReason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

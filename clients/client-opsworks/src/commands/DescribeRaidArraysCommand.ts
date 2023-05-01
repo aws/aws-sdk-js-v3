@@ -56,26 +56,25 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * };
  * const command = new DescribeRaidArraysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRaidArraysResult
- *   RaidArrays: [ // RaidArrays
- *     { // RaidArray
- *       RaidArrayId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       RaidLevel: Number("int"),
- *       NumberOfDisks: Number("int"),
- *       Size: Number("int"),
- *       Device: "STRING_VALUE",
- *       MountPoint: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       VolumeType: "STRING_VALUE",
- *       Iops: Number("int"),
- *     },
- *   ],
- * };
+ * // { // DescribeRaidArraysResult
+ * //   RaidArrays: [ // RaidArrays
+ * //     { // RaidArray
+ * //       RaidArrayId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       RaidLevel: Number("int"),
+ * //       NumberOfDisks: Number("int"),
+ * //       Size: Number("int"),
+ * //       Device: "STRING_VALUE",
+ * //       MountPoint: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       VolumeType: "STRING_VALUE",
+ * //       Iops: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -52,85 +52,84 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccessPointsOutput
- *   LoadBalancerDescriptions: [ // LoadBalancerDescriptions
- *     { // LoadBalancerDescription
- *       LoadBalancerName: "STRING_VALUE",
- *       DNSName: "STRING_VALUE",
- *       CanonicalHostedZoneName: "STRING_VALUE",
- *       CanonicalHostedZoneNameID: "STRING_VALUE",
- *       ListenerDescriptions: [ // ListenerDescriptions
- *         { // ListenerDescription
- *           Listener: { // Listener
- *             Protocol: "STRING_VALUE", // required
- *             LoadBalancerPort: Number("int"), // required
- *             InstanceProtocol: "STRING_VALUE",
- *             InstancePort: Number("int"), // required
- *             SSLCertificateId: "STRING_VALUE",
- *           },
- *           PolicyNames: [ // PolicyNames
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       Policies: { // Policies
- *         AppCookieStickinessPolicies: [ // AppCookieStickinessPolicies
- *           { // AppCookieStickinessPolicy
- *             PolicyName: "STRING_VALUE",
- *             CookieName: "STRING_VALUE",
- *           },
- *         ],
- *         LBCookieStickinessPolicies: [ // LBCookieStickinessPolicies
- *           { // LBCookieStickinessPolicy
- *             PolicyName: "STRING_VALUE",
- *             CookieExpirationPeriod: Number("long"),
- *           },
- *         ],
- *         OtherPolicies: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       BackendServerDescriptions: [ // BackendServerDescriptions
- *         { // BackendServerDescription
- *           InstancePort: Number("int"),
- *           PolicyNames: [
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *       AvailabilityZones: [ // AvailabilityZones
- *         "STRING_VALUE",
- *       ],
- *       Subnets: [ // Subnets
- *         "STRING_VALUE",
- *       ],
- *       VPCId: "STRING_VALUE",
- *       Instances: [ // Instances
- *         { // Instance
- *           InstanceId: "STRING_VALUE",
- *         },
- *       ],
- *       HealthCheck: { // HealthCheck
- *         Target: "STRING_VALUE", // required
- *         Interval: Number("int"), // required
- *         Timeout: Number("int"), // required
- *         UnhealthyThreshold: Number("int"), // required
- *         HealthyThreshold: Number("int"), // required
- *       },
- *       SourceSecurityGroup: { // SourceSecurityGroup
- *         OwnerAlias: "STRING_VALUE",
- *         GroupName: "STRING_VALUE",
- *       },
- *       SecurityGroups: [ // SecurityGroups
- *         "STRING_VALUE",
- *       ],
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Scheme: "STRING_VALUE",
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeAccessPointsOutput
+ * //   LoadBalancerDescriptions: [ // LoadBalancerDescriptions
+ * //     { // LoadBalancerDescription
+ * //       LoadBalancerName: "STRING_VALUE",
+ * //       DNSName: "STRING_VALUE",
+ * //       CanonicalHostedZoneName: "STRING_VALUE",
+ * //       CanonicalHostedZoneNameID: "STRING_VALUE",
+ * //       ListenerDescriptions: [ // ListenerDescriptions
+ * //         { // ListenerDescription
+ * //           Listener: { // Listener
+ * //             Protocol: "STRING_VALUE", // required
+ * //             LoadBalancerPort: Number("int"), // required
+ * //             InstanceProtocol: "STRING_VALUE",
+ * //             InstancePort: Number("int"), // required
+ * //             SSLCertificateId: "STRING_VALUE",
+ * //           },
+ * //           PolicyNames: [ // PolicyNames
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Policies: { // Policies
+ * //         AppCookieStickinessPolicies: [ // AppCookieStickinessPolicies
+ * //           { // AppCookieStickinessPolicy
+ * //             PolicyName: "STRING_VALUE",
+ * //             CookieName: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         LBCookieStickinessPolicies: [ // LBCookieStickinessPolicies
+ * //           { // LBCookieStickinessPolicy
+ * //             PolicyName: "STRING_VALUE",
+ * //             CookieExpirationPeriod: Number("long"),
+ * //           },
+ * //         ],
+ * //         OtherPolicies: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       BackendServerDescriptions: [ // BackendServerDescriptions
+ * //         { // BackendServerDescription
+ * //           InstancePort: Number("int"),
+ * //           PolicyNames: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       AvailabilityZones: [ // AvailabilityZones
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Subnets: [ // Subnets
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       VPCId: "STRING_VALUE",
+ * //       Instances: [ // Instances
+ * //         { // Instance
+ * //           InstanceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       HealthCheck: { // HealthCheck
+ * //         Target: "STRING_VALUE", // required
+ * //         Interval: Number("int"), // required
+ * //         Timeout: Number("int"), // required
+ * //         UnhealthyThreshold: Number("int"), // required
+ * //         HealthyThreshold: Number("int"), // required
+ * //       },
+ * //       SourceSecurityGroup: { // SourceSecurityGroup
+ * //         OwnerAlias: "STRING_VALUE",
+ * //         GroupName: "STRING_VALUE",
+ * //       },
+ * //       SecurityGroups: [ // SecurityGroups
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Scheme: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

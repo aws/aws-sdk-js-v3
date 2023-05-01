@@ -64,10 +64,9 @@ export interface GetTileCommandOutput extends __WithSdkStreamMixin<GetTileOutput
  * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTileOutput
- *   BinaryFile: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetTileOutput
+ * //   BinaryFile: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

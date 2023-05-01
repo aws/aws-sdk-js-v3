@@ -48,17 +48,16 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * };
  * const command = new ListInstanceProfileTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstanceProfileTagsResponse
- *   Tags: [ // tagListType // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListInstanceProfileTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

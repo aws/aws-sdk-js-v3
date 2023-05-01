@@ -46,19 +46,18 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatabasesOutput
- *   DatabaseList: [ // DatabaseList
- *     { // Database
- *       Name: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       Parameters: { // ParametersMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatabasesOutput
+ * //   DatabaseList: [ // DatabaseList
+ * //     { // Database
+ * //       Name: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       Parameters: { // ParametersMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

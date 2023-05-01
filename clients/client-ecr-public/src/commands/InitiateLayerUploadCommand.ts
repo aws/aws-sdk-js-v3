@@ -51,11 +51,10 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InitiateLayerUploadResponse
- *   uploadId: "STRING_VALUE",
- *   partSize: Number("long"),
- * };
+ * // { // InitiateLayerUploadResponse
+ * //   uploadId: "STRING_VALUE",
+ * //   partSize: Number("long"),
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  * };
  * const command = new ExpireSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

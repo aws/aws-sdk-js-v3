@@ -56,59 +56,58 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * };
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OptionGroups
- *   OptionGroupsList: [ // OptionGroupsList
- *     { // OptionGroup
- *       OptionGroupName: "STRING_VALUE",
- *       OptionGroupDescription: "STRING_VALUE",
- *       EngineName: "STRING_VALUE",
- *       MajorEngineVersion: "STRING_VALUE",
- *       Options: [ // OptionsList
- *         { // Option
- *           OptionName: "STRING_VALUE",
- *           OptionDescription: "STRING_VALUE",
- *           Persistent: true || false,
- *           Permanent: true || false,
- *           Port: Number("int"),
- *           OptionVersion: "STRING_VALUE",
- *           OptionSettings: [ // OptionSettingConfigurationList
- *             { // OptionSetting
- *               Name: "STRING_VALUE",
- *               Value: "STRING_VALUE",
- *               DefaultValue: "STRING_VALUE",
- *               Description: "STRING_VALUE",
- *               ApplyType: "STRING_VALUE",
- *               DataType: "STRING_VALUE",
- *               AllowedValues: "STRING_VALUE",
- *               IsModifiable: true || false,
- *               IsCollection: true || false,
- *             },
- *           ],
- *           DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
- *             { // DBSecurityGroupMembership
- *               DBSecurityGroupName: "STRING_VALUE",
- *               Status: "STRING_VALUE",
- *             },
- *           ],
- *           VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
- *             { // VpcSecurityGroupMembership
- *               VpcSecurityGroupId: "STRING_VALUE",
- *               Status: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *       AllowsVpcAndNonVpcInstanceMemberships: true || false,
- *       VpcId: "STRING_VALUE",
- *       OptionGroupArn: "STRING_VALUE",
- *       SourceOptionGroup: "STRING_VALUE",
- *       SourceAccountId: "STRING_VALUE",
- *       CopyTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // OptionGroups
+ * //   OptionGroupsList: [ // OptionGroupsList
+ * //     { // OptionGroup
+ * //       OptionGroupName: "STRING_VALUE",
+ * //       OptionGroupDescription: "STRING_VALUE",
+ * //       EngineName: "STRING_VALUE",
+ * //       MajorEngineVersion: "STRING_VALUE",
+ * //       Options: [ // OptionsList
+ * //         { // Option
+ * //           OptionName: "STRING_VALUE",
+ * //           OptionDescription: "STRING_VALUE",
+ * //           Persistent: true || false,
+ * //           Permanent: true || false,
+ * //           Port: Number("int"),
+ * //           OptionVersion: "STRING_VALUE",
+ * //           OptionSettings: [ // OptionSettingConfigurationList
+ * //             { // OptionSetting
+ * //               Name: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //               DefaultValue: "STRING_VALUE",
+ * //               Description: "STRING_VALUE",
+ * //               ApplyType: "STRING_VALUE",
+ * //               DataType: "STRING_VALUE",
+ * //               AllowedValues: "STRING_VALUE",
+ * //               IsModifiable: true || false,
+ * //               IsCollection: true || false,
+ * //             },
+ * //           ],
+ * //           DBSecurityGroupMemberships: [ // DBSecurityGroupMembershipList
+ * //             { // DBSecurityGroupMembership
+ * //               DBSecurityGroupName: "STRING_VALUE",
+ * //               Status: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           VpcSecurityGroupMemberships: [ // VpcSecurityGroupMembershipList
+ * //             { // VpcSecurityGroupMembership
+ * //               VpcSecurityGroupId: "STRING_VALUE",
+ * //               Status: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       AllowsVpcAndNonVpcInstanceMemberships: true || false,
+ * //       VpcId: "STRING_VALUE",
+ * //       OptionGroupArn: "STRING_VALUE",
+ * //       SourceOptionGroup: "STRING_VALUE",
+ * //       SourceAccountId: "STRING_VALUE",
+ * //       CopyTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

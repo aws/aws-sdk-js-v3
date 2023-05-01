@@ -42,16 +42,15 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * const input = {};
  * const command = new GetServiceSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceSettingsResponse
- *   S3BucketArn: "STRING_VALUE",
- *   SnsTopicArn: "STRING_VALUE",
- *   OrganizationConfiguration: { // OrganizationConfiguration
- *     EnableIntegration: true || false, // required
- *   },
- *   EnableCrossAccountsDiscovery: true || false,
- *   LicenseManagerResourceShareArn: "STRING_VALUE",
- * };
+ * // { // GetServiceSettingsResponse
+ * //   S3BucketArn: "STRING_VALUE",
+ * //   SnsTopicArn: "STRING_VALUE",
+ * //   OrganizationConfiguration: { // OrganizationConfiguration
+ * //     EnableIntegration: true || false, // required
+ * //   },
+ * //   EnableCrossAccountsDiscovery: true || false,
+ * //   LicenseManagerResourceShareArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

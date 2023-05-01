@@ -45,15 +45,14 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * };
  * const command = new GetStudioMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStudioMemberResponse
- *   member: { // StudioMembership
- *     identityStoreId: "STRING_VALUE",
- *     persona: "ADMINISTRATOR",
- *     principalId: "STRING_VALUE",
- *     sid: "STRING_VALUE",
- *   },
- * };
+ * // { // GetStudioMemberResponse
+ * //   member: { // StudioMembership
+ * //     identityStoreId: "STRING_VALUE",
+ * //     persona: "ADMINISTRATOR",
+ * //     principalId: "STRING_VALUE",
+ * //     sid: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

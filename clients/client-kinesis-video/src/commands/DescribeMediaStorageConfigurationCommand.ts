@@ -51,13 +51,12 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * };
  * const command = new DescribeMediaStorageConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMediaStorageConfigurationOutput
- *   MediaStorageConfiguration: { // MediaStorageConfiguration
- *     StreamARN: "STRING_VALUE",
- *     Status: "ENABLED" || "DISABLED", // required
- *   },
- * };
+ * // { // DescribeMediaStorageConfigurationOutput
+ * //   MediaStorageConfiguration: { // MediaStorageConfiguration
+ * //     StreamARN: "STRING_VALUE",
+ * //     Status: "ENABLED" || "DISABLED", // required
+ * //   },
+ * // };
  *
  * ```
  *

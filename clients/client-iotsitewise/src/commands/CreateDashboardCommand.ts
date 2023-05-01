@@ -51,11 +51,10 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDashboardResponse
- *   dashboardId: "STRING_VALUE", // required
- *   dashboardArn: "STRING_VALUE", // required
- * };
+ * // { // CreateDashboardResponse
+ * //   dashboardId: "STRING_VALUE", // required
+ * //   dashboardArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -68,26 +68,25 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * };
  * const command = new GetEC2RecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEC2RecommendationProjectedMetricsResponse
- *   recommendedOptionProjectedMetrics: [ // RecommendedOptionProjectedMetrics
- *     { // RecommendedOptionProjectedMetric
- *       recommendedInstanceType: "STRING_VALUE",
- *       rank: Number("int"),
- *       projectedMetrics: [ // ProjectedMetrics
- *         { // ProjectedMetric
- *           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
- *           timestamps: [ // Timestamps
- *             new Date("TIMESTAMP"),
- *           ],
- *           values: [ // MetricValues
- *             Number("double"),
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetEC2RecommendationProjectedMetricsResponse
+ * //   recommendedOptionProjectedMetrics: [ // RecommendedOptionProjectedMetrics
+ * //     { // RecommendedOptionProjectedMetric
+ * //       recommendedInstanceType: "STRING_VALUE",
+ * //       rank: Number("int"),
+ * //       projectedMetrics: [ // ProjectedMetrics
+ * //         { // ProjectedMetric
+ * //           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
+ * //           timestamps: [ // Timestamps
+ * //             new Date("TIMESTAMP"),
+ * //           ],
+ * //           values: [ // MetricValues
+ * //             Number("double"),
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

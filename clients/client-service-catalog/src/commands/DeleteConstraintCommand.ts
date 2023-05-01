@@ -46,8 +46,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * };
  * const command = new DeleteConstraintCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

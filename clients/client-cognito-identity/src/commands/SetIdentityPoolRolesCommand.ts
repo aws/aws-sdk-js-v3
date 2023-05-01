@@ -65,8 +65,7 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

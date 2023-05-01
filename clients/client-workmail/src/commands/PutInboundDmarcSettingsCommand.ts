@@ -45,8 +45,7 @@ export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSet
  * };
  * const command = new PutInboundDmarcSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

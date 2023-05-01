@@ -51,8 +51,7 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

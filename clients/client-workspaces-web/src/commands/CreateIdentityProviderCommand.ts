@@ -54,10 +54,9 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * };
  * const command = new CreateIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIdentityProviderResponse
- *   identityProviderArn: "STRING_VALUE", // required
- * };
+ * // { // CreateIdentityProviderResponse
+ * //   identityProviderArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMethodCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

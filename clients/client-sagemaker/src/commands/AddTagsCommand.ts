@@ -74,15 +74,14 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddTagsOutput
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // AddTagsOutput
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

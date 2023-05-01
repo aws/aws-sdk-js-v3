@@ -59,16 +59,15 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallEncryptionConfigurationResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   UpdateToken: "STRING_VALUE",
- *   EncryptionConfiguration: { // EncryptionConfiguration
- *     KeyId: "STRING_VALUE",
- *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
- *   },
- * };
+ * // { // UpdateFirewallEncryptionConfigurationResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   UpdateToken: "STRING_VALUE",
+ * //   EncryptionConfiguration: { // EncryptionConfiguration
+ * //     KeyId: "STRING_VALUE",
+ * //     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -53,29 +53,28 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
  * };
  * const command = new DescribeBrokerInstanceOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBrokerInstanceOptionsResponse
- *   BrokerInstanceOptions: [ // __listOfBrokerInstanceOption
- *     { // BrokerInstanceOption
- *       AvailabilityZones: [ // __listOfAvailabilityZone
- *         { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *       EngineType: "STRING_VALUE",
- *       HostInstanceType: "STRING_VALUE",
- *       StorageType: "STRING_VALUE",
- *       SupportedDeploymentModes: [ // __listOfDeploymentMode
- *         "STRING_VALUE",
- *       ],
- *       SupportedEngineVersions: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeBrokerInstanceOptionsResponse
+ * //   BrokerInstanceOptions: [ // __listOfBrokerInstanceOption
+ * //     { // BrokerInstanceOption
+ * //       AvailabilityZones: [ // __listOfAvailabilityZone
+ * //         { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       EngineType: "STRING_VALUE",
+ * //       HostInstanceType: "STRING_VALUE",
+ * //       StorageType: "STRING_VALUE",
+ * //       SupportedDeploymentModes: [ // __listOfDeploymentMode
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportedEngineVersions: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

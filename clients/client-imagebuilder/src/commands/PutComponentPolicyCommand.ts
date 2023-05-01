@@ -47,11 +47,10 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  * };
  * const command = new PutComponentPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutComponentPolicyResponse
- *   requestId: "STRING_VALUE",
- *   componentArn: "STRING_VALUE",
- * };
+ * // { // PutComponentPolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   componentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteRetentionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

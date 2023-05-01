@@ -45,10 +45,9 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * };
  * const command = new DeleteFpgaImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFpgaImageResult
- *   Return: true || false,
- * };
+ * // { // DeleteFpgaImageResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

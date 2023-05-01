@@ -86,28 +86,27 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplicationVersionDescriptionMessage
- *   ApplicationVersion: { // ApplicationVersionDescription
- *     ApplicationVersionArn: "STRING_VALUE",
- *     ApplicationName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     VersionLabel: "STRING_VALUE",
- *     SourceBuildInformation: { // SourceBuildInformation
- *       SourceType: "Git" || "Zip", // required
- *       SourceRepository: "CodeCommit" || "S3", // required
- *       SourceLocation: "STRING_VALUE", // required
- *     },
- *     BuildArn: "STRING_VALUE",
- *     SourceBundle: { // S3Location
- *       S3Bucket: "STRING_VALUE",
- *       S3Key: "STRING_VALUE",
- *     },
- *     DateCreated: new Date("TIMESTAMP"),
- *     DateUpdated: new Date("TIMESTAMP"),
- *     Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
- *   },
- * };
+ * // { // ApplicationVersionDescriptionMessage
+ * //   ApplicationVersion: { // ApplicationVersionDescription
+ * //     ApplicationVersionArn: "STRING_VALUE",
+ * //     ApplicationName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VersionLabel: "STRING_VALUE",
+ * //     SourceBuildInformation: { // SourceBuildInformation
+ * //       SourceType: "Git" || "Zip", // required
+ * //       SourceRepository: "CodeCommit" || "S3", // required
+ * //       SourceLocation: "STRING_VALUE", // required
+ * //     },
+ * //     BuildArn: "STRING_VALUE",
+ * //     SourceBundle: { // S3Location
+ * //       S3Bucket: "STRING_VALUE",
+ * //       S3Key: "STRING_VALUE",
+ * //     },
+ * //     DateCreated: new Date("TIMESTAMP"),
+ * //     DateUpdated: new Date("TIMESTAMP"),
+ * //     Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
+ * //   },
+ * // };
  *
  * ```
  *

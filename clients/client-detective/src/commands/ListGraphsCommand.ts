@@ -48,16 +48,15 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * };
  * const command = new ListGraphsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGraphsResponse
- *   GraphList: [ // GraphList
- *     { // Graph
- *       Arn: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGraphsResponse
+ * //   GraphList: [ // GraphList
+ * //     { // Graph
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

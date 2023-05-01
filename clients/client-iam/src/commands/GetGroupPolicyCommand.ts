@@ -59,12 +59,11 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  * };
  * const command = new GetGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupPolicyResponse
- *   GroupName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
- * };
+ * // { // GetGroupPolicyResponse
+ * //   GroupName: "STRING_VALUE", // required
+ * //   PolicyName: "STRING_VALUE", // required
+ * //   PolicyDocument: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

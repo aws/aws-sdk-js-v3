@@ -45,8 +45,7 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * };
  * const command = new DeleteTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

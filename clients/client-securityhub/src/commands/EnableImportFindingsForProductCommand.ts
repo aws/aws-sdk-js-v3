@@ -52,10 +52,9 @@ export interface EnableImportFindingsForProductCommandOutput
  * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableImportFindingsForProductResponse
- *   ProductSubscriptionArn: "STRING_VALUE",
- * };
+ * // { // EnableImportFindingsForProductResponse
+ * //   ProductSubscriptionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

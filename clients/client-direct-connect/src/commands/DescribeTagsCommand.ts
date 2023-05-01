@@ -46,20 +46,19 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTagsResponse
- *   resourceTags: [ // ResourceTagList
- *     { // ResourceTag
- *       resourceArn: "STRING_VALUE",
- *       tags: [ // TagList
- *         { // Tag
- *           key: "STRING_VALUE", // required
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeTagsResponse
+ * //   resourceTags: [ // ResourceTagList
+ * //     { // ResourceTag
+ * //       resourceArn: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

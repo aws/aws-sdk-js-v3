@@ -49,11 +49,10 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * };
  * const command = new UpdateFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFleetResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // UpdateFleetResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,22 +54,21 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * };
  * const command = new GetRelationalDatabaseParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseParametersResult
- *   parameters: [ // RelationalDatabaseParameterList
- *     { // RelationalDatabaseParameter
- *       allowedValues: "STRING_VALUE",
- *       applyMethod: "STRING_VALUE",
- *       applyType: "STRING_VALUE",
- *       dataType: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       isModifiable: true || false,
- *       parameterName: "STRING_VALUE",
- *       parameterValue: "STRING_VALUE",
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetRelationalDatabaseParametersResult
+ * //   parameters: [ // RelationalDatabaseParameterList
+ * //     { // RelationalDatabaseParameter
+ * //       allowedValues: "STRING_VALUE",
+ * //       applyMethod: "STRING_VALUE",
+ * //       applyType: "STRING_VALUE",
+ * //       dataType: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       isModifiable: true || false,
+ * //       parameterName: "STRING_VALUE",
+ * //       parameterValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

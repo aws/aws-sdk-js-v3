@@ -44,26 +44,25 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * };
  * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Wave
- *   waveID: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   isArchived: true || false,
- *   waveAggregatedStatus: { // WaveAggregatedStatus
- *     lastUpdateDateTime: "STRING_VALUE",
- *     replicationStartedDateTime: "STRING_VALUE",
- *     healthStatus: "STRING_VALUE",
- *     progressStatus: "STRING_VALUE",
- *     totalApplications: Number("long"),
- *   },
- *   creationDateTime: "STRING_VALUE",
- *   lastModifiedDateTime: "STRING_VALUE",
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // Wave
+ * //   waveID: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   isArchived: true || false,
+ * //   waveAggregatedStatus: { // WaveAggregatedStatus
+ * //     lastUpdateDateTime: "STRING_VALUE",
+ * //     replicationStartedDateTime: "STRING_VALUE",
+ * //     healthStatus: "STRING_VALUE",
+ * //     progressStatus: "STRING_VALUE",
+ * //     totalApplications: Number("long"),
+ * //   },
+ * //   creationDateTime: "STRING_VALUE",
+ * //   lastModifiedDateTime: "STRING_VALUE",
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

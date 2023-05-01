@@ -74,23 +74,22 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * };
  * const command = new CreateXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateXssMatchSetResponse
- *   XssMatchSet: { // XssMatchSet
- *     XssMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     XssMatchTuples: [ // XssMatchTuples // required
- *       { // XssMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateXssMatchSetResponse
+ * //   XssMatchSet: { // XssMatchSet
+ * //     XssMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     XssMatchTuples: [ // XssMatchTuples // required
+ * //       { // XssMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

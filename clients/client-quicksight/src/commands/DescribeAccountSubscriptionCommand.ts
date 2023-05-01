@@ -49,18 +49,17 @@ export interface DescribeAccountSubscriptionCommandOutput
  * };
  * const command = new DescribeAccountSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountSubscriptionResponse
- *   AccountInfo: { // AccountInfo
- *     AccountName: "STRING_VALUE",
- *     Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
- *     NotificationEmail: "STRING_VALUE",
- *     AuthenticationType: "STRING_VALUE",
- *     AccountSubscriptionStatus: "STRING_VALUE",
- *   },
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeAccountSubscriptionResponse
+ * //   AccountInfo: { // AccountInfo
+ * //     AccountName: "STRING_VALUE",
+ * //     Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
+ * //     NotificationEmail: "STRING_VALUE",
+ * //     AuthenticationType: "STRING_VALUE",
+ * //     AccountSubscriptionStatus: "STRING_VALUE",
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

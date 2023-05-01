@@ -47,8 +47,7 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

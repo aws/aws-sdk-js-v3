@@ -60,11 +60,10 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * };
  * const command = new CreateDataViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataViewResponse
- *   datasetId: "STRING_VALUE",
- *   dataViewId: "STRING_VALUE",
- * };
+ * // { // CreateDataViewResponse
+ * //   datasetId: "STRING_VALUE",
+ * //   dataViewId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

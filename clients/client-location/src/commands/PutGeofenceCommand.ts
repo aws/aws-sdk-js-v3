@@ -61,12 +61,11 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * };
  * const command = new PutGeofenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutGeofenceResponse
- *   GeofenceId: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // PutGeofenceResponse
+ * //   GeofenceId: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

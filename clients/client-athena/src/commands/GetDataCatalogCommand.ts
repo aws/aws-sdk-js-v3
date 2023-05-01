@@ -44,17 +44,16 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  * };
  * const command = new GetDataCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataCatalogOutput
- *   DataCatalog: { // DataCatalog
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Type: "LAMBDA" || "GLUE" || "HIVE", // required
- *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetDataCatalogOutput
+ * //   DataCatalog: { // DataCatalog
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

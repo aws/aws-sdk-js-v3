@@ -95,10 +95,9 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTaskResponse
- *   TaskArn: "STRING_VALUE",
- * };
+ * // { // CreateTaskResponse
+ * //   TaskArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

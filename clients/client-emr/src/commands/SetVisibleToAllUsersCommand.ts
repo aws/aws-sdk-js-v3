@@ -60,8 +60,7 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetVisibleToAllUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

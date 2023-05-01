@@ -46,19 +46,18 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * };
  * const command = new ListAccessesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessesResponse
- *   NextToken: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
- *   Accesses: [ // ListedAccesses // required
- *     { // ListedAccess
- *       HomeDirectory: "STRING_VALUE",
- *       HomeDirectoryType: "PATH" || "LOGICAL",
- *       Role: "STRING_VALUE",
- *       ExternalId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAccessesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ServerId: "STRING_VALUE", // required
+ * //   Accesses: [ // ListedAccesses // required
+ * //     { // ListedAccess
+ * //       HomeDirectory: "STRING_VALUE",
+ * //       HomeDirectoryType: "PATH" || "LOGICAL",
+ * //       Role: "STRING_VALUE",
+ * //       ExternalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

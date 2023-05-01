@@ -53,17 +53,16 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * };
  * const command = new DescribeInstanceHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndPointStateOutput
- *   InstanceStates: [ // InstanceStates
- *     { // InstanceState
- *       InstanceId: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       ReasonCode: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeEndPointStateOutput
+ * //   InstanceStates: [ // InstanceStates
+ * //     { // InstanceState
+ * //       InstanceId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       ReasonCode: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

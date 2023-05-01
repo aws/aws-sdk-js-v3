@@ -52,22 +52,21 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * };
  * const command = new GetBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBandwidthRateLimitScheduleOutput
- *   GatewayArn: "STRING_VALUE",
- *   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
- *     { // BandwidthRateLimitInterval
- *       AverageUploadRateLimitInBitsPerSec: Number("long"),
- *       StartHourOfDay: Number("int"), // required
- *       EndHourOfDay: Number("int"), // required
- *       StartMinuteOfHour: Number("int"), // required
- *       EndMinuteOfHour: Number("int"), // required
- *       DaysOfWeek: [ // DaysOfWeek // required
- *         Number("int"),
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetBandwidthRateLimitScheduleOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * //   BandwidthRateLimitIntervals: [ // BandwidthRateLimitIntervals
+ * //     { // BandwidthRateLimitInterval
+ * //       AverageUploadRateLimitInBitsPerSec: Number("long"),
+ * //       StartHourOfDay: Number("int"), // required
+ * //       EndHourOfDay: Number("int"), // required
+ * //       StartMinuteOfHour: Number("int"), // required
+ * //       EndMinuteOfHour: Number("int"), // required
+ * //       DaysOfWeek: [ // DaysOfWeek // required
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

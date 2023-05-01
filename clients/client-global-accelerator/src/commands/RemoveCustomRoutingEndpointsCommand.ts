@@ -54,8 +54,7 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  * };
  * const command = new RemoveCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -80,21 +80,20 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * };
  * const command = new GetEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEntitiesResponse
- *   descriptions: [ // EntityDescriptions
- *     { // EntityDescription
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       definition: { // DefinitionDocument
- *         language: "STRING_VALUE", // required
- *         text: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // GetEntitiesResponse
+ * //   descriptions: [ // EntityDescriptions
+ * //     { // EntityDescription
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       definition: { // DefinitionDocument
+ * //         language: "STRING_VALUE", // required
+ * //         text: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

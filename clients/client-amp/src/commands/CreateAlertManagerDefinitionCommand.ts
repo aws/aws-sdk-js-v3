@@ -51,13 +51,12 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * };
  * const command = new CreateAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAlertManagerDefinitionResponse
- *   status: { // AlertManagerDefinitionStatus
- *     statusCode: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateAlertManagerDefinitionResponse
+ * //   status: { // AlertManagerDefinitionStatus
+ * //     statusCode: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,11 +50,10 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * };
  * const command = new UpdatePartnerStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PartnerIntegrationOutputMessage
- *   DatabaseName: "STRING_VALUE",
- *   PartnerName: "STRING_VALUE",
- * };
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

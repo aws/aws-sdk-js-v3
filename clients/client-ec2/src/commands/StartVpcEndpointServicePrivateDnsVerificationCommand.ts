@@ -57,10 +57,9 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * };
  * const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartVpcEndpointServicePrivateDnsVerificationResult
- *   ReturnValue: true || false,
- * };
+ * // { // StartVpcEndpointServicePrivateDnsVerificationResult
+ * //   ReturnValue: true || false,
+ * // };
  *
  * ```
  *

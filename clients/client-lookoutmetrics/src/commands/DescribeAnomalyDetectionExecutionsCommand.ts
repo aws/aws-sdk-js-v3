@@ -55,17 +55,16 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
  * };
  * const command = new DescribeAnomalyDetectionExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAnomalyDetectionExecutionsResponse
- *   ExecutionList: [ // ExecutionList
- *     { // ExecutionStatus
- *       Timestamp: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAnomalyDetectionExecutionsResponse
+ * //   ExecutionList: [ // ExecutionList
+ * //     { // ExecutionStatus
+ * //       Timestamp: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

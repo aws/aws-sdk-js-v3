@@ -49,24 +49,23 @@ export interface DescribeExplainabilityExportCommandOutput
  * };
  * const command = new DescribeExplainabilityExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExplainabilityExportResponse
- *   ExplainabilityExportArn: "STRING_VALUE",
- *   ExplainabilityExportName: "STRING_VALUE",
- *   ExplainabilityArn: "STRING_VALUE",
- *   Destination: { // DataDestination
- *     S3Config: { // S3Config
- *       Path: "STRING_VALUE", // required
- *       RoleArn: "STRING_VALUE", // required
- *       KMSKeyArn: "STRING_VALUE",
- *     },
- *   },
- *   Message: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   Format: "STRING_VALUE",
- * };
+ * // { // DescribeExplainabilityExportResponse
+ * //   ExplainabilityExportArn: "STRING_VALUE",
+ * //   ExplainabilityExportName: "STRING_VALUE",
+ * //   ExplainabilityArn: "STRING_VALUE",
+ * //   Destination: { // DataDestination
+ * //     S3Config: { // S3Config
+ * //       Path: "STRING_VALUE", // required
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       KMSKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Format: "STRING_VALUE",
+ * // };
  *
  * ```
  *

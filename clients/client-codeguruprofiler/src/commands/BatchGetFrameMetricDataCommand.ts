@@ -59,38 +59,37 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * };
  * const command = new BatchGetFrameMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetFrameMetricDataResponse
- *   startTime: new Date("TIMESTAMP"), // required
- *   endTime: new Date("TIMESTAMP"), // required
- *   resolution: "STRING_VALUE", // required
- *   endTimes: [ // ListOfTimestamps // required
- *     { // TimestampStructure
- *       value: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   unprocessedEndTimes: { // UnprocessedEndTimeMap // required
- *     "<keys>": [
- *       {
- *         value: new Date("TIMESTAMP"), // required
- *       },
- *     ],
- *   },
- *   frameMetricData: [ // FrameMetricData // required
- *     { // FrameMetricDatum
- *       frameMetric: { // FrameMetric
- *         frameName: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *         threadStates: [ // ThreadStates // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       values: [ // FrameMetricValues // required
- *         Number("double"),
- *       ],
- *     },
- *   ],
- * };
+ * // { // BatchGetFrameMetricDataResponse
+ * //   startTime: new Date("TIMESTAMP"), // required
+ * //   endTime: new Date("TIMESTAMP"), // required
+ * //   resolution: "STRING_VALUE", // required
+ * //   endTimes: [ // ListOfTimestamps // required
+ * //     { // TimestampStructure
+ * //       value: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   unprocessedEndTimes: { // UnprocessedEndTimeMap // required
+ * //     "<keys>": [
+ * //       {
+ * //         value: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   frameMetricData: [ // FrameMetricData // required
+ * //     { // FrameMetricDatum
+ * //       frameMetric: { // FrameMetric
+ * //         frameName: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //         threadStates: [ // ThreadStates // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       values: [ // FrameMetricValues // required
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

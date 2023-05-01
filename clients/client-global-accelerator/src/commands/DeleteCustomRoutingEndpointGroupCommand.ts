@@ -51,8 +51,7 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * };
  * const command = new DeleteCustomRoutingEndpointGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,17 +55,16 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * };
  * const command = new ListQueriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueriesResponse
- *   Queries: [ // Queries
- *     { // Query
- *       QueryId: "STRING_VALUE",
- *       QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQueriesResponse
+ * //   Queries: [ // Queries
+ * //     { // Query
+ * //       QueryId: "STRING_VALUE",
+ * //       QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

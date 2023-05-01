@@ -59,21 +59,20 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyHostsResult
- *   Successful: [ // ResponseHostIdList
- *     "STRING_VALUE",
- *   ],
- *   Unsuccessful: [ // UnsuccessfulItemList
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ModifyHostsResult
+ * //   Successful: [ // ResponseHostIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Unsuccessful: [ // UnsuccessfulItemList
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

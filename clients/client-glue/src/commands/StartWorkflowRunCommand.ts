@@ -47,10 +47,9 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * };
  * const command = new StartWorkflowRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartWorkflowRunResponse
- *   RunId: "STRING_VALUE",
- * };
+ * // { // StartWorkflowRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

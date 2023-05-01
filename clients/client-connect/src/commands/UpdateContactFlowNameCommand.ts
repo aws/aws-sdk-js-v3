@@ -49,8 +49,7 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * };
  * const command = new UpdateContactFlowNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

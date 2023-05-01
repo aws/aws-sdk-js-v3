@@ -48,62 +48,61 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * };
  * const command = new GetTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTableResponse
- *   keyspaceName: "STRING_VALUE", // required
- *   tableName: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
- *   creationTimestamp: new Date("TIMESTAMP"),
- *   status: "STRING_VALUE",
- *   schemaDefinition: { // SchemaDefinition
- *     allColumns: [ // ColumnDefinitionList // required
- *       { // ColumnDefinition
- *         name: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *       },
- *     ],
- *     partitionKeys: [ // PartitionKeyList // required
- *       { // PartitionKey
- *         name: "STRING_VALUE", // required
- *       },
- *     ],
- *     clusteringKeys: [ // ClusteringKeyList
- *       { // ClusteringKey
- *         name: "STRING_VALUE", // required
- *         orderBy: "STRING_VALUE", // required
- *       },
- *     ],
- *     staticColumns: [ // StaticColumnList
- *       { // StaticColumn
- *         name: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   capacitySpecification: { // CapacitySpecificationSummary
- *     throughputMode: "STRING_VALUE", // required
- *     readCapacityUnits: Number("long"),
- *     writeCapacityUnits: Number("long"),
- *     lastUpdateToPayPerRequestTimestamp: new Date("TIMESTAMP"),
- *   },
- *   encryptionSpecification: { // EncryptionSpecification
- *     type: "STRING_VALUE", // required
- *     kmsKeyIdentifier: "STRING_VALUE",
- *   },
- *   pointInTimeRecovery: { // PointInTimeRecoverySummary
- *     status: "STRING_VALUE", // required
- *     earliestRestorableTimestamp: new Date("TIMESTAMP"),
- *   },
- *   ttl: { // TimeToLive
- *     status: "STRING_VALUE", // required
- *   },
- *   defaultTimeToLive: Number("int"),
- *   comment: { // Comment
- *     message: "STRING_VALUE", // required
- *   },
- *   clientSideTimestamps: { // ClientSideTimestamps
- *     status: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetTableResponse
+ * //   keyspaceName: "STRING_VALUE", // required
+ * //   tableName: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   creationTimestamp: new Date("TIMESTAMP"),
+ * //   status: "STRING_VALUE",
+ * //   schemaDefinition: { // SchemaDefinition
+ * //     allColumns: [ // ColumnDefinitionList // required
+ * //       { // ColumnDefinition
+ * //         name: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     partitionKeys: [ // PartitionKeyList // required
+ * //       { // PartitionKey
+ * //         name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     clusteringKeys: [ // ClusteringKeyList
+ * //       { // ClusteringKey
+ * //         name: "STRING_VALUE", // required
+ * //         orderBy: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     staticColumns: [ // StaticColumnList
+ * //       { // StaticColumn
+ * //         name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   capacitySpecification: { // CapacitySpecificationSummary
+ * //     throughputMode: "STRING_VALUE", // required
+ * //     readCapacityUnits: Number("long"),
+ * //     writeCapacityUnits: Number("long"),
+ * //     lastUpdateToPayPerRequestTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * //   encryptionSpecification: { // EncryptionSpecification
+ * //     type: "STRING_VALUE", // required
+ * //     kmsKeyIdentifier: "STRING_VALUE",
+ * //   },
+ * //   pointInTimeRecovery: { // PointInTimeRecoverySummary
+ * //     status: "STRING_VALUE", // required
+ * //     earliestRestorableTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * //   ttl: { // TimeToLive
+ * //     status: "STRING_VALUE", // required
+ * //   },
+ * //   defaultTimeToLive: Number("int"),
+ * //   comment: { // Comment
+ * //     message: "STRING_VALUE", // required
+ * //   },
+ * //   clientSideTimestamps: { // ClientSideTimestamps
+ * //     status: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

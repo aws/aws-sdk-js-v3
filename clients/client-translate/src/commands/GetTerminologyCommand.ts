@@ -45,38 +45,37 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * };
  * const command = new GetTerminologyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTerminologyResponse
- *   TerminologyProperties: { // TerminologyProperties
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     SourceLanguageCode: "STRING_VALUE",
- *     TargetLanguageCodes: [ // LanguageCodeStringList
- *       "STRING_VALUE",
- *     ],
- *     EncryptionKey: { // EncryptionKey
- *       Type: "KMS", // required
- *       Id: "STRING_VALUE", // required
- *     },
- *     SizeBytes: Number("int"),
- *     TermCount: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     Directionality: "UNI" || "MULTI",
- *     Message: "STRING_VALUE",
- *     SkippedTermCount: Number("int"),
- *     Format: "CSV" || "TMX" || "TSV",
- *   },
- *   TerminologyDataLocation: { // TerminologyDataLocation
- *     RepositoryType: "STRING_VALUE", // required
- *     Location: "STRING_VALUE", // required
- *   },
- *   AuxiliaryDataLocation: {
- *     RepositoryType: "STRING_VALUE", // required
- *     Location: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetTerminologyResponse
+ * //   TerminologyProperties: { // TerminologyProperties
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     SourceLanguageCode: "STRING_VALUE",
+ * //     TargetLanguageCodes: [ // LanguageCodeStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EncryptionKey: { // EncryptionKey
+ * //       Type: "KMS", // required
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //     SizeBytes: Number("int"),
+ * //     TermCount: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Directionality: "UNI" || "MULTI",
+ * //     Message: "STRING_VALUE",
+ * //     SkippedTermCount: Number("int"),
+ * //     Format: "CSV" || "TMX" || "TSV",
+ * //   },
+ * //   TerminologyDataLocation: { // TerminologyDataLocation
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * //   AuxiliaryDataLocation: {
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

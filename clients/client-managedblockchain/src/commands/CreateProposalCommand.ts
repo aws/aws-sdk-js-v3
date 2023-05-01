@@ -67,10 +67,9 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * };
  * const command = new CreateProposalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProposalOutput
- *   ProposalId: "STRING_VALUE",
- * };
+ * // { // CreateProposalOutput
+ * //   ProposalId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

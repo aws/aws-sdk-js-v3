@@ -47,11 +47,10 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * };
  * const command = new DeleteManagedEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteManagedEndpointResponse
- *   id: "STRING_VALUE",
- *   virtualClusterId: "STRING_VALUE",
- * };
+ * // { // DeleteManagedEndpointResponse
+ * //   id: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

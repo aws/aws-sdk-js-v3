@@ -50,23 +50,22 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * };
  * const command = new ListReferenceStoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReferenceStoresResponse
- *   nextToken: "STRING_VALUE",
- *   referenceStores: [ // ReferenceStoreDetailList // required
- *     { // ReferenceStoreDetail
- *       arn: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       sseConfig: { // SseConfig
- *         type: "STRING_VALUE", // required
- *         keyArn: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListReferenceStoresResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   referenceStores: [ // ReferenceStoreDetailList // required
+ * //     { // ReferenceStoreDetail
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       sseConfig: { // SseConfig
+ * //         type: "STRING_VALUE", // required
+ * //         keyArn: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

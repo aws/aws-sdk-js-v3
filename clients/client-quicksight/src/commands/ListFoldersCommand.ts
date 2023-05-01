@@ -46,22 +46,21 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  * };
  * const command = new ListFoldersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFoldersResponse
- *   Status: Number("int"),
- *   FolderSummaryList: [ // FolderSummaryList
- *     { // FolderSummary
- *       Arn: "STRING_VALUE",
- *       FolderId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       FolderType: "SHARED",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // ListFoldersResponse
+ * //   Status: Number("int"),
+ * //   FolderSummaryList: [ // FolderSummaryList
+ * //     { // FolderSummary
+ * //       Arn: "STRING_VALUE",
+ * //       FolderId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       FolderType: "SHARED",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

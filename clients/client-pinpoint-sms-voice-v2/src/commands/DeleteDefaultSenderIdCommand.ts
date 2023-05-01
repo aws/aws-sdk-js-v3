@@ -51,12 +51,11 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * };
  * const command = new DeleteDefaultSenderIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDefaultSenderIdResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   SenderId: "STRING_VALUE",
- * };
+ * // { // DeleteDefaultSenderIdResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   SenderId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

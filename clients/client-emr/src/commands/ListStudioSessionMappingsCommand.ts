@@ -47,20 +47,19 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * };
  * const command = new ListStudioSessionMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStudioSessionMappingsOutput
- *   SessionMappings: [ // SessionMappingSummaryList
- *     { // SessionMappingSummary
- *       StudioId: "STRING_VALUE",
- *       IdentityId: "STRING_VALUE",
- *       IdentityName: "STRING_VALUE",
- *       IdentityType: "USER" || "GROUP",
- *       SessionPolicyArn: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListStudioSessionMappingsOutput
+ * //   SessionMappings: [ // SessionMappingSummaryList
+ * //     { // SessionMappingSummary
+ * //       StudioId: "STRING_VALUE",
+ * //       IdentityId: "STRING_VALUE",
+ * //       IdentityName: "STRING_VALUE",
+ * //       IdentityType: "USER" || "GROUP",
+ * //       SessionPolicyArn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

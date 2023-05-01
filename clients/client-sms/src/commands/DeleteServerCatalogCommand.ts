@@ -42,8 +42,7 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * const input = {};
  * const command = new DeleteServerCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

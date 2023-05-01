@@ -44,10 +44,9 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  * };
  * const command = new DeleteContextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteContextResponse
- *   ContextArn: "STRING_VALUE",
- * };
+ * // { // DeleteContextResponse
+ * //   ContextArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

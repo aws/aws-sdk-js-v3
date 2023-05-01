@@ -52,23 +52,22 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstancesResponse
- *   InstanceSummaryList: [ // InstanceSummaryList
- *     { // InstanceSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY",
- *       InstanceAlias: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       ServiceRole: "STRING_VALUE",
- *       InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
- *       InboundCallsEnabled: true || false,
- *       OutboundCallsEnabled: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInstancesResponse
+ * //   InstanceSummaryList: [ // InstanceSummaryList
+ * //     { // InstanceSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY",
+ * //       InstanceAlias: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       ServiceRole: "STRING_VALUE",
+ * //       InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
+ * //       InboundCallsEnabled: true || false,
+ * //       OutboundCallsEnabled: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

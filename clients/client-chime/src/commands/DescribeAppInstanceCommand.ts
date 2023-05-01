@@ -48,16 +48,15 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * };
  * const command = new DescribeAppInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppInstanceResponse
- *   AppInstance: { // AppInstance
- *     AppInstanceArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Metadata: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeAppInstanceResponse
+ * //   AppInstance: { // AppInstance
+ * //     AppInstanceArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Metadata: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

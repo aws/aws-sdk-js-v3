@@ -45,21 +45,20 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * };
  * const command = new ListMetricStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricStreamsOutput
- *   NextToken: "STRING_VALUE",
- *   Entries: [ // MetricStreamEntries
- *     { // MetricStreamEntry
- *       Arn: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       LastUpdateDate: new Date("TIMESTAMP"),
- *       Name: "STRING_VALUE",
- *       FirehoseArn: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       OutputFormat: "json" || "opentelemetry0.7",
- *     },
- *   ],
- * };
+ * // { // ListMetricStreamsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   Entries: [ // MetricStreamEntries
+ * //     { // MetricStreamEntry
+ * //       Arn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastUpdateDate: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       FirehoseArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       OutputFormat: "json" || "opentelemetry0.7",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

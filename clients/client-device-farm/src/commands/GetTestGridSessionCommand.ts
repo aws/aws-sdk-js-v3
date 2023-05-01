@@ -55,17 +55,16 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * };
  * const command = new GetTestGridSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTestGridSessionResult
- *   testGridSession: { // TestGridSession
- *     arn: "STRING_VALUE",
- *     status: "ACTIVE" || "CLOSED" || "ERRORED",
- *     created: new Date("TIMESTAMP"),
- *     ended: new Date("TIMESTAMP"),
- *     billingMinutes: Number("double"),
- *     seleniumProperties: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTestGridSessionResult
+ * //   testGridSession: { // TestGridSession
+ * //     arn: "STRING_VALUE",
+ * //     status: "ACTIVE" || "CLOSED" || "ERRORED",
+ * //     created: new Date("TIMESTAMP"),
+ * //     ended: new Date("TIMESTAMP"),
+ * //     billingMinutes: Number("double"),
+ * //     seleniumProperties: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

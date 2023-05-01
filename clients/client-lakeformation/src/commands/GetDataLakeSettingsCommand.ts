@@ -44,51 +44,50 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * };
  * const command = new GetDataLakeSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataLakeSettingsResponse
- *   DataLakeSettings: { // DataLakeSettings
- *     DataLakeAdmins: [ // DataLakePrincipalList
- *       { // DataLakePrincipal
- *         DataLakePrincipalIdentifier: "STRING_VALUE",
- *       },
- *     ],
- *     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
- *       { // PrincipalPermissions
- *         Principal: {
- *           DataLakePrincipalIdentifier: "STRING_VALUE",
- *         },
- *         Permissions: [ // PermissionList
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
- *         ],
- *       },
- *     ],
- *     CreateTableDefaultPermissions: [
- *       {
- *         Principal: {
- *           DataLakePrincipalIdentifier: "STRING_VALUE",
- *         },
- *         Permissions: [
- *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
- *         ],
- *       },
- *     ],
- *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     TrustedResourceOwners: [ // TrustedResourceOwners
- *       "STRING_VALUE",
- *     ],
- *     AllowExternalDataFiltering: true || false,
- *     ExternalDataFilteringAllowList: [
- *       {
- *         DataLakePrincipalIdentifier: "STRING_VALUE",
- *       },
- *     ],
- *     AuthorizedSessionTagValueList: [ // AuthorizedSessionTagValueList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetDataLakeSettingsResponse
+ * //   DataLakeSettings: { // DataLakeSettings
+ * //     DataLakeAdmins: [ // DataLakePrincipalList
+ * //       { // DataLakePrincipal
+ * //         DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CreateDatabaseDefaultPermissions: [ // PrincipalPermissionsList
+ * //       { // PrincipalPermissions
+ * //         Principal: {
+ * //           DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //         },
+ * //         Permissions: [ // PermissionList
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     CreateTableDefaultPermissions: [
+ * //       {
+ * //         Principal: {
+ * //           DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //         },
+ * //         Permissions: [
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TrustedResourceOwners: [ // TrustedResourceOwners
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowExternalDataFiltering: true || false,
+ * //     ExternalDataFilteringAllowList: [
+ * //       {
+ * //         DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     AuthorizedSessionTagValueList: [ // AuthorizedSessionTagValueList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

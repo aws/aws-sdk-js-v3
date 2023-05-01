@@ -81,23 +81,22 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * };
  * const command = new UploadServerCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadServerCertificateResponse
- *   ServerCertificateMetadata: { // ServerCertificateMetadata
- *     Path: "STRING_VALUE", // required
- *     ServerCertificateName: "STRING_VALUE", // required
- *     ServerCertificateId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     UploadDate: new Date("TIMESTAMP"),
- *     Expiration: new Date("TIMESTAMP"),
- *   },
- *   Tags: [ // tagListType
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // UploadServerCertificateResponse
+ * //   ServerCertificateMetadata: { // ServerCertificateMetadata
+ * //     Path: "STRING_VALUE", // required
+ * //     ServerCertificateName: "STRING_VALUE", // required
+ * //     ServerCertificateId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     UploadDate: new Date("TIMESTAMP"),
+ * //     Expiration: new Date("TIMESTAMP"),
+ * //   },
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

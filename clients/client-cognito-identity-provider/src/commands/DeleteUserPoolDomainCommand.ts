@@ -50,8 +50,7 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * };
  * const command = new DeleteUserPoolDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

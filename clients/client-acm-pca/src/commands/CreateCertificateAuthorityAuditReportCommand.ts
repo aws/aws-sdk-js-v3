@@ -70,11 +70,10 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * };
  * const command = new CreateCertificateAuthorityAuditReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCertificateAuthorityAuditReportResponse
- *   AuditReportId: "STRING_VALUE",
- *   S3Key: "STRING_VALUE",
- * };
+ * // { // CreateCertificateAuthorityAuditReportResponse
+ * //   AuditReportId: "STRING_VALUE",
+ * //   S3Key: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,18 +44,17 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * };
  * const command = new ExportNotebookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportNotebookOutput
- *   NotebookMetadata: { // NotebookMetadata
- *     NotebookId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     WorkGroup: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Type: "IPYNB",
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- *   Payload: "STRING_VALUE",
- * };
+ * // { // ExportNotebookOutput
+ * //   NotebookMetadata: { // NotebookMetadata
+ * //     NotebookId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     WorkGroup: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Type: "IPYNB",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   Payload: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,28 +56,27 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVpcEndpointResponse
- *   VpcEndpoint: { // VpcEndpoint
- *     VpcEndpointId: "STRING_VALUE",
- *     VpcEndpointOwner: "STRING_VALUE",
- *     DomainArn: "STRING_VALUE",
- *     VpcOptions: { // VPCDerivedInfo
- *       VPCId: "STRING_VALUE",
- *       SubnetIds: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       AvailabilityZones: [
- *         "STRING_VALUE",
- *       ],
- *       SecurityGroupIds: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *     Endpoint: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateVpcEndpointResponse
+ * //   VpcEndpoint: { // VpcEndpoint
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     VpcEndpointOwner: "STRING_VALUE",
+ * //     DomainArn: "STRING_VALUE",
+ * //     VpcOptions: { // VPCDerivedInfo
+ * //       VPCId: "STRING_VALUE",
+ * //       SubnetIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AvailabilityZones: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SecurityGroupIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //     Endpoint: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

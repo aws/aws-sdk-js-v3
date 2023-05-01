@@ -67,10 +67,9 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeploymentResult
- *   DeploymentId: "STRING_VALUE",
- * };
+ * // { // CreateDeploymentResult
+ * //   DeploymentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

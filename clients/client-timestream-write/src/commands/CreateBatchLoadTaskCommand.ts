@@ -124,10 +124,9 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * };
  * const command = new CreateBatchLoadTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBatchLoadTaskResponse
- *   TaskId: "STRING_VALUE", // required
- * };
+ * // { // CreateBatchLoadTaskResponse
+ * //   TaskId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

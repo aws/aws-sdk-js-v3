@@ -52,15 +52,14 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyDBParameterGroupResult
- *   DBParameterGroup: { // DBParameterGroup
- *     DBParameterGroupName: "STRING_VALUE",
- *     DBParameterGroupFamily: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DBParameterGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CopyDBParameterGroupResult
+ * //   DBParameterGroup: { // DBParameterGroup
+ * //     DBParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

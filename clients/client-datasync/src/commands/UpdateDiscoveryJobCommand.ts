@@ -45,8 +45,7 @@ export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobRespo
  * };
  * const command = new UpdateDiscoveryJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

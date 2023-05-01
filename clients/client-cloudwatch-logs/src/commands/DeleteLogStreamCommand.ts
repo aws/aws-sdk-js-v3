@@ -46,8 +46,7 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLogStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,38 +62,37 @@ export interface DescribeFleetAdvisorDatabasesCommandOutput
  * };
  * const command = new DescribeFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetAdvisorDatabasesResponse
- *   Databases: [ // DatabaseList
- *     { // DatabaseResponse
- *       DatabaseId: "STRING_VALUE",
- *       DatabaseName: "STRING_VALUE",
- *       IpAddress: "STRING_VALUE",
- *       NumberOfSchemas: Number("long"),
- *       Server: { // ServerShortInfoResponse
- *         ServerId: "STRING_VALUE",
- *         IpAddress: "STRING_VALUE",
- *         ServerName: "STRING_VALUE",
- *       },
- *       SoftwareDetails: { // DatabaseInstanceSoftwareDetailsResponse
- *         Engine: "STRING_VALUE",
- *         EngineVersion: "STRING_VALUE",
- *         EngineEdition: "STRING_VALUE",
- *         ServicePack: "STRING_VALUE",
- *         SupportLevel: "STRING_VALUE",
- *         OsArchitecture: Number("int"),
- *         Tooltip: "STRING_VALUE",
- *       },
- *       Collectors: [ // CollectorsList
- *         { // CollectorShortInfoResponse
- *           CollectorReferencedId: "STRING_VALUE",
- *           CollectorName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFleetAdvisorDatabasesResponse
+ * //   Databases: [ // DatabaseList
+ * //     { // DatabaseResponse
+ * //       DatabaseId: "STRING_VALUE",
+ * //       DatabaseName: "STRING_VALUE",
+ * //       IpAddress: "STRING_VALUE",
+ * //       NumberOfSchemas: Number("long"),
+ * //       Server: { // ServerShortInfoResponse
+ * //         ServerId: "STRING_VALUE",
+ * //         IpAddress: "STRING_VALUE",
+ * //         ServerName: "STRING_VALUE",
+ * //       },
+ * //       SoftwareDetails: { // DatabaseInstanceSoftwareDetailsResponse
+ * //         Engine: "STRING_VALUE",
+ * //         EngineVersion: "STRING_VALUE",
+ * //         EngineEdition: "STRING_VALUE",
+ * //         ServicePack: "STRING_VALUE",
+ * //         SupportLevel: "STRING_VALUE",
+ * //         OsArchitecture: Number("int"),
+ * //         Tooltip: "STRING_VALUE",
+ * //       },
+ * //       Collectors: [ // CollectorsList
+ * //         { // CollectorShortInfoResponse
+ * //           CollectorReferencedId: "STRING_VALUE",
+ * //           CollectorName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

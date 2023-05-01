@@ -59,21 +59,20 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * };
  * const command = new DescribeChannelBanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelBanResponse
- *   ChannelBan: { // ChannelBan
- *     Member: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     ChannelArn: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     CreatedBy: {
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeChannelBanResponse
+ * //   ChannelBan: { // ChannelBan
+ * //     Member: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     ChannelArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     CreatedBy: {
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -91,11 +91,10 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * };
  * const command = new CreateNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkOutput
- *   NetworkId: "STRING_VALUE",
- *   MemberId: "STRING_VALUE",
- * };
+ * // { // CreateNetworkOutput
+ * //   NetworkId: "STRING_VALUE",
+ * //   MemberId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

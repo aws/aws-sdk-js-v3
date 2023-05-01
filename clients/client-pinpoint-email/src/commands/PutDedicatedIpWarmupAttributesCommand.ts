@@ -50,8 +50,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * };
  * const command = new PutDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

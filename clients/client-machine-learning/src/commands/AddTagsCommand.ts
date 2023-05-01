@@ -53,11 +53,10 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddTagsOutput
- *   ResourceId: "STRING_VALUE",
- *   ResourceType: "STRING_VALUE",
- * };
+ * // { // AddTagsOutput
+ * //   ResourceId: "STRING_VALUE",
+ * //   ResourceType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

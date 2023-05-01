@@ -53,20 +53,19 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * };
  * const command = new GetVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorTerminationResponse
- *   Termination: { // Termination
- *     CpsLimit: Number("int"),
- *     DefaultPhoneNumber: "STRING_VALUE",
- *     CallingRegions: [ // CallingRegionList
- *       "STRING_VALUE",
- *     ],
- *     CidrAllowedList: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     Disabled: true || false,
- *   },
- * };
+ * // { // GetVoiceConnectorTerminationResponse
+ * //   Termination: { // Termination
+ * //     CpsLimit: Number("int"),
+ * //     DefaultPhoneNumber: "STRING_VALUE",
+ * //     CallingRegions: [ // CallingRegionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CidrAllowedList: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

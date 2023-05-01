@@ -144,20 +144,19 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFederationTokenResponse
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     SessionToken: "STRING_VALUE", // required
- *     Expiration: new Date("TIMESTAMP"), // required
- *   },
- *   FederatedUser: { // FederatedUser
- *     FederatedUserId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *   },
- *   PackedPolicySize: Number("int"),
- * };
+ * // { // GetFederationTokenResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   FederatedUser: { // FederatedUser
+ * //     FederatedUserId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * // };
  *
  * ```
  *

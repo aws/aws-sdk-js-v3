@@ -47,18 +47,17 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClustersResult
- *   ClusterListEntries: [ // ClusterListEntryList
- *     { // ClusterListEntry
- *       ClusterId: "STRING_VALUE",
- *       ClusterState: "AwaitingQuorum" || "Pending" || "InUse" || "Complete" || "Cancelled",
- *       CreationDate: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListClustersResult
+ * //   ClusterListEntries: [ // ClusterListEntryList
+ * //     { // ClusterListEntry
+ * //       ClusterId: "STRING_VALUE",
+ * //       ClusterState: "AwaitingQuorum" || "Pending" || "InUse" || "Complete" || "Cancelled",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

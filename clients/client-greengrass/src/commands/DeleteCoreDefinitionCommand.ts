@@ -44,8 +44,7 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * };
  * const command = new DeleteCoreDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

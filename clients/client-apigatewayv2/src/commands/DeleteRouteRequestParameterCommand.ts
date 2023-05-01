@@ -49,8 +49,7 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteRouteRequestParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

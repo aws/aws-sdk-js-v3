@@ -57,11 +57,10 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * };
  * const command = new CreateSchedulingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSchedulingPolicyResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateSchedulingPolicyResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

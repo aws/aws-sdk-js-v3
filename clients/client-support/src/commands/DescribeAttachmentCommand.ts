@@ -62,13 +62,12 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * };
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAttachmentResponse
- *   attachment: { // Attachment
- *     fileName: "STRING_VALUE",
- *     data: "BLOB_VALUE",
- *   },
- * };
+ * // { // DescribeAttachmentResponse
+ * //   attachment: { // Attachment
+ * //     fileName: "STRING_VALUE",
+ * //     data: "BLOB_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

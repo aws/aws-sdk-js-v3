@@ -45,8 +45,7 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * };
  * const command = new DeleteEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

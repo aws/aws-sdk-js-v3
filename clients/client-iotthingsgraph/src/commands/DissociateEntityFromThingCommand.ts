@@ -48,8 +48,7 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

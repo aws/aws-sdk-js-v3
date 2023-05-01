@@ -58,28 +58,27 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * };
  * const command = new StartRecoveryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRecoveryResponse
- *   job: { // Job
- *     jobID: "STRING_VALUE", // required
- *     arn: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     initiatedBy: "STRING_VALUE",
- *     creationDateTime: "STRING_VALUE",
- *     endDateTime: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     participatingServers: [ // ParticipatingServers
- *       { // ParticipatingServer
- *         sourceServerID: "STRING_VALUE",
- *         recoveryInstanceID: "STRING_VALUE",
- *         launchStatus: "STRING_VALUE",
- *       },
- *     ],
- *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // StartRecoveryResponse
+ * //   job: { // Job
+ * //     jobID: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     initiatedBy: "STRING_VALUE",
+ * //     creationDateTime: "STRING_VALUE",
+ * //     endDateTime: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     participatingServers: [ // ParticipatingServers
+ * //       { // ParticipatingServer
+ * //         sourceServerID: "STRING_VALUE",
+ * //         recoveryInstanceID: "STRING_VALUE",
+ * //         launchStatus: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * };
  * const command = new PutInlinePolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

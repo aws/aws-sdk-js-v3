@@ -71,11 +71,10 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * };
  * const command = new StartFleetActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFleetActionsOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // StartFleetActionsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

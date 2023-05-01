@@ -44,29 +44,28 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  * };
  * const command = new GetCollaborationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCollaborationOutput
- *   collaboration: { // Collaboration
- *     id: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     creatorAccountId: "STRING_VALUE", // required
- *     creatorDisplayName: "STRING_VALUE", // required
- *     createTime: new Date("TIMESTAMP"), // required
- *     updateTime: new Date("TIMESTAMP"), // required
- *     memberStatus: "STRING_VALUE", // required
- *     membershipId: "STRING_VALUE",
- *     membershipArn: "STRING_VALUE",
- *     dataEncryptionMetadata: { // DataEncryptionMetadata
- *       allowCleartext: true || false, // required
- *       allowDuplicates: true || false, // required
- *       allowJoinsOnColumnsWithDifferentNames: true || false, // required
- *       preserveNulls: true || false, // required
- *     },
- *     queryLogStatus: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetCollaborationOutput
+ * //   collaboration: { // Collaboration
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     creatorAccountId: "STRING_VALUE", // required
+ * //     creatorDisplayName: "STRING_VALUE", // required
+ * //     createTime: new Date("TIMESTAMP"), // required
+ * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     memberStatus: "STRING_VALUE", // required
+ * //     membershipId: "STRING_VALUE",
+ * //     membershipArn: "STRING_VALUE",
+ * //     dataEncryptionMetadata: { // DataEncryptionMetadata
+ * //       allowCleartext: true || false, // required
+ * //       allowDuplicates: true || false, // required
+ * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
+ * //       preserveNulls: true || false, // required
+ * //     },
+ * //     queryLogStatus: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

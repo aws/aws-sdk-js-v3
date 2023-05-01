@@ -78,10 +78,9 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * };
  * const command = new ReportTaskRunnerHeartbeatCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReportTaskRunnerHeartbeatOutput
- *   terminate: true || false, // required
- * };
+ * // { // ReportTaskRunnerHeartbeatOutput
+ * //   terminate: true || false, // required
+ * // };
  *
  * ```
  *

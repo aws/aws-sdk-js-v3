@@ -48,16 +48,15 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListArtifactsResult
- *   artifacts: [ // Artifacts // required
- *     { // Artifact
- *       artifactFileName: "STRING_VALUE", // required
- *       artifactId: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListArtifactsResult
+ * //   artifacts: [ // Artifacts // required
+ * //     { // Artifact
+ * //       artifactFileName: "STRING_VALUE", // required
+ * //       artifactId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

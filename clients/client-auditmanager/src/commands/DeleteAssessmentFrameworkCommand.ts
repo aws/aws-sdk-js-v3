@@ -44,8 +44,7 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  * };
  * const command = new DeleteAssessmentFrameworkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

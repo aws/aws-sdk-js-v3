@@ -53,83 +53,82 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * };
  * const command = new GetEffectivePermissionsForPathCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEffectivePermissionsForPathResponse
- *   Permissions: [ // PrincipalResourcePermissionsList
- *     { // PrincipalResourcePermissions
- *       Principal: { // DataLakePrincipal
- *         DataLakePrincipalIdentifier: "STRING_VALUE",
- *       },
- *       Resource: { // Resource
- *         Catalog: {},
- *         Database: { // DatabaseResource
- *           CatalogId: "STRING_VALUE",
- *           Name: "STRING_VALUE", // required
- *         },
- *         Table: { // TableResource
- *           CatalogId: "STRING_VALUE",
- *           DatabaseName: "STRING_VALUE", // required
- *           Name: "STRING_VALUE",
- *           TableWildcard: {},
- *         },
- *         TableWithColumns: { // TableWithColumnsResource
- *           CatalogId: "STRING_VALUE",
- *           DatabaseName: "STRING_VALUE", // required
- *           Name: "STRING_VALUE", // required
- *           ColumnNames: [ // ColumnNames
- *             "STRING_VALUE",
- *           ],
- *           ColumnWildcard: { // ColumnWildcard
- *             ExcludedColumnNames: [
- *               "STRING_VALUE",
- *             ],
- *           },
- *         },
- *         DataLocation: { // DataLocationResource
- *           CatalogId: "STRING_VALUE",
- *           ResourceArn: "STRING_VALUE", // required
- *         },
- *         DataCellsFilter: { // DataCellsFilterResource
- *           TableCatalogId: "STRING_VALUE",
- *           DatabaseName: "STRING_VALUE",
- *           TableName: "STRING_VALUE",
- *           Name: "STRING_VALUE",
- *         },
- *         LFTag: { // LFTagKeyResource
- *           CatalogId: "STRING_VALUE",
- *           TagKey: "STRING_VALUE", // required
- *           TagValues: [ // TagValueList // required
- *             "STRING_VALUE",
- *           ],
- *         },
- *         LFTagPolicy: { // LFTagPolicyResource
- *           CatalogId: "STRING_VALUE",
- *           ResourceType: "DATABASE" || "TABLE", // required
- *           Expression: [ // Expression // required
- *             { // LFTag
- *               TagKey: "STRING_VALUE", // required
- *               TagValues: [ // required
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           ],
- *         },
- *       },
- *       Permissions: [ // PermissionList
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
- *       ],
- *       PermissionsWithGrantOption: [
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
- *       ],
- *       AdditionalDetails: { // DetailsMap
- *         ResourceShare: [ // ResourceShareList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetEffectivePermissionsForPathResponse
+ * //   Permissions: [ // PrincipalResourcePermissionsList
+ * //     { // PrincipalResourcePermissions
+ * //       Principal: { // DataLakePrincipal
+ * //         DataLakePrincipalIdentifier: "STRING_VALUE",
+ * //       },
+ * //       Resource: { // Resource
+ * //         Catalog: {},
+ * //         Database: { // DatabaseResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //         Table: { // TableResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE",
+ * //           TableWildcard: {},
+ * //         },
+ * //         TableWithColumns: { // TableWithColumnsResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           ColumnNames: [ // ColumnNames
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ColumnWildcard: { // ColumnWildcard
+ * //             ExcludedColumnNames: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         DataLocation: { // DataLocationResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           ResourceArn: "STRING_VALUE", // required
+ * //         },
+ * //         DataCellsFilter: { // DataCellsFilterResource
+ * //           TableCatalogId: "STRING_VALUE",
+ * //           DatabaseName: "STRING_VALUE",
+ * //           TableName: "STRING_VALUE",
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         LFTag: { // LFTagKeyResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           TagKey: "STRING_VALUE", // required
+ * //           TagValues: [ // TagValueList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         LFTagPolicy: { // LFTagPolicyResource
+ * //           CatalogId: "STRING_VALUE",
+ * //           ResourceType: "DATABASE" || "TABLE", // required
+ * //           Expression: [ // Expression // required
+ * //             { // LFTag
+ * //               TagKey: "STRING_VALUE", // required
+ * //               TagValues: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       Permissions: [ // PermissionList
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ * //       ],
+ * //       PermissionsWithGrantOption: [
+ * //         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ * //       ],
+ * //       AdditionalDetails: { // DetailsMap
+ * //         ResourceShare: [ // ResourceShareList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

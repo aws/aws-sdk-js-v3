@@ -59,10 +59,9 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * };
  * const command = new CreateLicenseConversionTaskForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLicenseConversionTaskForResourceResponse
- *   LicenseConversionTaskId: "STRING_VALUE",
- * };
+ * // { // CreateLicenseConversionTaskForResourceResponse
+ * //   LicenseConversionTaskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

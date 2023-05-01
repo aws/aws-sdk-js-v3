@@ -58,20 +58,19 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * };
  * const command = new ListGlobalTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGlobalTablesOutput
- *   GlobalTables: [ // GlobalTableList
- *     { // GlobalTable
- *       GlobalTableName: "STRING_VALUE",
- *       ReplicationGroup: [ // ReplicaList
- *         { // Replica
- *           RegionName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   LastEvaluatedGlobalTableName: "STRING_VALUE",
- * };
+ * // { // ListGlobalTablesOutput
+ * //   GlobalTables: [ // GlobalTableList
+ * //     { // GlobalTable
+ * //       GlobalTableName: "STRING_VALUE",
+ * //       ReplicationGroup: [ // ReplicaList
+ * //         { // Replica
+ * //           RegionName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   LastEvaluatedGlobalTableName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

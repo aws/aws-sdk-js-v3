@@ -47,13 +47,12 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * };
  * const command = new DeleteBackendStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBackendStorageResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // DeleteBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

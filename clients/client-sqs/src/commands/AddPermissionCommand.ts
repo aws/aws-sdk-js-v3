@@ -90,8 +90,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

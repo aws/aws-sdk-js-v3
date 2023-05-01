@@ -48,33 +48,32 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * };
  * const command = new AcknowledgeOrderReceiptCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcknowledgeOrderReceiptResponse
- *   order: { // Order
- *     orderArn: "STRING_VALUE",
- *     shippingAddress: { // Address
- *       city: "STRING_VALUE", // required
- *       company: "STRING_VALUE",
- *       country: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       phoneNumber: "STRING_VALUE",
- *       postalCode: "STRING_VALUE", // required
- *       stateOrProvince: "STRING_VALUE", // required
- *       street1: "STRING_VALUE", // required
- *       street2: "STRING_VALUE",
- *       street3: "STRING_VALUE",
- *     },
- *     networkArn: "STRING_VALUE",
- *     networkSiteArn: "STRING_VALUE",
- *     trackingInformation: [ // TrackingInformationList
- *       { // TrackingInformation
- *         trackingNumber: "STRING_VALUE",
- *       },
- *     ],
- *     acknowledgmentStatus: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // AcknowledgeOrderReceiptResponse
+ * //   order: { // Order
+ * //     orderArn: "STRING_VALUE",
+ * //     shippingAddress: { // Address
+ * //       city: "STRING_VALUE", // required
+ * //       company: "STRING_VALUE",
+ * //       country: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       phoneNumber: "STRING_VALUE",
+ * //       postalCode: "STRING_VALUE", // required
+ * //       stateOrProvince: "STRING_VALUE", // required
+ * //       street1: "STRING_VALUE", // required
+ * //       street2: "STRING_VALUE",
+ * //       street3: "STRING_VALUE",
+ * //     },
+ * //     networkArn: "STRING_VALUE",
+ * //     networkSiteArn: "STRING_VALUE",
+ * //     trackingInformation: [ // TrackingInformationList
+ * //       { // TrackingInformation
+ * //         trackingNumber: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     acknowledgmentStatus: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

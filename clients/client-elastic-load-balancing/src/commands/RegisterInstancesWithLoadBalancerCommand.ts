@@ -74,14 +74,13 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * };
  * const command = new RegisterInstancesWithLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterEndPointsOutput
- *   Instances: [ // Instances
- *     { // Instance
- *       InstanceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RegisterEndPointsOutput
+ * //   Instances: [ // Instances
+ * //     { // Instance
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

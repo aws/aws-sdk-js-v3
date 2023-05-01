@@ -57,16 +57,15 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * };
  * const command = new UpdateCostAllocationTagsStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCostAllocationTagsStatusResponse
- *   Errors: [ // UpdateCostAllocationTagsStatusErrors
- *     { // UpdateCostAllocationTagsStatusError
- *       TagKey: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UpdateCostAllocationTagsStatusResponse
+ * //   Errors: [ // UpdateCostAllocationTagsStatusErrors
+ * //     { // UpdateCostAllocationTagsStatusError
+ * //       TagKey: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

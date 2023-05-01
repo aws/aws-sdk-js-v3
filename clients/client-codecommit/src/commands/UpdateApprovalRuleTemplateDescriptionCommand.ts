@@ -53,19 +53,18 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  * };
  * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApprovalRuleTemplateDescriptionOutput
- *   approvalRuleTemplate: { // ApprovalRuleTemplate
- *     approvalRuleTemplateId: "STRING_VALUE",
- *     approvalRuleTemplateName: "STRING_VALUE",
- *     approvalRuleTemplateDescription: "STRING_VALUE",
- *     approvalRuleTemplateContent: "STRING_VALUE",
- *     ruleContentSha256: "STRING_VALUE",
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedUser: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateApprovalRuleTemplateDescriptionOutput
+ * //   approvalRuleTemplate: { // ApprovalRuleTemplate
+ * //     approvalRuleTemplateId: "STRING_VALUE",
+ * //     approvalRuleTemplateName: "STRING_VALUE",
+ * //     approvalRuleTemplateDescription: "STRING_VALUE",
+ * //     approvalRuleTemplateContent: "STRING_VALUE",
+ * //     ruleContentSha256: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedUser: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

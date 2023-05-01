@@ -52,18 +52,17 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * };
  * const command = new GetPositionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPositionConfigurationResponse
- *   Solvers: { // PositionSolverDetails
- *     SemtechGnss: { // SemtechGnssDetail
- *       Provider: "Semtech",
- *       Type: "GNSS",
- *       Status: "Enabled" || "Disabled",
- *       Fec: "ROSE" || "NONE",
- *     },
- *   },
- *   Destination: "STRING_VALUE",
- * };
+ * // { // GetPositionConfigurationResponse
+ * //   Solvers: { // PositionSolverDetails
+ * //     SemtechGnss: { // SemtechGnssDetail
+ * //       Provider: "Semtech",
+ * //       Type: "GNSS",
+ * //       Status: "Enabled" || "Disabled",
+ * //       Fec: "ROSE" || "NONE",
+ * //     },
+ * //   },
+ * //   Destination: "STRING_VALUE",
+ * // };
  *
  * ```
  *

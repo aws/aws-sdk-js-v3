@@ -44,8 +44,7 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * };
  * const command = new AssociateCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

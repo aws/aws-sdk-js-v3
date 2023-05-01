@@ -55,18 +55,17 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventsResponse
- *   ServerEvents: [ // ServerEvents
- *     { // ServerEvent
- *       CreatedAt: new Date("TIMESTAMP"),
- *       ServerName: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       LogUrl: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEventsResponse
+ * //   ServerEvents: [ // ServerEvents
+ * //     { // ServerEvent
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       ServerName: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       LogUrl: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

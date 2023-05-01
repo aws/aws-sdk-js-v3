@@ -73,10 +73,9 @@ export interface StartDataQualityRulesetEvaluationRunCommandOutput
  * };
  * const command = new StartDataQualityRulesetEvaluationRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDataQualityRulesetEvaluationRunResponse
- *   RunId: "STRING_VALUE",
- * };
+ * // { // StartDataQualityRulesetEvaluationRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

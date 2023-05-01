@@ -66,11 +66,10 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAuthorizationTokenResult
- *   authorizationToken: "STRING_VALUE",
- *   expiration: new Date("TIMESTAMP"),
- * };
+ * // { // GetAuthorizationTokenResult
+ * //   authorizationToken: "STRING_VALUE",
+ * //   expiration: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

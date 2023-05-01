@@ -48,17 +48,16 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * };
  * const command = new ListMFADeviceTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMFADeviceTagsResponse
- *   Tags: [ // tagListType // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListMFADeviceTagsResponse
+ * //   Tags: [ // tagListType // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

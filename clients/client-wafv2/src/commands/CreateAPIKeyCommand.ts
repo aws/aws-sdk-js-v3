@@ -52,10 +52,9 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * };
  * const command = new CreateAPIKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAPIKeyResponse
- *   APIKey: "STRING_VALUE",
- * };
+ * // { // CreateAPIKeyResponse
+ * //   APIKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

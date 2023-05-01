@@ -57,13 +57,12 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  * };
  * const command = new ListAccountsForProvisionedPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountsForProvisionedPermissionSetResponse
- *   AccountIds: [ // AccountList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountsForProvisionedPermissionSetResponse
+ * //   AccountIds: [ // AccountList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

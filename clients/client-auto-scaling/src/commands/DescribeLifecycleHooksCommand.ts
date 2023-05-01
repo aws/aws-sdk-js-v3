@@ -47,22 +47,21 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * };
  * const command = new DescribeLifecycleHooksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLifecycleHooksAnswer
- *   LifecycleHooks: [ // LifecycleHooks
- *     { // LifecycleHook
- *       LifecycleHookName: "STRING_VALUE",
- *       AutoScalingGroupName: "STRING_VALUE",
- *       LifecycleTransition: "STRING_VALUE",
- *       NotificationTargetARN: "STRING_VALUE",
- *       RoleARN: "STRING_VALUE",
- *       NotificationMetadata: "STRING_VALUE",
- *       HeartbeatTimeout: Number("int"),
- *       GlobalTimeout: Number("int"),
- *       DefaultResult: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeLifecycleHooksAnswer
+ * //   LifecycleHooks: [ // LifecycleHooks
+ * //     { // LifecycleHook
+ * //       LifecycleHookName: "STRING_VALUE",
+ * //       AutoScalingGroupName: "STRING_VALUE",
+ * //       LifecycleTransition: "STRING_VALUE",
+ * //       NotificationTargetARN: "STRING_VALUE",
+ * //       RoleARN: "STRING_VALUE",
+ * //       NotificationMetadata: "STRING_VALUE",
+ * //       HeartbeatTimeout: Number("int"),
+ * //       GlobalTimeout: Number("int"),
+ * //       DefaultResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
  * };
  * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

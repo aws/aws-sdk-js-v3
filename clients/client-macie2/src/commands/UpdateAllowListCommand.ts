@@ -53,11 +53,10 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  * };
  * const command = new UpdateAllowListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAllowListResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- * };
+ * // { // UpdateAllowListResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

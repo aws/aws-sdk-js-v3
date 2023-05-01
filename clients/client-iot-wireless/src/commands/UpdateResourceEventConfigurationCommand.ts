@@ -81,8 +81,7 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * };
  * const command = new UpdateResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

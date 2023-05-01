@@ -51,15 +51,14 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * };
  * const command = new CopyBackupToRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyBackupToRegionResponse
- *   DestinationBackup: { // DestinationBackup
- *     CreateTimestamp: new Date("TIMESTAMP"),
- *     SourceRegion: "STRING_VALUE",
- *     SourceBackup: "STRING_VALUE",
- *     SourceCluster: "STRING_VALUE",
- *   },
- * };
+ * // { // CopyBackupToRegionResponse
+ * //   DestinationBackup: { // DestinationBackup
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     SourceRegion: "STRING_VALUE",
+ * //     SourceBackup: "STRING_VALUE",
+ * //     SourceCluster: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

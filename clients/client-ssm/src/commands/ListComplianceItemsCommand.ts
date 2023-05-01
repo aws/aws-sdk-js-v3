@@ -62,29 +62,28 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * };
  * const command = new ListComplianceItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComplianceItemsResult
- *   ComplianceItems: [ // ComplianceItemList
- *     { // ComplianceItem
- *       ComplianceType: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Status: "COMPLIANT" || "NON_COMPLIANT",
- *       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
- *       ExecutionSummary: { // ComplianceExecutionSummary
- *         ExecutionTime: new Date("TIMESTAMP"), // required
- *         ExecutionId: "STRING_VALUE",
- *         ExecutionType: "STRING_VALUE",
- *       },
- *       Details: { // ComplianceItemDetails
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListComplianceItemsResult
+ * //   ComplianceItems: [ // ComplianceItemList
+ * //     { // ComplianceItem
+ * //       ComplianceType: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Status: "COMPLIANT" || "NON_COMPLIANT",
+ * //       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ * //       ExecutionSummary: { // ComplianceExecutionSummary
+ * //         ExecutionTime: new Date("TIMESTAMP"), // required
+ * //         ExecutionId: "STRING_VALUE",
+ * //         ExecutionType: "STRING_VALUE",
+ * //       },
+ * //       Details: { // ComplianceItemDetails
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

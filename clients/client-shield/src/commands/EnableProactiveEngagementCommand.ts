@@ -42,8 +42,7 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * const input = {};
  * const command = new EnableProactiveEngagementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,14 +48,13 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelResponse
- *   ContentType: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ModelId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Schema: "STRING_VALUE",
- * };
+ * // { // CreateModelResponse
+ * //   ContentType: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ModelId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Schema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

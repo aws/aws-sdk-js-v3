@@ -70,8 +70,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -102,21 +102,20 @@ export interface PutSessionCommandOutput
  * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSessionResponse
- *   contentType: "STRING_VALUE",
- *   intentName: "STRING_VALUE",
- *   slots: "STRING_VALUE",
- *   sessionAttributes: "STRING_VALUE",
- *   message: "STRING_VALUE",
- *   encodedMessage: "STRING_VALUE",
- *   messageFormat: "STRING_VALUE",
- *   dialogState: "STRING_VALUE",
- *   slotToElicit: "STRING_VALUE",
- *   audioStream: "STREAMING_BLOB_VALUE",
- *   sessionId: "STRING_VALUE",
- *   activeContexts: "STRING_VALUE",
- * };
+ * // { // PutSessionResponse
+ * //   contentType: "STRING_VALUE",
+ * //   intentName: "STRING_VALUE",
+ * //   slots: "STRING_VALUE",
+ * //   sessionAttributes: "STRING_VALUE",
+ * //   message: "STRING_VALUE",
+ * //   encodedMessage: "STRING_VALUE",
+ * //   messageFormat: "STRING_VALUE",
+ * //   dialogState: "STRING_VALUE",
+ * //   slotToElicit: "STRING_VALUE",
+ * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * //   activeContexts: "STRING_VALUE",
+ * // };
  *
  * ```
  *

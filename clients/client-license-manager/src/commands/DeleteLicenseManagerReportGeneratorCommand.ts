@@ -54,8 +54,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * };
  * const command = new DeleteLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

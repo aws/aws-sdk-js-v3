@@ -73,11 +73,10 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * };
  * const command = new UpdateSecurityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSecurityResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateSecurityResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -190,14 +190,13 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * };
  * const command = new UpdateAlarmModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAlarmModelResponse
- *   creationTime: new Date("TIMESTAMP"),
- *   alarmModelArn: "STRING_VALUE",
- *   alarmModelVersion: "STRING_VALUE",
- *   lastUpdateTime: new Date("TIMESTAMP"),
- *   status: "STRING_VALUE",
- * };
+ * // { // UpdateAlarmModelResponse
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   alarmModelArn: "STRING_VALUE",
+ * //   alarmModelVersion: "STRING_VALUE",
+ * //   lastUpdateTime: new Date("TIMESTAMP"),
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

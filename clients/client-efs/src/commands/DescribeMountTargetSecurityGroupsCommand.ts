@@ -67,12 +67,11 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMountTargetSecurityGroupsResponse
- *   SecurityGroups: [ // SecurityGroups // required
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeMountTargetSecurityGroupsResponse
+ * //   SecurityGroups: [ // SecurityGroups // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

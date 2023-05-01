@@ -46,18 +46,17 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * };
  * const command = new ListCoreDefinitionVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoreDefinitionVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   Versions: [ // __listOfVersionInformation
- *     { // VersionInformation
- *       Arn: "STRING_VALUE",
- *       CreationTimestamp: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCoreDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

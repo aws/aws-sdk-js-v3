@@ -51,8 +51,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -53,18 +53,17 @@ export interface DescribeCustomRoutingListenerCommandOutput
  * };
  * const command = new DescribeCustomRoutingListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomRoutingListenerResponse
- *   Listener: { // CustomRoutingListener
- *     ListenerArn: "STRING_VALUE",
- *     PortRanges: [ // PortRanges
- *       { // PortRange
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeCustomRoutingListenerResponse
+ * //   Listener: { // CustomRoutingListener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

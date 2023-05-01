@@ -48,8 +48,7 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * };
  * const command = new DeleteProjectPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

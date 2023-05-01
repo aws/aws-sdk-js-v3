@@ -96,50 +96,49 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * };
  * const command = new ListCoverageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoverageResponse
- *   nextToken: "STRING_VALUE",
- *   coveredResources: [ // CoveredResources
- *     { // CoveredResource
- *       resourceType: "STRING_VALUE", // required
- *       resourceId: "STRING_VALUE", // required
- *       accountId: "STRING_VALUE", // required
- *       scanType: "STRING_VALUE", // required
- *       scanStatus: { // ScanStatus
- *         statusCode: "STRING_VALUE", // required
- *         reason: "STRING_VALUE", // required
- *       },
- *       resourceMetadata: { // ResourceScanMetadata
- *         ecrRepository: { // EcrRepositoryMetadata
- *           name: "STRING_VALUE",
- *           scanFrequency: "STRING_VALUE",
- *         },
- *         ecrImage: { // EcrContainerImageMetadata
- *           tags: [ // TagList
- *             "STRING_VALUE",
- *           ],
- *         },
- *         ec2: { // Ec2Metadata
- *           tags: { // TagMap
- *             "<keys>": "STRING_VALUE",
- *           },
- *           amiId: "STRING_VALUE",
- *           platform: "STRING_VALUE",
- *         },
- *         lambdaFunction: { // LambdaFunctionMetadata
- *           functionTags: {
- *             "<keys>": "STRING_VALUE",
- *           },
- *           layers: [ // LambdaLayerList
- *             "STRING_VALUE",
- *           ],
- *           functionName: "STRING_VALUE",
- *           runtime: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // ListCoverageResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   coveredResources: [ // CoveredResources
+ * //     { // CoveredResource
+ * //       resourceType: "STRING_VALUE", // required
+ * //       resourceId: "STRING_VALUE", // required
+ * //       accountId: "STRING_VALUE", // required
+ * //       scanType: "STRING_VALUE", // required
+ * //       scanStatus: { // ScanStatus
+ * //         statusCode: "STRING_VALUE", // required
+ * //         reason: "STRING_VALUE", // required
+ * //       },
+ * //       resourceMetadata: { // ResourceScanMetadata
+ * //         ecrRepository: { // EcrRepositoryMetadata
+ * //           name: "STRING_VALUE",
+ * //           scanFrequency: "STRING_VALUE",
+ * //         },
+ * //         ecrImage: { // EcrContainerImageMetadata
+ * //           tags: [ // TagList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ec2: { // Ec2Metadata
+ * //           tags: { // TagMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           amiId: "STRING_VALUE",
+ * //           platform: "STRING_VALUE",
+ * //         },
+ * //         lambdaFunction: { // LambdaFunctionMetadata
+ * //           functionTags: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           layers: [ // LambdaLayerList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           functionName: "STRING_VALUE",
+ * //           runtime: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

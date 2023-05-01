@@ -46,13 +46,12 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * };
  * const command = new DeleteBackupPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBackupPlanOutput
- *   BackupPlanId: "STRING_VALUE",
- *   BackupPlanArn: "STRING_VALUE",
- *   DeletionDate: new Date("TIMESTAMP"),
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // DeleteBackupPlanOutput
+ * //   BackupPlanId: "STRING_VALUE",
+ * //   BackupPlanArn: "STRING_VALUE",
+ * //   DeletionDate: new Date("TIMESTAMP"),
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

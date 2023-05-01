@@ -52,10 +52,9 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * };
  * const command = new GetPermissionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPermissionPolicyResponse
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetPermissionPolicyResponse
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -75,10 +75,9 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartQueryExecutionOutput
- *   QueryExecutionId: "STRING_VALUE",
- * };
+ * // { // StartQueryExecutionOutput
+ * //   QueryExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

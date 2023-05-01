@@ -54,8 +54,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * };
  * const command = new UpdateComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

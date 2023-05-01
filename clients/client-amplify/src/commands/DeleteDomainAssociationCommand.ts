@@ -45,31 +45,30 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * };
  * const command = new DeleteDomainAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDomainAssociationResult
- *   domainAssociation: { // DomainAssociation
- *     domainAssociationArn: "STRING_VALUE", // required
- *     domainName: "STRING_VALUE", // required
- *     enableAutoSubDomain: true || false, // required
- *     autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
- *       "STRING_VALUE",
- *     ],
- *     autoSubDomainIAMRole: "STRING_VALUE",
- *     domainStatus: "PENDING_VERIFICATION" || "IN_PROGRESS" || "AVAILABLE" || "PENDING_DEPLOYMENT" || "FAILED" || "CREATING" || "REQUESTING_CERTIFICATE" || "UPDATING", // required
- *     statusReason: "STRING_VALUE", // required
- *     certificateVerificationDNSRecord: "STRING_VALUE",
- *     subDomains: [ // SubDomains // required
- *       { // SubDomain
- *         subDomainSetting: { // SubDomainSetting
- *           prefix: "STRING_VALUE", // required
- *           branchName: "STRING_VALUE", // required
- *         },
- *         verified: true || false, // required
- *         dnsRecord: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteDomainAssociationResult
+ * //   domainAssociation: { // DomainAssociation
+ * //     domainAssociationArn: "STRING_VALUE", // required
+ * //     domainName: "STRING_VALUE", // required
+ * //     enableAutoSubDomain: true || false, // required
+ * //     autoSubDomainCreationPatterns: [ // AutoSubDomainCreationPatterns
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     autoSubDomainIAMRole: "STRING_VALUE",
+ * //     domainStatus: "PENDING_VERIFICATION" || "IN_PROGRESS" || "AVAILABLE" || "PENDING_DEPLOYMENT" || "FAILED" || "CREATING" || "REQUESTING_CERTIFICATE" || "UPDATING", // required
+ * //     statusReason: "STRING_VALUE", // required
+ * //     certificateVerificationDNSRecord: "STRING_VALUE",
+ * //     subDomains: [ // SubDomains // required
+ * //       { // SubDomain
+ * //         subDomainSetting: { // SubDomainSetting
+ * //           prefix: "STRING_VALUE", // required
+ * //           branchName: "STRING_VALUE", // required
+ * //         },
+ * //         verified: true || false, // required
+ * //         dnsRecord: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

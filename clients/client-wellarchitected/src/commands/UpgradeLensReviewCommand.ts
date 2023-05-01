@@ -47,8 +47,7 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpgradeLensReviewCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

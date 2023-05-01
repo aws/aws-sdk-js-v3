@@ -52,8 +52,7 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  * };
  * const command = new AdminRemoveUserFromGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

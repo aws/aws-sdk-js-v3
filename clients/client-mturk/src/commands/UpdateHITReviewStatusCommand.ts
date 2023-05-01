@@ -49,8 +49,7 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * };
  * const command = new UpdateHITReviewStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

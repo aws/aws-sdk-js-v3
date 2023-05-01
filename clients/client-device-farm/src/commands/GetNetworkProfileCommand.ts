@@ -44,23 +44,22 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkProfileResult
- *   networkProfile: { // NetworkProfile
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     type: "CURATED" || "PRIVATE",
- *     uplinkBandwidthBits: Number("long"),
- *     downlinkBandwidthBits: Number("long"),
- *     uplinkDelayMs: Number("long"),
- *     downlinkDelayMs: Number("long"),
- *     uplinkJitterMs: Number("long"),
- *     downlinkJitterMs: Number("long"),
- *     uplinkLossPercent: Number("int"),
- *     downlinkLossPercent: Number("int"),
- *   },
- * };
+ * // { // GetNetworkProfileResult
+ * //   networkProfile: { // NetworkProfile
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     type: "CURATED" || "PRIVATE",
+ * //     uplinkBandwidthBits: Number("long"),
+ * //     downlinkBandwidthBits: Number("long"),
+ * //     uplinkDelayMs: Number("long"),
+ * //     downlinkDelayMs: Number("long"),
+ * //     uplinkJitterMs: Number("long"),
+ * //     downlinkJitterMs: Number("long"),
+ * //     uplinkLossPercent: Number("int"),
+ * //     downlinkLossPercent: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

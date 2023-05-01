@@ -69,21 +69,20 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * };
  * const command = new UpdateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   StartDate: "STRING_VALUE",
- *   EndDate: "STRING_VALUE",
- *   Schedule: "STRING_VALUE",
- *   ScheduleTimezone: "STRING_VALUE",
- *   ScheduleOffset: Number("int"),
- *   Duration: Number("int"),
- *   Cutoff: Number("int"),
- *   AllowUnassociatedTargets: true || false,
- *   Enabled: true || false,
- * };
+ * // { // UpdateMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   StartDate: "STRING_VALUE",
+ * //   EndDate: "STRING_VALUE",
+ * //   Schedule: "STRING_VALUE",
+ * //   ScheduleTimezone: "STRING_VALUE",
+ * //   ScheduleOffset: Number("int"),
+ * //   Duration: Number("int"),
+ * //   Cutoff: Number("int"),
+ * //   AllowUnassociatedTargets: true || false,
+ * //   Enabled: true || false,
+ * // };
  *
  * ```
  *

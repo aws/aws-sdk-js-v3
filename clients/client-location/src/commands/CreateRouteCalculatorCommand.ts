@@ -59,12 +59,11 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * };
  * const command = new CreateRouteCalculatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRouteCalculatorResponse
- *   CalculatorName: "STRING_VALUE", // required
- *   CalculatorArn: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateRouteCalculatorResponse
+ * //   CalculatorName: "STRING_VALUE", // required
+ * //   CalculatorArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

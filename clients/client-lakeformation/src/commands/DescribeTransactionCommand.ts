@@ -44,15 +44,14 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * };
  * const command = new DescribeTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransactionResponse
- *   TransactionDescription: { // TransactionDescription
- *     TransactionId: "STRING_VALUE",
- *     TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
- *     TransactionStartTime: new Date("TIMESTAMP"),
- *     TransactionEndTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeTransactionResponse
+ * //   TransactionDescription: { // TransactionDescription
+ * //     TransactionId: "STRING_VALUE",
+ * //     TransactionStatus: "ACTIVE" || "COMMITTED" || "ABORTED" || "COMMIT_IN_PROGRESS",
+ * //     TransactionStartTime: new Date("TIMESTAMP"),
+ * //     TransactionEndTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

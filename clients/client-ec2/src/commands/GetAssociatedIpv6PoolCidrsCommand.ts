@@ -47,16 +47,15 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssociatedIpv6PoolCidrsResult
- *   Ipv6CidrAssociations: [ // Ipv6CidrAssociationSet
- *     { // Ipv6CidrAssociation
- *       Ipv6Cidr: "STRING_VALUE",
- *       AssociatedResource: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAssociatedIpv6PoolCidrsResult
+ * //   Ipv6CidrAssociations: [ // Ipv6CidrAssociationSet
+ * //     { // Ipv6CidrAssociation
+ * //       Ipv6Cidr: "STRING_VALUE",
+ * //       AssociatedResource: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

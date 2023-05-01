@@ -46,21 +46,20 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * };
  * const command = new GetCampaignStateBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCampaignStateBatchResponse
- *   successfulRequests: [ // SuccessfulCampaignStateResponseList
- *     { // SuccessfulCampaignStateResponse
- *       campaignId: "STRING_VALUE",
- *       state: "STRING_VALUE",
- *     },
- *   ],
- *   failedRequests: [ // FailedCampaignStateResponseList
- *     { // FailedCampaignStateResponse
- *       campaignId: "STRING_VALUE",
- *       failureCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetCampaignStateBatchResponse
+ * //   successfulRequests: [ // SuccessfulCampaignStateResponseList
+ * //     { // SuccessfulCampaignStateResponse
+ * //       campaignId: "STRING_VALUE",
+ * //       state: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedRequests: [ // FailedCampaignStateResponseList
+ * //     { // FailedCampaignStateResponse
+ * //       campaignId: "STRING_VALUE",
+ * //       failureCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

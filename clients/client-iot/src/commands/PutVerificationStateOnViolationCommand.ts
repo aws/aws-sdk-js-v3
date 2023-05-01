@@ -51,8 +51,7 @@ export interface PutVerificationStateOnViolationCommandOutput
  * };
  * const command = new PutVerificationStateOnViolationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

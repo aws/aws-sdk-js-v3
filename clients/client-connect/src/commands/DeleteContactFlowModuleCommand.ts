@@ -45,8 +45,7 @@ export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowM
  * };
  * const command = new DeleteContactFlowModuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

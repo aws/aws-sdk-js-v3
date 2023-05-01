@@ -75,11 +75,10 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserResponse
- *   ServerId: "STRING_VALUE", // required
- *   UserName: "STRING_VALUE", // required
- * };
+ * // { // CreateUserResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   UserName: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

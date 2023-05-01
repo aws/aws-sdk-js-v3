@@ -74,8 +74,7 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  * };
  * const command = new UpdateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

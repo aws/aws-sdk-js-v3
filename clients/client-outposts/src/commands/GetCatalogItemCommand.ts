@@ -44,28 +44,27 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * };
  * const command = new GetCatalogItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCatalogItemOutput
- *   CatalogItem: { // CatalogItem
- *     CatalogItemId: "STRING_VALUE",
- *     ItemStatus: "AVAILABLE" || "DISCONTINUED",
- *     EC2Capacities: [ // EC2CapacityListDefinition
- *       { // EC2Capacity
- *         Family: "STRING_VALUE",
- *         MaxSize: "STRING_VALUE",
- *         Quantity: "STRING_VALUE",
- *       },
- *     ],
- *     PowerKva: Number("float"),
- *     WeightLbs: Number("int"),
- *     SupportedUplinkGbps: [ // SupportedUplinkGbpsListDefinition
- *       Number("int"),
- *     ],
- *     SupportedStorage: [ // SupportedStorageList
- *       "EBS" || "S3",
- *     ],
- *   },
- * };
+ * // { // GetCatalogItemOutput
+ * //   CatalogItem: { // CatalogItem
+ * //     CatalogItemId: "STRING_VALUE",
+ * //     ItemStatus: "AVAILABLE" || "DISCONTINUED",
+ * //     EC2Capacities: [ // EC2CapacityListDefinition
+ * //       { // EC2Capacity
+ * //         Family: "STRING_VALUE",
+ * //         MaxSize: "STRING_VALUE",
+ * //         Quantity: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PowerKva: Number("float"),
+ * //     WeightLbs: Number("int"),
+ * //     SupportedUplinkGbps: [ // SupportedUplinkGbpsListDefinition
+ * //       Number("int"),
+ * //     ],
+ * //     SupportedStorage: [ // SupportedStorageList
+ * //       "EBS" || "S3",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

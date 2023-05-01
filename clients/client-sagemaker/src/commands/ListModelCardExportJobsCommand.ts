@@ -53,21 +53,20 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * };
  * const command = new ListModelCardExportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelCardExportJobsResponse
- *   ModelCardExportJobSummaries: [ // ModelCardExportJobSummaryList // required
- *     { // ModelCardExportJobSummary
- *       ModelCardExportJobName: "STRING_VALUE", // required
- *       ModelCardExportJobArn: "STRING_VALUE", // required
- *       Status: "InProgress" || "Completed" || "Failed", // required
- *       ModelCardName: "STRING_VALUE", // required
- *       ModelCardVersion: Number("int"), // required
- *       CreatedAt: new Date("TIMESTAMP"), // required
- *       LastModifiedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelCardExportJobsResponse
+ * //   ModelCardExportJobSummaries: [ // ModelCardExportJobSummaryList // required
+ * //     { // ModelCardExportJobSummary
+ * //       ModelCardExportJobName: "STRING_VALUE", // required
+ * //       ModelCardExportJobArn: "STRING_VALUE", // required
+ * //       Status: "InProgress" || "Completed" || "Failed", // required
+ * //       ModelCardName: "STRING_VALUE", // required
+ * //       ModelCardVersion: Number("int"), // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       LastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

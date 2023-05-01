@@ -46,29 +46,28 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * };
  * const command = new BatchGetFreeTrialInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetFreeTrialInfoResponse
- *   accounts: [ // FreeTrialAccountInfoList // required
- *     { // FreeTrialAccountInfo
- *       accountId: "STRING_VALUE", // required
- *       freeTrialInfo: [ // FreeTrialInfoList // required
- *         { // FreeTrialInfo
- *           type: "STRING_VALUE", // required
- *           start: new Date("TIMESTAMP"), // required
- *           end: new Date("TIMESTAMP"), // required
- *           status: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   failedAccounts: [ // FreeTrialInfoErrorList // required
- *     { // FreeTrialInfoError
- *       accountId: "STRING_VALUE", // required
- *       code: "STRING_VALUE", // required
- *       message: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchGetFreeTrialInfoResponse
+ * //   accounts: [ // FreeTrialAccountInfoList // required
+ * //     { // FreeTrialAccountInfo
+ * //       accountId: "STRING_VALUE", // required
+ * //       freeTrialInfo: [ // FreeTrialInfoList // required
+ * //         { // FreeTrialInfo
+ * //           type: "STRING_VALUE", // required
+ * //           start: new Date("TIMESTAMP"), // required
+ * //           end: new Date("TIMESTAMP"), // required
+ * //           status: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   failedAccounts: [ // FreeTrialInfoErrorList // required
+ * //     { // FreeTrialInfoError
+ * //       accountId: "STRING_VALUE", // required
+ * //       code: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

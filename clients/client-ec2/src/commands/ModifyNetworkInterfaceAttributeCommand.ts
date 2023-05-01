@@ -69,8 +69,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

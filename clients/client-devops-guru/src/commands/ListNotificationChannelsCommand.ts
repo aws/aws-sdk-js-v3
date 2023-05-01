@@ -47,28 +47,27 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  * };
  * const command = new ListNotificationChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotificationChannelsResponse
- *   Channels: [ // Channels
- *     { // NotificationChannel
- *       Id: "STRING_VALUE",
- *       Config: { // NotificationChannelConfig
- *         Sns: { // SnsChannelConfig
- *           TopicArn: "STRING_VALUE",
- *         },
- *         Filters: { // NotificationFilterConfig
- *           Severities: [ // InsightSeverities
- *             "LOW" || "MEDIUM" || "HIGH",
- *           ],
- *           MessageTypes: [ // NotificationMessageTypes
- *             "NEW_INSIGHT" || "CLOSED_INSIGHT" || "NEW_ASSOCIATION" || "SEVERITY_UPGRADED" || "NEW_RECOMMENDATION",
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNotificationChannelsResponse
+ * //   Channels: [ // Channels
+ * //     { // NotificationChannel
+ * //       Id: "STRING_VALUE",
+ * //       Config: { // NotificationChannelConfig
+ * //         Sns: { // SnsChannelConfig
+ * //           TopicArn: "STRING_VALUE",
+ * //         },
+ * //         Filters: { // NotificationFilterConfig
+ * //           Severities: [ // InsightSeverities
+ * //             "LOW" || "MEDIUM" || "HIGH",
+ * //           ],
+ * //           MessageTypes: [ // NotificationMessageTypes
+ * //             "NEW_INSIGHT" || "CLOSED_INSIGHT" || "NEW_ASSOCIATION" || "SEVERITY_UPGRADED" || "NEW_RECOMMENDATION",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

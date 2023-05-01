@@ -49,8 +49,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

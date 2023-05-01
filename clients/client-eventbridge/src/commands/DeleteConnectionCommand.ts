@@ -44,14 +44,13 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteConnectionResponse
- *   ConnectionArn: "STRING_VALUE",
- *   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastAuthorizedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

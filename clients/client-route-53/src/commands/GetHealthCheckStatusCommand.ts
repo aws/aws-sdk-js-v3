@@ -49,19 +49,18 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * };
  * const command = new GetHealthCheckStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHealthCheckStatusResponse
- *   HealthCheckObservations: [ // HealthCheckObservations // required
- *     { // HealthCheckObservation
- *       Region: "us-east-1" || "us-west-1" || "us-west-2" || "eu-west-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1",
- *       IPAddress: "STRING_VALUE",
- *       StatusReport: { // StatusReport
- *         Status: "STRING_VALUE",
- *         CheckedTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetHealthCheckStatusResponse
+ * //   HealthCheckObservations: [ // HealthCheckObservations // required
+ * //     { // HealthCheckObservation
+ * //       Region: "us-east-1" || "us-west-1" || "us-west-2" || "eu-west-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1",
+ * //       IPAddress: "STRING_VALUE",
+ * //       StatusReport: { // StatusReport
+ * //         Status: "STRING_VALUE",
+ * //         CheckedTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

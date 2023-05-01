@@ -58,17 +58,16 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * };
  * const command = new GetFolderPathCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFolderPathResponse
- *   Path: { // ResourcePath
- *     Components: [ // ResourcePathComponentList
- *       { // ResourcePathComponent
- *         Id: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetFolderPathResponse
+ * //   Path: { // ResourcePath
+ * //     Components: [ // ResourcePathComponentList
+ * //       { // ResourcePathComponent
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

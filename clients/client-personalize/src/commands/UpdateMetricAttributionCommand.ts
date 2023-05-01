@@ -61,10 +61,9 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * };
  * const command = new UpdateMetricAttributionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMetricAttributionResponse
- *   metricAttributionArn: "STRING_VALUE",
- * };
+ * // { // UpdateMetricAttributionResponse
+ * //   metricAttributionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

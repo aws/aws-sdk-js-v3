@@ -50,21 +50,20 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppsResponse
- *   Apps: [ // AppList
- *     { // AppDetails
- *       DomainId: "STRING_VALUE",
- *       UserProfileName: "STRING_VALUE",
- *       AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway",
- *       AppName: "STRING_VALUE",
- *       Status: "Deleted" || "Deleting" || "Failed" || "InService" || "Pending",
- *       CreationTime: new Date("TIMESTAMP"),
- *       SpaceName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppsResponse
+ * //   Apps: [ // AppList
+ * //     { // AppDetails
+ * //       DomainId: "STRING_VALUE",
+ * //       UserProfileName: "STRING_VALUE",
+ * //       AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway",
+ * //       AppName: "STRING_VALUE",
+ * //       Status: "Deleted" || "Deleting" || "Failed" || "InService" || "Pending",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       SpaceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

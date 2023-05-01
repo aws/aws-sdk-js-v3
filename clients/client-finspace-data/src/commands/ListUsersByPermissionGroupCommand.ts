@@ -50,23 +50,22 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * };
  * const command = new ListUsersByPermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersByPermissionGroupResponse
- *   users: [ // UserByPermissionGroupList
- *     { // UserByPermissionGroup
- *       userId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       firstName: "STRING_VALUE",
- *       lastName: "STRING_VALUE",
- *       emailAddress: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       apiAccess: "STRING_VALUE",
- *       apiAccessPrincipalArn: "STRING_VALUE",
- *       membershipStatus: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUsersByPermissionGroupResponse
+ * //   users: [ // UserByPermissionGroupList
+ * //     { // UserByPermissionGroup
+ * //       userId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       firstName: "STRING_VALUE",
+ * //       lastName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       apiAccess: "STRING_VALUE",
+ * //       apiAccessPrincipalArn: "STRING_VALUE",
+ * //       membershipStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

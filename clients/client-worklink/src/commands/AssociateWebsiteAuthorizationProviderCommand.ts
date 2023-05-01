@@ -57,10 +57,9 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * };
  * const command = new AssociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateWebsiteAuthorizationProviderResponse
- *   AuthorizationProviderId: "STRING_VALUE",
- * };
+ * // { // AssociateWebsiteAuthorizationProviderResponse
+ * //   AuthorizationProviderId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

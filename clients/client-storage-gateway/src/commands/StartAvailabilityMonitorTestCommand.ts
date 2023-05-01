@@ -56,10 +56,9 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * };
  * const command = new StartAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAvailabilityMonitorTestOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // StartAvailabilityMonitorTestOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

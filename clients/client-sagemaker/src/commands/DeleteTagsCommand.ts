@@ -58,8 +58,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

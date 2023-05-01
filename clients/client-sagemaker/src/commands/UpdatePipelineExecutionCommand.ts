@@ -49,10 +49,9 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * };
  * const command = new UpdatePipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePipelineExecutionResponse
- *   PipelineExecutionArn: "STRING_VALUE",
- * };
+ * // { // UpdatePipelineExecutionResponse
+ * //   PipelineExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

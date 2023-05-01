@@ -45,16 +45,15 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  * };
  * const command = new ListKafkaVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListKafkaVersionsResponse
- *   KafkaVersions: [ // __listOfKafkaVersion
- *     { // KafkaVersion
- *       Version: "STRING_VALUE",
- *       Status: "ACTIVE" || "DEPRECATED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListKafkaVersionsResponse
+ * //   KafkaVersions: [ // __listOfKafkaVersion
+ * //     { // KafkaVersion
+ * //       Version: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "DEPRECATED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

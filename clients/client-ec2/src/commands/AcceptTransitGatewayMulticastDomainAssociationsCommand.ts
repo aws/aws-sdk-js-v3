@@ -58,22 +58,21 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
  * };
  * const command = new AcceptTransitGatewayMulticastDomainAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptTransitGatewayMulticastDomainAssociationsResult
- *   Associations: { // TransitGatewayMulticastDomainAssociations
- *     TransitGatewayMulticastDomainId: "STRING_VALUE",
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *     ResourceOwnerId: "STRING_VALUE",
- *     Subnets: [ // SubnetAssociationList
- *       { // SubnetAssociation
- *         SubnetId: "STRING_VALUE",
- *         State: "pendingAcceptance" || "associating" || "associated" || "disassociating" || "disassociated" || "rejected" || "failed",
- *       },
- *     ],
- *   },
- * };
+ * // { // AcceptTransitGatewayMulticastDomainAssociationsResult
+ * //   Associations: { // TransitGatewayMulticastDomainAssociations
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     ResourceOwnerId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetAssociationList
+ * //       { // SubnetAssociation
+ * //         SubnetId: "STRING_VALUE",
+ * //         State: "pendingAcceptance" || "associating" || "associated" || "disassociating" || "disassociated" || "rejected" || "failed",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

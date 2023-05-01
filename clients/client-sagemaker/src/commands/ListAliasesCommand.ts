@@ -48,13 +48,12 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAliasesResponse
- *   SageMakerImageVersionAliases: [ // SageMakerImageVersionAliases
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAliasesResponse
+ * //   SageMakerImageVersionAliases: [ // SageMakerImageVersionAliases
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

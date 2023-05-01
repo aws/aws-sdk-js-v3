@@ -52,13 +52,12 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * };
  * const command = new CreateGroupVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // CreateGroupVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,102 +58,101 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  * };
  * const command = new GetFaceDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFaceDetectionResponse
- *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *   StatusMessage: "STRING_VALUE",
- *   VideoMetadata: { // VideoMetadata
- *     Codec: "STRING_VALUE",
- *     DurationMillis: Number("long"),
- *     Format: "STRING_VALUE",
- *     FrameRate: Number("float"),
- *     FrameHeight: Number("long"),
- *     FrameWidth: Number("long"),
- *     ColorRange: "FULL" || "LIMITED",
- *   },
- *   NextToken: "STRING_VALUE",
- *   Faces: [ // FaceDetections
- *     { // FaceDetection
- *       Timestamp: Number("long"),
- *       Face: { // FaceDetail
- *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *         },
- *         AgeRange: { // AgeRange
- *           Low: Number("int"),
- *           High: Number("int"),
- *         },
- *         Smile: { // Smile
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         Eyeglasses: { // Eyeglasses
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         Sunglasses: { // Sunglasses
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         Gender: { // Gender
- *           Value: "Male" || "Female",
- *           Confidence: Number("float"),
- *         },
- *         Beard: { // Beard
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         Mustache: { // Mustache
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         EyesOpen: { // EyeOpen
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         MouthOpen: { // MouthOpen
- *           Value: true || false,
- *           Confidence: Number("float"),
- *         },
- *         Emotions: [ // Emotions
- *           { // Emotion
- *             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
- *             Confidence: Number("float"),
- *           },
- *         ],
- *         Landmarks: [ // Landmarks
- *           { // Landmark
- *             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
- *             X: Number("float"),
- *             Y: Number("float"),
- *           },
- *         ],
- *         Pose: { // Pose
- *           Roll: Number("float"),
- *           Yaw: Number("float"),
- *           Pitch: Number("float"),
- *         },
- *         Quality: { // ImageQuality
- *           Brightness: Number("float"),
- *           Sharpness: Number("float"),
- *         },
- *         Confidence: Number("float"),
- *       },
- *     },
- *   ],
- *   JobId: "STRING_VALUE",
- *   Video: { // Video
- *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   },
- *   JobTag: "STRING_VALUE",
- * };
+ * // { // GetFaceDetectionResponse
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   VideoMetadata: { // VideoMetadata
+ * //     Codec: "STRING_VALUE",
+ * //     DurationMillis: Number("long"),
+ * //     Format: "STRING_VALUE",
+ * //     FrameRate: Number("float"),
+ * //     FrameHeight: Number("long"),
+ * //     FrameWidth: Number("long"),
+ * //     ColorRange: "FULL" || "LIMITED",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * //   Faces: [ // FaceDetections
+ * //     { // FaceDetection
+ * //       Timestamp: Number("long"),
+ * //       Face: { // FaceDetail
+ * //         BoundingBox: { // BoundingBox
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         AgeRange: { // AgeRange
+ * //           Low: Number("int"),
+ * //           High: Number("int"),
+ * //         },
+ * //         Smile: { // Smile
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Eyeglasses: { // Eyeglasses
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Sunglasses: { // Sunglasses
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Gender: { // Gender
+ * //           Value: "Male" || "Female",
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Beard: { // Beard
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Mustache: { // Mustache
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         EyesOpen: { // EyeOpen
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         MouthOpen: { // MouthOpen
+ * //           Value: true || false,
+ * //           Confidence: Number("float"),
+ * //         },
+ * //         Emotions: [ // Emotions
+ * //           { // Emotion
+ * //             Type: "HAPPY" || "SAD" || "ANGRY" || "CONFUSED" || "DISGUSTED" || "SURPRISED" || "CALM" || "UNKNOWN" || "FEAR",
+ * //             Confidence: Number("float"),
+ * //           },
+ * //         ],
+ * //         Landmarks: [ // Landmarks
+ * //           { // Landmark
+ * //             Type: "eyeLeft" || "eyeRight" || "nose" || "mouthLeft" || "mouthRight" || "leftEyeBrowLeft" || "leftEyeBrowRight" || "leftEyeBrowUp" || "rightEyeBrowLeft" || "rightEyeBrowRight" || "rightEyeBrowUp" || "leftEyeLeft" || "leftEyeRight" || "leftEyeUp" || "leftEyeDown" || "rightEyeLeft" || "rightEyeRight" || "rightEyeUp" || "rightEyeDown" || "noseLeft" || "noseRight" || "mouthUp" || "mouthDown" || "leftPupil" || "rightPupil" || "upperJawlineLeft" || "midJawlineLeft" || "chinBottom" || "midJawlineRight" || "upperJawlineRight",
+ * //             X: Number("float"),
+ * //             Y: Number("float"),
+ * //           },
+ * //         ],
+ * //         Pose: { // Pose
+ * //           Roll: Number("float"),
+ * //           Yaw: Number("float"),
+ * //           Pitch: Number("float"),
+ * //         },
+ * //         Quality: { // ImageQuality
+ * //           Brightness: Number("float"),
+ * //           Sharpness: Number("float"),
+ * //         },
+ * //         Confidence: Number("float"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   JobId: "STRING_VALUE",
+ * //   Video: { // Video
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobTag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

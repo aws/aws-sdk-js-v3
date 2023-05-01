@@ -50,12 +50,11 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * };
  * const command = new GetGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupCertificateAuthorityResponse
- *   GroupCertificateAuthorityArn: "STRING_VALUE",
- *   GroupCertificateAuthorityId: "STRING_VALUE",
- *   PemEncodedCertificate: "STRING_VALUE",
- * };
+ * // { // GetGroupCertificateAuthorityResponse
+ * //   GroupCertificateAuthorityArn: "STRING_VALUE",
+ * //   GroupCertificateAuthorityId: "STRING_VALUE",
+ * //   PemEncodedCertificate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

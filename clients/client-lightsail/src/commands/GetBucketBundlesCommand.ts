@@ -48,19 +48,18 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * };
  * const command = new GetBucketBundlesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketBundlesResult
- *   bundles: [ // BucketBundleList
- *     { // BucketBundle
- *       bundleId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       price: Number("float"),
- *       storagePerMonthInGb: Number("int"),
- *       transferPerMonthInGb: Number("int"),
- *       isActive: true || false,
- *     },
- *   ],
- * };
+ * // { // GetBucketBundlesResult
+ * //   bundles: [ // BucketBundleList
+ * //     { // BucketBundle
+ * //       bundleId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       price: Number("float"),
+ * //       storagePerMonthInGb: Number("int"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       isActive: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

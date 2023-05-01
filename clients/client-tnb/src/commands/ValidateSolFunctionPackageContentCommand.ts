@@ -52,24 +52,23 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * };
  * const command = new ValidateSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateSolFunctionPackageContentOutput
- *   id: "STRING_VALUE", // required
- *   vnfdId: "STRING_VALUE", // required
- *   vnfProductName: "STRING_VALUE", // required
- *   vnfProvider: "STRING_VALUE", // required
- *   vnfdVersion: "STRING_VALUE", // required
- *   metadata: { // ValidateSolFunctionPackageContentMetadata
- *     vnfd: { // FunctionArtifactMeta
- *       overrides: [ // OverrideList
- *         { // ToscaOverride
- *           name: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // ValidateSolFunctionPackageContentOutput
+ * //   id: "STRING_VALUE", // required
+ * //   vnfdId: "STRING_VALUE", // required
+ * //   vnfProductName: "STRING_VALUE", // required
+ * //   vnfProvider: "STRING_VALUE", // required
+ * //   vnfdVersion: "STRING_VALUE", // required
+ * //   metadata: { // ValidateSolFunctionPackageContentMetadata
+ * //     vnfd: { // FunctionArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

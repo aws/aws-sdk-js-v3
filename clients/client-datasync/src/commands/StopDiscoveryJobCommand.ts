@@ -47,8 +47,7 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * };
  * const command = new StopDiscoveryJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

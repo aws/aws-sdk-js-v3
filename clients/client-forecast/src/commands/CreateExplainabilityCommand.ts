@@ -195,10 +195,9 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * };
  * const command = new CreateExplainabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateExplainabilityResponse
- *   ExplainabilityArn: "STRING_VALUE",
- * };
+ * // { // CreateExplainabilityResponse
+ * //   ExplainabilityArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,13 +58,12 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  * };
  * const command = new ListHapgsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHapgsResponse
- *   HapgList: [ // HapgList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHapgsResponse
+ * //   HapgList: [ // HapgList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

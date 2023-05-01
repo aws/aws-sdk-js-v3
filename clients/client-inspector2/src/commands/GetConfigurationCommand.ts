@@ -42,16 +42,15 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * const input = {};
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConfigurationResponse
- *   ecrConfiguration: { // EcrConfigurationState
- *     rescanDurationState: { // EcrRescanDurationState
- *       rescanDuration: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // GetConfigurationResponse
+ * //   ecrConfiguration: { // EcrConfigurationState
+ * //     rescanDurationState: { // EcrRescanDurationState
+ * //       rescanDuration: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

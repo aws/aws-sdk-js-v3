@@ -55,20 +55,19 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * };
  * const command = new ListServerNeighborsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServerNeighborsResponse
- *   neighbors: [ // NeighborDetailsList // required
- *     { // NeighborConnectionDetail
- *       sourceServerId: "STRING_VALUE", // required
- *       destinationServerId: "STRING_VALUE", // required
- *       destinationPort: Number("int"),
- *       transportProtocol: "STRING_VALUE",
- *       connectionsCount: Number("long"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   knownDependencyCount: Number("long"),
- * };
+ * // { // ListServerNeighborsResponse
+ * //   neighbors: [ // NeighborDetailsList // required
+ * //     { // NeighborConnectionDetail
+ * //       sourceServerId: "STRING_VALUE", // required
+ * //       destinationServerId: "STRING_VALUE", // required
+ * //       destinationPort: Number("int"),
+ * //       transportProtocol: "STRING_VALUE",
+ * //       connectionsCount: Number("long"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   knownDependencyCount: Number("long"),
+ * // };
  *
  * ```
  *

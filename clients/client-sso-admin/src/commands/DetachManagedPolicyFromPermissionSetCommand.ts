@@ -54,8 +54,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  * };
  * const command = new DetachManagedPolicyFromPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -59,11 +59,10 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecurityProfileResponse
- *   SecurityProfileId: "STRING_VALUE",
- *   SecurityProfileArn: "STRING_VALUE",
- * };
+ * // { // CreateSecurityProfileResponse
+ * //   SecurityProfileId: "STRING_VALUE",
+ * //   SecurityProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

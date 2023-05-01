@@ -60,14 +60,13 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * };
  * const command = new DescribeDraftAppVersionResourcesImportStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDraftAppVersionResourcesImportStatusResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusChangeTime: new Date("TIMESTAMP"), // required
- *   errorMessage: "STRING_VALUE",
- * };
+ * // { // DescribeDraftAppVersionResourcesImportStatusResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusChangeTime: new Date("TIMESTAMP"), // required
+ * //   errorMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

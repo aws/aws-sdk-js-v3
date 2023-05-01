@@ -54,15 +54,14 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * };
  * const command = new DescribeWorkingStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkingStorageOutput
- *   GatewayARN: "STRING_VALUE",
- *   DiskIds: [ // DiskIds
- *     "STRING_VALUE",
- *   ],
- *   WorkingStorageUsedInBytes: Number("long"),
- *   WorkingStorageAllocatedInBytes: Number("long"),
- * };
+ * // { // DescribeWorkingStorageOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   DiskIds: [ // DiskIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   WorkingStorageUsedInBytes: Number("long"),
+ * //   WorkingStorageAllocatedInBytes: Number("long"),
+ * // };
  *
  * ```
  *

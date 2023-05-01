@@ -88,41 +88,40 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * };
  * const command = new GetInsightRuleReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightRuleReportOutput
- *   KeyLabels: [ // InsightRuleContributorKeyLabels
- *     "STRING_VALUE",
- *   ],
- *   AggregationStatistic: "STRING_VALUE",
- *   AggregateValue: Number("double"),
- *   ApproximateUniqueCount: Number("long"),
- *   Contributors: [ // InsightRuleContributors
- *     { // InsightRuleContributor
- *       Keys: [ // InsightRuleContributorKeys // required
- *         "STRING_VALUE",
- *       ],
- *       ApproximateAggregateValue: Number("double"), // required
- *       Datapoints: [ // InsightRuleContributorDatapoints // required
- *         { // InsightRuleContributorDatapoint
- *           Timestamp: new Date("TIMESTAMP"), // required
- *           ApproximateValue: Number("double"), // required
- *         },
- *       ],
- *     },
- *   ],
- *   MetricDatapoints: [ // InsightRuleMetricDatapoints
- *     { // InsightRuleMetricDatapoint
- *       Timestamp: new Date("TIMESTAMP"), // required
- *       UniqueContributors: Number("double"),
- *       MaxContributorValue: Number("double"),
- *       SampleCount: Number("double"),
- *       Average: Number("double"),
- *       Sum: Number("double"),
- *       Minimum: Number("double"),
- *       Maximum: Number("double"),
- *     },
- *   ],
- * };
+ * // { // GetInsightRuleReportOutput
+ * //   KeyLabels: [ // InsightRuleContributorKeyLabels
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   AggregationStatistic: "STRING_VALUE",
+ * //   AggregateValue: Number("double"),
+ * //   ApproximateUniqueCount: Number("long"),
+ * //   Contributors: [ // InsightRuleContributors
+ * //     { // InsightRuleContributor
+ * //       Keys: [ // InsightRuleContributorKeys // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ApproximateAggregateValue: Number("double"), // required
+ * //       Datapoints: [ // InsightRuleContributorDatapoints // required
+ * //         { // InsightRuleContributorDatapoint
+ * //           Timestamp: new Date("TIMESTAMP"), // required
+ * //           ApproximateValue: Number("double"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MetricDatapoints: [ // InsightRuleMetricDatapoints
+ * //     { // InsightRuleMetricDatapoint
+ * //       Timestamp: new Date("TIMESTAMP"), // required
+ * //       UniqueContributors: Number("double"),
+ * //       MaxContributorValue: Number("double"),
+ * //       SampleCount: Number("double"),
+ * //       Average: Number("double"),
+ * //       Sum: Number("double"),
+ * //       Minimum: Number("double"),
+ * //       Maximum: Number("double"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

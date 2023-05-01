@@ -47,8 +47,7 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

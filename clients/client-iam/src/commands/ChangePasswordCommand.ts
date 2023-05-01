@@ -52,8 +52,7 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

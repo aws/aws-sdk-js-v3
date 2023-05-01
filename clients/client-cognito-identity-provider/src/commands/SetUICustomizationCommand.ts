@@ -69,18 +69,17 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  * };
  * const command = new SetUICustomizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetUICustomizationResponse
- *   UICustomization: { // UICustomizationType
- *     UserPoolId: "STRING_VALUE",
- *     ClientId: "STRING_VALUE",
- *     ImageUrl: "STRING_VALUE",
- *     CSS: "STRING_VALUE",
- *     CSSVersion: "STRING_VALUE",
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // SetUICustomizationResponse
+ * //   UICustomization: { // UICustomizationType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     ClientId: "STRING_VALUE",
+ * //     ImageUrl: "STRING_VALUE",
+ * //     CSS: "STRING_VALUE",
+ * //     CSSVersion: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveUserFromGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

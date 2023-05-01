@@ -62,13 +62,12 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFolderResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   FolderId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateFolderResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   FolderId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

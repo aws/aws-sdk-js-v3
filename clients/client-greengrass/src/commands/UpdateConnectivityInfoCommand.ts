@@ -52,11 +52,10 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * };
  * const command = new UpdateConnectivityInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectivityInfoResponse
- *   Message: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // UpdateConnectivityInfoResponse
+ * //   Message: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

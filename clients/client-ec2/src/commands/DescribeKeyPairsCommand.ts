@@ -61,25 +61,24 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeKeyPairsResult
- *   KeyPairs: [ // KeyPairList
- *     { // KeyPairInfo
- *       KeyPairId: "STRING_VALUE",
- *       KeyFingerprint: "STRING_VALUE",
- *       KeyName: "STRING_VALUE",
- *       KeyType: "rsa" || "ed25519",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       PublicKey: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeKeyPairsResult
+ * //   KeyPairs: [ // KeyPairList
+ * //     { // KeyPairInfo
+ * //       KeyPairId: "STRING_VALUE",
+ * //       KeyFingerprint: "STRING_VALUE",
+ * //       KeyName: "STRING_VALUE",
+ * //       KeyType: "rsa" || "ed25519",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PublicKey: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

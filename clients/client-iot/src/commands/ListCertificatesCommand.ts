@@ -49,19 +49,18 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * };
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCertificatesResponse
- *   certificates: [ // Certificates
- *     { // Certificate
- *       certificateArn: "STRING_VALUE",
- *       certificateId: "STRING_VALUE",
- *       status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
- *       certificateMode: "DEFAULT" || "SNI_ONLY",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListCertificatesResponse
+ * //   certificates: [ // Certificates
+ * //     { // Certificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       status: "ACTIVE" || "INACTIVE" || "REVOKED" || "PENDING_TRANSFER" || "REGISTER_INACTIVE" || "PENDING_ACTIVATION",
+ * //       certificateMode: "DEFAULT" || "SNI_ONLY",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,23 +57,22 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * };
  * const command = new ListVectorEnrichmentJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVectorEnrichmentJobOutput
- *   VectorEnrichmentJobSummaries: [ // VectorEnrichmentJobList // required
- *     { // ListVectorEnrichmentJobOutputConfig
- *       Arn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       Type: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       DurationInSeconds: Number("int"), // required
- *       Status: "STRING_VALUE", // required
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVectorEnrichmentJobOutput
+ * //   VectorEnrichmentJobSummaries: [ // VectorEnrichmentJobList // required
+ * //     { // ListVectorEnrichmentJobOutputConfig
+ * //       Arn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       DurationInSeconds: Number("int"), // required
+ * //       Status: "STRING_VALUE", // required
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,17 +60,16 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventCategoriesResponse
- *   EventCategoryGroupList: [ // EventCategoryGroupList
- *     { // EventCategoryGroup
- *       SourceType: "STRING_VALUE",
- *       EventCategories: [ // EventCategoriesList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeEventCategoriesResponse
+ * //   EventCategoryGroupList: [ // EventCategoryGroupList
+ * //     { // EventCategoryGroup
+ * //       SourceType: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

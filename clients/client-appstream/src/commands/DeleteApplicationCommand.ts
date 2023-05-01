@@ -44,8 +44,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationResult,
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

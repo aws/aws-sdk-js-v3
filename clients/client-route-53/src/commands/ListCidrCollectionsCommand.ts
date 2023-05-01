@@ -46,18 +46,17 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * };
  * const command = new ListCidrCollectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCidrCollectionsResponse
- *   NextToken: "STRING_VALUE",
- *   CidrCollections: [ // CollectionSummaries
- *     { // CollectionSummary
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: Number("long"),
- *     },
- *   ],
- * };
+ * // { // ListCidrCollectionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   CidrCollections: [ // CollectionSummaries
+ * //     { // CollectionSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

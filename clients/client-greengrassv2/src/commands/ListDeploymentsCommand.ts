@@ -48,22 +48,21 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentsResponse
- *   deployments: [ // DeploymentList
- *     { // Deployment
- *       targetArn: "STRING_VALUE",
- *       revisionId: "STRING_VALUE",
- *       deploymentId: "STRING_VALUE",
- *       deploymentName: "STRING_VALUE",
- *       creationTimestamp: new Date("TIMESTAMP"),
- *       deploymentStatus: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "INACTIVE",
- *       isLatestForTarget: true || false,
- *       parentTargetArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentsResponse
+ * //   deployments: [ // DeploymentList
+ * //     { // Deployment
+ * //       targetArn: "STRING_VALUE",
+ * //       revisionId: "STRING_VALUE",
+ * //       deploymentId: "STRING_VALUE",
+ * //       deploymentName: "STRING_VALUE",
+ * //       creationTimestamp: new Date("TIMESTAMP"),
+ * //       deploymentStatus: "ACTIVE" || "COMPLETED" || "CANCELED" || "FAILED" || "INACTIVE",
+ * //       isLatestForTarget: true || false,
+ * //       parentTargetArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

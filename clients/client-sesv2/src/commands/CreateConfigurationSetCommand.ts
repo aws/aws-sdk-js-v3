@@ -81,8 +81,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

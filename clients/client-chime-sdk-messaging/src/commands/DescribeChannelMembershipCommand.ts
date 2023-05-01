@@ -60,24 +60,23 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * };
  * const command = new DescribeChannelMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelMembershipResponse
- *   ChannelMembership: { // ChannelMembership
- *     InvitedBy: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     Type: "DEFAULT" || "HIDDEN",
- *     Member: {
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     ChannelArn: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     SubChannelId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeChannelMembershipResponse
+ * //   ChannelMembership: { // ChannelMembership
+ * //     InvitedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Type: "DEFAULT" || "HIDDEN",
+ * //     Member: {
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     ChannelArn: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     SubChannelId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

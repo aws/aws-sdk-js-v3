@@ -47,16 +47,15 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * };
  * const command = new ListCidrBlocksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCidrBlocksResponse
- *   NextToken: "STRING_VALUE",
- *   CidrBlocks: [ // CidrBlockSummaries
- *     { // CidrBlockSummary
- *       CidrBlock: "STRING_VALUE",
- *       LocationName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCidrBlocksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   CidrBlocks: [ // CidrBlockSummaries
+ * //     { // CidrBlockSummary
+ * //       CidrBlock: "STRING_VALUE",
+ * //       LocationName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

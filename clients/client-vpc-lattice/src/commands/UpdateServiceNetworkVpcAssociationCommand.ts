@@ -58,16 +58,15 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  * };
  * const command = new UpdateServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceNetworkVpcAssociationResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   createdBy: "STRING_VALUE",
- *   securityGroupIds: [ // SecurityGroupList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UpdateServiceNetworkVpcAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
+ * //   securityGroupIds: [ // SecurityGroupList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,20 +48,19 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * };
  * const command = new AuthorizeEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EndpointAuthorization
- *   Grantor: "STRING_VALUE",
- *   Grantee: "STRING_VALUE",
- *   ClusterIdentifier: "STRING_VALUE",
- *   AuthorizeTime: new Date("TIMESTAMP"),
- *   ClusterStatus: "STRING_VALUE",
- *   Status: "Authorized" || "Revoking",
- *   AllowedAllVPCs: true || false,
- *   AllowedVPCs: [ // VpcIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   EndpointCount: Number("int"),
- * };
+ * // { // EndpointAuthorization
+ * //   Grantor: "STRING_VALUE",
+ * //   Grantee: "STRING_VALUE",
+ * //   ClusterIdentifier: "STRING_VALUE",
+ * //   AuthorizeTime: new Date("TIMESTAMP"),
+ * //   ClusterStatus: "STRING_VALUE",
+ * //   Status: "Authorized" || "Revoking",
+ * //   AllowedAllVPCs: true || false,
+ * //   AllowedVPCs: [ // VpcIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   EndpointCount: Number("int"),
+ * // };
  *
  * ```
  *

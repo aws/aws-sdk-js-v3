@@ -47,82 +47,81 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClustersResponse
- *   NextToken: "STRING_VALUE",
- *   Clusters: [ // ClusterList
- *     { // Cluster
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       PendingUpdates: { // ClusterPendingUpdates
- *         Resharding: { // ReshardingStatus
- *           SlotMigration: { // SlotMigration
- *             ProgressPercentage: Number("double"),
- *           },
- *         },
- *         ACLs: { // ACLsUpdateStatus
- *           ACLToApply: "STRING_VALUE",
- *         },
- *         ServiceUpdates: [ // PendingModifiedServiceUpdateList
- *           { // PendingModifiedServiceUpdate
- *             ServiceUpdateName: "STRING_VALUE",
- *             Status: "available" || "in-progress" || "complete" || "scheduled",
- *           },
- *         ],
- *       },
- *       NumberOfShards: Number("int"),
- *       Shards: [ // ShardList
- *         { // Shard
- *           Name: "STRING_VALUE",
- *           Status: "STRING_VALUE",
- *           Slots: "STRING_VALUE",
- *           Nodes: [ // NodeList
- *             { // Node
- *               Name: "STRING_VALUE",
- *               Status: "STRING_VALUE",
- *               AvailabilityZone: "STRING_VALUE",
- *               CreateTime: new Date("TIMESTAMP"),
- *               Endpoint: { // Endpoint
- *                 Address: "STRING_VALUE",
- *                 Port: Number("int"),
- *               },
- *             },
- *           ],
- *           NumberOfNodes: Number("int"),
- *         },
- *       ],
- *       AvailabilityMode: "singleaz" || "multiaz",
- *       ClusterEndpoint: {
- *         Address: "STRING_VALUE",
- *         Port: Number("int"),
- *       },
- *       NodeType: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       EnginePatchVersion: "STRING_VALUE",
- *       ParameterGroupName: "STRING_VALUE",
- *       ParameterGroupStatus: "STRING_VALUE",
- *       SecurityGroups: [ // SecurityGroupMembershipList
- *         { // SecurityGroupMembership
- *           SecurityGroupId: "STRING_VALUE",
- *           Status: "STRING_VALUE",
- *         },
- *       ],
- *       SubnetGroupName: "STRING_VALUE",
- *       TLSEnabled: true || false,
- *       KmsKeyId: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *       SnsTopicArn: "STRING_VALUE",
- *       SnsTopicStatus: "STRING_VALUE",
- *       SnapshotRetentionLimit: Number("int"),
- *       MaintenanceWindow: "STRING_VALUE",
- *       SnapshotWindow: "STRING_VALUE",
- *       ACLName: "STRING_VALUE",
- *       AutoMinorVersionUpgrade: true || false,
- *       DataTiering: "true" || "false",
- *     },
- *   ],
- * };
+ * // { // DescribeClustersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Clusters: [ // ClusterList
+ * //     { // Cluster
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       PendingUpdates: { // ClusterPendingUpdates
+ * //         Resharding: { // ReshardingStatus
+ * //           SlotMigration: { // SlotMigration
+ * //             ProgressPercentage: Number("double"),
+ * //           },
+ * //         },
+ * //         ACLs: { // ACLsUpdateStatus
+ * //           ACLToApply: "STRING_VALUE",
+ * //         },
+ * //         ServiceUpdates: [ // PendingModifiedServiceUpdateList
+ * //           { // PendingModifiedServiceUpdate
+ * //             ServiceUpdateName: "STRING_VALUE",
+ * //             Status: "available" || "in-progress" || "complete" || "scheduled",
+ * //           },
+ * //         ],
+ * //       },
+ * //       NumberOfShards: Number("int"),
+ * //       Shards: [ // ShardList
+ * //         { // Shard
+ * //           Name: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //           Slots: "STRING_VALUE",
+ * //           Nodes: [ // NodeList
+ * //             { // Node
+ * //               Name: "STRING_VALUE",
+ * //               Status: "STRING_VALUE",
+ * //               AvailabilityZone: "STRING_VALUE",
+ * //               CreateTime: new Date("TIMESTAMP"),
+ * //               Endpoint: { // Endpoint
+ * //                 Address: "STRING_VALUE",
+ * //                 Port: Number("int"),
+ * //               },
+ * //             },
+ * //           ],
+ * //           NumberOfNodes: Number("int"),
+ * //         },
+ * //       ],
+ * //       AvailabilityMode: "singleaz" || "multiaz",
+ * //       ClusterEndpoint: {
+ * //         Address: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //       },
+ * //       NodeType: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       EnginePatchVersion: "STRING_VALUE",
+ * //       ParameterGroupName: "STRING_VALUE",
+ * //       ParameterGroupStatus: "STRING_VALUE",
+ * //       SecurityGroups: [ // SecurityGroupMembershipList
+ * //         { // SecurityGroupMembership
+ * //           SecurityGroupId: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SubnetGroupName: "STRING_VALUE",
+ * //       TLSEnabled: true || false,
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       SnsTopicArn: "STRING_VALUE",
+ * //       SnsTopicStatus: "STRING_VALUE",
+ * //       SnapshotRetentionLimit: Number("int"),
+ * //       MaintenanceWindow: "STRING_VALUE",
+ * //       SnapshotWindow: "STRING_VALUE",
+ * //       ACLName: "STRING_VALUE",
+ * //       AutoMinorVersionUpgrade: true || false,
+ * //       DataTiering: "true" || "false",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

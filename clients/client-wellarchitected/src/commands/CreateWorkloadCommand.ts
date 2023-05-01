@@ -88,11 +88,10 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkloadOutput
- *   WorkloadId: "STRING_VALUE",
- *   WorkloadArn: "STRING_VALUE",
- * };
+ * // { // CreateWorkloadOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   WorkloadArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

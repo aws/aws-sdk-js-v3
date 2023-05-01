@@ -80,8 +80,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

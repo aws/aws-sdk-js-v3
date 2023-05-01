@@ -44,19 +44,18 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * };
  * const command = new GetTargetResourceTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTargetResourceTypeResponse
- *   targetResourceType: { // TargetResourceType
- *     resourceType: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     parameters: { // TargetResourceTypeParameterMap
- *       "<keys>": { // TargetResourceTypeParameter
- *         description: "STRING_VALUE",
- *         required: true || false,
- *       },
- *     },
- *   },
- * };
+ * // { // GetTargetResourceTypeResponse
+ * //   targetResourceType: { // TargetResourceType
+ * //     resourceType: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     parameters: { // TargetResourceTypeParameterMap
+ * //       "<keys>": { // TargetResourceTypeParameter
+ * //         description: "STRING_VALUE",
+ * //         required: true || false,
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

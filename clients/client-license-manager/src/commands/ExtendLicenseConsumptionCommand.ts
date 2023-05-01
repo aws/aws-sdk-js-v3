@@ -45,11 +45,10 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * };
  * const command = new ExtendLicenseConsumptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExtendLicenseConsumptionResponse
- *   LicenseConsumptionToken: "STRING_VALUE",
- *   Expiration: "STRING_VALUE",
- * };
+ * // { // ExtendLicenseConsumptionResponse
+ * //   LicenseConsumptionToken: "STRING_VALUE",
+ * //   Expiration: "STRING_VALUE",
+ * // };
  *
  * ```
  *

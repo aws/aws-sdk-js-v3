@@ -90,11 +90,10 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * };
  * const command = new CreateLayoutCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLayoutResponse
- *   layoutId: "STRING_VALUE", // required
- *   layoutArn: "STRING_VALUE", // required
- * };
+ * // { // CreateLayoutResponse
+ * //   layoutId: "STRING_VALUE", // required
+ * //   layoutArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

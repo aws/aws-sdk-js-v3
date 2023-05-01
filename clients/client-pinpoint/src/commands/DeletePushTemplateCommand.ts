@@ -45,13 +45,12 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * };
  * const command = new DeletePushTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePushTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // DeletePushTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

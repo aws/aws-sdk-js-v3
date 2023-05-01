@@ -54,16 +54,15 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * };
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOperationsResponse
- *   Operations: [ // OperationSummaryList
- *     { // OperationSummary
- *       Id: "STRING_VALUE",
- *       Status: "SUBMITTED" || "PENDING" || "SUCCESS" || "FAIL",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOperationsResponse
+ * //   Operations: [ // OperationSummaryList
+ * //     { // OperationSummary
+ * //       Id: "STRING_VALUE",
+ * //       Status: "SUBMITTED" || "PENDING" || "SUCCESS" || "FAIL",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

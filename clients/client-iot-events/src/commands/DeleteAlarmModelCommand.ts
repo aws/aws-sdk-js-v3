@@ -45,8 +45,7 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * };
  * const command = new DeleteAlarmModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

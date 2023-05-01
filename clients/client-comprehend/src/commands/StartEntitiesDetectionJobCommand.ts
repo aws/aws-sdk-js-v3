@@ -83,13 +83,12 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  * };
  * const command = new StartEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartEntitiesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *   EntityRecognizerArn: "STRING_VALUE",
- * };
+ * // { // StartEntitiesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //   EntityRecognizerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

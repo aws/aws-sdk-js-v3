@@ -62,13 +62,12 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectOutput
- *   InlineChunkChecksum: "STRING_VALUE", // required
- *   InlineChunkChecksumAlgorithm: "STRING_VALUE", // required
- *   ObjectChecksum: "STRING_VALUE", // required
- *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
- * };
+ * // { // PutObjectOutput
+ * //   InlineChunkChecksum: "STRING_VALUE", // required
+ * //   InlineChunkChecksumAlgorithm: "STRING_VALUE", // required
+ * //   ObjectChecksum: "STRING_VALUE", // required
+ * //   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

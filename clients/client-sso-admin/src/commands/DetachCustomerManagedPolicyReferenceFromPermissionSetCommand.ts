@@ -58,8 +58,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * };
  * const command = new DetachCustomerManagedPolicyReferenceFromPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

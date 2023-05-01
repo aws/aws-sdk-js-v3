@@ -57,21 +57,20 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  * };
  * const command = new DeletePackageVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePackageVersionsResult
- *   successfulVersions: { // SuccessfulPackageVersionInfoMap
- *     "<keys>": { // SuccessfulPackageVersionInfo
- *       revision: "STRING_VALUE",
- *       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
- *     },
- *   },
- *   failedVersions: { // PackageVersionErrorMap
- *     "<keys>": { // PackageVersionError
- *       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeletePackageVersionsResult
+ * //   successfulVersions: { // SuccessfulPackageVersionInfoMap
+ * //     "<keys>": { // SuccessfulPackageVersionInfo
+ * //       revision: "STRING_VALUE",
+ * //       status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
+ * //     },
+ * //   },
+ * //   failedVersions: { // PackageVersionErrorMap
+ * //     "<keys>": { // PackageVersionError
+ * //       errorCode: "ALREADY_EXISTS" || "MISMATCHED_REVISION" || "MISMATCHED_STATUS" || "NOT_ALLOWED" || "NOT_FOUND" || "SKIPPED",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

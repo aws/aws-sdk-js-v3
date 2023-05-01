@@ -49,8 +49,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

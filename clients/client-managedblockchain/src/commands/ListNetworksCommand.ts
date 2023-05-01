@@ -53,22 +53,21 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * };
  * const command = new ListNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNetworksOutput
- *   Networks: [ // NetworkSummaryList
- *     { // NetworkSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
- *       FrameworkVersion: "STRING_VALUE",
- *       Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
- *       CreationDate: new Date("TIMESTAMP"),
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNetworksOutput
+ * //   Networks: [ // NetworkSummaryList
+ * //     { // NetworkSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ * //       FrameworkVersion: "STRING_VALUE",
+ * //       Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

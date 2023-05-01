@@ -51,21 +51,20 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetImportJobsResponse
- *   datasetImportJobs: [ // DatasetImportJobs
- *     { // DatasetImportJobSummary
- *       datasetImportJobArn: "STRING_VALUE",
- *       jobName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *       importMode: "FULL" || "INCREMENTAL",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetImportJobsResponse
+ * //   datasetImportJobs: [ // DatasetImportJobs
+ * //     { // DatasetImportJobSummary
+ * //       datasetImportJobArn: "STRING_VALUE",
+ * //       jobName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //       importMode: "FULL" || "INCREMENTAL",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

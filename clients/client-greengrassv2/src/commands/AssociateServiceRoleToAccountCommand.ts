@@ -53,10 +53,9 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * };
  * const command = new AssociateServiceRoleToAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateServiceRoleToAccountResponse
- *   associatedAt: "STRING_VALUE",
- * };
+ * // { // AssociateServiceRoleToAccountResponse
+ * //   associatedAt: "STRING_VALUE",
+ * // };
  *
  * ```
  *

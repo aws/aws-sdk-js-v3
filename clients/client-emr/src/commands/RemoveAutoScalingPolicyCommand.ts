@@ -46,8 +46,7 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * };
  * const command = new RemoveAutoScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

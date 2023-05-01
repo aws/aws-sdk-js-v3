@@ -69,10 +69,9 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  * };
  * const command = new DeleteXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteXssMatchSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteXssMatchSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

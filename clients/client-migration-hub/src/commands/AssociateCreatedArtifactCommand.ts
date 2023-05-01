@@ -67,8 +67,7 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * };
  * const command = new AssociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

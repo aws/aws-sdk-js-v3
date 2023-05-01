@@ -49,67 +49,66 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  * };
  * const command = new GetQueryRuntimeStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryRuntimeStatisticsOutput
- *   QueryRuntimeStatistics: { // QueryRuntimeStatistics
- *     Timeline: { // QueryRuntimeStatisticsTimeline
- *       QueryQueueTimeInMillis: Number("long"),
- *       QueryPlanningTimeInMillis: Number("long"),
- *       EngineExecutionTimeInMillis: Number("long"),
- *       ServiceProcessingTimeInMillis: Number("long"),
- *       TotalExecutionTimeInMillis: Number("long"),
- *     },
- *     Rows: { // QueryRuntimeStatisticsRows
- *       InputRows: Number("long"),
- *       InputBytes: Number("long"),
- *       OutputBytes: Number("long"),
- *       OutputRows: Number("long"),
- *     },
- *     OutputStage: { // QueryStage
- *       StageId: Number("long"),
- *       State: "STRING_VALUE",
- *       OutputBytes: Number("long"),
- *       OutputRows: Number("long"),
- *       InputBytes: Number("long"),
- *       InputRows: Number("long"),
- *       ExecutionTime: Number("long"),
- *       QueryStagePlan: { // QueryStagePlanNode
- *         Name: "STRING_VALUE",
- *         Identifier: "STRING_VALUE",
- *         Children: [ // QueryStagePlanNodes
- *           {
- *             Name: "STRING_VALUE",
- *             Identifier: "STRING_VALUE",
- *             Children: [
- *               "<QueryStagePlanNode>",
- *             ],
- *             RemoteSources: [ // StringList
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *         RemoteSources: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       SubStages: [ // QueryStages
- *         {
- *           StageId: Number("long"),
- *           State: "STRING_VALUE",
- *           OutputBytes: Number("long"),
- *           OutputRows: Number("long"),
- *           InputBytes: Number("long"),
- *           InputRows: Number("long"),
- *           ExecutionTime: Number("long"),
- *           QueryStagePlan: "<QueryStagePlanNode>",
- *           SubStages: [
- *             "<QueryStage>",
- *           ],
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // GetQueryRuntimeStatisticsOutput
+ * //   QueryRuntimeStatistics: { // QueryRuntimeStatistics
+ * //     Timeline: { // QueryRuntimeStatisticsTimeline
+ * //       QueryQueueTimeInMillis: Number("long"),
+ * //       QueryPlanningTimeInMillis: Number("long"),
+ * //       EngineExecutionTimeInMillis: Number("long"),
+ * //       ServiceProcessingTimeInMillis: Number("long"),
+ * //       TotalExecutionTimeInMillis: Number("long"),
+ * //     },
+ * //     Rows: { // QueryRuntimeStatisticsRows
+ * //       InputRows: Number("long"),
+ * //       InputBytes: Number("long"),
+ * //       OutputBytes: Number("long"),
+ * //       OutputRows: Number("long"),
+ * //     },
+ * //     OutputStage: { // QueryStage
+ * //       StageId: Number("long"),
+ * //       State: "STRING_VALUE",
+ * //       OutputBytes: Number("long"),
+ * //       OutputRows: Number("long"),
+ * //       InputBytes: Number("long"),
+ * //       InputRows: Number("long"),
+ * //       ExecutionTime: Number("long"),
+ * //       QueryStagePlan: { // QueryStagePlanNode
+ * //         Name: "STRING_VALUE",
+ * //         Identifier: "STRING_VALUE",
+ * //         Children: [ // QueryStagePlanNodes
+ * //           {
+ * //             Name: "STRING_VALUE",
+ * //             Identifier: "STRING_VALUE",
+ * //             Children: [
+ * //               "<QueryStagePlanNode>",
+ * //             ],
+ * //             RemoteSources: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         RemoteSources: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       SubStages: [ // QueryStages
+ * //         {
+ * //           StageId: Number("long"),
+ * //           State: "STRING_VALUE",
+ * //           OutputBytes: Number("long"),
+ * //           OutputRows: Number("long"),
+ * //           InputBytes: Number("long"),
+ * //           InputRows: Number("long"),
+ * //           ExecutionTime: Number("long"),
+ * //           QueryStagePlan: "<QueryStagePlanNode>",
+ * //           SubStages: [
+ * //             "<QueryStage>",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

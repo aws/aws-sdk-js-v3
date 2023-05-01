@@ -44,8 +44,7 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopFailbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

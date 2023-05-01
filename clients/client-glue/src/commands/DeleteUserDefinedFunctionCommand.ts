@@ -46,8 +46,7 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * };
  * const command = new DeleteUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

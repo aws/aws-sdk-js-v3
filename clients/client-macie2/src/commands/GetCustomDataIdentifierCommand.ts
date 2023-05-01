@@ -44,32 +44,31 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * };
  * const command = new GetCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCustomDataIdentifierResponse
- *   arn: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   deleted: true || false,
- *   description: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   ignoreWords: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   keywords: [
- *     "STRING_VALUE",
- *   ],
- *   maximumMatchDistance: Number("int"),
- *   name: "STRING_VALUE",
- *   regex: "STRING_VALUE",
- *   severityLevels: [ // SeverityLevelList
- *     { // SeverityLevel
- *       occurrencesThreshold: Number("long"), // required
- *       severity: "LOW" || "MEDIUM" || "HIGH", // required
- *     },
- *   ],
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetCustomDataIdentifierResponse
+ * //   arn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   deleted: true || false,
+ * //   description: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   ignoreWords: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   keywords: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   maximumMatchDistance: Number("int"),
+ * //   name: "STRING_VALUE",
+ * //   regex: "STRING_VALUE",
+ * //   severityLevels: [ // SeverityLevelList
+ * //     { // SeverityLevel
+ * //       occurrencesThreshold: Number("long"), // required
+ * //       severity: "LOW" || "MEDIUM" || "HIGH", // required
+ * //     },
+ * //   ],
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

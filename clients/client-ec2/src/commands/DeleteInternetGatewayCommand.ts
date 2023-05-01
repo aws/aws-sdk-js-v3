@@ -46,8 +46,7 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

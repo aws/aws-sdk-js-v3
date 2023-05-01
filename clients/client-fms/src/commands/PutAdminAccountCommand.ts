@@ -73,8 +73,7 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

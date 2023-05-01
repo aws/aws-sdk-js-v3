@@ -71,10 +71,9 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * };
  * const command = new CreateRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRulesetResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateRulesetResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

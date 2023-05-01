@@ -68,8 +68,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * };
  * const command = new UpdateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

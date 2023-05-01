@@ -59,8 +59,7 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  * };
  * const command = new UpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,16 +62,15 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * };
  * const command = new AssignIpv6AddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssignIpv6AddressesResult
- *   AssignedIpv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
- *   AssignedIpv6Prefixes: [ // IpPrefixList
- *     "STRING_VALUE",
- *   ],
- *   NetworkInterfaceId: "STRING_VALUE",
- * };
+ * // { // AssignIpv6AddressesResult
+ * //   AssignedIpv6Addresses: [ // Ipv6AddressList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   AssignedIpv6Prefixes: [ // IpPrefixList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NetworkInterfaceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

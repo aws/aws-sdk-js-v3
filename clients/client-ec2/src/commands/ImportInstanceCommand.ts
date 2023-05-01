@@ -99,60 +99,59 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  * };
  * const command = new ImportInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportInstanceResult
- *   ConversionTask: { // ConversionTask
- *     ConversionTaskId: "STRING_VALUE",
- *     ExpirationTime: "STRING_VALUE",
- *     ImportInstance: { // ImportInstanceTaskDetails
- *       Description: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       Platform: "Windows",
- *       Volumes: [ // ImportInstanceVolumeDetailSet
- *         { // ImportInstanceVolumeDetailItem
- *           AvailabilityZone: "STRING_VALUE",
- *           BytesConverted: Number("long"),
- *           Description: "STRING_VALUE",
- *           Image: { // DiskImageDescription
- *             Checksum: "STRING_VALUE",
- *             Format: "VMDK" || "RAW" || "VHD",
- *             ImportManifestUrl: "STRING_VALUE",
- *             Size: Number("long"),
- *           },
- *           Status: "STRING_VALUE",
- *           StatusMessage: "STRING_VALUE",
- *           Volume: { // DiskImageVolumeDescription
- *             Id: "STRING_VALUE",
- *             Size: Number("long"),
- *           },
- *         },
- *       ],
- *     },
- *     ImportVolume: { // ImportVolumeTaskDetails
- *       AvailabilityZone: "STRING_VALUE",
- *       BytesConverted: Number("long"),
- *       Description: "STRING_VALUE",
- *       Image: {
- *         Checksum: "STRING_VALUE",
- *         Format: "VMDK" || "RAW" || "VHD",
- *         ImportManifestUrl: "STRING_VALUE",
- *         Size: Number("long"),
- *       },
- *       Volume: {
- *         Id: "STRING_VALUE",
- *         Size: Number("long"),
- *       },
- *     },
- *     State: "active" || "cancelling" || "cancelled" || "completed",
- *     StatusMessage: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ImportInstanceResult
+ * //   ConversionTask: { // ConversionTask
+ * //     ConversionTaskId: "STRING_VALUE",
+ * //     ExpirationTime: "STRING_VALUE",
+ * //     ImportInstance: { // ImportInstanceTaskDetails
+ * //       Description: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Platform: "Windows",
+ * //       Volumes: [ // ImportInstanceVolumeDetailSet
+ * //         { // ImportInstanceVolumeDetailItem
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           BytesConverted: Number("long"),
+ * //           Description: "STRING_VALUE",
+ * //           Image: { // DiskImageDescription
+ * //             Checksum: "STRING_VALUE",
+ * //             Format: "VMDK" || "RAW" || "VHD",
+ * //             ImportManifestUrl: "STRING_VALUE",
+ * //             Size: Number("long"),
+ * //           },
+ * //           Status: "STRING_VALUE",
+ * //           StatusMessage: "STRING_VALUE",
+ * //           Volume: { // DiskImageVolumeDescription
+ * //             Id: "STRING_VALUE",
+ * //             Size: Number("long"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //     ImportVolume: { // ImportVolumeTaskDetails
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       BytesConverted: Number("long"),
+ * //       Description: "STRING_VALUE",
+ * //       Image: {
+ * //         Checksum: "STRING_VALUE",
+ * //         Format: "VMDK" || "RAW" || "VHD",
+ * //         ImportManifestUrl: "STRING_VALUE",
+ * //         Size: Number("long"),
+ * //       },
+ * //       Volume: {
+ * //         Id: "STRING_VALUE",
+ * //         Size: Number("long"),
+ * //       },
+ * //     },
+ * //     State: "active" || "cancelling" || "cancelled" || "completed",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

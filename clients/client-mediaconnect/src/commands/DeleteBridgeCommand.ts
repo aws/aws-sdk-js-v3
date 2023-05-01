@@ -44,10 +44,9 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * };
  * const command = new DeleteBridgeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBridgeResponse
- *   BridgeArn: "STRING_VALUE",
- * };
+ * // { // DeleteBridgeResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

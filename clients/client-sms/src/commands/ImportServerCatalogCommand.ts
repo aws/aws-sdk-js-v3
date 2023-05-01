@@ -45,8 +45,7 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * const input = {};
  * const command = new ImportServerCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

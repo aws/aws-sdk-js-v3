@@ -50,10 +50,9 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserResponse
- *   userId: "STRING_VALUE",
- * };
+ * // { // UpdateUserResponse
+ * //   userId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

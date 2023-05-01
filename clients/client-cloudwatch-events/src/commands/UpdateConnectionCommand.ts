@@ -110,14 +110,13 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectionResponse
- *   ConnectionArn: "STRING_VALUE",
- *   ConnectionState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastAuthorizedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastAuthorizedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

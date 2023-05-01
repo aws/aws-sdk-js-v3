@@ -47,16 +47,15 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * };
  * const command = new ListDiscoveryJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDiscoveryJobsResponse
- *   DiscoveryJobs: [ // DiscoveryJobList
- *     { // DiscoveryJobListEntry
- *       DiscoveryJobArn: "STRING_VALUE",
- *       Status: "RUNNING" || "WARNING" || "TERMINATED" || "FAILED" || "STOPPED" || "COMPLETED" || "COMPLETED_WITH_ISSUES",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDiscoveryJobsResponse
+ * //   DiscoveryJobs: [ // DiscoveryJobList
+ * //     { // DiscoveryJobListEntry
+ * //       DiscoveryJobArn: "STRING_VALUE",
+ * //       Status: "RUNNING" || "WARNING" || "TERMINATED" || "FAILED" || "STOPPED" || "COMPLETED" || "COMPLETED_WITH_ISSUES",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

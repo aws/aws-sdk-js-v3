@@ -47,8 +47,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

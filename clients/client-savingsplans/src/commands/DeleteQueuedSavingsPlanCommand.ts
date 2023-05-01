@@ -44,8 +44,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * };
  * const command = new DeleteQueuedSavingsPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

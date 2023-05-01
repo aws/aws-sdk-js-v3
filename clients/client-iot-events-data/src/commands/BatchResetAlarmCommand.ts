@@ -52,16 +52,15 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * };
  * const command = new BatchResetAlarmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchResetAlarmResponse
- *   errorEntries: [ // BatchAlarmActionErrorEntries
- *     { // BatchAlarmActionErrorEntry
- *       requestId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchResetAlarmResponse
+ * //   errorEntries: [ // BatchAlarmActionErrorEntries
+ * //     { // BatchAlarmActionErrorEntry
+ * //       requestId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -42,10 +42,9 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * const input = {};
  * const command = new GetHostedZoneCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHostedZoneCountResponse
- *   HostedZoneCount: Number("long"), // required
- * };
+ * // { // GetHostedZoneCountResponse
+ * //   HostedZoneCount: Number("long"), // required
+ * // };
  *
  * ```
  *

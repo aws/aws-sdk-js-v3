@@ -47,8 +47,7 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFileSystemPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

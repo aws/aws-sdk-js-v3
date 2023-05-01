@@ -65,8 +65,7 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * };
  * const command = new AdminSetUserPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

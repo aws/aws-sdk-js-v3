@@ -47,15 +47,14 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * };
  * const command = new GetResourceMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceMetadataResponse
- *   Identifier: "STRING_VALUE",
- *   Features: { // FeatureMetadataMap
- *     "<keys>": { // FeatureMetadata
- *       Status: "ENABLED" || "DISABLED" || "UNSUPPORTED" || "ENABLED_PENDING_REBOOT" || "DISABLED_PENDING_REBOOT" || "UNKNOWN",
- *     },
- *   },
- * };
+ * // { // GetResourceMetadataResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   Features: { // FeatureMetadataMap
+ * //     "<keys>": { // FeatureMetadata
+ * //       Status: "ENABLED" || "DISABLED" || "UNSUPPORTED" || "ENABLED_PENDING_REBOOT" || "DISABLED_PENDING_REBOOT" || "UNKNOWN",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

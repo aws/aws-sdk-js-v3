@@ -53,20 +53,19 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * };
  * const command = new ListChangedBlocksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChangedBlocksResponse
- *   ChangedBlocks: [ // ChangedBlocks
- *     { // ChangedBlock
- *       BlockIndex: Number("int"),
- *       FirstBlockToken: "STRING_VALUE",
- *       SecondBlockToken: "STRING_VALUE",
- *     },
- *   ],
- *   ExpiryTime: new Date("TIMESTAMP"),
- *   VolumeSize: Number("long"),
- *   BlockSize: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChangedBlocksResponse
+ * //   ChangedBlocks: [ // ChangedBlocks
+ * //     { // ChangedBlock
+ * //       BlockIndex: Number("int"),
+ * //       FirstBlockToken: "STRING_VALUE",
+ * //       SecondBlockToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExpiryTime: new Date("TIMESTAMP"),
+ * //   VolumeSize: Number("long"),
+ * //   BlockSize: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

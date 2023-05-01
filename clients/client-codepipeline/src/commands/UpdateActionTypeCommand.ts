@@ -102,8 +102,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateActionTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

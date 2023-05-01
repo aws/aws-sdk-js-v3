@@ -47,20 +47,19 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * };
  * const command = new ListRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRoutingProfileQueuesResponse
- *   NextToken: "STRING_VALUE",
- *   RoutingProfileQueueConfigSummaryList: [ // RoutingProfileQueueConfigSummaryList
- *     { // RoutingProfileQueueConfigSummary
- *       QueueId: "STRING_VALUE", // required
- *       QueueArn: "STRING_VALUE", // required
- *       QueueName: "STRING_VALUE", // required
- *       Priority: Number("int"), // required
- *       Delay: Number("int"), // required
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
- *     },
- *   ],
- * };
+ * // { // ListRoutingProfileQueuesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   RoutingProfileQueueConfigSummaryList: [ // RoutingProfileQueueConfigSummaryList
+ * //     { // RoutingProfileQueueConfigSummary
+ * //       QueueId: "STRING_VALUE", // required
+ * //       QueueArn: "STRING_VALUE", // required
+ * //       QueueName: "STRING_VALUE", // required
+ * //       Priority: Number("int"), // required
+ * //       Delay: Number("int"), // required
+ * //       Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

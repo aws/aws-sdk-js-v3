@@ -46,27 +46,26 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * };
  * const command = new ListSolFunctionInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSolFunctionInstancesOutput
- *   nextToken: "STRING_VALUE",
- *   functionInstances: [ // ListSolFunctionInstanceResources
- *     { // ListSolFunctionInstanceInfo
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       nsInstanceId: "STRING_VALUE", // required
- *       vnfPkgId: "STRING_VALUE", // required
- *       vnfPkgName: "STRING_VALUE",
- *       instantiationState: "INSTANTIATED" || "NOT_INSTANTIATED", // required
- *       instantiatedVnfInfo: { // GetSolInstantiatedVnfInfo
- *         vnfState: "STARTED" || "STOPPED",
- *       },
- *       metadata: { // ListSolFunctionInstanceMetadata
- *         createdAt: new Date("TIMESTAMP"), // required
- *         lastModified: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- * };
+ * // { // ListSolFunctionInstancesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   functionInstances: [ // ListSolFunctionInstanceResources
+ * //     { // ListSolFunctionInstanceInfo
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       nsInstanceId: "STRING_VALUE", // required
+ * //       vnfPkgId: "STRING_VALUE", // required
+ * //       vnfPkgName: "STRING_VALUE",
+ * //       instantiationState: "INSTANTIATED" || "NOT_INSTANTIATED", // required
+ * //       instantiatedVnfInfo: { // GetSolInstantiatedVnfInfo
+ * //         vnfState: "STARTED" || "STOPPED",
+ * //       },
+ * //       metadata: { // ListSolFunctionInstanceMetadata
+ * //         createdAt: new Date("TIMESTAMP"), // required
+ * //         lastModified: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

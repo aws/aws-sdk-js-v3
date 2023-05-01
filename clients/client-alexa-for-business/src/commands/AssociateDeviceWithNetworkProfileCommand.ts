@@ -53,8 +53,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * };
  * const command = new AssociateDeviceWithNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

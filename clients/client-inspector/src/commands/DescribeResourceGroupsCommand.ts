@@ -47,27 +47,26 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * };
  * const command = new DescribeResourceGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourceGroupsResponse
- *   resourceGroups: [ // ResourceGroupList // required
- *     { // ResourceGroup
- *       arn: "STRING_VALUE", // required
- *       tags: [ // ResourceGroupTags // required
- *         { // ResourceGroupTag
- *           key: "STRING_VALUE", // required
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       createdAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // DescribeResourceGroupsResponse
+ * //   resourceGroups: [ // ResourceGroupList // required
+ * //     { // ResourceGroup
+ * //       arn: "STRING_VALUE", // required
+ * //       tags: [ // ResourceGroupTags // required
+ * //         { // ResourceGroupTag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

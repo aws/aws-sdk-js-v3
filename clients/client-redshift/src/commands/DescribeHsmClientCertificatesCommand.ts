@@ -64,22 +64,21 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * };
  * const command = new DescribeHsmClientCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // HsmClientCertificateMessage
- *   Marker: "STRING_VALUE",
- *   HsmClientCertificates: [ // HsmClientCertificateList
- *     { // HsmClientCertificate
- *       HsmClientCertificateIdentifier: "STRING_VALUE",
- *       HsmClientCertificatePublicKey: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // HsmClientCertificateMessage
+ * //   Marker: "STRING_VALUE",
+ * //   HsmClientCertificates: [ // HsmClientCertificateList
+ * //     { // HsmClientCertificate
+ * //       HsmClientCertificateIdentifier: "STRING_VALUE",
+ * //       HsmClientCertificatePublicKey: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

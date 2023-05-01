@@ -47,15 +47,14 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSiteResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   countryCode: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   updatedAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateSiteResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   countryCode: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

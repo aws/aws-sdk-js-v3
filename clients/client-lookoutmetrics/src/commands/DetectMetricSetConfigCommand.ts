@@ -54,116 +54,115 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * };
  * const command = new DetectMetricSetConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectMetricSetConfigResponse
- *   DetectedMetricSetConfig: { // DetectedMetricSetConfig
- *     Offset: { // DetectedField
- *       Value: { // AttributeValue
- *         S: "STRING_VALUE",
- *         N: "STRING_VALUE",
- *         B: "STRING_VALUE",
- *         SS: [ // StringListAttributeValue
- *           "STRING_VALUE",
- *         ],
- *         NS: [ // NumberListAttributeValue
- *           "STRING_VALUE",
- *         ],
- *         BS: [ // BinaryListAttributeValue
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Confidence: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     MetricSetFrequency: {
- *       Value: {
- *         S: "STRING_VALUE",
- *         N: "STRING_VALUE",
- *         B: "STRING_VALUE",
- *         SS: [
- *           "STRING_VALUE",
- *         ],
- *         NS: [
- *           "STRING_VALUE",
- *         ],
- *         BS: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Confidence: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     MetricSource: { // DetectedMetricSource
- *       S3SourceConfig: { // DetectedS3SourceConfig
- *         FileFormatDescriptor: { // DetectedFileFormatDescriptor
- *           CsvFormatDescriptor: { // DetectedCsvFormatDescriptor
- *             FileCompression: {
- *               Value: {
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "STRING_VALUE",
- *                 SS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 NS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 BS: [
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *               Confidence: "STRING_VALUE",
- *               Message: "STRING_VALUE",
- *             },
- *             Charset: {
- *               Value: {
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "STRING_VALUE",
- *                 SS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 NS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 BS: [
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *               Confidence: "STRING_VALUE",
- *               Message: "STRING_VALUE",
- *             },
- *             ContainsHeader: {
- *               Value: {
- *                 S: "STRING_VALUE",
- *                 N: "STRING_VALUE",
- *                 B: "STRING_VALUE",
- *                 SS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 NS: [
- *                   "STRING_VALUE",
- *                 ],
- *                 BS: [
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *               Confidence: "STRING_VALUE",
- *               Message: "STRING_VALUE",
- *             },
- *             Delimiter: "<DetectedField>",
- *             HeaderList: "<DetectedField>",
- *             QuoteSymbol: "<DetectedField>",
- *           },
- *           JsonFormatDescriptor: { // DetectedJsonFormatDescriptor
- *             FileCompression: "<DetectedField>",
- *             Charset: "<DetectedField>",
- *           },
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // DetectMetricSetConfigResponse
+ * //   DetectedMetricSetConfig: { // DetectedMetricSetConfig
+ * //     Offset: { // DetectedField
+ * //       Value: { // AttributeValue
+ * //         S: "STRING_VALUE",
+ * //         N: "STRING_VALUE",
+ * //         B: "STRING_VALUE",
+ * //         SS: [ // StringListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         NS: [ // NumberListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BS: [ // BinaryListAttributeValue
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Confidence: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     MetricSetFrequency: {
+ * //       Value: {
+ * //         S: "STRING_VALUE",
+ * //         N: "STRING_VALUE",
+ * //         B: "STRING_VALUE",
+ * //         SS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         NS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         BS: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Confidence: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     MetricSource: { // DetectedMetricSource
+ * //       S3SourceConfig: { // DetectedS3SourceConfig
+ * //         FileFormatDescriptor: { // DetectedFileFormatDescriptor
+ * //           CsvFormatDescriptor: { // DetectedCsvFormatDescriptor
+ * //             FileCompression: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             Charset: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             ContainsHeader: {
+ * //               Value: {
+ * //                 S: "STRING_VALUE",
+ * //                 N: "STRING_VALUE",
+ * //                 B: "STRING_VALUE",
+ * //                 SS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 NS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 BS: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Confidence: "STRING_VALUE",
+ * //               Message: "STRING_VALUE",
+ * //             },
+ * //             Delimiter: "<DetectedField>",
+ * //             HeaderList: "<DetectedField>",
+ * //             QuoteSymbol: "<DetectedField>",
+ * //           },
+ * //           JsonFormatDescriptor: { // DetectedJsonFormatDescriptor
+ * //             FileCompression: "<DetectedField>",
+ * //             Charset: "<DetectedField>",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

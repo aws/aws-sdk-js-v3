@@ -64,27 +64,26 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * };
  * const command = new PurchaseHostReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseHostReservationResult
- *   ClientToken: "STRING_VALUE",
- *   CurrencyCode: "USD",
- *   Purchase: [ // PurchaseSet
- *     { // Purchase
- *       CurrencyCode: "USD",
- *       Duration: Number("int"),
- *       HostIdSet: [ // ResponseHostIdSet
- *         "STRING_VALUE",
- *       ],
- *       HostReservationId: "STRING_VALUE",
- *       HourlyPrice: "STRING_VALUE",
- *       InstanceFamily: "STRING_VALUE",
- *       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
- *       UpfrontPrice: "STRING_VALUE",
- *     },
- *   ],
- *   TotalHourlyPrice: "STRING_VALUE",
- *   TotalUpfrontPrice: "STRING_VALUE",
- * };
+ * // { // PurchaseHostReservationResult
+ * //   ClientToken: "STRING_VALUE",
+ * //   CurrencyCode: "USD",
+ * //   Purchase: [ // PurchaseSet
+ * //     { // Purchase
+ * //       CurrencyCode: "USD",
+ * //       Duration: Number("int"),
+ * //       HostIdSet: [ // ResponseHostIdSet
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       HostReservationId: "STRING_VALUE",
+ * //       HourlyPrice: "STRING_VALUE",
+ * //       InstanceFamily: "STRING_VALUE",
+ * //       PaymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ * //       UpfrontPrice: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TotalHourlyPrice: "STRING_VALUE",
+ * //   TotalUpfrontPrice: "STRING_VALUE",
+ * // };
  *
  * ```
  *

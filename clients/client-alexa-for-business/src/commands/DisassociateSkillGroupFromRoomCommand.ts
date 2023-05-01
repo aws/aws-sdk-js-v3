@@ -51,8 +51,7 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * };
  * const command = new DisassociateSkillGroupFromRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

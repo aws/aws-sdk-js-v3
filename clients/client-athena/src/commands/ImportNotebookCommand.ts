@@ -50,10 +50,9 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * };
  * const command = new ImportNotebookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportNotebookOutput
- *   NotebookId: "STRING_VALUE",
- * };
+ * // { // ImportNotebookOutput
+ * //   NotebookId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

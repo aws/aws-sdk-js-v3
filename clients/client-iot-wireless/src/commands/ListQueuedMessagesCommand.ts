@@ -47,30 +47,29 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * };
  * const command = new ListQueuedMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueuedMessagesResponse
- *   NextToken: "STRING_VALUE",
- *   DownlinkQueueMessagesList: [ // DownlinkQueueMessagesList
- *     { // DownlinkQueueMessage
- *       MessageId: "STRING_VALUE",
- *       TransmitMode: Number("int"),
- *       ReceivedAt: "STRING_VALUE",
- *       LoRaWAN: { // LoRaWANSendDataToDevice
- *         FPort: Number("int"),
- *         ParticipatingGateways: { // ParticipatingGateways
- *           DownlinkMode: "SEQUENTIAL" || "CONCURRENT" || "USING_UPLINK_GATEWAY", // required
- *           GatewayList: [ // GatewayList // required
- *             { // GatewayListItem
- *               GatewayId: "STRING_VALUE", // required
- *               DownlinkFrequency: Number("int"), // required
- *             },
- *           ],
- *           TransmissionInterval: Number("int"), // required
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // ListQueuedMessagesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   DownlinkQueueMessagesList: [ // DownlinkQueueMessagesList
+ * //     { // DownlinkQueueMessage
+ * //       MessageId: "STRING_VALUE",
+ * //       TransmitMode: Number("int"),
+ * //       ReceivedAt: "STRING_VALUE",
+ * //       LoRaWAN: { // LoRaWANSendDataToDevice
+ * //         FPort: Number("int"),
+ * //         ParticipatingGateways: { // ParticipatingGateways
+ * //           DownlinkMode: "SEQUENTIAL" || "CONCURRENT" || "USING_UPLINK_GATEWAY", // required
+ * //           GatewayList: [ // GatewayList // required
+ * //             { // GatewayListItem
+ * //               GatewayId: "STRING_VALUE", // required
+ * //               DownlinkFrequency: Number("int"), // required
+ * //             },
+ * //           ],
+ * //           TransmissionInterval: Number("int"), // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

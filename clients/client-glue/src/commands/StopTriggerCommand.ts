@@ -44,10 +44,9 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * };
  * const command = new StopTriggerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopTriggerResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // StopTriggerResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

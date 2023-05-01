@@ -63,34 +63,33 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * };
  * const command = new GetIpamResourceCidrsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIpamResourceCidrsResult
- *   NextToken: "STRING_VALUE",
- *   IpamResourceCidrs: [ // IpamResourceCidrSet
- *     { // IpamResourceCidr
- *       IpamId: "STRING_VALUE",
- *       IpamScopeId: "STRING_VALUE",
- *       IpamPoolId: "STRING_VALUE",
- *       ResourceRegion: "STRING_VALUE",
- *       ResourceOwnerId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceName: "STRING_VALUE",
- *       ResourceCidr: "STRING_VALUE",
- *       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
- *       ResourceTags: [ // IpamResourceTagList
- *         { // IpamResourceTag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       IpUsage: Number("double"),
- *       ComplianceStatus: "compliant" || "noncompliant" || "unmanaged" || "ignored",
- *       ManagementState: "managed" || "unmanaged" || "ignored",
- *       OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
- *       VpcId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetIpamResourceCidrsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   IpamResourceCidrs: [ // IpamResourceCidrSet
+ * //     { // IpamResourceCidr
+ * //       IpamId: "STRING_VALUE",
+ * //       IpamScopeId: "STRING_VALUE",
+ * //       IpamPoolId: "STRING_VALUE",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceName: "STRING_VALUE",
+ * //       ResourceCidr: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ * //       ResourceTags: [ // IpamResourceTagList
+ * //         { // IpamResourceTag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       IpUsage: Number("double"),
+ * //       ComplianceStatus: "compliant" || "noncompliant" || "unmanaged" || "ignored",
+ * //       ManagementState: "managed" || "unmanaged" || "ignored",
+ * //       OverlapStatus: "overlapping" || "nonoverlapping" || "ignored",
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

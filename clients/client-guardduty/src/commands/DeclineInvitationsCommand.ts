@@ -47,15 +47,14 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeclineInvitationsResponse
- *   UnprocessedAccounts: [ // UnprocessedAccounts // required
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE", // required
- *       Result: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // DeclineInvitationsResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

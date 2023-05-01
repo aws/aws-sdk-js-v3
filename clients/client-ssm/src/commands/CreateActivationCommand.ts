@@ -69,11 +69,10 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * };
  * const command = new CreateActivationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateActivationResult
- *   ActivationId: "STRING_VALUE",
- *   ActivationCode: "STRING_VALUE",
- * };
+ * // { // CreateActivationResult
+ * //   ActivationId: "STRING_VALUE",
+ * //   ActivationCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

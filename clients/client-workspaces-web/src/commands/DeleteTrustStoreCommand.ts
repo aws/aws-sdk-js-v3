@@ -44,8 +44,7 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * };
  * const command = new DeleteTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

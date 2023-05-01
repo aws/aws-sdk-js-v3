@@ -51,23 +51,22 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExperimentsResponse
- *   ExperimentSummaries: [ // ExperimentSummaries
- *     { // ExperimentSummary
- *       ExperimentArn: "STRING_VALUE",
- *       ExperimentName: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       ExperimentSource: { // ExperimentSource
- *         SourceArn: "STRING_VALUE", // required
- *         SourceType: "STRING_VALUE",
- *       },
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExperimentsResponse
+ * //   ExperimentSummaries: [ // ExperimentSummaries
+ * //     { // ExperimentSummary
+ * //       ExperimentArn: "STRING_VALUE",
+ * //       ExperimentName: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       ExperimentSource: { // ExperimentSource
+ * //         SourceArn: "STRING_VALUE", // required
+ * //         SourceType: "STRING_VALUE",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

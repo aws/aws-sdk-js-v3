@@ -47,10 +47,9 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * };
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcknowledgeThirdPartyJobOutput
- *   status: "STRING_VALUE",
- * };
+ * // { // AcknowledgeThirdPartyJobOutput
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

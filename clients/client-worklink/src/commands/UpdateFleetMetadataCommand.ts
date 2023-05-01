@@ -48,8 +48,7 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * };
  * const command = new UpdateFleetMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

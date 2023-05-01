@@ -73,20 +73,19 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * };
  * const command = new UpdateRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuntimeConfigurationOutput
- *   RuntimeConfiguration: { // RuntimeConfiguration
- *     ServerProcesses: [ // ServerProcessList
- *       { // ServerProcess
- *         LaunchPath: "STRING_VALUE", // required
- *         Parameters: "STRING_VALUE",
- *         ConcurrentExecutions: Number("int"), // required
- *       },
- *     ],
- *     MaxConcurrentGameSessionActivations: Number("int"),
- *     GameSessionActivationTimeoutSeconds: Number("int"),
- *   },
- * };
+ * // { // UpdateRuntimeConfigurationOutput
+ * //   RuntimeConfiguration: { // RuntimeConfiguration
+ * //     ServerProcesses: [ // ServerProcessList
+ * //       { // ServerProcess
+ * //         LaunchPath: "STRING_VALUE", // required
+ * //         Parameters: "STRING_VALUE",
+ * //         ConcurrentExecutions: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     MaxConcurrentGameSessionActivations: Number("int"),
+ * //     GameSessionActivationTimeoutSeconds: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

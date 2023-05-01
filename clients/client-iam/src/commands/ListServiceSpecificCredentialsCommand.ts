@@ -55,19 +55,18 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * };
  * const command = new ListServiceSpecificCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceSpecificCredentialsResponse
- *   ServiceSpecificCredentials: [ // ServiceSpecificCredentialsListType
- *     { // ServiceSpecificCredentialMetadata
- *       UserName: "STRING_VALUE", // required
- *       Status: "Active" || "Inactive", // required
- *       ServiceUserName: "STRING_VALUE", // required
- *       CreateDate: new Date("TIMESTAMP"), // required
- *       ServiceSpecificCredentialId: "STRING_VALUE", // required
- *       ServiceName: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListServiceSpecificCredentialsResponse
+ * //   ServiceSpecificCredentials: [ // ServiceSpecificCredentialsListType
+ * //     { // ServiceSpecificCredentialMetadata
+ * //       UserName: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //       ServiceUserName: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //       ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * //       ServiceName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * };
  * const command = new CreateProtectionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

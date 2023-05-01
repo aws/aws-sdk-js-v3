@@ -46,11 +46,10 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * };
  * const command = new DeleteAccountCustomizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAccountCustomizationResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteAccountCustomizationResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

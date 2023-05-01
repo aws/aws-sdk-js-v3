@@ -61,23 +61,22 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * };
  * const command = new QuerySchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QuerySchemaVersionMetadataResponse
- *   MetadataInfoMap: { // MetadataInfoMap
- *     "<keys>": { // MetadataInfo
- *       MetadataValue: "STRING_VALUE",
- *       CreatedTime: "STRING_VALUE",
- *       OtherMetadataValueList: [ // OtherMetadataValueList
- *         { // OtherMetadataValueListItem
- *           MetadataValue: "STRING_VALUE",
- *           CreatedTime: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- *   SchemaVersionId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // QuerySchemaVersionMetadataResponse
+ * //   MetadataInfoMap: { // MetadataInfoMap
+ * //     "<keys>": { // MetadataInfo
+ * //       MetadataValue: "STRING_VALUE",
+ * //       CreatedTime: "STRING_VALUE",
+ * //       OtherMetadataValueList: [ // OtherMetadataValueList
+ * //         { // OtherMetadataValueListItem
+ * //           MetadataValue: "STRING_VALUE",
+ * //           CreatedTime: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   SchemaVersionId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

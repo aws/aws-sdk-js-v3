@@ -47,17 +47,16 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * };
  * const command = new ListPublishingDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPublishingDestinationsResponse
- *   Destinations: [ // Destinations // required
- *     { // Destination
- *       DestinationId: "STRING_VALUE", // required
- *       DestinationType: "S3", // required
- *       Status: "PENDING_VERIFICATION" || "PUBLISHING" || "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY" || "STOPPED", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPublishingDestinationsResponse
+ * //   Destinations: [ // Destinations // required
+ * //     { // Destination
+ * //       DestinationId: "STRING_VALUE", // required
+ * //       DestinationType: "S3", // required
+ * //       Status: "PENDING_VERIFICATION" || "PUBLISHING" || "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY" || "STOPPED", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

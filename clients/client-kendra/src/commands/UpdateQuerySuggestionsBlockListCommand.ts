@@ -65,8 +65,7 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * };
  * const command = new UpdateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

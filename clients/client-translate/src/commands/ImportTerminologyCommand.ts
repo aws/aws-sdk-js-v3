@@ -72,34 +72,33 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * };
  * const command = new ImportTerminologyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportTerminologyResponse
- *   TerminologyProperties: { // TerminologyProperties
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     SourceLanguageCode: "STRING_VALUE",
- *     TargetLanguageCodes: [ // LanguageCodeStringList
- *       "STRING_VALUE",
- *     ],
- *     EncryptionKey: { // EncryptionKey
- *       Type: "KMS", // required
- *       Id: "STRING_VALUE", // required
- *     },
- *     SizeBytes: Number("int"),
- *     TermCount: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     LastUpdatedAt: new Date("TIMESTAMP"),
- *     Directionality: "UNI" || "MULTI",
- *     Message: "STRING_VALUE",
- *     SkippedTermCount: Number("int"),
- *     Format: "CSV" || "TMX" || "TSV",
- *   },
- *   AuxiliaryDataLocation: { // TerminologyDataLocation
- *     RepositoryType: "STRING_VALUE", // required
- *     Location: "STRING_VALUE", // required
- *   },
- * };
+ * // { // ImportTerminologyResponse
+ * //   TerminologyProperties: { // TerminologyProperties
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     SourceLanguageCode: "STRING_VALUE",
+ * //     TargetLanguageCodes: [ // LanguageCodeStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     EncryptionKey: { // EncryptionKey
+ * //       Type: "KMS", // required
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //     SizeBytes: Number("int"),
+ * //     TermCount: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     LastUpdatedAt: new Date("TIMESTAMP"),
+ * //     Directionality: "UNI" || "MULTI",
+ * //     Message: "STRING_VALUE",
+ * //     SkippedTermCount: Number("int"),
+ * //     Format: "CSV" || "TMX" || "TSV",
+ * //   },
+ * //   AuxiliaryDataLocation: { // TerminologyDataLocation
+ * //     RepositoryType: "STRING_VALUE", // required
+ * //     Location: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

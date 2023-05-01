@@ -48,14 +48,13 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * };
  * const command = new CreateDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDestinationResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   state: "STRING_VALUE", // required
- * };
+ * // { // CreateDestinationResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

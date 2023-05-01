@@ -45,8 +45,7 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSubnetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

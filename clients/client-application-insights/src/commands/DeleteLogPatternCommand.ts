@@ -50,8 +50,7 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * };
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

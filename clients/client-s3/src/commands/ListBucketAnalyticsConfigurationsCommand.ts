@@ -86,46 +86,45 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  * };
  * const command = new ListBucketAnalyticsConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBucketAnalyticsConfigurationsOutput
- *   IsTruncated: true || false,
- *   ContinuationToken: "STRING_VALUE",
- *   NextContinuationToken: "STRING_VALUE",
- *   AnalyticsConfigurationList: [ // AnalyticsConfigurationList
- *     { // AnalyticsConfiguration
- *       Id: "STRING_VALUE", // required
- *       Filter: { // AnalyticsFilter Union: only one key present
- *         Prefix: "STRING_VALUE",
- *         Tag: { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *         And: { // AnalyticsAndOperator
- *           Prefix: "STRING_VALUE",
- *           Tags: [ // TagSet
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *       StorageClassAnalysis: { // StorageClassAnalysis
- *         DataExport: { // StorageClassAnalysisDataExport
- *           OutputSchemaVersion: "V_1", // required
- *           Destination: { // AnalyticsExportDestination
- *             S3BucketDestination: { // AnalyticsS3BucketDestination
- *               Format: "CSV", // required
- *               BucketAccountId: "STRING_VALUE",
- *               Bucket: "STRING_VALUE", // required
- *               Prefix: "STRING_VALUE",
- *             },
- *           },
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // ListBucketAnalyticsConfigurationsOutput
+ * //   IsTruncated: true || false,
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   NextContinuationToken: "STRING_VALUE",
+ * //   AnalyticsConfigurationList: [ // AnalyticsConfigurationList
+ * //     { // AnalyticsConfiguration
+ * //       Id: "STRING_VALUE", // required
+ * //       Filter: { // AnalyticsFilter Union: only one key present
+ * //         Prefix: "STRING_VALUE",
+ * //         Tag: { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         And: { // AnalyticsAndOperator
+ * //           Prefix: "STRING_VALUE",
+ * //           Tags: [ // TagSet
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       StorageClassAnalysis: { // StorageClassAnalysis
+ * //         DataExport: { // StorageClassAnalysisDataExport
+ * //           OutputSchemaVersion: "V_1", // required
+ * //           Destination: { // AnalyticsExportDestination
+ * //             S3BucketDestination: { // AnalyticsS3BucketDestination
+ * //               Format: "CSV", // required
+ * //               BucketAccountId: "STRING_VALUE",
+ * //               Bucket: "STRING_VALUE", // required
+ * //               Prefix: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

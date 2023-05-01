@@ -50,11 +50,10 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
  * };
  * const command = new UpdateClusterKafkaVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateClusterKafkaVersionResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateClusterKafkaVersionResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,20 +51,19 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * };
  * const command = new ListReferenceImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReferenceImportJobsResponse
- *   nextToken: "STRING_VALUE",
- *   importJobs: [ // ImportReferenceJobList
- *     { // ImportReferenceJobItem
- *       id: "STRING_VALUE", // required
- *       referenceStoreId: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       completionTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListReferenceImportJobsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   importJobs: [ // ImportReferenceJobList
+ * //     { // ImportReferenceJobItem
+ * //       id: "STRING_VALUE", // required
+ * //       referenceStoreId: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

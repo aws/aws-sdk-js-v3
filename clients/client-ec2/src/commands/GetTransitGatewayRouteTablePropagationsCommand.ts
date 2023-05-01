@@ -64,19 +64,18 @@ export interface GetTransitGatewayRouteTablePropagationsCommandOutput
  * };
  * const command = new GetTransitGatewayRouteTablePropagationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayRouteTablePropagationsResult
- *   TransitGatewayRouteTablePropagations: [ // TransitGatewayRouteTablePropagationList
- *     { // TransitGatewayRouteTablePropagation
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       State: "enabling" || "enabled" || "disabling" || "disabled",
- *       TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayRouteTablePropagationsResult
+ * //   TransitGatewayRouteTablePropagations: [ // TransitGatewayRouteTablePropagationList
+ * //     { // TransitGatewayRouteTablePropagation
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //       TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

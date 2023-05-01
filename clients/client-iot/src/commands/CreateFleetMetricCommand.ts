@@ -64,11 +64,10 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * };
  * const command = new CreateFleetMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFleetMetricResponse
- *   metricName: "STRING_VALUE",
- *   metricArn: "STRING_VALUE",
- * };
+ * // { // CreateFleetMetricResponse
+ * //   metricName: "STRING_VALUE",
+ * //   metricArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

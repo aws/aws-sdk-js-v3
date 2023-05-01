@@ -42,12 +42,11 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * const input = {};
  * const command = new GetSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSupportedResourceTypesOutput
- *   ResourceTypes: [ // ResourceTypes
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetSupportedResourceTypesOutput
+ * //   ResourceTypes: [ // ResourceTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

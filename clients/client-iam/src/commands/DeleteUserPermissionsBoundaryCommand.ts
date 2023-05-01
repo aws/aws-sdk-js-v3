@@ -52,8 +52,7 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

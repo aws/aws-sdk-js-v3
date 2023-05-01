@@ -58,20 +58,19 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConnectionsResponse
- *   Marker: "STRING_VALUE",
- *   Connections: [ // ConnectionList
- *     { // Connection
- *       ReplicationInstanceArn: "STRING_VALUE",
- *       EndpointArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       LastFailureMessage: "STRING_VALUE",
- *       EndpointIdentifier: "STRING_VALUE",
- *       ReplicationInstanceIdentifier: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeConnectionsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Connections: [ // ConnectionList
+ * //     { // Connection
+ * //       ReplicationInstanceArn: "STRING_VALUE",
+ * //       EndpointArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       LastFailureMessage: "STRING_VALUE",
+ * //       EndpointIdentifier: "STRING_VALUE",
+ * //       ReplicationInstanceIdentifier: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -54,21 +54,20 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * };
  * const command = new GetRepositorySyncStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositorySyncStatusOutput
- *   latestSync: { // RepositorySyncAttempt
- *     startedAt: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE", // required
- *     events: [ // RepositorySyncEvents // required
- *       { // RepositorySyncEvent
- *         type: "STRING_VALUE", // required
- *         externalId: "STRING_VALUE",
- *         time: new Date("TIMESTAMP"), // required
- *         event: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetRepositorySyncStatusOutput
+ * //   latestSync: { // RepositorySyncAttempt
+ * //     startedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     events: [ // RepositorySyncEvents // required
+ * //       { // RepositorySyncEvent
+ * //         type: "STRING_VALUE", // required
+ * //         externalId: "STRING_VALUE",
+ * //         time: new Date("TIMESTAMP"), // required
+ * //         event: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

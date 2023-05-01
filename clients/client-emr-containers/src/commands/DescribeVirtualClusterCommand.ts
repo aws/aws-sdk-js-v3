@@ -49,28 +49,27 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * };
  * const command = new DescribeVirtualClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVirtualClusterResponse
- *   virtualCluster: { // VirtualCluster
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     state: "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
- *     containerProvider: { // ContainerProvider
- *       type: "EKS", // required
- *       id: "STRING_VALUE", // required
- *       info: { // ContainerInfo Union: only one key present
- *         eksInfo: { // EksInfo
- *           namespace: "STRING_VALUE",
- *         },
- *       },
- *     },
- *     createdAt: new Date("TIMESTAMP"),
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeVirtualClusterResponse
+ * //   virtualCluster: { // VirtualCluster
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     state: "RUNNING" || "TERMINATING" || "TERMINATED" || "ARRESTED",
+ * //     containerProvider: { // ContainerProvider
+ * //       type: "EKS", // required
+ * //       id: "STRING_VALUE", // required
+ * //       info: { // ContainerInfo Union: only one key present
+ * //         eksInfo: { // EksInfo
+ * //           namespace: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

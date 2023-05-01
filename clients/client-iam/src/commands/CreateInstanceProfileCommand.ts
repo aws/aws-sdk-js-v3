@@ -55,48 +55,47 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInstanceProfileResponse
- *   InstanceProfile: { // InstanceProfile
- *     Path: "STRING_VALUE", // required
- *     InstanceProfileName: "STRING_VALUE", // required
- *     InstanceProfileId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     Roles: [ // roleListType // required
- *       { // Role
- *         Path: "STRING_VALUE", // required
- *         RoleName: "STRING_VALUE", // required
- *         RoleId: "STRING_VALUE", // required
- *         Arn: "STRING_VALUE", // required
- *         CreateDate: new Date("TIMESTAMP"), // required
- *         AssumeRolePolicyDocument: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         MaxSessionDuration: Number("int"),
- *         PermissionsBoundary: { // AttachedPermissionsBoundary
- *           PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *           PermissionsBoundaryArn: "STRING_VALUE",
- *         },
- *         Tags: [ // tagListType
- *           { // Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *         RoleLastUsed: { // RoleLastUsed
- *           LastUsedDate: new Date("TIMESTAMP"),
- *           Region: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     Tags: [
- *       {
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateInstanceProfileResponse
+ * //   InstanceProfile: { // InstanceProfile
+ * //     Path: "STRING_VALUE", // required
+ * //     InstanceProfileName: "STRING_VALUE", // required
+ * //     InstanceProfileId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     Roles: [ // roleListType // required
+ * //       { // Role
+ * //         Path: "STRING_VALUE", // required
+ * //         RoleName: "STRING_VALUE", // required
+ * //         RoleId: "STRING_VALUE", // required
+ * //         Arn: "STRING_VALUE", // required
+ * //         CreateDate: new Date("TIMESTAMP"), // required
+ * //         AssumeRolePolicyDocument: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         MaxSessionDuration: Number("int"),
+ * //         PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //           PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //           PermissionsBoundaryArn: "STRING_VALUE",
+ * //         },
+ * //         Tags: [ // tagListType
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         RoleLastUsed: { // RoleLastUsed
+ * //           LastUsedDate: new Date("TIMESTAMP"),
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

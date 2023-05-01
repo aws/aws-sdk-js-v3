@@ -63,29 +63,28 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRepositoryResponse
- *   repository: { // Repository
- *     repositoryArn: "STRING_VALUE",
- *     registryId: "STRING_VALUE",
- *     repositoryName: "STRING_VALUE",
- *     repositoryUri: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- *   catalogData: { // RepositoryCatalogData
- *     description: "STRING_VALUE",
- *     architectures: [ // ArchitectureList
- *       "STRING_VALUE",
- *     ],
- *     operatingSystems: [ // OperatingSystemList
- *       "STRING_VALUE",
- *     ],
- *     logoUrl: "STRING_VALUE",
- *     aboutText: "STRING_VALUE",
- *     usageText: "STRING_VALUE",
- *     marketplaceCertified: true || false,
- *   },
- * };
+ * // { // CreateRepositoryResponse
+ * //   repository: { // Repository
+ * //     repositoryArn: "STRING_VALUE",
+ * //     registryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryUri: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * //   catalogData: { // RepositoryCatalogData
+ * //     description: "STRING_VALUE",
+ * //     architectures: [ // ArchitectureList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     operatingSystems: [ // OperatingSystemList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logoUrl: "STRING_VALUE",
+ * //     aboutText: "STRING_VALUE",
+ * //     usageText: "STRING_VALUE",
+ * //     marketplaceCertified: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

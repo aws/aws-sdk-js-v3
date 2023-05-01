@@ -87,11 +87,10 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPointResult
- *   AccessPointArn: "STRING_VALUE",
- *   Alias: "STRING_VALUE",
- * };
+ * // { // CreateAccessPointResult
+ * //   AccessPointArn: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * // };
  *
  * ```
  *

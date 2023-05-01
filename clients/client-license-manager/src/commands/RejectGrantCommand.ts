@@ -44,12 +44,11 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * };
  * const command = new RejectGrantCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RejectGrantResponse
- *   GrantArn: "STRING_VALUE",
- *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
- *   Version: "STRING_VALUE",
- * };
+ * // { // RejectGrantResponse
+ * //   GrantArn: "STRING_VALUE",
+ * //   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

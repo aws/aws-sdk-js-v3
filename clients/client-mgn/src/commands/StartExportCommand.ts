@@ -46,24 +46,23 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * };
  * const command = new StartExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExportResponse
- *   exportTask: { // ExportTask
- *     exportID: "STRING_VALUE",
- *     s3Bucket: "STRING_VALUE",
- *     s3Key: "STRING_VALUE",
- *     s3BucketOwner: "STRING_VALUE",
- *     creationDateTime: "STRING_VALUE",
- *     endDateTime: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     progressPercentage: Number("float"),
- *     summary: { // ExportTaskSummary
- *       serversCount: Number("long"),
- *       applicationsCount: Number("long"),
- *       wavesCount: Number("long"),
- *     },
- *   },
- * };
+ * // { // StartExportResponse
+ * //   exportTask: { // ExportTask
+ * //     exportID: "STRING_VALUE",
+ * //     s3Bucket: "STRING_VALUE",
+ * //     s3Key: "STRING_VALUE",
+ * //     s3BucketOwner: "STRING_VALUE",
+ * //     creationDateTime: "STRING_VALUE",
+ * //     endDateTime: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     progressPercentage: Number("float"),
+ * //     summary: { // ExportTaskSummary
+ * //       serversCount: Number("long"),
+ * //       applicationsCount: Number("long"),
+ * //       wavesCount: Number("long"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

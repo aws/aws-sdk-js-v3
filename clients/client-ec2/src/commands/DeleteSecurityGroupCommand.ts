@@ -53,8 +53,7 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

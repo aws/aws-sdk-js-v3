@@ -56,17 +56,16 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
  * };
  * const command = new ListAttachedUserPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttachedUserPoliciesResponse
- *   AttachedPolicies: [ // attachedPoliciesListType
- *     { // AttachedPolicy
- *       PolicyName: "STRING_VALUE",
- *       PolicyArn: "STRING_VALUE",
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListAttachedUserPoliciesResponse
+ * //   AttachedPolicies: [ // attachedPoliciesListType
+ * //     { // AttachedPolicy
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

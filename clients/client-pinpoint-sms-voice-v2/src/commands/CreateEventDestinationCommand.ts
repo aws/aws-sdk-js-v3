@@ -72,29 +72,28 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * };
  * const command = new CreateEventDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEventDestinationResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   EventDestination: { // EventDestination
- *     EventDestinationName: "STRING_VALUE", // required
- *     Enabled: true || false, // required
- *     MatchingEventTypes: [ // EventTypeList // required
- *       "STRING_VALUE",
- *     ],
- *     CloudWatchLogsDestination: { // CloudWatchLogsDestination
- *       IamRoleArn: "STRING_VALUE", // required
- *       LogGroupArn: "STRING_VALUE", // required
- *     },
- *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *       IamRoleArn: "STRING_VALUE", // required
- *       DeliveryStreamArn: "STRING_VALUE", // required
- *     },
- *     SnsDestination: { // SnsDestination
- *       TopicArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // CreateEventDestinationResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   EventDestination: { // EventDestination
+ * //     EventDestinationName: "STRING_VALUE", // required
+ * //     Enabled: true || false, // required
+ * //     MatchingEventTypes: [ // EventTypeList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CloudWatchLogsDestination: { // CloudWatchLogsDestination
+ * //       IamRoleArn: "STRING_VALUE", // required
+ * //       LogGroupArn: "STRING_VALUE", // required
+ * //     },
+ * //     KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ * //       IamRoleArn: "STRING_VALUE", // required
+ * //       DeliveryStreamArn: "STRING_VALUE", // required
+ * //     },
+ * //     SnsDestination: { // SnsDestination
+ * //       TopicArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

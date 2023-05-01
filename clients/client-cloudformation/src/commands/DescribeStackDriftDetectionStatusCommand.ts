@@ -61,16 +61,15 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * };
  * const command = new DescribeStackDriftDetectionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStackDriftDetectionStatusOutput
- *   StackId: "STRING_VALUE", // required
- *   StackDriftDetectionId: "STRING_VALUE", // required
- *   StackDriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
- *   DetectionStatus: "DETECTION_IN_PROGRESS" || "DETECTION_FAILED" || "DETECTION_COMPLETE", // required
- *   DetectionStatusReason: "STRING_VALUE",
- *   DriftedStackResourceCount: Number("int"),
- *   Timestamp: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeStackDriftDetectionStatusOutput
+ * //   StackId: "STRING_VALUE", // required
+ * //   StackDriftDetectionId: "STRING_VALUE", // required
+ * //   StackDriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
+ * //   DetectionStatus: "DETECTION_IN_PROGRESS" || "DETECTION_FAILED" || "DETECTION_COMPLETE", // required
+ * //   DetectionStatusReason: "STRING_VALUE",
+ * //   DriftedStackResourceCount: Number("int"),
+ * //   Timestamp: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

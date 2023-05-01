@@ -48,18 +48,17 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * };
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEmailIdentitiesResponse
- *   EmailIdentities: [ // IdentityInfoList
- *     { // IdentityInfo
- *       IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
- *       IdentityName: "STRING_VALUE",
- *       SendingEnabled: true || false,
- *       VerificationStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEmailIdentitiesResponse
+ * //   EmailIdentities: [ // IdentityInfoList
+ * //     { // IdentityInfo
+ * //       IdentityType: "EMAIL_ADDRESS" || "DOMAIN" || "MANAGED_DOMAIN",
+ * //       IdentityName: "STRING_VALUE",
+ * //       SendingEnabled: true || false,
+ * //       VerificationStatus: "PENDING" || "SUCCESS" || "FAILED" || "TEMPORARY_FAILURE" || "NOT_STARTED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

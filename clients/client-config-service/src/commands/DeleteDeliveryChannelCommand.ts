@@ -46,8 +46,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeliveryChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

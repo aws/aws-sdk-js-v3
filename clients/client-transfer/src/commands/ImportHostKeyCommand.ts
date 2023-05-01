@@ -57,11 +57,10 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * };
  * const command = new ImportHostKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportHostKeyResponse
- *   ServerId: "STRING_VALUE", // required
- *   HostKeyId: "STRING_VALUE", // required
- * };
+ * // { // ImportHostKeyResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   HostKeyId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

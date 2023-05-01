@@ -46,8 +46,7 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * };
  * const command = new UpdateLongTermPricingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

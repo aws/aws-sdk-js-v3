@@ -44,13 +44,12 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * };
  * const command = new GetSolutionMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolutionMetricsResponse
- *   solutionVersionArn: "STRING_VALUE",
- *   metrics: { // Metrics
- *     "<keys>": Number("double"),
- *   },
- * };
+ * // { // GetSolutionMetricsResponse
+ * //   solutionVersionArn: "STRING_VALUE",
+ * //   metrics: { // Metrics
+ * //     "<keys>": Number("double"),
+ * //   },
+ * // };
  *
  * ```
  *

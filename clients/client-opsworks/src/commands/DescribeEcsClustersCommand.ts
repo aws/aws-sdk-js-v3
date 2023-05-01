@@ -58,18 +58,17 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * };
  * const command = new DescribeEcsClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEcsClustersResult
- *   EcsClusters: [ // EcsClusters
- *     { // EcsCluster
- *       EcsClusterArn: "STRING_VALUE",
- *       EcsClusterName: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       RegisteredAt: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEcsClustersResult
+ * //   EcsClusters: [ // EcsClusters
+ * //     { // EcsCluster
+ * //       EcsClusterArn: "STRING_VALUE",
+ * //       EcsClusterName: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       RegisteredAt: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

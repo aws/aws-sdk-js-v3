@@ -46,11 +46,10 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  * };
  * const command = new CreateResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResourcePolicyResponse
- *   resourceArn: "STRING_VALUE",
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // CreateResourcePolicyResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

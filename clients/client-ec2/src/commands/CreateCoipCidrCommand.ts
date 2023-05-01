@@ -48,14 +48,13 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  * };
  * const command = new CreateCoipCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCoipCidrResult
- *   CoipCidr: { // CoipCidr
- *     Cidr: "STRING_VALUE",
- *     CoipPoolId: "STRING_VALUE",
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateCoipCidrResult
+ * //   CoipCidr: { // CoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     CoipPoolId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

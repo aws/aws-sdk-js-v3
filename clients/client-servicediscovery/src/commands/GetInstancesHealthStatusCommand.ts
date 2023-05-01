@@ -55,13 +55,12 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstancesHealthStatusResponse
- *   Status: { // InstanceHealthStatusMap
- *     "<keys>": "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInstancesHealthStatusResponse
+ * //   Status: { // InstanceHealthStatusMap
+ * //     "<keys>": "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,14 +45,13 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * };
  * const command = new RemoveAllBackendsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveAllBackendsResponse
- *   AppId: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // RemoveAllBackendsResponse
+ * //   AppId: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,22 +53,21 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagesResponse
- *   Images: [ // Images
- *     { // Image
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       Description: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       FailureReason: "STRING_VALUE",
- *       ImageArn: "STRING_VALUE", // required
- *       ImageName: "STRING_VALUE", // required
- *       ImageStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImagesResponse
+ * //   Images: [ // Images
+ * //     { // Image
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //       ImageArn: "STRING_VALUE", // required
+ * //       ImageName: "STRING_VALUE", // required
+ * //       ImageStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

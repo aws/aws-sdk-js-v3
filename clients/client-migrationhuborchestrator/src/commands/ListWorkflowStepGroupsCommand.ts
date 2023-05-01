@@ -50,24 +50,23 @@ export interface ListWorkflowStepGroupsCommandOutput extends ListWorkflowStepGro
  * };
  * const command = new ListWorkflowStepGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkflowStepGroupsResponse
- *   nextToken: "STRING_VALUE",
- *   workflowStepGroupsSummary: [ // WorkflowStepGroupsSummaryList // required
- *     { // WorkflowStepGroupSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       owner: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       previous: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       next: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListWorkflowStepGroupsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workflowStepGroupsSummary: [ // WorkflowStepGroupsSummaryList // required
+ * //     { // WorkflowStepGroupSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       previous: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       next: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -60,12 +60,11 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSessionResponse
- *   SessionId: "STRING_VALUE",
- *   TokenValue: "STRING_VALUE",
- *   StreamUrl: "STRING_VALUE",
- * };
+ * // { // StartSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   TokenValue: "STRING_VALUE",
+ * //   StreamUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

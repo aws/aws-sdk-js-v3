@@ -57,11 +57,10 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAttachmentResponse
- *   Url: "STRING_VALUE",
- *   UrlExpiry: "STRING_VALUE",
- * };
+ * // { // GetAttachmentResponse
+ * //   Url: "STRING_VALUE",
+ * //   UrlExpiry: "STRING_VALUE",
+ * // };
  *
  * ```
  *

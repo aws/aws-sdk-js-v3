@@ -59,11 +59,10 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * };
  * const command = new PutParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutParameterResult
- *   Version: Number("long"),
- *   Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
- * };
+ * // { // PutParameterResult
+ * //   Version: Number("long"),
+ * //   Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ * // };
  *
  * ```
  *

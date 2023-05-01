@@ -52,17 +52,16 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * };
  * const command = new ListProposalVotesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProposalVotesOutput
- *   ProposalVotes: [ // ProposalVoteList
- *     { // VoteSummary
- *       Vote: "YES" || "NO",
- *       MemberName: "STRING_VALUE",
- *       MemberId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProposalVotesOutput
+ * //   ProposalVotes: [ // ProposalVoteList
+ * //     { // VoteSummary
+ * //       Vote: "YES" || "NO",
+ * //       MemberName: "STRING_VALUE",
+ * //       MemberId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

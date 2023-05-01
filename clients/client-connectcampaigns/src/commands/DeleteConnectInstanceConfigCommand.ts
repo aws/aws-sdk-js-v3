@@ -47,8 +47,7 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

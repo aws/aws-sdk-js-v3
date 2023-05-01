@@ -86,13 +86,12 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * };
  * const command = new GetChannelMessageStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChannelMessageStatusResponse
- *   Status: { // ChannelMessageStatusStructure
- *     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
- *     Detail: "STRING_VALUE",
- *   },
- * };
+ * // { // GetChannelMessageStatusResponse
+ * //   Status: { // ChannelMessageStatusStructure
+ * //     Value: "SENT" || "PENDING" || "FAILED" || "DENIED",
+ * //     Detail: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * };
  * const command = new StopThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -78,11 +78,10 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSnapshotOutput
- *   VolumeARN: "STRING_VALUE",
- *   SnapshotId: "STRING_VALUE",
- * };
+ * // { // CreateSnapshotOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   SnapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,8 +57,7 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RegisterDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,15 +50,14 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOrganizationConfigurationResponse
- *   autoEnable: { // AutoEnable
- *     ec2: true || false, // required
- *     ecr: true || false, // required
- *     lambda: true || false,
- *   },
- *   maxAccountLimitReached: true || false,
- * };
+ * // { // DescribeOrganizationConfigurationResponse
+ * //   autoEnable: { // AutoEnable
+ * //     ec2: true || false, // required
+ * //     ecr: true || false, // required
+ * //     lambda: true || false,
+ * //   },
+ * //   maxAccountLimitReached: true || false,
+ * // };
  *
  * ```
  *

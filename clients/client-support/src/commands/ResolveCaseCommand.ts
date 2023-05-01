@@ -59,11 +59,10 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * };
  * const command = new ResolveCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveCaseResponse
- *   initialCaseStatus: "STRING_VALUE",
- *   finalCaseStatus: "STRING_VALUE",
- * };
+ * // { // ResolveCaseResponse
+ * //   initialCaseStatus: "STRING_VALUE",
+ * //   finalCaseStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

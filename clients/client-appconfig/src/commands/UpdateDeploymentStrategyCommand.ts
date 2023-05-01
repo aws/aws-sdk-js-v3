@@ -49,17 +49,16 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * };
  * const command = new UpdateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeploymentStrategy
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   DeploymentDurationInMinutes: Number("int"),
- *   GrowthType: "LINEAR" || "EXPONENTIAL",
- *   GrowthFactor: Number("float"),
- *   FinalBakeTimeInMinutes: Number("int"),
- *   ReplicateTo: "NONE" || "SSM_DOCUMENT",
- * };
+ * // { // DeploymentStrategy
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   DeploymentDurationInMinutes: Number("int"),
+ * //   GrowthType: "LINEAR" || "EXPONENTIAL",
+ * //   GrowthFactor: Number("float"),
+ * //   FinalBakeTimeInMinutes: Number("int"),
+ * //   ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ * // };
  *
  * ```
  *

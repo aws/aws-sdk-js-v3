@@ -58,10 +58,9 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * };
  * const command = new UpdateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDynamicThingGroupResponse
- *   version: Number("long"),
- * };
+ * // { // UpdateDynamicThingGroupResponse
+ * //   version: Number("long"),
+ * // };
  *
  * ```
  *

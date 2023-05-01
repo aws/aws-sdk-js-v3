@@ -72,33 +72,32 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * };
  * const command = new AssociateIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateIdentityProviderConfigResponse
- *   update: { // Update
- *     id: "STRING_VALUE",
- *     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- *     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate",
- *     params: [ // UpdateParams
- *       { // UpdateParam
- *         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     createdAt: new Date("TIMESTAMP"),
- *     errors: [ // ErrorDetails
- *       { // ErrorDetail
- *         errorCode: "SubnetNotFound" || "SecurityGroupNotFound" || "EniLimitReached" || "IpNotAvailable" || "AccessDenied" || "OperationNotPermitted" || "VpcIdNotFound" || "Unknown" || "NodeCreationFailure" || "PodEvictionFailure" || "InsufficientFreeAddresses" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
- *         errorMessage: "STRING_VALUE",
- *         resourceIds: [ // StringList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateIdentityProviderConfigResponse
+ * //   update: { // Update
+ * //     id: "STRING_VALUE",
+ * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate",
+ * //     params: [ // UpdateParams
+ * //       { // UpdateParam
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     errors: [ // ErrorDetails
+ * //       { // ErrorDetail
+ * //         errorCode: "SubnetNotFound" || "SecurityGroupNotFound" || "EniLimitReached" || "IpNotAvailable" || "AccessDenied" || "OperationNotPermitted" || "VpcIdNotFound" || "Unknown" || "NodeCreationFailure" || "PodEvictionFailure" || "InsufficientFreeAddresses" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
+ * //         errorMessage: "STRING_VALUE",
+ * //         resourceIds: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

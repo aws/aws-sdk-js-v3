@@ -95,10 +95,9 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  * };
  * const command = new PutRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRuleResponse
- *   RuleArn: "STRING_VALUE",
- * };
+ * // { // PutRuleResponse
+ * //   RuleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

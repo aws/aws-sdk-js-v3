@@ -50,18 +50,17 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * };
  * const command = new ListAgentStatusesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAgentStatusResponse
- *   NextToken: "STRING_VALUE",
- *   AgentStatusSummaryList: [ // AgentStatusSummaryList
- *     { // AgentStatusSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
- *     },
- *   ],
- * };
+ * // { // ListAgentStatusResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   AgentStatusSummaryList: [ // AgentStatusSummaryList
+ * //     { // AgentStatusSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

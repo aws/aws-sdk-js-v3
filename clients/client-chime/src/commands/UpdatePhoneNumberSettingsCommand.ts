@@ -49,8 +49,7 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * };
  * const command = new UpdatePhoneNumberSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

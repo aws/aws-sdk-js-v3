@@ -58,8 +58,7 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortVaultLockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

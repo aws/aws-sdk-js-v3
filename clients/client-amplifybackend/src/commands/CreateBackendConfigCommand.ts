@@ -45,13 +45,12 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  * };
  * const command = new CreateBackendConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackendConfigResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // CreateBackendConfigResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

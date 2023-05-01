@@ -45,82 +45,81 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  * };
  * const command = new GetInAppTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInAppTemplateResponse
- *   InAppTemplateResponse: { // InAppTemplateResponse
- *     Arn: "STRING_VALUE",
- *     Content: [ // ListOfInAppMessageContent
- *       { // InAppMessageContent
- *         BackgroundColor: "STRING_VALUE",
- *         BodyConfig: { // InAppMessageBodyConfig
- *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *           Body: "STRING_VALUE", // required
- *           TextColor: "STRING_VALUE", // required
- *         },
- *         HeaderConfig: { // InAppMessageHeaderConfig
- *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *           Header: "STRING_VALUE", // required
- *           TextColor: "STRING_VALUE", // required
- *         },
- *         ImageUrl: "STRING_VALUE",
- *         PrimaryBtn: { // InAppMessageButton
- *           Android: { // OverrideButtonConfiguration
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *           },
- *           DefaultConfig: { // DefaultButtonConfiguration
- *             BackgroundColor: "STRING_VALUE",
- *             BorderRadius: Number("int"),
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *             Text: "STRING_VALUE", // required
- *             TextColor: "STRING_VALUE",
- *           },
- *           IOS: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *           },
- *           Web: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *           },
- *         },
- *         SecondaryBtn: {
- *           Android: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *           },
- *           DefaultConfig: {
- *             BackgroundColor: "STRING_VALUE",
- *             BorderRadius: Number("int"),
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *             Text: "STRING_VALUE", // required
- *             TextColor: "STRING_VALUE",
- *           },
- *           IOS: {
- *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *             Link: "STRING_VALUE",
- *           },
- *           Web: "<OverrideButtonConfiguration>",
- *         },
- *       },
- *     ],
- *     CreationDate: "STRING_VALUE", // required
- *     CustomConfig: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     LastModifiedDate: "STRING_VALUE", // required
- *     Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
- *     tags: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *     TemplateDescription: "STRING_VALUE",
- *     TemplateName: "STRING_VALUE", // required
- *     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
- *     Version: "STRING_VALUE",
- *   },
- * };
+ * // { // GetInAppTemplateResponse
+ * //   InAppTemplateResponse: { // InAppTemplateResponse
+ * //     Arn: "STRING_VALUE",
+ * //     Content: [ // ListOfInAppMessageContent
+ * //       { // InAppMessageContent
+ * //         BackgroundColor: "STRING_VALUE",
+ * //         BodyConfig: { // InAppMessageBodyConfig
+ * //           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
+ * //           Body: "STRING_VALUE", // required
+ * //           TextColor: "STRING_VALUE", // required
+ * //         },
+ * //         HeaderConfig: { // InAppMessageHeaderConfig
+ * //           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
+ * //           Header: "STRING_VALUE", // required
+ * //           TextColor: "STRING_VALUE", // required
+ * //         },
+ * //         ImageUrl: "STRING_VALUE",
+ * //         PrimaryBtn: { // InAppMessageButton
+ * //           Android: { // OverrideButtonConfiguration
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //           },
+ * //           DefaultConfig: { // DefaultButtonConfiguration
+ * //             BackgroundColor: "STRING_VALUE",
+ * //             BorderRadius: Number("int"),
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //             Text: "STRING_VALUE", // required
+ * //             TextColor: "STRING_VALUE",
+ * //           },
+ * //           IOS: {
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //           },
+ * //           Web: {
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         SecondaryBtn: {
+ * //           Android: {
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //           },
+ * //           DefaultConfig: {
+ * //             BackgroundColor: "STRING_VALUE",
+ * //             BorderRadius: Number("int"),
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //             Text: "STRING_VALUE", // required
+ * //             TextColor: "STRING_VALUE",
+ * //           },
+ * //           IOS: {
+ * //             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //             Link: "STRING_VALUE",
+ * //           },
+ * //           Web: "<OverrideButtonConfiguration>",
+ * //         },
+ * //       },
+ * //     ],
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     CustomConfig: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     LastModifiedDate: "STRING_VALUE", // required
+ * //     Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TemplateDescription: "STRING_VALUE",
+ * //     TemplateName: "STRING_VALUE", // required
+ * //     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

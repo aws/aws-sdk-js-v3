@@ -51,42 +51,41 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * };
  * const command = new ListEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEndpointAccessResponse
- *   nextToken: "STRING_VALUE",
- *   endpoints: [ // EndpointAccessList // required
- *     { // EndpointAccess
- *       endpointName: "STRING_VALUE",
- *       endpointStatus: "STRING_VALUE",
- *       workgroupName: "STRING_VALUE",
- *       endpointCreateTime: new Date("TIMESTAMP"),
- *       port: Number("int"),
- *       address: "STRING_VALUE",
- *       subnetIds: [ // SubnetIdList
- *         "STRING_VALUE",
- *       ],
- *       vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
- *         { // VpcSecurityGroupMembership
- *           vpcSecurityGroupId: "STRING_VALUE",
- *           status: "STRING_VALUE",
- *         },
- *       ],
- *       vpcEndpoint: { // VpcEndpoint
- *         vpcEndpointId: "STRING_VALUE",
- *         vpcId: "STRING_VALUE",
- *         networkInterfaces: [ // NetworkInterfaceList
- *           { // NetworkInterface
- *             networkInterfaceId: "STRING_VALUE",
- *             subnetId: "STRING_VALUE",
- *             privateIpAddress: "STRING_VALUE",
- *             availabilityZone: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *       endpointArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListEndpointAccessResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   endpoints: [ // EndpointAccessList // required
+ * //     { // EndpointAccess
+ * //       endpointName: "STRING_VALUE",
+ * //       endpointStatus: "STRING_VALUE",
+ * //       workgroupName: "STRING_VALUE",
+ * //       endpointCreateTime: new Date("TIMESTAMP"),
+ * //       port: Number("int"),
+ * //       address: "STRING_VALUE",
+ * //       subnetIds: [ // SubnetIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ * //         { // VpcSecurityGroupMembership
+ * //           vpcSecurityGroupId: "STRING_VALUE",
+ * //           status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       vpcEndpoint: { // VpcEndpoint
+ * //         vpcEndpointId: "STRING_VALUE",
+ * //         vpcId: "STRING_VALUE",
+ * //         networkInterfaces: [ // NetworkInterfaceList
+ * //           { // NetworkInterface
+ * //             networkInterfaceId: "STRING_VALUE",
+ * //             subnetId: "STRING_VALUE",
+ * //             privateIpAddress: "STRING_VALUE",
+ * //             availabilityZone: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       endpointArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

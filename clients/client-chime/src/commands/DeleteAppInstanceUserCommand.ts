@@ -44,8 +44,7 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAppInstanceUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

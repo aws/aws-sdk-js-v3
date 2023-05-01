@@ -59,23 +59,22 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
  * };
  * const command = new UpdateApnsVoipSandboxChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApnsVoipSandboxChannelResponse
- *   APNSVoipSandboxChannelResponse: { // APNSVoipSandboxChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     DefaultAuthenticationMethod: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     HasTokenKey: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // UpdateApnsVoipSandboxChannelResponse
+ * //   APNSVoipSandboxChannelResponse: { // APNSVoipSandboxChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

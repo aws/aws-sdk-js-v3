@@ -45,20 +45,19 @@ export interface ListAvailableSolutionStacksCommandOutput
  * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableSolutionStacksResultMessage
- *   SolutionStacks: [ // AvailableSolutionStackNamesList
- *     "STRING_VALUE",
- *   ],
- *   SolutionStackDetails: [ // AvailableSolutionStackDetailsList
- *     { // SolutionStackDescription
- *       SolutionStackName: "STRING_VALUE",
- *       PermittedFileTypes: [ // SolutionStackFileTypeList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListAvailableSolutionStacksResultMessage
+ * //   SolutionStacks: [ // AvailableSolutionStackNamesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SolutionStackDetails: [ // AvailableSolutionStackDetailsList
+ * //     { // SolutionStackDescription
+ * //       SolutionStackName: "STRING_VALUE",
+ * //       PermittedFileTypes: [ // SolutionStackFileTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

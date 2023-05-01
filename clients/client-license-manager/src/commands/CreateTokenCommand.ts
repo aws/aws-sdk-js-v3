@@ -55,12 +55,11 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTokenResponse
- *   TokenId: "STRING_VALUE",
- *   TokenType: "REFRESH_TOKEN",
- *   Token: "STRING_VALUE",
- * };
+ * // { // CreateTokenResponse
+ * //   TokenId: "STRING_VALUE",
+ * //   TokenType: "REFRESH_TOKEN",
+ * //   Token: "STRING_VALUE",
+ * // };
  *
  * ```
  *

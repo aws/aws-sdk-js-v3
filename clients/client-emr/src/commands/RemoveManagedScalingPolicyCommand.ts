@@ -44,8 +44,7 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * };
  * const command = new RemoveManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

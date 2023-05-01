@@ -52,13 +52,12 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemplateOutput
- *   TemplateBody: "STRING_VALUE",
- *   StagesAvailable: [ // StageList
- *     "Original" || "Processed",
- *   ],
- * };
+ * // { // GetTemplateOutput
+ * //   TemplateBody: "STRING_VALUE",
+ * //   StagesAvailable: [ // StageList
+ * //     "Original" || "Processed",
+ * //   ],
+ * // };
  *
  * ```
  *

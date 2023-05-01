@@ -48,12 +48,11 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * };
  * const command = new UpdateTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrackerResponse
- *   TrackerName: "STRING_VALUE", // required
- *   TrackerArn: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateTrackerResponse
+ * //   TrackerName: "STRING_VALUE", // required
+ * //   TrackerArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

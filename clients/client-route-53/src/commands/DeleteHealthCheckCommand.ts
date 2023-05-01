@@ -58,8 +58,7 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * };
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

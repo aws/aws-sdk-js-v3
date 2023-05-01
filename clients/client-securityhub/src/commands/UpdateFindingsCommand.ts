@@ -304,8 +304,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

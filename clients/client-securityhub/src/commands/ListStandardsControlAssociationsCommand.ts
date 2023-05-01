@@ -53,25 +53,24 @@ export interface ListStandardsControlAssociationsCommandOutput
  * };
  * const command = new ListStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStandardsControlAssociationsResponse
- *   StandardsControlAssociationSummaries: [ // StandardsControlAssociationSummaries // required
- *     { // StandardsControlAssociationSummary
- *       StandardsArn: "STRING_VALUE", // required
- *       SecurityControlId: "STRING_VALUE", // required
- *       SecurityControlArn: "STRING_VALUE", // required
- *       AssociationStatus: "ENABLED" || "DISABLED", // required
- *       RelatedRequirements: [ // RelatedRequirementsList
- *         "STRING_VALUE",
- *       ],
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       UpdatedReason: "STRING_VALUE",
- *       StandardsControlTitle: "STRING_VALUE",
- *       StandardsControlDescription: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStandardsControlAssociationsResponse
+ * //   StandardsControlAssociationSummaries: [ // StandardsControlAssociationSummaries // required
+ * //     { // StandardsControlAssociationSummary
+ * //       StandardsArn: "STRING_VALUE", // required
+ * //       SecurityControlId: "STRING_VALUE", // required
+ * //       SecurityControlArn: "STRING_VALUE", // required
+ * //       AssociationStatus: "ENABLED" || "DISABLED", // required
+ * //       RelatedRequirements: [ // RelatedRequirementsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedReason: "STRING_VALUE",
+ * //       StandardsControlTitle: "STRING_VALUE",
+ * //       StandardsControlDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

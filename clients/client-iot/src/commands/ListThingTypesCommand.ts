@@ -47,27 +47,26 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * };
  * const command = new ListThingTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingTypesResponse
- *   thingTypes: [ // ThingTypeList
- *     { // ThingTypeDefinition
- *       thingTypeName: "STRING_VALUE",
- *       thingTypeArn: "STRING_VALUE",
- *       thingTypeProperties: { // ThingTypeProperties
- *         thingTypeDescription: "STRING_VALUE",
- *         searchableAttributes: [ // SearchableAttributes
- *           "STRING_VALUE",
- *         ],
- *       },
- *       thingTypeMetadata: { // ThingTypeMetadata
- *         deprecated: true || false,
- *         deprecationDate: new Date("TIMESTAMP"),
- *         creationDate: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingTypesResponse
+ * //   thingTypes: [ // ThingTypeList
+ * //     { // ThingTypeDefinition
+ * //       thingTypeName: "STRING_VALUE",
+ * //       thingTypeArn: "STRING_VALUE",
+ * //       thingTypeProperties: { // ThingTypeProperties
+ * //         thingTypeDescription: "STRING_VALUE",
+ * //         searchableAttributes: [ // SearchableAttributes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       thingTypeMetadata: { // ThingTypeMetadata
+ * //         deprecated: true || false,
+ * //         deprecationDate: new Date("TIMESTAMP"),
+ * //         creationDate: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

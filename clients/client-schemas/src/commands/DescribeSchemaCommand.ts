@@ -46,20 +46,19 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * };
  * const command = new DescribeSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSchemaResponse
- *   Content: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- *   SchemaArn: "STRING_VALUE",
- *   SchemaName: "STRING_VALUE",
- *   SchemaVersion: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Type: "STRING_VALUE",
- *   VersionCreatedDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeSchemaResponse
+ * //   Content: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Type: "STRING_VALUE",
+ * //   VersionCreatedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

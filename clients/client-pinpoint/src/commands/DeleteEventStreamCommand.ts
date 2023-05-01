@@ -44,17 +44,16 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * };
  * const command = new DeleteEventStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEventStreamResponse
- *   EventStream: { // EventStream
- *     ApplicationId: "STRING_VALUE", // required
- *     DestinationStreamArn: "STRING_VALUE", // required
- *     ExternalId: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     LastUpdatedBy: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DeleteEventStreamResponse
+ * //   EventStream: { // EventStream
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     DestinationStreamArn: "STRING_VALUE", // required
+ * //     ExternalId: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     LastUpdatedBy: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

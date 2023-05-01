@@ -51,48 +51,47 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * };
  * const command = new GetNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNodeOutput
- *   Node: { // Node
- *     NetworkId: "STRING_VALUE",
- *     MemberId: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     InstanceType: "STRING_VALUE",
- *     AvailabilityZone: "STRING_VALUE",
- *     FrameworkAttributes: { // NodeFrameworkAttributes
- *       Fabric: { // NodeFabricAttributes
- *         PeerEndpoint: "STRING_VALUE",
- *         PeerEventEndpoint: "STRING_VALUE",
- *       },
- *       Ethereum: { // NodeEthereumAttributes
- *         HttpEndpoint: "STRING_VALUE",
- *         WebSocketEndpoint: "STRING_VALUE",
- *       },
- *     },
- *     LogPublishingConfiguration: { // NodeLogPublishingConfiguration
- *       Fabric: { // NodeFabricLogPublishingConfiguration
- *         ChaincodeLogs: { // LogConfigurations
- *           Cloudwatch: { // LogConfiguration
- *             Enabled: true || false,
- *           },
- *         },
- *         PeerLogs: {
- *           Cloudwatch: {
- *             Enabled: true || false,
- *           },
- *         },
- *       },
- *     },
- *     StateDB: "LevelDB" || "CouchDB",
- *     Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",
- *     CreationDate: new Date("TIMESTAMP"),
- *     Tags: { // OutputTagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     Arn: "STRING_VALUE",
- *     KmsKeyArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetNodeOutput
+ * //   Node: { // Node
+ * //     NetworkId: "STRING_VALUE",
+ * //     MemberId: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     FrameworkAttributes: { // NodeFrameworkAttributes
+ * //       Fabric: { // NodeFabricAttributes
+ * //         PeerEndpoint: "STRING_VALUE",
+ * //         PeerEventEndpoint: "STRING_VALUE",
+ * //       },
+ * //       Ethereum: { // NodeEthereumAttributes
+ * //         HttpEndpoint: "STRING_VALUE",
+ * //         WebSocketEndpoint: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     LogPublishingConfiguration: { // NodeLogPublishingConfiguration
+ * //       Fabric: { // NodeFabricLogPublishingConfiguration
+ * //         ChaincodeLogs: { // LogConfigurations
+ * //           Cloudwatch: { // LogConfiguration
+ * //             Enabled: true || false,
+ * //           },
+ * //         },
+ * //         PeerLogs: {
+ * //           Cloudwatch: {
+ * //             Enabled: true || false,
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     StateDB: "LevelDB" || "CouchDB",
+ * //     Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Arn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

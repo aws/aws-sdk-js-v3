@@ -60,8 +60,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * };
  * const command = new DeleteApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

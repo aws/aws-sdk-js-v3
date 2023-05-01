@@ -232,11 +232,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDomainResponse
- *   DomainArn: "STRING_VALUE",
- *   Url: "STRING_VALUE",
- * };
+ * // { // CreateDomainResponse
+ * //   DomainArn: "STRING_VALUE",
+ * //   Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

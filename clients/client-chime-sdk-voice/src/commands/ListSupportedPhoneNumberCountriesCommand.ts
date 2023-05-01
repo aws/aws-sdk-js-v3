@@ -52,17 +52,16 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * };
  * const command = new ListSupportedPhoneNumberCountriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSupportedPhoneNumberCountriesResponse
- *   PhoneNumberCountries: [ // PhoneNumberCountriesList
- *     { // PhoneNumberCountry
- *       CountryCode: "STRING_VALUE",
- *       SupportedPhoneNumberTypes: [ // PhoneNumberTypeList
- *         "Local" || "TollFree",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListSupportedPhoneNumberCountriesResponse
+ * //   PhoneNumberCountries: [ // PhoneNumberCountriesList
+ * //     { // PhoneNumberCountry
+ * //       CountryCode: "STRING_VALUE",
+ * //       SupportedPhoneNumberTypes: [ // PhoneNumberTypeList
+ * //         "Local" || "TollFree",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

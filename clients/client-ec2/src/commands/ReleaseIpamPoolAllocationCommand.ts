@@ -51,10 +51,9 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * };
  * const command = new ReleaseIpamPoolAllocationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReleaseIpamPoolAllocationResult
- *   Success: true || false,
- * };
+ * // { // ReleaseIpamPoolAllocationResult
+ * //   Success: true || false,
+ * // };
  *
  * ```
  *

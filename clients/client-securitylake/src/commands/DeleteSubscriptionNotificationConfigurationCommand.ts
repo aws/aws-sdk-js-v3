@@ -54,8 +54,7 @@ export interface DeleteSubscriptionNotificationConfigurationCommandOutput
  * };
  * const command = new DeleteSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

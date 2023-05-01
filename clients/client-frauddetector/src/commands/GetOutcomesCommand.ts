@@ -51,19 +51,18 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  * };
  * const command = new GetOutcomesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOutcomesResult
- *   outcomes: [ // OutcomeList
- *     { // Outcome
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetOutcomesResult
+ * //   outcomes: [ // OutcomeList
+ * //     { // Outcome
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,18 +55,17 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * };
  * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIAMPolicyAssignmentsForUserResponse
- *   ActiveAssignments: [ // ActiveIAMPolicyAssignmentList
- *     { // ActiveIAMPolicyAssignment
- *       AssignmentName: "STRING_VALUE",
- *       PolicyArn: "STRING_VALUE",
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // ListIAMPolicyAssignmentsForUserResponse
+ * //   ActiveAssignments: [ // ActiveIAMPolicyAssignmentList
+ * //     { // ActiveIAMPolicyAssignment
+ * //       AssignmentName: "STRING_VALUE",
+ * //       PolicyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

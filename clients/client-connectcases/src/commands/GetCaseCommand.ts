@@ -51,24 +51,23 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * };
  * const command = new GetCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCaseResponse
- *   fields: [ // FieldValueList // required
- *     { // FieldValue
- *       id: "STRING_VALUE", // required
- *       value: { // FieldValueUnion Union: only one key present
- *         stringValue: "STRING_VALUE",
- *         doubleValue: Number("double"),
- *         booleanValue: true || false,
- *       },
- *     },
- *   ],
- *   templateId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetCaseResponse
+ * //   fields: [ // FieldValueList // required
+ * //     { // FieldValue
+ * //       id: "STRING_VALUE", // required
+ * //       value: { // FieldValueUnion Union: only one key present
+ * //         stringValue: "STRING_VALUE",
+ * //         doubleValue: Number("double"),
+ * //         booleanValue: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   templateId: "STRING_VALUE", // required
+ * //   nextToken: "STRING_VALUE",
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

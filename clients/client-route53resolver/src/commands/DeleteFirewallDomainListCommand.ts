@@ -44,21 +44,20 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * };
  * const command = new DeleteFirewallDomainListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFirewallDomainListResponse
- *   FirewallDomainList: { // FirewallDomainList
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     DomainCount: Number("int"),
- *     Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
- *     StatusMessage: "STRING_VALUE",
- *     ManagedOwnerName: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteFirewallDomainListResponse
+ * //   FirewallDomainList: { // FirewallDomainList
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     DomainCount: Number("int"),
+ * //     Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ManagedOwnerName: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

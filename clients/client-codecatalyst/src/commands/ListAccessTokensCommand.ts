@@ -45,17 +45,16 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * };
  * const command = new ListAccessTokensCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessTokensResponse
- *   items: [ // AccessTokenSummaries // required
- *     { // AccessTokenSummary
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       expiresTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessTokensResponse
+ * //   items: [ // AccessTokenSummaries // required
+ * //     { // AccessTokenSummary
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       expiresTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -88,11 +88,10 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * };
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeliverabilityTestReportResponse
- *   ReportId: "STRING_VALUE", // required
- *   DeliverabilityTestStatus: "IN_PROGRESS" || "COMPLETED", // required
- * };
+ * // { // CreateDeliverabilityTestReportResponse
+ * //   ReportId: "STRING_VALUE", // required
+ * //   DeliverabilityTestStatus: "IN_PROGRESS" || "COMPLETED", // required
+ * // };
  *
  * ```
  *

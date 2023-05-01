@@ -45,8 +45,7 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * };
  * const command = new DeleteVodSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

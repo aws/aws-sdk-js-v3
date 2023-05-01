@@ -64,19 +64,18 @@ export interface DescribeRemediationExceptionsCommandOutput
  * };
  * const command = new DescribeRemediationExceptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRemediationExceptionsResponse
- *   RemediationExceptions: [ // RemediationExceptions
- *     { // RemediationException
- *       ConfigRuleName: "STRING_VALUE", // required
- *       ResourceType: "STRING_VALUE", // required
- *       ResourceId: "STRING_VALUE", // required
- *       Message: "STRING_VALUE",
- *       ExpirationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeRemediationExceptionsResponse
+ * //   RemediationExceptions: [ // RemediationExceptions
+ * //     { // RemediationException
+ * //       ConfigRuleName: "STRING_VALUE", // required
+ * //       ResourceType: "STRING_VALUE", // required
+ * //       ResourceId: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE",
+ * //       ExpirationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

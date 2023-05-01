@@ -59,10 +59,9 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * };
  * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateImageVersionResponse
- *   ImageVersionArn: "STRING_VALUE",
- * };
+ * // { // UpdateImageVersionResponse
+ * //   ImageVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

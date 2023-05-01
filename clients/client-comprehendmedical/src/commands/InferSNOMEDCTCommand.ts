@@ -49,69 +49,68 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * };
  * const command = new InferSNOMEDCTCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InferSNOMEDCTResponse
- *   Entities: [ // SNOMEDCTEntityList // required
- *     { // SNOMEDCTEntity
- *       Id: Number("int"),
- *       Text: "STRING_VALUE",
- *       Category: "MEDICAL_CONDITION" || "ANATOMY" || "TEST_TREATMENT_PROCEDURE",
- *       Type: "DX_NAME" || "TEST_NAME" || "PROCEDURE_NAME" || "TREATMENT_NAME",
- *       Score: Number("float"),
- *       BeginOffset: Number("int"),
- *       EndOffset: Number("int"),
- *       Attributes: [ // SNOMEDCTAttributeList
- *         { // SNOMEDCTAttribute
- *           Category: "MEDICAL_CONDITION" || "ANATOMY" || "TEST_TREATMENT_PROCEDURE",
- *           Type: "ACUITY" || "QUALITY" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "TEST_VALUE" || "TEST_UNIT",
- *           Score: Number("float"),
- *           RelationshipScore: Number("float"),
- *           RelationshipType: "ACUITY" || "QUALITY" || "TEST_VALUE" || "TEST_UNITS" || "DIRECTION" || "SYSTEM_ORGAN_SITE",
- *           Id: Number("int"),
- *           BeginOffset: Number("int"),
- *           EndOffset: Number("int"),
- *           Text: "STRING_VALUE",
- *           Traits: [ // SNOMEDCTTraitList
- *             { // SNOMEDCTTrait
- *               Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE" || "PAST_HISTORY" || "FUTURE",
- *               Score: Number("float"),
- *             },
- *           ],
- *           SNOMEDCTConcepts: [ // SNOMEDCTConceptList
- *             { // SNOMEDCTConcept
- *               Description: "STRING_VALUE",
- *               Code: "STRING_VALUE",
- *               Score: Number("float"),
- *             },
- *           ],
- *         },
- *       ],
- *       Traits: [
- *         {
- *           Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE" || "PAST_HISTORY" || "FUTURE",
- *           Score: Number("float"),
- *         },
- *       ],
- *       SNOMEDCTConcepts: [
- *         {
- *           Description: "STRING_VALUE",
- *           Code: "STRING_VALUE",
- *           Score: Number("float"),
- *         },
- *       ],
- *     },
- *   ],
- *   PaginationToken: "STRING_VALUE",
- *   ModelVersion: "STRING_VALUE",
- *   SNOMEDCTDetails: { // SNOMEDCTDetails
- *     Edition: "STRING_VALUE",
- *     Language: "STRING_VALUE",
- *     VersionDate: "STRING_VALUE",
- *   },
- *   Characters: { // Characters
- *     OriginalTextCharacters: Number("int"),
- *   },
- * };
+ * // { // InferSNOMEDCTResponse
+ * //   Entities: [ // SNOMEDCTEntityList // required
+ * //     { // SNOMEDCTEntity
+ * //       Id: Number("int"),
+ * //       Text: "STRING_VALUE",
+ * //       Category: "MEDICAL_CONDITION" || "ANATOMY" || "TEST_TREATMENT_PROCEDURE",
+ * //       Type: "DX_NAME" || "TEST_NAME" || "PROCEDURE_NAME" || "TREATMENT_NAME",
+ * //       Score: Number("float"),
+ * //       BeginOffset: Number("int"),
+ * //       EndOffset: Number("int"),
+ * //       Attributes: [ // SNOMEDCTAttributeList
+ * //         { // SNOMEDCTAttribute
+ * //           Category: "MEDICAL_CONDITION" || "ANATOMY" || "TEST_TREATMENT_PROCEDURE",
+ * //           Type: "ACUITY" || "QUALITY" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "TEST_VALUE" || "TEST_UNIT",
+ * //           Score: Number("float"),
+ * //           RelationshipScore: Number("float"),
+ * //           RelationshipType: "ACUITY" || "QUALITY" || "TEST_VALUE" || "TEST_UNITS" || "DIRECTION" || "SYSTEM_ORGAN_SITE",
+ * //           Id: Number("int"),
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //           Text: "STRING_VALUE",
+ * //           Traits: [ // SNOMEDCTTraitList
+ * //             { // SNOMEDCTTrait
+ * //               Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE" || "PAST_HISTORY" || "FUTURE",
+ * //               Score: Number("float"),
+ * //             },
+ * //           ],
+ * //           SNOMEDCTConcepts: [ // SNOMEDCTConceptList
+ * //             { // SNOMEDCTConcept
+ * //               Description: "STRING_VALUE",
+ * //               Code: "STRING_VALUE",
+ * //               Score: Number("float"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Traits: [
+ * //         {
+ * //           Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE" || "PAST_HISTORY" || "FUTURE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //       SNOMEDCTConcepts: [
+ * //         {
+ * //           Description: "STRING_VALUE",
+ * //           Code: "STRING_VALUE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * //   ModelVersion: "STRING_VALUE",
+ * //   SNOMEDCTDetails: { // SNOMEDCTDetails
+ * //     Edition: "STRING_VALUE",
+ * //     Language: "STRING_VALUE",
+ * //     VersionDate: "STRING_VALUE",
+ * //   },
+ * //   Characters: { // Characters
+ * //     OriginalTextCharacters: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

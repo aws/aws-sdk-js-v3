@@ -55,25 +55,24 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * };
  * const command = new ListAvailableResourceDimensionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableResourceDimensionsResponse
- *   MetricDimensions: [ // MetricDimensionsList
- *     { // MetricDimensionGroups
- *       Metric: "STRING_VALUE",
- *       Groups: [ // DimensionGroupDetailList
- *         { // DimensionGroupDetail
- *           Group: "STRING_VALUE",
- *           Dimensions: [ // DimensionDetailList
- *             { // DimensionDetail
- *               Identifier: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAvailableResourceDimensionsResponse
+ * //   MetricDimensions: [ // MetricDimensionsList
+ * //     { // MetricDimensionGroups
+ * //       Metric: "STRING_VALUE",
+ * //       Groups: [ // DimensionGroupDetailList
+ * //         { // DimensionGroupDetail
+ * //           Group: "STRING_VALUE",
+ * //           Dimensions: [ // DimensionDetailList
+ * //             { // DimensionDetail
+ * //               Identifier: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

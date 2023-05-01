@@ -44,8 +44,7 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * };
  * const command = new StartAccessLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,23 +47,22 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * };
  * const command = new GetCommentReactionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCommentReactionsOutput
- *   reactionsForComment: [ // ReactionsForCommentList // required
- *     { // ReactionForComment
- *       reaction: { // ReactionValueFormats
- *         emoji: "STRING_VALUE",
- *         shortCode: "STRING_VALUE",
- *         unicode: "STRING_VALUE",
- *       },
- *       reactionUsers: [ // ReactionUsersList
- *         "STRING_VALUE",
- *       ],
- *       reactionsFromDeletedUsersCount: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetCommentReactionsOutput
+ * //   reactionsForComment: [ // ReactionsForCommentList // required
+ * //     { // ReactionForComment
+ * //       reaction: { // ReactionValueFormats
+ * //         emoji: "STRING_VALUE",
+ * //         shortCode: "STRING_VALUE",
+ * //         unicode: "STRING_VALUE",
+ * //       },
+ * //       reactionUsers: [ // ReactionUsersList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       reactionsFromDeletedUsersCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

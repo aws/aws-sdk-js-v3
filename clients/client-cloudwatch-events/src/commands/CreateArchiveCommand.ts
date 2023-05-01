@@ -52,13 +52,12 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * };
  * const command = new CreateArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateArchiveResponse
- *   ArchiveArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateArchiveResponse
+ * //   ArchiveArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -138,17 +138,16 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * };
  * const command = new GetSpotPlacementScoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSpotPlacementScoresResult
- *   SpotPlacementScores: [ // SpotPlacementScores
- *     { // SpotPlacementScore
- *       Region: "STRING_VALUE",
- *       AvailabilityZoneId: "STRING_VALUE",
- *       Score: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSpotPlacementScoresResult
+ * //   SpotPlacementScores: [ // SpotPlacementScores
+ * //     { // SpotPlacementScore
+ * //       Region: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       Score: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

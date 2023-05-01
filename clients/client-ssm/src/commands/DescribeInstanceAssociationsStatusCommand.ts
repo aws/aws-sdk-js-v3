@@ -54,30 +54,29 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  * };
  * const command = new DescribeInstanceAssociationsStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceAssociationsStatusResult
- *   InstanceAssociationStatusInfos: [ // InstanceAssociationStatusInfos
- *     { // InstanceAssociationStatusInfo
- *       AssociationId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       DocumentVersion: "STRING_VALUE",
- *       AssociationVersion: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       ExecutionDate: new Date("TIMESTAMP"),
- *       Status: "STRING_VALUE",
- *       DetailedStatus: "STRING_VALUE",
- *       ExecutionSummary: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       OutputUrl: { // InstanceAssociationOutputUrl
- *         S3OutputUrl: { // S3OutputUrl
- *           OutputUrl: "STRING_VALUE",
- *         },
- *       },
- *       AssociationName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInstanceAssociationsStatusResult
+ * //   InstanceAssociationStatusInfos: [ // InstanceAssociationStatusInfos
+ * //     { // InstanceAssociationStatusInfo
+ * //       AssociationId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       ExecutionDate: new Date("TIMESTAMP"),
+ * //       Status: "STRING_VALUE",
+ * //       DetailedStatus: "STRING_VALUE",
+ * //       ExecutionSummary: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       OutputUrl: { // InstanceAssociationOutputUrl
+ * //         S3OutputUrl: { // S3OutputUrl
+ * //           OutputUrl: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       AssociationName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

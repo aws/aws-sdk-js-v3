@@ -59,28 +59,27 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListActivatedRulesInRuleGroupResponse
- *   NextMarker: "STRING_VALUE",
- *   ActivatedRules: [ // ActivatedRules
- *     { // ActivatedRule
- *       Priority: Number("int"), // required
- *       RuleId: "STRING_VALUE", // required
- *       Action: { // WafAction
- *         Type: "STRING_VALUE", // required
- *       },
- *       OverrideAction: { // WafOverrideAction
- *         Type: "STRING_VALUE", // required
- *       },
- *       Type: "STRING_VALUE",
- *       ExcludedRules: [ // ExcludedRules
- *         { // ExcludedRule
- *           RuleId: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListActivatedRulesInRuleGroupResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ActivatedRules: [ // ActivatedRules
+ * //     { // ActivatedRule
+ * //       Priority: Number("int"), // required
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Action: { // WafAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       OverrideAction: { // WafOverrideAction
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       Type: "STRING_VALUE",
+ * //       ExcludedRules: [ // ExcludedRules
+ * //         { // ExcludedRule
+ * //           RuleId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

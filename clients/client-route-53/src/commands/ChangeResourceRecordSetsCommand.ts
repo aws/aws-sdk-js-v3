@@ -173,15 +173,14 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * };
  * const command = new ChangeResourceRecordSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ChangeResourceRecordSetsResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // ChangeResourceRecordSetsResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

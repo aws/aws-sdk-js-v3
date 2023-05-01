@@ -48,10 +48,9 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * };
  * const command = new AssociateTeamMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateTeamMemberResult
- *   clientRequestToken: "STRING_VALUE",
- * };
+ * // { // AssociateTeamMemberResult
+ * //   clientRequestToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

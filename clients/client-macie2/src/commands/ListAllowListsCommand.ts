@@ -45,20 +45,19 @@ export interface ListAllowListsCommandOutput extends ListAllowListsResponse, __M
  * };
  * const command = new ListAllowListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAllowListsResponse
- *   allowLists: [ // __listOfAllowListSummary
- *     { // AllowListSummary
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       description: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAllowListsResponse
+ * //   allowLists: [ // __listOfAllowListSummary
+ * //     { // AllowListSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

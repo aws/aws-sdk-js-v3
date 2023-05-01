@@ -49,11 +49,10 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * };
  * const command = new DeleteDecoderManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDecoderManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // DeleteDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

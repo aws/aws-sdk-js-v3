@@ -57,26 +57,25 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePhoneNumberResult
- *   PhoneNumberArn: "STRING_VALUE",
- *   PhoneNumberId: "STRING_VALUE",
- *   PhoneNumber: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   IsoCountryCode: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- *   NumberCapabilities: [ // NumberCapabilityList
- *     "STRING_VALUE",
- *   ],
- *   NumberType: "STRING_VALUE",
- *   MonthlyLeasingPrice: "STRING_VALUE",
- *   TwoWayEnabled: true || false,
- *   TwoWayChannelArn: "STRING_VALUE",
- *   SelfManagedOptOutsEnabled: true || false,
- *   OptOutListName: "STRING_VALUE",
- *   DeletionProtectionEnabled: true || false,
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // UpdatePhoneNumberResult
+ * //   PhoneNumberArn: "STRING_VALUE",
+ * //   PhoneNumberId: "STRING_VALUE",
+ * //   PhoneNumber: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   IsoCountryCode: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * //   NumberCapabilities: [ // NumberCapabilityList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NumberType: "STRING_VALUE",
+ * //   MonthlyLeasingPrice: "STRING_VALUE",
+ * //   TwoWayEnabled: true || false,
+ * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   SelfManagedOptOutsEnabled: true || false,
+ * //   OptOutListName: "STRING_VALUE",
+ * //   DeletionProtectionEnabled: true || false,
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

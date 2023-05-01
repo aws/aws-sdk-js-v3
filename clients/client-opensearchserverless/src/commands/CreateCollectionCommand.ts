@@ -58,20 +58,19 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCollectionResponse
- *   createCollectionDetail: { // CreateCollectionDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     kmsKeyArn: "STRING_VALUE",
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // CreateCollectionResponse
+ * //   createCollectionDetail: { // CreateCollectionDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -58,165 +58,164 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * };
  * const command = new StopTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopTaskResponse
- *   task: { // Task
- *     attachments: [ // Attachments
- *       { // Attachment
- *         id: "STRING_VALUE",
- *         type: "STRING_VALUE",
- *         status: "STRING_VALUE",
- *         details: [ // AttachmentDetails
- *           { // KeyValuePair
- *             name: "STRING_VALUE",
- *             value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     attributes: [ // Attributes
- *       { // Attribute
- *         name: "STRING_VALUE", // required
- *         value: "STRING_VALUE",
- *         targetType: "container-instance",
- *         targetId: "STRING_VALUE",
- *       },
- *     ],
- *     availabilityZone: "STRING_VALUE",
- *     capacityProviderName: "STRING_VALUE",
- *     clusterArn: "STRING_VALUE",
- *     connectivity: "CONNECTED" || "DISCONNECTED",
- *     connectivityAt: new Date("TIMESTAMP"),
- *     containerInstanceArn: "STRING_VALUE",
- *     containers: [ // Containers
- *       { // Container
- *         containerArn: "STRING_VALUE",
- *         taskArn: "STRING_VALUE",
- *         name: "STRING_VALUE",
- *         image: "STRING_VALUE",
- *         imageDigest: "STRING_VALUE",
- *         runtimeId: "STRING_VALUE",
- *         lastStatus: "STRING_VALUE",
- *         exitCode: Number("int"),
- *         reason: "STRING_VALUE",
- *         networkBindings: [ // NetworkBindings
- *           { // NetworkBinding
- *             bindIP: "STRING_VALUE",
- *             containerPort: Number("int"),
- *             hostPort: Number("int"),
- *             protocol: "tcp" || "udp",
- *             containerPortRange: "STRING_VALUE",
- *             hostPortRange: "STRING_VALUE",
- *           },
- *         ],
- *         networkInterfaces: [ // NetworkInterfaces
- *           { // NetworkInterface
- *             attachmentId: "STRING_VALUE",
- *             privateIpv4Address: "STRING_VALUE",
- *             ipv6Address: "STRING_VALUE",
- *           },
- *         ],
- *         healthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
- *         managedAgents: [ // ManagedAgents
- *           { // ManagedAgent
- *             lastStartedAt: new Date("TIMESTAMP"),
- *             name: "ExecuteCommandAgent",
- *             reason: "STRING_VALUE",
- *             lastStatus: "STRING_VALUE",
- *           },
- *         ],
- *         cpu: "STRING_VALUE",
- *         memory: "STRING_VALUE",
- *         memoryReservation: "STRING_VALUE",
- *         gpuIds: [ // GpuIds
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *     cpu: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     desiredStatus: "STRING_VALUE",
- *     enableExecuteCommand: true || false,
- *     executionStoppedAt: new Date("TIMESTAMP"),
- *     group: "STRING_VALUE",
- *     healthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
- *     inferenceAccelerators: [ // InferenceAccelerators
- *       { // InferenceAccelerator
- *         deviceName: "STRING_VALUE", // required
- *         deviceType: "STRING_VALUE", // required
- *       },
- *     ],
- *     lastStatus: "STRING_VALUE",
- *     launchType: "EC2" || "FARGATE" || "EXTERNAL",
- *     memory: "STRING_VALUE",
- *     overrides: { // TaskOverride
- *       containerOverrides: [ // ContainerOverrides
- *         { // ContainerOverride
- *           name: "STRING_VALUE",
- *           command: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *           environment: [ // EnvironmentVariables
- *             {
- *               name: "STRING_VALUE",
- *               value: "STRING_VALUE",
- *             },
- *           ],
- *           environmentFiles: [ // EnvironmentFiles
- *             { // EnvironmentFile
- *               value: "STRING_VALUE", // required
- *               type: "s3", // required
- *             },
- *           ],
- *           cpu: Number("int"),
- *           memory: Number("int"),
- *           memoryReservation: Number("int"),
- *           resourceRequirements: [ // ResourceRequirements
- *             { // ResourceRequirement
- *               value: "STRING_VALUE", // required
- *               type: "GPU" || "InferenceAccelerator", // required
- *             },
- *           ],
- *         },
- *       ],
- *       cpu: "STRING_VALUE",
- *       inferenceAcceleratorOverrides: [ // InferenceAcceleratorOverrides
- *         { // InferenceAcceleratorOverride
- *           deviceName: "STRING_VALUE",
- *           deviceType: "STRING_VALUE",
- *         },
- *       ],
- *       executionRoleArn: "STRING_VALUE",
- *       memory: "STRING_VALUE",
- *       taskRoleArn: "STRING_VALUE",
- *       ephemeralStorage: { // EphemeralStorage
- *         sizeInGiB: Number("int"), // required
- *       },
- *     },
- *     platformVersion: "STRING_VALUE",
- *     platformFamily: "STRING_VALUE",
- *     pullStartedAt: new Date("TIMESTAMP"),
- *     pullStoppedAt: new Date("TIMESTAMP"),
- *     startedAt: new Date("TIMESTAMP"),
- *     startedBy: "STRING_VALUE",
- *     stopCode: "TaskFailedToStart" || "EssentialContainerExited" || "UserInitiated" || "ServiceSchedulerInitiated" || "SpotInterruption" || "TerminationNotice",
- *     stoppedAt: new Date("TIMESTAMP"),
- *     stoppedReason: "STRING_VALUE",
- *     stoppingAt: new Date("TIMESTAMP"),
- *     tags: [ // Tags
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     taskArn: "STRING_VALUE",
- *     taskDefinitionArn: "STRING_VALUE",
- *     version: Number("long"),
- *     ephemeralStorage: {
- *       sizeInGiB: Number("int"), // required
- *     },
- *   },
- * };
+ * // { // StopTaskResponse
+ * //   task: { // Task
+ * //     attachments: [ // Attachments
+ * //       { // Attachment
+ * //         id: "STRING_VALUE",
+ * //         type: "STRING_VALUE",
+ * //         status: "STRING_VALUE",
+ * //         details: [ // AttachmentDetails
+ * //           { // KeyValuePair
+ * //             name: "STRING_VALUE",
+ * //             value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     attributes: [ // Attributes
+ * //       { // Attribute
+ * //         name: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //         targetType: "container-instance",
+ * //         targetId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     availabilityZone: "STRING_VALUE",
+ * //     capacityProviderName: "STRING_VALUE",
+ * //     clusterArn: "STRING_VALUE",
+ * //     connectivity: "CONNECTED" || "DISCONNECTED",
+ * //     connectivityAt: new Date("TIMESTAMP"),
+ * //     containerInstanceArn: "STRING_VALUE",
+ * //     containers: [ // Containers
+ * //       { // Container
+ * //         containerArn: "STRING_VALUE",
+ * //         taskArn: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         image: "STRING_VALUE",
+ * //         imageDigest: "STRING_VALUE",
+ * //         runtimeId: "STRING_VALUE",
+ * //         lastStatus: "STRING_VALUE",
+ * //         exitCode: Number("int"),
+ * //         reason: "STRING_VALUE",
+ * //         networkBindings: [ // NetworkBindings
+ * //           { // NetworkBinding
+ * //             bindIP: "STRING_VALUE",
+ * //             containerPort: Number("int"),
+ * //             hostPort: Number("int"),
+ * //             protocol: "tcp" || "udp",
+ * //             containerPortRange: "STRING_VALUE",
+ * //             hostPortRange: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         networkInterfaces: [ // NetworkInterfaces
+ * //           { // NetworkInterface
+ * //             attachmentId: "STRING_VALUE",
+ * //             privateIpv4Address: "STRING_VALUE",
+ * //             ipv6Address: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         healthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ * //         managedAgents: [ // ManagedAgents
+ * //           { // ManagedAgent
+ * //             lastStartedAt: new Date("TIMESTAMP"),
+ * //             name: "ExecuteCommandAgent",
+ * //             reason: "STRING_VALUE",
+ * //             lastStatus: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         cpu: "STRING_VALUE",
+ * //         memory: "STRING_VALUE",
+ * //         memoryReservation: "STRING_VALUE",
+ * //         gpuIds: [ // GpuIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     cpu: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     desiredStatus: "STRING_VALUE",
+ * //     enableExecuteCommand: true || false,
+ * //     executionStoppedAt: new Date("TIMESTAMP"),
+ * //     group: "STRING_VALUE",
+ * //     healthStatus: "HEALTHY" || "UNHEALTHY" || "UNKNOWN",
+ * //     inferenceAccelerators: [ // InferenceAccelerators
+ * //       { // InferenceAccelerator
+ * //         deviceName: "STRING_VALUE", // required
+ * //         deviceType: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     lastStatus: "STRING_VALUE",
+ * //     launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * //     memory: "STRING_VALUE",
+ * //     overrides: { // TaskOverride
+ * //       containerOverrides: [ // ContainerOverrides
+ * //         { // ContainerOverride
+ * //           name: "STRING_VALUE",
+ * //           command: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           environment: [ // EnvironmentVariables
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //               value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           environmentFiles: [ // EnvironmentFiles
+ * //             { // EnvironmentFile
+ * //               value: "STRING_VALUE", // required
+ * //               type: "s3", // required
+ * //             },
+ * //           ],
+ * //           cpu: Number("int"),
+ * //           memory: Number("int"),
+ * //           memoryReservation: Number("int"),
+ * //           resourceRequirements: [ // ResourceRequirements
+ * //             { // ResourceRequirement
+ * //               value: "STRING_VALUE", // required
+ * //               type: "GPU" || "InferenceAccelerator", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       cpu: "STRING_VALUE",
+ * //       inferenceAcceleratorOverrides: [ // InferenceAcceleratorOverrides
+ * //         { // InferenceAcceleratorOverride
+ * //           deviceName: "STRING_VALUE",
+ * //           deviceType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       executionRoleArn: "STRING_VALUE",
+ * //       memory: "STRING_VALUE",
+ * //       taskRoleArn: "STRING_VALUE",
+ * //       ephemeralStorage: { // EphemeralStorage
+ * //         sizeInGiB: Number("int"), // required
+ * //       },
+ * //     },
+ * //     platformVersion: "STRING_VALUE",
+ * //     platformFamily: "STRING_VALUE",
+ * //     pullStartedAt: new Date("TIMESTAMP"),
+ * //     pullStoppedAt: new Date("TIMESTAMP"),
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     startedBy: "STRING_VALUE",
+ * //     stopCode: "TaskFailedToStart" || "EssentialContainerExited" || "UserInitiated" || "ServiceSchedulerInitiated" || "SpotInterruption" || "TerminationNotice",
+ * //     stoppedAt: new Date("TIMESTAMP"),
+ * //     stoppedReason: "STRING_VALUE",
+ * //     stoppingAt: new Date("TIMESTAMP"),
+ * //     tags: [ // Tags
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     taskArn: "STRING_VALUE",
+ * //     taskDefinitionArn: "STRING_VALUE",
+ * //     version: Number("long"),
+ * //     ephemeralStorage: {
+ * //       sizeInGiB: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

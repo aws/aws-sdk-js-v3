@@ -46,21 +46,20 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWebhooksResult
- *   webhooks: [ // Webhooks // required
- *     { // Webhook
- *       webhookArn: "STRING_VALUE", // required
- *       webhookId: "STRING_VALUE", // required
- *       webhookUrl: "STRING_VALUE", // required
- *       branchName: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       createTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWebhooksResult
+ * //   webhooks: [ // Webhooks // required
+ * //     { // Webhook
+ * //       webhookArn: "STRING_VALUE", // required
+ * //       webhookId: "STRING_VALUE", // required
+ * //       webhookUrl: "STRING_VALUE", // required
+ * //       branchName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       createTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

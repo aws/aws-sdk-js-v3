@@ -51,11 +51,10 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * };
  * const command = new GetOpenIdTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpenIdTokenResponse
- *   IdentityId: "STRING_VALUE",
- *   Token: "STRING_VALUE",
- * };
+ * // { // GetOpenIdTokenResponse
+ * //   IdentityId: "STRING_VALUE",
+ * //   Token: "STRING_VALUE",
+ * // };
  *
  * ```
  *

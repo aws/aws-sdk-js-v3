@@ -48,15 +48,14 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * };
  * const command = new GrantAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GrantAccessResult
- *   TemporaryCredential: { // TemporaryCredential
- *     Username: "STRING_VALUE",
- *     Password: "STRING_VALUE",
- *     ValidForInMinutes: Number("int"),
- *     InstanceId: "STRING_VALUE",
- *   },
- * };
+ * // { // GrantAccessResult
+ * //   TemporaryCredential: { // TemporaryCredential
+ * //     Username: "STRING_VALUE",
+ * //     Password: "STRING_VALUE",
+ * //     ValidForInMinutes: Number("int"),
+ * //     InstanceId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

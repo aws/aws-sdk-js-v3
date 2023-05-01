@@ -46,21 +46,20 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * };
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegexPatternSetResponse
- *   RegexPatternSet: { // RegexPatternSet
- *     Name: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     RegularExpressionList: [ // RegularExpressionList
- *       { // Regex
- *         RegexString: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   LockToken: "STRING_VALUE",
- * };
+ * // { // GetRegexPatternSetResponse
+ * //   RegexPatternSet: { // RegexPatternSet
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RegularExpressionList: [ // RegularExpressionList
+ * //       { // Regex
+ * //         RegexString: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   LockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -43,14 +43,13 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * const input = {};
  * const command = new GetContainerAPIMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerAPIMetadataResult
- *   metadata: [ // ContainerServiceMetadataEntryList
- *     { // ContainerServiceMetadataEntry
- *       "<keys>": "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetContainerAPIMetadataResult
+ * //   metadata: [ // ContainerServiceMetadataEntryList
+ * //     { // ContainerServiceMetadataEntry
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

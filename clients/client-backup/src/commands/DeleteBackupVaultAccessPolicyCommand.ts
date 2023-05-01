@@ -47,8 +47,7 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

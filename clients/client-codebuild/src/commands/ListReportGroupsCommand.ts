@@ -49,13 +49,12 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  * };
  * const command = new ListReportGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReportGroupsOutput
- *   nextToken: "STRING_VALUE",
- *   reportGroups: [ // ReportGroupArns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListReportGroupsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reportGroups: [ // ReportGroupArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

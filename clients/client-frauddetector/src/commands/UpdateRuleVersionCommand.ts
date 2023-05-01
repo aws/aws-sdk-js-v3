@@ -64,14 +64,13 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * };
  * const command = new UpdateRuleVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuleVersionResult
- *   rule: { // Rule
- *     detectorId: "STRING_VALUE", // required
- *     ruleId: "STRING_VALUE", // required
- *     ruleVersion: "STRING_VALUE", // required
- *   },
- * };
+ * // { // UpdateRuleVersionResult
+ * //   rule: { // Rule
+ * //     detectorId: "STRING_VALUE", // required
+ * //     ruleId: "STRING_VALUE", // required
+ * //     ruleVersion: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

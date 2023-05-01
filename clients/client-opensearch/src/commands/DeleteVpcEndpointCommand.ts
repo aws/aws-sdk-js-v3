@@ -44,15 +44,14 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcEndpointResponse
- *   VpcEndpointSummary: { // VpcEndpointSummary
- *     VpcEndpointId: "STRING_VALUE",
- *     VpcEndpointOwner: "STRING_VALUE",
- *     DomainArn: "STRING_VALUE",
- *     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *   },
- * };
+ * // { // DeleteVpcEndpointResponse
+ * //   VpcEndpointSummary: { // VpcEndpointSummary
+ * //     VpcEndpointId: "STRING_VALUE",
+ * //     VpcEndpointOwner: "STRING_VALUE",
+ * //     DomainArn: "STRING_VALUE",
+ * //     Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //   },
+ * // };
  *
  * ```
  *

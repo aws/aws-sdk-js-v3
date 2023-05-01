@@ -46,8 +46,7 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutCommentReactionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

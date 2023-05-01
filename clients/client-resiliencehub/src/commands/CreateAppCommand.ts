@@ -64,25 +64,24 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppResponse
- *   app: { // App
- *     appArn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     policyArn: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE",
- *     complianceStatus: "STRING_VALUE",
- *     lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
- *     resiliencyScore: Number("double"),
- *     lastResiliencyScoreEvaluationTime: new Date("TIMESTAMP"),
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     assessmentSchedule: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateAppResponse
+ * //   app: { // App
+ * //     appArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     policyArn: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE",
+ * //     complianceStatus: "STRING_VALUE",
+ * //     lastAppComplianceEvaluationTime: new Date("TIMESTAMP"),
+ * //     resiliencyScore: Number("double"),
+ * //     lastResiliencyScoreEvaluationTime: new Date("TIMESTAMP"),
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     assessmentSchedule: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

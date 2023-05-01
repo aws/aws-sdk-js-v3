@@ -45,8 +45,7 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

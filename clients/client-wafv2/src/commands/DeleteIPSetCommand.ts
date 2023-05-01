@@ -47,8 +47,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

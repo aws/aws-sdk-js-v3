@@ -53,8 +53,7 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  * };
  * const command = new DisassociateWirelessGatewayFromCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

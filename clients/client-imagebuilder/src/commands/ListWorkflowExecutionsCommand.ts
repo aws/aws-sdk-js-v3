@@ -47,28 +47,27 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * };
  * const command = new ListWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkflowExecutionsResponse
- *   requestId: "STRING_VALUE",
- *   workflowExecutions: [ // WorkflowExecutionsList
- *     { // WorkflowExecutionMetadata
- *       workflowBuildVersionArn: "STRING_VALUE",
- *       workflowExecutionId: "STRING_VALUE",
- *       type: "BUILD" || "TEST" || "DISTRIBUTION",
- *       status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED",
- *       message: "STRING_VALUE",
- *       totalStepCount: Number("int"),
- *       totalStepsSucceeded: Number("int"),
- *       totalStepsFailed: Number("int"),
- *       totalStepsSkipped: Number("int"),
- *       startTime: "STRING_VALUE",
- *       endTime: "STRING_VALUE",
- *     },
- *   ],
- *   imageBuildVersionArn: "STRING_VALUE",
- *   message: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkflowExecutionsResponse
+ * //   requestId: "STRING_VALUE",
+ * //   workflowExecutions: [ // WorkflowExecutionsList
+ * //     { // WorkflowExecutionMetadata
+ * //       workflowBuildVersionArn: "STRING_VALUE",
+ * //       workflowExecutionId: "STRING_VALUE",
+ * //       type: "BUILD" || "TEST" || "DISTRIBUTION",
+ * //       status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED",
+ * //       message: "STRING_VALUE",
+ * //       totalStepCount: Number("int"),
+ * //       totalStepsSucceeded: Number("int"),
+ * //       totalStepsFailed: Number("int"),
+ * //       totalStepsSkipped: Number("int"),
+ * //       startTime: "STRING_VALUE",
+ * //       endTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   imageBuildVersionArn: "STRING_VALUE",
+ * //   message: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

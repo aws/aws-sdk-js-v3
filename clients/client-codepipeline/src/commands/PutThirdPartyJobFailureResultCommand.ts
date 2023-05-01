@@ -54,8 +54,7 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * };
  * const command = new PutThirdPartyJobFailureResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

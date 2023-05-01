@@ -47,8 +47,7 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * };
  * const command = new DeleteRouteCalculatorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

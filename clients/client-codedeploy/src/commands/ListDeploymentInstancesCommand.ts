@@ -60,13 +60,12 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * };
  * const command = new ListDeploymentInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentInstancesOutput
- *   instancesList: [ // InstancesList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentInstancesOutput
+ * //   instancesList: [ // InstancesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

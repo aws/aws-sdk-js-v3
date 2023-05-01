@@ -45,13 +45,12 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  * };
  * const command = new GetAssessmentReportUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssessmentReportUrlResponse
- *   preSignedUrl: { // URL
- *     hyperlinkName: "STRING_VALUE",
- *     link: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAssessmentReportUrlResponse
+ * //   preSignedUrl: { // URL
+ * //     hyperlinkName: "STRING_VALUE",
+ * //     link: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * };
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

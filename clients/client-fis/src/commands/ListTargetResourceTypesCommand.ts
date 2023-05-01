@@ -45,16 +45,15 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * };
  * const command = new ListTargetResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetResourceTypesResponse
- *   targetResourceTypes: [ // TargetResourceTypeSummaryList
- *     { // TargetResourceTypeSummary
- *       resourceType: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetResourceTypesResponse
+ * //   targetResourceTypes: [ // TargetResourceTypeSummaryList
+ * //     { // TargetResourceTypeSummary
+ * //       resourceType: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

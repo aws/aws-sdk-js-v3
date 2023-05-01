@@ -52,40 +52,39 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * };
  * const command = new DescribeGlobalReplicationGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGlobalReplicationGroupsResult
- *   Marker: "STRING_VALUE",
- *   GlobalReplicationGroups: [ // GlobalReplicationGroupList
- *     { // GlobalReplicationGroup
- *       GlobalReplicationGroupId: "STRING_VALUE",
- *       GlobalReplicationGroupDescription: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       CacheNodeType: "STRING_VALUE",
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       Members: [ // GlobalReplicationGroupMemberList
- *         { // GlobalReplicationGroupMember
- *           ReplicationGroupId: "STRING_VALUE",
- *           ReplicationGroupRegion: "STRING_VALUE",
- *           Role: "STRING_VALUE",
- *           AutomaticFailover: "enabled" || "disabled" || "enabling" || "disabling",
- *           Status: "STRING_VALUE",
- *         },
- *       ],
- *       ClusterEnabled: true || false,
- *       GlobalNodeGroups: [ // GlobalNodeGroupList
- *         { // GlobalNodeGroup
- *           GlobalNodeGroupId: "STRING_VALUE",
- *           Slots: "STRING_VALUE",
- *         },
- *       ],
- *       AuthTokenEnabled: true || false,
- *       TransitEncryptionEnabled: true || false,
- *       AtRestEncryptionEnabled: true || false,
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeGlobalReplicationGroupsResult
+ * //   Marker: "STRING_VALUE",
+ * //   GlobalReplicationGroups: [ // GlobalReplicationGroupList
+ * //     { // GlobalReplicationGroup
+ * //       GlobalReplicationGroupId: "STRING_VALUE",
+ * //       GlobalReplicationGroupDescription: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       CacheNodeType: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       Members: [ // GlobalReplicationGroupMemberList
+ * //         { // GlobalReplicationGroupMember
+ * //           ReplicationGroupId: "STRING_VALUE",
+ * //           ReplicationGroupRegion: "STRING_VALUE",
+ * //           Role: "STRING_VALUE",
+ * //           AutomaticFailover: "enabled" || "disabled" || "enabling" || "disabling",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ClusterEnabled: true || false,
+ * //       GlobalNodeGroups: [ // GlobalNodeGroupList
+ * //         { // GlobalNodeGroup
+ * //           GlobalNodeGroupId: "STRING_VALUE",
+ * //           Slots: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AuthTokenEnabled: true || false,
+ * //       TransitEncryptionEnabled: true || false,
+ * //       AtRestEncryptionEnabled: true || false,
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

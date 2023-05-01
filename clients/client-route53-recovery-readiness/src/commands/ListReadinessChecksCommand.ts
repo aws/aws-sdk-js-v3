@@ -49,20 +49,19 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  * };
  * const command = new ListReadinessChecksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReadinessChecksResponse
- *   NextToken: "STRING_VALUE",
- *   ReadinessChecks: [ // __listOfReadinessCheckOutput
- *     { // ReadinessCheckOutput
- *       ReadinessCheckArn: "STRING_VALUE", // required
- *       ReadinessCheckName: "STRING_VALUE",
- *       ResourceSet: "STRING_VALUE", // required
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListReadinessChecksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ReadinessChecks: [ // __listOfReadinessCheckOutput
+ * //     { // ReadinessCheckOutput
+ * //       ReadinessCheckArn: "STRING_VALUE", // required
+ * //       ReadinessCheckName: "STRING_VALUE",
+ * //       ResourceSet: "STRING_VALUE", // required
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

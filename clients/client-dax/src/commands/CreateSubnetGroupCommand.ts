@@ -48,20 +48,19 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * };
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSubnetGroupResponse
- *   SubnetGroup: { // SubnetGroup
- *     SubnetGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     Subnets: [ // SubnetList
- *       { // Subnet
- *         SubnetIdentifier: "STRING_VALUE",
- *         SubnetAvailabilityZone: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateSubnetGroupResponse
+ * //   SubnetGroup: { // SubnetGroup
+ * //     SubnetGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -89,8 +89,7 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * };
  * const command = new UpdateFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

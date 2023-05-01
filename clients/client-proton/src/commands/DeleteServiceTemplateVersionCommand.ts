@@ -63,31 +63,30 @@ export interface DeleteServiceTemplateVersionCommandOutput
  * };
  * const command = new DeleteServiceTemplateVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceTemplateVersionOutput
- *   serviceTemplateVersion: { // ServiceTemplateVersion
- *     templateName: "STRING_VALUE", // required
- *     majorVersion: "STRING_VALUE", // required
- *     minorVersion: "STRING_VALUE", // required
- *     recommendedMinorVersion: "STRING_VALUE",
- *     status: "STRING_VALUE", // required
- *     statusMessage: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateList // required
- *       { // CompatibleEnvironmentTemplate
- *         templateName: "STRING_VALUE", // required
- *         majorVersion: "STRING_VALUE", // required
- *       },
- *     ],
- *     schema: "STRING_VALUE",
- *     supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DeleteServiceTemplateVersionOutput
+ * //   serviceTemplateVersion: { // ServiceTemplateVersion
+ * //     templateName: "STRING_VALUE", // required
+ * //     majorVersion: "STRING_VALUE", // required
+ * //     minorVersion: "STRING_VALUE", // required
+ * //     recommendedMinorVersion: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusMessage: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     compatibleEnvironmentTemplates: [ // CompatibleEnvironmentTemplateList // required
+ * //       { // CompatibleEnvironmentTemplate
+ * //         templateName: "STRING_VALUE", // required
+ * //         majorVersion: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     schema: "STRING_VALUE",
+ * //     supportedComponentSources: [ // ServiceTemplateSupportedComponentSourceInputList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

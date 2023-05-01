@@ -83,42 +83,41 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMembersResponse
- *   Members: [ // MemberDetailList
- *     { // MemberDetail
- *       AccountId: "STRING_VALUE",
- *       EmailAddress: "STRING_VALUE",
- *       GraphArn: "STRING_VALUE",
- *       MasterId: "STRING_VALUE",
- *       AdministratorId: "STRING_VALUE",
- *       Status: "INVITED" || "VERIFICATION_IN_PROGRESS" || "VERIFICATION_FAILED" || "ENABLED" || "ACCEPTED_BUT_DISABLED",
- *       DisabledReason: "VOLUME_TOO_HIGH" || "VOLUME_UNKNOWN",
- *       InvitedTime: new Date("TIMESTAMP"),
- *       UpdatedTime: new Date("TIMESTAMP"),
- *       VolumeUsageInBytes: Number("long"),
- *       VolumeUsageUpdatedTime: new Date("TIMESTAMP"),
- *       PercentOfGraphUtilization: Number("double"),
- *       PercentOfGraphUtilizationUpdatedTime: new Date("TIMESTAMP"),
- *       InvitationType: "INVITATION" || "ORGANIZATION",
- *       VolumeUsageByDatasourcePackage: { // VolumeUsageByDatasourcePackage
- *         "<keys>": { // DatasourcePackageUsageInfo
- *           VolumeUsageInBytes: Number("long"),
- *           VolumeUsageUpdateTime: new Date("TIMESTAMP"),
- *         },
- *       },
- *       DatasourcePackageIngestStates: { // DatasourcePackageIngestStates
- *         "<keys>": "STARTED" || "STOPPED" || "DISABLED",
- *       },
- *     },
- *   ],
- *   UnprocessedAccounts: [ // UnprocessedAccountList
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateMembersResponse
+ * //   Members: [ // MemberDetailList
+ * //     { // MemberDetail
+ * //       AccountId: "STRING_VALUE",
+ * //       EmailAddress: "STRING_VALUE",
+ * //       GraphArn: "STRING_VALUE",
+ * //       MasterId: "STRING_VALUE",
+ * //       AdministratorId: "STRING_VALUE",
+ * //       Status: "INVITED" || "VERIFICATION_IN_PROGRESS" || "VERIFICATION_FAILED" || "ENABLED" || "ACCEPTED_BUT_DISABLED",
+ * //       DisabledReason: "VOLUME_TOO_HIGH" || "VOLUME_UNKNOWN",
+ * //       InvitedTime: new Date("TIMESTAMP"),
+ * //       UpdatedTime: new Date("TIMESTAMP"),
+ * //       VolumeUsageInBytes: Number("long"),
+ * //       VolumeUsageUpdatedTime: new Date("TIMESTAMP"),
+ * //       PercentOfGraphUtilization: Number("double"),
+ * //       PercentOfGraphUtilizationUpdatedTime: new Date("TIMESTAMP"),
+ * //       InvitationType: "INVITATION" || "ORGANIZATION",
+ * //       VolumeUsageByDatasourcePackage: { // VolumeUsageByDatasourcePackage
+ * //         "<keys>": { // DatasourcePackageUsageInfo
+ * //           VolumeUsageInBytes: Number("long"),
+ * //           VolumeUsageUpdateTime: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //       DatasourcePackageIngestStates: { // DatasourcePackageIngestStates
+ * //         "<keys>": "STARTED" || "STOPPED" || "DISABLED",
+ * //       },
+ * //     },
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccountList
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

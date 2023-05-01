@@ -62,23 +62,22 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * };
  * const command = new ListRootsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRootsResponse
- *   Roots: [ // Roots
- *     { // Root
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       PolicyTypes: [ // PolicyTypes
- *         { // PolicyTypeSummary
- *           Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
- *           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRootsResponse
+ * //   Roots: [ // Roots
+ * //     { // Root
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       PolicyTypes: [ // PolicyTypes
+ * //         { // PolicyTypeSummary
+ * //           Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //           Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

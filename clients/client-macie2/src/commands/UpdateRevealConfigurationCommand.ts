@@ -47,13 +47,12 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * };
  * const command = new UpdateRevealConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRevealConfigurationResponse
- *   configuration: { // RevealConfiguration
- *     kmsKeyId: "STRING_VALUE",
- *     status: "ENABLED" || "DISABLED", // required
- *   },
- * };
+ * // { // UpdateRevealConfigurationResponse
+ * //   configuration: { // RevealConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     status: "ENABLED" || "DISABLED", // required
+ * //   },
+ * // };
  *
  * ```
  *

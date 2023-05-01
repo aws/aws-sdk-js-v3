@@ -57,8 +57,7 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * };
  * const command = new StopSolutionVersionCreationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

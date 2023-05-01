@@ -44,8 +44,7 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

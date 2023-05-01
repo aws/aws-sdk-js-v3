@@ -50,18 +50,17 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGroupResult
- *   Group: { // Group
- *     GroupName: "STRING_VALUE",
- *     GroupARN: "STRING_VALUE",
- *     FilterExpression: "STRING_VALUE",
- *     InsightsConfiguration: { // InsightsConfiguration
- *       InsightsEnabled: true || false,
- *       NotificationsEnabled: true || false,
- *     },
- *   },
- * };
+ * // { // UpdateGroupResult
+ * //   Group: { // Group
+ * //     GroupName: "STRING_VALUE",
+ * //     GroupARN: "STRING_VALUE",
+ * //     FilterExpression: "STRING_VALUE",
+ * //     InsightsConfiguration: { // InsightsConfiguration
+ * //       InsightsEnabled: true || false,
+ * //       NotificationsEnabled: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

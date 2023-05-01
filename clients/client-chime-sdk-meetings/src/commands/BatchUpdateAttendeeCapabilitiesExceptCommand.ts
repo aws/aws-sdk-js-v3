@@ -78,8 +78,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * };
  * const command = new BatchUpdateAttendeeCapabilitiesExceptCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

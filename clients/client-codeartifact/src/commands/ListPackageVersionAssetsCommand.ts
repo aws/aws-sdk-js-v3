@@ -56,24 +56,23 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * };
  * const command = new ListPackageVersionAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPackageVersionAssetsResult
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *   namespace: "STRING_VALUE",
- *   package: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   versionRevision: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   assets: [ // AssetSummaryList
- *     { // AssetSummary
- *       name: "STRING_VALUE", // required
- *       size: Number("long"),
- *       hashes: { // AssetHashes
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListPackageVersionAssetsResult
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //   namespace: "STRING_VALUE",
+ * //   package: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   versionRevision: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * //   assets: [ // AssetSummaryList
+ * //     { // AssetSummary
+ * //       name: "STRING_VALUE", // required
+ * //       size: Number("long"),
+ * //       hashes: { // AssetHashes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

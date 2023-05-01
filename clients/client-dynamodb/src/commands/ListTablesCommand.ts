@@ -47,13 +47,12 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTablesOutput
- *   TableNames: [ // TableNameList
- *     "STRING_VALUE",
- *   ],
- *   LastEvaluatedTableName: "STRING_VALUE",
- * };
+ * // { // ListTablesOutput
+ * //   TableNames: [ // TableNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LastEvaluatedTableName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

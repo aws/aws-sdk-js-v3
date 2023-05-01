@@ -47,20 +47,19 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * };
  * const command = new ListBackupSelectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackupSelectionsOutput
- *   NextToken: "STRING_VALUE",
- *   BackupSelectionsList: [ // BackupSelectionsList
- *     { // BackupSelectionsListMember
- *       SelectionId: "STRING_VALUE",
- *       SelectionName: "STRING_VALUE",
- *       BackupPlanId: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       CreatorRequestId: "STRING_VALUE",
- *       IamRoleArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListBackupSelectionsOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   BackupSelectionsList: [ // BackupSelectionsList
+ * //     { // BackupSelectionsListMember
+ * //       SelectionId: "STRING_VALUE",
+ * //       SelectionName: "STRING_VALUE",
+ * //       BackupPlanId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       IamRoleArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,26 +50,25 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * };
  * const command = new BatchGetStreamKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetStreamKeyResponse
- *   streamKeys: [ // StreamKeys
- *     { // StreamKey
- *       arn: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       channelArn: "STRING_VALUE",
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   errors: [ // BatchErrors
- *     { // BatchError
- *       arn: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetStreamKeyResponse
+ * //   streamKeys: [ // StreamKeys
+ * //     { // StreamKey
+ * //       arn: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //       channelArn: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchErrors
+ * //     { // BatchError
+ * //       arn: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

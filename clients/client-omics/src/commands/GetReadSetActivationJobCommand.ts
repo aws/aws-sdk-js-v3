@@ -45,22 +45,21 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  * };
  * const command = new GetReadSetActivationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadSetActivationJobResponse
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusMessage: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"), // required
- *   completionTime: new Date("TIMESTAMP"),
- *   sources: [ // ActivateReadSetSourceList
- *     { // ActivateReadSetSourceItem
- *       readSetId: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetReadSetActivationJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   sources: [ // ActivateReadSetSourceList
+ * //     { // ActivateReadSetSourceItem
+ * //       readSetId: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -60,8 +60,7 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutUserPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

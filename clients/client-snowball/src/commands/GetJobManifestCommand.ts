@@ -59,10 +59,9 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * };
  * const command = new GetJobManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobManifestResult
- *   ManifestURI: "STRING_VALUE",
- * };
+ * // { // GetJobManifestResult
+ * //   ManifestURI: "STRING_VALUE",
+ * // };
  *
  * ```
  *

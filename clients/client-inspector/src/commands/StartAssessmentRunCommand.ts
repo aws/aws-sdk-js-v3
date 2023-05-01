@@ -47,10 +47,9 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * };
  * const command = new StartAssessmentRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAssessmentRunResponse
- *   assessmentRunArn: "STRING_VALUE", // required
- * };
+ * // { // StartAssessmentRunResponse
+ * //   assessmentRunArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

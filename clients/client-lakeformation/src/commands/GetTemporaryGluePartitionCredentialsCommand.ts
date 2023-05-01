@@ -67,13 +67,12 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * };
  * const command = new GetTemporaryGluePartitionCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemporaryGluePartitionCredentialsResponse
- *   AccessKeyId: "STRING_VALUE",
- *   SecretAccessKey: "STRING_VALUE",
- *   SessionToken: "STRING_VALUE",
- *   Expiration: new Date("TIMESTAMP"),
- * };
+ * // { // GetTemporaryGluePartitionCredentialsResponse
+ * //   AccessKeyId: "STRING_VALUE",
+ * //   SecretAccessKey: "STRING_VALUE",
+ * //   SessionToken: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  * };
  * const command = new PutKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

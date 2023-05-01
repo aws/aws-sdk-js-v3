@@ -46,10 +46,9 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * };
  * const command = new RemoveProfilePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveProfilePermissionResponse
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // RemoveProfilePermissionResponse
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

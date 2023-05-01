@@ -51,8 +51,7 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

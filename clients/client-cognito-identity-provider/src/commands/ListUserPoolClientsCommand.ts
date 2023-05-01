@@ -55,17 +55,16 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  * };
  * const command = new ListUserPoolClientsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserPoolClientsResponse
- *   UserPoolClients: [ // UserPoolClientListType
- *     { // UserPoolClientDescription
- *       ClientId: "STRING_VALUE",
- *       UserPoolId: "STRING_VALUE",
- *       ClientName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUserPoolClientsResponse
+ * //   UserPoolClients: [ // UserPoolClientListType
+ * //     { // UserPoolClientDescription
+ * //       ClientId: "STRING_VALUE",
+ * //       UserPoolId: "STRING_VALUE",
+ * //       ClientName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

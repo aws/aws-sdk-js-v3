@@ -52,10 +52,9 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * };
  * const command = new UpdateScheduledAuditCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateScheduledAuditResponse
- *   scheduledAuditArn: "STRING_VALUE",
- * };
+ * // { // UpdateScheduledAuditResponse
+ * //   scheduledAuditArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

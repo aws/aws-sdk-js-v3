@@ -52,8 +52,7 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * };
  * const command = new PutExternalEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

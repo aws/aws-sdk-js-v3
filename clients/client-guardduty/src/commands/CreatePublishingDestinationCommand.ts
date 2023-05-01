@@ -56,10 +56,9 @@ export interface CreatePublishingDestinationCommandOutput
  * };
  * const command = new CreatePublishingDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePublishingDestinationResponse
- *   DestinationId: "STRING_VALUE", // required
- * };
+ * // { // CreatePublishingDestinationResponse
+ * //   DestinationId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

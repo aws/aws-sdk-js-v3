@@ -50,29 +50,28 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * };
  * const command = new ListSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSessionsResponse
- *   NextToken: "STRING_VALUE",
- *   Sessions: [ // SessionsList
- *     { // SessionSummary
- *       SessionId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       EngineVersion: { // EngineVersion
- *         SelectedEngineVersion: "STRING_VALUE",
- *         EffectiveEngineVersion: "STRING_VALUE",
- *       },
- *       NotebookVersion: "STRING_VALUE",
- *       Status: { // SessionStatus
- *         StartDateTime: new Date("TIMESTAMP"),
- *         LastModifiedDateTime: new Date("TIMESTAMP"),
- *         EndDateTime: new Date("TIMESTAMP"),
- *         IdleSinceDateTime: new Date("TIMESTAMP"),
- *         State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
- *         StateChangeReason: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListSessionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Sessions: [ // SessionsList
+ * //     { // SessionSummary
+ * //       SessionId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       EngineVersion: { // EngineVersion
+ * //         SelectedEngineVersion: "STRING_VALUE",
+ * //         EffectiveEngineVersion: "STRING_VALUE",
+ * //       },
+ * //       NotebookVersion: "STRING_VALUE",
+ * //       Status: { // SessionStatus
+ * //         StartDateTime: new Date("TIMESTAMP"),
+ * //         LastModifiedDateTime: new Date("TIMESTAMP"),
+ * //         EndDateTime: new Date("TIMESTAMP"),
+ * //         IdleSinceDateTime: new Date("TIMESTAMP"),
+ * //         State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * //         StateChangeReason: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

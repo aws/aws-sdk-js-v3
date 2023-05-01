@@ -118,10 +118,9 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProfileResponse
- *   ProfileId: "STRING_VALUE", // required
- * };
+ * // { // UpdateProfileResponse
+ * //   ProfileId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

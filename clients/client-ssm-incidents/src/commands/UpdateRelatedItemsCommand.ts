@@ -77,8 +77,7 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * };
  * const command = new UpdateRelatedItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

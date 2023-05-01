@@ -57,25 +57,24 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * };
  * const command = new DetachInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachInstancesAnswer
- *   Activities: [ // Activities
- *     { // Activity
- *       ActivityId: "STRING_VALUE", // required
- *       AutoScalingGroupName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *       Cause: "STRING_VALUE", // required
- *       StartTime: new Date("TIMESTAMP"), // required
- *       EndTime: new Date("TIMESTAMP"),
- *       StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining", // required
- *       StatusMessage: "STRING_VALUE",
- *       Progress: Number("int"),
- *       Details: "STRING_VALUE",
- *       AutoScalingGroupState: "STRING_VALUE",
- *       AutoScalingGroupARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DetachInstancesAnswer
+ * //   Activities: [ // Activities
+ * //     { // Activity
+ * //       ActivityId: "STRING_VALUE", // required
+ * //       AutoScalingGroupName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       Cause: "STRING_VALUE", // required
+ * //       StartTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Progress: Number("int"),
+ * //       Details: "STRING_VALUE",
+ * //       AutoScalingGroupState: "STRING_VALUE",
+ * //       AutoScalingGroupARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

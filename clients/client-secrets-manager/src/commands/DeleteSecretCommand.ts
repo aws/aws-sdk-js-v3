@@ -74,12 +74,11 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * };
  * const command = new DeleteSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   DeletionDate: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DeletionDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -47,25 +47,24 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * };
  * const command = new GetCoreNetworkChangeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoreNetworkChangeEventsResponse
- *   CoreNetworkChangeEvents: [ // CoreNetworkChangeEventList
- *     { // CoreNetworkChangeEvent
- *       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
- *       Action: "ADD" || "MODIFY" || "REMOVE",
- *       IdentifierPath: "STRING_VALUE",
- *       EventTime: new Date("TIMESTAMP"),
- *       Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED",
- *       Values: { // CoreNetworkChangeEventValues
- *         EdgeLocation: "STRING_VALUE",
- *         SegmentName: "STRING_VALUE",
- *         AttachmentId: "STRING_VALUE",
- *         Cidr: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCoreNetworkChangeEventsResponse
+ * //   CoreNetworkChangeEvents: [ // CoreNetworkChangeEventList
+ * //     { // CoreNetworkChangeEvent
+ * //       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
+ * //       Action: "ADD" || "MODIFY" || "REMOVE",
+ * //       IdentifierPath: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED",
+ * //       Values: { // CoreNetworkChangeEventValues
+ * //         EdgeLocation: "STRING_VALUE",
+ * //         SegmentName: "STRING_VALUE",
+ * //         AttachmentId: "STRING_VALUE",
+ * //         Cidr: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

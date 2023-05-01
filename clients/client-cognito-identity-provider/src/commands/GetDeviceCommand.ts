@@ -55,21 +55,20 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceResponse
- *   Device: { // DeviceType
- *     DeviceKey: "STRING_VALUE",
- *     DeviceAttributes: [ // AttributeListType
- *       { // AttributeType
- *         Name: "STRING_VALUE", // required
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     DeviceCreateDate: new Date("TIMESTAMP"),
- *     DeviceLastModifiedDate: new Date("TIMESTAMP"),
- *     DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetDeviceResponse
+ * //   Device: { // DeviceType
+ * //     DeviceKey: "STRING_VALUE",
+ * //     DeviceAttributes: [ // AttributeListType
+ * //       { // AttributeType
+ * //         Name: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DeviceCreateDate: new Date("TIMESTAMP"),
+ * //     DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     DeviceLastAuthenticatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

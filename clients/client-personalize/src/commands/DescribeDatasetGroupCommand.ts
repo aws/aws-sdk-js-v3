@@ -45,20 +45,19 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * };
  * const command = new DescribeDatasetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetGroupResponse
- *   datasetGroup: { // DatasetGroup
- *     name: "STRING_VALUE",
- *     datasetGroupArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     roleArn: "STRING_VALUE",
- *     kmsKeyArn: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     failureReason: "STRING_VALUE",
- *     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- *   },
- * };
+ * // { // DescribeDatasetGroupResponse
+ * //   datasetGroup: { // DatasetGroup
+ * //     name: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     kmsKeyArn: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     failureReason: "STRING_VALUE",
+ * //     domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //   },
+ * // };
  *
  * ```
  *

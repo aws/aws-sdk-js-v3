@@ -46,11 +46,10 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * };
  * const command = new GetPullRequestOverrideStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPullRequestOverrideStateOutput
- *   overridden: true || false,
- *   overrider: "STRING_VALUE",
- * };
+ * // { // GetPullRequestOverrideStateOutput
+ * //   overridden: true || false,
+ * //   overrider: "STRING_VALUE",
+ * // };
  *
  * ```
  *

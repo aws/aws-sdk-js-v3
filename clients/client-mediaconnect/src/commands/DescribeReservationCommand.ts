@@ -44,27 +44,26 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * };
  * const command = new DescribeReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReservationResponse
- *   Reservation: { // Reservation
- *     CurrencyCode: "STRING_VALUE", // required
- *     Duration: Number("int"), // required
- *     DurationUnits: "MONTHS", // required
- *     End: "STRING_VALUE", // required
- *     OfferingArn: "STRING_VALUE", // required
- *     OfferingDescription: "STRING_VALUE", // required
- *     PricePerUnit: "STRING_VALUE", // required
- *     PriceUnits: "HOURLY", // required
- *     ReservationArn: "STRING_VALUE", // required
- *     ReservationName: "STRING_VALUE", // required
- *     ReservationState: "ACTIVE" || "EXPIRED" || "PROCESSING" || "CANCELED", // required
- *     ResourceSpecification: { // ResourceSpecification
- *       ReservedBitrate: Number("int"),
- *       ResourceType: "Mbps_Outbound_Bandwidth", // required
- *     },
- *     Start: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DescribeReservationResponse
+ * //   Reservation: { // Reservation
+ * //     CurrencyCode: "STRING_VALUE", // required
+ * //     Duration: Number("int"), // required
+ * //     DurationUnits: "MONTHS", // required
+ * //     End: "STRING_VALUE", // required
+ * //     OfferingArn: "STRING_VALUE", // required
+ * //     OfferingDescription: "STRING_VALUE", // required
+ * //     PricePerUnit: "STRING_VALUE", // required
+ * //     PriceUnits: "HOURLY", // required
+ * //     ReservationArn: "STRING_VALUE", // required
+ * //     ReservationName: "STRING_VALUE", // required
+ * //     ReservationState: "ACTIVE" || "EXPIRED" || "PROCESSING" || "CANCELED", // required
+ * //     ResourceSpecification: { // ResourceSpecification
+ * //       ReservedBitrate: Number("int"),
+ * //       ResourceType: "Mbps_Outbound_Bandwidth", // required
+ * //     },
+ * //     Start: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

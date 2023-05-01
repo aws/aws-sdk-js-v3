@@ -72,41 +72,40 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  * };
  * const command = new DescribeForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeForecastResponse
- *   ForecastArn: "STRING_VALUE",
- *   ForecastName: "STRING_VALUE",
- *   ForecastTypes: [ // ForecastTypes
- *     "STRING_VALUE",
- *   ],
- *   PredictorArn: "STRING_VALUE",
- *   DatasetGroupArn: "STRING_VALUE",
- *   EstimatedTimeRemainingInMinutes: Number("long"),
- *   Status: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   TimeSeriesSelector: { // TimeSeriesSelector
- *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
- *       DataSource: { // DataSource
- *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
- *         },
- *       },
- *       Schema: { // Schema
- *         Attributes: [ // SchemaAttributes
- *           { // SchemaAttribute
- *             AttributeName: "STRING_VALUE",
- *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
- *           },
- *         ],
- *       },
- *       Format: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeForecastResponse
+ * //   ForecastArn: "STRING_VALUE",
+ * //   ForecastName: "STRING_VALUE",
+ * //   ForecastTypes: [ // ForecastTypes
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   PredictorArn: "STRING_VALUE",
+ * //   DatasetGroupArn: "STRING_VALUE",
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   Status: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   TimeSeriesSelector: { // TimeSeriesSelector
+ * //     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ * //       DataSource: { // DataSource
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Schema: { // Schema
+ * //         Attributes: [ // SchemaAttributes
+ * //           { // SchemaAttribute
+ * //             AttributeName: "STRING_VALUE",
+ * //             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Format: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

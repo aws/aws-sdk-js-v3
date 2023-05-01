@@ -54,27 +54,26 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * };
  * const command = new ListBulkDeploymentDetailedReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBulkDeploymentDetailedReportsResponse
- *   Deployments: [ // BulkDeploymentResults
- *     { // BulkDeploymentResult
- *       CreatedAt: "STRING_VALUE",
- *       DeploymentArn: "STRING_VALUE",
- *       DeploymentId: "STRING_VALUE",
- *       DeploymentStatus: "STRING_VALUE",
- *       DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
- *       ErrorDetails: [ // ErrorDetails
- *         { // ErrorDetail
- *           DetailedErrorCode: "STRING_VALUE",
- *           DetailedErrorMessage: "STRING_VALUE",
- *         },
- *       ],
- *       ErrorMessage: "STRING_VALUE",
- *       GroupArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBulkDeploymentDetailedReportsResponse
+ * //   Deployments: [ // BulkDeploymentResults
+ * //     { // BulkDeploymentResult
+ * //       CreatedAt: "STRING_VALUE",
+ * //       DeploymentArn: "STRING_VALUE",
+ * //       DeploymentId: "STRING_VALUE",
+ * //       DeploymentStatus: "STRING_VALUE",
+ * //       DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment",
+ * //       ErrorDetails: [ // ErrorDetails
+ * //         { // ErrorDetail
+ * //           DetailedErrorCode: "STRING_VALUE",
+ * //           DetailedErrorMessage: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       GroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

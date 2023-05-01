@@ -55,42 +55,41 @@ export interface DescribeProductCommandOutput extends DescribeProductOutput, __M
  * };
  * const command = new DescribeProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProductOutput
- *   ProductViewSummary: { // ProductViewSummary
- *     Id: "STRING_VALUE",
- *     ProductId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *     ShortDescription: "STRING_VALUE",
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
- *     Distributor: "STRING_VALUE",
- *     HasDefaultPath: true || false,
- *     SupportEmail: "STRING_VALUE",
- *     SupportDescription: "STRING_VALUE",
- *     SupportUrl: "STRING_VALUE",
- *   },
- *   ProvisioningArtifacts: [ // ProvisioningArtifacts
- *     { // ProvisioningArtifact
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Guidance: "DEFAULT" || "DEPRECATED",
- *     },
- *   ],
- *   Budgets: [ // Budgets
- *     { // BudgetDetail
- *       BudgetName: "STRING_VALUE",
- *     },
- *   ],
- *   LaunchPaths: [ // LaunchPaths
- *     { // LaunchPath
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeProductOutput
+ * //   ProductViewSummary: { // ProductViewSummary
+ * //     Id: "STRING_VALUE",
+ * //     ProductId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //     ShortDescription: "STRING_VALUE",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ * //     Distributor: "STRING_VALUE",
+ * //     HasDefaultPath: true || false,
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportDescription: "STRING_VALUE",
+ * //     SupportUrl: "STRING_VALUE",
+ * //   },
+ * //   ProvisioningArtifacts: [ // ProvisioningArtifacts
+ * //     { // ProvisioningArtifact
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Guidance: "DEFAULT" || "DEPRECATED",
+ * //     },
+ * //   ],
+ * //   Budgets: [ // Budgets
+ * //     { // BudgetDetail
+ * //       BudgetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LaunchPaths: [ // LaunchPaths
+ * //     { // LaunchPath
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

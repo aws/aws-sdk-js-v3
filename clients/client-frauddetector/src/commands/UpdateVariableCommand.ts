@@ -47,8 +47,7 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  * };
  * const command = new UpdateVariableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,30 +49,29 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * };
  * const command = new DescribeUpdateDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUpdateDirectoryResult
- *   UpdateActivities: [ // UpdateActivities
- *     { // UpdateInfoEntry
- *       Region: "STRING_VALUE",
- *       Status: "Updated" || "Updating" || "UpdateFailed",
- *       StatusReason: "STRING_VALUE",
- *       InitiatedBy: "STRING_VALUE",
- *       NewValue: { // UpdateValue
- *         OSUpdateSettings: { // OSUpdateSettings
- *           OSVersion: "SERVER_2012" || "SERVER_2019",
- *         },
- *       },
- *       PreviousValue: {
- *         OSUpdateSettings: {
- *           OSVersion: "SERVER_2012" || "SERVER_2019",
- *         },
- *       },
- *       StartTime: new Date("TIMESTAMP"),
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeUpdateDirectoryResult
+ * //   UpdateActivities: [ // UpdateActivities
+ * //     { // UpdateInfoEntry
+ * //       Region: "STRING_VALUE",
+ * //       Status: "Updated" || "Updating" || "UpdateFailed",
+ * //       StatusReason: "STRING_VALUE",
+ * //       InitiatedBy: "STRING_VALUE",
+ * //       NewValue: { // UpdateValue
+ * //         OSUpdateSettings: { // OSUpdateSettings
+ * //           OSVersion: "SERVER_2012" || "SERVER_2019",
+ * //         },
+ * //       },
+ * //       PreviousValue: {
+ * //         OSUpdateSettings: {
+ * //           OSVersion: "SERVER_2012" || "SERVER_2019",
+ * //         },
+ * //       },
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,19 +48,18 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * };
  * const command = new ListSolutionVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSolutionVersionsResponse
- *   solutionVersions: [ // SolutionVersions
- *     { // SolutionVersionSummary
- *       solutionVersionArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSolutionVersionsResponse
+ * //   solutionVersions: [ // SolutionVersions
+ * //     { // SolutionVersionSummary
+ * //       solutionVersionArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

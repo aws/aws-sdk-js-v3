@@ -53,20 +53,19 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * };
  * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessPoliciesResponse
- *   accessPolicySummaries: [ // AccessPolicySummaries
- *     { // AccessPolicySummary
- *       type: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       policyVersion: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdDate: Number("long"),
- *       lastModifiedDate: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccessPoliciesResponse
+ * //   accessPolicySummaries: [ // AccessPolicySummaries
+ * //     { // AccessPolicySummary
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       policyVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * };
  * const command = new DeleteExperienceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

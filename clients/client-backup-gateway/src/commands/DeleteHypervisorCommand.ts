@@ -44,10 +44,9 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  * };
  * const command = new DeleteHypervisorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteHypervisorOutput
- *   HypervisorArn: "STRING_VALUE",
- * };
+ * // { // DeleteHypervisorOutput
+ * //   HypervisorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

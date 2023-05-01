@@ -111,8 +111,7 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

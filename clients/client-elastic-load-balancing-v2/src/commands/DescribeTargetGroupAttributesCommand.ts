@@ -74,15 +74,14 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * };
  * const command = new DescribeTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTargetGroupAttributesOutput
- *   Attributes: [ // TargetGroupAttributes
- *     { // TargetGroupAttribute
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeTargetGroupAttributesOutput
+ * //   Attributes: [ // TargetGroupAttributes
+ * //     { // TargetGroupAttribute
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

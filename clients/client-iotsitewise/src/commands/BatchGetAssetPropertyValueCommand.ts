@@ -53,45 +53,44 @@ export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPr
  * };
  * const command = new BatchGetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetAssetPropertyValueResponse
- *   errorEntries: [ // BatchGetAssetPropertyValueErrorEntries // required
- *     { // BatchGetAssetPropertyValueErrorEntry
- *       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *       errorMessage: "STRING_VALUE", // required
- *       entryId: "STRING_VALUE", // required
- *     },
- *   ],
- *   successEntries: [ // BatchGetAssetPropertyValueSuccessEntries // required
- *     { // BatchGetAssetPropertyValueSuccessEntry
- *       entryId: "STRING_VALUE", // required
- *       assetPropertyValue: { // AssetPropertyValue
- *         value: { // Variant
- *           stringValue: "STRING_VALUE",
- *           integerValue: Number("int"),
- *           doubleValue: Number("double"),
- *           booleanValue: true || false,
- *         },
- *         timestamp: { // TimeInNanos
- *           timeInSeconds: Number("long"), // required
- *           offsetInNanos: Number("int"),
- *         },
- *         quality: "GOOD" || "BAD" || "UNCERTAIN",
- *       },
- *     },
- *   ],
- *   skippedEntries: [ // BatchGetAssetPropertyValueSkippedEntries // required
- *     { // BatchGetAssetPropertyValueSkippedEntry
- *       entryId: "STRING_VALUE", // required
- *       completionStatus: "SUCCESS" || "ERROR", // required
- *       errorInfo: { // BatchGetAssetPropertyValueErrorInfo
- *         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *         errorTimestamp: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // BatchGetAssetPropertyValueResponse
+ * //   errorEntries: [ // BatchGetAssetPropertyValueErrorEntries // required
+ * //     { // BatchGetAssetPropertyValueErrorEntry
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //       entryId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   successEntries: [ // BatchGetAssetPropertyValueSuccessEntries // required
+ * //     { // BatchGetAssetPropertyValueSuccessEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       assetPropertyValue: { // AssetPropertyValue
+ * //         value: { // Variant
+ * //           stringValue: "STRING_VALUE",
+ * //           integerValue: Number("int"),
+ * //           doubleValue: Number("double"),
+ * //           booleanValue: true || false,
+ * //         },
+ * //         timestamp: { // TimeInNanos
+ * //           timeInSeconds: Number("long"), // required
+ * //           offsetInNanos: Number("int"),
+ * //         },
+ * //         quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //       },
+ * //     },
+ * //   ],
+ * //   skippedEntries: [ // BatchGetAssetPropertyValueSkippedEntries // required
+ * //     { // BatchGetAssetPropertyValueSkippedEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       completionStatus: "SUCCESS" || "ERROR", // required
+ * //       errorInfo: { // BatchGetAssetPropertyValueErrorInfo
+ * //         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //         errorTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

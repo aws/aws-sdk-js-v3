@@ -106,8 +106,7 @@ export interface PutAppValidationConfigurationCommandOutput
  * };
  * const command = new PutAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

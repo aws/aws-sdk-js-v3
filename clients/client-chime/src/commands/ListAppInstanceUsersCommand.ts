@@ -53,18 +53,17 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * };
  * const command = new ListAppInstanceUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppInstanceUsersResponse
- *   AppInstanceArn: "STRING_VALUE",
- *   AppInstanceUsers: [ // AppInstanceUserList
- *     { // AppInstanceUserSummary
- *       AppInstanceUserArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Metadata: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppInstanceUsersResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * //   AppInstanceUsers: [ // AppInstanceUserList
+ * //     { // AppInstanceUserSummary
+ * //       AppInstanceUserArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

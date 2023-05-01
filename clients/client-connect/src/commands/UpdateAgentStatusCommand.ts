@@ -51,8 +51,7 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

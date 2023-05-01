@@ -48,13 +48,12 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDirectoryResponse
- *   DirectoryArn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE", // required
- *   ObjectIdentifier: "STRING_VALUE", // required
- *   AppliedSchemaArn: "STRING_VALUE", // required
- * };
+ * // { // CreateDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * //   Name: "STRING_VALUE", // required
+ * //   ObjectIdentifier: "STRING_VALUE", // required
+ * //   AppliedSchemaArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

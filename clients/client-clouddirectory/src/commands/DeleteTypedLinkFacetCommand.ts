@@ -45,8 +45,7 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  * };
  * const command = new DeleteTypedLinkFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

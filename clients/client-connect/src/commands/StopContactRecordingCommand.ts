@@ -51,8 +51,7 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * };
  * const command = new StopContactRecordingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

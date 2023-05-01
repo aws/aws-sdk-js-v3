@@ -46,19 +46,18 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * };
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamKeysResponse
- *   streamKeys: [ // StreamKeyList // required
- *     { // StreamKeySummary
- *       arn: "STRING_VALUE",
- *       channelArn: "STRING_VALUE",
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStreamKeysResponse
+ * //   streamKeys: [ // StreamKeyList // required
+ * //     { // StreamKeySummary
+ * //       arn: "STRING_VALUE",
+ * //       channelArn: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

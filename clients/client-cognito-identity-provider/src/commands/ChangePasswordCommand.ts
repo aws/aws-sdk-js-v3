@@ -54,8 +54,7 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * };
  * const command = new ChangePasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

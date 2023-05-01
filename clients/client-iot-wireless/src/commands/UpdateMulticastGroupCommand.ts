@@ -50,8 +50,7 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * };
  * const command = new UpdateMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

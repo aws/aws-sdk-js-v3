@@ -45,13 +45,12 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLifecyclePolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   lifecyclePolicyText: "STRING_VALUE",
- *   lastEvaluatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteLifecyclePolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * //   lastEvaluatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

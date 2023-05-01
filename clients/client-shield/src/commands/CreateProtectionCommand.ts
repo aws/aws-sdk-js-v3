@@ -56,10 +56,9 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * };
  * const command = new CreateProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProtectionResponse
- *   ProtectionId: "STRING_VALUE",
- * };
+ * // { // CreateProtectionResponse
+ * //   ProtectionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

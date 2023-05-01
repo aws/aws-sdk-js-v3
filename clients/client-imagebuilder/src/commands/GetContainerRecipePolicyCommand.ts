@@ -44,11 +44,10 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * };
  * const command = new GetContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerRecipePolicyResponse
- *   requestId: "STRING_VALUE",
- *   policy: "STRING_VALUE",
- * };
+ * // { // GetContainerRecipePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

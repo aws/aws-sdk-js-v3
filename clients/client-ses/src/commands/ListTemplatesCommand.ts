@@ -47,16 +47,15 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplatesResponse
- *   TemplatesMetadata: [ // TemplateMetadataList
- *     { // TemplateMetadata
- *       Name: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTemplatesResponse
+ * //   TemplatesMetadata: [ // TemplateMetadataList
+ * //     { // TemplateMetadata
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

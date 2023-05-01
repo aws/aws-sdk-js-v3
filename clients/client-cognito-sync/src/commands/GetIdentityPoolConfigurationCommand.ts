@@ -95,21 +95,20 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * };
  * const command = new GetIdentityPoolConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityPoolConfigurationResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   PushSync: { // PushSync
- *     ApplicationArns: [ // ApplicationArnList
- *       "STRING_VALUE",
- *     ],
- *     RoleArn: "STRING_VALUE",
- *   },
- *   CognitoStreams: { // CognitoStreams
- *     StreamName: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     StreamingStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // GetIdentityPoolConfigurationResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   PushSync: { // PushSync
+ * //     ApplicationArns: [ // ApplicationArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RoleArn: "STRING_VALUE",
+ * //   },
+ * //   CognitoStreams: { // CognitoStreams
+ * //     StreamName: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     StreamingStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

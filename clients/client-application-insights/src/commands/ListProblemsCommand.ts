@@ -53,29 +53,28 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * };
  * const command = new ListProblemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProblemsResponse
- *   ProblemList: [ // ProblemList
- *     { // Problem
- *       Id: "STRING_VALUE",
- *       Title: "STRING_VALUE",
- *       Insights: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       AffectedResource: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       SeverityLevel: "STRING_VALUE",
- *       ResourceGroupName: "STRING_VALUE",
- *       Feedback: { // Feedback
- *         "<keys>": "STRING_VALUE",
- *       },
- *       RecurringCount: Number("long"),
- *       LastRecurrenceTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   ResourceGroupName: "STRING_VALUE",
- * };
+ * // { // ListProblemsResponse
+ * //   ProblemList: [ // ProblemList
+ * //     { // Problem
+ * //       Id: "STRING_VALUE",
+ * //       Title: "STRING_VALUE",
+ * //       Insights: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       AffectedResource: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       SeverityLevel: "STRING_VALUE",
+ * //       ResourceGroupName: "STRING_VALUE",
+ * //       Feedback: { // Feedback
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RecurringCount: Number("long"),
+ * //       LastRecurrenceTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   ResourceGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

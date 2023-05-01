@@ -58,22 +58,21 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * };
  * const command = new CreateParticipantTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateParticipantTokenResponse
- *   participantToken: { // ParticipantToken
- *     participantId: "STRING_VALUE",
- *     token: "STRING_VALUE",
- *     userId: "STRING_VALUE",
- *     attributes: { // ParticipantTokenAttributes
- *       "<keys>": "STRING_VALUE",
- *     },
- *     duration: Number("int"),
- *     capabilities: [ // ParticipantTokenCapabilities
- *       "STRING_VALUE",
- *     ],
- *     expirationTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateParticipantTokenResponse
+ * //   participantToken: { // ParticipantToken
+ * //     participantId: "STRING_VALUE",
+ * //     token: "STRING_VALUE",
+ * //     userId: "STRING_VALUE",
+ * //     attributes: { // ParticipantTokenAttributes
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     duration: Number("int"),
+ * //     capabilities: [ // ParticipantTokenCapabilities
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     expirationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

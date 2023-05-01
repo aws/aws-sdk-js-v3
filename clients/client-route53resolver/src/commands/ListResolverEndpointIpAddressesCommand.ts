@@ -51,23 +51,22 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * };
  * const command = new ListResolverEndpointIpAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverEndpointIpAddressesResponse
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   IpAddresses: [ // IpAddressesResponse
- *     { // IpAddressResponse
- *       IpId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       Ip: "STRING_VALUE",
- *       Ipv6: "STRING_VALUE",
- *       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING",
- *       StatusMessage: "STRING_VALUE",
- *       CreationTime: "STRING_VALUE",
- *       ModificationTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListResolverEndpointIpAddressesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   IpAddresses: [ // IpAddressesResponse
+ * //     { // IpAddressResponse
+ * //       IpId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       Ip: "STRING_VALUE",
+ * //       Ipv6: "STRING_VALUE",
+ * //       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreationTime: "STRING_VALUE",
+ * //       ModificationTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

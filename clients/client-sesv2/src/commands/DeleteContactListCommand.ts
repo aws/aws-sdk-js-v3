@@ -44,8 +44,7 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
  * };
  * const command = new DeleteContactListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

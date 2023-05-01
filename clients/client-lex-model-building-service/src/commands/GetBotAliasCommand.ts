@@ -52,28 +52,27 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  * };
  * const command = new GetBotAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBotAliasResponse
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   botName: "STRING_VALUE",
- *   lastUpdatedDate: new Date("TIMESTAMP"),
- *   createdDate: new Date("TIMESTAMP"),
- *   checksum: "STRING_VALUE",
- *   conversationLogs: { // ConversationLogsResponse
- *     logSettings: [ // LogSettingsResponseList
- *       { // LogSettingsResponse
- *         logType: "STRING_VALUE",
- *         destination: "STRING_VALUE",
- *         kmsKeyArn: "STRING_VALUE",
- *         resourceArn: "STRING_VALUE",
- *         resourcePrefix: "STRING_VALUE",
- *       },
- *     ],
- *     iamRoleArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetBotAliasResponse
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botName: "STRING_VALUE",
+ * //   lastUpdatedDate: new Date("TIMESTAMP"),
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   checksum: "STRING_VALUE",
+ * //   conversationLogs: { // ConversationLogsResponse
+ * //     logSettings: [ // LogSettingsResponseList
+ * //       { // LogSettingsResponse
+ * //         logType: "STRING_VALUE",
+ * //         destination: "STRING_VALUE",
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //         resourceArn: "STRING_VALUE",
+ * //         resourcePrefix: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     iamRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

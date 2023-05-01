@@ -45,13 +45,12 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  * };
  * const command = new UpdateServiceNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceNetworkResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- * };
+ * // { // UpdateServiceNetworkResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

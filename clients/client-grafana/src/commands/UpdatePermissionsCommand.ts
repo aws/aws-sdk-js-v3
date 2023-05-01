@@ -57,25 +57,24 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * };
  * const command = new UpdatePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePermissionsResponse
- *   errors: [ // UpdateErrorList // required
- *     { // UpdateError
- *       code: Number("int"), // required
- *       message: "STRING_VALUE", // required
- *       causedBy: { // UpdateInstruction
- *         action: "STRING_VALUE", // required
- *         role: "STRING_VALUE", // required
- *         users: [ // UserList // required
- *           { // User
- *             id: "STRING_VALUE", // required
- *             type: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     },
- *   ],
- * };
+ * // { // UpdatePermissionsResponse
+ * //   errors: [ // UpdateErrorList // required
+ * //     { // UpdateError
+ * //       code: Number("int"), // required
+ * //       message: "STRING_VALUE", // required
+ * //       causedBy: { // UpdateInstruction
+ * //         action: "STRING_VALUE", // required
+ * //         role: "STRING_VALUE", // required
+ * //         users: [ // UserList // required
+ * //           { // User
+ * //             id: "STRING_VALUE", // required
+ * //             type: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

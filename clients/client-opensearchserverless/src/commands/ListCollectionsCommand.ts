@@ -58,18 +58,17 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCollectionsResponse
- *   collectionSummaries: [ // CollectionSummaries
- *     { // CollectionSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCollectionsResponse
+ * //   collectionSummaries: [ // CollectionSummaries
+ * //     { // CollectionSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

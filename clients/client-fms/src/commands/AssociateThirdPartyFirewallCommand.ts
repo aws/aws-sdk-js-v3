@@ -46,10 +46,9 @@ export interface AssociateThirdPartyFirewallCommandOutput
  * };
  * const command = new AssociateThirdPartyFirewallCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateThirdPartyFirewallResponse
- *   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
- * };
+ * // { // AssociateThirdPartyFirewallResponse
+ * //   ThirdPartyFirewallStatus: "ONBOARDING" || "ONBOARD_COMPLETE" || "OFFBOARDING" || "OFFBOARD_COMPLETE" || "NOT_EXIST",
+ * // };
  *
  * ```
  *

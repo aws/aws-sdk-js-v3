@@ -52,8 +52,7 @@ export interface UpdateWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new UpdateWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,8 +62,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * };
  * const command = new AttachManagedPolicyToPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

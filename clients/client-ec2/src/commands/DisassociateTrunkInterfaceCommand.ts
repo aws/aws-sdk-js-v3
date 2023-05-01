@@ -50,11 +50,10 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * };
  * const command = new DisassociateTrunkInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateTrunkInterfaceResult
- *   Return: true || false,
- *   ClientToken: "STRING_VALUE",
- * };
+ * // { // DisassociateTrunkInterfaceResult
+ * //   Return: true || false,
+ * //   ClientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * };
  * const command = new DeleteVPCEConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -104,11 +104,10 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * };
  * const command = new CountOpenWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WorkflowExecutionCount
- *   count: Number("int"), // required
- *   truncated: true || false,
- * };
+ * // { // WorkflowExecutionCount
+ * //   count: Number("int"), // required
+ * //   truncated: true || false,
+ * // };
  *
  * ```
  *

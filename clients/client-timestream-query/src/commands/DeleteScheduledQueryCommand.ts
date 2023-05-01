@@ -45,8 +45,7 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScheduledQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

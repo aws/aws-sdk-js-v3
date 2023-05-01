@@ -53,11 +53,10 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * };
  * const command = new RegisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterPatchBaselineForPatchGroupResult
- *   BaselineId: "STRING_VALUE",
- *   PatchGroup: "STRING_VALUE",
- * };
+ * // { // RegisterPatchBaselineForPatchGroupResult
+ * //   BaselineId: "STRING_VALUE",
+ * //   PatchGroup: "STRING_VALUE",
+ * // };
  *
  * ```
  *

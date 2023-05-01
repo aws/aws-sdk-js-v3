@@ -44,8 +44,7 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEventActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

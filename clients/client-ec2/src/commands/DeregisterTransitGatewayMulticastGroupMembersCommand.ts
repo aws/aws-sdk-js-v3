@@ -58,16 +58,15 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * };
  * const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterTransitGatewayMulticastGroupMembersResult
- *   DeregisteredMulticastGroupMembers: { // TransitGatewayMulticastDeregisteredGroupMembers
- *     TransitGatewayMulticastDomainId: "STRING_VALUE",
- *     DeregisteredNetworkInterfaceIds: [ // ValueStringList
- *       "STRING_VALUE",
- *     ],
- *     GroupIpAddress: "STRING_VALUE",
- *   },
- * };
+ * // { // DeregisterTransitGatewayMulticastGroupMembersResult
+ * //   DeregisteredMulticastGroupMembers: { // TransitGatewayMulticastDeregisteredGroupMembers
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     DeregisteredNetworkInterfaceIds: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     GroupIpAddress: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

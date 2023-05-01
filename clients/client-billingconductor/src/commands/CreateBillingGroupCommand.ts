@@ -64,10 +64,9 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBillingGroupOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateBillingGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

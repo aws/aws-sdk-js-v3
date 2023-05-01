@@ -47,10 +47,9 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * };
  * const command = new GetEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEbsEncryptionByDefaultResult
- *   EbsEncryptionByDefault: true || false,
- * };
+ * // { // GetEbsEncryptionByDefaultResult
+ * //   EbsEncryptionByDefault: true || false,
+ * // };
  *
  * ```
  *

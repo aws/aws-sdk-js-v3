@@ -52,19 +52,18 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * };
  * const command = new ListConnectorEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectorEntitiesResponse
- *   connectorEntityMap: { // ConnectorEntityMap // required
- *     "<keys>": [ // ConnectorEntityList
- *       { // ConnectorEntity
- *         name: "STRING_VALUE", // required
- *         label: "STRING_VALUE",
- *         hasNestedEntities: true || false,
- *       },
- *     ],
- *   },
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectorEntitiesResponse
+ * //   connectorEntityMap: { // ConnectorEntityMap // required
+ * //     "<keys>": [ // ConnectorEntityList
+ * //       { // ConnectorEntity
+ * //         name: "STRING_VALUE", // required
+ * //         label: "STRING_VALUE",
+ * //         hasNestedEntities: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

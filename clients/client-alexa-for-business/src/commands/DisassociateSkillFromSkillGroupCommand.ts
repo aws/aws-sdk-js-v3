@@ -50,8 +50,7 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * };
  * const command = new DisassociateSkillFromSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

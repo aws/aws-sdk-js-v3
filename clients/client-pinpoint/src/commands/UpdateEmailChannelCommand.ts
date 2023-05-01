@@ -51,26 +51,25 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  * };
  * const command = new UpdateEmailChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEmailChannelResponse
- *   EmailChannelResponse: { // EmailChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     ConfigurationSet: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     FromAddress: "STRING_VALUE",
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     Identity: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     MessagesPerSecond: Number("int"),
- *     Platform: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE",
- *     Version: Number("int"),
- *   },
- * };
+ * // { // UpdateEmailChannelResponse
+ * //   EmailChannelResponse: { // EmailChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     ConfigurationSet: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     FromAddress: "STRING_VALUE",
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Identity: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     MessagesPerSecond: Number("int"),
+ * //     Platform: "STRING_VALUE", // required
+ * //     RoleArn: "STRING_VALUE",
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * };
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

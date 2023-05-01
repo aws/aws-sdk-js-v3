@@ -63,32 +63,31 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * };
  * const command = new UpdateWorkerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkerResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   fleet: "STRING_VALUE", // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   name: "STRING_VALUE", // required
- *   additionalTransientProperties: "STRING_VALUE",
- *   additionalFixedProperties: "STRING_VALUE",
- *   orientation: { // Orientation Union: only one key present
- *     degrees: Number("double"),
- *   },
- *   vendorProperties: { // VendorProperties
- *     vendorWorkerId: "STRING_VALUE", // required
- *     vendorWorkerIpAddress: "STRING_VALUE",
- *     vendorAdditionalTransientProperties: "STRING_VALUE",
- *     vendorAdditionalFixedProperties: "STRING_VALUE",
- *   },
- *   position: { // PositionCoordinates Union: only one key present
- *     cartesianCoordinates: { // CartesianCoordinates
- *       x: Number("double"), // required
- *       y: Number("double"), // required
- *       z: Number("double"),
- *     },
- *   },
- * };
+ * // { // UpdateWorkerResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   fleet: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   name: "STRING_VALUE", // required
+ * //   additionalTransientProperties: "STRING_VALUE",
+ * //   additionalFixedProperties: "STRING_VALUE",
+ * //   orientation: { // Orientation Union: only one key present
+ * //     degrees: Number("double"),
+ * //   },
+ * //   vendorProperties: { // VendorProperties
+ * //     vendorWorkerId: "STRING_VALUE", // required
+ * //     vendorWorkerIpAddress: "STRING_VALUE",
+ * //     vendorAdditionalTransientProperties: "STRING_VALUE",
+ * //     vendorAdditionalFixedProperties: "STRING_VALUE",
+ * //   },
+ * //   position: { // PositionCoordinates Union: only one key present
+ * //     cartesianCoordinates: { // CartesianCoordinates
+ * //       x: Number("double"), // required
+ * //       y: Number("double"), // required
+ * //       z: Number("double"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

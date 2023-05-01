@@ -47,19 +47,18 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * };
  * const command = new ListResourcesForTagOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesForTagOptionOutput
- *   ResourceDetails: [ // ResourceDetails
- *     { // ResourceDetail
- *       Id: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   PageToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesForTagOptionOutput
+ * //   ResourceDetails: [ // ResourceDetails
+ * //     { // ResourceDetail
+ * //       Id: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   PageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

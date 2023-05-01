@@ -46,19 +46,18 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * };
  * const command = new ResetAddressAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetAddressAttributeResult
- *   Address: { // AddressAttribute
- *     PublicIp: "STRING_VALUE",
- *     AllocationId: "STRING_VALUE",
- *     PtrRecord: "STRING_VALUE",
- *     PtrRecordUpdate: { // PtrUpdateStatus
- *       Value: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // ResetAddressAttributeResult
+ * //   Address: { // AddressAttribute
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     PtrRecord: "STRING_VALUE",
+ * //     PtrRecordUpdate: { // PtrUpdateStatus
+ * //       Value: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

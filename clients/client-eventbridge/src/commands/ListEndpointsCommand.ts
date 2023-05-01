@@ -47,42 +47,41 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEndpointsResponse
- *   Endpoints: [ // EndpointList
- *     { // Endpoint
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       RoutingConfig: { // RoutingConfig
- *         FailoverConfig: { // FailoverConfig
- *           Primary: { // Primary
- *             HealthCheck: "STRING_VALUE", // required
- *           },
- *           Secondary: { // Secondary
- *             Route: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *       ReplicationConfig: { // ReplicationConfig
- *         State: "ENABLED" || "DISABLED",
- *       },
- *       EventBuses: [ // EndpointEventBusList
- *         { // EndpointEventBus
- *           EventBusArn: "STRING_VALUE", // required
- *         },
- *       ],
- *       RoleArn: "STRING_VALUE",
- *       EndpointId: "STRING_VALUE",
- *       EndpointUrl: "STRING_VALUE",
- *       State: "ACTIVE" || "CREATING" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED",
- *       StateReason: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEndpointsResponse
+ * //   Endpoints: [ // EndpointList
+ * //     { // Endpoint
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       RoutingConfig: { // RoutingConfig
+ * //         FailoverConfig: { // FailoverConfig
+ * //           Primary: { // Primary
+ * //             HealthCheck: "STRING_VALUE", // required
+ * //           },
+ * //           Secondary: { // Secondary
+ * //             Route: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       ReplicationConfig: { // ReplicationConfig
+ * //         State: "ENABLED" || "DISABLED",
+ * //       },
+ * //       EventBuses: [ // EndpointEventBusList
+ * //         { // EndpointEventBus
+ * //           EventBusArn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       RoleArn: "STRING_VALUE",
+ * //       EndpointId: "STRING_VALUE",
+ * //       EndpointUrl: "STRING_VALUE",
+ * //       State: "ACTIVE" || "CREATING" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED",
+ * //       StateReason: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,16 +57,15 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMovingAddressesResult
- *   MovingAddressStatuses: [ // MovingAddressStatusSet
- *     { // MovingAddressStatus
- *       MoveStatus: "movingToVpc" || "restoringToClassic",
- *       PublicIp: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMovingAddressesResult
+ * //   MovingAddressStatuses: [ // MovingAddressStatusSet
+ * //     { // MovingAddressStatus
+ * //       MoveStatus: "movingToVpc" || "restoringToClassic",
+ * //       PublicIp: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * };
  * const command = new DeleteAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,15 +54,14 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * };
  * const command = new DescribeEffectivePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEffectivePolicyResponse
- *   EffectivePolicy: { // EffectivePolicy
- *     PolicyContent: "STRING_VALUE",
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *     TargetId: "STRING_VALUE",
- *     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
- *   },
- * };
+ * // { // DescribeEffectivePolicyResponse
+ * //   EffectivePolicy: { // EffectivePolicy
+ * //     PolicyContent: "STRING_VALUE",
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     TargetId: "STRING_VALUE",
+ * //     PolicyType: "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //   },
+ * // };
  *
  * ```
  *

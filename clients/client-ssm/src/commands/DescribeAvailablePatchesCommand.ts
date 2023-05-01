@@ -53,43 +53,42 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * };
  * const command = new DescribeAvailablePatchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAvailablePatchesResult
- *   Patches: [ // PatchList
- *     { // Patch
- *       Id: "STRING_VALUE",
- *       ReleaseDate: new Date("TIMESTAMP"),
- *       Title: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ContentUrl: "STRING_VALUE",
- *       Vendor: "STRING_VALUE",
- *       ProductFamily: "STRING_VALUE",
- *       Product: "STRING_VALUE",
- *       Classification: "STRING_VALUE",
- *       MsrcSeverity: "STRING_VALUE",
- *       KbNumber: "STRING_VALUE",
- *       MsrcNumber: "STRING_VALUE",
- *       Language: "STRING_VALUE",
- *       AdvisoryIds: [ // PatchAdvisoryIdList
- *         "STRING_VALUE",
- *       ],
- *       BugzillaIds: [ // PatchBugzillaIdList
- *         "STRING_VALUE",
- *       ],
- *       CVEIds: [ // PatchCVEIdList
- *         "STRING_VALUE",
- *       ],
- *       Name: "STRING_VALUE",
- *       Epoch: Number("int"),
- *       Version: "STRING_VALUE",
- *       Release: "STRING_VALUE",
- *       Arch: "STRING_VALUE",
- *       Severity: "STRING_VALUE",
- *       Repository: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAvailablePatchesResult
+ * //   Patches: [ // PatchList
+ * //     { // Patch
+ * //       Id: "STRING_VALUE",
+ * //       ReleaseDate: new Date("TIMESTAMP"),
+ * //       Title: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ContentUrl: "STRING_VALUE",
+ * //       Vendor: "STRING_VALUE",
+ * //       ProductFamily: "STRING_VALUE",
+ * //       Product: "STRING_VALUE",
+ * //       Classification: "STRING_VALUE",
+ * //       MsrcSeverity: "STRING_VALUE",
+ * //       KbNumber: "STRING_VALUE",
+ * //       MsrcNumber: "STRING_VALUE",
+ * //       Language: "STRING_VALUE",
+ * //       AdvisoryIds: [ // PatchAdvisoryIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       BugzillaIds: [ // PatchBugzillaIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CVEIds: [ // PatchCVEIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       Epoch: Number("int"),
+ * //       Version: "STRING_VALUE",
+ * //       Release: "STRING_VALUE",
+ * //       Arch: "STRING_VALUE",
+ * //       Severity: "STRING_VALUE",
+ * //       Repository: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

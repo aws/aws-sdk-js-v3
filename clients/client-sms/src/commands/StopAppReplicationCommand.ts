@@ -45,8 +45,7 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  * };
  * const command = new StopAppReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -61,10 +61,9 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  * };
  * const command = new PutObjectRetentionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutObjectRetentionOutput
- *   RequestCharged: "requester",
- * };
+ * // { // PutObjectRetentionOutput
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

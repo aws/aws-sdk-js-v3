@@ -61,16 +61,15 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePortalResponse
- *   portalStatus: { // PortalStatus
- *     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
- *     error: { // MonitorErrorDetails
- *       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
- *       message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdatePortalResponse
+ * //   portalStatus: { // PortalStatus
+ * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     error: { // MonitorErrorDetails
+ * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

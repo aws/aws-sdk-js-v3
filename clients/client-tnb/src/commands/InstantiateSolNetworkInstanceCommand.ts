@@ -61,13 +61,12 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * };
  * const command = new InstantiateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InstantiateSolNetworkInstanceOutput
- *   nsLcmOpOccId: "STRING_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // InstantiateSolNetworkInstanceOutput
+ * //   nsLcmOpOccId: "STRING_VALUE", // required
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

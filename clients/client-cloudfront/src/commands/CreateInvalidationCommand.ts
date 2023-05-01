@@ -53,24 +53,23 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * };
  * const command = new CreateInvalidationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInvalidationResult
- *   Location: "STRING_VALUE",
- *   Invalidation: { // Invalidation
- *     Id: "STRING_VALUE", // required
- *     Status: "STRING_VALUE", // required
- *     CreateTime: new Date("TIMESTAMP"), // required
- *     InvalidationBatch: { // InvalidationBatch
- *       Paths: { // Paths
- *         Quantity: Number("int"), // required
- *         Items: [ // PathList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       CallerReference: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // CreateInvalidationResult
+ * //   Location: "STRING_VALUE",
+ * //   Invalidation: { // Invalidation
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "STRING_VALUE", // required
+ * //     CreateTime: new Date("TIMESTAMP"), // required
+ * //     InvalidationBatch: { // InvalidationBatch
+ * //       Paths: { // Paths
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // PathList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CallerReference: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

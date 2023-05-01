@@ -47,16 +47,15 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPoliciesResponse
- *   policies: [ // Policies
- *     { // Policy
- *       policyName: "STRING_VALUE",
- *       policyArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListPoliciesResponse
+ * //   policies: [ // Policies
+ * //     { // Policy
+ * //       policyName: "STRING_VALUE",
+ * //       policyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

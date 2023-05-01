@@ -49,13 +49,12 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * };
  * const command = new ListReleaseLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListReleaseLabelsOutput
- *   ReleaseLabels: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListReleaseLabelsOutput
+ * //   ReleaseLabels: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

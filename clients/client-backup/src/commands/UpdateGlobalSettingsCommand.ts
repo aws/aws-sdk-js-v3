@@ -48,8 +48,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

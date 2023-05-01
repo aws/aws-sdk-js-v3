@@ -49,17 +49,16 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  * };
  * const command = new GetKeyGroupConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKeyGroupConfigResult
- *   KeyGroupConfig: { // KeyGroupConfig
- *     Name: "STRING_VALUE", // required
- *     Items: [ // PublicKeyIdList // required
- *       "STRING_VALUE",
- *     ],
- *     Comment: "STRING_VALUE",
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetKeyGroupConfigResult
+ * //   KeyGroupConfig: { // KeyGroupConfig
+ * //     Name: "STRING_VALUE", // required
+ * //     Items: [ // PublicKeyIdList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

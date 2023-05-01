@@ -55,13 +55,12 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * };
  * const command = new ListDatasetEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetEntriesResponse
- *   DatasetEntries: [ // DatasetEntryList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetEntriesResponse
+ * //   DatasetEntries: [ // DatasetEntryList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

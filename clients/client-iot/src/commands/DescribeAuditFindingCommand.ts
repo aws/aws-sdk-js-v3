@@ -49,72 +49,71 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * };
  * const command = new DescribeAuditFindingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAuditFindingResponse
- *   finding: { // AuditFinding
- *     findingId: "STRING_VALUE",
- *     taskId: "STRING_VALUE",
- *     checkName: "STRING_VALUE",
- *     taskStartTime: new Date("TIMESTAMP"),
- *     findingTime: new Date("TIMESTAMP"),
- *     severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW",
- *     nonCompliantResource: { // NonCompliantResource
- *       resourceType: "DEVICE_CERTIFICATE" || "CA_CERTIFICATE" || "IOT_POLICY" || "COGNITO_IDENTITY_POOL" || "CLIENT_ID" || "ACCOUNT_SETTINGS" || "ROLE_ALIAS" || "IAM_ROLE" || "ISSUER_CERTIFICATE",
- *       resourceIdentifier: { // ResourceIdentifier
- *         deviceCertificateId: "STRING_VALUE",
- *         caCertificateId: "STRING_VALUE",
- *         cognitoIdentityPoolId: "STRING_VALUE",
- *         clientId: "STRING_VALUE",
- *         policyVersionIdentifier: { // PolicyVersionIdentifier
- *           policyName: "STRING_VALUE",
- *           policyVersionId: "STRING_VALUE",
- *         },
- *         account: "STRING_VALUE",
- *         iamRoleArn: "STRING_VALUE",
- *         roleAliasArn: "STRING_VALUE",
- *         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
- *           issuerCertificateSubject: "STRING_VALUE",
- *           issuerId: "STRING_VALUE",
- *           issuerCertificateSerialNumber: "STRING_VALUE",
- *         },
- *         deviceCertificateArn: "STRING_VALUE",
- *       },
- *       additionalInfo: { // StringMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     relatedResources: [ // RelatedResources
- *       { // RelatedResource
- *         resourceType: "DEVICE_CERTIFICATE" || "CA_CERTIFICATE" || "IOT_POLICY" || "COGNITO_IDENTITY_POOL" || "CLIENT_ID" || "ACCOUNT_SETTINGS" || "ROLE_ALIAS" || "IAM_ROLE" || "ISSUER_CERTIFICATE",
- *         resourceIdentifier: {
- *           deviceCertificateId: "STRING_VALUE",
- *           caCertificateId: "STRING_VALUE",
- *           cognitoIdentityPoolId: "STRING_VALUE",
- *           clientId: "STRING_VALUE",
- *           policyVersionIdentifier: {
- *             policyName: "STRING_VALUE",
- *             policyVersionId: "STRING_VALUE",
- *           },
- *           account: "STRING_VALUE",
- *           iamRoleArn: "STRING_VALUE",
- *           roleAliasArn: "STRING_VALUE",
- *           issuerCertificateIdentifier: {
- *             issuerCertificateSubject: "STRING_VALUE",
- *             issuerId: "STRING_VALUE",
- *             issuerCertificateSerialNumber: "STRING_VALUE",
- *           },
- *           deviceCertificateArn: "STRING_VALUE",
- *         },
- *         additionalInfo: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     reasonForNonCompliance: "STRING_VALUE",
- *     reasonForNonComplianceCode: "STRING_VALUE",
- *     isSuppressed: true || false,
- *   },
- * };
+ * // { // DescribeAuditFindingResponse
+ * //   finding: { // AuditFinding
+ * //     findingId: "STRING_VALUE",
+ * //     taskId: "STRING_VALUE",
+ * //     checkName: "STRING_VALUE",
+ * //     taskStartTime: new Date("TIMESTAMP"),
+ * //     findingTime: new Date("TIMESTAMP"),
+ * //     severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW",
+ * //     nonCompliantResource: { // NonCompliantResource
+ * //       resourceType: "DEVICE_CERTIFICATE" || "CA_CERTIFICATE" || "IOT_POLICY" || "COGNITO_IDENTITY_POOL" || "CLIENT_ID" || "ACCOUNT_SETTINGS" || "ROLE_ALIAS" || "IAM_ROLE" || "ISSUER_CERTIFICATE",
+ * //       resourceIdentifier: { // ResourceIdentifier
+ * //         deviceCertificateId: "STRING_VALUE",
+ * //         caCertificateId: "STRING_VALUE",
+ * //         cognitoIdentityPoolId: "STRING_VALUE",
+ * //         clientId: "STRING_VALUE",
+ * //         policyVersionIdentifier: { // PolicyVersionIdentifier
+ * //           policyName: "STRING_VALUE",
+ * //           policyVersionId: "STRING_VALUE",
+ * //         },
+ * //         account: "STRING_VALUE",
+ * //         iamRoleArn: "STRING_VALUE",
+ * //         roleAliasArn: "STRING_VALUE",
+ * //         issuerCertificateIdentifier: { // IssuerCertificateIdentifier
+ * //           issuerCertificateSubject: "STRING_VALUE",
+ * //           issuerId: "STRING_VALUE",
+ * //           issuerCertificateSerialNumber: "STRING_VALUE",
+ * //         },
+ * //         deviceCertificateArn: "STRING_VALUE",
+ * //       },
+ * //       additionalInfo: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     relatedResources: [ // RelatedResources
+ * //       { // RelatedResource
+ * //         resourceType: "DEVICE_CERTIFICATE" || "CA_CERTIFICATE" || "IOT_POLICY" || "COGNITO_IDENTITY_POOL" || "CLIENT_ID" || "ACCOUNT_SETTINGS" || "ROLE_ALIAS" || "IAM_ROLE" || "ISSUER_CERTIFICATE",
+ * //         resourceIdentifier: {
+ * //           deviceCertificateId: "STRING_VALUE",
+ * //           caCertificateId: "STRING_VALUE",
+ * //           cognitoIdentityPoolId: "STRING_VALUE",
+ * //           clientId: "STRING_VALUE",
+ * //           policyVersionIdentifier: {
+ * //             policyName: "STRING_VALUE",
+ * //             policyVersionId: "STRING_VALUE",
+ * //           },
+ * //           account: "STRING_VALUE",
+ * //           iamRoleArn: "STRING_VALUE",
+ * //           roleAliasArn: "STRING_VALUE",
+ * //           issuerCertificateIdentifier: {
+ * //             issuerCertificateSubject: "STRING_VALUE",
+ * //             issuerId: "STRING_VALUE",
+ * //             issuerCertificateSerialNumber: "STRING_VALUE",
+ * //           },
+ * //           deviceCertificateArn: "STRING_VALUE",
+ * //         },
+ * //         additionalInfo: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     reasonForNonCompliance: "STRING_VALUE",
+ * //     reasonForNonComplianceCode: "STRING_VALUE",
+ * //     isSuppressed: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

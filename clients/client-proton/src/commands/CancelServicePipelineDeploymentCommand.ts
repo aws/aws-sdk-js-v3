@@ -71,21 +71,20 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * };
  * const command = new CancelServicePipelineDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelServicePipelineDeploymentOutput
- *   pipeline: { // ServicePipeline
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
- *     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
- *     templateName: "STRING_VALUE", // required
- *     templateMajorVersion: "STRING_VALUE", // required
- *     templateMinorVersion: "STRING_VALUE", // required
- *     deploymentStatus: "STRING_VALUE", // required
- *     deploymentStatusMessage: "STRING_VALUE",
- *     spec: "STRING_VALUE",
- *   },
- * };
+ * // { // CancelServicePipelineDeploymentOutput
+ * //   pipeline: { // ServicePipeline
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ * //     lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //     templateName: "STRING_VALUE", // required
+ * //     templateMajorVersion: "STRING_VALUE", // required
+ * //     templateMinorVersion: "STRING_VALUE", // required
+ * //     deploymentStatus: "STRING_VALUE", // required
+ * //     deploymentStatusMessage: "STRING_VALUE",
+ * //     spec: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

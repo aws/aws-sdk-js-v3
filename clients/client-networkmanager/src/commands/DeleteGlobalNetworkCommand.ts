@@ -45,22 +45,21 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * };
  * const command = new DeleteGlobalNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGlobalNetworkResponse
- *   GlobalNetwork: { // GlobalNetwork
- *     GlobalNetworkId: "STRING_VALUE",
- *     GlobalNetworkArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteGlobalNetworkResponse
+ * //   GlobalNetwork: { // GlobalNetwork
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     GlobalNetworkArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

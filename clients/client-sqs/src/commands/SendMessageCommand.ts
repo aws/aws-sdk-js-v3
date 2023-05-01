@@ -82,14 +82,13 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendMessageResult
- *   MD5OfMessageBody: "STRING_VALUE",
- *   MD5OfMessageAttributes: "STRING_VALUE",
- *   MD5OfMessageSystemAttributes: "STRING_VALUE",
- *   MessageId: "STRING_VALUE",
- *   SequenceNumber: "STRING_VALUE",
- * };
+ * // { // SendMessageResult
+ * //   MD5OfMessageBody: "STRING_VALUE",
+ * //   MD5OfMessageAttributes: "STRING_VALUE",
+ * //   MD5OfMessageSystemAttributes: "STRING_VALUE",
+ * //   MessageId: "STRING_VALUE",
+ * //   SequenceNumber: "STRING_VALUE",
+ * // };
  *
  * ```
  *

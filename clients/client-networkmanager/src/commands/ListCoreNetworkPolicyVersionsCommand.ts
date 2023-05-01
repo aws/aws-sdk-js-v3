@@ -51,20 +51,19 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput
  * };
  * const command = new ListCoreNetworkPolicyVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoreNetworkPolicyVersionsResponse
- *   CoreNetworkPolicyVersions: [ // CoreNetworkPolicyVersionList
- *     { // CoreNetworkPolicyVersion
- *       CoreNetworkId: "STRING_VALUE",
- *       PolicyVersionId: Number("int"),
- *       Alias: "LIVE" || "LATEST",
- *       Description: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       ChangeSetState: "PENDING_GENERATION" || "FAILED_GENERATION" || "READY_TO_EXECUTE" || "EXECUTING" || "EXECUTION_SUCCEEDED" || "OUT_OF_DATE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCoreNetworkPolicyVersionsResponse
+ * //   CoreNetworkPolicyVersions: [ // CoreNetworkPolicyVersionList
+ * //     { // CoreNetworkPolicyVersion
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       PolicyVersionId: Number("int"),
+ * //       Alias: "LIVE" || "LATEST",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       ChangeSetState: "PENDING_GENERATION" || "FAILED_GENERATION" || "READY_TO_EXECUTE" || "EXECUTING" || "EXECUTION_SUCCEEDED" || "OUT_OF_DATE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

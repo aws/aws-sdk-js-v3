@@ -59,30 +59,29 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * };
  * const command = new RevokeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RevokeDBSecurityGroupIngressResult
- *   DBSecurityGroup: { // DBSecurityGroup
- *     OwnerId: "STRING_VALUE",
- *     DBSecurityGroupName: "STRING_VALUE",
- *     DBSecurityGroupDescription: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     EC2SecurityGroups: [ // EC2SecurityGroupList
- *       { // EC2SecurityGroup
- *         Status: "STRING_VALUE",
- *         EC2SecurityGroupName: "STRING_VALUE",
- *         EC2SecurityGroupId: "STRING_VALUE",
- *         EC2SecurityGroupOwnerId: "STRING_VALUE",
- *       },
- *     ],
- *     IPRanges: [ // IPRangeList
- *       { // IPRange
- *         Status: "STRING_VALUE",
- *         CIDRIP: "STRING_VALUE",
- *       },
- *     ],
- *     DBSecurityGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // RevokeDBSecurityGroupIngressResult
+ * //   DBSecurityGroup: { // DBSecurityGroup
+ * //     OwnerId: "STRING_VALUE",
+ * //     DBSecurityGroupName: "STRING_VALUE",
+ * //     DBSecurityGroupDescription: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     EC2SecurityGroups: [ // EC2SecurityGroupList
+ * //       { // EC2SecurityGroup
+ * //         Status: "STRING_VALUE",
+ * //         EC2SecurityGroupName: "STRING_VALUE",
+ * //         EC2SecurityGroupId: "STRING_VALUE",
+ * //         EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     IPRanges: [ // IPRangeList
+ * //       { // IPRange
+ * //         Status: "STRING_VALUE",
+ * //         CIDRIP: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DBSecurityGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

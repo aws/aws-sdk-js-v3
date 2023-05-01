@@ -58,11 +58,10 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * };
  * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendSerialConsoleSSHPublicKeyResponse
- *   RequestId: "STRING_VALUE",
- *   Success: true || false,
- * };
+ * // { // SendSerialConsoleSSHPublicKeyResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Success: true || false,
+ * // };
  *
  * ```
  *

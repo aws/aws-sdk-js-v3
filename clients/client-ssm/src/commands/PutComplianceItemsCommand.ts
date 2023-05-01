@@ -119,8 +119,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * };
  * const command = new PutComplianceItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

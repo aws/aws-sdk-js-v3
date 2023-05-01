@@ -51,13 +51,12 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListJobsResponse
- *   JobNames: [ // JobNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListJobsResponse
+ * //   JobNames: [ // JobNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

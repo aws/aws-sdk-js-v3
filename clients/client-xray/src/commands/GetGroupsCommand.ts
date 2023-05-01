@@ -44,21 +44,20 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  * };
  * const command = new GetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupsResult
- *   Groups: [ // GroupSummaryList
- *     { // GroupSummary
- *       GroupName: "STRING_VALUE",
- *       GroupARN: "STRING_VALUE",
- *       FilterExpression: "STRING_VALUE",
- *       InsightsConfiguration: { // InsightsConfiguration
- *         InsightsEnabled: true || false,
- *         NotificationsEnabled: true || false,
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetGroupsResult
+ * //   Groups: [ // GroupSummaryList
+ * //     { // GroupSummary
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupARN: "STRING_VALUE",
+ * //       FilterExpression: "STRING_VALUE",
+ * //       InsightsConfiguration: { // InsightsConfiguration
+ * //         InsightsEnabled: true || false,
+ * //         NotificationsEnabled: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,26 +58,25 @@ export interface ListResolverQueryLogConfigsCommandOutput
  * };
  * const command = new ListResolverQueryLogConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverQueryLogConfigsResponse
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- *   TotalFilteredCount: Number("int"),
- *   ResolverQueryLogConfigs: [ // ResolverQueryLogConfigList
- *     { // ResolverQueryLogConfig
- *       Id: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       Status: "CREATING" || "CREATED" || "DELETING" || "FAILED",
- *       ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
- *       AssociationCount: Number("int"),
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       DestinationArn: "STRING_VALUE",
- *       CreatorRequestId: "STRING_VALUE",
- *       CreationTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListResolverQueryLogConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * //   TotalFilteredCount: Number("int"),
+ * //   ResolverQueryLogConfigs: [ // ResolverQueryLogConfigList
+ * //     { // ResolverQueryLogConfig
+ * //       Id: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Status: "CREATING" || "CREATED" || "DELETING" || "FAILED",
+ * //       ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ * //       AssociationCount: Number("int"),
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       CreationTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

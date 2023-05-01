@@ -48,20 +48,19 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecipesResponse
- *   recipes: [ // Recipes
- *     { // RecipeSummary
- *       name: "STRING_VALUE",
- *       recipeArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRecipesResponse
+ * //   recipes: [ // Recipes
+ * //     { // RecipeSummary
+ * //       name: "STRING_VALUE",
+ * //       recipeArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

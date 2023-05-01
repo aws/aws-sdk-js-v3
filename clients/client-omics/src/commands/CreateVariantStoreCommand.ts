@@ -55,16 +55,15 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * };
  * const command = new CreateVariantStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVariantStoreResponse
- *   id: "STRING_VALUE", // required
- *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateVariantStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

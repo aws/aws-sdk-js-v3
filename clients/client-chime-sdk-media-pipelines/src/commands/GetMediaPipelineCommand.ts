@@ -52,198 +52,197 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * };
  * const command = new GetMediaPipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMediaPipelineResponse
- *   MediaPipeline: { // MediaPipeline
- *     MediaCapturePipeline: { // MediaCapturePipeline
- *       MediaPipelineId: "STRING_VALUE",
- *       MediaPipelineArn: "STRING_VALUE",
- *       SourceType: "ChimeSdkMeeting",
- *       SourceArn: "STRING_VALUE",
- *       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
- *       SinkType: "S3Bucket",
- *       SinkArn: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *       ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
- *         SourceConfiguration: { // SourceConfiguration
- *           SelectedVideoStreams: { // SelectedVideoStreams
- *             AttendeeIds: [ // AttendeeIdList
- *               "STRING_VALUE",
- *             ],
- *             ExternalUserIds: [ // ExternalUserIdList
- *               "STRING_VALUE",
- *             ],
- *           },
- *         },
- *         ArtifactsConfiguration: { // ArtifactsConfiguration
- *           Audio: { // AudioArtifactsConfiguration
- *             MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
- *           },
- *           Video: { // VideoArtifactsConfiguration
- *             State: "Enabled" || "Disabled", // required
- *             MuxType: "VideoOnly",
- *           },
- *           Content: { // ContentArtifactsConfiguration
- *             State: "Enabled" || "Disabled", // required
- *             MuxType: "ContentOnly",
- *           },
- *           CompositedVideo: { // CompositedVideoArtifactsConfiguration
- *             Layout: "GridView",
- *             Resolution: "HD" || "FHD",
- *             GridViewConfiguration: { // GridViewConfiguration
- *               ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
- *               PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
- *                 PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
- *               },
- *             },
- *           },
- *         },
- *       },
- *     },
- *     MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
- *       Sources: [ // LiveConnectorSourceList
- *         { // LiveConnectorSourceConfiguration
- *           SourceType: "ChimeSdkMeeting", // required
- *           ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
- *             Arn: "STRING_VALUE", // required
- *             MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
- *             CompositedVideo: {
- *               Layout: "GridView",
- *               Resolution: "HD" || "FHD",
- *               GridViewConfiguration: {
- *                 ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
- *                 PresenterOnlyConfiguration: {
- *                   PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
- *                 },
- *               },
- *             },
- *             SourceConfiguration: {
- *               SelectedVideoStreams: {
- *                 AttendeeIds: [
- *                   "STRING_VALUE",
- *                 ],
- *                 ExternalUserIds: [
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *             },
- *           },
- *         },
- *       ],
- *       Sinks: [ // LiveConnectorSinkList
- *         { // LiveConnectorSinkConfiguration
- *           SinkType: "RTMP", // required
- *           RTMPConfiguration: { // LiveConnectorRTMPConfiguration
- *             Url: "STRING_VALUE", // required
- *             AudioChannels: "Stereo" || "Mono",
- *             AudioSampleRate: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *       MediaPipelineId: "STRING_VALUE",
- *       MediaPipelineArn: "STRING_VALUE",
- *       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *     MediaConcatenationPipeline: { // MediaConcatenationPipeline
- *       MediaPipelineId: "STRING_VALUE",
- *       MediaPipelineArn: "STRING_VALUE",
- *       Sources: [ // ConcatenationSourceList
- *         { // ConcatenationSource
- *           Type: "MediaCapturePipeline", // required
- *           MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
- *             MediaPipelineArn: "STRING_VALUE", // required
- *             ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
- *               ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
- *                 Audio: { // AudioConcatenationConfiguration
- *                   State: "Enabled", // required
- *                 },
- *                 Video: { // VideoConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *                 Content: { // ContentConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *                 DataChannel: { // DataChannelConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *                 TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *                 MeetingEvents: { // MeetingEventsConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *                 CompositedVideo: { // CompositedVideoConcatenationConfiguration
- *                   State: "Enabled" || "Disabled", // required
- *                 },
- *               },
- *             },
- *           },
- *         },
- *       ],
- *       Sinks: [ // ConcatenationSinkList
- *         { // ConcatenationSink
- *           Type: "S3Bucket", // required
- *           S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
- *             Destination: "STRING_VALUE", // required
- *           },
- *         },
- *       ],
- *       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *     MediaInsightsPipeline: { // MediaInsightsPipeline
- *       MediaPipelineId: "STRING_VALUE",
- *       MediaPipelineArn: "STRING_VALUE",
- *       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
- *       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
- *       KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
- *         Streams: [ // Streams // required
- *           { // StreamConfiguration
- *             StreamArn: "STRING_VALUE", // required
- *             FragmentNumber: "STRING_VALUE",
- *             StreamChannelDefinition: { // StreamChannelDefinition
- *               NumberOfChannels: Number("int"), // required
- *               ChannelDefinitions: [ // ChannelDefinitions
- *                 { // ChannelDefinition
- *                   ChannelId: Number("int"), // required
- *                   ParticipantRole: "AGENT" || "CUSTOMER",
- *                 },
- *               ],
- *             },
- *           },
- *         ],
- *         MediaEncoding: "pcm", // required
- *         MediaSampleRate: Number("int"), // required
- *       },
- *       MediaInsightsRuntimeMetadata: { // MediaInsightsRuntimeMetadata
- *         "<keys>": "STRING_VALUE",
- *       },
- *       KinesisVideoStreamRecordingSourceRuntimeConfiguration: { // KinesisVideoStreamRecordingSourceRuntimeConfiguration
- *         Streams: [ // RecordingStreamList // required
- *           { // RecordingStreamConfiguration
- *             StreamArn: "STRING_VALUE",
- *           },
- *         ],
- *         FragmentSelector: { // FragmentSelector
- *           FragmentSelectorType: "ProducerTimestamp" || "ServerTimestamp", // required
- *           TimestampRange: { // TimestampRange
- *             StartTimestamp: new Date("TIMESTAMP"), // required
- *             EndTimestamp: new Date("TIMESTAMP"), // required
- *           },
- *         },
- *       },
- *       S3RecordingSinkRuntimeConfiguration: { // S3RecordingSinkRuntimeConfiguration
- *         Destination: "STRING_VALUE", // required
- *         RecordingFileFormat: "Wav" || "Opus", // required
- *       },
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // GetMediaPipelineResponse
+ * //   MediaPipeline: { // MediaPipeline
+ * //     MediaCapturePipeline: { // MediaCapturePipeline
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       SourceType: "ChimeSdkMeeting",
+ * //       SourceArn: "STRING_VALUE",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       SinkType: "S3Bucket",
+ * //       SinkArn: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
+ * //         SourceConfiguration: { // SourceConfiguration
+ * //           SelectedVideoStreams: { // SelectedVideoStreams
+ * //             AttendeeIds: [ // AttendeeIdList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             ExternalUserIds: [ // ExternalUserIdList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ArtifactsConfiguration: { // ArtifactsConfiguration
+ * //           Audio: { // AudioArtifactsConfiguration
+ * //             MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo" || "AudioWithCompositedVideo", // required
+ * //           },
+ * //           Video: { // VideoArtifactsConfiguration
+ * //             State: "Enabled" || "Disabled", // required
+ * //             MuxType: "VideoOnly",
+ * //           },
+ * //           Content: { // ContentArtifactsConfiguration
+ * //             State: "Enabled" || "Disabled", // required
+ * //             MuxType: "ContentOnly",
+ * //           },
+ * //           CompositedVideo: { // CompositedVideoArtifactsConfiguration
+ * //             Layout: "GridView",
+ * //             Resolution: "HD" || "FHD",
+ * //             GridViewConfiguration: { // GridViewConfiguration
+ * //               ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ * //               PresenterOnlyConfiguration: { // PresenterOnlyConfiguration
+ * //                 PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
+ * //       Sources: [ // LiveConnectorSourceList
+ * //         { // LiveConnectorSourceConfiguration
+ * //           SourceType: "ChimeSdkMeeting", // required
+ * //           ChimeSdkMeetingLiveConnectorConfiguration: { // ChimeSdkMeetingLiveConnectorConfiguration
+ * //             Arn: "STRING_VALUE", // required
+ * //             MuxType: "AudioWithCompositedVideo" || "AudioWithActiveSpeakerVideo", // required
+ * //             CompositedVideo: {
+ * //               Layout: "GridView",
+ * //               Resolution: "HD" || "FHD",
+ * //               GridViewConfiguration: {
+ * //                 ContentShareLayout: "PresenterOnly" || "Horizontal" || "Vertical", // required
+ * //                 PresenterOnlyConfiguration: {
+ * //                   PresenterPosition: "TopLeft" || "TopRight" || "BottomLeft" || "BottomRight",
+ * //                 },
+ * //               },
+ * //             },
+ * //             SourceConfiguration: {
+ * //               SelectedVideoStreams: {
+ * //                 AttendeeIds: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 ExternalUserIds: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       Sinks: [ // LiveConnectorSinkList
+ * //         { // LiveConnectorSinkConfiguration
+ * //           SinkType: "RTMP", // required
+ * //           RTMPConfiguration: { // LiveConnectorRTMPConfiguration
+ * //             Url: "STRING_VALUE", // required
+ * //             AudioChannels: "Stereo" || "Mono",
+ * //             AudioSampleRate: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //     MediaConcatenationPipeline: { // MediaConcatenationPipeline
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       Sources: [ // ConcatenationSourceList
+ * //         { // ConcatenationSource
+ * //           Type: "MediaCapturePipeline", // required
+ * //           MediaCapturePipelineSourceConfiguration: { // MediaCapturePipelineSourceConfiguration
+ * //             MediaPipelineArn: "STRING_VALUE", // required
+ * //             ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConcatenationConfiguration
+ * //               ArtifactsConfiguration: { // ArtifactsConcatenationConfiguration
+ * //                 Audio: { // AudioConcatenationConfiguration
+ * //                   State: "Enabled", // required
+ * //                 },
+ * //                 Video: { // VideoConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //                 Content: { // ContentConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //                 DataChannel: { // DataChannelConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //                 TranscriptionMessages: { // TranscriptionMessagesConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //                 MeetingEvents: { // MeetingEventsConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //                 CompositedVideo: { // CompositedVideoConcatenationConfiguration
+ * //                   State: "Enabled" || "Disabled", // required
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       Sinks: [ // ConcatenationSinkList
+ * //         { // ConcatenationSink
+ * //           Type: "S3Bucket", // required
+ * //           S3BucketSinkConfiguration: { // S3BucketSinkConfiguration
+ * //             Destination: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //     MediaInsightsPipeline: { // MediaInsightsPipeline
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
+ * //         Streams: [ // Streams // required
+ * //           { // StreamConfiguration
+ * //             StreamArn: "STRING_VALUE", // required
+ * //             FragmentNumber: "STRING_VALUE",
+ * //             StreamChannelDefinition: { // StreamChannelDefinition
+ * //               NumberOfChannels: Number("int"), // required
+ * //               ChannelDefinitions: [ // ChannelDefinitions
+ * //                 { // ChannelDefinition
+ * //                   ChannelId: Number("int"), // required
+ * //                   ParticipantRole: "AGENT" || "CUSTOMER",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         MediaEncoding: "pcm", // required
+ * //         MediaSampleRate: Number("int"), // required
+ * //       },
+ * //       MediaInsightsRuntimeMetadata: { // MediaInsightsRuntimeMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       KinesisVideoStreamRecordingSourceRuntimeConfiguration: { // KinesisVideoStreamRecordingSourceRuntimeConfiguration
+ * //         Streams: [ // RecordingStreamList // required
+ * //           { // RecordingStreamConfiguration
+ * //             StreamArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         FragmentSelector: { // FragmentSelector
+ * //           FragmentSelectorType: "ProducerTimestamp" || "ServerTimestamp", // required
+ * //           TimestampRange: { // TimestampRange
+ * //             StartTimestamp: new Date("TIMESTAMP"), // required
+ * //             EndTimestamp: new Date("TIMESTAMP"), // required
+ * //           },
+ * //         },
+ * //       },
+ * //       S3RecordingSinkRuntimeConfiguration: { // S3RecordingSinkRuntimeConfiguration
+ * //         Destination: "STRING_VALUE", // required
+ * //         RecordingFileFormat: "Wav" || "Opus", // required
+ * //       },
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

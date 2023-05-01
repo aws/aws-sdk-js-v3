@@ -48,23 +48,22 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * };
  * const command = new ListMetricSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricSetsResponse
- *   MetricSetSummaryList: [ // MetricSetSummaryList
- *     { // MetricSetSummary
- *       MetricSetArn: "STRING_VALUE",
- *       AnomalyDetectorArn: "STRING_VALUE",
- *       MetricSetDescription: "STRING_VALUE",
- *       MetricSetName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMetricSetsResponse
+ * //   MetricSetSummaryList: [ // MetricSetSummaryList
+ * //     { // MetricSetSummary
+ * //       MetricSetArn: "STRING_VALUE",
+ * //       AnomalyDetectorArn: "STRING_VALUE",
+ * //       MetricSetDescription: "STRING_VALUE",
+ * //       MetricSetName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

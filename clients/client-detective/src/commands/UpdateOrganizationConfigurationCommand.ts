@@ -50,8 +50,7 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

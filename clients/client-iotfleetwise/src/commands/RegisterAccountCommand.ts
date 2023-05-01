@@ -60,19 +60,18 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterAccountResponse
- *   registerAccountStatus: "STRING_VALUE", // required
- *   timestreamResources: { // TimestreamResources
- *     timestreamDatabaseName: "STRING_VALUE", // required
- *     timestreamTableName: "STRING_VALUE", // required
- *   },
- *   iamResources: { // IamResources
- *     roleArn: "STRING_VALUE", // required
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // RegisterAccountResponse
+ * //   registerAccountStatus: "STRING_VALUE", // required
+ * //   timestreamResources: { // TimestreamResources
+ * //     timestreamDatabaseName: "STRING_VALUE", // required
+ * //     timestreamTableName: "STRING_VALUE", // required
+ * //   },
+ * //   iamResources: { // IamResources
+ * //     roleArn: "STRING_VALUE", // required
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

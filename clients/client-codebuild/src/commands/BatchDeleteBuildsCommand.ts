@@ -46,18 +46,17 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
  * };
  * const command = new BatchDeleteBuildsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteBuildsOutput
- *   buildsDeleted: [ // BuildIds
- *     "STRING_VALUE",
- *   ],
- *   buildsNotDeleted: [ // BuildsNotDeleted
- *     { // BuildNotDeleted
- *       id: "STRING_VALUE",
- *       statusCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteBuildsOutput
+ * //   buildsDeleted: [ // BuildIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   buildsNotDeleted: [ // BuildsNotDeleted
+ * //     { // BuildNotDeleted
+ * //       id: "STRING_VALUE",
+ * //       statusCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -51,21 +51,20 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * };
  * const command = new DescribeAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppVersionAppComponentResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appComponent: { // AppComponent
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     id: "STRING_VALUE",
- *     additionalInfo: { // AdditionalInfoMap
- *       "<keys>": [ // AdditionalInfoValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // DescribeAppVersionAppComponentResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appComponent: { // AppComponent
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE",
+ * //     additionalInfo: { // AdditionalInfoMap
+ * //       "<keys>": [ // AdditionalInfoValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

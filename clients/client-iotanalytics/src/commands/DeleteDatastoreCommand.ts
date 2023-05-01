@@ -44,8 +44,7 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatastoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

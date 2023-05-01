@@ -64,10 +64,9 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * };
  * const command = new CreateEnvironmentEC2Command(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEnvironmentEC2Result
- *   environmentId: "STRING_VALUE",
- * };
+ * // { // CreateEnvironmentEC2Result
+ * //   environmentId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

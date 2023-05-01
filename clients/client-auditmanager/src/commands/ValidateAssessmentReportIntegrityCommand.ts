@@ -52,16 +52,15 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * };
  * const command = new ValidateAssessmentReportIntegrityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateAssessmentReportIntegrityResponse
- *   signatureValid: true || false,
- *   signatureAlgorithm: "STRING_VALUE",
- *   signatureDateTime: "STRING_VALUE",
- *   signatureKeyId: "STRING_VALUE",
- *   validationErrors: [ // ValidationErrors
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ValidateAssessmentReportIntegrityResponse
+ * //   signatureValid: true || false,
+ * //   signatureAlgorithm: "STRING_VALUE",
+ * //   signatureDateTime: "STRING_VALUE",
+ * //   signatureKeyId: "STRING_VALUE",
+ * //   validationErrors: [ // ValidationErrors
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

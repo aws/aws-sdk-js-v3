@@ -72,32 +72,31 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * };
  * const command = new CreateCommitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCommitOutput
- *   commitId: "STRING_VALUE",
- *   treeId: "STRING_VALUE",
- *   filesAdded: [ // FilesMetadata
- *     { // FileMetadata
- *       absolutePath: "STRING_VALUE",
- *       blobId: "STRING_VALUE",
- *       fileMode: "STRING_VALUE",
- *     },
- *   ],
- *   filesUpdated: [
- *     {
- *       absolutePath: "STRING_VALUE",
- *       blobId: "STRING_VALUE",
- *       fileMode: "STRING_VALUE",
- *     },
- *   ],
- *   filesDeleted: [
- *     {
- *       absolutePath: "STRING_VALUE",
- *       blobId: "STRING_VALUE",
- *       fileMode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateCommitOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * //   filesAdded: [ // FilesMetadata
+ * //     { // FileMetadata
+ * //       absolutePath: "STRING_VALUE",
+ * //       blobId: "STRING_VALUE",
+ * //       fileMode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   filesUpdated: [
+ * //     {
+ * //       absolutePath: "STRING_VALUE",
+ * //       blobId: "STRING_VALUE",
+ * //       fileMode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   filesDeleted: [
+ * //     {
+ * //       absolutePath: "STRING_VALUE",
+ * //       blobId: "STRING_VALUE",
+ * //       fileMode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -52,31 +52,30 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * };
  * const command = new ListMetricValuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricValuesResponse
- *   metricDatumList: [ // MetricDatumList
- *     { // MetricDatum
- *       timestamp: new Date("TIMESTAMP"),
- *       value: { // MetricValue
- *         count: Number("long"),
- *         cidrs: [ // Cidrs
- *           "STRING_VALUE",
- *         ],
- *         ports: [ // Ports
- *           Number("int"),
- *         ],
- *         number: Number("double"),
- *         numbers: [ // NumberList
- *           Number("double"),
- *         ],
- *         strings: [ // StringList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMetricValuesResponse
+ * //   metricDatumList: [ // MetricDatumList
+ * //     { // MetricDatum
+ * //       timestamp: new Date("TIMESTAMP"),
+ * //       value: { // MetricValue
+ * //         count: Number("long"),
+ * //         cidrs: [ // Cidrs
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ports: [ // Ports
+ * //           Number("int"),
+ * //         ],
+ * //         number: Number("double"),
+ * //         numbers: [ // NumberList
+ * //           Number("double"),
+ * //         ],
+ * //         strings: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * };
  * const command = new DeleteSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSubnetGroupResponse
- *   DeletionMessage: "STRING_VALUE",
- * };
+ * // { // DeleteSubnetGroupResponse
+ * //   DeletionMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

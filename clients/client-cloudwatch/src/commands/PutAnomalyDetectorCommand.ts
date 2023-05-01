@@ -96,8 +96,7 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * };
  * const command = new PutAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

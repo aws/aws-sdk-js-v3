@@ -44,8 +44,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * };
  * const command = new DeleteDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

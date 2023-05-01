@@ -53,14 +53,13 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * };
  * const command = new DeleteDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDomainPermissionsPolicyResult
- *   policy: { // ResourcePolicy
- *     resourceArn: "STRING_VALUE",
- *     revision: "STRING_VALUE",
- *     document: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteDomainPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

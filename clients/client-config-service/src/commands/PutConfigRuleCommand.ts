@@ -130,8 +130,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * };
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteHsmResponse
- *   HsmId: "STRING_VALUE",
- * };
+ * // { // DeleteHsmResponse
+ * //   HsmId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

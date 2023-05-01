@@ -63,10 +63,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePipelineResponse
- *   PipelineArn: "STRING_VALUE",
- * };
+ * // { // CreatePipelineResponse
+ * //   PipelineArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

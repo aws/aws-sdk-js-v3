@@ -48,8 +48,7 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * };
  * const command = new StopContactStreamingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

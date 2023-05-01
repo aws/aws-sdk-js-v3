@@ -45,8 +45,7 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * };
  * const command = new DeleteServiceActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

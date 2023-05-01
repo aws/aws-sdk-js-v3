@@ -44,8 +44,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

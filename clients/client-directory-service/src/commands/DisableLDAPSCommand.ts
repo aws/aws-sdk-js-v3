@@ -45,8 +45,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * };
  * const command = new DisableLDAPSCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

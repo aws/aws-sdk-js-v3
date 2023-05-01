@@ -42,11 +42,10 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * const input = {};
  * const command = new DescribeStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CustomerStorageMessage
- *   TotalBackupSizeInMegaBytes: Number("double"),
- *   TotalProvisionedStorageInMegaBytes: Number("double"),
- * };
+ * // { // CustomerStorageMessage
+ * //   TotalBackupSizeInMegaBytes: Number("double"),
+ * //   TotalProvisionedStorageInMegaBytes: Number("double"),
+ * // };
  *
  * ```
  *

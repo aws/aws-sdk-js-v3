@@ -78,32 +78,31 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceResponse
- *   ServiceId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   OwnerAccountId: "STRING_VALUE",
- *   CreatedByAccountId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   ApplicationId: "STRING_VALUE",
- *   VpcId: "STRING_VALUE",
- *   EndpointType: "STRING_VALUE",
- *   UrlEndpoint: { // UrlEndpointInput
- *     Url: "STRING_VALUE", // required
- *     HealthUrl: "STRING_VALUE",
- *   },
- *   LambdaEndpoint: { // LambdaEndpointInput
- *     Arn: "STRING_VALUE", // required
- *   },
- *   State: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- *   CreatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateServiceResponse
+ * //   ServiceId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   OwnerAccountId: "STRING_VALUE",
+ * //   CreatedByAccountId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   VpcId: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   UrlEndpoint: { // UrlEndpointInput
+ * //     Url: "STRING_VALUE", // required
+ * //     HealthUrl: "STRING_VALUE",
+ * //   },
+ * //   LambdaEndpoint: { // LambdaEndpointInput
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   State: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

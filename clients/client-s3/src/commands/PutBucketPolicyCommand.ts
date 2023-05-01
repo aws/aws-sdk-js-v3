@@ -76,8 +76,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

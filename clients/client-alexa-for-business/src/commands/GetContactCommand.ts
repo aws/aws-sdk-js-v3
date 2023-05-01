@@ -44,28 +44,27 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactResponse
- *   Contact: { // Contact
- *     ContactArn: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     FirstName: "STRING_VALUE",
- *     LastName: "STRING_VALUE",
- *     PhoneNumber: "STRING_VALUE",
- *     PhoneNumbers: [ // PhoneNumberList
- *       { // PhoneNumber
- *         Number: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
- *       },
- *     ],
- *     SipAddresses: [ // SipAddressList
- *       { // SipAddress
- *         Uri: "STRING_VALUE", // required
- *         Type: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetContactResponse
+ * //   Contact: { // Contact
+ * //     ContactArn: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     FirstName: "STRING_VALUE",
+ * //     LastName: "STRING_VALUE",
+ * //     PhoneNumber: "STRING_VALUE",
+ * //     PhoneNumbers: [ // PhoneNumberList
+ * //       { // PhoneNumber
+ * //         Number: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     SipAddresses: [ // SipAddressList
+ * //       { // SipAddress
+ * //         Uri: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

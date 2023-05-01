@@ -56,10 +56,9 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * };
  * const command = new CreateStoreImageTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStoreImageTaskResult
- *   ObjectKey: "STRING_VALUE",
- * };
+ * // { // CreateStoreImageTaskResult
+ * //   ObjectKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDeploymentResponse
- *   OperationId: "STRING_VALUE", // required
- * };
+ * // { // StartDeploymentResponse
+ * //   OperationId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

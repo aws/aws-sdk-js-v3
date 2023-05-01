@@ -44,19 +44,18 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * };
  * const command = new DeleteBuildBatchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBuildBatchOutput
- *   statusCode: "STRING_VALUE",
- *   buildsDeleted: [ // BuildIds
- *     "STRING_VALUE",
- *   ],
- *   buildsNotDeleted: [ // BuildsNotDeleted
- *     { // BuildNotDeleted
- *       id: "STRING_VALUE",
- *       statusCode: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteBuildBatchOutput
+ * //   statusCode: "STRING_VALUE",
+ * //   buildsDeleted: [ // BuildIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   buildsNotDeleted: [ // BuildsNotDeleted
+ * //     { // BuildNotDeleted
+ * //       id: "STRING_VALUE",
+ * //       statusCode: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

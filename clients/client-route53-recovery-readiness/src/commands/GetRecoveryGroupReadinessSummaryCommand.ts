@@ -55,17 +55,16 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * };
  * const command = new GetRecoveryGroupReadinessSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecoveryGroupReadinessSummaryResponse
- *   NextToken: "STRING_VALUE",
- *   Readiness: "STRING_VALUE",
- *   ReadinessChecks: [ // __listOfReadinessCheckSummary
- *     { // ReadinessCheckSummary
- *       Readiness: "STRING_VALUE",
- *       ReadinessCheckName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetRecoveryGroupReadinessSummaryResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Readiness: "STRING_VALUE",
+ * //   ReadinessChecks: [ // __listOfReadinessCheckSummary
+ * //     { // ReadinessCheckSummary
+ * //       Readiness: "STRING_VALUE",
+ * //       ReadinessCheckName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

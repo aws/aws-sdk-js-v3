@@ -52,8 +52,7 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateLensesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

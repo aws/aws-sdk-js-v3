@@ -69,8 +69,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * };
  * const command = new UpdateAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

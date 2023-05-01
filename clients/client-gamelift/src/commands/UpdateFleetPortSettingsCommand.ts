@@ -78,11 +78,10 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * };
  * const command = new UpdateFleetPortSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFleetPortSettingsOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // UpdateFleetPortSettingsOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

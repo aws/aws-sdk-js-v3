@@ -58,11 +58,10 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * };
  * const command = new ImportDecoderManifestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportDecoderManifestResponse
- *   name: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // ImportDecoderManifestResponse
+ * //   name: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

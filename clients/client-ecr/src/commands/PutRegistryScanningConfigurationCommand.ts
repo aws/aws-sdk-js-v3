@@ -60,23 +60,22 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * };
  * const command = new PutRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRegistryScanningConfigurationResponse
- *   registryScanningConfiguration: { // RegistryScanningConfiguration
- *     scanType: "STRING_VALUE",
- *     rules: [ // RegistryScanningRuleList
- *       { // RegistryScanningRule
- *         scanFrequency: "STRING_VALUE", // required
- *         repositoryFilters: [ // ScanningRepositoryFilterList // required
- *           { // ScanningRepositoryFilter
- *             filter: "STRING_VALUE", // required
- *             filterType: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // PutRegistryScanningConfigurationResponse
+ * //   registryScanningConfiguration: { // RegistryScanningConfiguration
+ * //     scanType: "STRING_VALUE",
+ * //     rules: [ // RegistryScanningRuleList
+ * //       { // RegistryScanningRule
+ * //         scanFrequency: "STRING_VALUE", // required
+ * //         repositoryFilters: [ // ScanningRepositoryFilterList // required
+ * //           { // ScanningRepositoryFilter
+ * //             filter: "STRING_VALUE", // required
+ * //             filterType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

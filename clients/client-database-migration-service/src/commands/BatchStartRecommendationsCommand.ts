@@ -61,16 +61,15 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * };
  * const command = new BatchStartRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchStartRecommendationsResponse
- *   ErrorEntries: [ // BatchStartRecommendationsErrorEntryList
- *     { // BatchStartRecommendationsErrorEntry
- *       DatabaseId: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       Code: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchStartRecommendationsResponse
+ * //   ErrorEntries: [ // BatchStartRecommendationsErrorEntryList
+ * //     { // BatchStartRecommendationsErrorEntry
+ * //       DatabaseId: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       Code: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

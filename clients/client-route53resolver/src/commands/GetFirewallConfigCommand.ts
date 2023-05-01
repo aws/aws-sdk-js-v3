@@ -45,15 +45,14 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  * };
  * const command = new GetFirewallConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFirewallConfigResponse
- *   FirewallConfig: { // FirewallConfig
- *     Id: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING",
- *   },
- * };
+ * // { // GetFirewallConfigResponse
+ * //   FirewallConfig: { // FirewallConfig
+ * //     Id: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING",
+ * //   },
+ * // };
  *
  * ```
  *

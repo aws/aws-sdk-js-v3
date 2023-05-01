@@ -53,20 +53,19 @@ export interface GetRecommendationReportDetailsCommandOutput
  * };
  * const command = new GetRecommendationReportDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecommendationReportDetailsResponse
- *   id: "STRING_VALUE",
- *   recommendationReportDetails: { // RecommendationReportDetails
- *     status: "STRING_VALUE",
- *     statusMessage: "STRING_VALUE",
- *     startTime: new Date("TIMESTAMP"),
- *     completionTime: new Date("TIMESTAMP"),
- *     s3Bucket: "STRING_VALUE",
- *     s3Keys: [ // S3Keys
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetRecommendationReportDetailsResponse
+ * //   id: "STRING_VALUE",
+ * //   recommendationReportDetails: { // RecommendationReportDetails
+ * //     status: "STRING_VALUE",
+ * //     statusMessage: "STRING_VALUE",
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     completionTime: new Date("TIMESTAMP"),
+ * //     s3Bucket: "STRING_VALUE",
+ * //     s3Keys: [ // S3Keys
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

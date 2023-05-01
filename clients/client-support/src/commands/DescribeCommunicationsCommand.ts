@@ -71,24 +71,23 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * };
  * const command = new DescribeCommunicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCommunicationsResponse
- *   communications: [ // CommunicationList
- *     { // Communication
- *       caseId: "STRING_VALUE",
- *       body: "STRING_VALUE",
- *       submittedBy: "STRING_VALUE",
- *       timeCreated: "STRING_VALUE",
- *       attachmentSet: [ // AttachmentSet
- *         { // AttachmentDetails
- *           attachmentId: "STRING_VALUE",
- *           fileName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeCommunicationsResponse
+ * //   communications: [ // CommunicationList
+ * //     { // Communication
+ * //       caseId: "STRING_VALUE",
+ * //       body: "STRING_VALUE",
+ * //       submittedBy: "STRING_VALUE",
+ * //       timeCreated: "STRING_VALUE",
+ * //       attachmentSet: [ // AttachmentSet
+ * //         { // AttachmentDetails
+ * //           attachmentId: "STRING_VALUE",
+ * //           fileName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

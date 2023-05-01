@@ -54,8 +54,7 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssetPropertyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

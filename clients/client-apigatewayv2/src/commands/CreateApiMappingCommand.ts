@@ -47,13 +47,12 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  * };
  * const command = new CreateApiMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApiMappingResponse
- *   ApiId: "STRING_VALUE",
- *   ApiMappingId: "STRING_VALUE",
- *   ApiMappingKey: "STRING_VALUE",
- *   Stage: "STRING_VALUE",
- * };
+ * // { // CreateApiMappingResponse
+ * //   ApiId: "STRING_VALUE",
+ * //   ApiMappingId: "STRING_VALUE",
+ * //   ApiMappingKey: "STRING_VALUE",
+ * //   Stage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

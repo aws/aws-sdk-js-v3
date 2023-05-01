@@ -47,11 +47,10 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * };
  * const command = new GetAssessmentReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssessmentReportResponse
- *   status: "STRING_VALUE", // required
- *   url: "STRING_VALUE",
- * };
+ * // { // GetAssessmentReportResponse
+ * //   status: "STRING_VALUE", // required
+ * //   url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

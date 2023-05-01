@@ -44,8 +44,7 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  * };
  * const command = new DeleteBatchPredictionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

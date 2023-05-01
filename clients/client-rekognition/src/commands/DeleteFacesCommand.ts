@@ -50,12 +50,11 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * };
  * const command = new DeleteFacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFacesResponse
- *   DeletedFaces: [ // FaceIdList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DeleteFacesResponse
+ * //   DeletedFaces: [ // FaceIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

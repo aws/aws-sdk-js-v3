@@ -48,8 +48,7 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  * };
  * const command = new DeleteServiceNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

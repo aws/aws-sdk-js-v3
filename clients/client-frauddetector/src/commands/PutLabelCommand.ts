@@ -51,8 +51,7 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * };
  * const command = new PutLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

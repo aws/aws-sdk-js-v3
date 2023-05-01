@@ -47,10 +47,9 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * const input = {};
  * const command = new GetDefaultViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDefaultViewOutput
- *   ViewArn: "STRING_VALUE",
- * };
+ * // { // GetDefaultViewOutput
+ * //   ViewArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,20 +47,19 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * };
  * const command = new ListPortfoliosForProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPortfoliosForProductOutput
- *   PortfolioDetails: [ // PortfolioDetails
- *     { // PortfolioDetail
- *       Id: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *       DisplayName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       ProviderName: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListPortfoliosForProductOutput
+ * //   PortfolioDetails: [ // PortfolioDetails
+ * //     { // PortfolioDetail
+ * //       Id: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       ProviderName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -63,19 +63,18 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * };
  * const command = new ListLogSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLogSourcesResponse
- *   regionSourceTypesAccountsList: [ // RegionSourceTypesAccountsList // required
- *     { // AllDimensionsMap
- *       "<keys>": { // TwoDimensionsMap
- *         "<keys>": [ // ValueSet
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListLogSourcesResponse
+ * //   regionSourceTypesAccountsList: [ // RegionSourceTypesAccountsList // required
+ * //     { // AllDimensionsMap
+ * //       "<keys>": { // TwoDimensionsMap
+ * //         "<keys>": [ // ValueSet
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

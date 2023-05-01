@@ -46,18 +46,17 @@ export interface ListSnapshotsCommandOutput extends ListSnapshotsResult, __Metad
  * };
  * const command = new ListSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSnapshotsResult
- *   Snapshots: [ // SnapshotSummaryList
- *     { // SnapshotSummary
- *       Id: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Created: new Date("TIMESTAMP"),
- *       LastUpdated: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSnapshotsResult
+ * //   Snapshots: [ // SnapshotSummaryList
+ * //     { // SnapshotSummary
+ * //       Id: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Created: new Date("TIMESTAMP"),
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

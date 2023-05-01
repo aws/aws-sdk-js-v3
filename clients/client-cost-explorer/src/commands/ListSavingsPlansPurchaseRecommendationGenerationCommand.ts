@@ -59,19 +59,18 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * };
  * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSavingsPlansPurchaseRecommendationGenerationResponse
- *   GenerationSummaryList: [ // GenerationSummaryList
- *     { // GenerationSummary
- *       RecommendationId: "STRING_VALUE",
- *       GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
- *       GenerationStartedTime: "STRING_VALUE",
- *       GenerationCompletionTime: "STRING_VALUE",
- *       EstimatedCompletionTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListSavingsPlansPurchaseRecommendationGenerationResponse
+ * //   GenerationSummaryList: [ // GenerationSummaryList
+ * //     { // GenerationSummary
+ * //       RecommendationId: "STRING_VALUE",
+ * //       GenerationStatus: "SUCCEEDED" || "PROCESSING" || "FAILED",
+ * //       GenerationStartedTime: "STRING_VALUE",
+ * //       GenerationCompletionTime: "STRING_VALUE",
+ * //       EstimatedCompletionTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

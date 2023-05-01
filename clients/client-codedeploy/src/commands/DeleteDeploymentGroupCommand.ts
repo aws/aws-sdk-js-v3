@@ -45,15 +45,14 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * };
  * const command = new DeleteDeploymentGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDeploymentGroupOutput
- *   hooksNotCleanedUp: [ // AutoScalingGroupList
- *     { // AutoScalingGroup
- *       name: "STRING_VALUE",
- *       hook: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteDeploymentGroupOutput
+ * //   hooksNotCleanedUp: [ // AutoScalingGroupList
+ * //     { // AutoScalingGroup
+ * //       name: "STRING_VALUE",
+ * //       hook: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

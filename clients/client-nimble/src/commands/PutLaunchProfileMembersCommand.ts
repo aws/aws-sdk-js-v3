@@ -53,8 +53,7 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * };
  * const command = new PutLaunchProfileMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

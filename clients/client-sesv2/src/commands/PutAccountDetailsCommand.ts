@@ -55,8 +55,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * };
  * const command = new PutAccountDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

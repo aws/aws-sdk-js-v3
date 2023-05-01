@@ -48,20 +48,19 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * };
  * const command = new ListConstraintsForPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConstraintsForPortfolioOutput
- *   ConstraintDetails: [ // ConstraintDetails
- *     { // ConstraintDetail
- *       ConstraintId: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       ProductId: "STRING_VALUE",
- *       PortfolioId: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListConstraintsForPortfolioOutput
+ * //   ConstraintDetails: [ // ConstraintDetails
+ * //     { // ConstraintDetail
+ * //       ConstraintId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       PortfolioId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

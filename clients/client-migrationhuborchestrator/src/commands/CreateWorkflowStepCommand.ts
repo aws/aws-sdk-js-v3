@@ -88,13 +88,12 @@ export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepRespo
  * };
  * const command = new CreateWorkflowStepCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkflowStepResponse
- *   id: "STRING_VALUE",
- *   stepGroupId: "STRING_VALUE",
- *   workflowId: "STRING_VALUE",
- *   name: "STRING_VALUE",
- * };
+ * // { // CreateWorkflowStepResponse
+ * //   id: "STRING_VALUE",
+ * //   stepGroupId: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

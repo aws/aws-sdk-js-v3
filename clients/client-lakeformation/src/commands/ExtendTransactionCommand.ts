@@ -45,8 +45,7 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * };
  * const command = new ExtendTransactionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

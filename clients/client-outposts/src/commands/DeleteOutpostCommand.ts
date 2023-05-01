@@ -44,8 +44,7 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  * };
  * const command = new DeleteOutpostCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

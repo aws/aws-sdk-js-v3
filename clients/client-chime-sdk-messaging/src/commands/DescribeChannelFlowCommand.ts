@@ -52,28 +52,27 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * };
  * const command = new DescribeChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeChannelFlowResponse
- *   ChannelFlow: { // ChannelFlow
- *     ChannelFlowArn: "STRING_VALUE",
- *     Processors: [ // ProcessorList
- *       { // Processor
- *         Name: "STRING_VALUE", // required
- *         Configuration: { // ProcessorConfiguration
- *           Lambda: { // LambdaConfiguration
- *             ResourceArn: "STRING_VALUE", // required
- *             InvocationType: "ASYNC", // required
- *           },
- *         },
- *         ExecutionOrder: Number("int"), // required
- *         FallbackAction: "CONTINUE" || "ABORT", // required
- *       },
- *     ],
- *     Name: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     LastUpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeChannelFlowResponse
+ * //   ChannelFlow: { // ChannelFlow
+ * //     ChannelFlowArn: "STRING_VALUE",
+ * //     Processors: [ // ProcessorList
+ * //       { // Processor
+ * //         Name: "STRING_VALUE", // required
+ * //         Configuration: { // ProcessorConfiguration
+ * //           Lambda: { // LambdaConfiguration
+ * //             ResourceArn: "STRING_VALUE", // required
+ * //             InvocationType: "ASYNC", // required
+ * //           },
+ * //         },
+ * //         ExecutionOrder: Number("int"), // required
+ * //         FallbackAction: "CONTINUE" || "ABORT", // required
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

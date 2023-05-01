@@ -54,17 +54,16 @@ export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileRespo
  * };
  * const command = new CreateVoiceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVoiceProfileResponse
- *   VoiceProfile: { // VoiceProfile
- *     VoiceProfileId: "STRING_VALUE",
- *     VoiceProfileArn: "STRING_VALUE",
- *     VoiceProfileDomainId: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     ExpirationTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateVoiceProfileResponse
+ * //   VoiceProfile: { // VoiceProfile
+ * //     VoiceProfileId: "STRING_VALUE",
+ * //     VoiceProfileArn: "STRING_VALUE",
+ * //     VoiceProfileDomainId: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     ExpirationTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

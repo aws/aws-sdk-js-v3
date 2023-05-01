@@ -46,16 +46,15 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * };
  * const command = new GetOpsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpsMetadataResult
- *   ResourceId: "STRING_VALUE",
- *   Metadata: { // MetadataMap
- *     "<keys>": { // MetadataValue
- *       Value: "STRING_VALUE",
- *     },
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetOpsMetadataResult
+ * //   ResourceId: "STRING_VALUE",
+ * //   Metadata: { // MetadataMap
+ * //     "<keys>": { // MetadataValue
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

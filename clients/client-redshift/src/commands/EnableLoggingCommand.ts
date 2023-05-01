@@ -51,19 +51,18 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LoggingStatus
- *   LoggingEnabled: true || false,
- *   BucketName: "STRING_VALUE",
- *   S3KeyPrefix: "STRING_VALUE",
- *   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
- *   LastFailureTime: new Date("TIMESTAMP"),
- *   LastFailureMessage: "STRING_VALUE",
- *   LogDestinationType: "s3" || "cloudwatch",
- *   LogExports: [ // LogTypeList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // LoggingStatus
+ * //   LoggingEnabled: true || false,
+ * //   BucketName: "STRING_VALUE",
+ * //   S3KeyPrefix: "STRING_VALUE",
+ * //   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
+ * //   LastFailureTime: new Date("TIMESTAMP"),
+ * //   LastFailureMessage: "STRING_VALUE",
+ * //   LogDestinationType: "s3" || "cloudwatch",
+ * //   LogExports: [ // LogTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * };
  * const command = new StartCrawlerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

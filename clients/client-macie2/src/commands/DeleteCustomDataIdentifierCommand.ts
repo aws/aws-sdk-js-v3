@@ -44,8 +44,7 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  * };
  * const command = new DeleteCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

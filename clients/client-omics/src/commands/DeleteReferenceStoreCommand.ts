@@ -44,8 +44,7 @@ export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreR
  * };
  * const command = new DeleteReferenceStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,18 +44,17 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
  * };
  * const command = new DisassociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateSubnetCidrBlockResult
- *   Ipv6CidrBlockAssociation: { // SubnetIpv6CidrBlockAssociation
- *     AssociationId: "STRING_VALUE",
- *     Ipv6CidrBlock: "STRING_VALUE",
- *     Ipv6CidrBlockState: { // SubnetCidrBlockState
- *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   },
- *   SubnetId: "STRING_VALUE",
- * };
+ * // { // DisassociateSubnetCidrBlockResult
+ * //   Ipv6CidrBlockAssociation: { // SubnetIpv6CidrBlockAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     Ipv6CidrBlock: "STRING_VALUE",
+ * //     Ipv6CidrBlockState: { // SubnetCidrBlockState
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   SubnetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

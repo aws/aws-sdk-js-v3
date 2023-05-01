@@ -51,10 +51,9 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  * };
  * const command = new UpdateSMBFileShareVisibilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSMBFileShareVisibilityOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateSMBFileShareVisibilityOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,20 +44,19 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMemberResponse
- *   accountId: "STRING_VALUE",
- *   administratorAccountId: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   email: "STRING_VALUE",
- *   invitedAt: new Date("TIMESTAMP"),
- *   masterAccountId: "STRING_VALUE",
- *   relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   updatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetMemberResponse
+ * //   accountId: "STRING_VALUE",
+ * //   administratorAccountId: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   email: "STRING_VALUE",
+ * //   invitedAt: new Date("TIMESTAMP"),
+ * //   masterAccountId: "STRING_VALUE",
+ * //   relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   updatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

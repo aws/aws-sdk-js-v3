@@ -54,18 +54,17 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * };
  * const command = new ListAnomalyGroupRelatedMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnomalyGroupRelatedMetricsResponse
- *   InterMetricImpactList: [ // InterMetricImpactList
- *     { // InterMetricImpactDetails
- *       MetricName: "STRING_VALUE",
- *       AnomalyGroupId: "STRING_VALUE",
- *       RelationshipType: "STRING_VALUE",
- *       ContributionPercentage: Number("double"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAnomalyGroupRelatedMetricsResponse
+ * //   InterMetricImpactList: [ // InterMetricImpactList
+ * //     { // InterMetricImpactDetails
+ * //       MetricName: "STRING_VALUE",
+ * //       AnomalyGroupId: "STRING_VALUE",
+ * //       RelationshipType: "STRING_VALUE",
+ * //       ContributionPercentage: Number("double"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

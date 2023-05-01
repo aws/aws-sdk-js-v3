@@ -80,8 +80,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * };
  * const command = new UpdateWorkGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

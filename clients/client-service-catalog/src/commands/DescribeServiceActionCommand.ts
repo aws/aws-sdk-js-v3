@@ -45,20 +45,19 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * };
  * const command = new DescribeServiceActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServiceActionOutput
- *   ServiceActionDetail: { // ServiceActionDetail
- *     ServiceActionSummary: { // ServiceActionSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DefinitionType: "SSM_AUTOMATION",
- *     },
- *     Definition: { // ServiceActionDefinitionMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeServiceActionOutput
+ * //   ServiceActionDetail: { // ServiceActionDetail
+ * //     ServiceActionSummary: { // ServiceActionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefinitionType: "SSM_AUTOMATION",
+ * //     },
+ * //     Definition: { // ServiceActionDefinitionMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

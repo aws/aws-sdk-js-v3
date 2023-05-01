@@ -53,16 +53,15 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * };
  * const command = new PutMethodResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MethodResponse
- *   statusCode: "STRING_VALUE",
- *   responseParameters: { // MapOfStringToBoolean
- *     "<keys>": true || false,
- *   },
- *   responseModels: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // MethodResponse
+ * //   statusCode: "STRING_VALUE",
+ * //   responseParameters: { // MapOfStringToBoolean
+ * //     "<keys>": true || false,
+ * //   },
+ * //   responseModels: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

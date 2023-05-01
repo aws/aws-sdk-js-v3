@@ -56,13 +56,12 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * };
  * const command = new GetClusterCredentialsWithIAMCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterExtendedCredentials
- *   DbUser: "STRING_VALUE",
- *   DbPassword: "STRING_VALUE",
- *   Expiration: new Date("TIMESTAMP"),
- *   NextRefreshTime: new Date("TIMESTAMP"),
- * };
+ * // { // ClusterExtendedCredentials
+ * //   DbUser: "STRING_VALUE",
+ * //   DbPassword: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * //   NextRefreshTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

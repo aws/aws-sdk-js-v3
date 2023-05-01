@@ -68,10 +68,9 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * };
  * const command = new CreatePublicDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePublicDnsNamespaceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // CreatePublicDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

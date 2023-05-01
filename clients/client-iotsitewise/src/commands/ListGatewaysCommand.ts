@@ -45,32 +45,31 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewaysResponse
- *   gatewaySummaries: [ // GatewaySummaries // required
- *     { // GatewaySummary
- *       gatewayId: "STRING_VALUE", // required
- *       gatewayName: "STRING_VALUE", // required
- *       gatewayPlatform: { // GatewayPlatform
- *         greengrass: { // Greengrass
- *           groupArn: "STRING_VALUE", // required
- *         },
- *         greengrassV2: { // GreengrassV2
- *           coreDeviceThingName: "STRING_VALUE", // required
- *         },
- *       },
- *       gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries
- *         { // GatewayCapabilitySummary
- *           capabilityNamespace: "STRING_VALUE", // required
- *           capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
- *         },
- *       ],
- *       creationDate: new Date("TIMESTAMP"), // required
- *       lastUpdateDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListGatewaysResponse
+ * //   gatewaySummaries: [ // GatewaySummaries // required
+ * //     { // GatewaySummary
+ * //       gatewayId: "STRING_VALUE", // required
+ * //       gatewayName: "STRING_VALUE", // required
+ * //       gatewayPlatform: { // GatewayPlatform
+ * //         greengrass: { // Greengrass
+ * //           groupArn: "STRING_VALUE", // required
+ * //         },
+ * //         greengrassV2: { // GreengrassV2
+ * //           coreDeviceThingName: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries
+ * //         { // GatewayCapabilitySummary
+ * //           capabilityNamespace: "STRING_VALUE", // required
+ * //           capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //         },
+ * //       ],
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //       lastUpdateDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

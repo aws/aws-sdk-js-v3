@@ -53,16 +53,15 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * };
  * const command = new ListRateBasedRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRateBasedRulesResponse
- *   NextMarker: "STRING_VALUE",
- *   Rules: [ // RuleSummaries
- *     { // RuleSummary
- *       RuleId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListRateBasedRulesResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Rules: [ // RuleSummaries
+ * //     { // RuleSummary
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

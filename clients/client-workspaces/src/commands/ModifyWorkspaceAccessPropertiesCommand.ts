@@ -61,8 +61,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

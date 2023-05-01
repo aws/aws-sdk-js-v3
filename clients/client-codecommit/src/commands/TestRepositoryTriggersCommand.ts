@@ -59,18 +59,17 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * };
  * const command = new TestRepositoryTriggersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestRepositoryTriggersOutput
- *   successfulExecutions: [ // RepositoryTriggerNameList
- *     "STRING_VALUE",
- *   ],
- *   failedExecutions: [ // RepositoryTriggerExecutionFailureList
- *     { // RepositoryTriggerExecutionFailure
- *       trigger: "STRING_VALUE",
- *       failureMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // TestRepositoryTriggersOutput
+ * //   successfulExecutions: [ // RepositoryTriggerNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   failedExecutions: [ // RepositoryTriggerExecutionFailureList
+ * //     { // RepositoryTriggerExecutionFailure
+ * //       trigger: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

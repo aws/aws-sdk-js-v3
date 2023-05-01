@@ -44,13 +44,12 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * };
  * const command = new GetSpaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSpaceResponse
- *   name: "STRING_VALUE", // required
- *   regionName: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- * };
+ * // { // GetSpaceResponse
+ * //   name: "STRING_VALUE", // required
+ * //   regionName: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

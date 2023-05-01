@@ -139,15 +139,14 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetResponse
- *   datasetName: "STRING_VALUE",
- *   datasetArn: "STRING_VALUE",
- *   retentionPeriod: { // RetentionPeriod
- *     unlimited: true || false,
- *     numberOfDays: Number("int"),
- *   },
- * };
+ * // { // CreateDatasetResponse
+ * //   datasetName: "STRING_VALUE",
+ * //   datasetArn: "STRING_VALUE",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     unlimited: true || false,
+ * //     numberOfDays: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

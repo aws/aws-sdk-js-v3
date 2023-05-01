@@ -66,10 +66,9 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddPermissionResponse
- *   Statement: "STRING_VALUE",
- * };
+ * // { // AddPermissionResponse
+ * //   Statement: "STRING_VALUE",
+ * // };
  *
  * ```
  *

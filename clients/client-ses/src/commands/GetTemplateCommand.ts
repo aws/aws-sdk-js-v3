@@ -46,15 +46,14 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemplateResponse
- *   Template: { // Template
- *     TemplateName: "STRING_VALUE", // required
- *     SubjectPart: "STRING_VALUE",
- *     TextPart: "STRING_VALUE",
- *     HtmlPart: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTemplateResponse
+ * //   Template: { // Template
+ * //     TemplateName: "STRING_VALUE", // required
+ * //     SubjectPart: "STRING_VALUE",
+ * //     TextPart: "STRING_VALUE",
+ * //     HtmlPart: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

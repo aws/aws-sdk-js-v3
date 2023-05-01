@@ -45,17 +45,16 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * };
  * const command = new GetCompatibleVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCompatibleVersionsResponse
- *   CompatibleVersions: [ // CompatibleVersionsList
- *     { // CompatibleVersionsMap
- *       SourceVersion: "STRING_VALUE",
- *       TargetVersions: [ // VersionList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetCompatibleVersionsResponse
+ * //   CompatibleVersions: [ // CompatibleVersionsList
+ * //     { // CompatibleVersionsMap
+ * //       SourceVersion: "STRING_VALUE",
+ * //       TargetVersions: [ // VersionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

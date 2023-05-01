@@ -54,17 +54,16 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTasksResponse
- *   Tasks: [ // TaskList
- *     { // TaskListEntry
- *       TaskArn: "STRING_VALUE",
- *       Status: "AVAILABLE" || "CREATING" || "QUEUED" || "RUNNING" || "UNAVAILABLE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTasksResponse
+ * //   Tasks: [ // TaskList
+ * //     { // TaskListEntry
+ * //       TaskArn: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "CREATING" || "QUEUED" || "RUNNING" || "UNAVAILABLE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

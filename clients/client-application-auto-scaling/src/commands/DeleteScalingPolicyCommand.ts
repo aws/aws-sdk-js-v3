@@ -56,8 +56,7 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

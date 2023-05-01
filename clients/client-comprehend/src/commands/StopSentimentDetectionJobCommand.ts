@@ -53,11 +53,10 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  * };
  * const command = new StopSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopSentimentDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopSentimentDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

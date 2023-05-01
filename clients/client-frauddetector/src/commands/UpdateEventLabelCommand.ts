@@ -47,8 +47,7 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * };
  * const command = new UpdateEventLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

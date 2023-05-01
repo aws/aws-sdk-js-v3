@@ -50,18 +50,17 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * };
  * const command = new ListQuickConnectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQuickConnectsResponse
- *   QuickConnectSummaryList: [ // QuickConnectSummaryList
- *     { // QuickConnectSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQuickConnectsResponse
+ * //   QuickConnectSummaryList: [ // QuickConnectSummaryList
+ * //     { // QuickConnectSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

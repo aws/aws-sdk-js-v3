@@ -44,57 +44,56 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * };
  * const command = new DescribeJobTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJobTemplateResponse
- *   jobTemplateArn: "STRING_VALUE",
- *   jobTemplateId: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   documentSource: "STRING_VALUE",
- *   document: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   presignedUrlConfig: { // PresignedUrlConfig
- *     roleArn: "STRING_VALUE",
- *     expiresInSec: Number("long"),
- *   },
- *   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
- *     maximumPerMinute: Number("int"),
- *     exponentialRate: { // ExponentialRolloutRate
- *       baseRatePerMinute: Number("int"), // required
- *       incrementFactor: Number("double"), // required
- *       rateIncreaseCriteria: { // RateIncreaseCriteria
- *         numberOfNotifiedThings: Number("int"),
- *         numberOfSucceededThings: Number("int"),
- *       },
- *     },
- *   },
- *   abortConfig: { // AbortConfig
- *     criteriaList: [ // AbortCriteriaList // required
- *       { // AbortCriteria
- *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
- *         action: "CANCEL", // required
- *         thresholdPercentage: Number("double"), // required
- *         minNumberOfExecutedThings: Number("int"), // required
- *       },
- *     ],
- *   },
- *   timeoutConfig: { // TimeoutConfig
- *     inProgressTimeoutInMinutes: Number("long"),
- *   },
- *   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
- *     criteriaList: [ // RetryCriteriaList // required
- *       { // RetryCriteria
- *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
- *         numberOfRetries: Number("int"), // required
- *       },
- *     ],
- *   },
- *   maintenanceWindows: [ // MaintenanceWindows
- *     { // MaintenanceWindow
- *       startTime: "STRING_VALUE", // required
- *       durationInMinutes: Number("int"), // required
- *     },
- *   ],
- * };
+ * // { // DescribeJobTemplateResponse
+ * //   jobTemplateArn: "STRING_VALUE",
+ * //   jobTemplateId: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   documentSource: "STRING_VALUE",
+ * //   document: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   presignedUrlConfig: { // PresignedUrlConfig
+ * //     roleArn: "STRING_VALUE",
+ * //     expiresInSec: Number("long"),
+ * //   },
+ * //   jobExecutionsRolloutConfig: { // JobExecutionsRolloutConfig
+ * //     maximumPerMinute: Number("int"),
+ * //     exponentialRate: { // ExponentialRolloutRate
+ * //       baseRatePerMinute: Number("int"), // required
+ * //       incrementFactor: Number("double"), // required
+ * //       rateIncreaseCriteria: { // RateIncreaseCriteria
+ * //         numberOfNotifiedThings: Number("int"),
+ * //         numberOfSucceededThings: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * //   abortConfig: { // AbortConfig
+ * //     criteriaList: [ // AbortCriteriaList // required
+ * //       { // AbortCriteria
+ * //         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ * //         action: "CANCEL", // required
+ * //         thresholdPercentage: Number("double"), // required
+ * //         minNumberOfExecutedThings: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   timeoutConfig: { // TimeoutConfig
+ * //     inProgressTimeoutInMinutes: Number("long"),
+ * //   },
+ * //   jobExecutionsRetryConfig: { // JobExecutionsRetryConfig
+ * //     criteriaList: [ // RetryCriteriaList // required
+ * //       { // RetryCriteria
+ * //         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ * //         numberOfRetries: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   maintenanceWindows: [ // MaintenanceWindows
+ * //     { // MaintenanceWindow
+ * //       startTime: "STRING_VALUE", // required
+ * //       durationInMinutes: Number("int"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -112,8 +112,7 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  * };
  * const command = new CreatePartitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

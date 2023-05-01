@@ -66,28 +66,27 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * };
  * const command = new DescribeLocalGatewayVirtualInterfacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocalGatewayVirtualInterfacesResult
- *   LocalGatewayVirtualInterfaces: [ // LocalGatewayVirtualInterfaceSet
- *     { // LocalGatewayVirtualInterface
- *       LocalGatewayVirtualInterfaceId: "STRING_VALUE",
- *       LocalGatewayId: "STRING_VALUE",
- *       Vlan: Number("int"),
- *       LocalAddress: "STRING_VALUE",
- *       PeerAddress: "STRING_VALUE",
- *       LocalBgpAsn: Number("int"),
- *       PeerBgpAsn: Number("int"),
- *       OwnerId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLocalGatewayVirtualInterfacesResult
+ * //   LocalGatewayVirtualInterfaces: [ // LocalGatewayVirtualInterfaceSet
+ * //     { // LocalGatewayVirtualInterface
+ * //       LocalGatewayVirtualInterfaceId: "STRING_VALUE",
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       Vlan: Number("int"),
+ * //       LocalAddress: "STRING_VALUE",
+ * //       PeerAddress: "STRING_VALUE",
+ * //       LocalBgpAsn: Number("int"),
+ * //       PeerBgpAsn: Number("int"),
+ * //       OwnerId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

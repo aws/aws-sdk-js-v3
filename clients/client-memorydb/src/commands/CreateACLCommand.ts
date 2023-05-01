@@ -53,29 +53,28 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * };
  * const command = new CreateACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateACLResponse
- *   ACL: { // ACL
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     UserNames: [ // UserNameList
- *       "STRING_VALUE",
- *     ],
- *     MinimumEngineVersion: "STRING_VALUE",
- *     PendingChanges: { // ACLPendingChanges
- *       UserNamesToRemove: [
- *         "STRING_VALUE",
- *       ],
- *       UserNamesToAdd: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Clusters: [ // ACLClusterNameList
- *       "STRING_VALUE",
- *     ],
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateACLResponse
+ * //   ACL: { // ACL
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     UserNames: [ // UserNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MinimumEngineVersion: "STRING_VALUE",
+ * //     PendingChanges: { // ACLPendingChanges
+ * //       UserNamesToRemove: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UserNamesToAdd: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Clusters: [ // ACLClusterNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

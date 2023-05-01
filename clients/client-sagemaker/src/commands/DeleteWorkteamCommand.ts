@@ -44,10 +44,9 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * };
  * const command = new DeleteWorkteamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteWorkteamResponse
- *   Success: true || false, // required
- * };
+ * // { // DeleteWorkteamResponse
+ * //   Success: true || false, // required
+ * // };
  *
  * ```
  *

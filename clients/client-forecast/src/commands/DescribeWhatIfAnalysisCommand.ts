@@ -66,37 +66,36 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  * };
  * const command = new DescribeWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWhatIfAnalysisResponse
- *   WhatIfAnalysisName: "STRING_VALUE",
- *   WhatIfAnalysisArn: "STRING_VALUE",
- *   ForecastArn: "STRING_VALUE",
- *   EstimatedTimeRemainingInMinutes: Number("long"),
- *   Status: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   TimeSeriesSelector: { // TimeSeriesSelector
- *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
- *       DataSource: { // DataSource
- *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
- *         },
- *       },
- *       Schema: { // Schema
- *         Attributes: [ // SchemaAttributes
- *           { // SchemaAttribute
- *             AttributeName: "STRING_VALUE",
- *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
- *           },
- *         ],
- *       },
- *       Format: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeWhatIfAnalysisResponse
+ * //   WhatIfAnalysisName: "STRING_VALUE",
+ * //   WhatIfAnalysisArn: "STRING_VALUE",
+ * //   ForecastArn: "STRING_VALUE",
+ * //   EstimatedTimeRemainingInMinutes: Number("long"),
+ * //   Status: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   TimeSeriesSelector: { // TimeSeriesSelector
+ * //     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ * //       DataSource: { // DataSource
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Schema: { // Schema
+ * //         Attributes: [ // SchemaAttributes
+ * //           { // SchemaAttribute
+ * //             AttributeName: "STRING_VALUE",
+ * //             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Format: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -62,24 +62,23 @@ export interface GetRecommendationPreferencesCommandOutput
  * };
  * const command = new GetRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecommendationPreferencesResponse
- *   nextToken: "STRING_VALUE",
- *   recommendationPreferencesDetails: [ // RecommendationPreferencesDetails
- *     { // RecommendationPreferencesDetail
- *       scope: { // Scope
- *         name: "Organization" || "AccountId" || "ResourceArn",
- *         value: "STRING_VALUE",
- *       },
- *       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService",
- *       enhancedInfrastructureMetrics: "Active" || "Inactive",
- *       inferredWorkloadTypes: "Active" || "Inactive",
- *       externalMetricsPreference: { // ExternalMetricsPreference
- *         source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetRecommendationPreferencesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   recommendationPreferencesDetails: [ // RecommendationPreferencesDetails
+ * //     { // RecommendationPreferencesDetail
+ * //       scope: { // Scope
+ * //         name: "Organization" || "AccountId" || "ResourceArn",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService",
+ * //       enhancedInfrastructureMetrics: "Active" || "Inactive",
+ * //       inferredWorkloadTypes: "Active" || "Inactive",
+ * //       externalMetricsPreference: { // ExternalMetricsPreference
+ * //         source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

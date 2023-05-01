@@ -44,10 +44,9 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGatewayOutput
- *   GatewayArn: "STRING_VALUE",
- * };
+ * // { // DeleteGatewayOutput
+ * //   GatewayArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

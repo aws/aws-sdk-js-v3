@@ -62,14 +62,13 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * };
  * const command = new PutAppInstanceUserExpirationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAppInstanceUserExpirationSettingsResponse
- *   AppInstanceUserArn: "STRING_VALUE",
- *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP", // required
- *   },
- * };
+ * // { // PutAppInstanceUserExpirationSettingsResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * //   ExpirationSettings: { // ExpirationSettings
+ * //     ExpirationDays: Number("int"), // required
+ * //     ExpirationCriterion: "CREATED_TIMESTAMP", // required
+ * //   },
+ * // };
  *
  * ```
  *

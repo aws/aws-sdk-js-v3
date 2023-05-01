@@ -45,8 +45,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

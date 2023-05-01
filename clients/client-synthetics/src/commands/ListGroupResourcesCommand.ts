@@ -46,13 +46,12 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * };
  * const command = new ListGroupResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupResourcesResponse
- *   Resources: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupResourcesResponse
+ * //   Resources: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

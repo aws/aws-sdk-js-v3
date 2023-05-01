@@ -54,10 +54,9 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * };
  * const command = new CreateRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRoomResponse
- *   RoomArn: "STRING_VALUE",
- * };
+ * // { // CreateRoomResponse
+ * //   RoomArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

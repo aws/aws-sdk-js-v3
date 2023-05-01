@@ -48,13 +48,12 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * const input = {};
  * const command = new DescribeReportCreationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReportCreationOutput
- *   Status: "STRING_VALUE",
- *   S3Location: "STRING_VALUE",
- *   StartDate: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- * };
+ * // { // DescribeReportCreationOutput
+ * //   Status: "STRING_VALUE",
+ * //   S3Location: "STRING_VALUE",
+ * //   StartDate: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

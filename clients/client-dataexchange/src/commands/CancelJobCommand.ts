@@ -44,8 +44,7 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

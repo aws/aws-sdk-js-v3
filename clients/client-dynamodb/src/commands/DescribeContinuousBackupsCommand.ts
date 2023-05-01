@@ -55,17 +55,16 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * };
  * const command = new DescribeContinuousBackupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContinuousBackupsOutput
- *   ContinuousBackupsDescription: { // ContinuousBackupsDescription
- *     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
- *     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
- *       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
- *       EarliestRestorableDateTime: new Date("TIMESTAMP"),
- *       LatestRestorableDateTime: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // DescribeContinuousBackupsOutput
+ * //   ContinuousBackupsDescription: { // ContinuousBackupsDescription
+ * //     ContinuousBackupsStatus: "ENABLED" || "DISABLED", // required
+ * //     PointInTimeRecoveryDescription: { // PointInTimeRecoveryDescription
+ * //       PointInTimeRecoveryStatus: "ENABLED" || "DISABLED",
+ * //       EarliestRestorableDateTime: new Date("TIMESTAMP"),
+ * //       LatestRestorableDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

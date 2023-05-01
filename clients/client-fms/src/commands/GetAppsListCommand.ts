@@ -45,33 +45,32 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * };
  * const command = new GetAppsListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppsListResponse
- *   AppsList: { // AppsListData
- *     ListId: "STRING_VALUE",
- *     ListName: "STRING_VALUE", // required
- *     ListUpdateToken: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastUpdateTime: new Date("TIMESTAMP"),
- *     AppsList: [ // AppsList // required
- *       { // App
- *         AppName: "STRING_VALUE", // required
- *         Protocol: "STRING_VALUE", // required
- *         Port: Number("long"), // required
- *       },
- *     ],
- *     PreviousAppsList: { // PreviousAppsList
- *       "<keys>": [
- *         {
- *           AppName: "STRING_VALUE", // required
- *           Protocol: "STRING_VALUE", // required
- *           Port: Number("long"), // required
- *         },
- *       ],
- *     },
- *   },
- *   AppsListArn: "STRING_VALUE",
- * };
+ * // { // GetAppsListResponse
+ * //   AppsList: { // AppsListData
+ * //     ListId: "STRING_VALUE",
+ * //     ListName: "STRING_VALUE", // required
+ * //     ListUpdateToken: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     AppsList: [ // AppsList // required
+ * //       { // App
+ * //         AppName: "STRING_VALUE", // required
+ * //         Protocol: "STRING_VALUE", // required
+ * //         Port: Number("long"), // required
+ * //       },
+ * //     ],
+ * //     PreviousAppsList: { // PreviousAppsList
+ * //       "<keys>": [
+ * //         {
+ * //           AppName: "STRING_VALUE", // required
+ * //           Protocol: "STRING_VALUE", // required
+ * //           Port: Number("long"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   AppsListArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

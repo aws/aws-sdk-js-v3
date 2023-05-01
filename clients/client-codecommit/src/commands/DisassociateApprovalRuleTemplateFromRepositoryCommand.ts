@@ -52,8 +52,7 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * };
  * const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  * };
  * const command = new PutStudioMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

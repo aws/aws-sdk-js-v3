@@ -45,8 +45,7 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * };
  * const command = new ApproveSkillCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

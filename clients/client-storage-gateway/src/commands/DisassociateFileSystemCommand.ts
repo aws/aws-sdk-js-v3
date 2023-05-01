@@ -47,10 +47,9 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * };
  * const command = new DisassociateFileSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateFileSystemOutput
- *   FileSystemAssociationARN: "STRING_VALUE",
- * };
+ * // { // DisassociateFileSystemOutput
+ * //   FileSystemAssociationARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

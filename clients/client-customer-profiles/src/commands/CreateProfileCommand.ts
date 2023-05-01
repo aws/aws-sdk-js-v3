@@ -115,10 +115,9 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProfileResponse
- *   ProfileId: "STRING_VALUE", // required
- * };
+ * // { // CreateProfileResponse
+ * //   ProfileId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

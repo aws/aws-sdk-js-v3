@@ -60,8 +60,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * };
  * const command = new CreateSubscriberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

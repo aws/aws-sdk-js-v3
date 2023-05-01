@@ -88,39 +88,38 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * };
  * const command = new GetMetricDataV2Command(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricDataV2Response
- *   NextToken: "STRING_VALUE",
- *   MetricResults: [ // MetricResultsV2
- *     { // MetricResultV2
- *       Dimensions: { // DimensionsV2Map
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Collections: [ // MetricDataCollectionsV2
- *         { // MetricDataV2
- *           Metric: { // MetricV2
- *             Name: "STRING_VALUE",
- *             Threshold: [ // ThresholdCollections
- *               { // ThresholdV2
- *                 Comparison: "STRING_VALUE",
- *                 ThresholdValue: Number("double"),
- *               },
- *             ],
- *             MetricFilters: [ // MetricFiltersV2List
- *               { // MetricFilterV2
- *                 MetricFilterKey: "STRING_VALUE",
- *                 MetricFilterValues: [ // MetricFilterValueList
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *             ],
- *           },
- *           Value: Number("double"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetMetricDataV2Response
+ * //   NextToken: "STRING_VALUE",
+ * //   MetricResults: [ // MetricResultsV2
+ * //     { // MetricResultV2
+ * //       Dimensions: { // DimensionsV2Map
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Collections: [ // MetricDataCollectionsV2
+ * //         { // MetricDataV2
+ * //           Metric: { // MetricV2
+ * //             Name: "STRING_VALUE",
+ * //             Threshold: [ // ThresholdCollections
+ * //               { // ThresholdV2
+ * //                 Comparison: "STRING_VALUE",
+ * //                 ThresholdValue: Number("double"),
+ * //               },
+ * //             ],
+ * //             MetricFilters: [ // MetricFiltersV2List
+ * //               { // MetricFilterV2
+ * //                 MetricFilterKey: "STRING_VALUE",
+ * //                 MetricFilterValues: [ // MetricFilterValueList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

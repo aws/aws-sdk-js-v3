@@ -47,29 +47,28 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProjectResult
- *   details: { // ProjectDetails
- *     name: "STRING_VALUE",
- *     projectId: "STRING_VALUE",
- *     region: "STRING_VALUE",
- *     state: "STRING_VALUE",
- *     createdDate: new Date("TIMESTAMP"),
- *     lastUpdatedDate: new Date("TIMESTAMP"),
- *     consoleUrl: "STRING_VALUE",
- *     resources: [ // Resources
- *       { // Resource
- *         type: "STRING_VALUE",
- *         name: "STRING_VALUE",
- *         arn: "STRING_VALUE",
- *         feature: "STRING_VALUE",
- *         attributes: { // Attributes
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateProjectResult
+ * //   details: { // ProjectDetails
+ * //     name: "STRING_VALUE",
+ * //     projectId: "STRING_VALUE",
+ * //     region: "STRING_VALUE",
+ * //     state: "STRING_VALUE",
+ * //     createdDate: new Date("TIMESTAMP"),
+ * //     lastUpdatedDate: new Date("TIMESTAMP"),
+ * //     consoleUrl: "STRING_VALUE",
+ * //     resources: [ // Resources
+ * //       { // Resource
+ * //         type: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //         arn: "STRING_VALUE",
+ * //         feature: "STRING_VALUE",
+ * //         attributes: { // Attributes
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

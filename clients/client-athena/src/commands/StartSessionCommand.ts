@@ -57,11 +57,10 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * };
  * const command = new StartSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSessionResponse
- *   SessionId: "STRING_VALUE",
- *   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
- * };
+ * // { // StartSessionResponse
+ * //   SessionId: "STRING_VALUE",
+ * //   State: "CREATING" || "CREATED" || "IDLE" || "BUSY" || "TERMINATING" || "TERMINATED" || "DEGRADED" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -55,77 +55,76 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * };
  * const command = new ListViolationEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListViolationEventsResponse
- *   violationEvents: [ // ViolationEvents
- *     { // ViolationEvent
- *       violationId: "STRING_VALUE",
- *       thingName: "STRING_VALUE",
- *       securityProfileName: "STRING_VALUE",
- *       behavior: { // Behavior
- *         name: "STRING_VALUE", // required
- *         metric: "STRING_VALUE",
- *         metricDimension: { // MetricDimension
- *           dimensionName: "STRING_VALUE", // required
- *           operator: "IN" || "NOT_IN",
- *         },
- *         criteria: { // BehaviorCriteria
- *           comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
- *           value: { // MetricValue
- *             count: Number("long"),
- *             cidrs: [ // Cidrs
- *               "STRING_VALUE",
- *             ],
- *             ports: [ // Ports
- *               Number("int"),
- *             ],
- *             number: Number("double"),
- *             numbers: [ // NumberList
- *               Number("double"),
- *             ],
- *             strings: [ // StringList
- *               "STRING_VALUE",
- *             ],
- *           },
- *           durationSeconds: Number("int"),
- *           consecutiveDatapointsToAlarm: Number("int"),
- *           consecutiveDatapointsToClear: Number("int"),
- *           statisticalThreshold: { // StatisticalThreshold
- *             statistic: "STRING_VALUE",
- *           },
- *           mlDetectionConfig: { // MachineLearningDetectionConfig
- *             confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
- *           },
- *         },
- *         suppressAlerts: true || false,
- *       },
- *       metricValue: {
- *         count: Number("long"),
- *         cidrs: [
- *           "STRING_VALUE",
- *         ],
- *         ports: [
- *           Number("int"),
- *         ],
- *         number: Number("double"),
- *         numbers: [
- *           Number("double"),
- *         ],
- *         strings: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       violationEventAdditionalInfo: { // ViolationEventAdditionalInfo
- *         confidenceLevel: "LOW" || "MEDIUM" || "HIGH",
- *       },
- *       violationEventType: "in-alarm" || "alarm-cleared" || "alarm-invalidated",
- *       verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN",
- *       verificationStateDescription: "STRING_VALUE",
- *       violationEventTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListViolationEventsResponse
+ * //   violationEvents: [ // ViolationEvents
+ * //     { // ViolationEvent
+ * //       violationId: "STRING_VALUE",
+ * //       thingName: "STRING_VALUE",
+ * //       securityProfileName: "STRING_VALUE",
+ * //       behavior: { // Behavior
+ * //         name: "STRING_VALUE", // required
+ * //         metric: "STRING_VALUE",
+ * //         metricDimension: { // MetricDimension
+ * //           dimensionName: "STRING_VALUE", // required
+ * //           operator: "IN" || "NOT_IN",
+ * //         },
+ * //         criteria: { // BehaviorCriteria
+ * //           comparisonOperator: "less-than" || "less-than-equals" || "greater-than" || "greater-than-equals" || "in-cidr-set" || "not-in-cidr-set" || "in-port-set" || "not-in-port-set" || "in-set" || "not-in-set",
+ * //           value: { // MetricValue
+ * //             count: Number("long"),
+ * //             cidrs: [ // Cidrs
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             ports: [ // Ports
+ * //               Number("int"),
+ * //             ],
+ * //             number: Number("double"),
+ * //             numbers: [ // NumberList
+ * //               Number("double"),
+ * //             ],
+ * //             strings: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           durationSeconds: Number("int"),
+ * //           consecutiveDatapointsToAlarm: Number("int"),
+ * //           consecutiveDatapointsToClear: Number("int"),
+ * //           statisticalThreshold: { // StatisticalThreshold
+ * //             statistic: "STRING_VALUE",
+ * //           },
+ * //           mlDetectionConfig: { // MachineLearningDetectionConfig
+ * //             confidenceLevel: "LOW" || "MEDIUM" || "HIGH", // required
+ * //           },
+ * //         },
+ * //         suppressAlerts: true || false,
+ * //       },
+ * //       metricValue: {
+ * //         count: Number("long"),
+ * //         cidrs: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ports: [
+ * //           Number("int"),
+ * //         ],
+ * //         number: Number("double"),
+ * //         numbers: [
+ * //           Number("double"),
+ * //         ],
+ * //         strings: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       violationEventAdditionalInfo: { // ViolationEventAdditionalInfo
+ * //         confidenceLevel: "LOW" || "MEDIUM" || "HIGH",
+ * //       },
+ * //       violationEventType: "in-alarm" || "alarm-cleared" || "alarm-invalidated",
+ * //       verificationState: "FALSE_POSITIVE" || "BENIGN_POSITIVE" || "TRUE_POSITIVE" || "UNKNOWN",
+ * //       verificationStateDescription: "STRING_VALUE",
+ * //       violationEventTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

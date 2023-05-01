@@ -44,8 +44,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * };
  * const command = new StartChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

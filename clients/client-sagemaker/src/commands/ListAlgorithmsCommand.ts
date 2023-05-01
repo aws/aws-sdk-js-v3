@@ -50,19 +50,18 @@ export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __Met
  * };
  * const command = new ListAlgorithmsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAlgorithmsOutput
- *   AlgorithmSummaryList: [ // AlgorithmSummaryList // required
- *     { // AlgorithmSummary
- *       AlgorithmName: "STRING_VALUE", // required
- *       AlgorithmArn: "STRING_VALUE", // required
- *       AlgorithmDescription: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       AlgorithmStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAlgorithmsOutput
+ * //   AlgorithmSummaryList: [ // AlgorithmSummaryList // required
+ * //     { // AlgorithmSummary
+ * //       AlgorithmName: "STRING_VALUE", // required
+ * //       AlgorithmArn: "STRING_VALUE", // required
+ * //       AlgorithmDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       AlgorithmStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

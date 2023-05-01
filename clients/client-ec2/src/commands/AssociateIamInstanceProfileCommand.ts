@@ -49,19 +49,18 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * };
  * const command = new AssociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateIamInstanceProfileResult
- *   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
- *     AssociationId: "STRING_VALUE",
- *     InstanceId: "STRING_VALUE",
- *     IamInstanceProfile: { // IamInstanceProfile
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *     },
- *     State: "associating" || "associated" || "disassociating" || "disassociated",
- *     Timestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // AssociateIamInstanceProfileResult
+ * //   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     IamInstanceProfile: { // IamInstanceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

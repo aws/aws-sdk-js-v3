@@ -46,20 +46,19 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * };
  * const command = new ListIpRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIpRoutesResult
- *   IpRoutesInfo: [ // IpRoutesInfo
- *     { // IpRouteInfo
- *       DirectoryId: "STRING_VALUE",
- *       CidrIp: "STRING_VALUE",
- *       IpRouteStatusMsg: "Adding" || "Added" || "Removing" || "Removed" || "AddFailed" || "RemoveFailed",
- *       AddedDateTime: new Date("TIMESTAMP"),
- *       IpRouteStatusReason: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIpRoutesResult
+ * //   IpRoutesInfo: [ // IpRoutesInfo
+ * //     { // IpRouteInfo
+ * //       DirectoryId: "STRING_VALUE",
+ * //       CidrIp: "STRING_VALUE",
+ * //       IpRouteStatusMsg: "Adding" || "Added" || "Removing" || "Removed" || "AddFailed" || "RemoveFailed",
+ * //       AddedDateTime: new Date("TIMESTAMP"),
+ * //       IpRouteStatusReason: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

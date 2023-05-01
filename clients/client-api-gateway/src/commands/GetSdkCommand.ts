@@ -49,12 +49,11 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  * };
  * const command = new GetSdkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SdkResponse
- *   contentType: "STRING_VALUE",
- *   contentDisposition: "STRING_VALUE",
- *   body: "BLOB_VALUE",
- * };
+ * // { // SdkResponse
+ * //   contentType: "STRING_VALUE",
+ * //   contentDisposition: "STRING_VALUE",
+ * //   body: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

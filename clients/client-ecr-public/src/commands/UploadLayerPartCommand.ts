@@ -55,13 +55,12 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadLayerPartResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   uploadId: "STRING_VALUE",
- *   lastByteReceived: Number("long"),
- * };
+ * // { // UploadLayerPartResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   uploadId: "STRING_VALUE",
+ * //   lastByteReceived: Number("long"),
+ * // };
  *
  * ```
  *

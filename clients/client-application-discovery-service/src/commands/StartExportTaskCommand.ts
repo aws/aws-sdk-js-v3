@@ -69,10 +69,9 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExportTaskResponse
- *   exportId: "STRING_VALUE",
- * };
+ * // { // StartExportTaskResponse
+ * //   exportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

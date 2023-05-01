@@ -49,11 +49,10 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * };
  * const command = new GetDeleteEventsByEventTypeStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeleteEventsByEventTypeStatusResult
- *   eventTypeName: "STRING_VALUE",
- *   eventsDeletionStatus: "IN_PROGRESS_INITIALIZING" || "IN_PROGRESS" || "CANCEL_IN_PROGRESS" || "CANCELED" || "COMPLETE" || "FAILED",
- * };
+ * // { // GetDeleteEventsByEventTypeStatusResult
+ * //   eventTypeName: "STRING_VALUE",
+ * //   eventsDeletionStatus: "IN_PROGRESS_INITIALIZING" || "IN_PROGRESS" || "CANCEL_IN_PROGRESS" || "CANCELED" || "COMPLETE" || "FAILED",
+ * // };
  *
  * ```
  *

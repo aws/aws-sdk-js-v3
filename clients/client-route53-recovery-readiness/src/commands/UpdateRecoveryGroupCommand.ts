@@ -51,17 +51,16 @@ export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupRes
  * };
  * const command = new UpdateRecoveryGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecoveryGroupResponse
- *   Cells: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   RecoveryGroupArn: "STRING_VALUE",
- *   RecoveryGroupName: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateRecoveryGroupResponse
+ * //   Cells: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   RecoveryGroupArn: "STRING_VALUE",
+ * //   RecoveryGroupName: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,31 +47,30 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsResponse
- *   components: [ // ComponentList
- *     { // Component
- *       arn: "STRING_VALUE",
- *       componentName: "STRING_VALUE",
- *       latestVersion: { // ComponentLatestVersion
- *         arn: "STRING_VALUE",
- *         componentVersion: "STRING_VALUE",
- *         creationTimestamp: new Date("TIMESTAMP"),
- *         description: "STRING_VALUE",
- *         publisher: "STRING_VALUE",
- *         platforms: [ // ComponentPlatformList
- *           { // ComponentPlatform
- *             name: "STRING_VALUE",
- *             attributes: { // PlatformAttributesMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *         ],
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentsResponse
+ * //   components: [ // ComponentList
+ * //     { // Component
+ * //       arn: "STRING_VALUE",
+ * //       componentName: "STRING_VALUE",
+ * //       latestVersion: { // ComponentLatestVersion
+ * //         arn: "STRING_VALUE",
+ * //         componentVersion: "STRING_VALUE",
+ * //         creationTimestamp: new Date("TIMESTAMP"),
+ * //         description: "STRING_VALUE",
+ * //         publisher: "STRING_VALUE",
+ * //         platforms: [ // ComponentPlatformList
+ * //           { // ComponentPlatform
+ * //             name: "STRING_VALUE",
+ * //             attributes: { // PlatformAttributesMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

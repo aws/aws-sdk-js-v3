@@ -48,8 +48,7 @@ export interface UpdateRunGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRunGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

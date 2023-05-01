@@ -45,8 +45,7 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * };
  * const command = new UpdateCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

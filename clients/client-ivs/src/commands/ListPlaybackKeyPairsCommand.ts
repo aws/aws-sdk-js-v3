@@ -46,19 +46,18 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * };
  * const command = new ListPlaybackKeyPairsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPlaybackKeyPairsResponse
- *   keyPairs: [ // PlaybackKeyPairList // required
- *     { // PlaybackKeyPairSummary
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPlaybackKeyPairsResponse
+ * //   keyPairs: [ // PlaybackKeyPairList // required
+ * //     { // PlaybackKeyPairSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

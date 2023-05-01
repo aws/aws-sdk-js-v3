@@ -51,11 +51,10 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * };
  * const command = new AssociateAttributeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateAttributeGroupResponse
- *   applicationArn: "STRING_VALUE",
- *   attributeGroupArn: "STRING_VALUE",
- * };
+ * // { // AssociateAttributeGroupResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   attributeGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

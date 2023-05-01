@@ -53,12 +53,11 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * };
  * const command = new CreateTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrackerResponse
- *   TrackerName: "STRING_VALUE", // required
- *   TrackerArn: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateTrackerResponse
+ * //   TrackerName: "STRING_VALUE", // required
+ * //   TrackerArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

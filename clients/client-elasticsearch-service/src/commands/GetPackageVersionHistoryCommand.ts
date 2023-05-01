@@ -50,18 +50,17 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * };
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPackageVersionHistoryResponse
- *   PackageID: "STRING_VALUE",
- *   PackageVersionHistoryList: [ // PackageVersionHistoryList
- *     { // PackageVersionHistory
- *       PackageVersion: "STRING_VALUE",
- *       CommitMessage: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetPackageVersionHistoryResponse
+ * //   PackageID: "STRING_VALUE",
+ * //   PackageVersionHistoryList: [ // PackageVersionHistoryList
+ * //     { // PackageVersionHistory
+ * //       PackageVersion: "STRING_VALUE",
+ * //       CommitMessage: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

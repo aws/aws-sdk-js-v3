@@ -44,11 +44,10 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * };
  * const command = new GetClusterPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClusterPolicyResponse
- *   CurrentVersion: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetClusterPolicyResponse
+ * //   CurrentVersion: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

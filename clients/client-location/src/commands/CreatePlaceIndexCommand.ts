@@ -63,12 +63,11 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * };
  * const command = new CreatePlaceIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePlaceIndexResponse
- *   IndexName: "STRING_VALUE", // required
- *   IndexArn: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreatePlaceIndexResponse
+ * //   IndexName: "STRING_VALUE", // required
+ * //   IndexArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

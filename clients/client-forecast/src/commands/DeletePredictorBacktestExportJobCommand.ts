@@ -47,8 +47,7 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  * };
  * const command = new DeletePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

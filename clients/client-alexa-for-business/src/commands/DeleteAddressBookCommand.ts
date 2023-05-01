@@ -44,8 +44,7 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
  * };
  * const command = new DeleteAddressBookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

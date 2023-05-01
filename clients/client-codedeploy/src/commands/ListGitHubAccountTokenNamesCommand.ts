@@ -44,13 +44,12 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * };
  * const command = new ListGitHubAccountTokenNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGitHubAccountTokenNamesOutput
- *   tokenNameList: [ // GitHubAccountTokenNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListGitHubAccountTokenNamesOutput
+ * //   tokenNameList: [ // GitHubAccountTokenNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

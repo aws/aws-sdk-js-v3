@@ -48,8 +48,7 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  * };
  * const command = new RegisterPackageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

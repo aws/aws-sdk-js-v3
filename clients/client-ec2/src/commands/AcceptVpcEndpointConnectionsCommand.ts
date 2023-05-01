@@ -50,18 +50,17 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
  * };
  * const command = new AcceptVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptVpcEndpointConnectionsResult
- *   Unsuccessful: [ // UnsuccessfulItemSet
- *     { // UnsuccessfulItem
- *       Error: { // UnsuccessfulItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       ResourceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AcceptVpcEndpointConnectionsResult
+ * //   Unsuccessful: [ // UnsuccessfulItemSet
+ * //     { // UnsuccessfulItem
+ * //       Error: { // UnsuccessfulItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ResourceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -55,16 +55,15 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * };
  * const command = new AssociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateCustomerGatewayResponse
- *   CustomerGatewayAssociation: { // CustomerGatewayAssociation
- *     CustomerGatewayArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // AssociateCustomerGatewayResponse
+ * //   CustomerGatewayAssociation: { // CustomerGatewayAssociation
+ * //     CustomerGatewayArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

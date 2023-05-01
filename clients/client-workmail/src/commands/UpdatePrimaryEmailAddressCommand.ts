@@ -48,8 +48,7 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * };
  * const command = new UpdatePrimaryEmailAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

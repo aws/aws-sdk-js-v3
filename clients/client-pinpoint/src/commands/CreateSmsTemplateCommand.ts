@@ -53,14 +53,13 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  * };
  * const command = new CreateSmsTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSmsTemplateResponse
- *   CreateTemplateMessageBody: { // CreateTemplateMessageBody
- *     Arn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSmsTemplateResponse
+ * //   CreateTemplateMessageBody: { // CreateTemplateMessageBody
+ * //     Arn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,31 +50,30 @@ export interface DescribeDashboardPermissionsCommandOutput
  * };
  * const command = new DescribeDashboardPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDashboardPermissionsResponse
- *   DashboardId: "STRING_VALUE",
- *   DashboardArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- *   LinkSharingConfiguration: { // LinkSharingConfiguration
- *     Permissions: [
- *       {
- *         Principal: "STRING_VALUE", // required
- *         Actions: [ // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeDashboardPermissionsResponse
+ * //   DashboardId: "STRING_VALUE",
+ * //   DashboardArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   LinkSharingConfiguration: { // LinkSharingConfiguration
+ * //     Permissions: [
+ * //       {
+ * //         Principal: "STRING_VALUE", // required
+ * //         Actions: [ // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

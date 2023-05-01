@@ -57,23 +57,22 @@ export interface DescribeReservedNodeExchangeStatusCommandOutput
  * };
  * const command = new DescribeReservedNodeExchangeStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReservedNodeExchangeStatusOutputMessage
- *   ReservedNodeExchangeStatusDetails: [ // ReservedNodeExchangeStatusList
- *     { // ReservedNodeExchangeStatus
- *       ReservedNodeExchangeRequestId: "STRING_VALUE",
- *       Status: "REQUESTED" || "PENDING" || "IN_PROGRESS" || "RETRYING" || "SUCCEEDED" || "FAILED",
- *       RequestTime: new Date("TIMESTAMP"),
- *       SourceReservedNodeId: "STRING_VALUE",
- *       SourceReservedNodeType: "STRING_VALUE",
- *       SourceReservedNodeCount: Number("int"),
- *       TargetReservedNodeOfferingId: "STRING_VALUE",
- *       TargetReservedNodeType: "STRING_VALUE",
- *       TargetReservedNodeCount: Number("int"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeReservedNodeExchangeStatusOutputMessage
+ * //   ReservedNodeExchangeStatusDetails: [ // ReservedNodeExchangeStatusList
+ * //     { // ReservedNodeExchangeStatus
+ * //       ReservedNodeExchangeRequestId: "STRING_VALUE",
+ * //       Status: "REQUESTED" || "PENDING" || "IN_PROGRESS" || "RETRYING" || "SUCCEEDED" || "FAILED",
+ * //       RequestTime: new Date("TIMESTAMP"),
+ * //       SourceReservedNodeId: "STRING_VALUE",
+ * //       SourceReservedNodeType: "STRING_VALUE",
+ * //       SourceReservedNodeCount: Number("int"),
+ * //       TargetReservedNodeOfferingId: "STRING_VALUE",
+ * //       TargetReservedNodeType: "STRING_VALUE",
+ * //       TargetReservedNodeCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

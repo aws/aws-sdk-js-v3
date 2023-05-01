@@ -53,12 +53,11 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesForWebACLResponse
- *   ResourceArns: [ // ResourceArns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListResourcesForWebACLResponse
+ * //   ResourceArns: [ // ResourceArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

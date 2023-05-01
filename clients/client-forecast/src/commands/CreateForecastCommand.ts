@@ -98,10 +98,9 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * };
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateForecastResponse
- *   ForecastArn: "STRING_VALUE",
- * };
+ * // { // CreateForecastResponse
+ * //   ForecastArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

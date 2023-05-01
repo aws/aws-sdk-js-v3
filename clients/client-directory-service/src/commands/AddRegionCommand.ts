@@ -51,8 +51,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * };
  * const command = new AddRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

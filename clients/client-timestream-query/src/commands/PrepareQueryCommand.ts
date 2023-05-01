@@ -53,48 +53,47 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * };
  * const command = new PrepareQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PrepareQueryResponse
- *   QueryString: "STRING_VALUE", // required
- *   Columns: [ // SelectColumnList // required
- *     { // SelectColumn
- *       Name: "STRING_VALUE",
- *       Type: { // Type
- *         ScalarType: "STRING_VALUE",
- *         ArrayColumnInfo: { // ColumnInfo
- *           Name: "STRING_VALUE",
- *           Type: {
- *             ScalarType: "STRING_VALUE",
- *             ArrayColumnInfo: {
- *               Name: "STRING_VALUE",
- *               Type: "<Type>", // required
- *             },
- *             TimeSeriesMeasureValueColumnInfo: {
- *               Name: "STRING_VALUE",
- *               Type: "<Type>", // required
- *             },
- *             RowColumnInfo: [ // ColumnInfoList
- *               "<ColumnInfo>",
- *             ],
- *           },
- *         },
- *         TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
- *         RowColumnInfo: [
- *           "<ColumnInfo>",
- *         ],
- *       },
- *       DatabaseName: "STRING_VALUE",
- *       TableName: "STRING_VALUE",
- *       Aliased: true || false,
- *     },
- *   ],
- *   Parameters: [ // ParameterMappingList // required
- *     { // ParameterMapping
- *       Name: "STRING_VALUE", // required
- *       Type: "<Type>", // required
- *     },
- *   ],
- * };
+ * // { // PrepareQueryResponse
+ * //   QueryString: "STRING_VALUE", // required
+ * //   Columns: [ // SelectColumnList // required
+ * //     { // SelectColumn
+ * //       Name: "STRING_VALUE",
+ * //       Type: { // Type
+ * //         ScalarType: "STRING_VALUE",
+ * //         ArrayColumnInfo: { // ColumnInfo
+ * //           Name: "STRING_VALUE",
+ * //           Type: {
+ * //             ScalarType: "STRING_VALUE",
+ * //             ArrayColumnInfo: {
+ * //               Name: "STRING_VALUE",
+ * //               Type: "<Type>", // required
+ * //             },
+ * //             TimeSeriesMeasureValueColumnInfo: {
+ * //               Name: "STRING_VALUE",
+ * //               Type: "<Type>", // required
+ * //             },
+ * //             RowColumnInfo: [ // ColumnInfoList
+ * //               "<ColumnInfo>",
+ * //             ],
+ * //           },
+ * //         },
+ * //         TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
+ * //         RowColumnInfo: [
+ * //           "<ColumnInfo>",
+ * //         ],
+ * //       },
+ * //       DatabaseName: "STRING_VALUE",
+ * //       TableName: "STRING_VALUE",
+ * //       Aliased: true || false,
+ * //     },
+ * //   ],
+ * //   Parameters: [ // ParameterMappingList // required
+ * //     { // ParameterMapping
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "<Type>", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

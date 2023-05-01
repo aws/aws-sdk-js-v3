@@ -45,25 +45,24 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * };
  * const command = new GetEventCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEventResult
- *   event: { // Event
- *     eventId: "STRING_VALUE",
- *     eventTypeName: "STRING_VALUE",
- *     eventTimestamp: "STRING_VALUE",
- *     eventVariables: { // EventAttributeMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     currentLabel: "STRING_VALUE",
- *     labelTimestamp: "STRING_VALUE",
- *     entities: [ // listOfEntities
- *       { // Entity
- *         entityType: "STRING_VALUE", // required
- *         entityId: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetEventResult
+ * //   event: { // Event
+ * //     eventId: "STRING_VALUE",
+ * //     eventTypeName: "STRING_VALUE",
+ * //     eventTimestamp: "STRING_VALUE",
+ * //     eventVariables: { // EventAttributeMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     currentLabel: "STRING_VALUE",
+ * //     labelTimestamp: "STRING_VALUE",
+ * //     entities: [ // listOfEntities
+ * //       { // Entity
+ * //         entityType: "STRING_VALUE", // required
+ * //         entityId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

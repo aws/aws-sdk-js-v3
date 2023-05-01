@@ -48,8 +48,7 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * };
  * const command = new AssociateSkillGroupWithRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

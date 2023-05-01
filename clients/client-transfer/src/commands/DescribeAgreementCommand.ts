@@ -45,26 +45,25 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * };
  * const command = new DescribeAgreementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAgreementResponse
- *   Agreement: { // DescribedAgreement
- *     Arn: "STRING_VALUE", // required
- *     AgreementId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Status: "ACTIVE" || "INACTIVE",
- *     ServerId: "STRING_VALUE",
- *     LocalProfileId: "STRING_VALUE",
- *     PartnerProfileId: "STRING_VALUE",
- *     BaseDirectory: "STRING_VALUE",
- *     AccessRole: "STRING_VALUE",
- *     Tags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeAgreementResponse
+ * //   Agreement: { // DescribedAgreement
+ * //     Arn: "STRING_VALUE", // required
+ * //     AgreementId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     ServerId: "STRING_VALUE",
+ * //     LocalProfileId: "STRING_VALUE",
+ * //     PartnerProfileId: "STRING_VALUE",
+ * //     BaseDirectory: "STRING_VALUE",
+ * //     AccessRole: "STRING_VALUE",
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -81,10 +81,9 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestCertificateResponse
- *   CertificateArn: "STRING_VALUE",
- * };
+ * // { // RequestCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

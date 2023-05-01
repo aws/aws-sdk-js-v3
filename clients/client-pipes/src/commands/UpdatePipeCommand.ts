@@ -330,15 +330,14 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * };
  * const command = new UpdatePipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePipeResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE",
- *   CurrentState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdatePipeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DesiredState: "STRING_VALUE",
+ * //   CurrentState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

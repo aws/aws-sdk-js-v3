@@ -77,20 +77,19 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TaggedResourceListMessage
- *   TaggedResources: [ // TaggedResourceList
- *     { // TaggedResource
- *       Tag: { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *       ResourceName: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // TaggedResourceListMessage
+ * //   TaggedResources: [ // TaggedResourceList
+ * //     { // TaggedResource
+ * //       Tag: { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //       ResourceName: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

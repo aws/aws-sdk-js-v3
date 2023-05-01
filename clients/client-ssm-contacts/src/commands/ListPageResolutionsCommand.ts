@@ -49,17 +49,16 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * };
  * const command = new ListPageResolutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPageResolutionsResult
- *   NextToken: "STRING_VALUE",
- *   PageResolutions: [ // ResolutionList // required
- *     { // ResolutionContact
- *       ContactArn: "STRING_VALUE", // required
- *       Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
- *       StageIndex: Number("int"),
- *     },
- *   ],
- * };
+ * // { // ListPageResolutionsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   PageResolutions: [ // ResolutionList // required
+ * //     { // ResolutionContact
+ * //       ContactArn: "STRING_VALUE", // required
+ * //       Type: "PERSONAL" || "ESCALATION" || "ONCALL_SCHEDULE", // required
+ * //       StageIndex: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

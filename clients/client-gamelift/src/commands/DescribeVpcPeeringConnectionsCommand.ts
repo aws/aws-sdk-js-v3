@@ -61,23 +61,22 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * };
  * const command = new DescribeVpcPeeringConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcPeeringConnectionsOutput
- *   VpcPeeringConnections: [ // VpcPeeringConnectionList
- *     { // VpcPeeringConnection
- *       FleetId: "STRING_VALUE",
- *       FleetArn: "STRING_VALUE",
- *       IpV4CidrBlock: "STRING_VALUE",
- *       VpcPeeringConnectionId: "STRING_VALUE",
- *       Status: { // VpcPeeringConnectionStatus
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       PeerVpcId: "STRING_VALUE",
- *       GameLiftVpcId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeVpcPeeringConnectionsOutput
+ * //   VpcPeeringConnections: [ // VpcPeeringConnectionList
+ * //     { // VpcPeeringConnection
+ * //       FleetId: "STRING_VALUE",
+ * //       FleetArn: "STRING_VALUE",
+ * //       IpV4CidrBlock: "STRING_VALUE",
+ * //       VpcPeeringConnectionId: "STRING_VALUE",
+ * //       Status: { // VpcPeeringConnectionStatus
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       PeerVpcId: "STRING_VALUE",
+ * //       GameLiftVpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

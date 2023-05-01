@@ -63,10 +63,9 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDatasetResponse
- *   datasetId: "STRING_VALUE",
- * };
+ * // { // UpdateDatasetResponse
+ * //   datasetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

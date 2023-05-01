@@ -62,104 +62,103 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * };
  * const command = new ListSlotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSlotsResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   intentId: "STRING_VALUE",
- *   slotSummaries: [ // SlotSummaryList
- *     { // SlotSummary
- *       slotId: "STRING_VALUE",
- *       slotName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       slotConstraint: "Required" || "Optional",
- *       slotTypeId: "STRING_VALUE",
- *       valueElicitationPromptSpecification: { // PromptSpecification
- *         messageGroups: [ // MessageGroupsList // required
- *           { // MessageGroup
- *             message: { // Message
- *               plainTextMessage: { // PlainTextMessage
- *                 value: "STRING_VALUE", // required
- *               },
- *               customPayload: { // CustomPayload
- *                 value: "STRING_VALUE", // required
- *               },
- *               ssmlMessage: { // SSMLMessage
- *                 value: "STRING_VALUE", // required
- *               },
- *               imageResponseCard: { // ImageResponseCard
- *                 title: "STRING_VALUE", // required
- *                 subtitle: "STRING_VALUE",
- *                 imageUrl: "STRING_VALUE",
- *                 buttons: [ // ButtonsList
- *                   { // Button
- *                     text: "STRING_VALUE", // required
- *                     value: "STRING_VALUE", // required
- *                   },
- *                 ],
- *               },
- *             },
- *             variations: [ // MessageVariationsList
- *               {
- *                 plainTextMessage: {
- *                   value: "STRING_VALUE", // required
- *                 },
- *                 customPayload: {
- *                   value: "STRING_VALUE", // required
- *                 },
- *                 ssmlMessage: {
- *                   value: "STRING_VALUE", // required
- *                 },
- *                 imageResponseCard: {
- *                   title: "STRING_VALUE", // required
- *                   subtitle: "STRING_VALUE",
- *                   imageUrl: "STRING_VALUE",
- *                   buttons: [
- *                     {
- *                       text: "STRING_VALUE", // required
- *                       value: "STRING_VALUE", // required
- *                     },
- *                   ],
- *                 },
- *               },
- *             ],
- *           },
- *         ],
- *         maxRetries: Number("int"), // required
- *         allowInterrupt: true || false,
- *         messageSelectionStrategy: "Random" || "Ordered",
- *         promptAttemptsSpecification: { // PromptAttemptsSpecificationMap
- *           "<keys>": { // PromptAttemptSpecification
- *             allowInterrupt: true || false,
- *             allowedInputTypes: { // AllowedInputTypes
- *               allowAudioInput: true || false, // required
- *               allowDTMFInput: true || false, // required
- *             },
- *             audioAndDTMFInputSpecification: { // AudioAndDTMFInputSpecification
- *               startTimeoutMs: Number("int"), // required
- *               audioSpecification: { // AudioSpecification
- *                 maxLengthMs: Number("int"), // required
- *                 endTimeoutMs: Number("int"), // required
- *               },
- *               dtmfSpecification: { // DTMFSpecification
- *                 maxLength: Number("int"), // required
- *                 endTimeoutMs: Number("int"), // required
- *                 deletionCharacter: "STRING_VALUE", // required
- *                 endCharacter: "STRING_VALUE", // required
- *               },
- *             },
- *             textInputSpecification: { // TextInputSpecification
- *               startTimeoutMs: Number("int"), // required
- *             },
- *           },
- *         },
- *       },
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSlotsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   intentId: "STRING_VALUE",
+ * //   slotSummaries: [ // SlotSummaryList
+ * //     { // SlotSummary
+ * //       slotId: "STRING_VALUE",
+ * //       slotName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       slotConstraint: "Required" || "Optional",
+ * //       slotTypeId: "STRING_VALUE",
+ * //       valueElicitationPromptSpecification: { // PromptSpecification
+ * //         messageGroups: [ // MessageGroupsList // required
+ * //           { // MessageGroup
+ * //             message: { // Message
+ * //               plainTextMessage: { // PlainTextMessage
+ * //                 value: "STRING_VALUE", // required
+ * //               },
+ * //               customPayload: { // CustomPayload
+ * //                 value: "STRING_VALUE", // required
+ * //               },
+ * //               ssmlMessage: { // SSMLMessage
+ * //                 value: "STRING_VALUE", // required
+ * //               },
+ * //               imageResponseCard: { // ImageResponseCard
+ * //                 title: "STRING_VALUE", // required
+ * //                 subtitle: "STRING_VALUE",
+ * //                 imageUrl: "STRING_VALUE",
+ * //                 buttons: [ // ButtonsList
+ * //                   { // Button
+ * //                     text: "STRING_VALUE", // required
+ * //                     value: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //             variations: [ // MessageVariationsList
+ * //               {
+ * //                 plainTextMessage: {
+ * //                   value: "STRING_VALUE", // required
+ * //                 },
+ * //                 customPayload: {
+ * //                   value: "STRING_VALUE", // required
+ * //                 },
+ * //                 ssmlMessage: {
+ * //                   value: "STRING_VALUE", // required
+ * //                 },
+ * //                 imageResponseCard: {
+ * //                   title: "STRING_VALUE", // required
+ * //                   subtitle: "STRING_VALUE",
+ * //                   imageUrl: "STRING_VALUE",
+ * //                   buttons: [
+ * //                     {
+ * //                       text: "STRING_VALUE", // required
+ * //                       value: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         maxRetries: Number("int"), // required
+ * //         allowInterrupt: true || false,
+ * //         messageSelectionStrategy: "Random" || "Ordered",
+ * //         promptAttemptsSpecification: { // PromptAttemptsSpecificationMap
+ * //           "<keys>": { // PromptAttemptSpecification
+ * //             allowInterrupt: true || false,
+ * //             allowedInputTypes: { // AllowedInputTypes
+ * //               allowAudioInput: true || false, // required
+ * //               allowDTMFInput: true || false, // required
+ * //             },
+ * //             audioAndDTMFInputSpecification: { // AudioAndDTMFInputSpecification
+ * //               startTimeoutMs: Number("int"), // required
+ * //               audioSpecification: { // AudioSpecification
+ * //                 maxLengthMs: Number("int"), // required
+ * //                 endTimeoutMs: Number("int"), // required
+ * //               },
+ * //               dtmfSpecification: { // DTMFSpecification
+ * //                 maxLength: Number("int"), // required
+ * //                 endTimeoutMs: Number("int"), // required
+ * //                 deletionCharacter: "STRING_VALUE", // required
+ * //                 endCharacter: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             textInputSpecification: { // TextInputSpecification
+ * //               startTimeoutMs: Number("int"), // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

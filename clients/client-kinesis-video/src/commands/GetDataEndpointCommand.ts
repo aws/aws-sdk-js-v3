@@ -56,10 +56,9 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * };
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataEndpointOutput
- *   DataEndpoint: "STRING_VALUE",
- * };
+ * // { // GetDataEndpointOutput
+ * //   DataEndpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

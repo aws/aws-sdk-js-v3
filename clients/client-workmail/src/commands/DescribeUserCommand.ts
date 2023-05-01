@@ -45,17 +45,16 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * };
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserResponse
- *   UserId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Email: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   State: "ENABLED" || "DISABLED" || "DELETED",
- *   UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
- *   EnabledDate: new Date("TIMESTAMP"),
- *   DisabledDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeUserResponse
+ * //   UserId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Email: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "DELETED",
+ * //   UserRole: "USER" || "RESOURCE" || "SYSTEM_USER",
+ * //   EnabledDate: new Date("TIMESTAMP"),
+ * //   DisabledDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

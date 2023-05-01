@@ -48,17 +48,16 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * };
  * const command = new DescribeEngineVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEngineVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   EngineVersions: [ // EngineVersionInfoList
- *     { // EngineVersionInfo
- *       EngineVersion: "STRING_VALUE",
- *       EnginePatchVersion: "STRING_VALUE",
- *       ParameterGroupFamily: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeEngineVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   EngineVersions: [ // EngineVersionInfoList
+ * //     { // EngineVersionInfo
+ * //       EngineVersion: "STRING_VALUE",
+ * //       EnginePatchVersion: "STRING_VALUE",
+ * //       ParameterGroupFamily: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

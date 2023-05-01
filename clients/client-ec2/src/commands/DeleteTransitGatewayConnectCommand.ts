@@ -46,25 +46,24 @@ export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitG
  * };
  * const command = new DeleteTransitGatewayConnectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTransitGatewayConnectResult
- *   TransitGatewayConnect: { // TransitGatewayConnect
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     TransportTransitGatewayAttachmentId: "STRING_VALUE",
- *     TransitGatewayId: "STRING_VALUE",
- *     State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Options: { // TransitGatewayConnectOptions
- *       Protocol: "gre",
- *     },
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTransitGatewayConnectResult
+ * //   TransitGatewayConnect: { // TransitGatewayConnect
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     TransportTransitGatewayAttachmentId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Options: { // TransitGatewayConnectOptions
+ * //       Protocol: "gre",
+ * //     },
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

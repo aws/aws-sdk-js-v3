@@ -45,16 +45,15 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicesResponse
- *   NextToken: "STRING_VALUE",
- *   Services: [ // ServiceInfoListDefinition
- *     { // ServiceInfo
- *       ServiceCode: "STRING_VALUE",
- *       ServiceName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServicesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Services: [ // ServiceInfoListDefinition
+ * //     { // ServiceInfo
+ * //       ServiceCode: "STRING_VALUE",
+ * //       ServiceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

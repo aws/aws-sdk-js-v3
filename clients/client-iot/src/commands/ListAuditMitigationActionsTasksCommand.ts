@@ -56,17 +56,16 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  * };
  * const command = new ListAuditMitigationActionsTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAuditMitigationActionsTasksResponse
- *   tasks: [ // AuditMitigationActionsTaskMetadataList
- *     { // AuditMitigationActionsTaskMetadata
- *       taskId: "STRING_VALUE",
- *       startTime: new Date("TIMESTAMP"),
- *       taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAuditMitigationActionsTasksResponse
+ * //   tasks: [ // AuditMitigationActionsTaskMetadataList
+ * //     { // AuditMitigationActionsTaskMetadata
+ * //       taskId: "STRING_VALUE",
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       taskStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED" || "CANCELED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

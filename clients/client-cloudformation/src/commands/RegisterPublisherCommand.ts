@@ -51,10 +51,9 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * };
  * const command = new RegisterPublisherCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterPublisherOutput
- *   PublisherId: "STRING_VALUE",
- * };
+ * // { // RegisterPublisherOutput
+ * //   PublisherId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

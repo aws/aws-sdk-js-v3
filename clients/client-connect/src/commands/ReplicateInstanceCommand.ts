@@ -54,11 +54,10 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * };
  * const command = new ReplicateInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplicateInstanceResponse
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // ReplicateInstanceResponse
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

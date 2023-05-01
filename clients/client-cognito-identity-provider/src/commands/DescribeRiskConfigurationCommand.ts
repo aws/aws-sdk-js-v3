@@ -55,66 +55,65 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * };
  * const command = new DescribeRiskConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRiskConfigurationResponse
- *   RiskConfiguration: { // RiskConfigurationType
- *     UserPoolId: "STRING_VALUE",
- *     ClientId: "STRING_VALUE",
- *     CompromisedCredentialsRiskConfiguration: { // CompromisedCredentialsRiskConfigurationType
- *       EventFilter: [ // EventFiltersType
- *         "SIGN_IN" || "PASSWORD_CHANGE" || "SIGN_UP",
- *       ],
- *       Actions: { // CompromisedCredentialsActionsType
- *         EventAction: "BLOCK" || "NO_ACTION", // required
- *       },
- *     },
- *     AccountTakeoverRiskConfiguration: { // AccountTakeoverRiskConfigurationType
- *       NotifyConfiguration: { // NotifyConfigurationType
- *         From: "STRING_VALUE",
- *         ReplyTo: "STRING_VALUE",
- *         SourceArn: "STRING_VALUE", // required
- *         BlockEmail: { // NotifyEmailType
- *           Subject: "STRING_VALUE", // required
- *           HtmlBody: "STRING_VALUE",
- *           TextBody: "STRING_VALUE",
- *         },
- *         NoActionEmail: {
- *           Subject: "STRING_VALUE", // required
- *           HtmlBody: "STRING_VALUE",
- *           TextBody: "STRING_VALUE",
- *         },
- *         MfaEmail: {
- *           Subject: "STRING_VALUE", // required
- *           HtmlBody: "STRING_VALUE",
- *           TextBody: "STRING_VALUE",
- *         },
- *       },
- *       Actions: { // AccountTakeoverActionsType
- *         LowAction: { // AccountTakeoverActionType
- *           Notify: true || false, // required
- *           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
- *         },
- *         MediumAction: {
- *           Notify: true || false, // required
- *           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
- *         },
- *         HighAction: {
- *           Notify: true || false, // required
- *           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
- *         },
- *       },
- *     },
- *     RiskExceptionConfiguration: { // RiskExceptionConfigurationType
- *       BlockedIPRangeList: [ // BlockedIPRangeListType
- *         "STRING_VALUE",
- *       ],
- *       SkippedIPRangeList: [ // SkippedIPRangeListType
- *         "STRING_VALUE",
- *       ],
- *     },
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeRiskConfigurationResponse
+ * //   RiskConfiguration: { // RiskConfigurationType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     ClientId: "STRING_VALUE",
+ * //     CompromisedCredentialsRiskConfiguration: { // CompromisedCredentialsRiskConfigurationType
+ * //       EventFilter: [ // EventFiltersType
+ * //         "SIGN_IN" || "PASSWORD_CHANGE" || "SIGN_UP",
+ * //       ],
+ * //       Actions: { // CompromisedCredentialsActionsType
+ * //         EventAction: "BLOCK" || "NO_ACTION", // required
+ * //       },
+ * //     },
+ * //     AccountTakeoverRiskConfiguration: { // AccountTakeoverRiskConfigurationType
+ * //       NotifyConfiguration: { // NotifyConfigurationType
+ * //         From: "STRING_VALUE",
+ * //         ReplyTo: "STRING_VALUE",
+ * //         SourceArn: "STRING_VALUE", // required
+ * //         BlockEmail: { // NotifyEmailType
+ * //           Subject: "STRING_VALUE", // required
+ * //           HtmlBody: "STRING_VALUE",
+ * //           TextBody: "STRING_VALUE",
+ * //         },
+ * //         NoActionEmail: {
+ * //           Subject: "STRING_VALUE", // required
+ * //           HtmlBody: "STRING_VALUE",
+ * //           TextBody: "STRING_VALUE",
+ * //         },
+ * //         MfaEmail: {
+ * //           Subject: "STRING_VALUE", // required
+ * //           HtmlBody: "STRING_VALUE",
+ * //           TextBody: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Actions: { // AccountTakeoverActionsType
+ * //         LowAction: { // AccountTakeoverActionType
+ * //           Notify: true || false, // required
+ * //           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ * //         },
+ * //         MediumAction: {
+ * //           Notify: true || false, // required
+ * //           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ * //         },
+ * //         HighAction: {
+ * //           Notify: true || false, // required
+ * //           EventAction: "BLOCK" || "MFA_IF_CONFIGURED" || "MFA_REQUIRED" || "NO_ACTION", // required
+ * //         },
+ * //       },
+ * //     },
+ * //     RiskExceptionConfiguration: { // RiskExceptionConfigurationType
+ * //       BlockedIPRangeList: [ // BlockedIPRangeListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SkippedIPRangeList: [ // SkippedIPRangeListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

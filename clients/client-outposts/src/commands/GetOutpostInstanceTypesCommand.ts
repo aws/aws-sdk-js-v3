@@ -46,17 +46,16 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * };
  * const command = new GetOutpostInstanceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOutpostInstanceTypesOutput
- *   InstanceTypes: [ // InstanceTypeListDefinition
- *     { // InstanceTypeItem
- *       InstanceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   OutpostId: "STRING_VALUE",
- *   OutpostArn: "STRING_VALUE",
- * };
+ * // { // GetOutpostInstanceTypesOutput
+ * //   InstanceTypes: [ // InstanceTypeListDefinition
+ * //     { // InstanceTypeItem
+ * //       InstanceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   OutpostId: "STRING_VALUE",
+ * //   OutpostArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

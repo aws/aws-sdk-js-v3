@@ -51,8 +51,7 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * };
  * const command = new UpdateDataIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

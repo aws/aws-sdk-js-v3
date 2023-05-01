@@ -54,15 +54,14 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserProfileResult
- *   userArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   emailAddress: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
- *   createdTimestamp: new Date("TIMESTAMP"),
- *   lastModifiedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   sshPublicKey: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -45,18 +45,17 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * };
  * const command = new GetTrustStoreCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTrustStoreCertificateResponse
- *   trustStoreArn: "STRING_VALUE",
- *   certificate: { // Certificate
- *     thumbprint: "STRING_VALUE",
- *     subject: "STRING_VALUE",
- *     issuer: "STRING_VALUE",
- *     notValidBefore: new Date("TIMESTAMP"),
- *     notValidAfter: new Date("TIMESTAMP"),
- *     body: "BLOB_VALUE",
- *   },
- * };
+ * // { // GetTrustStoreCertificateResponse
+ * //   trustStoreArn: "STRING_VALUE",
+ * //   certificate: { // Certificate
+ * //     thumbprint: "STRING_VALUE",
+ * //     subject: "STRING_VALUE",
+ * //     issuer: "STRING_VALUE",
+ * //     notValidBefore: new Date("TIMESTAMP"),
+ * //     notValidAfter: new Date("TIMESTAMP"),
+ * //     body: "BLOB_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

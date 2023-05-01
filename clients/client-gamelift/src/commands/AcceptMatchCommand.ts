@@ -76,8 +76,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * };
  * const command = new AcceptMatchCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

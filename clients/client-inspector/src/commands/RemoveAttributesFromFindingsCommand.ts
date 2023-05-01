@@ -55,15 +55,14 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * };
  * const command = new RemoveAttributesFromFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveAttributesFromFindingsResponse
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // RemoveAttributesFromFindingsResponse
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

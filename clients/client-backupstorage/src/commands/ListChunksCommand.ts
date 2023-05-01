@@ -47,19 +47,18 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * };
  * const command = new ListChunksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChunksOutput
- *   ChunkList: [ // ChunkList // required
- *     { // Chunk
- *       Index: Number("long"), // required
- *       Length: Number("long"), // required
- *       Checksum: "STRING_VALUE", // required
- *       ChecksumAlgorithm: "STRING_VALUE", // required
- *       ChunkToken: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChunksOutput
+ * //   ChunkList: [ // ChunkList // required
+ * //     { // Chunk
+ * //       Index: Number("long"), // required
+ * //       Length: Number("long"), // required
+ * //       Checksum: "STRING_VALUE", // required
+ * //       ChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ChunkToken: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

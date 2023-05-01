@@ -802,16 +802,15 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRuleGroupResponse
- *   Summary: { // RuleGroupSummary
- *     Name: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LockToken: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRuleGroupResponse
+ * //   Summary: { // RuleGroupSummary
+ * //     Name: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LockToken: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,18 +52,17 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * };
  * const command = new ListDeviceFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceFleetsResponse
- *   DeviceFleetSummaries: [ // DeviceFleetSummaries // required
- *     { // DeviceFleetSummary
- *       DeviceFleetArn: "STRING_VALUE", // required
- *       DeviceFleetName: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDeviceFleetsResponse
+ * //   DeviceFleetSummaries: [ // DeviceFleetSummaries // required
+ * //     { // DeviceFleetSummary
+ * //       DeviceFleetArn: "STRING_VALUE", // required
+ * //       DeviceFleetName: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

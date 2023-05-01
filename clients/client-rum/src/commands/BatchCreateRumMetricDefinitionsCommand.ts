@@ -102,38 +102,37 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * };
  * const command = new BatchCreateRumMetricDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateRumMetricDefinitionsResponse
- *   Errors: [ // BatchCreateRumMetricDefinitionsErrors // required
- *     { // BatchCreateRumMetricDefinitionsError
- *       MetricDefinition: { // MetricDefinitionRequest
- *         Name: "STRING_VALUE", // required
- *         ValueKey: "STRING_VALUE",
- *         UnitLabel: "STRING_VALUE",
- *         DimensionKeys: { // DimensionKeysMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         EventPattern: "STRING_VALUE",
- *         Namespace: "STRING_VALUE",
- *       },
- *       ErrorCode: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- *   MetricDefinitions: [ // MetricDefinitions
- *     { // MetricDefinition
- *       MetricDefinitionId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       ValueKey: "STRING_VALUE",
- *       UnitLabel: "STRING_VALUE",
- *       DimensionKeys: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *       EventPattern: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateRumMetricDefinitionsResponse
+ * //   Errors: [ // BatchCreateRumMetricDefinitionsErrors // required
+ * //     { // BatchCreateRumMetricDefinitionsError
+ * //       MetricDefinition: { // MetricDefinitionRequest
+ * //         Name: "STRING_VALUE", // required
+ * //         ValueKey: "STRING_VALUE",
+ * //         UnitLabel: "STRING_VALUE",
+ * //         DimensionKeys: { // DimensionKeysMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         EventPattern: "STRING_VALUE",
+ * //         Namespace: "STRING_VALUE",
+ * //       },
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   MetricDefinitions: [ // MetricDefinitions
+ * //     { // MetricDefinition
+ * //       MetricDefinitionId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       ValueKey: "STRING_VALUE",
+ * //       UnitLabel: "STRING_VALUE",
+ * //       DimensionKeys: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       EventPattern: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

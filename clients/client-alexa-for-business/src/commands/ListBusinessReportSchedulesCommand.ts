@@ -47,35 +47,34 @@ export interface ListBusinessReportSchedulesCommandOutput
  * };
  * const command = new ListBusinessReportSchedulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBusinessReportSchedulesResponse
- *   BusinessReportSchedules: [ // BusinessReportScheduleList
- *     { // BusinessReportSchedule
- *       ScheduleArn: "STRING_VALUE",
- *       ScheduleName: "STRING_VALUE",
- *       S3BucketName: "STRING_VALUE",
- *       S3KeyPrefix: "STRING_VALUE",
- *       Format: "STRING_VALUE",
- *       ContentRange: { // BusinessReportContentRange
- *         Interval: "STRING_VALUE", // required
- *       },
- *       Recurrence: { // BusinessReportRecurrence
- *         StartDate: "STRING_VALUE",
- *       },
- *       LastBusinessReport: { // BusinessReport
- *         Status: "STRING_VALUE",
- *         FailureCode: "STRING_VALUE",
- *         S3Location: { // BusinessReportS3Location
- *           Path: "STRING_VALUE",
- *           BucketName: "STRING_VALUE",
- *         },
- *         DeliveryTime: new Date("TIMESTAMP"),
- *         DownloadUrl: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBusinessReportSchedulesResponse
+ * //   BusinessReportSchedules: [ // BusinessReportScheduleList
+ * //     { // BusinessReportSchedule
+ * //       ScheduleArn: "STRING_VALUE",
+ * //       ScheduleName: "STRING_VALUE",
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3KeyPrefix: "STRING_VALUE",
+ * //       Format: "STRING_VALUE",
+ * //       ContentRange: { // BusinessReportContentRange
+ * //         Interval: "STRING_VALUE", // required
+ * //       },
+ * //       Recurrence: { // BusinessReportRecurrence
+ * //         StartDate: "STRING_VALUE",
+ * //       },
+ * //       LastBusinessReport: { // BusinessReport
+ * //         Status: "STRING_VALUE",
+ * //         FailureCode: "STRING_VALUE",
+ * //         S3Location: { // BusinessReportS3Location
+ * //           Path: "STRING_VALUE",
+ * //           BucketName: "STRING_VALUE",
+ * //         },
+ * //         DeliveryTime: new Date("TIMESTAMP"),
+ * //         DownloadUrl: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

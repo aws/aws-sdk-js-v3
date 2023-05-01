@@ -64,12 +64,11 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  * };
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Configuration
- *   Content: "BLOB_VALUE",
- *   ConfigurationVersion: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
- * };
+ * // { // Configuration
+ * //   Content: "BLOB_VALUE",
+ * //   ConfigurationVersion: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

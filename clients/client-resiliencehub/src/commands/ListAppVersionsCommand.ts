@@ -46,15 +46,14 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * };
  * const command = new ListAppVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppVersionsResponse
- *   appVersions: [ // AppVersionList // required
- *     { // AppVersionSummary
- *       appVersion: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAppVersionsResponse
+ * //   appVersions: [ // AppVersionList // required
+ * //     { // AppVersionSummary
+ * //       appVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

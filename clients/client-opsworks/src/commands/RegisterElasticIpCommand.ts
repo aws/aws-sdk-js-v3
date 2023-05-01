@@ -52,10 +52,9 @@ export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult,
  * };
  * const command = new RegisterElasticIpCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterElasticIpResult
- *   ElasticIp: "STRING_VALUE",
- * };
+ * // { // RegisterElasticIpResult
+ * //   ElasticIp: "STRING_VALUE",
+ * // };
  *
  * ```
  *

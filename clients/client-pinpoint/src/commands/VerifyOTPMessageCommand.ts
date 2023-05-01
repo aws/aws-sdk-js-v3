@@ -49,12 +49,11 @@ export interface VerifyOTPMessageCommandOutput extends VerifyOTPMessageResponse,
  * };
  * const command = new VerifyOTPMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifyOTPMessageResponse
- *   VerificationResponse: { // VerificationResponse
- *     Valid: true || false,
- *   },
- * };
+ * // { // VerifyOTPMessageResponse
+ * //   VerificationResponse: { // VerificationResponse
+ * //     Valid: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

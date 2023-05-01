@@ -62,8 +62,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * };
  * const command = new CreateNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

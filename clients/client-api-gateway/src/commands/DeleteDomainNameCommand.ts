@@ -44,8 +44,7 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDomainNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

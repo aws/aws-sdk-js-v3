@@ -50,25 +50,24 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * };
  * const command = new ListDevicePositionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicePositionsResponse
- *   Entries: [ // ListDevicePositionsResponseEntryList // required
- *     { // ListDevicePositionsResponseEntry
- *       DeviceId: "STRING_VALUE", // required
- *       SampleTime: new Date("TIMESTAMP"), // required
- *       Position: [ // Position // required
- *         Number("double"),
- *       ],
- *       Accuracy: { // PositionalAccuracy
- *         Horizontal: Number("double"), // required
- *       },
- *       PositionProperties: { // PropertyMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDevicePositionsResponse
+ * //   Entries: [ // ListDevicePositionsResponseEntryList // required
+ * //     { // ListDevicePositionsResponseEntry
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       Position: [ // Position // required
+ * //         Number("double"),
+ * //       ],
+ * //       Accuracy: { // PositionalAccuracy
+ * //         Horizontal: Number("double"), // required
+ * //       },
+ * //       PositionProperties: { // PropertyMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

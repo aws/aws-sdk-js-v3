@@ -98,10 +98,9 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServerResponse
- *   ServerId: "STRING_VALUE", // required
- * };
+ * // { // UpdateServerResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

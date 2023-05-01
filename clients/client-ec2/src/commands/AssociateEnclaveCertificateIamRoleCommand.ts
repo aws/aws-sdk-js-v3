@@ -66,12 +66,11 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * };
  * const command = new AssociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateEnclaveCertificateIamRoleResult
- *   CertificateS3BucketName: "STRING_VALUE",
- *   CertificateS3ObjectKey: "STRING_VALUE",
- *   EncryptionKmsKeyId: "STRING_VALUE",
- * };
+ * // { // AssociateEnclaveCertificateIamRoleResult
+ * //   CertificateS3BucketName: "STRING_VALUE",
+ * //   CertificateS3ObjectKey: "STRING_VALUE",
+ * //   EncryptionKmsKeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

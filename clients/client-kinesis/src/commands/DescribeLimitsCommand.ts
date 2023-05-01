@@ -45,13 +45,12 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLimitsOutput
- *   ShardLimit: Number("int"), // required
- *   OpenShardCount: Number("int"), // required
- *   OnDemandStreamCount: Number("int"), // required
- *   OnDemandStreamCountLimit: Number("int"), // required
- * };
+ * // { // DescribeLimitsOutput
+ * //   ShardLimit: Number("int"), // required
+ * //   OpenShardCount: Number("int"), // required
+ * //   OnDemandStreamCount: Number("int"), // required
+ * //   OnDemandStreamCountLimit: Number("int"), // required
+ * // };
  *
  * ```
  *

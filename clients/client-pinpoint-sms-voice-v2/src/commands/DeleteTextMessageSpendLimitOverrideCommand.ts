@@ -58,10 +58,9 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * const input = {};
  * const command = new DeleteTextMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTextMessageSpendLimitOverrideResult
- *   MonthlyLimit: Number("long"),
- * };
+ * // { // DeleteTextMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
  *
  * ```
  *

@@ -61,8 +61,7 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * };
  * const command = new PutEventTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,116 +45,115 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * };
  * const command = new GetInAppMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInAppMessagesResponse
- *   InAppMessagesResponse: { // InAppMessagesResponse
- *     InAppMessageCampaigns: [ // ListOfInAppMessageCampaign
- *       { // InAppMessageCampaign
- *         CampaignId: "STRING_VALUE",
- *         DailyCap: Number("int"),
- *         InAppMessage: { // InAppMessage
- *           Content: [ // ListOfInAppMessageContent
- *             { // InAppMessageContent
- *               BackgroundColor: "STRING_VALUE",
- *               BodyConfig: { // InAppMessageBodyConfig
- *                 Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *                 Body: "STRING_VALUE", // required
- *                 TextColor: "STRING_VALUE", // required
- *               },
- *               HeaderConfig: { // InAppMessageHeaderConfig
- *                 Alignment: "LEFT" || "CENTER" || "RIGHT", // required
- *                 Header: "STRING_VALUE", // required
- *                 TextColor: "STRING_VALUE", // required
- *               },
- *               ImageUrl: "STRING_VALUE",
- *               PrimaryBtn: { // InAppMessageButton
- *                 Android: { // OverrideButtonConfiguration
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                 },
- *                 DefaultConfig: { // DefaultButtonConfiguration
- *                   BackgroundColor: "STRING_VALUE",
- *                   BorderRadius: Number("int"),
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                   Text: "STRING_VALUE", // required
- *                   TextColor: "STRING_VALUE",
- *                 },
- *                 IOS: {
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                 },
- *                 Web: {
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                 },
- *               },
- *               SecondaryBtn: {
- *                 Android: {
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                 },
- *                 DefaultConfig: {
- *                   BackgroundColor: "STRING_VALUE",
- *                   BorderRadius: Number("int"),
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                   Text: "STRING_VALUE", // required
- *                   TextColor: "STRING_VALUE",
- *                 },
- *                 IOS: {
- *                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
- *                   Link: "STRING_VALUE",
- *                 },
- *                 Web: "<OverrideButtonConfiguration>",
- *               },
- *             },
- *           ],
- *           CustomConfig: { // MapOf__string
- *             "<keys>": "STRING_VALUE",
- *           },
- *           Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
- *         },
- *         Priority: Number("int"),
- *         Schedule: { // InAppCampaignSchedule
- *           EndDate: "STRING_VALUE",
- *           EventFilter: { // CampaignEventFilter
- *             Dimensions: { // EventDimensions
- *               Attributes: { // MapOfAttributeDimension
- *                 "<keys>": { // AttributeDimension
- *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
- *                   Values: [ // ListOf__string // required
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *               },
- *               EventType: { // SetDimension
- *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE",
- *                 Values: [ // required
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *               Metrics: { // MapOfMetricDimension
- *                 "<keys>": { // MetricDimension
- *                   ComparisonOperator: "STRING_VALUE", // required
- *                   Value: Number("double"), // required
- *                 },
- *               },
- *             },
- *             FilterType: "SYSTEM" || "ENDPOINT", // required
- *           },
- *           QuietTime: { // QuietTime
- *             End: "STRING_VALUE",
- *             Start: "STRING_VALUE",
- *           },
- *         },
- *         SessionCap: Number("int"),
- *         TotalCap: Number("int"),
- *         TreatmentId: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetInAppMessagesResponse
+ * //   InAppMessagesResponse: { // InAppMessagesResponse
+ * //     InAppMessageCampaigns: [ // ListOfInAppMessageCampaign
+ * //       { // InAppMessageCampaign
+ * //         CampaignId: "STRING_VALUE",
+ * //         DailyCap: Number("int"),
+ * //         InAppMessage: { // InAppMessage
+ * //           Content: [ // ListOfInAppMessageContent
+ * //             { // InAppMessageContent
+ * //               BackgroundColor: "STRING_VALUE",
+ * //               BodyConfig: { // InAppMessageBodyConfig
+ * //                 Alignment: "LEFT" || "CENTER" || "RIGHT", // required
+ * //                 Body: "STRING_VALUE", // required
+ * //                 TextColor: "STRING_VALUE", // required
+ * //               },
+ * //               HeaderConfig: { // InAppMessageHeaderConfig
+ * //                 Alignment: "LEFT" || "CENTER" || "RIGHT", // required
+ * //                 Header: "STRING_VALUE", // required
+ * //                 TextColor: "STRING_VALUE", // required
+ * //               },
+ * //               ImageUrl: "STRING_VALUE",
+ * //               PrimaryBtn: { // InAppMessageButton
+ * //                 Android: { // OverrideButtonConfiguration
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                 },
+ * //                 DefaultConfig: { // DefaultButtonConfiguration
+ * //                   BackgroundColor: "STRING_VALUE",
+ * //                   BorderRadius: Number("int"),
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                   Text: "STRING_VALUE", // required
+ * //                   TextColor: "STRING_VALUE",
+ * //                 },
+ * //                 IOS: {
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                 },
+ * //                 Web: {
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               SecondaryBtn: {
+ * //                 Android: {
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                 },
+ * //                 DefaultConfig: {
+ * //                   BackgroundColor: "STRING_VALUE",
+ * //                   BorderRadius: Number("int"),
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                   Text: "STRING_VALUE", // required
+ * //                   TextColor: "STRING_VALUE",
+ * //                 },
+ * //                 IOS: {
+ * //                   ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
+ * //                   Link: "STRING_VALUE",
+ * //                 },
+ * //                 Web: "<OverrideButtonConfiguration>",
+ * //               },
+ * //             },
+ * //           ],
+ * //           CustomConfig: { // MapOf__string
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
+ * //         },
+ * //         Priority: Number("int"),
+ * //         Schedule: { // InAppCampaignSchedule
+ * //           EndDate: "STRING_VALUE",
+ * //           EventFilter: { // CampaignEventFilter
+ * //             Dimensions: { // EventDimensions
+ * //               Attributes: { // MapOfAttributeDimension
+ * //                 "<keys>": { // AttributeDimension
+ * //                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
+ * //                   Values: [ // ListOf__string // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               EventType: { // SetDimension
+ * //                 DimensionType: "INCLUSIVE" || "EXCLUSIVE",
+ * //                 Values: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               Metrics: { // MapOfMetricDimension
+ * //                 "<keys>": { // MetricDimension
+ * //                   ComparisonOperator: "STRING_VALUE", // required
+ * //                   Value: Number("double"), // required
+ * //                 },
+ * //               },
+ * //             },
+ * //             FilterType: "SYSTEM" || "ENDPOINT", // required
+ * //           },
+ * //           QuietTime: { // QuietTime
+ * //             End: "STRING_VALUE",
+ * //             Start: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         SessionCap: Number("int"),
+ * //         TotalCap: Number("int"),
+ * //         TreatmentId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

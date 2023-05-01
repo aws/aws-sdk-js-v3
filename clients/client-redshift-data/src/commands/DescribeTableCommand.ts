@@ -90,28 +90,27 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * };
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTableResponse
- *   TableName: "STRING_VALUE",
- *   ColumnList: [ // ColumnList
- *     { // ColumnMetadata
- *       isCaseSensitive: true || false,
- *       isCurrency: true || false,
- *       isSigned: true || false,
- *       label: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       nullable: Number("int"),
- *       precision: Number("int"),
- *       scale: Number("int"),
- *       schemaName: "STRING_VALUE",
- *       tableName: "STRING_VALUE",
- *       typeName: "STRING_VALUE",
- *       length: Number("int"),
- *       columnDefault: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTableResponse
+ * //   TableName: "STRING_VALUE",
+ * //   ColumnList: [ // ColumnList
+ * //     { // ColumnMetadata
+ * //       isCaseSensitive: true || false,
+ * //       isCurrency: true || false,
+ * //       isSigned: true || false,
+ * //       label: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       nullable: Number("int"),
+ * //       precision: Number("int"),
+ * //       scale: Number("int"),
+ * //       schemaName: "STRING_VALUE",
+ * //       tableName: "STRING_VALUE",
+ * //       typeName: "STRING_VALUE",
+ * //       length: Number("int"),
+ * //       columnDefault: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

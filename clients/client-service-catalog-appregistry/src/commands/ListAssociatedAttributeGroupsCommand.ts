@@ -55,13 +55,12 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  * };
  * const command = new ListAssociatedAttributeGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedAttributeGroupsResponse
- *   attributeGroups: [ // AttributeGroupIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedAttributeGroupsResponse
+ * //   attributeGroups: [ // AttributeGroupIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

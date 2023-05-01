@@ -51,16 +51,15 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * };
  * const command = new RenderUiTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RenderUiTemplateResponse
- *   RenderedContent: "STRING_VALUE", // required
- *   Errors: [ // RenderingErrorList // required
- *     { // RenderingError
- *       Code: "STRING_VALUE", // required
- *       Message: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // RenderUiTemplateResponse
+ * //   RenderedContent: "STRING_VALUE", // required
+ * //   Errors: [ // RenderingErrorList // required
+ * //     { // RenderingError
+ * //       Code: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

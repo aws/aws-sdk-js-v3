@@ -45,13 +45,12 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * };
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTokenResponse
- *   AppId: "STRING_VALUE",
- *   ChallengeCode: "STRING_VALUE",
- *   SessionId: "STRING_VALUE",
- *   Ttl: "STRING_VALUE",
- * };
+ * // { // GetTokenResponse
+ * //   AppId: "STRING_VALUE",
+ * //   ChallengeCode: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   Ttl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

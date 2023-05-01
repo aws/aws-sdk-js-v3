@@ -47,22 +47,21 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PreviewAgentsResponse
- *   agentPreviews: [ // AgentPreviewList // required
- *     { // AgentPreview
- *       hostname: "STRING_VALUE",
- *       agentId: "STRING_VALUE", // required
- *       autoScalingGroup: "STRING_VALUE",
- *       agentHealth: "STRING_VALUE",
- *       agentVersion: "STRING_VALUE",
- *       operatingSystem: "STRING_VALUE",
- *       kernelVersion: "STRING_VALUE",
- *       ipv4Address: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // PreviewAgentsResponse
+ * //   agentPreviews: [ // AgentPreviewList // required
+ * //     { // AgentPreview
+ * //       hostname: "STRING_VALUE",
+ * //       agentId: "STRING_VALUE", // required
+ * //       autoScalingGroup: "STRING_VALUE",
+ * //       agentHealth: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
+ * //       operatingSystem: "STRING_VALUE",
+ * //       kernelVersion: "STRING_VALUE",
+ * //       ipv4Address: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

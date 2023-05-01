@@ -277,10 +277,9 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * };
  * const command = new UpdateConnectorProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectorProfileResponse
- *   connectorProfileArn: "STRING_VALUE",
- * };
+ * // { // UpdateConnectorProfileResponse
+ * //   connectorProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,10 +45,9 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * };
  * const command = new GetResourcePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourcePermissionOutput
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -69,21 +69,20 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventsResponse
- *   Marker: "STRING_VALUE",
- *   Events: [ // EventList
- *     { // Event
- *       SourceIdentifier: "STRING_VALUE",
- *       SourceType: "replication-instance",
- *       Message: "STRING_VALUE",
- *       EventCategories: [ // EventCategoriesList
- *         "STRING_VALUE",
- *       ],
- *       Date: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeEventsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Events: [ // EventList
+ * //     { // Event
+ * //       SourceIdentifier: "STRING_VALUE",
+ * //       SourceType: "replication-instance",
+ * //       Message: "STRING_VALUE",
+ * //       EventCategories: [ // EventCategoriesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Date: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

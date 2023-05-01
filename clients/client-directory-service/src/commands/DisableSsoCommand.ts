@@ -46,8 +46,7 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * };
  * const command = new DisableSsoCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

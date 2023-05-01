@@ -49,19 +49,18 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * };
  * const command = new ListFindingsReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFindingsReportsResponse
- *   findingsReportSummaries: [ // FindingsReportSummaries // required
- *     { // FindingsReportSummary
- *       id: "STRING_VALUE",
- *       profilingGroupName: "STRING_VALUE",
- *       profileStartTime: new Date("TIMESTAMP"),
- *       profileEndTime: new Date("TIMESTAMP"),
- *       totalNumberOfFindings: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFindingsReportsResponse
+ * //   findingsReportSummaries: [ // FindingsReportSummaries // required
+ * //     { // FindingsReportSummary
+ * //       id: "STRING_VALUE",
+ * //       profilingGroupName: "STRING_VALUE",
+ * //       profileStartTime: new Date("TIMESTAMP"),
+ * //       profileEndTime: new Date("TIMESTAMP"),
+ * //       totalNumberOfFindings: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

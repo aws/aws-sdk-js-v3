@@ -46,33 +46,32 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * };
  * const command = new DescribeUserGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserGroupsResult
- *   UserGroups: [ // UserGroupList
- *     { // UserGroup
- *       UserGroupId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Engine: "STRING_VALUE",
- *       UserIds: [ // UserIdList
- *         "STRING_VALUE",
- *       ],
- *       MinimumEngineVersion: "STRING_VALUE",
- *       PendingChanges: { // UserGroupPendingChanges
- *         UserIdsToRemove: [
- *           "STRING_VALUE",
- *         ],
- *         UserIdsToAdd: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       ReplicationGroups: [ // UGReplicationGroupIdList
- *         "STRING_VALUE",
- *       ],
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeUserGroupsResult
+ * //   UserGroups: [ // UserGroupList
+ * //     { // UserGroup
+ * //       UserGroupId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       UserIds: [ // UserIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       PendingChanges: { // UserGroupPendingChanges
+ * //         UserIdsToRemove: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         UserIdsToAdd: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ReplicationGroups: [ // UGReplicationGroupIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

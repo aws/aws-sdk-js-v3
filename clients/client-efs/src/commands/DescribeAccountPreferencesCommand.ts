@@ -46,16 +46,15 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * };
  * const command = new DescribeAccountPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountPreferencesResponse
- *   ResourceIdPreference: { // ResourceIdPreference
- *     ResourceIdType: "LONG_ID" || "SHORT_ID",
- *     Resources: [ // Resources
- *       "FILE_SYSTEM" || "MOUNT_TARGET",
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAccountPreferencesResponse
+ * //   ResourceIdPreference: { // ResourceIdPreference
+ * //     ResourceIdType: "LONG_ID" || "SHORT_ID",
+ * //     Resources: [ // Resources
+ * //       "FILE_SYSTEM" || "MOUNT_TARGET",
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

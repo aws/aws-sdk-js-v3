@@ -57,20 +57,19 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * };
  * const command = new ListBotVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotVersionsResponse
- *   botId: "STRING_VALUE",
- *   botVersionSummaries: [ // BotVersionSummaryList
- *     { // BotVersionSummary
- *       botName: "STRING_VALUE",
- *       botVersion: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- *       creationDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBotVersionsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersionSummaries: [ // BotVersionSummaryList
+ * //     { // BotVersionSummary
+ * //       botName: "STRING_VALUE",
+ * //       botVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

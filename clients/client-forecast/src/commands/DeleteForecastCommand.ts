@@ -48,8 +48,7 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

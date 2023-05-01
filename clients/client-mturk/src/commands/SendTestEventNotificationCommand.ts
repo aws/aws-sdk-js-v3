@@ -58,8 +58,7 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * };
  * const command = new SendTestEventNotificationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

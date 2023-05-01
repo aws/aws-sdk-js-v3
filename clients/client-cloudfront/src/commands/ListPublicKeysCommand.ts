@@ -45,23 +45,22 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPublicKeysResult
- *   PublicKeyList: { // PublicKeyList
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     Quantity: Number("int"), // required
- *     Items: [ // PublicKeySummaryList
- *       { // PublicKeySummary
- *         Id: "STRING_VALUE", // required
- *         Name: "STRING_VALUE", // required
- *         CreatedTime: new Date("TIMESTAMP"), // required
- *         EncodedKey: "STRING_VALUE", // required
- *         Comment: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ListPublicKeysResult
+ * //   PublicKeyList: { // PublicKeyList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // PublicKeySummaryList
+ * //       { // PublicKeySummary
+ * //         Id: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE", // required
+ * //         CreatedTime: new Date("TIMESTAMP"), // required
+ * //         EncodedKey: "STRING_VALUE", // required
+ * //         Comment: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

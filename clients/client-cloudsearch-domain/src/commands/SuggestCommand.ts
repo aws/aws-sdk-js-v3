@@ -53,24 +53,23 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * };
  * const command = new SuggestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SuggestResponse
- *   status: { // SuggestStatus
- *     timems: Number("long"),
- *     rid: "STRING_VALUE",
- *   },
- *   suggest: { // SuggestModel
- *     query: "STRING_VALUE",
- *     found: Number("long"),
- *     suggestions: [ // Suggestions
- *       { // SuggestionMatch
- *         suggestion: "STRING_VALUE",
- *         score: Number("long"),
- *         id: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // SuggestResponse
+ * //   status: { // SuggestStatus
+ * //     timems: Number("long"),
+ * //     rid: "STRING_VALUE",
+ * //   },
+ * //   suggest: { // SuggestModel
+ * //     query: "STRING_VALUE",
+ * //     found: Number("long"),
+ * //     suggestions: [ // Suggestions
+ * //       { // SuggestionMatch
+ * //         suggestion: "STRING_VALUE",
+ * //         score: Number("long"),
+ * //         id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

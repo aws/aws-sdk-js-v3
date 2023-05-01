@@ -48,12 +48,11 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * };
  * const command = new DownloadDBLogFilePortionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DownloadDBLogFilePortionDetails
- *   LogFileData: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   AdditionalDataPending: true || false,
- * };
+ * // { // DownloadDBLogFilePortionDetails
+ * //   LogFileData: "STRING_VALUE",
+ * //   Marker: "STRING_VALUE",
+ * //   AdditionalDataPending: true || false,
+ * // };
  *
  * ```
  *

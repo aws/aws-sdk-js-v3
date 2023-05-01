@@ -54,19 +54,18 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * };
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionsResponse
- *   nextToken: "STRING_VALUE",
- *   permissions: [ // PermissionEntryList // required
- *     { // PermissionEntry
- *       user: { // User
- *         id: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *       },
- *       role: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListPermissionsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   permissions: [ // PermissionEntryList // required
+ * //     { // PermissionEntry
+ * //       user: { // User
+ * //         id: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //       role: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

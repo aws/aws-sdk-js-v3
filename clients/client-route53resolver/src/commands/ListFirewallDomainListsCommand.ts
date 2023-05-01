@@ -46,19 +46,18 @@ export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomain
  * };
  * const command = new ListFirewallDomainListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFirewallDomainListsResponse
- *   NextToken: "STRING_VALUE",
- *   FirewallDomainLists: [ // FirewallDomainListMetadataList
- *     { // FirewallDomainListMetadata
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       CreatorRequestId: "STRING_VALUE",
- *       ManagedOwnerName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFirewallDomainListsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FirewallDomainLists: [ // FirewallDomainListMetadataList
+ * //     { // FirewallDomainListMetadata
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       ManagedOwnerName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

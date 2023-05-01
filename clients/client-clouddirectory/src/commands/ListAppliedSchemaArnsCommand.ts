@@ -47,13 +47,12 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * };
  * const command = new ListAppliedSchemaArnsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAppliedSchemaArnsResponse
- *   SchemaArns: [ // Arns
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAppliedSchemaArnsResponse
+ * //   SchemaArns: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -78,8 +78,7 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * };
  * const command = new UpdateAppMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

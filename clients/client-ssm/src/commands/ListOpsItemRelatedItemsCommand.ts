@@ -56,27 +56,26 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * };
  * const command = new ListOpsItemRelatedItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOpsItemRelatedItemsResponse
- *   NextToken: "STRING_VALUE",
- *   Summaries: [ // OpsItemRelatedItemSummaries
- *     { // OpsItemRelatedItemSummary
- *       OpsItemId: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       AssociationType: "STRING_VALUE",
- *       ResourceUri: "STRING_VALUE",
- *       CreatedBy: { // OpsItemIdentity
- *         Arn: "STRING_VALUE",
- *       },
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastModifiedBy: {
- *         Arn: "STRING_VALUE",
- *       },
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListOpsItemRelatedItemsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Summaries: [ // OpsItemRelatedItemSummaries
+ * //     { // OpsItemRelatedItemSummary
+ * //       OpsItemId: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       AssociationType: "STRING_VALUE",
+ * //       ResourceUri: "STRING_VALUE",
+ * //       CreatedBy: { // OpsItemIdentity
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: {
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * };
  * const command = new DeleteGatewayGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

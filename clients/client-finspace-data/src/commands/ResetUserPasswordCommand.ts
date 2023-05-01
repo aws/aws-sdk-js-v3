@@ -49,11 +49,10 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetUserPasswordResponse
- *   userId: "STRING_VALUE",
- *   temporaryPassword: "STRING_VALUE",
- * };
+ * // { // ResetUserPasswordResponse
+ * //   userId: "STRING_VALUE",
+ * //   temporaryPassword: "STRING_VALUE",
+ * // };
  *
  * ```
  *

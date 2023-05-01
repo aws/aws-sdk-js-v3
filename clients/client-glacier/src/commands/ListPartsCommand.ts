@@ -69,21 +69,20 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPartsOutput
- *   MultipartUploadId: "STRING_VALUE",
- *   VaultARN: "STRING_VALUE",
- *   ArchiveDescription: "STRING_VALUE",
- *   PartSizeInBytes: Number("long"),
- *   CreationDate: "STRING_VALUE",
- *   Parts: [ // PartList
- *     { // PartListElement
- *       RangeInBytes: "STRING_VALUE",
- *       SHA256TreeHash: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListPartsOutput
+ * //   MultipartUploadId: "STRING_VALUE",
+ * //   VaultARN: "STRING_VALUE",
+ * //   ArchiveDescription: "STRING_VALUE",
+ * //   PartSizeInBytes: Number("long"),
+ * //   CreationDate: "STRING_VALUE",
+ * //   Parts: [ // PartList
+ * //     { // PartListElement
+ * //       RangeInBytes: "STRING_VALUE",
+ * //       SHA256TreeHash: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

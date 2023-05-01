@@ -46,10 +46,9 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * };
  * const command = new StartBlueprintRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartBlueprintRunResponse
- *   RunId: "STRING_VALUE",
- * };
+ * // { // StartBlueprintRunResponse
+ * //   RunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

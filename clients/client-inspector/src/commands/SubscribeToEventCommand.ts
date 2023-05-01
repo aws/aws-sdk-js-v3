@@ -47,8 +47,7 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SubscribeToEventCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

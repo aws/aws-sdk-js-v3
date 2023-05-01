@@ -45,22 +45,21 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * };
  * const command = new ListPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPoliciesResponse
- *   PolicyList: [ // PolicySummaryList
- *     { // PolicySummary
- *       PolicyArn: "STRING_VALUE",
- *       PolicyId: "STRING_VALUE",
- *       PolicyName: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       SecurityServiceType: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
- *       RemediationEnabled: true || false,
- *       DeleteUnusedFMManagedResources: true || false,
- *       PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPoliciesResponse
+ * //   PolicyList: [ // PolicySummaryList
+ * //     { // PolicySummary
+ * //       PolicyArn: "STRING_VALUE",
+ * //       PolicyId: "STRING_VALUE",
+ * //       PolicyName: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       SecurityServiceType: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ * //       RemediationEnabled: true || false,
+ * //       DeleteUnusedFMManagedResources: true || false,
+ * //       PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

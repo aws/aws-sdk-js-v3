@@ -51,10 +51,9 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * };
  * const command = new DeleteViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteViewOutput
- *   ViewArn: "STRING_VALUE",
- * };
+ * // { // DeleteViewOutput
+ * //   ViewArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

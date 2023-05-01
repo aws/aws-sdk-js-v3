@@ -58,30 +58,29 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * };
  * const command = new ListUnsupportedAppVersionResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUnsupportedAppVersionResourcesResponse
- *   unsupportedResources: [ // UnsupportedResourceList // required
- *     { // UnsupportedResource
- *       logicalResourceId: { // LogicalResourceId
- *         identifier: "STRING_VALUE", // required
- *         logicalStackName: "STRING_VALUE",
- *         resourceGroupName: "STRING_VALUE",
- *         terraformSourceName: "STRING_VALUE",
- *         eksSourceName: "STRING_VALUE",
- *       },
- *       physicalResourceId: { // PhysicalResourceId
- *         identifier: "STRING_VALUE", // required
- *         type: "STRING_VALUE", // required
- *         awsRegion: "STRING_VALUE",
- *         awsAccountId: "STRING_VALUE",
- *       },
- *       resourceType: "STRING_VALUE", // required
- *       unsupportedResourceStatus: "STRING_VALUE",
- *     },
- *   ],
- *   resolutionId: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUnsupportedAppVersionResourcesResponse
+ * //   unsupportedResources: [ // UnsupportedResourceList // required
+ * //     { // UnsupportedResource
+ * //       logicalResourceId: { // LogicalResourceId
+ * //         identifier: "STRING_VALUE", // required
+ * //         logicalStackName: "STRING_VALUE",
+ * //         resourceGroupName: "STRING_VALUE",
+ * //         terraformSourceName: "STRING_VALUE",
+ * //         eksSourceName: "STRING_VALUE",
+ * //       },
+ * //       physicalResourceId: { // PhysicalResourceId
+ * //         identifier: "STRING_VALUE", // required
+ * //         type: "STRING_VALUE", // required
+ * //         awsRegion: "STRING_VALUE",
+ * //         awsAccountId: "STRING_VALUE",
+ * //       },
+ * //       resourceType: "STRING_VALUE", // required
+ * //       unsupportedResourceStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   resolutionId: "STRING_VALUE", // required
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

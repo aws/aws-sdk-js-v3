@@ -53,8 +53,7 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * };
  * const command = new DetachTrafficSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

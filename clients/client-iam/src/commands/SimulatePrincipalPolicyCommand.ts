@@ -103,73 +103,72 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * };
  * const command = new SimulatePrincipalPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SimulatePolicyResponse
- *   EvaluationResults: [ // EvaluationResultsListType
- *     { // EvaluationResult
- *       EvalActionName: "STRING_VALUE", // required
- *       EvalResourceName: "STRING_VALUE",
- *       EvalDecision: "allowed" || "explicitDeny" || "implicitDeny", // required
- *       MatchedStatements: [ // StatementListType
- *         { // Statement
- *           SourcePolicyId: "STRING_VALUE",
- *           SourcePolicyType: "user" || "group" || "role" || "aws-managed" || "user-managed" || "resource" || "none",
- *           StartPosition: { // Position
- *             Line: Number("int"),
- *             Column: Number("int"),
- *           },
- *           EndPosition: {
- *             Line: Number("int"),
- *             Column: Number("int"),
- *           },
- *         },
- *       ],
- *       MissingContextValues: [ // ContextKeyNamesResultListType
- *         "STRING_VALUE",
- *       ],
- *       OrganizationsDecisionDetail: { // OrganizationsDecisionDetail
- *         AllowedByOrganizations: true || false,
- *       },
- *       PermissionsBoundaryDecisionDetail: { // PermissionsBoundaryDecisionDetail
- *         AllowedByPermissionsBoundary: true || false,
- *       },
- *       EvalDecisionDetails: { // EvalDecisionDetailsType
- *         "<keys>": "allowed" || "explicitDeny" || "implicitDeny",
- *       },
- *       ResourceSpecificResults: [ // ResourceSpecificResultListType
- *         { // ResourceSpecificResult
- *           EvalResourceName: "STRING_VALUE", // required
- *           EvalResourceDecision: "allowed" || "explicitDeny" || "implicitDeny", // required
- *           MatchedStatements: [
- *             {
- *               SourcePolicyId: "STRING_VALUE",
- *               SourcePolicyType: "user" || "group" || "role" || "aws-managed" || "user-managed" || "resource" || "none",
- *               StartPosition: {
- *                 Line: Number("int"),
- *                 Column: Number("int"),
- *               },
- *               EndPosition: {
- *                 Line: Number("int"),
- *                 Column: Number("int"),
- *               },
- *             },
- *           ],
- *           MissingContextValues: [
- *             "STRING_VALUE",
- *           ],
- *           EvalDecisionDetails: {
- *             "<keys>": "allowed" || "explicitDeny" || "implicitDeny",
- *           },
- *           PermissionsBoundaryDecisionDetail: {
- *             AllowedByPermissionsBoundary: true || false,
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // SimulatePolicyResponse
+ * //   EvaluationResults: [ // EvaluationResultsListType
+ * //     { // EvaluationResult
+ * //       EvalActionName: "STRING_VALUE", // required
+ * //       EvalResourceName: "STRING_VALUE",
+ * //       EvalDecision: "allowed" || "explicitDeny" || "implicitDeny", // required
+ * //       MatchedStatements: [ // StatementListType
+ * //         { // Statement
+ * //           SourcePolicyId: "STRING_VALUE",
+ * //           SourcePolicyType: "user" || "group" || "role" || "aws-managed" || "user-managed" || "resource" || "none",
+ * //           StartPosition: { // Position
+ * //             Line: Number("int"),
+ * //             Column: Number("int"),
+ * //           },
+ * //           EndPosition: {
+ * //             Line: Number("int"),
+ * //             Column: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
+ * //       MissingContextValues: [ // ContextKeyNamesResultListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       OrganizationsDecisionDetail: { // OrganizationsDecisionDetail
+ * //         AllowedByOrganizations: true || false,
+ * //       },
+ * //       PermissionsBoundaryDecisionDetail: { // PermissionsBoundaryDecisionDetail
+ * //         AllowedByPermissionsBoundary: true || false,
+ * //       },
+ * //       EvalDecisionDetails: { // EvalDecisionDetailsType
+ * //         "<keys>": "allowed" || "explicitDeny" || "implicitDeny",
+ * //       },
+ * //       ResourceSpecificResults: [ // ResourceSpecificResultListType
+ * //         { // ResourceSpecificResult
+ * //           EvalResourceName: "STRING_VALUE", // required
+ * //           EvalResourceDecision: "allowed" || "explicitDeny" || "implicitDeny", // required
+ * //           MatchedStatements: [
+ * //             {
+ * //               SourcePolicyId: "STRING_VALUE",
+ * //               SourcePolicyType: "user" || "group" || "role" || "aws-managed" || "user-managed" || "resource" || "none",
+ * //               StartPosition: {
+ * //                 Line: Number("int"),
+ * //                 Column: Number("int"),
+ * //               },
+ * //               EndPosition: {
+ * //                 Line: Number("int"),
+ * //                 Column: Number("int"),
+ * //               },
+ * //             },
+ * //           ],
+ * //           MissingContextValues: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           EvalDecisionDetails: {
+ * //             "<keys>": "allowed" || "explicitDeny" || "implicitDeny",
+ * //           },
+ * //           PermissionsBoundaryDecisionDetail: {
+ * //             AllowedByPermissionsBoundary: true || false,
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

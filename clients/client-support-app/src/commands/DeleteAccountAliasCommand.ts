@@ -43,8 +43,7 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * const input = {};
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,15 +48,14 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * };
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceMethodsResponse
- *   DeviceMethods: [ // __listOfDeviceMethod
- *     { // DeviceMethod
- *       DeviceType: "STRING_VALUE",
- *       MethodName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetDeviceMethodsResponse
+ * //   DeviceMethods: [ // __listOfDeviceMethod
+ * //     { // DeviceMethod
+ * //       DeviceType: "STRING_VALUE",
+ * //       MethodName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

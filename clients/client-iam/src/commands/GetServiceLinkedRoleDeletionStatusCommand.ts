@@ -56,21 +56,20 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  * };
  * const command = new GetServiceLinkedRoleDeletionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceLinkedRoleDeletionStatusResponse
- *   Status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "NOT_STARTED", // required
- *   Reason: { // DeletionTaskFailureReasonType
- *     Reason: "STRING_VALUE",
- *     RoleUsageList: [ // RoleUsageListType
- *       { // RoleUsageType
- *         Region: "STRING_VALUE",
- *         Resources: [ // ArnListType
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // GetServiceLinkedRoleDeletionStatusResponse
+ * //   Status: "SUCCEEDED" || "IN_PROGRESS" || "FAILED" || "NOT_STARTED", // required
+ * //   Reason: { // DeletionTaskFailureReasonType
+ * //     Reason: "STRING_VALUE",
+ * //     RoleUsageList: [ // RoleUsageListType
+ * //       { // RoleUsageType
+ * //         Region: "STRING_VALUE",
+ * //         Resources: [ // ArnListType
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

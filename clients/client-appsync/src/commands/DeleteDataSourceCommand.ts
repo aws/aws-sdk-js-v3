@@ -45,8 +45,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

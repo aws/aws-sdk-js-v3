@@ -74,11 +74,10 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * };
  * const command = new MergeBranchesByThreeWayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergeBranchesByThreeWayOutput
- *   commitId: "STRING_VALUE",
- *   treeId: "STRING_VALUE",
- * };
+ * // { // MergeBranchesByThreeWayOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

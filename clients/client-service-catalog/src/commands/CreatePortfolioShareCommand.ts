@@ -70,10 +70,9 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * };
  * const command = new CreatePortfolioShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePortfolioShareOutput
- *   PortfolioShareToken: "STRING_VALUE",
- * };
+ * // { // CreatePortfolioShareOutput
+ * //   PortfolioShareToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

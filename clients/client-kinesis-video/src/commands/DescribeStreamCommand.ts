@@ -46,20 +46,19 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStreamOutput
- *   StreamInfo: { // StreamInfo
- *     DeviceName: "STRING_VALUE",
- *     StreamName: "STRING_VALUE",
- *     StreamARN: "STRING_VALUE",
- *     MediaType: "STRING_VALUE",
- *     KmsKeyId: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
- *     CreationTime: new Date("TIMESTAMP"),
- *     DataRetentionInHours: Number("int"),
- *   },
- * };
+ * // { // DescribeStreamOutput
+ * //   StreamInfo: { // StreamInfo
+ * //     DeviceName: "STRING_VALUE",
+ * //     StreamName: "STRING_VALUE",
+ * //     StreamARN: "STRING_VALUE",
+ * //     MediaType: "STRING_VALUE",
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     DataRetentionInHours: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

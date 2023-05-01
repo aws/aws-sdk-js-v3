@@ -45,27 +45,26 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsResult
- *   projects: [ // Projects
- *     { // Project
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       defaultJobTimeoutMinutes: Number("int"),
- *       created: new Date("TIMESTAMP"),
- *       vpcConfig: { // VpcConfig
- *         securityGroupIds: [ // VpcSecurityGroupIds // required
- *           "STRING_VALUE",
- *         ],
- *         subnetIds: [ // VpcSubnetIds // required
- *           "STRING_VALUE",
- *         ],
- *         vpcId: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectsResult
+ * //   projects: [ // Projects
+ * //     { // Project
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       defaultJobTimeoutMinutes: Number("int"),
+ * //       created: new Date("TIMESTAMP"),
+ * //       vpcConfig: { // VpcConfig
+ * //         securityGroupIds: [ // VpcSecurityGroupIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         subnetIds: [ // VpcSubnetIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         vpcId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

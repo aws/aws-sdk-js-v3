@@ -53,10 +53,9 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  * };
  * const command = new CreateCrossAccountAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCrossAccountAuthorizationResponse
- *   CrossAccountAuthorization: "STRING_VALUE",
- * };
+ * // { // CreateCrossAccountAuthorizationResponse
+ * //   CrossAccountAuthorization: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,36 +58,35 @@ export interface DescribeAssociationExecutionsCommandOutput
  * };
  * const command = new DescribeAssociationExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAssociationExecutionsResult
- *   AssociationExecutions: [ // AssociationExecutionsList
- *     { // AssociationExecution
- *       AssociationId: "STRING_VALUE",
- *       AssociationVersion: "STRING_VALUE",
- *       ExecutionId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       DetailedStatus: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LastExecutionDate: new Date("TIMESTAMP"),
- *       ResourceCountByStatus: "STRING_VALUE",
- *       AlarmConfiguration: { // AlarmConfiguration
- *         IgnorePollAlarmFailure: true || false,
- *         Alarms: [ // AlarmList // required
- *           { // Alarm
- *             Name: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       TriggeredAlarms: [ // AlarmStateInformationList
- *         { // AlarmStateInformation
- *           Name: "STRING_VALUE", // required
- *           State: "UNKNOWN" || "ALARM", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAssociationExecutionsResult
+ * //   AssociationExecutions: [ // AssociationExecutionsList
+ * //     { // AssociationExecution
+ * //       AssociationId: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       ExecutionId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       DetailedStatus: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LastExecutionDate: new Date("TIMESTAMP"),
+ * //       ResourceCountByStatus: "STRING_VALUE",
+ * //       AlarmConfiguration: { // AlarmConfiguration
+ * //         IgnorePollAlarmFailure: true || false,
+ * //         Alarms: [ // AlarmList // required
+ * //           { // Alarm
+ * //             Name: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       TriggeredAlarms: [ // AlarmStateInformationList
+ * //         { // AlarmStateInformation
+ * //           Name: "STRING_VALUE", // required
+ * //           State: "UNKNOWN" || "ALARM", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

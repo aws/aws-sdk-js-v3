@@ -76,10 +76,9 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateForecastExportJobResponse
- *   ForecastExportJobArn: "STRING_VALUE",
- * };
+ * // { // CreateForecastExportJobResponse
+ * //   ForecastExportJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,43 +53,42 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  * };
  * const command = new GetCommentsForPullRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCommentsForPullRequestOutput
- *   commentsForPullRequestData: [ // CommentsForPullRequestData
- *     { // CommentsForPullRequest
- *       pullRequestId: "STRING_VALUE",
- *       repositoryName: "STRING_VALUE",
- *       beforeCommitId: "STRING_VALUE",
- *       afterCommitId: "STRING_VALUE",
- *       beforeBlobId: "STRING_VALUE",
- *       afterBlobId: "STRING_VALUE",
- *       location: { // Location
- *         filePath: "STRING_VALUE",
- *         filePosition: Number("long"),
- *         relativeFileVersion: "STRING_VALUE",
- *       },
- *       comments: [ // Comments
- *         { // Comment
- *           commentId: "STRING_VALUE",
- *           content: "STRING_VALUE",
- *           inReplyTo: "STRING_VALUE",
- *           creationDate: new Date("TIMESTAMP"),
- *           lastModifiedDate: new Date("TIMESTAMP"),
- *           authorArn: "STRING_VALUE",
- *           deleted: true || false,
- *           clientRequestToken: "STRING_VALUE",
- *           callerReactions: [ // CallerReactions
- *             "STRING_VALUE",
- *           ],
- *           reactionCounts: { // ReactionCountsMap
- *             "<keys>": Number("int"),
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetCommentsForPullRequestOutput
+ * //   commentsForPullRequestData: [ // CommentsForPullRequestData
+ * //     { // CommentsForPullRequest
+ * //       pullRequestId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       beforeCommitId: "STRING_VALUE",
+ * //       afterCommitId: "STRING_VALUE",
+ * //       beforeBlobId: "STRING_VALUE",
+ * //       afterBlobId: "STRING_VALUE",
+ * //       location: { // Location
+ * //         filePath: "STRING_VALUE",
+ * //         filePosition: Number("long"),
+ * //         relativeFileVersion: "STRING_VALUE",
+ * //       },
+ * //       comments: [ // Comments
+ * //         { // Comment
+ * //           commentId: "STRING_VALUE",
+ * //           content: "STRING_VALUE",
+ * //           inReplyTo: "STRING_VALUE",
+ * //           creationDate: new Date("TIMESTAMP"),
+ * //           lastModifiedDate: new Date("TIMESTAMP"),
+ * //           authorArn: "STRING_VALUE",
+ * //           deleted: true || false,
+ * //           clientRequestToken: "STRING_VALUE",
+ * //           callerReactions: [ // CallerReactions
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           reactionCounts: { // ReactionCountsMap
+ * //             "<keys>": Number("int"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

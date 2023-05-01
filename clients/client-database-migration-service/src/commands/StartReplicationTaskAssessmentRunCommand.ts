@@ -74,26 +74,25 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReplicationTaskAssessmentRunResponse
- *   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
- *     ReplicationTaskAssessmentRunArn: "STRING_VALUE",
- *     ReplicationTaskArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
- *     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
- *       IndividualAssessmentCount: Number("int"),
- *       IndividualAssessmentCompletedCount: Number("int"),
- *     },
- *     LastFailureMessage: "STRING_VALUE",
- *     ServiceAccessRoleArn: "STRING_VALUE",
- *     ResultLocationBucket: "STRING_VALUE",
- *     ResultLocationFolder: "STRING_VALUE",
- *     ResultEncryptionMode: "STRING_VALUE",
- *     ResultKmsKeyArn: "STRING_VALUE",
- *     AssessmentRunName: "STRING_VALUE",
- *   },
- * };
+ * // { // StartReplicationTaskAssessmentRunResponse
+ * //   ReplicationTaskAssessmentRun: { // ReplicationTaskAssessmentRun
+ * //     ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ * //     ReplicationTaskArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //     AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //       IndividualAssessmentCount: Number("int"),
+ * //       IndividualAssessmentCompletedCount: Number("int"),
+ * //     },
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //     ServiceAccessRoleArn: "STRING_VALUE",
+ * //     ResultLocationBucket: "STRING_VALUE",
+ * //     ResultLocationFolder: "STRING_VALUE",
+ * //     ResultEncryptionMode: "STRING_VALUE",
+ * //     ResultKmsKeyArn: "STRING_VALUE",
+ * //     AssessmentRunName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

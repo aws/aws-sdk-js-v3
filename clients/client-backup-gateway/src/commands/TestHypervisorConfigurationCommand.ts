@@ -52,8 +52,7 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * };
  * const command = new TestHypervisorConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

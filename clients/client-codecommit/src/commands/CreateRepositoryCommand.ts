@@ -48,21 +48,20 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRepositoryOutput
- *   repositoryMetadata: { // RepositoryMetadata
- *     accountId: "STRING_VALUE",
- *     repositoryId: "STRING_VALUE",
- *     repositoryName: "STRING_VALUE",
- *     repositoryDescription: "STRING_VALUE",
- *     defaultBranch: "STRING_VALUE",
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *     cloneUrlHttp: "STRING_VALUE",
- *     cloneUrlSsh: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRepositoryOutput
+ * //   repositoryMetadata: { // RepositoryMetadata
+ * //     accountId: "STRING_VALUE",
+ * //     repositoryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryDescription: "STRING_VALUE",
+ * //     defaultBranch: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     cloneUrlHttp: "STRING_VALUE",
+ * //     cloneUrlSsh: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

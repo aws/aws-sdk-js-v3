@@ -46,12 +46,11 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * };
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBackendAPIModelsResponse
- *   Models: "STRING_VALUE",
- *   Status: "LATEST" || "STALE",
- *   ModelIntrospectionSchema: "STRING_VALUE",
- * };
+ * // { // GetBackendAPIModelsResponse
+ * //   Models: "STRING_VALUE",
+ * //   Status: "LATEST" || "STALE",
+ * //   ModelIntrospectionSchema: "STRING_VALUE",
+ * // };
  *
  * ```
  *

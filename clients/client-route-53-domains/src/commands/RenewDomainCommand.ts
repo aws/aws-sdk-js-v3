@@ -52,10 +52,9 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * };
  * const command = new RenewDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RenewDomainResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // RenewDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

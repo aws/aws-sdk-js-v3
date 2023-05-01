@@ -56,8 +56,7 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * };
  * const command = new UpdateReplicationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,38 +48,37 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * };
  * const command = new GetInsightEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightEventsResult
- *   InsightEvents: [ // InsightEventList
- *     { // InsightEvent
- *       Summary: "STRING_VALUE",
- *       EventTime: new Date("TIMESTAMP"),
- *       ClientRequestImpactStatistics: { // RequestImpactStatistics
- *         FaultCount: Number("long"),
- *         OkCount: Number("long"),
- *         TotalCount: Number("long"),
- *       },
- *       RootCauseServiceRequestImpactStatistics: {
- *         FaultCount: Number("long"),
- *         OkCount: Number("long"),
- *         TotalCount: Number("long"),
- *       },
- *       TopAnomalousServices: [ // AnomalousServiceList
- *         { // AnomalousService
- *           ServiceId: { // ServiceId
- *             Name: "STRING_VALUE",
- *             Names: [ // ServiceNames
- *               "STRING_VALUE",
- *             ],
- *             AccountId: "STRING_VALUE",
- *             Type: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInsightEventsResult
+ * //   InsightEvents: [ // InsightEventList
+ * //     { // InsightEvent
+ * //       Summary: "STRING_VALUE",
+ * //       EventTime: new Date("TIMESTAMP"),
+ * //       ClientRequestImpactStatistics: { // RequestImpactStatistics
+ * //         FaultCount: Number("long"),
+ * //         OkCount: Number("long"),
+ * //         TotalCount: Number("long"),
+ * //       },
+ * //       RootCauseServiceRequestImpactStatistics: {
+ * //         FaultCount: Number("long"),
+ * //         OkCount: Number("long"),
+ * //         TotalCount: Number("long"),
+ * //       },
+ * //       TopAnomalousServices: [ // AnomalousServiceList
+ * //         { // AnomalousService
+ * //           ServiceId: { // ServiceId
+ * //             Name: "STRING_VALUE",
+ * //             Names: [ // ServiceNames
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AccountId: "STRING_VALUE",
+ * //             Type: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

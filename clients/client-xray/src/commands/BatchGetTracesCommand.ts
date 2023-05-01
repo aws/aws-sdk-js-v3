@@ -49,26 +49,25 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * };
  * const command = new BatchGetTracesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetTracesResult
- *   Traces: [ // TraceList
- *     { // Trace
- *       Id: "STRING_VALUE",
- *       Duration: Number("double"),
- *       LimitExceeded: true || false,
- *       Segments: [ // SegmentList
- *         { // Segment
- *           Id: "STRING_VALUE",
- *           Document: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   UnprocessedTraceIds: [ // UnprocessedTraceIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // BatchGetTracesResult
+ * //   Traces: [ // TraceList
+ * //     { // Trace
+ * //       Id: "STRING_VALUE",
+ * //       Duration: Number("double"),
+ * //       LimitExceeded: true || false,
+ * //       Segments: [ // SegmentList
+ * //         { // Segment
+ * //           Id: "STRING_VALUE",
+ * //           Document: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   UnprocessedTraceIds: [ // UnprocessedTraceIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

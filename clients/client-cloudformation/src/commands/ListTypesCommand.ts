@@ -54,27 +54,26 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypesOutput
- *   TypeSummaries: [ // TypeSummaries
- *     { // TypeSummary
- *       Type: "RESOURCE" || "MODULE" || "HOOK",
- *       TypeName: "STRING_VALUE",
- *       DefaultVersionId: "STRING_VALUE",
- *       TypeArn: "STRING_VALUE",
- *       LastUpdated: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       PublisherId: "STRING_VALUE",
- *       OriginalTypeName: "STRING_VALUE",
- *       PublicVersionNumber: "STRING_VALUE",
- *       LatestPublicVersion: "STRING_VALUE",
- *       PublisherIdentity: "AWS_Marketplace" || "GitHub" || "Bitbucket",
- *       PublisherName: "STRING_VALUE",
- *       IsActivated: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTypesOutput
+ * //   TypeSummaries: [ // TypeSummaries
+ * //     { // TypeSummary
+ * //       Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //       TypeName: "STRING_VALUE",
+ * //       DefaultVersionId: "STRING_VALUE",
+ * //       TypeArn: "STRING_VALUE",
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       PublisherId: "STRING_VALUE",
+ * //       OriginalTypeName: "STRING_VALUE",
+ * //       PublicVersionNumber: "STRING_VALUE",
+ * //       LatestPublicVersion: "STRING_VALUE",
+ * //       PublisherIdentity: "AWS_Marketplace" || "GitHub" || "Bitbucket",
+ * //       PublisherName: "STRING_VALUE",
+ * //       IsActivated: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

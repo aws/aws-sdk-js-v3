@@ -71,18 +71,17 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * };
  * const command = new EvaluateFeatureCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EvaluateFeatureResponse
- *   variation: "STRING_VALUE",
- *   value: { // VariableValue Union: only one key present
- *     boolValue: true || false,
- *     stringValue: "STRING_VALUE",
- *     longValue: Number("long"),
- *     doubleValue: Number("double"),
- *   },
- *   reason: "STRING_VALUE",
- *   details: "STRING_VALUE",
- * };
+ * // { // EvaluateFeatureResponse
+ * //   variation: "STRING_VALUE",
+ * //   value: { // VariableValue Union: only one key present
+ * //     boolValue: true || false,
+ * //     stringValue: "STRING_VALUE",
+ * //     longValue: Number("long"),
+ * //     doubleValue: Number("double"),
+ * //   },
+ * //   reason: "STRING_VALUE",
+ * //   details: "STRING_VALUE",
+ * // };
  *
  * ```
  *

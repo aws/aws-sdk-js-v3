@@ -60,13 +60,12 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * };
  * const command = new CreateRefreshScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRefreshScheduleResponse
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- *   ScheduleId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateRefreshScheduleResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   ScheduleId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

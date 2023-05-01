@@ -44,22 +44,21 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * };
  * const command = new DescribePlaceIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePlaceIndexResponse
- *   IndexName: "STRING_VALUE", // required
- *   IndexArn: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   Description: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- *   DataSource: "STRING_VALUE", // required
- *   DataSourceConfiguration: { // DataSourceConfiguration
- *     IntendedUse: "STRING_VALUE",
- *   },
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribePlaceIndexResponse
+ * //   IndexName: "STRING_VALUE", // required
+ * //   IndexArn: "STRING_VALUE", // required
+ * //   PricingPlan: "STRING_VALUE",
+ * //   Description: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * //   DataSource: "STRING_VALUE", // required
+ * //   DataSourceConfiguration: { // DataSourceConfiguration
+ * //     IntendedUse: "STRING_VALUE",
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

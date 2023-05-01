@@ -56,22 +56,21 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorStreamingConfigurationResponse
- *   StreamingConfiguration: { // StreamingConfiguration
- *     DataRetentionInHours: Number("int"), // required
- *     Disabled: true || false, // required
- *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
- *       { // StreamingNotificationTarget
- *         NotificationTarget: "EventBridge" || "SNS" || "SQS",
- *       },
- *     ],
- *     MediaInsightsConfiguration: { // MediaInsightsConfiguration
- *       Disabled: true || false,
- *       ConfigurationArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetVoiceConnectorStreamingConfigurationResponse
+ * //   StreamingConfiguration: { // StreamingConfiguration
+ * //     DataRetentionInHours: Number("int"), // required
+ * //     Disabled: true || false, // required
+ * //     StreamingNotificationTargets: [ // StreamingNotificationTargetList
+ * //       { // StreamingNotificationTarget
+ * //         NotificationTarget: "EventBridge" || "SNS" || "SQS",
+ * //       },
+ * //     ],
+ * //     MediaInsightsConfiguration: { // MediaInsightsConfiguration
+ * //       Disabled: true || false,
+ * //       ConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

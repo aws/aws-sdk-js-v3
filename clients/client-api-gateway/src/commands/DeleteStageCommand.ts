@@ -45,8 +45,7 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

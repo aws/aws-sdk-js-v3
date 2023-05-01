@@ -50,13 +50,12 @@ export interface GetFindingsPublicationConfigurationCommandOutput
  * const input = {};
  * const command = new GetFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingsPublicationConfigurationResponse
- *   securityHubConfiguration: { // SecurityHubConfiguration
- *     publishClassificationFindings: true || false, // required
- *     publishPolicyFindings: true || false, // required
- *   },
- * };
+ * // { // GetFindingsPublicationConfigurationResponse
+ * //   securityHubConfiguration: { // SecurityHubConfiguration
+ * //     publishClassificationFindings: true || false, // required
+ * //     publishPolicyFindings: true || false, // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,10 +51,9 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * const input = {};
  * const command = new GetAssociationForServiceQuotaTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssociationForServiceQuotaTemplateResponse
- *   ServiceQuotaTemplateAssociationStatus: "STRING_VALUE",
- * };
+ * // { // GetAssociationForServiceQuotaTemplateResponse
+ * //   ServiceQuotaTemplateAssociationStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

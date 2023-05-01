@@ -47,19 +47,18 @@ export interface ListGeneratedCodeJobsCommandOutput extends ListGeneratedCodeJob
  * };
  * const command = new ListGeneratedCodeJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGeneratedCodeJobsResult
- *   GeneratedCodeJobs: [ // GeneratedCodeJobDetailsList
- *     { // GeneratedCodeJobDetails
- *       S3Url: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ExpirationTime: new Date("TIMESTAMP"),
- *       GeneratedCodeJobId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGeneratedCodeJobsResult
+ * //   GeneratedCodeJobs: [ // GeneratedCodeJobDetailsList
+ * //     { // GeneratedCodeJobDetails
+ * //       S3Url: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ExpirationTime: new Date("TIMESTAMP"),
+ * //       GeneratedCodeJobId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

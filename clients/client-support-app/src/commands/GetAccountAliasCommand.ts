@@ -43,10 +43,9 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * const input = {};
  * const command = new GetAccountAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountAliasResult
- *   accountAlias: "STRING_VALUE",
- * };
+ * // { // GetAccountAliasResult
+ * //   accountAlias: "STRING_VALUE",
+ * // };
  *
  * ```
  *

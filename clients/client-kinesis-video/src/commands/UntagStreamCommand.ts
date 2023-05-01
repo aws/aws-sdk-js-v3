@@ -52,8 +52,7 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * };
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

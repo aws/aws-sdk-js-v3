@@ -69,16 +69,15 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * };
  * const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchAssociateClientDeviceWithCoreDeviceResponse
- *   errorEntries: [ // AssociateClientDeviceWithCoreDeviceErrorList
- *     { // AssociateClientDeviceWithCoreDeviceErrorEntry
- *       thingName: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchAssociateClientDeviceWithCoreDeviceResponse
+ * //   errorEntries: [ // AssociateClientDeviceWithCoreDeviceErrorList
+ * //     { // AssociateClientDeviceWithCoreDeviceErrorEntry
+ * //       thingName: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

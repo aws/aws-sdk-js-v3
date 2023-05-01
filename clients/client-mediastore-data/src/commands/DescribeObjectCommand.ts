@@ -44,14 +44,13 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * };
  * const command = new DescribeObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeObjectResponse
- *   ETag: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
- *   ContentLength: Number("long"),
- *   CacheControl: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeObjectResponse
+ * //   ETag: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   ContentLength: Number("long"),
+ * //   CacheControl: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

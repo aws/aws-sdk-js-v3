@@ -48,8 +48,7 @@ export interface DisassociateMemberFromGroupCommandOutput
  * };
  * const command = new DisassociateMemberFromGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,17 +48,16 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * };
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityProfilesResponse
- *   SecurityProfileSummaryList: [ // SecurityProfileSummaryList
- *     { // SecurityProfileSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityProfilesResponse
+ * //   SecurityProfileSummaryList: [ // SecurityProfileSummaryList
+ * //     { // SecurityProfileSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

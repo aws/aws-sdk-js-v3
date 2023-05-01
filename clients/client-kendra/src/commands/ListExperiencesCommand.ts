@@ -49,24 +49,23 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  * };
  * const command = new ListExperiencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExperiencesResponse
- *   SummaryItems: [ // ExperiencesSummaryList
- *     { // ExperiencesSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- *       Endpoints: [ // ExperienceEndpoints
- *         { // ExperienceEndpoint
- *           EndpointType: "HOME",
- *           Endpoint: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListExperiencesResponse
+ * //   SummaryItems: [ // ExperiencesSummaryList
+ * //     { // ExperiencesSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //       Endpoints: [ // ExperienceEndpoints
+ * //         { // ExperienceEndpoint
+ * //           EndpointType: "HOME",
+ * //           Endpoint: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

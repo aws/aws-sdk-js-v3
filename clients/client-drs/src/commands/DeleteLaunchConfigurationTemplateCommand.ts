@@ -52,8 +52,7 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * };
  * const command = new DeleteLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

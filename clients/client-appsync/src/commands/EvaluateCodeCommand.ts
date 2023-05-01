@@ -54,27 +54,26 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * };
  * const command = new EvaluateCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EvaluateCodeResponse
- *   evaluationResult: "STRING_VALUE",
- *   error: { // EvaluateCodeErrorDetail
- *     message: "STRING_VALUE",
- *     codeErrors: [ // CodeErrors
- *       { // CodeError
- *         errorType: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *         location: { // CodeErrorLocation
- *           line: Number("int"),
- *           column: Number("int"),
- *           span: Number("int"),
- *         },
- *       },
- *     ],
- *   },
- *   logs: [ // Logs
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // EvaluateCodeResponse
+ * //   evaluationResult: "STRING_VALUE",
+ * //   error: { // EvaluateCodeErrorDetail
+ * //     message: "STRING_VALUE",
+ * //     codeErrors: [ // CodeErrors
+ * //       { // CodeError
+ * //         errorType: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //         location: { // CodeErrorLocation
+ * //           line: Number("int"),
+ * //           column: Number("int"),
+ * //           span: Number("int"),
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   logs: [ // Logs
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

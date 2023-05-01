@@ -52,8 +52,7 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * };
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEndpointResponse
- *   endpoint: "STRING_VALUE",
- * };
+ * // { // GetEndpointResponse
+ * //   endpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

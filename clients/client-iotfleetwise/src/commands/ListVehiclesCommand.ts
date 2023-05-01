@@ -49,20 +49,19 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * };
  * const command = new ListVehiclesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVehiclesResponse
- *   vehicleSummaries: [ // vehicleSummaries
- *     { // VehicleSummary
- *       vehicleName: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       modelManifestArn: "STRING_VALUE", // required
- *       decoderManifestArn: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       lastModificationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVehiclesResponse
+ * //   vehicleSummaries: [ // vehicleSummaries
+ * //     { // VehicleSummary
+ * //       vehicleName: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       modelManifestArn: "STRING_VALUE", // required
+ * //       decoderManifestArn: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

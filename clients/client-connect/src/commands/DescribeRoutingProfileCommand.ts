@@ -45,31 +45,30 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * };
  * const command = new DescribeRoutingProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRoutingProfileResponse
- *   RoutingProfile: { // RoutingProfile
- *     InstanceId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RoutingProfileArn: "STRING_VALUE",
- *     RoutingProfileId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     MediaConcurrencies: [ // MediaConcurrencies
- *       { // MediaConcurrency
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
- *         Concurrency: Number("int"), // required
- *         CrossChannelBehavior: { // CrossChannelBehavior
- *           BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
- *         },
- *       },
- *     ],
- *     DefaultOutboundQueueId: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     NumberOfAssociatedQueues: Number("long"),
- *     NumberOfAssociatedUsers: Number("long"),
- *   },
- * };
+ * // { // DescribeRoutingProfileResponse
+ * //   RoutingProfile: { // RoutingProfile
+ * //     InstanceId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RoutingProfileArn: "STRING_VALUE",
+ * //     RoutingProfileId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     MediaConcurrencies: [ // MediaConcurrencies
+ * //       { // MediaConcurrency
+ * //         Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //         Concurrency: Number("int"), // required
+ * //         CrossChannelBehavior: { // CrossChannelBehavior
+ * //           BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     DefaultOutboundQueueId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     NumberOfAssociatedQueues: Number("long"),
+ * //     NumberOfAssociatedUsers: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

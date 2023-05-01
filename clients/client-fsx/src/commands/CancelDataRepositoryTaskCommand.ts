@@ -56,11 +56,10 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * };
  * const command = new CancelDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelDataRepositoryTaskResponse
- *   Lifecycle: "PENDING" || "EXECUTING" || "FAILED" || "SUCCEEDED" || "CANCELED" || "CANCELING",
- *   TaskId: "STRING_VALUE",
- * };
+ * // { // CancelDataRepositoryTaskResponse
+ * //   Lifecycle: "PENDING" || "EXECUTING" || "FAILED" || "SUCCEEDED" || "CANCELED" || "CANCELING",
+ * //   TaskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

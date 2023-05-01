@@ -44,20 +44,19 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPublicKeyResult
- *   PublicKey: { // PublicKey
- *     Id: "STRING_VALUE", // required
- *     CreatedTime: new Date("TIMESTAMP"), // required
- *     PublicKeyConfig: { // PublicKeyConfig
- *       CallerReference: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       EncodedKey: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetPublicKeyResult
+ * //   PublicKey: { // PublicKey
+ * //     Id: "STRING_VALUE", // required
+ * //     CreatedTime: new Date("TIMESTAMP"), // required
+ * //     PublicKeyConfig: { // PublicKeyConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       EncodedKey: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

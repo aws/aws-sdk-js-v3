@@ -56,339 +56,338 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * };
  * const command = new GetNetworkInsightsAccessScopeAnalysisFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkInsightsAccessScopeAnalysisFindingsResult
- *   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
- *   AnalysisStatus: "running" || "succeeded" || "failed",
- *   AnalysisFindings: [ // AccessScopeAnalysisFindingList
- *     { // AccessScopeAnalysisFinding
- *       NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
- *       NetworkInsightsAccessScopeId: "STRING_VALUE",
- *       FindingId: "STRING_VALUE",
- *       FindingComponents: [ // PathComponentList
- *         { // PathComponent
- *           SequenceNumber: Number("int"),
- *           AclRule: { // AnalysisAclRule
- *             Cidr: "STRING_VALUE",
- *             Egress: true || false,
- *             PortRange: { // PortRange
- *               From: Number("int"),
- *               To: Number("int"),
- *             },
- *             Protocol: "STRING_VALUE",
- *             RuleAction: "STRING_VALUE",
- *             RuleNumber: Number("int"),
- *           },
- *           AttachedTo: { // AnalysisComponent
- *             Id: "STRING_VALUE",
- *             Arn: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *           Component: {
- *             Id: "STRING_VALUE",
- *             Arn: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *           DestinationVpc: {
- *             Id: "STRING_VALUE",
- *             Arn: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *           OutboundHeader: { // AnalysisPacketHeader
- *             DestinationAddresses: [ // IpAddressList
- *               "STRING_VALUE",
- *             ],
- *             DestinationPortRanges: [ // PortRangeList
- *               {
- *                 From: Number("int"),
- *                 To: Number("int"),
- *               },
- *             ],
- *             Protocol: "STRING_VALUE",
- *             SourceAddresses: [
- *               "STRING_VALUE",
- *             ],
- *             SourcePortRanges: [
- *               {
- *                 From: Number("int"),
- *                 To: Number("int"),
- *               },
- *             ],
- *           },
- *           InboundHeader: {
- *             DestinationAddresses: [
- *               "STRING_VALUE",
- *             ],
- *             DestinationPortRanges: [
- *               {
- *                 From: Number("int"),
- *                 To: Number("int"),
- *               },
- *             ],
- *             Protocol: "STRING_VALUE",
- *             SourceAddresses: [
- *               "STRING_VALUE",
- *             ],
- *             SourcePortRanges: [
- *               {
- *                 From: Number("int"),
- *                 To: Number("int"),
- *               },
- *             ],
- *           },
- *           RouteTableRoute: { // AnalysisRouteTableRoute
- *             DestinationCidr: "STRING_VALUE",
- *             DestinationPrefixListId: "STRING_VALUE",
- *             EgressOnlyInternetGatewayId: "STRING_VALUE",
- *             GatewayId: "STRING_VALUE",
- *             InstanceId: "STRING_VALUE",
- *             NatGatewayId: "STRING_VALUE",
- *             NetworkInterfaceId: "STRING_VALUE",
- *             Origin: "STRING_VALUE",
- *             TransitGatewayId: "STRING_VALUE",
- *             VpcPeeringConnectionId: "STRING_VALUE",
- *             State: "STRING_VALUE",
- *             CarrierGatewayId: "STRING_VALUE",
- *             CoreNetworkArn: "STRING_VALUE",
- *             LocalGatewayId: "STRING_VALUE",
- *           },
- *           SecurityGroupRule: { // AnalysisSecurityGroupRule
- *             Cidr: "STRING_VALUE",
- *             Direction: "STRING_VALUE",
- *             SecurityGroupId: "STRING_VALUE",
- *             PortRange: "<PortRange>",
- *             PrefixListId: "STRING_VALUE",
- *             Protocol: "STRING_VALUE",
- *           },
- *           SourceVpc: {
- *             Id: "STRING_VALUE",
- *             Arn: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *           Subnet: {
- *             Id: "STRING_VALUE",
- *             Arn: "STRING_VALUE",
- *             Name: "STRING_VALUE",
- *           },
- *           Vpc: "<AnalysisComponent>",
- *           AdditionalDetails: [ // AdditionalDetailList
- *             { // AdditionalDetail
- *               AdditionalDetailType: "STRING_VALUE",
- *               Component: "<AnalysisComponent>",
- *               VpcEndpointService: "<AnalysisComponent>",
- *               RuleOptions: [ // RuleOptionList
- *                 { // RuleOption
- *                   Keyword: "STRING_VALUE",
- *                   Settings: [ // StringList
- *                     "STRING_VALUE",
- *                   ],
- *                 },
- *               ],
- *               RuleGroupTypePairs: [ // RuleGroupTypePairList
- *                 { // RuleGroupTypePair
- *                   RuleGroupArn: "STRING_VALUE",
- *                   RuleGroupType: "STRING_VALUE",
- *                 },
- *               ],
- *               RuleGroupRuleOptionsPairs: [ // RuleGroupRuleOptionsPairList
- *                 { // RuleGroupRuleOptionsPair
- *                   RuleGroupArn: "STRING_VALUE",
- *                   RuleOptions: [
- *                     {
- *                       Keyword: "STRING_VALUE",
- *                       Settings: [
- *                         "STRING_VALUE",
- *                       ],
- *                     },
- *                   ],
- *                 },
- *               ],
- *               ServiceName: "STRING_VALUE",
- *               LoadBalancers: [ // AnalysisComponentList
- *                 "<AnalysisComponent>",
- *               ],
- *             },
- *           ],
- *           TransitGateway: "<AnalysisComponent>",
- *           TransitGatewayRouteTableRoute: { // TransitGatewayRouteTableRoute
- *             DestinationCidr: "STRING_VALUE",
- *             State: "STRING_VALUE",
- *             RouteOrigin: "STRING_VALUE",
- *             PrefixListId: "STRING_VALUE",
- *             AttachmentId: "STRING_VALUE",
- *             ResourceId: "STRING_VALUE",
- *             ResourceType: "STRING_VALUE",
- *           },
- *           Explanations: [ // ExplanationList
- *             { // Explanation
- *               Acl: "<AnalysisComponent>",
- *               AclRule: {
- *                 Cidr: "STRING_VALUE",
- *                 Egress: true || false,
- *                 PortRange: "<PortRange>",
- *                 Protocol: "STRING_VALUE",
- *                 RuleAction: "STRING_VALUE",
- *                 RuleNumber: Number("int"),
- *               },
- *               Address: "STRING_VALUE",
- *               Addresses: [
- *                 "STRING_VALUE",
- *               ],
- *               AttachedTo: "<AnalysisComponent>",
- *               AvailabilityZones: [ // ValueStringList
- *                 "STRING_VALUE",
- *               ],
- *               Cidrs: [
- *                 "STRING_VALUE",
- *               ],
- *               Component: "<AnalysisComponent>",
- *               CustomerGateway: "<AnalysisComponent>",
- *               Destination: "<AnalysisComponent>",
- *               DestinationVpc: "<AnalysisComponent>",
- *               Direction: "STRING_VALUE",
- *               ExplanationCode: "STRING_VALUE",
- *               IngressRouteTable: "<AnalysisComponent>",
- *               InternetGateway: "<AnalysisComponent>",
- *               LoadBalancerArn: "STRING_VALUE",
- *               ClassicLoadBalancerListener: { // AnalysisLoadBalancerListener
- *                 LoadBalancerPort: Number("int"),
- *                 InstancePort: Number("int"),
- *               },
- *               LoadBalancerListenerPort: Number("int"),
- *               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
- *                 Address: "STRING_VALUE",
- *                 AvailabilityZone: "STRING_VALUE",
- *                 Instance: "<AnalysisComponent>",
- *                 Port: Number("int"),
- *               },
- *               LoadBalancerTargetGroup: "<AnalysisComponent>",
- *               LoadBalancerTargetGroups: [
- *                 "<AnalysisComponent>",
- *               ],
- *               LoadBalancerTargetPort: Number("int"),
- *               ElasticLoadBalancerListener: "<AnalysisComponent>",
- *               MissingComponent: "STRING_VALUE",
- *               NatGateway: "<AnalysisComponent>",
- *               NetworkInterface: "<AnalysisComponent>",
- *               PacketField: "STRING_VALUE",
- *               VpcPeeringConnection: "<AnalysisComponent>",
- *               Port: Number("int"),
- *               PortRanges: [
- *                 "<PortRange>",
- *               ],
- *               PrefixList: "<AnalysisComponent>",
- *               Protocols: "<StringList>",
- *               RouteTableRoute: {
- *                 DestinationCidr: "STRING_VALUE",
- *                 DestinationPrefixListId: "STRING_VALUE",
- *                 EgressOnlyInternetGatewayId: "STRING_VALUE",
- *                 GatewayId: "STRING_VALUE",
- *                 InstanceId: "STRING_VALUE",
- *                 NatGatewayId: "STRING_VALUE",
- *                 NetworkInterfaceId: "STRING_VALUE",
- *                 Origin: "STRING_VALUE",
- *                 TransitGatewayId: "STRING_VALUE",
- *                 VpcPeeringConnectionId: "STRING_VALUE",
- *                 State: "STRING_VALUE",
- *                 CarrierGatewayId: "STRING_VALUE",
- *                 CoreNetworkArn: "STRING_VALUE",
- *                 LocalGatewayId: "STRING_VALUE",
- *               },
- *               RouteTable: "<AnalysisComponent>",
- *               SecurityGroup: "<AnalysisComponent>",
- *               SecurityGroupRule: {
- *                 Cidr: "STRING_VALUE",
- *                 Direction: "STRING_VALUE",
- *                 SecurityGroupId: "STRING_VALUE",
- *                 PortRange: "<PortRange>",
- *                 PrefixListId: "STRING_VALUE",
- *                 Protocol: "STRING_VALUE",
- *               },
- *               SecurityGroups: [
- *                 "<AnalysisComponent>",
- *               ],
- *               SourceVpc: "<AnalysisComponent>",
- *               State: "STRING_VALUE",
- *               Subnet: "<AnalysisComponent>",
- *               SubnetRouteTable: "<AnalysisComponent>",
- *               Vpc: "<AnalysisComponent>",
- *               VpcEndpoint: "<AnalysisComponent>",
- *               VpnConnection: "<AnalysisComponent>",
- *               VpnGateway: "<AnalysisComponent>",
- *               TransitGateway: "<AnalysisComponent>",
- *               TransitGatewayRouteTable: "<AnalysisComponent>",
- *               TransitGatewayRouteTableRoute: {
- *                 DestinationCidr: "STRING_VALUE",
- *                 State: "STRING_VALUE",
- *                 RouteOrigin: "STRING_VALUE",
- *                 PrefixListId: "STRING_VALUE",
- *                 AttachmentId: "STRING_VALUE",
- *                 ResourceId: "STRING_VALUE",
- *                 ResourceType: "STRING_VALUE",
- *               },
- *               TransitGatewayAttachment: "<AnalysisComponent>",
- *               ComponentAccount: "STRING_VALUE",
- *               ComponentRegion: "STRING_VALUE",
- *               FirewallStatelessRule: { // FirewallStatelessRule
- *                 RuleGroupArn: "STRING_VALUE",
- *                 Sources: [
- *                   "STRING_VALUE",
- *                 ],
- *                 Destinations: [
- *                   "STRING_VALUE",
- *                 ],
- *                 SourcePorts: "<PortRangeList>",
- *                 DestinationPorts: "<PortRangeList>",
- *                 Protocols: [ // ProtocolIntList
- *                   Number("int"),
- *                 ],
- *                 RuleAction: "STRING_VALUE",
- *                 Priority: Number("int"),
- *               },
- *               FirewallStatefulRule: { // FirewallStatefulRule
- *                 RuleGroupArn: "STRING_VALUE",
- *                 Sources: [
- *                   "STRING_VALUE",
- *                 ],
- *                 Destinations: "<ValueStringList>",
- *                 SourcePorts: "<PortRangeList>",
- *                 DestinationPorts: "<PortRangeList>",
- *                 Protocol: "STRING_VALUE",
- *                 RuleAction: "STRING_VALUE",
- *                 Direction: "STRING_VALUE",
- *               },
- *             },
- *           ],
- *           ElasticLoadBalancerListener: "<AnalysisComponent>",
- *           FirewallStatelessRule: {
- *             RuleGroupArn: "STRING_VALUE",
- *             Sources: "<ValueStringList>",
- *             Destinations: "<ValueStringList>",
- *             SourcePorts: "<PortRangeList>",
- *             DestinationPorts: "<PortRangeList>",
- *             Protocols: [
- *               Number("int"),
- *             ],
- *             RuleAction: "STRING_VALUE",
- *             Priority: Number("int"),
- *           },
- *           FirewallStatefulRule: {
- *             RuleGroupArn: "STRING_VALUE",
- *             Sources: "<ValueStringList>",
- *             Destinations: "<ValueStringList>",
- *             SourcePorts: "<PortRangeList>",
- *             DestinationPorts: "<PortRangeList>",
- *             Protocol: "STRING_VALUE",
- *             RuleAction: "STRING_VALUE",
- *             Direction: "STRING_VALUE",
- *           },
- *           ServiceName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetNetworkInsightsAccessScopeAnalysisFindingsResult
+ * //   NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * //   AnalysisStatus: "running" || "succeeded" || "failed",
+ * //   AnalysisFindings: [ // AccessScopeAnalysisFindingList
+ * //     { // AccessScopeAnalysisFinding
+ * //       NetworkInsightsAccessScopeAnalysisId: "STRING_VALUE",
+ * //       NetworkInsightsAccessScopeId: "STRING_VALUE",
+ * //       FindingId: "STRING_VALUE",
+ * //       FindingComponents: [ // PathComponentList
+ * //         { // PathComponent
+ * //           SequenceNumber: Number("int"),
+ * //           AclRule: { // AnalysisAclRule
+ * //             Cidr: "STRING_VALUE",
+ * //             Egress: true || false,
+ * //             PortRange: { // PortRange
+ * //               From: Number("int"),
+ * //               To: Number("int"),
+ * //             },
+ * //             Protocol: "STRING_VALUE",
+ * //             RuleAction: "STRING_VALUE",
+ * //             RuleNumber: Number("int"),
+ * //           },
+ * //           AttachedTo: { // AnalysisComponent
+ * //             Id: "STRING_VALUE",
+ * //             Arn: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           Component: {
+ * //             Id: "STRING_VALUE",
+ * //             Arn: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           DestinationVpc: {
+ * //             Id: "STRING_VALUE",
+ * //             Arn: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           OutboundHeader: { // AnalysisPacketHeader
+ * //             DestinationAddresses: [ // IpAddressList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DestinationPortRanges: [ // PortRangeList
+ * //               {
+ * //                 From: Number("int"),
+ * //                 To: Number("int"),
+ * //               },
+ * //             ],
+ * //             Protocol: "STRING_VALUE",
+ * //             SourceAddresses: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SourcePortRanges: [
+ * //               {
+ * //                 From: Number("int"),
+ * //                 To: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
+ * //           InboundHeader: {
+ * //             DestinationAddresses: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DestinationPortRanges: [
+ * //               {
+ * //                 From: Number("int"),
+ * //                 To: Number("int"),
+ * //               },
+ * //             ],
+ * //             Protocol: "STRING_VALUE",
+ * //             SourceAddresses: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             SourcePortRanges: [
+ * //               {
+ * //                 From: Number("int"),
+ * //                 To: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
+ * //           RouteTableRoute: { // AnalysisRouteTableRoute
+ * //             DestinationCidr: "STRING_VALUE",
+ * //             DestinationPrefixListId: "STRING_VALUE",
+ * //             EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //             GatewayId: "STRING_VALUE",
+ * //             InstanceId: "STRING_VALUE",
+ * //             NatGatewayId: "STRING_VALUE",
+ * //             NetworkInterfaceId: "STRING_VALUE",
+ * //             Origin: "STRING_VALUE",
+ * //             TransitGatewayId: "STRING_VALUE",
+ * //             VpcPeeringConnectionId: "STRING_VALUE",
+ * //             State: "STRING_VALUE",
+ * //             CarrierGatewayId: "STRING_VALUE",
+ * //             CoreNetworkArn: "STRING_VALUE",
+ * //             LocalGatewayId: "STRING_VALUE",
+ * //           },
+ * //           SecurityGroupRule: { // AnalysisSecurityGroupRule
+ * //             Cidr: "STRING_VALUE",
+ * //             Direction: "STRING_VALUE",
+ * //             SecurityGroupId: "STRING_VALUE",
+ * //             PortRange: "<PortRange>",
+ * //             PrefixListId: "STRING_VALUE",
+ * //             Protocol: "STRING_VALUE",
+ * //           },
+ * //           SourceVpc: {
+ * //             Id: "STRING_VALUE",
+ * //             Arn: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           Subnet: {
+ * //             Id: "STRING_VALUE",
+ * //             Arn: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //           },
+ * //           Vpc: "<AnalysisComponent>",
+ * //           AdditionalDetails: [ // AdditionalDetailList
+ * //             { // AdditionalDetail
+ * //               AdditionalDetailType: "STRING_VALUE",
+ * //               Component: "<AnalysisComponent>",
+ * //               VpcEndpointService: "<AnalysisComponent>",
+ * //               RuleOptions: [ // RuleOptionList
+ * //                 { // RuleOption
+ * //                   Keyword: "STRING_VALUE",
+ * //                   Settings: [ // StringList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //               RuleGroupTypePairs: [ // RuleGroupTypePairList
+ * //                 { // RuleGroupTypePair
+ * //                   RuleGroupArn: "STRING_VALUE",
+ * //                   RuleGroupType: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               RuleGroupRuleOptionsPairs: [ // RuleGroupRuleOptionsPairList
+ * //                 { // RuleGroupRuleOptionsPair
+ * //                   RuleGroupArn: "STRING_VALUE",
+ * //                   RuleOptions: [
+ * //                     {
+ * //                       Keyword: "STRING_VALUE",
+ * //                       Settings: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //               ServiceName: "STRING_VALUE",
+ * //               LoadBalancers: [ // AnalysisComponentList
+ * //                 "<AnalysisComponent>",
+ * //               ],
+ * //             },
+ * //           ],
+ * //           TransitGateway: "<AnalysisComponent>",
+ * //           TransitGatewayRouteTableRoute: { // TransitGatewayRouteTableRoute
+ * //             DestinationCidr: "STRING_VALUE",
+ * //             State: "STRING_VALUE",
+ * //             RouteOrigin: "STRING_VALUE",
+ * //             PrefixListId: "STRING_VALUE",
+ * //             AttachmentId: "STRING_VALUE",
+ * //             ResourceId: "STRING_VALUE",
+ * //             ResourceType: "STRING_VALUE",
+ * //           },
+ * //           Explanations: [ // ExplanationList
+ * //             { // Explanation
+ * //               Acl: "<AnalysisComponent>",
+ * //               AclRule: {
+ * //                 Cidr: "STRING_VALUE",
+ * //                 Egress: true || false,
+ * //                 PortRange: "<PortRange>",
+ * //                 Protocol: "STRING_VALUE",
+ * //                 RuleAction: "STRING_VALUE",
+ * //                 RuleNumber: Number("int"),
+ * //               },
+ * //               Address: "STRING_VALUE",
+ * //               Addresses: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               AttachedTo: "<AnalysisComponent>",
+ * //               AvailabilityZones: [ // ValueStringList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Cidrs: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Component: "<AnalysisComponent>",
+ * //               CustomerGateway: "<AnalysisComponent>",
+ * //               Destination: "<AnalysisComponent>",
+ * //               DestinationVpc: "<AnalysisComponent>",
+ * //               Direction: "STRING_VALUE",
+ * //               ExplanationCode: "STRING_VALUE",
+ * //               IngressRouteTable: "<AnalysisComponent>",
+ * //               InternetGateway: "<AnalysisComponent>",
+ * //               LoadBalancerArn: "STRING_VALUE",
+ * //               ClassicLoadBalancerListener: { // AnalysisLoadBalancerListener
+ * //                 LoadBalancerPort: Number("int"),
+ * //                 InstancePort: Number("int"),
+ * //               },
+ * //               LoadBalancerListenerPort: Number("int"),
+ * //               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
+ * //                 Address: "STRING_VALUE",
+ * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 Instance: "<AnalysisComponent>",
+ * //                 Port: Number("int"),
+ * //               },
+ * //               LoadBalancerTargetGroup: "<AnalysisComponent>",
+ * //               LoadBalancerTargetGroups: [
+ * //                 "<AnalysisComponent>",
+ * //               ],
+ * //               LoadBalancerTargetPort: Number("int"),
+ * //               ElasticLoadBalancerListener: "<AnalysisComponent>",
+ * //               MissingComponent: "STRING_VALUE",
+ * //               NatGateway: "<AnalysisComponent>",
+ * //               NetworkInterface: "<AnalysisComponent>",
+ * //               PacketField: "STRING_VALUE",
+ * //               VpcPeeringConnection: "<AnalysisComponent>",
+ * //               Port: Number("int"),
+ * //               PortRanges: [
+ * //                 "<PortRange>",
+ * //               ],
+ * //               PrefixList: "<AnalysisComponent>",
+ * //               Protocols: "<StringList>",
+ * //               RouteTableRoute: {
+ * //                 DestinationCidr: "STRING_VALUE",
+ * //                 DestinationPrefixListId: "STRING_VALUE",
+ * //                 EgressOnlyInternetGatewayId: "STRING_VALUE",
+ * //                 GatewayId: "STRING_VALUE",
+ * //                 InstanceId: "STRING_VALUE",
+ * //                 NatGatewayId: "STRING_VALUE",
+ * //                 NetworkInterfaceId: "STRING_VALUE",
+ * //                 Origin: "STRING_VALUE",
+ * //                 TransitGatewayId: "STRING_VALUE",
+ * //                 VpcPeeringConnectionId: "STRING_VALUE",
+ * //                 State: "STRING_VALUE",
+ * //                 CarrierGatewayId: "STRING_VALUE",
+ * //                 CoreNetworkArn: "STRING_VALUE",
+ * //                 LocalGatewayId: "STRING_VALUE",
+ * //               },
+ * //               RouteTable: "<AnalysisComponent>",
+ * //               SecurityGroup: "<AnalysisComponent>",
+ * //               SecurityGroupRule: {
+ * //                 Cidr: "STRING_VALUE",
+ * //                 Direction: "STRING_VALUE",
+ * //                 SecurityGroupId: "STRING_VALUE",
+ * //                 PortRange: "<PortRange>",
+ * //                 PrefixListId: "STRING_VALUE",
+ * //                 Protocol: "STRING_VALUE",
+ * //               },
+ * //               SecurityGroups: [
+ * //                 "<AnalysisComponent>",
+ * //               ],
+ * //               SourceVpc: "<AnalysisComponent>",
+ * //               State: "STRING_VALUE",
+ * //               Subnet: "<AnalysisComponent>",
+ * //               SubnetRouteTable: "<AnalysisComponent>",
+ * //               Vpc: "<AnalysisComponent>",
+ * //               VpcEndpoint: "<AnalysisComponent>",
+ * //               VpnConnection: "<AnalysisComponent>",
+ * //               VpnGateway: "<AnalysisComponent>",
+ * //               TransitGateway: "<AnalysisComponent>",
+ * //               TransitGatewayRouteTable: "<AnalysisComponent>",
+ * //               TransitGatewayRouteTableRoute: {
+ * //                 DestinationCidr: "STRING_VALUE",
+ * //                 State: "STRING_VALUE",
+ * //                 RouteOrigin: "STRING_VALUE",
+ * //                 PrefixListId: "STRING_VALUE",
+ * //                 AttachmentId: "STRING_VALUE",
+ * //                 ResourceId: "STRING_VALUE",
+ * //                 ResourceType: "STRING_VALUE",
+ * //               },
+ * //               TransitGatewayAttachment: "<AnalysisComponent>",
+ * //               ComponentAccount: "STRING_VALUE",
+ * //               ComponentRegion: "STRING_VALUE",
+ * //               FirewallStatelessRule: { // FirewallStatelessRule
+ * //                 RuleGroupArn: "STRING_VALUE",
+ * //                 Sources: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Destinations: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 SourcePorts: "<PortRangeList>",
+ * //                 DestinationPorts: "<PortRangeList>",
+ * //                 Protocols: [ // ProtocolIntList
+ * //                   Number("int"),
+ * //                 ],
+ * //                 RuleAction: "STRING_VALUE",
+ * //                 Priority: Number("int"),
+ * //               },
+ * //               FirewallStatefulRule: { // FirewallStatefulRule
+ * //                 RuleGroupArn: "STRING_VALUE",
+ * //                 Sources: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Destinations: "<ValueStringList>",
+ * //                 SourcePorts: "<PortRangeList>",
+ * //                 DestinationPorts: "<PortRangeList>",
+ * //                 Protocol: "STRING_VALUE",
+ * //                 RuleAction: "STRING_VALUE",
+ * //                 Direction: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           ElasticLoadBalancerListener: "<AnalysisComponent>",
+ * //           FirewallStatelessRule: {
+ * //             RuleGroupArn: "STRING_VALUE",
+ * //             Sources: "<ValueStringList>",
+ * //             Destinations: "<ValueStringList>",
+ * //             SourcePorts: "<PortRangeList>",
+ * //             DestinationPorts: "<PortRangeList>",
+ * //             Protocols: [
+ * //               Number("int"),
+ * //             ],
+ * //             RuleAction: "STRING_VALUE",
+ * //             Priority: Number("int"),
+ * //           },
+ * //           FirewallStatefulRule: {
+ * //             RuleGroupArn: "STRING_VALUE",
+ * //             Sources: "<ValueStringList>",
+ * //             Destinations: "<ValueStringList>",
+ * //             SourcePorts: "<PortRangeList>",
+ * //             DestinationPorts: "<PortRangeList>",
+ * //             Protocol: "STRING_VALUE",
+ * //             RuleAction: "STRING_VALUE",
+ * //             Direction: "STRING_VALUE",
+ * //           },
+ * //           ServiceName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,21 +48,20 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCertificateResponse
- *   Certificate: { // Certificate
- *     CertificateIdentifier: "STRING_VALUE",
- *     CertificateCreationDate: new Date("TIMESTAMP"),
- *     CertificatePem: "STRING_VALUE",
- *     CertificateWallet: "BLOB_VALUE",
- *     CertificateArn: "STRING_VALUE",
- *     CertificateOwner: "STRING_VALUE",
- *     ValidFromDate: new Date("TIMESTAMP"),
- *     ValidToDate: new Date("TIMESTAMP"),
- *     SigningAlgorithm: "STRING_VALUE",
- *     KeyLength: Number("int"),
- *   },
- * };
+ * // { // DeleteCertificateResponse
+ * //   Certificate: { // Certificate
+ * //     CertificateIdentifier: "STRING_VALUE",
+ * //     CertificateCreationDate: new Date("TIMESTAMP"),
+ * //     CertificatePem: "STRING_VALUE",
+ * //     CertificateWallet: "BLOB_VALUE",
+ * //     CertificateArn: "STRING_VALUE",
+ * //     CertificateOwner: "STRING_VALUE",
+ * //     ValidFromDate: new Date("TIMESTAMP"),
+ * //     ValidToDate: new Date("TIMESTAMP"),
+ * //     SigningAlgorithm: "STRING_VALUE",
+ * //     KeyLength: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

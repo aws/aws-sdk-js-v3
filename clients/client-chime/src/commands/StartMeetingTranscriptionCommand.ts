@@ -82,8 +82,7 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

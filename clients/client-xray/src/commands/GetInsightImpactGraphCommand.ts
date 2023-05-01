@@ -48,31 +48,30 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * };
  * const command = new GetInsightImpactGraphCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightImpactGraphResult
- *   InsightId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   ServiceGraphStartTime: new Date("TIMESTAMP"),
- *   ServiceGraphEndTime: new Date("TIMESTAMP"),
- *   Services: [ // InsightImpactGraphServiceList
- *     { // InsightImpactGraphService
- *       ReferenceId: Number("int"),
- *       Type: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Names: [ // ServiceNames
- *         "STRING_VALUE",
- *       ],
- *       AccountId: "STRING_VALUE",
- *       Edges: [ // InsightImpactGraphEdgeList
- *         { // InsightImpactGraphEdge
- *           ReferenceId: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInsightImpactGraphResult
+ * //   InsightId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   ServiceGraphStartTime: new Date("TIMESTAMP"),
+ * //   ServiceGraphEndTime: new Date("TIMESTAMP"),
+ * //   Services: [ // InsightImpactGraphServiceList
+ * //     { // InsightImpactGraphService
+ * //       ReferenceId: Number("int"),
+ * //       Type: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Names: [ // ServiceNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AccountId: "STRING_VALUE",
+ * //       Edges: [ // InsightImpactGraphEdgeList
+ * //         { // InsightImpactGraphEdge
+ * //           ReferenceId: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

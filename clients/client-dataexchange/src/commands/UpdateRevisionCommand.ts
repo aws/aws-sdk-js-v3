@@ -47,20 +47,19 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  * };
  * const command = new UpdateRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRevisionResponse
- *   Arn: "STRING_VALUE",
- *   Comment: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   DataSetId: "STRING_VALUE",
- *   Finalized: true || false,
- *   Id: "STRING_VALUE",
- *   SourceId: "STRING_VALUE",
- *   UpdatedAt: new Date("TIMESTAMP"),
- *   RevocationComment: "STRING_VALUE",
- *   Revoked: true || false,
- *   RevokedAt: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateRevisionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Comment: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   DataSetId: "STRING_VALUE",
+ * //   Finalized: true || false,
+ * //   Id: "STRING_VALUE",
+ * //   SourceId: "STRING_VALUE",
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   RevocationComment: "STRING_VALUE",
+ * //   Revoked: true || false,
+ * //   RevokedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

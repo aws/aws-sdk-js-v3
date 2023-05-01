@@ -45,16 +45,15 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * };
  * const command = new ListDataflowEndpointGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataflowEndpointGroupsResponse
- *   nextToken: "STRING_VALUE",
- *   dataflowEndpointGroupList: [ // DataflowEndpointGroupList
- *     { // DataflowEndpointListItem
- *       dataflowEndpointGroupId: "STRING_VALUE",
- *       dataflowEndpointGroupArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListDataflowEndpointGroupsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   dataflowEndpointGroupList: [ // DataflowEndpointGroupList
+ * //     { // DataflowEndpointListItem
+ * //       dataflowEndpointGroupId: "STRING_VALUE",
+ * //       dataflowEndpointGroupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

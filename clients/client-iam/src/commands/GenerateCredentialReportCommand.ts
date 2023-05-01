@@ -44,11 +44,10 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * const input = {};
  * const command = new GenerateCredentialReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateCredentialReportResponse
- *   State: "STARTED" || "INPROGRESS" || "COMPLETE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // GenerateCredentialReportResponse
+ * //   State: "STARTED" || "INPROGRESS" || "COMPLETE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

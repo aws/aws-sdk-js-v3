@@ -47,8 +47,7 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * };
  * const command = new DeleteDeviceUsageDataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

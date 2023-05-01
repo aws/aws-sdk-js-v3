@@ -64,19 +64,18 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * };
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIceServerConfigResponse
- *   IceServerList: [ // IceServerList
- *     { // IceServer
- *       Uris: [ // Uris
- *         "STRING_VALUE",
- *       ],
- *       Username: "STRING_VALUE",
- *       Password: "STRING_VALUE",
- *       Ttl: Number("int"),
- *     },
- *   ],
- * };
+ * // { // GetIceServerConfigResponse
+ * //   IceServerList: [ // IceServerList
+ * //     { // IceServer
+ * //       Uris: [ // Uris
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Username: "STRING_VALUE",
+ * //       Password: "STRING_VALUE",
+ * //       Ttl: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

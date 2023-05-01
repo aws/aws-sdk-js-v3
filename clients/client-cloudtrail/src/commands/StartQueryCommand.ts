@@ -48,10 +48,9 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartQueryResponse
- *   QueryId: "STRING_VALUE",
- * };
+ * // { // StartQueryResponse
+ * //   QueryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

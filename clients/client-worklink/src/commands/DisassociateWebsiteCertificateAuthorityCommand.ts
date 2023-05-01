@@ -56,8 +56,7 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
  * };
  * const command = new DisassociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

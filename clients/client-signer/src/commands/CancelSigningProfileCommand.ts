@@ -47,8 +47,7 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelSigningProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

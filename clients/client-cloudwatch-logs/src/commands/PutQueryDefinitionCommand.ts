@@ -59,10 +59,9 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * };
  * const command = new PutQueryDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutQueryDefinitionResponse
- *   queryDefinitionId: "STRING_VALUE",
- * };
+ * // { // PutQueryDefinitionResponse
+ * //   queryDefinitionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

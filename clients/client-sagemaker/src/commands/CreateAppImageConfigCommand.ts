@@ -65,10 +65,9 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppImageConfigResponse
- *   AppImageConfigArn: "STRING_VALUE",
- * };
+ * // { // CreateAppImageConfigResponse
+ * //   AppImageConfigArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

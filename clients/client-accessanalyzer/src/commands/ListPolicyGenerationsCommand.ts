@@ -46,19 +46,18 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  * };
  * const command = new ListPolicyGenerationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyGenerationsResponse
- *   policyGenerations: [ // PolicyGenerationList // required
- *     { // PolicyGeneration
- *       jobId: "STRING_VALUE", // required
- *       principalArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       startedOn: new Date("TIMESTAMP"), // required
- *       completedOn: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPolicyGenerationsResponse
+ * //   policyGenerations: [ // PolicyGenerationList // required
+ * //     { // PolicyGeneration
+ * //       jobId: "STRING_VALUE", // required
+ * //       principalArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       startedOn: new Date("TIMESTAMP"), // required
+ * //       completedOn: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

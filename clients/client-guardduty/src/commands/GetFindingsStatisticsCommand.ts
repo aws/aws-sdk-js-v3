@@ -73,14 +73,13 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * };
  * const command = new GetFindingsStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFindingsStatisticsResponse
- *   FindingStatistics: { // FindingStatistics
- *     CountBySeverity: { // CountBySeverity
- *       "<keys>": Number("int"),
- *     },
- *   },
- * };
+ * // { // GetFindingsStatisticsResponse
+ * //   FindingStatistics: { // FindingStatistics
+ * //     CountBySeverity: { // CountBySeverity
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

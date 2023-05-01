@@ -47,8 +47,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * };
  * const command = new DeregisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

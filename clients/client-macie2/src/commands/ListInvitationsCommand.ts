@@ -45,18 +45,17 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInvitationsResponse
- *   invitations: [ // __listOfInvitation
- *     { // Invitation
- *       accountId: "STRING_VALUE",
- *       invitationId: "STRING_VALUE",
- *       invitedAt: new Date("TIMESTAMP"),
- *       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListInvitationsResponse
+ * //   invitations: [ // __listOfInvitation
+ * //     { // Invitation
+ * //       accountId: "STRING_VALUE",
+ * //       invitationId: "STRING_VALUE",
+ * //       invitedAt: new Date("TIMESTAMP"),
+ * //       relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

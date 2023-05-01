@@ -45,19 +45,18 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  * };
  * const command = new ListCustomDataIdentifiersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomDataIdentifiersResponse
- *   items: [ // __listOfCustomDataIdentifierSummary
- *     { // CustomDataIdentifierSummary
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       description: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomDataIdentifiersResponse
+ * //   items: [ // __listOfCustomDataIdentifierSummary
+ * //     { // CustomDataIdentifierSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

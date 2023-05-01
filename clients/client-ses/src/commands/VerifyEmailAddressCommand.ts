@@ -45,8 +45,7 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new VerifyEmailAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

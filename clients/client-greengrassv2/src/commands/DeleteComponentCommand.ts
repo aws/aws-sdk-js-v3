@@ -50,8 +50,7 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

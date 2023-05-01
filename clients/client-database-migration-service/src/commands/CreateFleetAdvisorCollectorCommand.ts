@@ -53,14 +53,13 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * };
  * const command = new CreateFleetAdvisorCollectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFleetAdvisorCollectorResponse
- *   CollectorReferencedId: "STRING_VALUE",
- *   CollectorName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ServiceAccessRoleArn: "STRING_VALUE",
- *   S3BucketName: "STRING_VALUE",
- * };
+ * // { // CreateFleetAdvisorCollectorResponse
+ * //   CollectorReferencedId: "STRING_VALUE",
+ * //   CollectorName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ServiceAccessRoleArn: "STRING_VALUE",
+ * //   S3BucketName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

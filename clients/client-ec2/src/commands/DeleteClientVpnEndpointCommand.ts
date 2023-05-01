@@ -46,13 +46,12 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * };
  * const command = new DeleteClientVpnEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteClientVpnEndpointResult
- *   Status: { // ClientVpnEndpointStatus
- *     Code: "pending-associate" || "available" || "deleting" || "deleted",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteClientVpnEndpointResult
+ * //   Status: { // ClientVpnEndpointStatus
+ * //     Code: "pending-associate" || "available" || "deleting" || "deleted",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

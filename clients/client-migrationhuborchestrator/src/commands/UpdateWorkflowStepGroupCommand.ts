@@ -57,26 +57,25 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * };
  * const command = new UpdateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkflowStepGroupResponse
- *   workflowId: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   tools: [ // ToolsList
- *     { // Tool
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   next: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   previous: [
- *     "STRING_VALUE",
- *   ],
- *   lastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateWorkflowStepGroupResponse
+ * //   workflowId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   next: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   previous: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   lastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

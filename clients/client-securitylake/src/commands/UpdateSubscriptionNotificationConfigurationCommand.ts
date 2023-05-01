@@ -60,10 +60,9 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
  * };
  * const command = new UpdateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSubscriptionNotificationConfigurationResponse
- *   queueArn: "STRING_VALUE",
- * };
+ * // { // UpdateSubscriptionNotificationConfigurationResponse
+ * //   queueArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

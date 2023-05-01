@@ -51,17 +51,16 @@ export interface ListMetricAttributionMetricsCommandOutput
  * };
  * const command = new ListMetricAttributionMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricAttributionMetricsResponse
- *   metrics: [ // MetricAttributes
- *     { // MetricAttribute
- *       eventType: "STRING_VALUE", // required
- *       metricName: "STRING_VALUE", // required
- *       expression: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMetricAttributionMetricsResponse
+ * //   metrics: [ // MetricAttributes
+ * //     { // MetricAttribute
+ * //       eventType: "STRING_VALUE", // required
+ * //       metricName: "STRING_VALUE", // required
+ * //       expression: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

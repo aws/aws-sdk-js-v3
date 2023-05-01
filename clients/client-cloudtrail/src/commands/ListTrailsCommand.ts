@@ -44,17 +44,16 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * };
  * const command = new ListTrailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrailsResponse
- *   Trails: [ // Trails
- *     { // TrailInfo
- *       TrailARN: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       HomeRegion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTrailsResponse
+ * //   Trails: [ // Trails
+ * //     { // TrailInfo
+ * //       TrailARN: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       HomeRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

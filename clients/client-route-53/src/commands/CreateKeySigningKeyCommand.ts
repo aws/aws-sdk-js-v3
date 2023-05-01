@@ -50,34 +50,33 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * };
  * const command = new CreateKeySigningKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateKeySigningKeyResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- *   KeySigningKey: { // KeySigningKey
- *     Name: "STRING_VALUE",
- *     KmsArn: "STRING_VALUE",
- *     Flag: Number("int"),
- *     SigningAlgorithmMnemonic: "STRING_VALUE",
- *     SigningAlgorithmType: Number("int"),
- *     DigestAlgorithmMnemonic: "STRING_VALUE",
- *     DigestAlgorithmType: Number("int"),
- *     KeyTag: Number("int"),
- *     DigestValue: "STRING_VALUE",
- *     PublicKey: "STRING_VALUE",
- *     DSRecord: "STRING_VALUE",
- *     DNSKEYRecord: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     CreatedDate: new Date("TIMESTAMP"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *   },
- *   Location: "STRING_VALUE", // required
- * };
+ * // { // CreateKeySigningKeyResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * //   KeySigningKey: { // KeySigningKey
+ * //     Name: "STRING_VALUE",
+ * //     KmsArn: "STRING_VALUE",
+ * //     Flag: Number("int"),
+ * //     SigningAlgorithmMnemonic: "STRING_VALUE",
+ * //     SigningAlgorithmType: Number("int"),
+ * //     DigestAlgorithmMnemonic: "STRING_VALUE",
+ * //     DigestAlgorithmType: Number("int"),
+ * //     KeyTag: Number("int"),
+ * //     DigestValue: "STRING_VALUE",
+ * //     PublicKey: "STRING_VALUE",
+ * //     DSRecord: "STRING_VALUE",
+ * //     DNSKEYRecord: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -54,13 +54,12 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * };
  * const command = new DescribeProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProvisioningTemplateVersionResponse
- *   versionId: Number("int"),
- *   creationDate: new Date("TIMESTAMP"),
- *   templateBody: "STRING_VALUE",
- *   isDefaultVersion: true || false,
- * };
+ * // { // DescribeProvisioningTemplateVersionResponse
+ * //   versionId: Number("int"),
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   templateBody: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * // };
  *
  * ```
  *

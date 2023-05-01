@@ -46,8 +46,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * };
  * const command = new DeregisterManagedInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

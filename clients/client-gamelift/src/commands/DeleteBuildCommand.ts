@@ -57,8 +57,7 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBuildCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

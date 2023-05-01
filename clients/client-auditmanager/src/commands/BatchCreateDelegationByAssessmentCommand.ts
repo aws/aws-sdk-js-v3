@@ -60,36 +60,35 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * };
  * const command = new BatchCreateDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateDelegationByAssessmentResponse
- *   delegations: [ // Delegations
- *     { // Delegation
- *       id: "STRING_VALUE",
- *       assessmentName: "STRING_VALUE",
- *       assessmentId: "STRING_VALUE",
- *       status: "IN_PROGRESS" || "UNDER_REVIEW" || "COMPLETE",
- *       roleArn: "STRING_VALUE",
- *       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdated: new Date("TIMESTAMP"),
- *       controlSetId: "STRING_VALUE",
- *       comment: "STRING_VALUE",
- *       createdBy: "STRING_VALUE",
- *     },
- *   ],
- *   errors: [ // BatchCreateDelegationByAssessmentErrors
- *     { // BatchCreateDelegationByAssessmentError
- *       createDelegationRequest: { // CreateDelegationRequest
- *         comment: "STRING_VALUE",
- *         controlSetId: "STRING_VALUE",
- *         roleArn: "STRING_VALUE",
- *         roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
- *       },
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateDelegationByAssessmentResponse
+ * //   delegations: [ // Delegations
+ * //     { // Delegation
+ * //       id: "STRING_VALUE",
+ * //       assessmentName: "STRING_VALUE",
+ * //       assessmentId: "STRING_VALUE",
+ * //       status: "IN_PROGRESS" || "UNDER_REVIEW" || "COMPLETE",
+ * //       roleArn: "STRING_VALUE",
+ * //       roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdated: new Date("TIMESTAMP"),
+ * //       controlSetId: "STRING_VALUE",
+ * //       comment: "STRING_VALUE",
+ * //       createdBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchCreateDelegationByAssessmentErrors
+ * //     { // BatchCreateDelegationByAssessmentError
+ * //       createDelegationRequest: { // CreateDelegationRequest
+ * //         comment: "STRING_VALUE",
+ * //         controlSetId: "STRING_VALUE",
+ * //         roleArn: "STRING_VALUE",
+ * //         roleType: "PROCESS_OWNER" || "RESOURCE_OWNER",
+ * //       },
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

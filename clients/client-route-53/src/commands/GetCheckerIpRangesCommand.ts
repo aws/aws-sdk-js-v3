@@ -51,12 +51,11 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * const input = {};
  * const command = new GetCheckerIpRangesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCheckerIpRangesResponse
- *   CheckerIpRanges: [ // CheckerIpRanges // required
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetCheckerIpRangesResponse
+ * //   CheckerIpRanges: [ // CheckerIpRanges // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

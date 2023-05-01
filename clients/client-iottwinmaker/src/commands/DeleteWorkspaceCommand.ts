@@ -44,8 +44,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

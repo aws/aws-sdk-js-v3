@@ -54,8 +54,7 @@ export interface StopTrainingDocumentClassifierCommandOutput
  * };
  * const command = new StopTrainingDocumentClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,21 +60,20 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * };
  * const command = new TestInvokeMethodCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestInvokeMethodResponse
- *   status: Number("int"),
- *   body: "STRING_VALUE",
- *   headers: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- *   multiValueHeaders: { // MapOfStringToList
- *     "<keys>": [ // ListOfString
- *       "STRING_VALUE",
- *     ],
- *   },
- *   log: "STRING_VALUE",
- *   latency: Number("long"),
- * };
+ * // { // TestInvokeMethodResponse
+ * //   status: Number("int"),
+ * //   body: "STRING_VALUE",
+ * //   headers: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   multiValueHeaders: { // MapOfStringToList
+ * //     "<keys>": [ // ListOfString
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   log: "STRING_VALUE",
+ * //   latency: Number("long"),
+ * // };
  *
  * ```
  *

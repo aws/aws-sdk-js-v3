@@ -52,12 +52,11 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * };
  * const command = new DeleteFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFleetAdvisorDatabasesResponse
- *   DatabaseIds: [ // StringList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DeleteFleetAdvisorDatabasesResponse
+ * //   DatabaseIds: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

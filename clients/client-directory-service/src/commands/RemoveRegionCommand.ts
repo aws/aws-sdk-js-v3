@@ -46,8 +46,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * };
  * const command = new RemoveRegionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

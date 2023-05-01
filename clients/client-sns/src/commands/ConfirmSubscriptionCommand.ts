@@ -50,10 +50,9 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * };
  * const command = new ConfirmSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfirmSubscriptionResponse
- *   SubscriptionArn: "STRING_VALUE",
- * };
+ * // { // ConfirmSubscriptionResponse
+ * //   SubscriptionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

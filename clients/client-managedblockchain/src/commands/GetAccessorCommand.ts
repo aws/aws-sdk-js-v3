@@ -49,20 +49,19 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * };
  * const command = new GetAccessorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessorOutput
- *   Accessor: { // Accessor
- *     Id: "STRING_VALUE",
- *     Type: "BILLING_TOKEN",
- *     BillingToken: "STRING_VALUE",
- *     Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
- *     CreationDate: new Date("TIMESTAMP"),
- *     Arn: "STRING_VALUE",
- *     Tags: { // OutputTagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetAccessorOutput
+ * //   Accessor: { // Accessor
+ * //     Id: "STRING_VALUE",
+ * //     Type: "BILLING_TOKEN",
+ * //     BillingToken: "STRING_VALUE",
+ * //     Status: "AVAILABLE" || "PENDING_DELETION" || "DELETED",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     Arn: "STRING_VALUE",
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

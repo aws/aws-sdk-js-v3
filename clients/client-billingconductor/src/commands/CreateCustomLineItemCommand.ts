@@ -72,10 +72,9 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * };
  * const command = new CreateCustomLineItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomLineItemOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreateCustomLineItemOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

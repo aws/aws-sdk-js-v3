@@ -85,17 +85,16 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * };
  * const command = new BatchDeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteRecipeVersionResponse
- *   Name: "STRING_VALUE", // required
- *   Errors: [ // RecipeErrorList
- *     { // RecipeVersionErrorDetail
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       RecipeVersion: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteRecipeVersionResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Errors: [ // RecipeErrorList
+ * //     { // RecipeVersionErrorDetail
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       RecipeVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

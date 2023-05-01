@@ -87,22 +87,21 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * };
  * const command = new DescribeComplianceByConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeComplianceByConfigRuleResponse
- *   ComplianceByConfigRules: [ // ComplianceByConfigRules
- *     { // ComplianceByConfigRule
- *       ConfigRuleName: "STRING_VALUE",
- *       Compliance: { // Compliance
- *         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
- *         ComplianceContributorCount: { // ComplianceContributorCount
- *           CappedCount: Number("int"),
- *           CapExceeded: true || false,
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeComplianceByConfigRuleResponse
+ * //   ComplianceByConfigRules: [ // ComplianceByConfigRules
+ * //     { // ComplianceByConfigRule
+ * //       ConfigRuleName: "STRING_VALUE",
+ * //       Compliance: { // Compliance
+ * //         ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ * //         ComplianceContributorCount: { // ComplianceContributorCount
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

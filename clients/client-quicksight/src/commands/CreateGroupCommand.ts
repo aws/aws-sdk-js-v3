@@ -51,17 +51,16 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupResponse
- *   Group: { // Group
- *     Arn: "STRING_VALUE",
- *     GroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     PrincipalId: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CreateGroupResponse
+ * //   Group: { // Group
+ * //     Arn: "STRING_VALUE",
+ * //     GroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     PrincipalId: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

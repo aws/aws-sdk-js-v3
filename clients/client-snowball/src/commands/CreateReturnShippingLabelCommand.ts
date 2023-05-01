@@ -45,10 +45,9 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * };
  * const command = new CreateReturnShippingLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReturnShippingLabelResult
- *   Status: "InProgress" || "TimedOut" || "Succeeded" || "Failed",
- * };
+ * // { // CreateReturnShippingLabelResult
+ * //   Status: "InProgress" || "TimedOut" || "Succeeded" || "Failed",
+ * // };
  *
  * ```
  *

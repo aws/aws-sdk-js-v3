@@ -61,10 +61,9 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * };
  * const command = new ActivateTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivateTypeOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // ActivateTypeOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

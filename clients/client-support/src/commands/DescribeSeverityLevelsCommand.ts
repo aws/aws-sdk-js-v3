@@ -60,15 +60,14 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * };
  * const command = new DescribeSeverityLevelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSeverityLevelsResponse
- *   severityLevels: [ // SeverityLevelsList
- *     { // SeverityLevel
- *       code: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeSeverityLevelsResponse
+ * //   severityLevels: [ // SeverityLevelsList
+ * //     { // SeverityLevel
+ * //       code: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

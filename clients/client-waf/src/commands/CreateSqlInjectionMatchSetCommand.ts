@@ -74,23 +74,22 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * };
  * const command = new CreateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSqlInjectionMatchSetResponse
- *   SqlInjectionMatchSet: { // SqlInjectionMatchSet
- *     SqlInjectionMatchSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
- *       { // SqlInjectionMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateSqlInjectionMatchSetResponse
+ * //   SqlInjectionMatchSet: { // SqlInjectionMatchSet
+ * //     SqlInjectionMatchSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     SqlInjectionMatchTuples: [ // SqlInjectionMatchTuples // required
+ * //       { // SqlInjectionMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,23 +51,22 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStreamsOutput
- *   StreamInfoList: [ // StreamInfoList
- *     { // StreamInfo
- *       DeviceName: "STRING_VALUE",
- *       StreamName: "STRING_VALUE",
- *       StreamARN: "STRING_VALUE",
- *       MediaType: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
- *       CreationTime: new Date("TIMESTAMP"),
- *       DataRetentionInHours: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStreamsOutput
+ * //   StreamInfoList: [ // StreamInfoList
+ * //     { // StreamInfo
+ * //       DeviceName: "STRING_VALUE",
+ * //       StreamName: "STRING_VALUE",
+ * //       StreamARN: "STRING_VALUE",
+ * //       MediaType: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       DataRetentionInHours: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

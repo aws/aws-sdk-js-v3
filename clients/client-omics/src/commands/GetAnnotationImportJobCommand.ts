@@ -44,43 +44,42 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * };
  * const command = new GetAnnotationImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAnnotationImportResponse
- *   id: "STRING_VALUE", // required
- *   destinationName: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusMessage: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   updateTime: new Date("TIMESTAMP"), // required
- *   completionTime: new Date("TIMESTAMP"), // required
- *   items: [ // AnnotationImportItemDetails // required
- *     { // AnnotationImportItemDetail
- *       source: "STRING_VALUE", // required
- *       jobStatus: "STRING_VALUE", // required
- *     },
- *   ],
- *   runLeftNormalization: true || false, // required
- *   formatOptions: { // FormatOptions Union: only one key present
- *     tsvOptions: { // TsvOptions
- *       readOptions: { // ReadOptions
- *         sep: "STRING_VALUE",
- *         encoding: "STRING_VALUE",
- *         quote: "STRING_VALUE",
- *         quoteAll: true || false,
- *         escape: "STRING_VALUE",
- *         escapeQuotes: true || false,
- *         comment: "STRING_VALUE",
- *         header: true || false,
- *         lineSep: "STRING_VALUE",
- *       },
- *     },
- *     vcfOptions: { // VcfOptions
- *       ignoreQualField: true || false,
- *       ignoreFilterField: true || false,
- *     },
- *   },
- * };
+ * // { // GetAnnotationImportResponse
+ * //   id: "STRING_VALUE", // required
+ * //   destinationName: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"), // required
+ * //   items: [ // AnnotationImportItemDetails // required
+ * //     { // AnnotationImportItemDetail
+ * //       source: "STRING_VALUE", // required
+ * //       jobStatus: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   runLeftNormalization: true || false, // required
+ * //   formatOptions: { // FormatOptions Union: only one key present
+ * //     tsvOptions: { // TsvOptions
+ * //       readOptions: { // ReadOptions
+ * //         sep: "STRING_VALUE",
+ * //         encoding: "STRING_VALUE",
+ * //         quote: "STRING_VALUE",
+ * //         quoteAll: true || false,
+ * //         escape: "STRING_VALUE",
+ * //         escapeQuotes: true || false,
+ * //         comment: "STRING_VALUE",
+ * //         header: true || false,
+ * //         lineSep: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     vcfOptions: { // VcfOptions
+ * //       ignoreQualField: true || false,
+ * //       ignoreFilterField: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

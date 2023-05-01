@@ -51,10 +51,9 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * };
  * const command = new StartPipelineReprocessingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPipelineReprocessingResponse
- *   reprocessingId: "STRING_VALUE",
- * };
+ * // { // StartPipelineReprocessingResponse
+ * //   reprocessingId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

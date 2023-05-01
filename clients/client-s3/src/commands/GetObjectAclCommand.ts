@@ -88,26 +88,25 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * };
  * const command = new GetObjectAclCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectAclOutput
- *   Owner: { // Owner
- *     DisplayName: "STRING_VALUE",
- *     ID: "STRING_VALUE",
- *   },
- *   Grants: [ // Grants
- *     { // Grant
- *       Grantee: { // Grantee
- *         DisplayName: "STRING_VALUE",
- *         EmailAddress: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *         URI: "STRING_VALUE",
- *         Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
- *       },
- *       Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
- *     },
- *   ],
- *   RequestCharged: "requester",
- * };
+ * // { // GetObjectAclOutput
+ * //   Owner: { // Owner
+ * //     DisplayName: "STRING_VALUE",
+ * //     ID: "STRING_VALUE",
+ * //   },
+ * //   Grants: [ // Grants
+ * //     { // Grant
+ * //       Grantee: { // Grantee
+ * //         DisplayName: "STRING_VALUE",
+ * //         EmailAddress: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //         URI: "STRING_VALUE",
+ * //         Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ * //       },
+ * //       Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ * //     },
+ * //   ],
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

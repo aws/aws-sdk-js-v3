@@ -65,41 +65,40 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
  * };
  * const command = new DescribeTransitGatewayConnectPeersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayConnectPeersResult
- *   TransitGatewayConnectPeers: [ // TransitGatewayConnectPeerList
- *     { // TransitGatewayConnectPeer
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       TransitGatewayConnectPeerId: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       CreationTime: new Date("TIMESTAMP"),
- *       ConnectPeerConfiguration: { // TransitGatewayConnectPeerConfiguration
- *         TransitGatewayAddress: "STRING_VALUE",
- *         PeerAddress: "STRING_VALUE",
- *         InsideCidrBlocks: [ // InsideCidrBlocksStringList
- *           "STRING_VALUE",
- *         ],
- *         Protocol: "gre",
- *         BgpConfigurations: [ // TransitGatewayAttachmentBgpConfigurationList
- *           { // TransitGatewayAttachmentBgpConfiguration
- *             TransitGatewayAsn: Number("long"),
- *             PeerAsn: Number("long"),
- *             TransitGatewayAddress: "STRING_VALUE",
- *             PeerAddress: "STRING_VALUE",
- *             BgpStatus: "up" || "down",
- *           },
- *         ],
- *       },
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayConnectPeersResult
+ * //   TransitGatewayConnectPeers: [ // TransitGatewayConnectPeerList
+ * //     { // TransitGatewayConnectPeer
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransitGatewayConnectPeerId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ConnectPeerConfiguration: { // TransitGatewayConnectPeerConfiguration
+ * //         TransitGatewayAddress: "STRING_VALUE",
+ * //         PeerAddress: "STRING_VALUE",
+ * //         InsideCidrBlocks: [ // InsideCidrBlocksStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Protocol: "gre",
+ * //         BgpConfigurations: [ // TransitGatewayAttachmentBgpConfigurationList
+ * //           { // TransitGatewayAttachmentBgpConfiguration
+ * //             TransitGatewayAsn: Number("long"),
+ * //             PeerAsn: Number("long"),
+ * //             TransitGatewayAddress: "STRING_VALUE",
+ * //             PeerAddress: "STRING_VALUE",
+ * //             BgpStatus: "up" || "down",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

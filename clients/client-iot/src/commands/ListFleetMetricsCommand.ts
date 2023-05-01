@@ -46,16 +46,15 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * };
  * const command = new ListFleetMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFleetMetricsResponse
- *   fleetMetrics: [ // FleetMetricNameAndArnList
- *     { // FleetMetricNameAndArn
- *       metricName: "STRING_VALUE",
- *       metricArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFleetMetricsResponse
+ * //   fleetMetrics: [ // FleetMetricNameAndArnList
+ * //     { // FleetMetricNameAndArn
+ * //       metricName: "STRING_VALUE",
+ * //       metricArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

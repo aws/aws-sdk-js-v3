@@ -87,10 +87,9 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * };
  * const command = new StartTaskExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTaskExecutionResponse
- *   TaskExecutionArn: "STRING_VALUE",
- * };
+ * // { // StartTaskExecutionResponse
+ * //   TaskExecutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

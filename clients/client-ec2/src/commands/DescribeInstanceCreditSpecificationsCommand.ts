@@ -84,16 +84,15 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * };
  * const command = new DescribeInstanceCreditSpecificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstanceCreditSpecificationsResult
- *   InstanceCreditSpecifications: [ // InstanceCreditSpecificationList
- *     { // InstanceCreditSpecification
- *       InstanceId: "STRING_VALUE",
- *       CpuCredits: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInstanceCreditSpecificationsResult
+ * //   InstanceCreditSpecifications: [ // InstanceCreditSpecificationList
+ * //     { // InstanceCreditSpecification
+ * //       InstanceId: "STRING_VALUE",
+ * //       CpuCredits: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

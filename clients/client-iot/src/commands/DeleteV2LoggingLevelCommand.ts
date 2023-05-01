@@ -46,8 +46,7 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteV2LoggingLevelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

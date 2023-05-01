@@ -47,8 +47,7 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
  * };
  * const command = new DeleteLaunchProfileMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

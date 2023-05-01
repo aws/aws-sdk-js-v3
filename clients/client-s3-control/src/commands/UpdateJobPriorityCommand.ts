@@ -71,11 +71,10 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * };
  * const command = new UpdateJobPriorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateJobPriorityResult
- *   JobId: "STRING_VALUE", // required
- *   Priority: Number("int"), // required
- * };
+ * // { // UpdateJobPriorityResult
+ * //   JobId: "STRING_VALUE", // required
+ * //   Priority: Number("int"), // required
+ * // };
  *
  * ```
  *

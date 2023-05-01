@@ -47,13 +47,12 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * };
  * const command = new ListFirewallDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFirewallDomainsResponse
- *   NextToken: "STRING_VALUE",
- *   Domains: [ // FirewallDomains
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListFirewallDomainsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Domains: [ // FirewallDomains
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

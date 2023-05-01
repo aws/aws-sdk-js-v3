@@ -46,14 +46,13 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * };
  * const command = new DeleteAccountSettingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAccountSettingResponse
- *   setting: { // Setting
- *     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
- *     value: "STRING_VALUE",
- *     principalArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteAccountSettingResponse
+ * //   setting: { // Setting
+ * //     name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //     value: "STRING_VALUE",
+ * //     principalArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

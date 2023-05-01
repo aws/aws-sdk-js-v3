@@ -56,10 +56,9 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * };
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobUnlockCodeResult
- *   UnlockCode: "STRING_VALUE",
- * };
+ * // { // GetJobUnlockCodeResult
+ * //   UnlockCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

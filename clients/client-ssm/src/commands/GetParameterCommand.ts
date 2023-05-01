@@ -48,20 +48,19 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * };
  * const command = new GetParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetParameterResult
- *   Parameter: { // Parameter
- *     Name: "STRING_VALUE",
- *     Type: "String" || "StringList" || "SecureString",
- *     Value: "STRING_VALUE",
- *     Version: Number("long"),
- *     Selector: "STRING_VALUE",
- *     SourceResult: "STRING_VALUE",
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     ARN: "STRING_VALUE",
- *     DataType: "STRING_VALUE",
- *   },
- * };
+ * // { // GetParameterResult
+ * //   Parameter: { // Parameter
+ * //     Name: "STRING_VALUE",
+ * //     Type: "String" || "StringList" || "SecureString",
+ * //     Value: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //     Selector: "STRING_VALUE",
+ * //     SourceResult: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     ARN: "STRING_VALUE",
+ * //     DataType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

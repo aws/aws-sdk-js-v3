@@ -67,8 +67,7 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

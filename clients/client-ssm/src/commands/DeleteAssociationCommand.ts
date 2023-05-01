@@ -52,8 +52,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

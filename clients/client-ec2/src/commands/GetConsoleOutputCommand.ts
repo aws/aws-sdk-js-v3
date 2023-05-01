@@ -58,12 +58,11 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConsoleOutputResult
- *   InstanceId: "STRING_VALUE",
- *   Output: "STRING_VALUE",
- *   Timestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetConsoleOutputResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   Output: "STRING_VALUE",
+ * //   Timestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

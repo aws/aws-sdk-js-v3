@@ -56,21 +56,20 @@ export interface StartStageDeploymentCommandOutput extends StartStageDeploymentR
  * };
  * const command = new StartStageDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartStageDeploymentResult
- *   StageDeployment: { // StageDeploymentDetails
- *     DeploymentId: "STRING_VALUE",
- *     SnapshotId: "STRING_VALUE",
- *     DeploymentAction: "STRING_VALUE",
- *     DeploymentState: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     DeploymentResult: { // DeploymentResult
- *       ResultCode: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // StartStageDeploymentResult
+ * //   StageDeployment: { // StageDeploymentDetails
+ * //     DeploymentId: "STRING_VALUE",
+ * //     SnapshotId: "STRING_VALUE",
+ * //     DeploymentAction: "STRING_VALUE",
+ * //     DeploymentState: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     DeploymentResult: { // DeploymentResult
+ * //       ResultCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

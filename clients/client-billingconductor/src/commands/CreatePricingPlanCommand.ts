@@ -57,10 +57,9 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * };
  * const command = new CreatePricingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePricingPlanOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // CreatePricingPlanOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

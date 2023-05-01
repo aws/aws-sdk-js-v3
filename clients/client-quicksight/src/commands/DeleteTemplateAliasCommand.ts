@@ -47,14 +47,13 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * };
  * const command = new DeleteTemplateAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTemplateAliasResponse
- *   Status: Number("int"),
- *   TemplateId: "STRING_VALUE",
- *   AliasName: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DeleteTemplateAliasResponse
+ * //   Status: Number("int"),
+ * //   TemplateId: "STRING_VALUE",
+ * //   AliasName: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

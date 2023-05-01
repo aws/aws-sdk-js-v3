@@ -54,15 +54,14 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * };
  * const command = new UpdateProvisionedProductPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProvisionedProductPropertiesOutput
- *   ProvisionedProductId: "STRING_VALUE",
- *   ProvisionedProductProperties: { // ProvisionedProductProperties
- *     "<keys>": "STRING_VALUE",
- *   },
- *   RecordId: "STRING_VALUE",
- *   Status: "CREATED" || "IN_PROGRESS" || "IN_PROGRESS_IN_ERROR" || "SUCCEEDED" || "FAILED",
- * };
+ * // { // UpdateProvisionedProductPropertiesOutput
+ * //   ProvisionedProductId: "STRING_VALUE",
+ * //   ProvisionedProductProperties: { // ProvisionedProductProperties
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   RecordId: "STRING_VALUE",
+ * //   Status: "CREATED" || "IN_PROGRESS" || "IN_PROGRESS_IN_ERROR" || "SUCCEEDED" || "FAILED",
+ * // };
  *
  * ```
  *

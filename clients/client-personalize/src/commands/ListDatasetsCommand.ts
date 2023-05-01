@@ -48,20 +48,19 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   datasets: [ // Datasets
- *     { // DatasetSummary
- *       name: "STRING_VALUE",
- *       datasetArn: "STRING_VALUE",
- *       datasetType: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetsResponse
+ * //   datasets: [ // Datasets
+ * //     { // DatasetSummary
+ * //       name: "STRING_VALUE",
+ * //       datasetArn: "STRING_VALUE",
+ * //       datasetType: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

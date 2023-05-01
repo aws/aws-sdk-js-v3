@@ -57,35 +57,34 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * };
  * const command = new GetParameterHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetParameterHistoryResult
- *   Parameters: [ // ParameterHistoryList
- *     { // ParameterHistory
- *       Name: "STRING_VALUE",
- *       Type: "String" || "StringList" || "SecureString",
- *       KeyId: "STRING_VALUE",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       LastModifiedUser: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       AllowedPattern: "STRING_VALUE",
- *       Version: Number("long"),
- *       Labels: [ // ParameterLabelList
- *         "STRING_VALUE",
- *       ],
- *       Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
- *       Policies: [ // ParameterPolicyList
- *         { // ParameterInlinePolicy
- *           PolicyText: "STRING_VALUE",
- *           PolicyType: "STRING_VALUE",
- *           PolicyStatus: "STRING_VALUE",
- *         },
- *       ],
- *       DataType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetParameterHistoryResult
+ * //   Parameters: [ // ParameterHistoryList
+ * //     { // ParameterHistory
+ * //       Name: "STRING_VALUE",
+ * //       Type: "String" || "StringList" || "SecureString",
+ * //       KeyId: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedUser: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       AllowedPattern: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       Labels: [ // ParameterLabelList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tier: "Standard" || "Advanced" || "Intelligent-Tiering",
+ * //       Policies: [ // ParameterPolicyList
+ * //         { // ParameterInlinePolicy
+ * //           PolicyText: "STRING_VALUE",
+ * //           PolicyType: "STRING_VALUE",
+ * //           PolicyStatus: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DataType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

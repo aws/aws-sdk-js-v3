@@ -61,8 +61,7 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

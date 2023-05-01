@@ -55,16 +55,15 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * };
  * const command = new DescribeCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCompanyNetworkConfigurationResponse
- *   VpcId: "STRING_VALUE",
- *   SubnetIds: [ // SubnetIds
- *     "STRING_VALUE",
- *   ],
- *   SecurityGroupIds: [ // SecurityGroupIds
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeCompanyNetworkConfigurationResponse
+ * //   VpcId: "STRING_VALUE",
+ * //   SubnetIds: [ // SubnetIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SecurityGroupIds: [ // SecurityGroupIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

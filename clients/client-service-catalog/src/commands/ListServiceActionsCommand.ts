@@ -46,18 +46,17 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * };
  * const command = new ListServiceActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceActionsOutput
- *   ServiceActionSummaries: [ // ServiceActionSummaries
- *     { // ServiceActionSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DefinitionType: "SSM_AUTOMATION",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListServiceActionsOutput
+ * //   ServiceActionSummaries: [ // ServiceActionSummaries
+ * //     { // ServiceActionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefinitionType: "SSM_AUTOMATION",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -69,21 +69,20 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServicesResponse
- *   services: [ // ServiceList
- *     { // Service
- *       code: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       categories: [ // CategoryList
- *         { // Category
- *           code: "STRING_VALUE",
- *           name: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeServicesResponse
+ * //   services: [ // ServiceList
+ * //     { // Service
+ * //       code: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       categories: [ // CategoryList
+ * //         { // Category
+ * //           code: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

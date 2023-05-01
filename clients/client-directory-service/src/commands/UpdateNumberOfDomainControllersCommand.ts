@@ -54,8 +54,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * };
  * const command = new UpdateNumberOfDomainControllersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

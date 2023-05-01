@@ -58,8 +58,7 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteServerCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

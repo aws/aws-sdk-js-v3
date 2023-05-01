@@ -46,22 +46,21 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * };
  * const command = new GetRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRepositoryCatalogDataResponse
- *   catalogData: { // RepositoryCatalogData
- *     description: "STRING_VALUE",
- *     architectures: [ // ArchitectureList
- *       "STRING_VALUE",
- *     ],
- *     operatingSystems: [ // OperatingSystemList
- *       "STRING_VALUE",
- *     ],
- *     logoUrl: "STRING_VALUE",
- *     aboutText: "STRING_VALUE",
- *     usageText: "STRING_VALUE",
- *     marketplaceCertified: true || false,
- *   },
- * };
+ * // { // GetRepositoryCatalogDataResponse
+ * //   catalogData: { // RepositoryCatalogData
+ * //     description: "STRING_VALUE",
+ * //     architectures: [ // ArchitectureList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     operatingSystems: [ // OperatingSystemList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logoUrl: "STRING_VALUE",
+ * //     aboutText: "STRING_VALUE",
+ * //     usageText: "STRING_VALUE",
+ * //     marketplaceCertified: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

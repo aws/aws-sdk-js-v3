@@ -49,8 +49,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * };
  * const command = new DeleteAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

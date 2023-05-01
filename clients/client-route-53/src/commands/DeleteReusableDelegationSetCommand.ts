@@ -54,8 +54,7 @@ export interface DeleteReusableDelegationSetCommandOutput
  * };
  * const command = new DeleteReusableDelegationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

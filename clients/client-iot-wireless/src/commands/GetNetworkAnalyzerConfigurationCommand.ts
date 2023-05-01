@@ -49,22 +49,21 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput
  * };
  * const command = new GetNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkAnalyzerConfigurationResponse
- *   TraceContent: { // TraceContent
- *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
- *     LogLevel: "INFO" || "ERROR" || "DISABLED",
- *   },
- *   WirelessDevices: [ // WirelessDeviceList
- *     "STRING_VALUE",
- *   ],
- *   WirelessGateways: [ // WirelessGatewayList
- *     "STRING_VALUE",
- *   ],
- *   Description: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // GetNetworkAnalyzerConfigurationResponse
+ * //   TraceContent: { // TraceContent
+ * //     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
+ * //     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ * //   },
+ * //   WirelessDevices: [ // WirelessDeviceList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   WirelessGateways: [ // WirelessGatewayList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Description: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,32 +47,31 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * };
  * const command = new GetCampaignActivitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCampaignActivitiesResponse
- *   ActivitiesResponse: { // ActivitiesResponse
- *     Item: [ // ListOfActivityResponse // required
- *       { // ActivityResponse
- *         ApplicationId: "STRING_VALUE", // required
- *         CampaignId: "STRING_VALUE", // required
- *         End: "STRING_VALUE",
- *         Id: "STRING_VALUE", // required
- *         Result: "STRING_VALUE",
- *         ScheduledStart: "STRING_VALUE",
- *         Start: "STRING_VALUE",
- *         State: "STRING_VALUE",
- *         SuccessfulEndpointCount: Number("int"),
- *         TimezonesCompletedCount: Number("int"),
- *         TimezonesTotalCount: Number("int"),
- *         TotalEndpointCount: Number("int"),
- *         TreatmentId: "STRING_VALUE",
- *         ExecutionMetrics: { // MapOf__string
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     NextToken: "STRING_VALUE",
- *   },
- * };
+ * // { // GetCampaignActivitiesResponse
+ * //   ActivitiesResponse: { // ActivitiesResponse
+ * //     Item: [ // ListOfActivityResponse // required
+ * //       { // ActivityResponse
+ * //         ApplicationId: "STRING_VALUE", // required
+ * //         CampaignId: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE",
+ * //         Id: "STRING_VALUE", // required
+ * //         Result: "STRING_VALUE",
+ * //         ScheduledStart: "STRING_VALUE",
+ * //         Start: "STRING_VALUE",
+ * //         State: "STRING_VALUE",
+ * //         SuccessfulEndpointCount: Number("int"),
+ * //         TimezonesCompletedCount: Number("int"),
+ * //         TimezonesTotalCount: Number("int"),
+ * //         TotalEndpointCount: Number("int"),
+ * //         TreatmentId: "STRING_VALUE",
+ * //         ExecutionMetrics: { // MapOf__string
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     NextToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

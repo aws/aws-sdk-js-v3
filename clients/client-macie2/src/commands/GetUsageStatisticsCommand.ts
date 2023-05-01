@@ -59,30 +59,29 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUsageStatisticsResponse
- *   nextToken: "STRING_VALUE",
- *   records: [ // __listOfUsageRecord
- *     { // UsageRecord
- *       accountId: "STRING_VALUE",
- *       automatedDiscoveryFreeTrialStartDate: new Date("TIMESTAMP"),
- *       freeTrialStartDate: new Date("TIMESTAMP"),
- *       usage: [ // __listOfUsageByAccount
- *         { // UsageByAccount
- *           currency: "USD",
- *           estimatedCost: "STRING_VALUE",
- *           serviceLimit: { // ServiceLimit
- *             isServiceLimited: true || false,
- *             unit: "TERABYTES",
- *             value: Number("long"),
- *           },
- *           type: "DATA_INVENTORY_EVALUATION" || "SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_OBJECT_MONITORING",
- *         },
- *       ],
- *     },
- *   ],
- *   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
- * };
+ * // { // GetUsageStatisticsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   records: [ // __listOfUsageRecord
+ * //     { // UsageRecord
+ * //       accountId: "STRING_VALUE",
+ * //       automatedDiscoveryFreeTrialStartDate: new Date("TIMESTAMP"),
+ * //       freeTrialStartDate: new Date("TIMESTAMP"),
+ * //       usage: [ // __listOfUsageByAccount
+ * //         { // UsageByAccount
+ * //           currency: "USD",
+ * //           estimatedCost: "STRING_VALUE",
+ * //           serviceLimit: { // ServiceLimit
+ * //             isServiceLimited: true || false,
+ * //             unit: "TERABYTES",
+ * //             value: Number("long"),
+ * //           },
+ * //           type: "DATA_INVENTORY_EVALUATION" || "SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_OBJECT_MONITORING",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
+ * // };
  *
  * ```
  *

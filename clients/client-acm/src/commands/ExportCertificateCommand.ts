@@ -56,12 +56,11 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportCertificateResponse
- *   Certificate: "STRING_VALUE",
- *   CertificateChain: "STRING_VALUE",
- *   PrivateKey: "STRING_VALUE",
- * };
+ * // { // ExportCertificateResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CertificateChain: "STRING_VALUE",
+ * //   PrivateKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * };
  * const command = new DeleteDimensionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

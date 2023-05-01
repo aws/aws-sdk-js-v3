@@ -130,8 +130,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

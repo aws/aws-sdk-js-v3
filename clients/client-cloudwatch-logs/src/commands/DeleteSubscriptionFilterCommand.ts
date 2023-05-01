@@ -45,8 +45,7 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteSubscriptionFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

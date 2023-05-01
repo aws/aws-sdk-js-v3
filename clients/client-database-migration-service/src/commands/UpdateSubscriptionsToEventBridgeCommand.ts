@@ -61,10 +61,9 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * };
  * const command = new UpdateSubscriptionsToEventBridgeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSubscriptionsToEventBridgeResponse
- *   Result: "STRING_VALUE",
- * };
+ * // { // UpdateSubscriptionsToEventBridgeResponse
+ * //   Result: "STRING_VALUE",
+ * // };
  *
  * ```
  *

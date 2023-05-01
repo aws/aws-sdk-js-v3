@@ -44,25 +44,24 @@ export interface DeleteSmsChannelCommandOutput extends DeleteSmsChannelResponse,
  * };
  * const command = new DeleteSmsChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSmsChannelResponse
- *   SMSChannelResponse: { // SMSChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     PromotionalMessagesPerSecond: Number("int"),
- *     SenderId: "STRING_VALUE",
- *     ShortCode: "STRING_VALUE",
- *     TransactionalMessagesPerSecond: Number("int"),
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteSmsChannelResponse
+ * //   SMSChannelResponse: { // SMSChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     PromotionalMessagesPerSecond: Number("int"),
+ * //     SenderId: "STRING_VALUE",
+ * //     ShortCode: "STRING_VALUE",
+ * //     TransactionalMessagesPerSecond: Number("int"),
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,11 +47,10 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountSettingsResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateAccountSettingsResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

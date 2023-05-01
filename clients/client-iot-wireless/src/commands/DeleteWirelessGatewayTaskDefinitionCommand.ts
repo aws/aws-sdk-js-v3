@@ -52,8 +52,7 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * };
  * const command = new DeleteWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

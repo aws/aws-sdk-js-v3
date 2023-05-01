@@ -68,8 +68,7 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * };
  * const command = new PutRawMessageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

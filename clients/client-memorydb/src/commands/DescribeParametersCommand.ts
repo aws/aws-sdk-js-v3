@@ -46,20 +46,19 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeParametersResponse
- *   NextToken: "STRING_VALUE",
- *   Parameters: [ // ParametersList
- *     { // Parameter
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       MinimumEngineVersion: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeParametersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Parameters: [ // ParametersList
+ * //     { // Parameter
+ * //       Name: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

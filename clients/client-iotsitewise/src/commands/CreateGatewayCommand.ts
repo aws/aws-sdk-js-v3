@@ -57,11 +57,10 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGatewayResponse
- *   gatewayId: "STRING_VALUE", // required
- *   gatewayArn: "STRING_VALUE", // required
- * };
+ * // { // CreateGatewayResponse
+ * //   gatewayId: "STRING_VALUE", // required
+ * //   gatewayArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

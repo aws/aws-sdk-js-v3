@@ -49,40 +49,39 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * };
  * const command = new GetDataIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataIntegrationResponse
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   KmsKey: "STRING_VALUE",
- *   SourceURI: "STRING_VALUE",
- *   ScheduleConfiguration: { // ScheduleConfiguration
- *     FirstExecutionFrom: "STRING_VALUE",
- *     Object: "STRING_VALUE",
- *     ScheduleExpression: "STRING_VALUE", // required
- *   },
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   FileConfiguration: { // FileConfiguration
- *     Folders: [ // FolderList // required
- *       "STRING_VALUE",
- *     ],
- *     Filters: { // FieldsMap
- *       "<keys>": [ // FieldsList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- *   ObjectConfiguration: { // ObjectConfiguration
- *     "<keys>": {
- *       "<keys>": [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // GetDataIntegrationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   KmsKey: "STRING_VALUE",
+ * //   SourceURI: "STRING_VALUE",
+ * //   ScheduleConfiguration: { // ScheduleConfiguration
+ * //     FirstExecutionFrom: "STRING_VALUE",
+ * //     Object: "STRING_VALUE",
+ * //     ScheduleExpression: "STRING_VALUE", // required
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   FileConfiguration: { // FileConfiguration
+ * //     Folders: [ // FolderList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Filters: { // FieldsMap
+ * //       "<keys>": [ // FieldsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   ObjectConfiguration: { // ObjectConfiguration
+ * //     "<keys>": {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

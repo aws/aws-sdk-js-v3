@@ -44,15 +44,14 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * };
  * const command = new GetFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFleetResponse
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
- *   signalCatalogArn: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetFleetResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE",
+ * //   signalCatalogArn: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

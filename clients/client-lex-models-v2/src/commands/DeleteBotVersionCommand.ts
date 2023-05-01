@@ -47,12 +47,11 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * };
  * const command = new DeleteBotVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBotVersionResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
- * };
+ * // { // DeleteBotVersionResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   botStatus: "Creating" || "Available" || "Inactive" || "Deleting" || "Failed" || "Versioning" || "Importing" || "Updating",
+ * // };
  *
  * ```
  *

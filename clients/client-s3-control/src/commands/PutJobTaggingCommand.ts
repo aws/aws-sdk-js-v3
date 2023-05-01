@@ -118,8 +118,7 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * };
  * const command = new PutJobTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

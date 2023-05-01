@@ -45,10 +45,9 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableUserResponse
- *   userId: "STRING_VALUE",
- * };
+ * // { // DisableUserResponse
+ * //   userId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

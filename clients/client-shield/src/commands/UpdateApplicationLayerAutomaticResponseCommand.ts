@@ -57,8 +57,7 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
  * };
  * const command = new UpdateApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

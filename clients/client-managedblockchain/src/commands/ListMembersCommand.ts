@@ -54,21 +54,20 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMembersOutput
- *   Members: [ // MemberSummaryList
- *     { // MemberSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",
- *       CreationDate: new Date("TIMESTAMP"),
- *       IsOwned: true || false,
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMembersOutput
+ * //   Members: [ // MemberSummaryList
+ * //     { // MemberSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       IsOwned: true || false,
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

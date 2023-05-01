@@ -59,39 +59,38 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * };
  * const command = new DescribeFlowLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFlowLogsResult
- *   FlowLogs: [ // FlowLogSet
- *     { // FlowLog
- *       CreationTime: new Date("TIMESTAMP"),
- *       DeliverLogsErrorMessage: "STRING_VALUE",
- *       DeliverLogsPermissionArn: "STRING_VALUE",
- *       DeliverCrossAccountRole: "STRING_VALUE",
- *       DeliverLogsStatus: "STRING_VALUE",
- *       FlowLogId: "STRING_VALUE",
- *       FlowLogStatus: "STRING_VALUE",
- *       LogGroupName: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       TrafficType: "ACCEPT" || "REJECT" || "ALL",
- *       LogDestinationType: "cloud-watch-logs" || "s3" || "kinesis-data-firehose",
- *       LogDestination: "STRING_VALUE",
- *       LogFormat: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       MaxAggregationInterval: Number("int"),
- *       DestinationOptions: { // DestinationOptionsResponse
- *         FileFormat: "plain-text" || "parquet",
- *         HiveCompatiblePartitions: true || false,
- *         PerHourPartition: true || false,
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFlowLogsResult
+ * //   FlowLogs: [ // FlowLogSet
+ * //     { // FlowLog
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       DeliverLogsErrorMessage: "STRING_VALUE",
+ * //       DeliverLogsPermissionArn: "STRING_VALUE",
+ * //       DeliverCrossAccountRole: "STRING_VALUE",
+ * //       DeliverLogsStatus: "STRING_VALUE",
+ * //       FlowLogId: "STRING_VALUE",
+ * //       FlowLogStatus: "STRING_VALUE",
+ * //       LogGroupName: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       TrafficType: "ACCEPT" || "REJECT" || "ALL",
+ * //       LogDestinationType: "cloud-watch-logs" || "s3" || "kinesis-data-firehose",
+ * //       LogDestination: "STRING_VALUE",
+ * //       LogFormat: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       MaxAggregationInterval: Number("int"),
+ * //       DestinationOptions: { // DestinationOptionsResponse
+ * //         FileFormat: "plain-text" || "parquet",
+ * //         HiveCompatiblePartitions: true || false,
+ * //         PerHourPartition: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

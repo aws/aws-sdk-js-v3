@@ -46,20 +46,19 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsOutput
- *   Components: [ // ComponentSummaryList
- *     { // ComponentSummary
- *       ApplicationId: "STRING_VALUE",
- *       ComponentId: "STRING_VALUE",
- *       ComponentType: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentsOutput
+ * //   Components: [ // ComponentSummaryList
+ * //     { // ComponentSummary
+ * //       ApplicationId: "STRING_VALUE",
+ * //       ComponentId: "STRING_VALUE",
+ * //       ComponentType: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

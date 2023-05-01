@@ -45,8 +45,7 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  * };
  * const command = new UpdateClassificationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

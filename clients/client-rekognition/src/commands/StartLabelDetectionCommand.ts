@@ -100,10 +100,9 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * };
  * const command = new StartLabelDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartLabelDetectionResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartLabelDetectionResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,14 +44,13 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * };
  * const command = new GetAddressBookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAddressBookResponse
- *   AddressBook: { // AddressBook
- *     AddressBookArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAddressBookResponse
+ * //   AddressBook: { // AddressBook
+ * //     AddressBookArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

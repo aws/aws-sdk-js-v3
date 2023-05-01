@@ -54,10 +54,9 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * };
  * const command = new DeleteNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNetworkInterfacePermissionResult
- *   Return: true || false,
- * };
+ * // { // DeleteNetworkInterfacePermissionResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

@@ -53,10 +53,9 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * };
  * const command = new UpdateActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateActionResponse
- *   ActionArn: "STRING_VALUE",
- * };
+ * // { // UpdateActionResponse
+ * //   ActionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

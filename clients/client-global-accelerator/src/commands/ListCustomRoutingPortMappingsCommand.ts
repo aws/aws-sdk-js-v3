@@ -64,25 +64,24 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * };
  * const command = new ListCustomRoutingPortMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomRoutingPortMappingsResponse
- *   PortMappings: [ // PortMappings
- *     { // PortMapping
- *       AcceleratorPort: Number("int"),
- *       EndpointGroupArn: "STRING_VALUE",
- *       EndpointId: "STRING_VALUE",
- *       DestinationSocketAddress: { // SocketAddress
- *         IpAddress: "STRING_VALUE",
- *         Port: Number("int"),
- *       },
- *       Protocols: [ // CustomRoutingProtocols
- *         "TCP" || "UDP",
- *       ],
- *       DestinationTrafficState: "ALLOW" || "DENY",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomRoutingPortMappingsResponse
+ * //   PortMappings: [ // PortMappings
+ * //     { // PortMapping
+ * //       AcceleratorPort: Number("int"),
+ * //       EndpointGroupArn: "STRING_VALUE",
+ * //       EndpointId: "STRING_VALUE",
+ * //       DestinationSocketAddress: { // SocketAddress
+ * //         IpAddress: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //       },
+ * //       Protocols: [ // CustomRoutingProtocols
+ * //         "TCP" || "UDP",
+ * //       ],
+ * //       DestinationTrafficState: "ALLOW" || "DENY",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

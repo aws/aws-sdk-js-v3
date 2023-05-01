@@ -46,29 +46,28 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  * };
  * const command = new GetIdentityPoolRolesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityPoolRolesResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   Roles: { // RolesMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   RoleMappings: { // RoleMappingMap
- *     "<keys>": { // RoleMapping
- *       Type: "STRING_VALUE", // required
- *       AmbiguousRoleResolution: "STRING_VALUE",
- *       RulesConfiguration: { // RulesConfigurationType
- *         Rules: [ // MappingRulesList // required
- *           { // MappingRule
- *             Claim: "STRING_VALUE", // required
- *             MatchType: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *             RoleARN: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     },
- *   },
- * };
+ * // { // GetIdentityPoolRolesResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   Roles: { // RolesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   RoleMappings: { // RoleMappingMap
+ * //     "<keys>": { // RoleMapping
+ * //       Type: "STRING_VALUE", // required
+ * //       AmbiguousRoleResolution: "STRING_VALUE",
+ * //       RulesConfiguration: { // RulesConfigurationType
+ * //         Rules: [ // MappingRulesList // required
+ * //           { // MappingRule
+ * //             Claim: "STRING_VALUE", // required
+ * //             MatchType: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //             RoleARN: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

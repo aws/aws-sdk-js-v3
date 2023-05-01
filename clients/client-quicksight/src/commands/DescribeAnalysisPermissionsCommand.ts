@@ -50,21 +50,20 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * };
  * const command = new DescribeAnalysisPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAnalysisPermissionsResponse
- *   AnalysisId: "STRING_VALUE",
- *   AnalysisArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeAnalysisPermissionsResponse
+ * //   AnalysisId: "STRING_VALUE",
+ * //   AnalysisArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

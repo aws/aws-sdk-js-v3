@@ -46,15 +46,14 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const input = {};
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsResponse
- *   accountSettingsDetail: { // AccountSettingsDetail
- *     capacityLimits: { // CapacityLimits
- *       maxIndexingCapacityInOCU: Number("int"),
- *       maxSearchCapacityInOCU: Number("int"),
- *     },
- *   },
- * };
+ * // { // GetAccountSettingsResponse
+ * //   accountSettingsDetail: { // AccountSettingsDetail
+ * //     capacityLimits: { // CapacityLimits
+ * //       maxIndexingCapacityInOCU: Number("int"),
+ * //       maxSearchCapacityInOCU: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

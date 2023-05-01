@@ -66,8 +66,7 @@ export interface DeleteAuditSuppressionCommandOutput extends DeleteAuditSuppress
  * };
  * const command = new DeleteAuditSuppressionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

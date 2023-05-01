@@ -45,11 +45,10 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * const input = {};
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSnowballUsageResult
- *   SnowballLimit: Number("int"),
- *   SnowballsInUse: Number("int"),
- * };
+ * // { // GetSnowballUsageResult
+ * //   SnowballLimit: Number("int"),
+ * //   SnowballsInUse: Number("int"),
+ * // };
  *
  * ```
  *

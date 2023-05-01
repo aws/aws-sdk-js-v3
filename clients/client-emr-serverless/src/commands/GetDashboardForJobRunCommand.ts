@@ -46,10 +46,9 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDashboardForJobRunResponse
- *   url: "STRING_VALUE",
- * };
+ * // { // GetDashboardForJobRunResponse
+ * //   url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

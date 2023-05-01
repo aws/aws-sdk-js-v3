@@ -70,15 +70,14 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * };
  * const command = new GetJobTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobTaggingResult
- *   Tags: [ // S3TagSet
- *     { // S3Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetJobTaggingResult
+ * //   Tags: [ // S3TagSet
+ * //     { // S3Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

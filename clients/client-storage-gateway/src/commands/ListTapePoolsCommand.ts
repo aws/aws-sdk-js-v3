@@ -56,20 +56,19 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * };
  * const command = new ListTapePoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTapePoolsOutput
- *   PoolInfos: [ // PoolInfos
- *     { // PoolInfo
- *       PoolARN: "STRING_VALUE",
- *       PoolName: "STRING_VALUE",
- *       StorageClass: "STRING_VALUE",
- *       RetentionLockType: "STRING_VALUE",
- *       RetentionLockTimeInDays: Number("int"),
- *       PoolStatus: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListTapePoolsOutput
+ * //   PoolInfos: [ // PoolInfos
+ * //     { // PoolInfo
+ * //       PoolARN: "STRING_VALUE",
+ * //       PoolName: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       RetentionLockType: "STRING_VALUE",
+ * //       RetentionLockTimeInDays: Number("int"),
+ * //       PoolStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

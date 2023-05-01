@@ -59,18 +59,17 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * };
  * const command = new ListAccountAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountAssociationsOutput
- *   LinkedAccounts: [ // AccountAssociationsList
- *     { // AccountAssociationsListElement
- *       AccountId: "STRING_VALUE",
- *       BillingGroupArn: "STRING_VALUE",
- *       AccountName: "STRING_VALUE",
- *       AccountEmail: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountAssociationsOutput
+ * //   LinkedAccounts: [ // AccountAssociationsList
+ * //     { // AccountAssociationsListElement
+ * //       AccountId: "STRING_VALUE",
+ * //       BillingGroupArn: "STRING_VALUE",
+ * //       AccountName: "STRING_VALUE",
+ * //       AccountEmail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

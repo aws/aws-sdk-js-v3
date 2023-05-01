@@ -61,14 +61,13 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * };
  * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterEndPointsOutput
- *   Instances: [ // Instances
- *     { // Instance
- *       InstanceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeregisterEndPointsOutput
+ * //   Instances: [ // Instances
+ * //     { // Instance
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

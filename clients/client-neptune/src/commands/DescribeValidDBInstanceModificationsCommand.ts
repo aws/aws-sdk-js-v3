@@ -54,36 +54,35 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeValidDBInstanceModificationsResult
- *   ValidDBInstanceModificationsMessage: { // ValidDBInstanceModificationsMessage
- *     Storage: [ // ValidStorageOptionsList
- *       { // ValidStorageOptions
- *         StorageType: "STRING_VALUE",
- *         StorageSize: [ // RangeList
- *           { // Range
- *             From: Number("int"),
- *             To: Number("int"),
- *             Step: Number("int"),
- *           },
- *         ],
- *         ProvisionedIops: [
- *           {
- *             From: Number("int"),
- *             To: Number("int"),
- *             Step: Number("int"),
- *           },
- *         ],
- *         IopsToStorageRatio: [ // DoubleRangeList
- *           { // DoubleRange
- *             From: Number("double"),
- *             To: Number("double"),
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeValidDBInstanceModificationsResult
+ * //   ValidDBInstanceModificationsMessage: { // ValidDBInstanceModificationsMessage
+ * //     Storage: [ // ValidStorageOptionsList
+ * //       { // ValidStorageOptions
+ * //         StorageType: "STRING_VALUE",
+ * //         StorageSize: [ // RangeList
+ * //           { // Range
+ * //             From: Number("int"),
+ * //             To: Number("int"),
+ * //             Step: Number("int"),
+ * //           },
+ * //         ],
+ * //         ProvisionedIops: [
+ * //           {
+ * //             From: Number("int"),
+ * //             To: Number("int"),
+ * //             Step: Number("int"),
+ * //           },
+ * //         ],
+ * //         IopsToStorageRatio: [ // DoubleRangeList
+ * //           { // DoubleRange
+ * //             From: Number("double"),
+ * //             To: Number("double"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

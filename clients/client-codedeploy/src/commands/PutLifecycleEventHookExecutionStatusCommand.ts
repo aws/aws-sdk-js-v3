@@ -62,10 +62,9 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * };
  * const command = new PutLifecycleEventHookExecutionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutLifecycleEventHookExecutionStatusOutput
- *   lifecycleEventHookExecutionId: "STRING_VALUE",
- * };
+ * // { // PutLifecycleEventHookExecutionStatusOutput
+ * //   lifecycleEventHookExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

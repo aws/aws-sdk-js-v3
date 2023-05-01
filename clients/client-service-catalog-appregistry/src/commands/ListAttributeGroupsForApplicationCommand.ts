@@ -58,18 +58,17 @@ export interface ListAttributeGroupsForApplicationCommandOutput
  * };
  * const command = new ListAttributeGroupsForApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttributeGroupsForApplicationResponse
- *   attributeGroupsDetails: [ // AttributeGroupDetailsList
- *     { // AttributeGroupDetails
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       createdBy: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAttributeGroupsForApplicationResponse
+ * //   attributeGroupsDetails: [ // AttributeGroupDetailsList
+ * //     { // AttributeGroupDetails
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       createdBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

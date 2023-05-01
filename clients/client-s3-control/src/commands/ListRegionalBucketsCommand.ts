@@ -52,19 +52,18 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * };
  * const command = new ListRegionalBucketsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRegionalBucketsResult
- *   RegionalBucketList: [ // RegionalBucketList
- *     { // RegionalBucket
- *       Bucket: "STRING_VALUE", // required
- *       BucketArn: "STRING_VALUE",
- *       PublicAccessBlockEnabled: true || false, // required
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       OutpostId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRegionalBucketsResult
+ * //   RegionalBucketList: [ // RegionalBucketList
+ * //     { // RegionalBucket
+ * //       Bucket: "STRING_VALUE", // required
+ * //       BucketArn: "STRING_VALUE",
+ * //       PublicAccessBlockEnabled: true || false, // required
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       OutpostId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

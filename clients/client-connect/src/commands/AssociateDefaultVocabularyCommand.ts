@@ -47,8 +47,7 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * };
  * const command = new AssociateDefaultVocabularyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

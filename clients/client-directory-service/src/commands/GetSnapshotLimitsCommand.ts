@@ -44,14 +44,13 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * };
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSnapshotLimitsResult
- *   SnapshotLimits: { // SnapshotLimits
- *     ManualSnapshotsLimit: Number("int"),
- *     ManualSnapshotsCurrentCount: Number("int"),
- *     ManualSnapshotsLimitReached: true || false,
- *   },
- * };
+ * // { // GetSnapshotLimitsResult
+ * //   SnapshotLimits: { // SnapshotLimits
+ * //     ManualSnapshotsLimit: Number("int"),
+ * //     ManualSnapshotsCurrentCount: Number("int"),
+ * //     ManualSnapshotsLimitReached: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

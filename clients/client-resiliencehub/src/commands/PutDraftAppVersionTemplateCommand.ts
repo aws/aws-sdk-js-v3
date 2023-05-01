@@ -45,11 +45,10 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * };
  * const command = new PutDraftAppVersionTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDraftAppVersionTemplateResponse
- *   appArn: "STRING_VALUE",
- *   appVersion: "STRING_VALUE",
- * };
+ * // { // PutDraftAppVersionTemplateResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

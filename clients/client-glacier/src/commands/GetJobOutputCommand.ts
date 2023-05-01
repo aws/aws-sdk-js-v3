@@ -86,16 +86,15 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobOutputOutput
- *   body: "STREAMING_BLOB_VALUE",
- *   checksum: "STRING_VALUE",
- *   status: Number("int"),
- *   contentRange: "STRING_VALUE",
- *   acceptRanges: "STRING_VALUE",
- *   contentType: "STRING_VALUE",
- *   archiveDescription: "STRING_VALUE",
- * };
+ * // { // GetJobOutputOutput
+ * //   body: "STREAMING_BLOB_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   status: Number("int"),
+ * //   contentRange: "STRING_VALUE",
+ * //   acceptRanges: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * //   archiveDescription: "STRING_VALUE",
+ * // };
  *
  * ```
  *

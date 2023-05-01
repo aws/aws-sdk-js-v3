@@ -53,10 +53,9 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * };
  * const command = new RegisterDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterDefaultPatchBaselineResult
- *   BaselineId: "STRING_VALUE",
- * };
+ * // { // RegisterDefaultPatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

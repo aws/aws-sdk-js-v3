@@ -45,31 +45,30 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDomainResponse
- *   DomainStatus: { // DomainStatus
- *     DomainId: "STRING_VALUE", // required
- *     DomainName: "STRING_VALUE", // required
- *     ARN: "STRING_VALUE",
- *     Created: true || false,
- *     Deleted: true || false,
- *     DocService: { // ServiceEndpoint
- *       Endpoint: "STRING_VALUE",
- *     },
- *     SearchService: {
- *       Endpoint: "STRING_VALUE",
- *     },
- *     RequiresIndexDocuments: true || false, // required
- *     Processing: true || false,
- *     SearchInstanceType: "STRING_VALUE",
- *     SearchPartitionCount: Number("int"),
- *     SearchInstanceCount: Number("int"),
- *     Limits: { // Limits
- *       MaximumReplicationCount: Number("int"), // required
- *       MaximumPartitionCount: Number("int"), // required
- *     },
- *   },
- * };
+ * // { // CreateDomainResponse
+ * //   DomainStatus: { // DomainStatus
+ * //     DomainId: "STRING_VALUE", // required
+ * //     DomainName: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE",
+ * //     Created: true || false,
+ * //     Deleted: true || false,
+ * //     DocService: { // ServiceEndpoint
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     SearchService: {
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     RequiresIndexDocuments: true || false, // required
+ * //     Processing: true || false,
+ * //     SearchInstanceType: "STRING_VALUE",
+ * //     SearchPartitionCount: Number("int"),
+ * //     SearchInstanceCount: Number("int"),
+ * //     Limits: { // Limits
+ * //       MaximumReplicationCount: Number("int"), // required
+ * //       MaximumPartitionCount: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

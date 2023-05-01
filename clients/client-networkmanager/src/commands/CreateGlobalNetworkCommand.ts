@@ -50,22 +50,21 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  * };
  * const command = new CreateGlobalNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGlobalNetworkResponse
- *   GlobalNetwork: { // GlobalNetwork
- *     GlobalNetworkId: "STRING_VALUE",
- *     GlobalNetworkArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateGlobalNetworkResponse
+ * //   GlobalNetwork: { // GlobalNetwork
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     GlobalNetworkArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

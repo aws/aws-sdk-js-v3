@@ -99,10 +99,9 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * };
  * const command = new CreateDataSourceFromRedshiftCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSourceFromRedshiftOutput
- *   DataSourceId: "STRING_VALUE",
- * };
+ * // { // CreateDataSourceFromRedshiftOutput
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

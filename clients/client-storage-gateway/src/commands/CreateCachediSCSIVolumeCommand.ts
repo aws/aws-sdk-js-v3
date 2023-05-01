@@ -75,11 +75,10 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * };
  * const command = new CreateCachediSCSIVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCachediSCSIVolumeOutput
- *   VolumeARN: "STRING_VALUE",
- *   TargetARN: "STRING_VALUE",
- * };
+ * // { // CreateCachediSCSIVolumeOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   TargetARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

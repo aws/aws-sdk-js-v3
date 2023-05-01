@@ -52,19 +52,18 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  * };
  * const command = new ListObjectParentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectParentsResponse
- *   Parents: { // ObjectIdentifierToLinkNameMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   NextToken: "STRING_VALUE",
- *   ParentLinks: [ // ObjectIdentifierAndLinkNameList
- *     { // ObjectIdentifierAndLinkNameTuple
- *       ObjectIdentifier: "STRING_VALUE",
- *       LinkName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListObjectParentsResponse
+ * //   Parents: { // ObjectIdentifierToLinkNameMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * //   ParentLinks: [ // ObjectIdentifierAndLinkNameList
+ * //     { // ObjectIdentifierAndLinkNameTuple
+ * //       ObjectIdentifier: "STRING_VALUE",
+ * //       LinkName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

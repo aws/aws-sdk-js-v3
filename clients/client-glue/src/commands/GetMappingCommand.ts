@@ -76,19 +76,18 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * };
  * const command = new GetMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMappingResponse
- *   Mapping: [ // MappingList // required
- *     { // MappingEntry
- *       SourceTable: "STRING_VALUE",
- *       SourcePath: "STRING_VALUE",
- *       SourceType: "STRING_VALUE",
- *       TargetTable: "STRING_VALUE",
- *       TargetPath: "STRING_VALUE",
- *       TargetType: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetMappingResponse
+ * //   Mapping: [ // MappingList // required
+ * //     { // MappingEntry
+ * //       SourceTable: "STRING_VALUE",
+ * //       SourcePath: "STRING_VALUE",
+ * //       SourceType: "STRING_VALUE",
+ * //       TargetTable: "STRING_VALUE",
+ * //       TargetPath: "STRING_VALUE",
+ * //       TargetType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

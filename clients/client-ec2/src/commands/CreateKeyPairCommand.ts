@@ -68,19 +68,18 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * };
  * const command = new CreateKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * { // KeyPair
- *   KeyFingerprint: "STRING_VALUE",
- *   KeyMaterial: "STRING_VALUE",
- *   KeyName: "STRING_VALUE",
- *   KeyPairId: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // KeyPair
+ * //   KeyFingerprint: "STRING_VALUE",
+ * //   KeyMaterial: "STRING_VALUE",
+ * //   KeyName: "STRING_VALUE",
+ * //   KeyPairId: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,18 +45,17 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  * };
  * const command = new ListStoredQueriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStoredQueriesResponse
- *   StoredQueryMetadata: [ // StoredQueryMetadataList
- *     { // StoredQueryMetadata
- *       QueryId: "STRING_VALUE", // required
- *       QueryArn: "STRING_VALUE", // required
- *       QueryName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStoredQueriesResponse
+ * //   StoredQueryMetadata: [ // StoredQueryMetadataList
+ * //     { // StoredQueryMetadata
+ * //       QueryId: "STRING_VALUE", // required
+ * //       QueryArn: "STRING_VALUE", // required
+ * //       QueryName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

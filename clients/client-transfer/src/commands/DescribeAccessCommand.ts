@@ -49,30 +49,29 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * };
  * const command = new DescribeAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccessResponse
- *   ServerId: "STRING_VALUE", // required
- *   Access: { // DescribedAccess
- *     HomeDirectory: "STRING_VALUE",
- *     HomeDirectoryMappings: [ // HomeDirectoryMappings
- *       { // HomeDirectoryMapEntry
- *         Entry: "STRING_VALUE", // required
- *         Target: "STRING_VALUE", // required
- *       },
- *     ],
- *     HomeDirectoryType: "PATH" || "LOGICAL",
- *     Policy: "STRING_VALUE",
- *     PosixProfile: { // PosixProfile
- *       Uid: Number("long"), // required
- *       Gid: Number("long"), // required
- *       SecondaryGids: [ // SecondaryGids
- *         Number("long"),
- *       ],
- *     },
- *     Role: "STRING_VALUE",
- *     ExternalId: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeAccessResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   Access: { // DescribedAccess
+ * //     HomeDirectory: "STRING_VALUE",
+ * //     HomeDirectoryMappings: [ // HomeDirectoryMappings
+ * //       { // HomeDirectoryMapEntry
+ * //         Entry: "STRING_VALUE", // required
+ * //         Target: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     HomeDirectoryType: "PATH" || "LOGICAL",
+ * //     Policy: "STRING_VALUE",
+ * //     PosixProfile: { // PosixProfile
+ * //       Uid: Number("long"), // required
+ * //       Gid: Number("long"), // required
+ * //       SecondaryGids: [ // SecondaryGids
+ * //         Number("long"),
+ * //       ],
+ * //     },
+ * //     Role: "STRING_VALUE",
+ * //     ExternalId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

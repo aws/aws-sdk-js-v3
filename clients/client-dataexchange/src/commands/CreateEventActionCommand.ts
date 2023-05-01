@@ -60,30 +60,29 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  * };
  * const command = new CreateEventActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEventActionResponse
- *   Action: { // Action
- *     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
- *       Encryption: { // ExportServerSideEncryption
- *         KmsKeyArn: "STRING_VALUE",
- *         Type: "STRING_VALUE", // required
- *       },
- *       RevisionDestination: { // AutoExportRevisionDestinationEntry
- *         Bucket: "STRING_VALUE", // required
- *         KeyPattern: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   Arn: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   Event: { // Event
- *     RevisionPublished: { // RevisionPublished
- *       DataSetId: "STRING_VALUE", // required
- *     },
- *   },
- *   Id: "STRING_VALUE",
- *   UpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // CreateEventActionResponse
+ * //   Action: { // Action
+ * //     ExportRevisionToS3: { // AutoExportRevisionToS3RequestDetails
+ * //       Encryption: { // ExportServerSideEncryption
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //         Type: "STRING_VALUE", // required
+ * //       },
+ * //       RevisionDestination: { // AutoExportRevisionDestinationEntry
+ * //         Bucket: "STRING_VALUE", // required
+ * //         KeyPattern: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   Event: { // Event
+ * //     RevisionPublished: { // RevisionPublished
+ * //       DataSetId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

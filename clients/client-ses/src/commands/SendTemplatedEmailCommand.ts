@@ -120,10 +120,9 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * };
  * const command = new SendTemplatedEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendTemplatedEmailResponse
- *   MessageId: "STRING_VALUE", // required
- * };
+ * // { // SendTemplatedEmailResponse
+ * //   MessageId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

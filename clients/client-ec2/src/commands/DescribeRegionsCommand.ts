@@ -59,16 +59,15 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRegionsResult
- *   Regions: [ // RegionList
- *     { // Region
- *       Endpoint: "STRING_VALUE",
- *       RegionName: "STRING_VALUE",
- *       OptInStatus: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeRegionsResult
+ * //   Regions: [ // RegionList
+ * //     { // Region
+ * //       Endpoint: "STRING_VALUE",
+ * //       RegionName: "STRING_VALUE",
+ * //       OptInStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface StopInferenceRecommendationsJobCommandOutput extends __Metadata
  * };
  * const command = new StopInferenceRecommendationsJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -109,11 +109,10 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecurityProfileResponse
- *   securityProfileName: "STRING_VALUE",
- *   securityProfileArn: "STRING_VALUE",
- * };
+ * // { // CreateSecurityProfileResponse
+ * //   securityProfileName: "STRING_VALUE",
+ * //   securityProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,16 +45,15 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * };
  * const command = new CreateCidrCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCidrCollectionResponse
- *   Collection: { // CidrCollection
- *     Arn: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Version: Number("long"),
- *   },
- *   Location: "STRING_VALUE",
- * };
+ * // { // CreateCidrCollectionResponse
+ * //   Collection: { // CidrCollection
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: Number("long"),
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,8 +66,7 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * };
  * const command = new PutRumEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

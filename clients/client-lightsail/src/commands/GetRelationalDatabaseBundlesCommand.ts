@@ -53,23 +53,22 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * };
  * const command = new GetRelationalDatabaseBundlesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseBundlesResult
- *   bundles: [ // RelationalDatabaseBundleList
- *     { // RelationalDatabaseBundle
- *       bundleId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       price: Number("float"),
- *       ramSizeInGb: Number("float"),
- *       diskSizeInGb: Number("int"),
- *       transferPerMonthInGb: Number("int"),
- *       cpuCount: Number("int"),
- *       isEncrypted: true || false,
- *       isActive: true || false,
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetRelationalDatabaseBundlesResult
+ * //   bundles: [ // RelationalDatabaseBundleList
+ * //     { // RelationalDatabaseBundle
+ * //       bundleId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       price: Number("float"),
+ * //       ramSizeInGb: Number("float"),
+ * //       diskSizeInGb: Number("int"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       cpuCount: Number("int"),
+ * //       isEncrypted: true || false,
+ * //       isActive: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

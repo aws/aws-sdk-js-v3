@@ -80,21 +80,20 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutLoggingConfigurationResponse
- *   LoggingConfiguration: { // LoggingConfiguration
- *     ResourceArn: "STRING_VALUE", // required
- *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       "STRING_VALUE",
- *     ],
- *     RedactedFields: [ // RedactedFields
- *       { // FieldToMatch
- *         Type: "STRING_VALUE", // required
- *         Data: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // PutLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     ResourceArn: "STRING_VALUE", // required
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RedactedFields: [ // RedactedFields
+ * //       { // FieldToMatch
+ * //         Type: "STRING_VALUE", // required
+ * //         Data: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,24 +55,23 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * };
  * const command = new ListBackupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackupsOutput
- *   BackupSummaries: [ // BackupSummaries
- *     { // BackupSummary
- *       TableName: "STRING_VALUE",
- *       TableId: "STRING_VALUE",
- *       TableArn: "STRING_VALUE",
- *       BackupArn: "STRING_VALUE",
- *       BackupName: "STRING_VALUE",
- *       BackupCreationDateTime: new Date("TIMESTAMP"),
- *       BackupExpiryDateTime: new Date("TIMESTAMP"),
- *       BackupStatus: "CREATING" || "DELETED" || "AVAILABLE",
- *       BackupType: "USER" || "SYSTEM" || "AWS_BACKUP",
- *       BackupSizeBytes: Number("long"),
- *     },
- *   ],
- *   LastEvaluatedBackupArn: "STRING_VALUE",
- * };
+ * // { // ListBackupsOutput
+ * //   BackupSummaries: [ // BackupSummaries
+ * //     { // BackupSummary
+ * //       TableName: "STRING_VALUE",
+ * //       TableId: "STRING_VALUE",
+ * //       TableArn: "STRING_VALUE",
+ * //       BackupArn: "STRING_VALUE",
+ * //       BackupName: "STRING_VALUE",
+ * //       BackupCreationDateTime: new Date("TIMESTAMP"),
+ * //       BackupExpiryDateTime: new Date("TIMESTAMP"),
+ * //       BackupStatus: "CREATING" || "DELETED" || "AVAILABLE",
+ * //       BackupType: "USER" || "SYSTEM" || "AWS_BACKUP",
+ * //       BackupSizeBytes: Number("long"),
+ * //     },
+ * //   ],
+ * //   LastEvaluatedBackupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

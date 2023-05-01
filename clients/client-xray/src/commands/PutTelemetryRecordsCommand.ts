@@ -63,8 +63,7 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * };
  * const command = new PutTelemetryRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

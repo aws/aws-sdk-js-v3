@@ -53,14 +53,13 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateOrganizationConfigurationResponse
- *   autoEnable: { // AutoEnable
- *     ec2: true || false, // required
- *     ecr: true || false, // required
- *     lambda: true || false,
- *   },
- * };
+ * // { // UpdateOrganizationConfigurationResponse
+ * //   autoEnable: { // AutoEnable
+ * //     ec2: true || false, // required
+ * //     ecr: true || false, // required
+ * //     lambda: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

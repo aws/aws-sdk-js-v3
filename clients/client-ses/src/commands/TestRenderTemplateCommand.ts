@@ -47,10 +47,9 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * };
  * const command = new TestRenderTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestRenderTemplateResponse
- *   RenderedTemplate: "STRING_VALUE",
- * };
+ * // { // TestRenderTemplateResponse
+ * //   RenderedTemplate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

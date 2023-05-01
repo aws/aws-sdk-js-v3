@@ -45,13 +45,12 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * };
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLifecyclePolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   lifecyclePolicyText: "STRING_VALUE",
- *   lastEvaluatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetLifecyclePolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * //   lastEvaluatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

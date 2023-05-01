@@ -64,11 +64,10 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * };
  * const command = new ImportHubContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportHubContentResponse
- *   HubArn: "STRING_VALUE", // required
- *   HubContentArn: "STRING_VALUE", // required
- * };
+ * // { // ImportHubContentResponse
+ * //   HubArn: "STRING_VALUE", // required
+ * //   HubContentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

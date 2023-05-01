@@ -48,8 +48,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableStageTransitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

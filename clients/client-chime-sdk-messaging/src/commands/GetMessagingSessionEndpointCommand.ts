@@ -51,12 +51,11 @@ export interface GetMessagingSessionEndpointCommandOutput
  * const input = {};
  * const command = new GetMessagingSessionEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMessagingSessionEndpointResponse
- *   Endpoint: { // MessagingSessionEndpoint
- *     Url: "STRING_VALUE",
- *   },
- * };
+ * // { // GetMessagingSessionEndpointResponse
+ * //   Endpoint: { // MessagingSessionEndpoint
+ * //     Url: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

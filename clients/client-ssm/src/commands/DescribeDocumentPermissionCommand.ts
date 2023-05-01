@@ -49,19 +49,18 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * };
  * const command = new DescribeDocumentPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDocumentPermissionResponse
- *   AccountIds: [ // AccountIdList
- *     "STRING_VALUE",
- *   ],
- *   AccountSharingInfoList: [ // AccountSharingInfoList
- *     { // AccountSharingInfo
- *       AccountId: "STRING_VALUE",
- *       SharedDocumentVersion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDocumentPermissionResponse
+ * //   AccountIds: [ // AccountIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   AccountSharingInfoList: [ // AccountSharingInfoList
+ * //     { // AccountSharingInfo
+ * //       AccountId: "STRING_VALUE",
+ * //       SharedDocumentVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

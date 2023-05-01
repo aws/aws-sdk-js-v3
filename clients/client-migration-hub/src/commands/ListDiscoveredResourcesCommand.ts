@@ -47,16 +47,15 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDiscoveredResourcesResult
- *   NextToken: "STRING_VALUE",
- *   DiscoveredResourceList: [ // DiscoveredResourceList
- *     { // DiscoveredResource
- *       ConfigurationId: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListDiscoveredResourcesResult
+ * //   NextToken: "STRING_VALUE",
+ * //   DiscoveredResourceList: [ // DiscoveredResourceList
+ * //     { // DiscoveredResource
+ * //       ConfigurationId: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

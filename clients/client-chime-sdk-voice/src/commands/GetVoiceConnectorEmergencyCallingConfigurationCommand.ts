@@ -54,18 +54,17 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * };
  * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorEmergencyCallingConfigurationResponse
- *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
- *     DNIS: [ // DNISEmergencyCallingConfigurationList
- *       { // DNISEmergencyCallingConfiguration
- *         EmergencyPhoneNumber: "STRING_VALUE", // required
- *         TestPhoneNumber: "STRING_VALUE",
- *         CallingCountry: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetVoiceConnectorEmergencyCallingConfigurationResponse
+ * //   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ * //     DNIS: [ // DNISEmergencyCallingConfigurationList
+ * //       { // DNISEmergencyCallingConfiguration
+ * //         EmergencyPhoneNumber: "STRING_VALUE", // required
+ * //         TestPhoneNumber: "STRING_VALUE",
+ * //         CallingCountry: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

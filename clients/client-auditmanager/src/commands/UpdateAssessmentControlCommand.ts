@@ -48,28 +48,27 @@ export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentCo
  * };
  * const command = new UpdateAssessmentControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAssessmentControlResponse
- *   control: { // AssessmentControl
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     status: "UNDER_REVIEW" || "REVIEWED" || "INACTIVE",
- *     response: "MANUAL" || "AUTOMATE" || "DEFER" || "IGNORE",
- *     comments: [ // ControlComments
- *       { // ControlComment
- *         authorName: "STRING_VALUE",
- *         commentBody: "STRING_VALUE",
- *         postedDate: new Date("TIMESTAMP"),
- *       },
- *     ],
- *     evidenceSources: [ // EvidenceSources
- *       "STRING_VALUE",
- *     ],
- *     evidenceCount: Number("int"),
- *     assessmentReportEvidenceCount: Number("int"),
- *   },
- * };
+ * // { // UpdateAssessmentControlResponse
+ * //   control: { // AssessmentControl
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     status: "UNDER_REVIEW" || "REVIEWED" || "INACTIVE",
+ * //     response: "MANUAL" || "AUTOMATE" || "DEFER" || "IGNORE",
+ * //     comments: [ // ControlComments
+ * //       { // ControlComment
+ * //         authorName: "STRING_VALUE",
+ * //         commentBody: "STRING_VALUE",
+ * //         postedDate: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     evidenceSources: [ // EvidenceSources
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     evidenceCount: Number("int"),
+ * //     assessmentReportEvidenceCount: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

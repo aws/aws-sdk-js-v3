@@ -56,16 +56,15 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  * };
  * const command = new ListClientDevicesAssociatedWithCoreDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClientDevicesAssociatedWithCoreDeviceResponse
- *   associatedClientDevices: [ // AssociatedClientDeviceList
- *     { // AssociatedClientDevice
- *       thingName: "STRING_VALUE",
- *       associationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListClientDevicesAssociatedWithCoreDeviceResponse
+ * //   associatedClientDevices: [ // AssociatedClientDeviceList
+ * //     { // AssociatedClientDevice
+ * //       thingName: "STRING_VALUE",
+ * //       associationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

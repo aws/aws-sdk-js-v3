@@ -56,33 +56,32 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
  * };
  * const command = new DescribePublicIpv4PoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePublicIpv4PoolsResult
- *   PublicIpv4Pools: [ // PublicIpv4PoolSet
- *     { // PublicIpv4Pool
- *       PoolId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       PoolAddressRanges: [ // PublicIpv4PoolRangeSet
- *         { // PublicIpv4PoolRange
- *           FirstAddress: "STRING_VALUE",
- *           LastAddress: "STRING_VALUE",
- *           AddressCount: Number("int"),
- *           AvailableAddressCount: Number("int"),
- *         },
- *       ],
- *       TotalAddressCount: Number("int"),
- *       TotalAvailableAddressCount: Number("int"),
- *       NetworkBorderGroup: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePublicIpv4PoolsResult
+ * //   PublicIpv4Pools: [ // PublicIpv4PoolSet
+ * //     { // PublicIpv4Pool
+ * //       PoolId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PoolAddressRanges: [ // PublicIpv4PoolRangeSet
+ * //         { // PublicIpv4PoolRange
+ * //           FirstAddress: "STRING_VALUE",
+ * //           LastAddress: "STRING_VALUE",
+ * //           AddressCount: Number("int"),
+ * //           AvailableAddressCount: Number("int"),
+ * //         },
+ * //       ],
+ * //       TotalAddressCount: Number("int"),
+ * //       TotalAvailableAddressCount: Number("int"),
+ * //       NetworkBorderGroup: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

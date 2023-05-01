@@ -51,13 +51,12 @@ export interface ListEnabledProductsForImportCommandOutput
  * };
  * const command = new ListEnabledProductsForImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnabledProductsForImportResponse
- *   ProductSubscriptions: [ // ProductSubscriptionArnList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEnabledProductsForImportResponse
+ * //   ProductSubscriptions: [ // ProductSubscriptionArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

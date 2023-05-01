@@ -47,11 +47,10 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * };
  * const command = new DeleteGroupMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGroupMembershipResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteGroupMembershipResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

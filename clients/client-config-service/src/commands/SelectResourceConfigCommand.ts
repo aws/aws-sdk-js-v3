@@ -50,20 +50,19 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * };
  * const command = new SelectResourceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SelectResourceConfigResponse
- *   Results: [ // Results
- *     "STRING_VALUE",
- *   ],
- *   QueryInfo: { // QueryInfo
- *     SelectFields: [ // FieldInfoList
- *       { // FieldInfo
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // SelectResourceConfigResponse
+ * //   Results: [ // Results
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   QueryInfo: { // QueryInfo
+ * //     SelectFields: [ // FieldInfoList
+ * //       { // FieldInfo
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -177,8 +177,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * };
  * const command = new ImportCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

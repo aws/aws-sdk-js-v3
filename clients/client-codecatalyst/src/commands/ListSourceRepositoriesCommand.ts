@@ -47,19 +47,18 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  * };
  * const command = new ListSourceRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSourceRepositoriesResponse
- *   items: [ // ListSourceRepositoriesItems
- *     { // ListSourceRepositoriesItem
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       lastUpdatedTime: new Date("TIMESTAMP"), // required
- *       createdTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSourceRepositoriesResponse
+ * //   items: [ // ListSourceRepositoriesItems
+ * //     { // ListSourceRepositoriesItem
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: new Date("TIMESTAMP"), // required
+ * //       createdTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

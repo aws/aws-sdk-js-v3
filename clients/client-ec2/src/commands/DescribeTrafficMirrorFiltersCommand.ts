@@ -59,67 +59,66 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * };
  * const command = new DescribeTrafficMirrorFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrafficMirrorFiltersResult
- *   TrafficMirrorFilters: [ // TrafficMirrorFilterSet
- *     { // TrafficMirrorFilter
- *       TrafficMirrorFilterId: "STRING_VALUE",
- *       IngressFilterRules: [ // TrafficMirrorFilterRuleList
- *         { // TrafficMirrorFilterRule
- *           TrafficMirrorFilterRuleId: "STRING_VALUE",
- *           TrafficMirrorFilterId: "STRING_VALUE",
- *           TrafficDirection: "ingress" || "egress",
- *           RuleNumber: Number("int"),
- *           RuleAction: "accept" || "reject",
- *           Protocol: Number("int"),
- *           DestinationPortRange: { // TrafficMirrorPortRange
- *             FromPort: Number("int"),
- *             ToPort: Number("int"),
- *           },
- *           SourcePortRange: {
- *             FromPort: Number("int"),
- *             ToPort: Number("int"),
- *           },
- *           DestinationCidrBlock: "STRING_VALUE",
- *           SourceCidrBlock: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *         },
- *       ],
- *       EgressFilterRules: [
- *         {
- *           TrafficMirrorFilterRuleId: "STRING_VALUE",
- *           TrafficMirrorFilterId: "STRING_VALUE",
- *           TrafficDirection: "ingress" || "egress",
- *           RuleNumber: Number("int"),
- *           RuleAction: "accept" || "reject",
- *           Protocol: Number("int"),
- *           DestinationPortRange: {
- *             FromPort: Number("int"),
- *             ToPort: Number("int"),
- *           },
- *           SourcePortRange: {
- *             FromPort: Number("int"),
- *             ToPort: Number("int"),
- *           },
- *           DestinationCidrBlock: "STRING_VALUE",
- *           SourceCidrBlock: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *         },
- *       ],
- *       NetworkServices: [ // TrafficMirrorNetworkServiceList
- *         "amazon-dns",
- *       ],
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTrafficMirrorFiltersResult
+ * //   TrafficMirrorFilters: [ // TrafficMirrorFilterSet
+ * //     { // TrafficMirrorFilter
+ * //       TrafficMirrorFilterId: "STRING_VALUE",
+ * //       IngressFilterRules: [ // TrafficMirrorFilterRuleList
+ * //         { // TrafficMirrorFilterRule
+ * //           TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //           TrafficMirrorFilterId: "STRING_VALUE",
+ * //           TrafficDirection: "ingress" || "egress",
+ * //           RuleNumber: Number("int"),
+ * //           RuleAction: "accept" || "reject",
+ * //           Protocol: Number("int"),
+ * //           DestinationPortRange: { // TrafficMirrorPortRange
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //           SourcePortRange: {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //           DestinationCidrBlock: "STRING_VALUE",
+ * //           SourceCidrBlock: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       EgressFilterRules: [
+ * //         {
+ * //           TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * //           TrafficMirrorFilterId: "STRING_VALUE",
+ * //           TrafficDirection: "ingress" || "egress",
+ * //           RuleNumber: Number("int"),
+ * //           RuleAction: "accept" || "reject",
+ * //           Protocol: Number("int"),
+ * //           DestinationPortRange: {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //           SourcePortRange: {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //           DestinationCidrBlock: "STRING_VALUE",
+ * //           SourceCidrBlock: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       NetworkServices: [ // TrafficMirrorNetworkServiceList
+ * //         "amazon-dns",
+ * //       ],
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

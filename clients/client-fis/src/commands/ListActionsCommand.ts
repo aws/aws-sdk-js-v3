@@ -45,24 +45,23 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * };
  * const command = new ListActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListActionsResponse
- *   actions: [ // ActionSummaryList
- *     { // ActionSummary
- *       id: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       targets: { // ActionTargetMap
- *         "<keys>": { // ActionTarget
- *           resourceType: "STRING_VALUE",
- *         },
- *       },
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListActionsResponse
+ * //   actions: [ // ActionSummaryList
+ * //     { // ActionSummary
+ * //       id: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       targets: { // ActionTargetMap
+ * //         "<keys>": { // ActionTarget
+ * //           resourceType: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

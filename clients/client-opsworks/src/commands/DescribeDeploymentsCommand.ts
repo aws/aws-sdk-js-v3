@@ -56,34 +56,33 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * };
  * const command = new DescribeDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeploymentsResult
- *   Deployments: [ // Deployments
- *     { // Deployment
- *       DeploymentId: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       AppId: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *       CompletedAt: "STRING_VALUE",
- *       Duration: Number("int"),
- *       IamUserArn: "STRING_VALUE",
- *       Comment: "STRING_VALUE",
- *       Command: { // DeploymentCommand
- *         Name: "STRING_VALUE", // required
- *         Args: { // DeploymentCommandArgs
- *           "<keys>": [ // Strings
- *             "STRING_VALUE",
- *           ],
- *         },
- *       },
- *       Status: "STRING_VALUE",
- *       CustomJson: "STRING_VALUE",
- *       InstanceIds: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeDeploymentsResult
+ * //   Deployments: [ // Deployments
+ * //     { // Deployment
+ * //       DeploymentId: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       AppId: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //       CompletedAt: "STRING_VALUE",
+ * //       Duration: Number("int"),
+ * //       IamUserArn: "STRING_VALUE",
+ * //       Comment: "STRING_VALUE",
+ * //       Command: { // DeploymentCommand
+ * //         Name: "STRING_VALUE", // required
+ * //         Args: { // DeploymentCommandArgs
+ * //           "<keys>": [ // Strings
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       CustomJson: "STRING_VALUE",
+ * //       InstanceIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

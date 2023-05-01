@@ -49,10 +49,9 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * };
  * const command = new AddProfilePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddProfilePermissionResponse
- *   revisionId: "STRING_VALUE",
- * };
+ * // { // AddProfilePermissionResponse
+ * //   revisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

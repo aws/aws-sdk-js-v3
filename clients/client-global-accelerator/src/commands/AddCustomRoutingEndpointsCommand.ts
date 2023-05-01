@@ -63,15 +63,14 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * };
  * const command = new AddCustomRoutingEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddCustomRoutingEndpointsResponse
- *   EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
- *     { // CustomRoutingEndpointDescription
- *       EndpointId: "STRING_VALUE",
- *     },
- *   ],
- *   EndpointGroupArn: "STRING_VALUE",
- * };
+ * // { // AddCustomRoutingEndpointsResponse
+ * //   EndpointDescriptions: [ // CustomRoutingEndpointDescriptions
+ * //     { // CustomRoutingEndpointDescription
+ * //       EndpointId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EndpointGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,14 +59,13 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * };
  * const command = new CreateAccessLogSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessLogSubscriptionResponse
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   resourceId: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
- *   destinationArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAccessLogSubscriptionResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   resourceId: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * //   destinationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

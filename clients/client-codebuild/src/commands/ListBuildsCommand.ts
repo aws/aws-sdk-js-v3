@@ -45,13 +45,12 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * };
  * const command = new ListBuildsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuildsOutput
- *   ids: [ // BuildIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBuildsOutput
+ * //   ids: [ // BuildIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

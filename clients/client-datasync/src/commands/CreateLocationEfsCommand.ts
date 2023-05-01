@@ -61,10 +61,9 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * };
  * const command = new CreateLocationEfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationEfsResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationEfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

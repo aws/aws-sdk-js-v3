@@ -51,15 +51,14 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagResourceResponse
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // TagResourceResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

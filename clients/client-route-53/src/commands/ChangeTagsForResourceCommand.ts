@@ -56,8 +56,7 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * };
  * const command = new ChangeTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

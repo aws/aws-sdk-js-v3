@@ -105,29 +105,28 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * };
  * const command = new ListRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecordsResponse
- *   Records: [ // RecordList
- *     { // Record
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       SyncCount: Number("long"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       LastModifiedBy: "STRING_VALUE",
- *       DeviceLastModifiedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Count: Number("int"),
- *   DatasetSyncCount: Number("long"),
- *   LastModifiedBy: "STRING_VALUE",
- *   MergedDatasetNames: [ // MergedDatasetNameList
- *     "STRING_VALUE",
- *   ],
- *   DatasetExists: true || false,
- *   DatasetDeletedAfterRequestedSyncCount: true || false,
- *   SyncSessionToken: "STRING_VALUE",
- * };
+ * // { // ListRecordsResponse
+ * //   Records: [ // RecordList
+ * //     { // Record
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       SyncCount: Number("long"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Count: Number("int"),
+ * //   DatasetSyncCount: Number("long"),
+ * //   LastModifiedBy: "STRING_VALUE",
+ * //   MergedDatasetNames: [ // MergedDatasetNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DatasetExists: true || false,
+ * //   DatasetDeletedAfterRequestedSyncCount: true || false,
+ * //   SyncSessionToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

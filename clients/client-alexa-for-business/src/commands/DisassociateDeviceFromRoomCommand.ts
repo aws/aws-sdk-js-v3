@@ -46,8 +46,7 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * };
  * const command = new DisassociateDeviceFromRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

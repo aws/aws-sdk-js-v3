@@ -62,8 +62,7 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagLogGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

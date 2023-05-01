@@ -95,8 +95,7 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *
@@ -161,7 +160,7 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * };
  * const command = new DisconnectCustomKeyStoreCommand(input);
  * await client.send(command);
- * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-1628627955156
+ * // example id: to-disconnect-a-custom-key-store-from-its-cloudhsm-cluster-234abcdefABC
  * ```
  *
  */

@@ -46,11 +46,10 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * };
  * const command = new UpdateBrokerCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBrokerCountResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateBrokerCountResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

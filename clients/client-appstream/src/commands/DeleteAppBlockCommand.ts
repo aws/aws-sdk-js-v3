@@ -44,8 +44,7 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * };
  * const command = new DeleteAppBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

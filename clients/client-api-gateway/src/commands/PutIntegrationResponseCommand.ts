@@ -55,18 +55,17 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * };
  * const command = new PutIntegrationResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IntegrationResponse
- *   statusCode: "STRING_VALUE",
- *   selectionPattern: "STRING_VALUE",
- *   responseParameters: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- *   responseTemplates: {
- *     "<keys>": "STRING_VALUE",
- *   },
- *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
- * };
+ * // { // IntegrationResponse
+ * //   statusCode: "STRING_VALUE",
+ * //   selectionPattern: "STRING_VALUE",
+ * //   responseParameters: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   responseTemplates: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ * // };
  *
  * ```
  *

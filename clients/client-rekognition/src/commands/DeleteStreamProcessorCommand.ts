@@ -45,8 +45,7 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * };
  * const command = new DeleteStreamProcessorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

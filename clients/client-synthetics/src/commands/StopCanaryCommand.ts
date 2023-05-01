@@ -48,8 +48,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * };
  * const command = new StopCanaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,15 +51,14 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * };
  * const command = new GetPullRequestApprovalStatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPullRequestApprovalStatesOutput
- *   approvals: [ // ApprovalList
- *     { // Approval
- *       userArn: "STRING_VALUE",
- *       approvalState: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetPullRequestApprovalStatesOutput
+ * //   approvals: [ // ApprovalList
+ * //     { // Approval
+ * //       userArn: "STRING_VALUE",
+ * //       approvalState: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

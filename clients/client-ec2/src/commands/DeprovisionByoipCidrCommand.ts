@@ -48,15 +48,14 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * };
  * const command = new DeprovisionByoipCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeprovisionByoipCidrResult
- *   ByoipCidr: { // ByoipCidr
- *     Cidr: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
- *   },
- * };
+ * // { // DeprovisionByoipCidrResult
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //   },
+ * // };
  *
  * ```
  *

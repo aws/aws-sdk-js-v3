@@ -50,8 +50,7 @@ export interface AssociateContactWithAddressBookCommandOutput
  * };
  * const command = new AssociateContactWithAddressBookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

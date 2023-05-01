@@ -50,18 +50,17 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * };
  * const command = new UpdateUsageLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUsageLimitResponse
- *   usageLimit: { // UsageLimit
- *     usageLimitId: "STRING_VALUE",
- *     usageLimitArn: "STRING_VALUE",
- *     resourceArn: "STRING_VALUE",
- *     usageType: "STRING_VALUE",
- *     amount: Number("long"),
- *     period: "STRING_VALUE",
- *     breachAction: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateUsageLimitResponse
+ * //   usageLimit: { // UsageLimit
+ * //     usageLimitId: "STRING_VALUE",
+ * //     usageLimitArn: "STRING_VALUE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     usageType: "STRING_VALUE",
+ * //     amount: Number("long"),
+ * //     period: "STRING_VALUE",
+ * //     breachAction: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -64,32 +64,31 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * };
  * const command = new CreateMeshCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMeshOutput
- *   mesh: { // MeshData
- *     meshName: "STRING_VALUE", // required
- *     spec: { // MeshSpec
- *       egressFilter: { // EgressFilter
- *         type: "STRING_VALUE", // required
- *       },
- *       serviceDiscovery: { // MeshServiceDiscovery
- *         ipPreference: "STRING_VALUE",
- *       },
- *     },
- *     metadata: { // ResourceMetadata
- *       arn: "STRING_VALUE", // required
- *       version: Number("long"), // required
- *       uid: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *       meshOwner: "STRING_VALUE", // required
- *       resourceOwner: "STRING_VALUE", // required
- *     },
- *     status: { // MeshStatus
- *       status: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateMeshOutput
+ * //   mesh: { // MeshData
+ * //     meshName: "STRING_VALUE", // required
+ * //     spec: { // MeshSpec
+ * //       egressFilter: { // EgressFilter
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //       serviceDiscovery: { // MeshServiceDiscovery
+ * //         ipPreference: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     metadata: { // ResourceMetadata
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       uid: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //     },
+ * //     status: { // MeshStatus
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

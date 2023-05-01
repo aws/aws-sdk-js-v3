@@ -47,10 +47,9 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * };
  * const command = new StartExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExperimentResponse
- *   startedTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartExperimentResponse
+ * //   startedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

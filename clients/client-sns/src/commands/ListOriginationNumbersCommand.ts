@@ -47,22 +47,21 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * };
  * const command = new ListOriginationNumbersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOriginationNumbersResult
- *   NextToken: "STRING_VALUE",
- *   PhoneNumbers: [ // PhoneNumberInformationList
- *     { // PhoneNumberInformation
- *       CreatedAt: new Date("TIMESTAMP"),
- *       PhoneNumber: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Iso2CountryCode: "STRING_VALUE",
- *       RouteType: "Transactional" || "Promotional" || "Premium",
- *       NumberCapabilities: [ // NumberCapabilityList
- *         "SMS" || "MMS" || "VOICE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListOriginationNumbersResult
+ * //   NextToken: "STRING_VALUE",
+ * //   PhoneNumbers: [ // PhoneNumberInformationList
+ * //     { // PhoneNumberInformation
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Iso2CountryCode: "STRING_VALUE",
+ * //       RouteType: "Transactional" || "Promotional" || "Premium",
+ * //       NumberCapabilities: [ // NumberCapabilityList
+ * //         "SMS" || "MMS" || "VOICE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

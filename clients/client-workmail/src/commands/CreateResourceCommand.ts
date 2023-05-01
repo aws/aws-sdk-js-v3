@@ -46,10 +46,9 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResourceResponse
- *   ResourceId: "STRING_VALUE",
- * };
+ * // { // CreateResourceResponse
+ * //   ResourceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

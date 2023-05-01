@@ -45,13 +45,12 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * };
  * const command = new ListRulesPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRulesPackagesResponse
- *   rulesPackageArns: [ // ListReturnedArnList // required
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRulesPackagesResponse
+ * //   rulesPackageArns: [ // ListReturnedArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

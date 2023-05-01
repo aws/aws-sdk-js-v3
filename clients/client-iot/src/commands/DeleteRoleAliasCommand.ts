@@ -45,8 +45,7 @@ export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, _
  * };
  * const command = new DeleteRoleAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

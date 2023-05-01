@@ -76,33 +76,32 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * };
  * const command = new DescribeDimensionKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDimensionKeysResponse
- *   AlignedStartTime: new Date("TIMESTAMP"),
- *   AlignedEndTime: new Date("TIMESTAMP"),
- *   PartitionKeys: [ // ResponsePartitionKeyList
- *     { // ResponsePartitionKey
- *       Dimensions: { // DimensionMap // required
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Keys: [ // DimensionKeyDescriptionList
- *     { // DimensionKeyDescription
- *       Dimensions: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Total: Number("double"),
- *       AdditionalMetrics: { // AdditionalMetricsMap
- *         "<keys>": Number("double"),
- *       },
- *       Partitions: [ // MetricValuesList
- *         Number("double"),
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDimensionKeysResponse
+ * //   AlignedStartTime: new Date("TIMESTAMP"),
+ * //   AlignedEndTime: new Date("TIMESTAMP"),
+ * //   PartitionKeys: [ // ResponsePartitionKeyList
+ * //     { // ResponsePartitionKey
+ * //       Dimensions: { // DimensionMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Keys: [ // DimensionKeyDescriptionList
+ * //     { // DimensionKeyDescription
+ * //       Dimensions: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Total: Number("double"),
+ * //       AdditionalMetrics: { // AdditionalMetricsMap
+ * //         "<keys>": Number("double"),
+ * //       },
+ * //       Partitions: [ // MetricValuesList
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

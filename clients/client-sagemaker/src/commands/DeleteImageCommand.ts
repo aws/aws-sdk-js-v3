@@ -45,8 +45,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

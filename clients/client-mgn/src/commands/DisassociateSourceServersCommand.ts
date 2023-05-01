@@ -47,8 +47,7 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

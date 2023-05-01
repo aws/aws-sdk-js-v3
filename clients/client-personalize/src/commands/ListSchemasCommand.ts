@@ -47,19 +47,18 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchemasResponse
- *   schemas: [ // Schemas
- *     { // DatasetSchemaSummary
- *       name: "STRING_VALUE",
- *       schemaArn: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSchemasResponse
+ * //   schemas: [ // Schemas
+ * //     { // DatasetSchemaSummary
+ * //       name: "STRING_VALUE",
+ * //       schemaArn: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

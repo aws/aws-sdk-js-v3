@@ -45,8 +45,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

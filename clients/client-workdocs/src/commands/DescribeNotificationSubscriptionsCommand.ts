@@ -54,17 +54,16 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * };
  * const command = new DescribeNotificationSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotificationSubscriptionsResponse
- *   Subscriptions: [ // SubscriptionList
- *     { // Subscription
- *       SubscriptionId: "STRING_VALUE",
- *       EndPoint: "STRING_VALUE",
- *       Protocol: "HTTPS" || "SQS",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeNotificationSubscriptionsResponse
+ * //   Subscriptions: [ // SubscriptionList
+ * //     { // Subscription
+ * //       SubscriptionId: "STRING_VALUE",
+ * //       EndPoint: "STRING_VALUE",
+ * //       Protocol: "HTTPS" || "SQS",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

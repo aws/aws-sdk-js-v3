@@ -44,16 +44,15 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
  * };
  * const command = new GetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGatewayResponse
- *   Gateway: { // Gateway
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     GatewayGroupArn: "STRING_VALUE",
- *     SoftwareVersion: "STRING_VALUE",
- *   },
- * };
+ * // { // GetGatewayResponse
+ * //   Gateway: { // Gateway
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     GatewayGroupArn: "STRING_VALUE",
+ * //     SoftwareVersion: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

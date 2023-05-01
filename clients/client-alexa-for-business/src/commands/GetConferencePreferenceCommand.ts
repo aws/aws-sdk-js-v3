@@ -42,12 +42,11 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * const input = {};
  * const command = new GetConferencePreferenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConferencePreferenceResponse
- *   Preference: { // ConferencePreference
- *     DefaultConferenceProviderArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetConferencePreferenceResponse
+ * //   Preference: { // ConferencePreference
+ * //     DefaultConferenceProviderArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

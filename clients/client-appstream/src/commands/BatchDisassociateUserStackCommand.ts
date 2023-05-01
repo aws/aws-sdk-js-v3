@@ -56,21 +56,20 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * };
  * const command = new BatchDisassociateUserStackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateUserStackResult
- *   errors: [ // UserStackAssociationErrorList
- *     { // UserStackAssociationError
- *       UserStackAssociation: { // UserStackAssociation
- *         StackName: "STRING_VALUE", // required
- *         UserName: "STRING_VALUE", // required
- *         AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
- *         SendEmailNotification: true || false,
- *       },
- *       ErrorCode: "STACK_NOT_FOUND" || "USER_NAME_NOT_FOUND" || "DIRECTORY_NOT_FOUND" || "INTERNAL_ERROR",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateUserStackResult
+ * //   errors: [ // UserStackAssociationErrorList
+ * //     { // UserStackAssociationError
+ * //       UserStackAssociation: { // UserStackAssociation
+ * //         StackName: "STRING_VALUE", // required
+ * //         UserName: "STRING_VALUE", // required
+ * //         AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * //         SendEmailNotification: true || false,
+ * //       },
+ * //       ErrorCode: "STACK_NOT_FOUND" || "USER_NAME_NOT_FOUND" || "DIRECTORY_NOT_FOUND" || "INTERNAL_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

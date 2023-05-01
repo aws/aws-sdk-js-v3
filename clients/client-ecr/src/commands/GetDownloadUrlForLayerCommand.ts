@@ -53,11 +53,10 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * };
  * const command = new GetDownloadUrlForLayerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDownloadUrlForLayerResponse
- *   downloadUrl: "STRING_VALUE",
- *   layerDigest: "STRING_VALUE",
- * };
+ * // { // GetDownloadUrlForLayerResponse
+ * //   downloadUrl: "STRING_VALUE",
+ * //   layerDigest: "STRING_VALUE",
+ * // };
  *
  * ```
  *

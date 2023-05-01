@@ -47,10 +47,9 @@ export interface DeleteTrafficMirrorFilterRuleCommandOutput
  * };
  * const command = new DeleteTrafficMirrorFilterRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTrafficMirrorFilterRuleResult
- *   TrafficMirrorFilterRuleId: "STRING_VALUE",
- * };
+ * // { // DeleteTrafficMirrorFilterRuleResult
+ * //   TrafficMirrorFilterRuleId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

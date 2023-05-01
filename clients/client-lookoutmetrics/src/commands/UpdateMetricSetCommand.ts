@@ -154,10 +154,9 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  * };
  * const command = new UpdateMetricSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMetricSetResponse
- *   MetricSetArn: "STRING_VALUE",
- * };
+ * // { // UpdateMetricSetResponse
+ * //   MetricSetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,11 +54,10 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * };
  * const command = new GetUserIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserIdResponse
- *   UserId: "STRING_VALUE", // required
- *   IdentityStoreId: "STRING_VALUE", // required
- * };
+ * // { // GetUserIdResponse
+ * //   UserId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

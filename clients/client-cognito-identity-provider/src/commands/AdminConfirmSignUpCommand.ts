@@ -59,8 +59,7 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * };
  * const command = new AdminConfirmSignUpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

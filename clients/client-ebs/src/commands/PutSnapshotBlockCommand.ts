@@ -66,11 +66,10 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * };
  * const command = new PutSnapshotBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSnapshotBlockResponse
- *   Checksum: "STRING_VALUE",
- *   ChecksumAlgorithm: "STRING_VALUE",
- * };
+ * // { // PutSnapshotBlockResponse
+ * //   Checksum: "STRING_VALUE",
+ * //   ChecksumAlgorithm: "STRING_VALUE",
+ * // };
  *
  * ```
  *

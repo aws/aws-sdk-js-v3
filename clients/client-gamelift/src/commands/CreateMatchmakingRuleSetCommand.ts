@@ -81,15 +81,14 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * };
  * const command = new CreateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMatchmakingRuleSetOutput
- *   RuleSet: { // MatchmakingRuleSet
- *     RuleSetName: "STRING_VALUE",
- *     RuleSetArn: "STRING_VALUE",
- *     RuleSetBody: "STRING_VALUE", // required
- *     CreationTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateMatchmakingRuleSetOutput
+ * //   RuleSet: { // MatchmakingRuleSet
+ * //     RuleSetName: "STRING_VALUE",
+ * //     RuleSetArn: "STRING_VALUE",
+ * //     RuleSetBody: "STRING_VALUE", // required
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

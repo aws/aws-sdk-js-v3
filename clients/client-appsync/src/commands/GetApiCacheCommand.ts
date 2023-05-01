@@ -44,17 +44,16 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * };
  * const command = new GetApiCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApiCacheResponse
- *   apiCache: { // ApiCache
- *     ttl: Number("long"),
- *     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING",
- *     transitEncryptionEnabled: true || false,
- *     atRestEncryptionEnabled: true || false,
- *     type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X",
- *     status: "AVAILABLE" || "CREATING" || "DELETING" || "MODIFYING" || "FAILED",
- *   },
- * };
+ * // { // GetApiCacheResponse
+ * //   apiCache: { // ApiCache
+ * //     ttl: Number("long"),
+ * //     apiCachingBehavior: "FULL_REQUEST_CACHING" || "PER_RESOLVER_CACHING",
+ * //     transitEncryptionEnabled: true || false,
+ * //     atRestEncryptionEnabled: true || false,
+ * //     type: "T2_SMALL" || "T2_MEDIUM" || "R4_LARGE" || "R4_XLARGE" || "R4_2XLARGE" || "R4_4XLARGE" || "R4_8XLARGE" || "SMALL" || "MEDIUM" || "LARGE" || "XLARGE" || "LARGE_2X" || "LARGE_4X" || "LARGE_8X" || "LARGE_12X",
+ * //     status: "AVAILABLE" || "CREATING" || "DELETING" || "MODIFYING" || "FAILED",
+ * //   },
+ * // };
  *
  * ```
  *

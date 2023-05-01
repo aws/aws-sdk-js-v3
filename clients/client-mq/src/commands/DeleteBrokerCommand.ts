@@ -44,10 +44,9 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * };
  * const command = new DeleteBrokerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBrokerResponse
- *   BrokerId: "STRING_VALUE",
- * };
+ * // { // DeleteBrokerResponse
+ * //   BrokerId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

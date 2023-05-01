@@ -49,16 +49,15 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * };
  * const command = new ListMobileSdkReleasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMobileSdkReleasesResponse
- *   ReleaseSummaries: [ // ReleaseSummaries
- *     { // ReleaseSummary
- *       ReleaseVersion: "STRING_VALUE",
- *       Timestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // ListMobileSdkReleasesResponse
+ * //   ReleaseSummaries: [ // ReleaseSummaries
+ * //     { // ReleaseSummary
+ * //       ReleaseVersion: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

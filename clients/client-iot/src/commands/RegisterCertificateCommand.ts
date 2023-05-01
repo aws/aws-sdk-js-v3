@@ -50,11 +50,10 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterCertificateResponse
- *   certificateArn: "STRING_VALUE",
- *   certificateId: "STRING_VALUE",
- * };
+ * // { // RegisterCertificateResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

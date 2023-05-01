@@ -58,22 +58,21 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * };
  * const command = new CreateKeyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateKeyGroupResult
- *   KeyGroup: { // KeyGroup
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     KeyGroupConfig: { // KeyGroupConfig
- *       Name: "STRING_VALUE", // required
- *       Items: [ // PublicKeyIdList // required
- *         "STRING_VALUE",
- *       ],
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   Location: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- * };
+ * // { // CreateKeyGroupResult
+ * //   KeyGroup: { // KeyGroup
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     KeyGroupConfig: { // KeyGroupConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       Items: [ // PublicKeyIdList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Location: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

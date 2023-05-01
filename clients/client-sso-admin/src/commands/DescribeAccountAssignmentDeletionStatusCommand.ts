@@ -54,20 +54,19 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  * };
  * const command = new DescribeAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountAssignmentDeletionStatusResponse
- *   AccountAssignmentDeletionStatus: { // AccountAssignmentOperationStatus
- *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
- *     RequestId: "STRING_VALUE",
- *     FailureReason: "STRING_VALUE",
- *     TargetId: "STRING_VALUE",
- *     TargetType: "AWS_ACCOUNT",
- *     PermissionSetArn: "STRING_VALUE",
- *     PrincipalType: "USER" || "GROUP",
- *     PrincipalId: "STRING_VALUE",
- *     CreatedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeAccountAssignmentDeletionStatusResponse
+ * //   AccountAssignmentDeletionStatus: { // AccountAssignmentOperationStatus
+ * //     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //     RequestId: "STRING_VALUE",
+ * //     FailureReason: "STRING_VALUE",
+ * //     TargetId: "STRING_VALUE",
+ * //     TargetType: "AWS_ACCOUNT",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     PrincipalType: "USER" || "GROUP",
+ * //     PrincipalId: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

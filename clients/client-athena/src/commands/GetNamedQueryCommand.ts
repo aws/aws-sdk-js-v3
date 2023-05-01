@@ -45,17 +45,16 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * };
  * const command = new GetNamedQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNamedQueryOutput
- *   NamedQuery: { // NamedQuery
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Database: "STRING_VALUE", // required
- *     QueryString: "STRING_VALUE", // required
- *     NamedQueryId: "STRING_VALUE",
- *     WorkGroup: "STRING_VALUE",
- *   },
- * };
+ * // { // GetNamedQueryOutput
+ * //   NamedQuery: { // NamedQuery
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Database: "STRING_VALUE", // required
+ * //     QueryString: "STRING_VALUE", // required
+ * //     NamedQueryId: "STRING_VALUE",
+ * //     WorkGroup: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

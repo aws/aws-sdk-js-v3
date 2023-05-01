@@ -44,8 +44,7 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * };
  * const command = new DeleteChannelPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

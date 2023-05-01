@@ -53,33 +53,32 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * };
  * const command = new GetRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoleResponse
- *   Role: { // Role
- *     Path: "STRING_VALUE", // required
- *     RoleName: "STRING_VALUE", // required
- *     RoleId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     AssumeRolePolicyDocument: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     MaxSessionDuration: Number("int"),
- *     PermissionsBoundary: { // AttachedPermissionsBoundary
- *       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *       PermissionsBoundaryArn: "STRING_VALUE",
- *     },
- *     Tags: [ // tagListType
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     RoleLastUsed: { // RoleLastUsed
- *       LastUsedDate: new Date("TIMESTAMP"),
- *       Region: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetRoleResponse
+ * //   Role: { // Role
+ * //     Path: "STRING_VALUE", // required
+ * //     RoleName: "STRING_VALUE", // required
+ * //     RoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     AssumeRolePolicyDocument: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     MaxSessionDuration: Number("int"),
+ * //     PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //       PermissionsBoundaryArn: "STRING_VALUE",
+ * //     },
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     RoleLastUsed: { // RoleLastUsed
+ * //       LastUsedDate: new Date("TIMESTAMP"),
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

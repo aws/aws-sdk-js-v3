@@ -57,13 +57,12 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEmailTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateEmailTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

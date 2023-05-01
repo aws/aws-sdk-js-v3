@@ -45,31 +45,30 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * };
  * const command = new GetSpeakerSearchTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSpeakerSearchTaskResponse
- *   SpeakerSearchTask: { // SpeakerSearchTask
- *     SpeakerSearchTaskId: "STRING_VALUE",
- *     SpeakerSearchTaskStatus: "STRING_VALUE",
- *     CallDetails: { // CallDetails
- *       VoiceConnectorId: "STRING_VALUE",
- *       TransactionId: "STRING_VALUE",
- *       IsCaller: true || false,
- *     },
- *     SpeakerSearchDetails: { // SpeakerSearchDetails
- *       Results: [ // SpeakerSearchResultList
- *         { // SpeakerSearchResult
- *           ConfidenceScore: Number("float"),
- *           VoiceProfileId: "STRING_VALUE",
- *         },
- *       ],
- *       VoiceprintGenerationStatus: "STRING_VALUE",
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     StartedTimestamp: new Date("TIMESTAMP"),
- *     StatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // GetSpeakerSearchTaskResponse
+ * //   SpeakerSearchTask: { // SpeakerSearchTask
+ * //     SpeakerSearchTaskId: "STRING_VALUE",
+ * //     SpeakerSearchTaskStatus: "STRING_VALUE",
+ * //     CallDetails: { // CallDetails
+ * //       VoiceConnectorId: "STRING_VALUE",
+ * //       TransactionId: "STRING_VALUE",
+ * //       IsCaller: true || false,
+ * //     },
+ * //     SpeakerSearchDetails: { // SpeakerSearchDetails
+ * //       Results: [ // SpeakerSearchResultList
+ * //         { // SpeakerSearchResult
+ * //           ConfidenceScore: Number("float"),
+ * //           VoiceProfileId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VoiceprintGenerationStatus: "STRING_VALUE",
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     StartedTimestamp: new Date("TIMESTAMP"),
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -54,15 +54,14 @@ export interface ListAccessControlConfigurationsCommandOutput
  * };
  * const command = new ListAccessControlConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccessControlConfigurationsResponse
- *   NextToken: "STRING_VALUE",
- *   AccessControlConfigurations: [ // AccessControlConfigurationSummaryList // required
- *     { // AccessControlConfigurationSummary
- *       Id: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListAccessControlConfigurationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   AccessControlConfigurations: [ // AccessControlConfigurationSummaryList // required
+ * //     { // AccessControlConfigurationSummary
+ * //       Id: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -75,8 +75,7 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * };
  * const command = new CreateClassifierCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

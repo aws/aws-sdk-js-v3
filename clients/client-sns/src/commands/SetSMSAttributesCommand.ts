@@ -56,8 +56,7 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * };
  * const command = new SetSMSAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

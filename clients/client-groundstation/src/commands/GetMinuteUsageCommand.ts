@@ -45,14 +45,13 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  * };
  * const command = new GetMinuteUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMinuteUsageResponse
- *   isReservedMinutesCustomer: true || false,
- *   totalReservedMinuteAllocation: Number("int"),
- *   upcomingMinutesScheduled: Number("int"),
- *   totalScheduledMinutes: Number("int"),
- *   estimatedMinutesRemaining: Number("int"),
- * };
+ * // { // GetMinuteUsageResponse
+ * //   isReservedMinutesCustomer: true || false,
+ * //   totalReservedMinuteAllocation: Number("int"),
+ * //   upcomingMinutesScheduled: Number("int"),
+ * //   totalScheduledMinutes: Number("int"),
+ * //   estimatedMinutesRemaining: Number("int"),
+ * // };
  *
  * ```
  *

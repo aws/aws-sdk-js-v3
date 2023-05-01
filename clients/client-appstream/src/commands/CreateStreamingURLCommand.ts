@@ -49,11 +49,10 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * };
  * const command = new CreateStreamingURLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamingURLResult
- *   StreamingURL: "STRING_VALUE",
- *   Expires: new Date("TIMESTAMP"),
- * };
+ * // { // CreateStreamingURLResult
+ * //   StreamingURL: "STRING_VALUE",
+ * //   Expires: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

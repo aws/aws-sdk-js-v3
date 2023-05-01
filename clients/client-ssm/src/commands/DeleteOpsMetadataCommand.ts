@@ -44,8 +44,7 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * };
  * const command = new DeleteOpsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

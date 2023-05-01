@@ -46,8 +46,7 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * };
  * const command = new StopSuiteRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

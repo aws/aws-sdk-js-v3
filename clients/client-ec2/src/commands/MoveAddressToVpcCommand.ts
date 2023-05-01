@@ -53,11 +53,10 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MoveAddressToVpcResult
- *   AllocationId: "STRING_VALUE",
- *   Status: "MoveInProgress" || "InVpc" || "InClassic",
- * };
+ * // { // MoveAddressToVpcResult
+ * //   AllocationId: "STRING_VALUE",
+ * //   Status: "MoveInProgress" || "InVpc" || "InClassic",
+ * // };
  *
  * ```
  *

@@ -54,24 +54,23 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * };
  * const command = new ListImageRecipesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImageRecipesResponse
- *   requestId: "STRING_VALUE",
- *   imageRecipeSummaryList: [ // ImageRecipeSummaryList
- *     { // ImageRecipeSummary
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       platform: "Windows" || "Linux",
- *       owner: "STRING_VALUE",
- *       parentImage: "STRING_VALUE",
- *       dateCreated: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImageRecipesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageRecipeSummaryList: [ // ImageRecipeSummaryList
+ * //     { // ImageRecipeSummary
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       owner: "STRING_VALUE",
+ * //       parentImage: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

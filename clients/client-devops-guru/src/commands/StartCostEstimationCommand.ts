@@ -60,8 +60,7 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * };
  * const command = new StartCostEstimationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,24 +46,23 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * };
  * const command = new DescribeClusterDbRevisionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterDbRevisionsMessage
- *   Marker: "STRING_VALUE",
- *   ClusterDbRevisions: [ // ClusterDbRevisionsList
- *     { // ClusterDbRevision
- *       ClusterIdentifier: "STRING_VALUE",
- *       CurrentDatabaseRevision: "STRING_VALUE",
- *       DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
- *       RevisionTargets: [ // RevisionTargetsList
- *         { // RevisionTarget
- *           DatabaseRevision: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // ClusterDbRevisionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ClusterDbRevisions: [ // ClusterDbRevisionsList
+ * //     { // ClusterDbRevision
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       CurrentDatabaseRevision: "STRING_VALUE",
+ * //       DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
+ * //       RevisionTargets: [ // RevisionTargetsList
+ * //         { // RevisionTarget
+ * //           DatabaseRevision: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           DatabaseRevisionReleaseDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

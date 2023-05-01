@@ -73,10 +73,9 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * };
  * const command = new CreateUpdatedWorkspaceImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUpdatedWorkspaceImageResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // CreateUpdatedWorkspaceImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

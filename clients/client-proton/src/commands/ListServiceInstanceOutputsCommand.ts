@@ -50,16 +50,15 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  * };
  * const command = new ListServiceInstanceOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceInstanceOutputsOutput
- *   nextToken: "STRING_VALUE",
- *   outputs: [ // OutputsList // required
- *     { // Output
- *       key: "STRING_VALUE",
- *       valueString: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServiceInstanceOutputsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   outputs: [ // OutputsList // required
+ * //     { // Output
+ * //       key: "STRING_VALUE",
+ * //       valueString: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

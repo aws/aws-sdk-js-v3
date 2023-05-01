@@ -53,10 +53,9 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * };
  * const command = new PutFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Concurrency
- *   ReservedConcurrentExecutions: Number("int"),
- * };
+ * // { // Concurrency
+ * //   ReservedConcurrentExecutions: Number("int"),
+ * // };
  *
  * ```
  *

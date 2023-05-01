@@ -45,26 +45,25 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * };
  * const command = new GetInstancePortStatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstancePortStatesResult
- *   portStates: [ // InstancePortStateList
- *     { // InstancePortState
- *       fromPort: Number("int"),
- *       toPort: Number("int"),
- *       protocol: "tcp" || "all" || "udp" || "icmp",
- *       state: "open" || "closed",
- *       cidrs: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       ipv6Cidrs: [
- *         "STRING_VALUE",
- *       ],
- *       cidrListAliases: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetInstancePortStatesResult
+ * //   portStates: [ // InstancePortStateList
+ * //     { // InstancePortState
+ * //       fromPort: Number("int"),
+ * //       toPort: Number("int"),
+ * //       protocol: "tcp" || "all" || "udp" || "icmp",
+ * //       state: "open" || "closed",
+ * //       cidrs: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ipv6Cidrs: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       cidrListAliases: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

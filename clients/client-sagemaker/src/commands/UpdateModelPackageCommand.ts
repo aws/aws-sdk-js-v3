@@ -88,10 +88,9 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * };
  * const command = new UpdateModelPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateModelPackageOutput
- *   ModelPackageArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateModelPackageOutput
+ * //   ModelPackageArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

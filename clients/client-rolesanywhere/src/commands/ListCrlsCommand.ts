@@ -49,22 +49,21 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * };
  * const command = new ListCrlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCrlsResponse
- *   nextToken: "STRING_VALUE",
- *   crls: [ // CrlDetails
- *     { // CrlDetail
- *       crlId: "STRING_VALUE",
- *       crlArn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       enabled: true || false,
- *       crlData: "BLOB_VALUE",
- *       trustAnchorArn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListCrlsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   crls: [ // CrlDetails
+ * //     { // CrlDetail
+ * //       crlId: "STRING_VALUE",
+ * //       crlArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       enabled: true || false,
+ * //       crlData: "BLOB_VALUE",
+ * //       trustAnchorArn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

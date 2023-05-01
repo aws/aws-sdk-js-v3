@@ -57,10 +57,9 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * };
  * const command = new StreamJournalToKinesisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StreamJournalToKinesisResponse
- *   StreamId: "STRING_VALUE",
- * };
+ * // { // StreamJournalToKinesisResponse
+ * //   StreamId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

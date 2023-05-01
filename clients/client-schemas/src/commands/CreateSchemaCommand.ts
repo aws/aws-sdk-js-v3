@@ -51,19 +51,18 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSchemaResponse
- *   Description: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- *   SchemaArn: "STRING_VALUE",
- *   SchemaName: "STRING_VALUE",
- *   SchemaVersion: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Type: "STRING_VALUE",
- *   VersionCreatedDate: new Date("TIMESTAMP"),
- * };
+ * // { // CreateSchemaResponse
+ * //   Description: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Type: "STRING_VALUE",
+ * //   VersionCreatedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

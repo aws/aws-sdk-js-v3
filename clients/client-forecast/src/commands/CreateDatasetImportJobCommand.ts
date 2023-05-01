@@ -84,10 +84,9 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * };
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetImportJobResponse
- *   DatasetImportJobArn: "STRING_VALUE",
- * };
+ * // { // CreateDatasetImportJobResponse
+ * //   DatasetImportJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

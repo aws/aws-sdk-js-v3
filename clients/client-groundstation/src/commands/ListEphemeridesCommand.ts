@@ -51,25 +51,24 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * };
  * const command = new ListEphemeridesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEphemeridesResponse
- *   nextToken: "STRING_VALUE",
- *   ephemerides: [ // EphemeridesList
- *     { // EphemerisItem
- *       ephemerisId: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       priority: Number("int"),
- *       enabled: true || false,
- *       creationTime: new Date("TIMESTAMP"),
- *       name: "STRING_VALUE",
- *       sourceS3Object: { // S3Object
- *         bucket: "STRING_VALUE",
- *         key: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ListEphemeridesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   ephemerides: [ // EphemeridesList
+ * //     { // EphemerisItem
+ * //       ephemerisId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       priority: Number("int"),
+ * //       enabled: true || false,
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       name: "STRING_VALUE",
+ * //       sourceS3Object: { // S3Object
+ * //         bucket: "STRING_VALUE",
+ * //         key: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -72,30 +72,29 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReplicationConfigurationTemplate
- *   replicationConfigurationTemplateID: "STRING_VALUE", // required
- *   arn: "STRING_VALUE",
- *   stagingAreaSubnetId: "STRING_VALUE",
- *   associateDefaultSecurityGroup: true || false,
- *   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
- *     "STRING_VALUE",
- *   ],
- *   replicationServerInstanceType: "STRING_VALUE",
- *   useDedicatedReplicationServer: true || false,
- *   defaultLargeStagingDiskType: "STRING_VALUE",
- *   ebsEncryption: "STRING_VALUE",
- *   ebsEncryptionKeyArn: "STRING_VALUE",
- *   bandwidthThrottling: Number("long"),
- *   dataPlaneRouting: "STRING_VALUE",
- *   createPublicIP: true || false,
- *   stagingAreaTags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   tags: {
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ReplicationConfigurationTemplate
+ * //   replicationConfigurationTemplateID: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE",
+ * //   stagingAreaSubnetId: "STRING_VALUE",
+ * //   associateDefaultSecurityGroup: true || false,
+ * //   replicationServersSecurityGroupsIDs: [ // ReplicationServersSecurityGroupsIDs
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   replicationServerInstanceType: "STRING_VALUE",
+ * //   useDedicatedReplicationServer: true || false,
+ * //   defaultLargeStagingDiskType: "STRING_VALUE",
+ * //   ebsEncryption: "STRING_VALUE",
+ * //   ebsEncryptionKeyArn: "STRING_VALUE",
+ * //   bandwidthThrottling: Number("long"),
+ * //   dataPlaneRouting: "STRING_VALUE",
+ * //   createPublicIP: true || false,
+ * //   stagingAreaTags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   tags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

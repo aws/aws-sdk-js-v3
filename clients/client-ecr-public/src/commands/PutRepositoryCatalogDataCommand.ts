@@ -57,22 +57,21 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  * };
  * const command = new PutRepositoryCatalogDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRepositoryCatalogDataResponse
- *   catalogData: { // RepositoryCatalogData
- *     description: "STRING_VALUE",
- *     architectures: [ // ArchitectureList
- *       "STRING_VALUE",
- *     ],
- *     operatingSystems: [ // OperatingSystemList
- *       "STRING_VALUE",
- *     ],
- *     logoUrl: "STRING_VALUE",
- *     aboutText: "STRING_VALUE",
- *     usageText: "STRING_VALUE",
- *     marketplaceCertified: true || false,
- *   },
- * };
+ * // { // PutRepositoryCatalogDataResponse
+ * //   catalogData: { // RepositoryCatalogData
+ * //     description: "STRING_VALUE",
+ * //     architectures: [ // ArchitectureList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     operatingSystems: [ // OperatingSystemList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logoUrl: "STRING_VALUE",
+ * //     aboutText: "STRING_VALUE",
+ * //     usageText: "STRING_VALUE",
+ * //     marketplaceCertified: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

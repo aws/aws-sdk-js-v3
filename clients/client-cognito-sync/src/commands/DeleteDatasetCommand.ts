@@ -50,18 +50,17 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDatasetResponse
- *   Dataset: { // Dataset
- *     IdentityId: "STRING_VALUE",
- *     DatasetName: "STRING_VALUE",
- *     CreationDate: new Date("TIMESTAMP"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     LastModifiedBy: "STRING_VALUE",
- *     DataStorage: Number("long"),
- *     NumRecords: Number("long"),
- *   },
- * };
+ * // { // DeleteDatasetResponse
+ * //   Dataset: { // Dataset
+ * //     IdentityId: "STRING_VALUE",
+ * //     DatasetName: "STRING_VALUE",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     DataStorage: Number("long"),
+ * //     NumRecords: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

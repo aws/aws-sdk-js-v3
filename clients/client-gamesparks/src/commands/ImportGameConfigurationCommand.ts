@@ -52,20 +52,19 @@ export interface ImportGameConfigurationCommandOutput extends ImportGameConfigur
  * };
  * const command = new ImportGameConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportGameConfigurationResult
- *   GameConfiguration: { // GameConfigurationDetails
- *     Sections: { // Sections
- *       "<keys>": { // Section
- *         Name: "STRING_VALUE",
- *         Size: Number("int"),
- *         Attributes: "DOCUMENT_VALUE",
- *       },
- *     },
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ImportGameConfigurationResult
+ * //   GameConfiguration: { // GameConfigurationDetails
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

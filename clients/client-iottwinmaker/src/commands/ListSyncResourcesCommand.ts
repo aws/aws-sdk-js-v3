@@ -55,25 +55,24 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * };
  * const command = new ListSyncResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSyncResourcesResponse
- *   syncResources: [ // SyncResourceSummaries
- *     { // SyncResourceSummary
- *       resourceType: "STRING_VALUE",
- *       externalId: "STRING_VALUE",
- *       resourceId: "STRING_VALUE",
- *       status: { // SyncResourceStatus
- *         state: "STRING_VALUE",
- *         error: { // ErrorDetails
- *           code: "STRING_VALUE",
- *           message: "STRING_VALUE",
- *         },
- *       },
- *       updateDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSyncResourcesResponse
+ * //   syncResources: [ // SyncResourceSummaries
+ * //     { // SyncResourceSummary
+ * //       resourceType: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
+ * //       resourceId: "STRING_VALUE",
+ * //       status: { // SyncResourceStatus
+ * //         state: "STRING_VALUE",
+ * //         error: { // ErrorDetails
+ * //           code: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       updateDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

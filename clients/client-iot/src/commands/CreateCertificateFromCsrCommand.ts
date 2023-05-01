@@ -94,12 +94,11 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * };
  * const command = new CreateCertificateFromCsrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCertificateFromCsrResponse
- *   certificateArn: "STRING_VALUE",
- *   certificateId: "STRING_VALUE",
- *   certificatePem: "STRING_VALUE",
- * };
+ * // { // CreateCertificateFromCsrResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * //   certificatePem: "STRING_VALUE",
+ * // };
  *
  * ```
  *

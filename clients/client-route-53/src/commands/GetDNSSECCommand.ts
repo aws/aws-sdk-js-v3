@@ -46,33 +46,32 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * };
  * const command = new GetDNSSECCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDNSSECResponse
- *   Status: { // DNSSECStatus
- *     ServeSignature: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *   },
- *   KeySigningKeys: [ // KeySigningKeys // required
- *     { // KeySigningKey
- *       Name: "STRING_VALUE",
- *       KmsArn: "STRING_VALUE",
- *       Flag: Number("int"),
- *       SigningAlgorithmMnemonic: "STRING_VALUE",
- *       SigningAlgorithmType: Number("int"),
- *       DigestAlgorithmMnemonic: "STRING_VALUE",
- *       DigestAlgorithmType: Number("int"),
- *       KeyTag: Number("int"),
- *       DigestValue: "STRING_VALUE",
- *       PublicKey: "STRING_VALUE",
- *       DSRecord: "STRING_VALUE",
- *       DNSKEYRecord: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // GetDNSSECResponse
+ * //   Status: { // DNSSECStatus
+ * //     ServeSignature: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * //   KeySigningKeys: [ // KeySigningKeys // required
+ * //     { // KeySigningKey
+ * //       Name: "STRING_VALUE",
+ * //       KmsArn: "STRING_VALUE",
+ * //       Flag: Number("int"),
+ * //       SigningAlgorithmMnemonic: "STRING_VALUE",
+ * //       SigningAlgorithmType: Number("int"),
+ * //       DigestAlgorithmMnemonic: "STRING_VALUE",
+ * //       DigestAlgorithmType: Number("int"),
+ * //       KeyTag: Number("int"),
+ * //       DigestValue: "STRING_VALUE",
+ * //       PublicKey: "STRING_VALUE",
+ * //       DSRecord: "STRING_VALUE",
+ * //       DNSKEYRecord: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

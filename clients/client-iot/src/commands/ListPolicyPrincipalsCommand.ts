@@ -53,13 +53,12 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * };
  * const command = new ListPolicyPrincipalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPolicyPrincipalsResponse
- *   principals: [ // Principals
- *     "STRING_VALUE",
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListPolicyPrincipalsResponse
+ * //   principals: [ // Principals
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

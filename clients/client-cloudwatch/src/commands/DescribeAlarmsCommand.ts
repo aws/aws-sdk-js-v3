@@ -60,105 +60,104 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * };
  * const command = new DescribeAlarmsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAlarmsOutput
- *   CompositeAlarms: [ // CompositeAlarms
- *     { // CompositeAlarm
- *       ActionsEnabled: true || false,
- *       AlarmActions: [ // ResourceList
- *         "STRING_VALUE",
- *       ],
- *       AlarmArn: "STRING_VALUE",
- *       AlarmConfigurationUpdatedTimestamp: new Date("TIMESTAMP"),
- *       AlarmDescription: "STRING_VALUE",
- *       AlarmName: "STRING_VALUE",
- *       AlarmRule: "STRING_VALUE",
- *       InsufficientDataActions: [
- *         "STRING_VALUE",
- *       ],
- *       OKActions: [
- *         "STRING_VALUE",
- *       ],
- *       StateReason: "STRING_VALUE",
- *       StateReasonData: "STRING_VALUE",
- *       StateUpdatedTimestamp: new Date("TIMESTAMP"),
- *       StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
- *       StateTransitionedTimestamp: new Date("TIMESTAMP"),
- *       ActionsSuppressedBy: "WaitPeriod" || "ExtensionPeriod" || "Alarm",
- *       ActionsSuppressedReason: "STRING_VALUE",
- *       ActionsSuppressor: "STRING_VALUE",
- *       ActionsSuppressorWaitPeriod: Number("int"),
- *       ActionsSuppressorExtensionPeriod: Number("int"),
- *     },
- *   ],
- *   MetricAlarms: [ // MetricAlarms
- *     { // MetricAlarm
- *       AlarmName: "STRING_VALUE",
- *       AlarmArn: "STRING_VALUE",
- *       AlarmDescription: "STRING_VALUE",
- *       AlarmConfigurationUpdatedTimestamp: new Date("TIMESTAMP"),
- *       ActionsEnabled: true || false,
- *       OKActions: [
- *         "STRING_VALUE",
- *       ],
- *       AlarmActions: [
- *         "STRING_VALUE",
- *       ],
- *       InsufficientDataActions: "<ResourceList>",
- *       StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
- *       StateReason: "STRING_VALUE",
- *       StateReasonData: "STRING_VALUE",
- *       StateUpdatedTimestamp: new Date("TIMESTAMP"),
- *       MetricName: "STRING_VALUE",
- *       Namespace: "STRING_VALUE",
- *       Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
- *       ExtendedStatistic: "STRING_VALUE",
- *       Dimensions: [ // Dimensions
- *         { // Dimension
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       Period: Number("int"),
- *       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *       EvaluationPeriods: Number("int"),
- *       DatapointsToAlarm: Number("int"),
- *       Threshold: Number("double"),
- *       ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold",
- *       TreatMissingData: "STRING_VALUE",
- *       EvaluateLowSampleCountPercentile: "STRING_VALUE",
- *       Metrics: [ // MetricDataQueries
- *         { // MetricDataQuery
- *           Id: "STRING_VALUE", // required
- *           MetricStat: { // MetricStat
- *             Metric: { // Metric
- *               Namespace: "STRING_VALUE",
- *               MetricName: "STRING_VALUE",
- *               Dimensions: [
- *                 {
- *                   Name: "STRING_VALUE", // required
- *                   Value: "STRING_VALUE", // required
- *                 },
- *               ],
- *             },
- *             Period: Number("int"), // required
- *             Stat: "STRING_VALUE", // required
- *             Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *           },
- *           Expression: "STRING_VALUE",
- *           Label: "STRING_VALUE",
- *           ReturnData: true || false,
- *           Period: Number("int"),
- *           AccountId: "STRING_VALUE",
- *         },
- *       ],
- *       ThresholdMetricId: "STRING_VALUE",
- *       EvaluationState: "PARTIAL_DATA",
- *       StateTransitionedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAlarmsOutput
+ * //   CompositeAlarms: [ // CompositeAlarms
+ * //     { // CompositeAlarm
+ * //       ActionsEnabled: true || false,
+ * //       AlarmActions: [ // ResourceList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AlarmArn: "STRING_VALUE",
+ * //       AlarmConfigurationUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       AlarmDescription: "STRING_VALUE",
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmRule: "STRING_VALUE",
+ * //       InsufficientDataActions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       OKActions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StateReason: "STRING_VALUE",
+ * //       StateReasonData: "STRING_VALUE",
+ * //       StateUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ * //       StateTransitionedTimestamp: new Date("TIMESTAMP"),
+ * //       ActionsSuppressedBy: "WaitPeriod" || "ExtensionPeriod" || "Alarm",
+ * //       ActionsSuppressedReason: "STRING_VALUE",
+ * //       ActionsSuppressor: "STRING_VALUE",
+ * //       ActionsSuppressorWaitPeriod: Number("int"),
+ * //       ActionsSuppressorExtensionPeriod: Number("int"),
+ * //     },
+ * //   ],
+ * //   MetricAlarms: [ // MetricAlarms
+ * //     { // MetricAlarm
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmArn: "STRING_VALUE",
+ * //       AlarmDescription: "STRING_VALUE",
+ * //       AlarmConfigurationUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       ActionsEnabled: true || false,
+ * //       OKActions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AlarmActions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       InsufficientDataActions: "<ResourceList>",
+ * //       StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ * //       StateReason: "STRING_VALUE",
+ * //       StateReasonData: "STRING_VALUE",
+ * //       StateUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       MetricName: "STRING_VALUE",
+ * //       Namespace: "STRING_VALUE",
+ * //       Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ * //       ExtendedStatistic: "STRING_VALUE",
+ * //       Dimensions: [ // Dimensions
+ * //         { // Dimension
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Period: Number("int"),
+ * //       Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //       EvaluationPeriods: Number("int"),
+ * //       DatapointsToAlarm: Number("int"),
+ * //       Threshold: Number("double"),
+ * //       ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold",
+ * //       TreatMissingData: "STRING_VALUE",
+ * //       EvaluateLowSampleCountPercentile: "STRING_VALUE",
+ * //       Metrics: [ // MetricDataQueries
+ * //         { // MetricDataQuery
+ * //           Id: "STRING_VALUE", // required
+ * //           MetricStat: { // MetricStat
+ * //             Metric: { // Metric
+ * //               Namespace: "STRING_VALUE",
+ * //               MetricName: "STRING_VALUE",
+ * //               Dimensions: [
+ * //                 {
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //             Period: Number("int"), // required
+ * //             Stat: "STRING_VALUE", // required
+ * //             Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //           },
+ * //           Expression: "STRING_VALUE",
+ * //           Label: "STRING_VALUE",
+ * //           ReturnData: true || false,
+ * //           Period: Number("int"),
+ * //           AccountId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ThresholdMetricId: "STRING_VALUE",
+ * //       EvaluationState: "PARTIAL_DATA",
+ * //       StateTransitionedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

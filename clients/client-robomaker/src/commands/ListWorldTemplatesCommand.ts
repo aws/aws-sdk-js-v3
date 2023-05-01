@@ -45,19 +45,18 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * };
  * const command = new ListWorldTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorldTemplatesResponse
- *   templateSummaries: [ // TemplateSummaries
- *     { // TemplateSummary
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       name: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorldTemplatesResponse
+ * //   templateSummaries: [ // TemplateSummaries
+ * //     { // TemplateSummary
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       name: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

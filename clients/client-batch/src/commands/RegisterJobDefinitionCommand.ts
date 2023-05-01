@@ -350,12 +350,11 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * };
  * const command = new RegisterJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterJobDefinitionResponse
- *   jobDefinitionName: "STRING_VALUE", // required
- *   jobDefinitionArn: "STRING_VALUE", // required
- *   revision: Number("int"), // required
- * };
+ * // { // RegisterJobDefinitionResponse
+ * //   jobDefinitionName: "STRING_VALUE", // required
+ * //   jobDefinitionArn: "STRING_VALUE", // required
+ * //   revision: Number("int"), // required
+ * // };
  *
  * ```
  *

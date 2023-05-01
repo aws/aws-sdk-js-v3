@@ -45,8 +45,7 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  * };
  * const command = new EnableClientAuthenticationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

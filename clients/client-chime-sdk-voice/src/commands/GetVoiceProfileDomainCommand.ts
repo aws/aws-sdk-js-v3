@@ -48,20 +48,19 @@ export interface GetVoiceProfileDomainCommandOutput extends GetVoiceProfileDomai
  * };
  * const command = new GetVoiceProfileDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceProfileDomainResponse
- *   VoiceProfileDomain: { // VoiceProfileDomain
- *     VoiceProfileDomainId: "STRING_VALUE",
- *     VoiceProfileDomainArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *       KmsKeyArn: "STRING_VALUE", // required
- *     },
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetVoiceProfileDomainResponse
+ * //   VoiceProfileDomain: { // VoiceProfileDomain
+ * //     VoiceProfileDomainId: "STRING_VALUE",
+ * //     VoiceProfileDomainArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -76,24 +76,23 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  * };
  * const command = new CreateRegexMatchSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRegexMatchSetResponse
- *   RegexMatchSet: { // RegexMatchSet
- *     RegexMatchSetId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     RegexMatchTuples: [ // RegexMatchTuples
- *       { // RegexMatchTuple
- *         FieldToMatch: { // FieldToMatch
- *           Type: "STRING_VALUE", // required
- *           Data: "STRING_VALUE",
- *         },
- *         TextTransformation: "STRING_VALUE", // required
- *         RegexPatternSetId: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateRegexMatchSetResponse
+ * //   RegexMatchSet: { // RegexMatchSet
+ * //     RegexMatchSetId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     RegexMatchTuples: [ // RegexMatchTuples
+ * //       { // RegexMatchTuple
+ * //         FieldToMatch: { // FieldToMatch
+ * //           Type: "STRING_VALUE", // required
+ * //           Data: "STRING_VALUE",
+ * //         },
+ * //         TextTransformation: "STRING_VALUE", // required
+ * //         RegexPatternSetId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -67,30 +67,29 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  * };
  * const command = new GetAggregateComplianceDetailsByConfigRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAggregateComplianceDetailsByConfigRuleResponse
- *   AggregateEvaluationResults: [ // AggregateEvaluationResultList
- *     { // AggregateEvaluationResult
- *       EvaluationResultIdentifier: { // EvaluationResultIdentifier
- *         EvaluationResultQualifier: { // EvaluationResultQualifier
- *           ConfigRuleName: "STRING_VALUE",
- *           ResourceType: "STRING_VALUE",
- *           ResourceId: "STRING_VALUE",
- *           EvaluationMode: "DETECTIVE" || "PROACTIVE",
- *         },
- *         OrderingTimestamp: new Date("TIMESTAMP"),
- *         ResourceEvaluationId: "STRING_VALUE",
- *       },
- *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
- *       ResultRecordedTime: new Date("TIMESTAMP"),
- *       ConfigRuleInvokedTime: new Date("TIMESTAMP"),
- *       Annotation: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *       AwsRegion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAggregateComplianceDetailsByConfigRuleResponse
+ * //   AggregateEvaluationResults: [ // AggregateEvaluationResultList
+ * //     { // AggregateEvaluationResult
+ * //       EvaluationResultIdentifier: { // EvaluationResultIdentifier
+ * //         EvaluationResultQualifier: { // EvaluationResultQualifier
+ * //           ConfigRuleName: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceId: "STRING_VALUE",
+ * //           EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ * //         },
+ * //         OrderingTimestamp: new Date("TIMESTAMP"),
+ * //         ResourceEvaluationId: "STRING_VALUE",
+ * //       },
+ * //       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ * //       ResultRecordedTime: new Date("TIMESTAMP"),
+ * //       ConfigRuleInvokedTime: new Date("TIMESTAMP"),
+ * //       Annotation: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       AwsRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

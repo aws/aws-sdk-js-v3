@@ -52,8 +52,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

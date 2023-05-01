@@ -44,10 +44,9 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * };
  * const command = new ExportBackupPlanTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportBackupPlanTemplateOutput
- *   BackupPlanTemplateJson: "STRING_VALUE",
- * };
+ * // { // ExportBackupPlanTemplateOutput
+ * //   BackupPlanTemplateJson: "STRING_VALUE",
+ * // };
  *
  * ```
  *

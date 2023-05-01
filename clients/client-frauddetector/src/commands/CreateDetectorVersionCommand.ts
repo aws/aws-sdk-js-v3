@@ -70,12 +70,11 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  * };
  * const command = new CreateDetectorVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDetectorVersionResult
- *   detectorId: "STRING_VALUE",
- *   detectorVersionId: "STRING_VALUE",
- *   status: "DRAFT" || "ACTIVE" || "INACTIVE",
- * };
+ * // { // CreateDetectorVersionResult
+ * //   detectorId: "STRING_VALUE",
+ * //   detectorVersionId: "STRING_VALUE",
+ * //   status: "DRAFT" || "ACTIVE" || "INACTIVE",
+ * // };
  *
  * ```
  *

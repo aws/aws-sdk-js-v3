@@ -46,19 +46,18 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  * };
  * const command = new GetModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelsResponse
- *   Items: [ // __listOfModel
- *     { // Model
- *       ContentType: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ModelId: "STRING_VALUE",
- *       Name: "STRING_VALUE", // required
- *       Schema: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetModelsResponse
+ * //   Items: [ // __listOfModel
+ * //     { // Model
+ * //       ContentType: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ModelId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE", // required
+ * //       Schema: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

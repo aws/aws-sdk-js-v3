@@ -64,14 +64,13 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkerResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   site: "STRING_VALUE", // required
- * };
+ * // { // CreateWorkerResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   site: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

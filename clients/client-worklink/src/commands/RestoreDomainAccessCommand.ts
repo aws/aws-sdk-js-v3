@@ -47,8 +47,7 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  * };
  * const command = new RestoreDomainAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

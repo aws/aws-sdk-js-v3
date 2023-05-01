@@ -63,8 +63,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * };
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

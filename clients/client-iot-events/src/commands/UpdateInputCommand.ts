@@ -52,17 +52,16 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateInputResponse
- *   inputConfiguration: { // InputConfiguration
- *     inputName: "STRING_VALUE", // required
- *     inputDescription: "STRING_VALUE",
- *     inputArn: "STRING_VALUE", // required
- *     creationTime: new Date("TIMESTAMP"), // required
- *     lastUpdateTime: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE", // required
- *   },
- * };
+ * // { // UpdateInputResponse
+ * //   inputConfiguration: { // InputConfiguration
+ * //     inputName: "STRING_VALUE", // required
+ * //     inputDescription: "STRING_VALUE",
+ * //     inputArn: "STRING_VALUE", // required
+ * //     creationTime: new Date("TIMESTAMP"), // required
+ * //     lastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

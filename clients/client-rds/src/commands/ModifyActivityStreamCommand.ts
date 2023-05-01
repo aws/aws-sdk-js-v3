@@ -49,15 +49,14 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * };
  * const command = new ModifyActivityStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyActivityStreamResponse
- *   KmsKeyId: "STRING_VALUE",
- *   KinesisStreamName: "STRING_VALUE",
- *   Status: "stopped" || "starting" || "started" || "stopping",
- *   Mode: "sync" || "async",
- *   EngineNativeAuditFieldsIncluded: true || false,
- *   PolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
- * };
+ * // { // ModifyActivityStreamResponse
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   KinesisStreamName: "STRING_VALUE",
+ * //   Status: "stopped" || "starting" || "started" || "stopping",
+ * //   Mode: "sync" || "async",
+ * //   EngineNativeAuditFieldsIncluded: true || false,
+ * //   PolicyStatus: "locked" || "unlocked" || "locking-policy" || "unlocking-policy",
+ * // };
  *
  * ```
  *

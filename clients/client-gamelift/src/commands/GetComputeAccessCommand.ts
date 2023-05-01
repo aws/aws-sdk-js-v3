@@ -71,18 +71,17 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * };
  * const command = new GetComputeAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetComputeAccessOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- *   ComputeName: "STRING_VALUE",
- *   ComputeArn: "STRING_VALUE",
- *   Credentials: { // AwsCredentials
- *     AccessKeyId: "STRING_VALUE",
- *     SecretAccessKey: "STRING_VALUE",
- *     SessionToken: "STRING_VALUE",
- *   },
- * };
+ * // { // GetComputeAccessOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   ComputeName: "STRING_VALUE",
+ * //   ComputeArn: "STRING_VALUE",
+ * //   Credentials: { // AwsCredentials
+ * //     AccessKeyId: "STRING_VALUE",
+ * //     SecretAccessKey: "STRING_VALUE",
+ * //     SessionToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

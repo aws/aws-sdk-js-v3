@@ -69,15 +69,14 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityVerificationAttributesResponse
- *   VerificationAttributes: { // VerificationAttributes // required
- *     "<keys>": { // IdentityVerificationAttributes
- *       VerificationStatus: "STRING_VALUE", // required
- *       VerificationToken: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetIdentityVerificationAttributesResponse
+ * //   VerificationAttributes: { // VerificationAttributes // required
+ * //     "<keys>": { // IdentityVerificationAttributes
+ * //       VerificationStatus: "STRING_VALUE", // required
+ * //       VerificationToken: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

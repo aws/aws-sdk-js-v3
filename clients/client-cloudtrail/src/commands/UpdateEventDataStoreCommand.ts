@@ -86,45 +86,44 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * };
  * const command = new UpdateEventDataStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEventDataStoreResponse
- *   EventDataStoreArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
- *   AdvancedEventSelectors: [ // AdvancedEventSelectors
- *     { // AdvancedEventSelector
- *       Name: "STRING_VALUE",
- *       FieldSelectors: [ // AdvancedFieldSelectors // required
- *         { // AdvancedFieldSelector
- *           Field: "STRING_VALUE", // required
- *           Equals: [ // Operator
- *             "STRING_VALUE",
- *           ],
- *           StartsWith: [
- *             "STRING_VALUE",
- *           ],
- *           EndsWith: [
- *             "STRING_VALUE",
- *           ],
- *           NotEquals: [
- *             "STRING_VALUE",
- *           ],
- *           NotStartsWith: [
- *             "STRING_VALUE",
- *           ],
- *           NotEndsWith: "<Operator>",
- *         },
- *       ],
- *     },
- *   ],
- *   MultiRegionEnabled: true || false,
- *   OrganizationEnabled: true || false,
- *   RetentionPeriod: Number("int"),
- *   TerminationProtectionEnabled: true || false,
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- *   UpdatedTimestamp: new Date("TIMESTAMP"),
- *   KmsKeyId: "STRING_VALUE",
- * };
+ * // { // UpdateEventDataStoreResponse
+ * //   EventDataStoreArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATED" || "ENABLED" || "PENDING_DELETION",
+ * //   AdvancedEventSelectors: [ // AdvancedEventSelectors
+ * //     { // AdvancedEventSelector
+ * //       Name: "STRING_VALUE",
+ * //       FieldSelectors: [ // AdvancedFieldSelectors // required
+ * //         { // AdvancedFieldSelector
+ * //           Field: "STRING_VALUE", // required
+ * //           Equals: [ // Operator
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           StartsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           EndsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotEquals: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotStartsWith: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           NotEndsWith: "<Operator>",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   MultiRegionEnabled: true || false,
+ * //   OrganizationEnabled: true || false,
+ * //   RetentionPeriod: Number("int"),
+ * //   TerminationProtectionEnabled: true || false,
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   KmsKeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

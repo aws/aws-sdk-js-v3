@@ -44,11 +44,10 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * };
  * const command = new DeleteContainerRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteContainerRecipeResponse
- *   requestId: "STRING_VALUE",
- *   containerRecipeArn: "STRING_VALUE",
- * };
+ * // { // DeleteContainerRecipeResponse
+ * //   requestId: "STRING_VALUE",
+ * //   containerRecipeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

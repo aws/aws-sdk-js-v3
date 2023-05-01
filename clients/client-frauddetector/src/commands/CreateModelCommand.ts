@@ -53,8 +53,7 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

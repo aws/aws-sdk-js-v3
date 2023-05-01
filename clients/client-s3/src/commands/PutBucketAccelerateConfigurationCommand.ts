@@ -90,8 +90,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * };
  * const command = new PutBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

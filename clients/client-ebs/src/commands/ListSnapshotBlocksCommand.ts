@@ -51,19 +51,18 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * };
  * const command = new ListSnapshotBlocksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSnapshotBlocksResponse
- *   Blocks: [ // Blocks
- *     { // Block
- *       BlockIndex: Number("int"),
- *       BlockToken: "STRING_VALUE",
- *     },
- *   ],
- *   ExpiryTime: new Date("TIMESTAMP"),
- *   VolumeSize: Number("long"),
- *   BlockSize: Number("int"),
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSnapshotBlocksResponse
+ * //   Blocks: [ // Blocks
+ * //     { // Block
+ * //       BlockIndex: Number("int"),
+ * //       BlockToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExpiryTime: new Date("TIMESTAMP"),
+ * //   VolumeSize: Number("long"),
+ * //   BlockSize: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

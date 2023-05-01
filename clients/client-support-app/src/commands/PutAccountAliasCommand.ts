@@ -46,8 +46,7 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * };
  * const command = new PutAccountAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

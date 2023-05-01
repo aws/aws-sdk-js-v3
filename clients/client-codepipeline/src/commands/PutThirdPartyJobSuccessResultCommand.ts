@@ -61,8 +61,7 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * };
  * const command = new PutThirdPartyJobSuccessResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

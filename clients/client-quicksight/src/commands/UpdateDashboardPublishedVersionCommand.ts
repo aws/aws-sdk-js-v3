@@ -51,13 +51,12 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * };
  * const command = new UpdateDashboardPublishedVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDashboardPublishedVersionResponse
- *   DashboardId: "STRING_VALUE",
- *   DashboardArn: "STRING_VALUE",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateDashboardPublishedVersionResponse
+ * //   DashboardId: "STRING_VALUE",
+ * //   DashboardArn: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

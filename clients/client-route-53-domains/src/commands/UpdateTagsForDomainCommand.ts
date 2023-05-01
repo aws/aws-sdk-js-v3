@@ -52,8 +52,7 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * };
  * const command = new UpdateTagsForDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

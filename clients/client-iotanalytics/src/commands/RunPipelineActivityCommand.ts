@@ -109,13 +109,12 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * };
  * const command = new RunPipelineActivityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RunPipelineActivityResponse
- *   payloads: [ // MessagePayloads
- *     "BLOB_VALUE",
- *   ],
- *   logResult: "STRING_VALUE",
- * };
+ * // { // RunPipelineActivityResponse
+ * //   payloads: [ // MessagePayloads
+ * //     "BLOB_VALUE",
+ * //   ],
+ * //   logResult: "STRING_VALUE",
+ * // };
  *
  * ```
  *

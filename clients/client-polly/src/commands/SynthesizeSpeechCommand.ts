@@ -69,12 +69,11 @@ export interface SynthesizeSpeechCommandOutput
  * };
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SynthesizeSpeechOutput
- *   AudioStream: "STREAMING_BLOB_VALUE",
- *   ContentType: "STRING_VALUE",
- *   RequestCharacters: Number("int"),
- * };
+ * // { // SynthesizeSpeechOutput
+ * //   AudioStream: "STREAMING_BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   RequestCharacters: Number("int"),
+ * // };
  *
  * ```
  *

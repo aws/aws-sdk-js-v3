@@ -45,8 +45,7 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

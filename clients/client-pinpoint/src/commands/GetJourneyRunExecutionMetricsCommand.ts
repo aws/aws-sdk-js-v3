@@ -53,18 +53,17 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
  * };
  * const command = new GetJourneyRunExecutionMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJourneyRunExecutionMetricsResponse
- *   JourneyRunExecutionMetricsResponse: { // JourneyRunExecutionMetricsResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     JourneyId: "STRING_VALUE", // required
- *     LastEvaluatedTime: "STRING_VALUE", // required
- *     Metrics: { // MapOf__string // required
- *       "<keys>": "STRING_VALUE",
- *     },
- *     RunId: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetJourneyRunExecutionMetricsResponse
+ * //   JourneyRunExecutionMetricsResponse: { // JourneyRunExecutionMetricsResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     JourneyId: "STRING_VALUE", // required
+ * //     LastEvaluatedTime: "STRING_VALUE", // required
+ * //     Metrics: { // MapOf__string // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     RunId: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

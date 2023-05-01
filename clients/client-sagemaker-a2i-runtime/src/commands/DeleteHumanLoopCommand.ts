@@ -50,8 +50,7 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * };
  * const command = new DeleteHumanLoopCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

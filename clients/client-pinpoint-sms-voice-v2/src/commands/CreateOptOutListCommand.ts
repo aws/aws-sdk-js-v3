@@ -63,18 +63,17 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * };
  * const command = new CreateOptOutListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOptOutListResult
- *   OptOutListArn: "STRING_VALUE",
- *   OptOutListName: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // CreateOptOutListResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

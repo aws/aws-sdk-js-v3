@@ -45,15 +45,14 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * };
  * const command = new ListTrustStoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrustStoresResponse
- *   trustStores: [ // TrustStoreSummaryList
- *     { // TrustStoreSummary
- *       trustStoreArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTrustStoresResponse
+ * //   trustStores: [ // TrustStoreSummaryList
+ * //     { // TrustStoreSummary
+ * //       trustStoreArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

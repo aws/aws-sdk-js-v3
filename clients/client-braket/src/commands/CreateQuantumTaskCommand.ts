@@ -54,10 +54,9 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQuantumTaskResponse
- *   quantumTaskArn: "STRING_VALUE", // required
- * };
+ * // { // CreateQuantumTaskResponse
+ * //   quantumTaskArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

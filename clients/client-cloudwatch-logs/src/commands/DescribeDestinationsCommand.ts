@@ -46,20 +46,19 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * };
  * const command = new DescribeDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDestinationsResponse
- *   destinations: [ // Destinations
- *     { // Destination
- *       destinationName: "STRING_VALUE",
- *       targetArn: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *       accessPolicy: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       creationTime: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDestinationsResponse
+ * //   destinations: [ // Destinations
+ * //     { // Destination
+ * //       destinationName: "STRING_VALUE",
+ * //       targetArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       accessPolicy: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       creationTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

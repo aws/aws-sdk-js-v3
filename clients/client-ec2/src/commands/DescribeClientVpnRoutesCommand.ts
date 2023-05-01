@@ -55,24 +55,23 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * };
  * const command = new DescribeClientVpnRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientVpnRoutesResult
- *   Routes: [ // ClientVpnRouteSet
- *     { // ClientVpnRoute
- *       ClientVpnEndpointId: "STRING_VALUE",
- *       DestinationCidr: "STRING_VALUE",
- *       TargetSubnet: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Origin: "STRING_VALUE",
- *       Status: { // ClientVpnRouteStatus
- *         Code: "creating" || "active" || "failed" || "deleting",
- *         Message: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeClientVpnRoutesResult
+ * //   Routes: [ // ClientVpnRouteSet
+ * //     { // ClientVpnRoute
+ * //       ClientVpnEndpointId: "STRING_VALUE",
+ * //       DestinationCidr: "STRING_VALUE",
+ * //       TargetSubnet: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Origin: "STRING_VALUE",
+ * //       Status: { // ClientVpnRouteStatus
+ * //         Code: "creating" || "active" || "failed" || "deleting",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,17 +46,16 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTablesResponse
- *   nextToken: "STRING_VALUE",
- *   tables: [ // TableSummaryList
- *     { // TableSummary
- *       keyspaceName: "STRING_VALUE", // required
- *       tableName: "STRING_VALUE", // required
- *       resourceArn: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListTablesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   tables: [ // TableSummaryList
+ * //     { // TableSummary
+ * //       keyspaceName: "STRING_VALUE", // required
+ * //       tableName: "STRING_VALUE", // required
+ * //       resourceArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

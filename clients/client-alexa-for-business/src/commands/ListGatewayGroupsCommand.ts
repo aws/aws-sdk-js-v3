@@ -46,17 +46,16 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
  * };
  * const command = new ListGatewayGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewayGroupsResponse
- *   GatewayGroups: [ // GatewayGroupSummaries
- *     { // GatewayGroupSummary
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGatewayGroupsResponse
+ * //   GatewayGroups: [ // GatewayGroupSummaries
+ * //     { // GatewayGroupSummary
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

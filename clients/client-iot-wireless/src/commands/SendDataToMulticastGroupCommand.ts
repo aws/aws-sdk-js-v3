@@ -50,10 +50,9 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * };
  * const command = new SendDataToMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendDataToMulticastGroupResponse
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendDataToMulticastGroupResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,13 +45,12 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * };
  * const command = new ListAssociatedFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedFleetsResult
- *   Names: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedFleetsResult
+ * //   Names: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

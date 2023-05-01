@@ -57,15 +57,14 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * };
  * const command = new DisassociatePersonasFromEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociatePersonasFromEntitiesResponse
- *   FailedEntityList: [ // FailedEntityList
- *     { // FailedEntity
- *       EntityId: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DisassociatePersonasFromEntitiesResponse
+ * //   FailedEntityList: [ // FailedEntityList
+ * //     { // FailedEntity
+ * //       EntityId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

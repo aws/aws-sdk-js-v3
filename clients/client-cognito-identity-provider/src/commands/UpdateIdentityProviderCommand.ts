@@ -59,25 +59,24 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * };
  * const command = new UpdateIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIdentityProviderResponse
- *   IdentityProvider: { // IdentityProviderType
- *     UserPoolId: "STRING_VALUE",
- *     ProviderName: "STRING_VALUE",
- *     ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
- *     ProviderDetails: { // ProviderDetailsType
- *       "<keys>": "STRING_VALUE",
- *     },
- *     AttributeMapping: { // AttributeMappingType
- *       "<keys>": "STRING_VALUE",
- *     },
- *     IdpIdentifiers: [ // IdpIdentifiersListType
- *       "STRING_VALUE",
- *     ],
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateIdentityProviderResponse
+ * //   IdentityProvider: { // IdentityProviderType
+ * //     UserPoolId: "STRING_VALUE",
+ * //     ProviderName: "STRING_VALUE",
+ * //     ProviderType: "SAML" || "Facebook" || "Google" || "LoginWithAmazon" || "SignInWithApple" || "OIDC",
+ * //     ProviderDetails: { // ProviderDetailsType
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     AttributeMapping: { // AttributeMappingType
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     IdpIdentifiers: [ // IdpIdentifiersListType
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

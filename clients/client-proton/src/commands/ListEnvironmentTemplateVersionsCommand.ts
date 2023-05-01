@@ -56,24 +56,23 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  * };
  * const command = new ListEnvironmentTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentTemplateVersionsOutput
- *   nextToken: "STRING_VALUE",
- *   templateVersions: [ // EnvironmentTemplateVersionSummaryList // required
- *     { // EnvironmentTemplateVersionSummary
- *       templateName: "STRING_VALUE", // required
- *       majorVersion: "STRING_VALUE", // required
- *       minorVersion: "STRING_VALUE", // required
- *       recommendedMinorVersion: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListEnvironmentTemplateVersionsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templateVersions: [ // EnvironmentTemplateVersionSummaryList // required
+ * //     { // EnvironmentTemplateVersionSummary
+ * //       templateName: "STRING_VALUE", // required
+ * //       majorVersion: "STRING_VALUE", // required
+ * //       minorVersion: "STRING_VALUE", // required
+ * //       recommendedMinorVersion: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

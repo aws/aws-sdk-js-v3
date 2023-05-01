@@ -57,8 +57,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * };
  * const command = new UpdateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

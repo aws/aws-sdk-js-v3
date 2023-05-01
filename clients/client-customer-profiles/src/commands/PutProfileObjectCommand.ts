@@ -55,10 +55,9 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * };
  * const command = new PutProfileObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutProfileObjectResponse
- *   ProfileObjectUniqueKey: "STRING_VALUE",
- * };
+ * // { // PutProfileObjectResponse
+ * //   ProfileObjectUniqueKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

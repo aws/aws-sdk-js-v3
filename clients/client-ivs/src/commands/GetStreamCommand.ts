@@ -44,18 +44,17 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * };
  * const command = new GetStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStreamResponse
- *   stream: { // Stream
- *     channelArn: "STRING_VALUE",
- *     streamId: "STRING_VALUE",
- *     playbackUrl: "STRING_VALUE",
- *     startTime: new Date("TIMESTAMP"),
- *     state: "STRING_VALUE",
- *     health: "STRING_VALUE",
- *     viewerCount: Number("long"),
- *   },
- * };
+ * // { // GetStreamResponse
+ * //   stream: { // Stream
+ * //     channelArn: "STRING_VALUE",
+ * //     streamId: "STRING_VALUE",
+ * //     playbackUrl: "STRING_VALUE",
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     state: "STRING_VALUE",
+ * //     health: "STRING_VALUE",
+ * //     viewerCount: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

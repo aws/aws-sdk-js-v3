@@ -50,8 +50,7 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -68,24 +68,23 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * };
  * const command = new CreatePlacementGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePlacementGroupResult
- *   PlacementGroup: { // PlacementGroup
- *     GroupName: "STRING_VALUE",
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     Strategy: "cluster" || "spread" || "partition",
- *     PartitionCount: Number("int"),
- *     GroupId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     GroupArn: "STRING_VALUE",
- *     SpreadLevel: "host" || "rack",
- *   },
- * };
+ * // { // CreatePlacementGroupResult
+ * //   PlacementGroup: { // PlacementGroup
+ * //     GroupName: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     Strategy: "cluster" || "spread" || "partition",
+ * //     PartitionCount: Number("int"),
+ * //     GroupId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GroupArn: "STRING_VALUE",
+ * //     SpreadLevel: "host" || "rack",
+ * //   },
+ * // };
  *
  * ```
  *

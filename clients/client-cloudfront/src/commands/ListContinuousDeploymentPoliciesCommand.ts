@@ -55,45 +55,44 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * };
  * const command = new ListContinuousDeploymentPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContinuousDeploymentPoliciesResult
- *   ContinuousDeploymentPolicyList: { // ContinuousDeploymentPolicyList
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     Quantity: Number("int"), // required
- *     Items: [ // ContinuousDeploymentPolicySummaryList
- *       { // ContinuousDeploymentPolicySummary
- *         ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
- *           Id: "STRING_VALUE", // required
- *           LastModifiedTime: new Date("TIMESTAMP"), // required
- *           ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
- *             StagingDistributionDnsNames: { // StagingDistributionDnsNames
- *               Quantity: Number("int"), // required
- *               Items: [ // StagingDistributionDnsNameList
- *                 "STRING_VALUE",
- *               ],
- *             },
- *             Enabled: true || false, // required
- *             TrafficConfig: { // TrafficConfig
- *               SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
- *                 Weight: Number("float"), // required
- *                 SessionStickinessConfig: { // SessionStickinessConfig
- *                   IdleTTL: Number("int"), // required
- *                   MaximumTTL: Number("int"), // required
- *                 },
- *               },
- *               SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
- *                 Header: "STRING_VALUE", // required
- *                 Value: "STRING_VALUE", // required
- *               },
- *               Type: "SingleWeight" || "SingleHeader", // required
- *             },
- *           },
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // ListContinuousDeploymentPoliciesResult
+ * //   ContinuousDeploymentPolicyList: { // ContinuousDeploymentPolicyList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // ContinuousDeploymentPolicySummaryList
+ * //       { // ContinuousDeploymentPolicySummary
+ * //         ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
+ * //           Id: "STRING_VALUE", // required
+ * //           LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //           ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ * //             StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ * //               Quantity: Number("int"), // required
+ * //               Items: [ // StagingDistributionDnsNameList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             Enabled: true || false, // required
+ * //             TrafficConfig: { // TrafficConfig
+ * //               SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ * //                 Weight: Number("float"), // required
+ * //                 SessionStickinessConfig: { // SessionStickinessConfig
+ * //                   IdleTTL: Number("int"), // required
+ * //                   MaximumTTL: Number("int"), // required
+ * //                 },
+ * //               },
+ * //               SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ * //                 Header: "STRING_VALUE", // required
+ * //                 Value: "STRING_VALUE", // required
+ * //               },
+ * //               Type: "SingleWeight" || "SingleHeader", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

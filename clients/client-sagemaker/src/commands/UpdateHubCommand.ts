@@ -52,10 +52,9 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * };
  * const command = new UpdateHubCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateHubResponse
- *   HubArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateHubResponse
+ * //   HubArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

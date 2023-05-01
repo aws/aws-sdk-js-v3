@@ -55,16 +55,15 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * };
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteDocumentResponse
- *   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
- *     { // BatchDeleteDocumentResponseFailedDocument
- *       Id: "STRING_VALUE",
- *       ErrorCode: "InternalError" || "InvalidRequest",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteDocumentResponse
+ * //   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
+ * //     { // BatchDeleteDocumentResponseFailedDocument
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "InternalError" || "InvalidRequest",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

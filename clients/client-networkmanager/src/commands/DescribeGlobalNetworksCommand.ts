@@ -51,25 +51,24 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * };
  * const command = new DescribeGlobalNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGlobalNetworksResponse
- *   GlobalNetworks: [ // GlobalNetworkList
- *     { // GlobalNetwork
- *       GlobalNetworkId: "STRING_VALUE",
- *       GlobalNetworkArn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeGlobalNetworksResponse
+ * //   GlobalNetworks: [ // GlobalNetworkList
+ * //     { // GlobalNetwork
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       GlobalNetworkArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

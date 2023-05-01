@@ -47,8 +47,7 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * };
  * const command = new DeleteReceiptFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

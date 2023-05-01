@@ -75,16 +75,15 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * };
  * const command = new CreateSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecurityGroupResult
- *   GroupId: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateSecurityGroupResult
+ * //   GroupId: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

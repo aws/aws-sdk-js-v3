@@ -57,8 +57,7 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

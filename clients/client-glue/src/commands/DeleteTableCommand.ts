@@ -57,8 +57,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

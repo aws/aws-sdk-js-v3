@@ -46,20 +46,19 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDetectorResult
- *   detectorId: "STRING_VALUE",
- *   detectorVersionSummaries: [ // DetectorVersionSummaryList
- *     { // DetectorVersionSummary
- *       detectorVersionId: "STRING_VALUE",
- *       status: "DRAFT" || "ACTIVE" || "INACTIVE",
- *       description: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // DescribeDetectorResult
+ * //   detectorId: "STRING_VALUE",
+ * //   detectorVersionSummaries: [ // DetectorVersionSummaryList
+ * //     { // DetectorVersionSummary
+ * //       detectorVersionId: "STRING_VALUE",
+ * //       status: "DRAFT" || "ACTIVE" || "INACTIVE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

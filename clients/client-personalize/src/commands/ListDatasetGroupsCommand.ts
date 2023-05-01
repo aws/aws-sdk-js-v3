@@ -47,21 +47,20 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * };
  * const command = new ListDatasetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetGroupsResponse
- *   datasetGroups: [ // DatasetGroups
- *     { // DatasetGroupSummary
- *       name: "STRING_VALUE",
- *       datasetGroupArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       failureReason: "STRING_VALUE",
- *       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetGroupsResponse
+ * //   datasetGroups: [ // DatasetGroups
+ * //     { // DatasetGroupSummary
+ * //       name: "STRING_VALUE",
+ * //       datasetGroupArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       failureReason: "STRING_VALUE",
+ * //       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

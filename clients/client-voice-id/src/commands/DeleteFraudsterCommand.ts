@@ -45,8 +45,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFraudsterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

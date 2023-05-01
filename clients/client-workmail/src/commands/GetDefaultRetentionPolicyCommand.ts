@@ -44,19 +44,18 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * };
  * const command = new GetDefaultRetentionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDefaultRetentionPolicyResponse
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   FolderConfigurations: [ // FolderConfigurations
- *     { // FolderConfiguration
- *       Name: "INBOX" || "DELETED_ITEMS" || "SENT_ITEMS" || "DRAFTS" || "JUNK_EMAIL", // required
- *       Action: "NONE" || "DELETE" || "PERMANENTLY_DELETE", // required
- *       Period: Number("int"),
- *     },
- *   ],
- * };
+ * // { // GetDefaultRetentionPolicyResponse
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   FolderConfigurations: [ // FolderConfigurations
+ * //     { // FolderConfiguration
+ * //       Name: "INBOX" || "DELETED_ITEMS" || "SENT_ITEMS" || "DRAFTS" || "JUNK_EMAIL", // required
+ * //       Action: "NONE" || "DELETE" || "PERMANENTLY_DELETE", // required
+ * //       Period: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * };
  * const command = new UpdateRoutingProfileDefaultOutboundQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

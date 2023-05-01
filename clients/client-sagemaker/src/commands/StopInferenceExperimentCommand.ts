@@ -62,10 +62,9 @@ export interface StopInferenceExperimentCommandOutput extends StopInferenceExper
  * };
  * const command = new StopInferenceExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopInferenceExperimentResponse
- *   InferenceExperimentArn: "STRING_VALUE", // required
- * };
+ * // { // StopInferenceExperimentResponse
+ * //   InferenceExperimentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -44,38 +44,37 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceResponse
- *   Service: { // Service
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     NamespaceId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     InstanceCount: Number("int"),
- *     DnsConfig: { // DnsConfig
- *       NamespaceId: "STRING_VALUE",
- *       RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
- *       DnsRecords: [ // DnsRecordList // required
- *         { // DnsRecord
- *           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
- *           TTL: Number("long"), // required
- *         },
- *       ],
- *     },
- *     Type: "HTTP" || "DNS_HTTP" || "DNS",
- *     HealthCheckConfig: { // HealthCheckConfig
- *       Type: "HTTP" || "HTTPS" || "TCP", // required
- *       ResourcePath: "STRING_VALUE",
- *       FailureThreshold: Number("int"),
- *     },
- *     HealthCheckCustomConfig: { // HealthCheckCustomConfig
- *       FailureThreshold: Number("int"),
- *     },
- *     CreateDate: new Date("TIMESTAMP"),
- *     CreatorRequestId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetServiceResponse
+ * //   Service: { // Service
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     NamespaceId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     InstanceCount: Number("int"),
+ * //     DnsConfig: { // DnsConfig
+ * //       NamespaceId: "STRING_VALUE",
+ * //       RoutingPolicy: "MULTIVALUE" || "WEIGHTED",
+ * //       DnsRecords: [ // DnsRecordList // required
+ * //         { // DnsRecord
+ * //           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ * //           TTL: Number("long"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     Type: "HTTP" || "DNS_HTTP" || "DNS",
+ * //     HealthCheckConfig: { // HealthCheckConfig
+ * //       Type: "HTTP" || "HTTPS" || "TCP", // required
+ * //       ResourcePath: "STRING_VALUE",
+ * //       FailureThreshold: Number("int"),
+ * //     },
+ * //     HealthCheckCustomConfig: { // HealthCheckCustomConfig
+ * //       FailureThreshold: Number("int"),
+ * //     },
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

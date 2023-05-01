@@ -50,10 +50,9 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * };
  * const command = new CompleteSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CompleteSnapshotResponse
- *   Status: "STRING_VALUE",
- * };
+ * // { // CompleteSnapshotResponse
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

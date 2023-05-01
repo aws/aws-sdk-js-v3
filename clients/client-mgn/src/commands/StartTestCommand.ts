@@ -54,58 +54,57 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  * };
  * const command = new StartTestCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTestResponse
- *   job: { // Job
- *     jobID: "STRING_VALUE", // required
- *     arn: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     initiatedBy: "STRING_VALUE",
- *     creationDateTime: "STRING_VALUE",
- *     endDateTime: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     participatingServers: [ // ParticipatingServers
- *       { // ParticipatingServer
- *         sourceServerID: "STRING_VALUE", // required
- *         launchStatus: "STRING_VALUE",
- *         launchedEc2InstanceID: "STRING_VALUE",
- *         postLaunchActionsStatus: { // PostLaunchActionsStatus
- *           ssmAgentDiscoveryDatetime: "STRING_VALUE",
- *           postLaunchActionsLaunchStatusList: [ // PostLaunchActionsLaunchStatusList
- *             { // JobPostLaunchActionsLaunchStatus
- *               ssmDocument: { // SsmDocument
- *                 actionName: "STRING_VALUE", // required
- *                 ssmDocumentName: "STRING_VALUE", // required
- *                 timeoutSeconds: Number("int"),
- *                 mustSucceedForCutover: true || false,
- *                 parameters: { // SsmDocumentParameters
- *                   "<keys>": [ // SsmParameterStoreParameters
- *                     { // SsmParameterStoreParameter
- *                       parameterType: "STRING_VALUE", // required
- *                       parameterName: "STRING_VALUE", // required
- *                     },
- *                   ],
- *                 },
- *                 externalParameters: { // SsmDocumentExternalParameters
- *                   "<keys>": { // SsmExternalParameter Union: only one key present
- *                     dynamicPath: "STRING_VALUE",
- *                   },
- *                 },
- *               },
- *               ssmDocumentType: "STRING_VALUE",
- *               executionID: "STRING_VALUE",
- *               executionStatus: "STRING_VALUE",
- *               failureReason: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       },
- *     ],
- *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // StartTestResponse
+ * //   job: { // Job
+ * //     jobID: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     initiatedBy: "STRING_VALUE",
+ * //     creationDateTime: "STRING_VALUE",
+ * //     endDateTime: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     participatingServers: [ // ParticipatingServers
+ * //       { // ParticipatingServer
+ * //         sourceServerID: "STRING_VALUE", // required
+ * //         launchStatus: "STRING_VALUE",
+ * //         launchedEc2InstanceID: "STRING_VALUE",
+ * //         postLaunchActionsStatus: { // PostLaunchActionsStatus
+ * //           ssmAgentDiscoveryDatetime: "STRING_VALUE",
+ * //           postLaunchActionsLaunchStatusList: [ // PostLaunchActionsLaunchStatusList
+ * //             { // JobPostLaunchActionsLaunchStatus
+ * //               ssmDocument: { // SsmDocument
+ * //                 actionName: "STRING_VALUE", // required
+ * //                 ssmDocumentName: "STRING_VALUE", // required
+ * //                 timeoutSeconds: Number("int"),
+ * //                 mustSucceedForCutover: true || false,
+ * //                 parameters: { // SsmDocumentParameters
+ * //                   "<keys>": [ // SsmParameterStoreParameters
+ * //                     { // SsmParameterStoreParameter
+ * //                       parameterType: "STRING_VALUE", // required
+ * //                       parameterName: "STRING_VALUE", // required
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 externalParameters: { // SsmDocumentExternalParameters
+ * //                   "<keys>": { // SsmExternalParameter Union: only one key present
+ * //                     dynamicPath: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //               ssmDocumentType: "STRING_VALUE",
+ * //               executionID: "STRING_VALUE",
+ * //               executionStatus: "STRING_VALUE",
+ * //               failureReason: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

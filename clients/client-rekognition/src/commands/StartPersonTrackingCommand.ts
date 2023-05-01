@@ -64,10 +64,9 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * };
  * const command = new StartPersonTrackingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPersonTrackingResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartPersonTrackingResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

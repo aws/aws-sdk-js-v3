@@ -74,8 +74,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

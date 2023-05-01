@@ -86,15 +86,14 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * };
  * const command = new DeleteHostedZoneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteHostedZoneResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

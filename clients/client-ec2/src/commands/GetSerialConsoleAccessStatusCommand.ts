@@ -49,10 +49,9 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * };
  * const command = new GetSerialConsoleAccessStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSerialConsoleAccessStatusResult
- *   SerialConsoleAccessEnabled: true || false,
- * };
+ * // { // GetSerialConsoleAccessStatusResult
+ * //   SerialConsoleAccessEnabled: true || false,
+ * // };
  *
  * ```
  *

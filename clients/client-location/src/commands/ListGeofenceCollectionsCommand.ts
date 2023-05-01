@@ -45,20 +45,19 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
  * };
  * const command = new ListGeofenceCollectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGeofenceCollectionsResponse
- *   Entries: [ // ListGeofenceCollectionsResponseEntryList // required
- *     { // ListGeofenceCollectionsResponseEntry
- *       CollectionName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       PricingPlan: "STRING_VALUE",
- *       PricingPlanDataSource: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGeofenceCollectionsResponse
+ * //   Entries: [ // ListGeofenceCollectionsResponseEntryList // required
+ * //     { // ListGeofenceCollectionsResponseEntry
+ * //       CollectionName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       PricingPlanDataSource: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * };
  * const command = new SendTaskHeartbeatCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * };
  * const command = new DeleteHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

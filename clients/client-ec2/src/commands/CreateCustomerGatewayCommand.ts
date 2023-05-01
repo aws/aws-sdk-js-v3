@@ -74,24 +74,23 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomerGatewayResult
- *   CustomerGateway: { // CustomerGateway
- *     BgpAsn: "STRING_VALUE",
- *     CustomerGatewayId: "STRING_VALUE",
- *     IpAddress: "STRING_VALUE",
- *     CertificateArn: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     DeviceName: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateCustomerGatewayResult
+ * //   CustomerGateway: { // CustomerGateway
+ * //     BgpAsn: "STRING_VALUE",
+ * //     CustomerGatewayId: "STRING_VALUE",
+ * //     IpAddress: "STRING_VALUE",
+ * //     CertificateArn: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     DeviceName: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

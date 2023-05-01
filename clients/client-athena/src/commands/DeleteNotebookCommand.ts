@@ -44,8 +44,7 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * };
  * const command = new DeleteNotebookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

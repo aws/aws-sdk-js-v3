@@ -48,8 +48,7 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * };
  * const command = new DeleteMapCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

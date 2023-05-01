@@ -52,27 +52,26 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  * };
  * const command = new ValidateSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidateSolNetworkPackageContentOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsdId: "STRING_VALUE", // required
- *   nsdName: "STRING_VALUE", // required
- *   nsdVersion: "STRING_VALUE", // required
- *   vnfPkgIds: [ // VnfPkgIdList // required
- *     "STRING_VALUE",
- *   ],
- *   metadata: { // ValidateSolNetworkPackageContentMetadata
- *     nsd: { // NetworkArtifactMeta
- *       overrides: [ // OverrideList
- *         { // ToscaOverride
- *           name: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // ValidateSolNetworkPackageContentOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdId: "STRING_VALUE", // required
+ * //   nsdName: "STRING_VALUE", // required
+ * //   nsdVersion: "STRING_VALUE", // required
+ * //   vnfPkgIds: [ // VnfPkgIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   metadata: { // ValidateSolNetworkPackageContentMetadata
+ * //     nsd: { // NetworkArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

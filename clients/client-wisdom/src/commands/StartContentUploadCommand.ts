@@ -52,15 +52,14 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartContentUploadResponse
- *   uploadId: "STRING_VALUE", // required
- *   url: "STRING_VALUE", // required
- *   urlExpiry: new Date("TIMESTAMP"), // required
- *   headersToInclude: { // Headers // required
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // StartContentUploadResponse
+ * //   uploadId: "STRING_VALUE", // required
+ * //   url: "STRING_VALUE", // required
+ * //   urlExpiry: new Date("TIMESTAMP"), // required
+ * //   headersToInclude: { // Headers // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -73,12 +73,11 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  * };
  * const command = new GetBucketPolicyStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketPolicyStatusOutput
- *   PolicyStatus: { // PolicyStatus
- *     IsPublic: true || false,
- *   },
- * };
+ * // { // GetBucketPolicyStatusOutput
+ * //   PolicyStatus: { // PolicyStatus
+ * //     IsPublic: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

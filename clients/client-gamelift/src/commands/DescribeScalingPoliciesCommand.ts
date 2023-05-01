@@ -54,30 +54,29 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * };
  * const command = new DescribeScalingPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScalingPoliciesOutput
- *   ScalingPolicies: [ // ScalingPolicyList
- *     { // ScalingPolicy
- *       FleetId: "STRING_VALUE",
- *       FleetArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "ACTIVE" || "UPDATE_REQUESTED" || "UPDATING" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "ERROR",
- *       ScalingAdjustment: Number("int"),
- *       ScalingAdjustmentType: "ChangeInCapacity" || "ExactCapacity" || "PercentChangeInCapacity",
- *       ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
- *       Threshold: Number("double"),
- *       EvaluationPeriods: Number("int"),
- *       MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions",
- *       PolicyType: "RuleBased" || "TargetBased",
- *       TargetConfiguration: { // TargetConfiguration
- *         TargetValue: Number("double"), // required
- *       },
- *       UpdateStatus: "PENDING_UPDATE",
- *       Location: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeScalingPoliciesOutput
+ * //   ScalingPolicies: [ // ScalingPolicyList
+ * //     { // ScalingPolicy
+ * //       FleetId: "STRING_VALUE",
+ * //       FleetArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "UPDATE_REQUESTED" || "UPDATING" || "DELETE_REQUESTED" || "DELETING" || "DELETED" || "ERROR",
+ * //       ScalingAdjustment: Number("int"),
+ * //       ScalingAdjustmentType: "ChangeInCapacity" || "ExactCapacity" || "PercentChangeInCapacity",
+ * //       ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
+ * //       Threshold: Number("double"),
+ * //       EvaluationPeriods: Number("int"),
+ * //       MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions",
+ * //       PolicyType: "RuleBased" || "TargetBased",
+ * //       TargetConfiguration: { // TargetConfiguration
+ * //         TargetValue: Number("double"), // required
+ * //       },
+ * //       UpdateStatus: "PENDING_UPDATE",
+ * //       Location: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

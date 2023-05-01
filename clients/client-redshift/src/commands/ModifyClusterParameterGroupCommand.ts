@@ -62,11 +62,10 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * };
  * const command = new ModifyClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterParameterGroupNameMessage
- *   ParameterGroupName: "STRING_VALUE",
- *   ParameterGroupStatus: "STRING_VALUE",
- * };
+ * // { // ClusterParameterGroupNameMessage
+ * //   ParameterGroupName: "STRING_VALUE",
+ * //   ParameterGroupStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

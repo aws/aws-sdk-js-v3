@@ -68,52 +68,51 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * };
  * const command = new ClassifyDocumentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClassifyDocumentResponse
- *   Classes: [ // ListOfClasses
- *     { // DocumentClass
- *       Name: "STRING_VALUE",
- *       Score: Number("float"),
- *       Page: Number("int"),
- *     },
- *   ],
- *   Labels: [ // ListOfLabels
- *     { // DocumentLabel
- *       Name: "STRING_VALUE",
- *       Score: Number("float"),
- *       Page: Number("int"),
- *     },
- *   ],
- *   DocumentMetadata: { // DocumentMetadata
- *     Pages: Number("int"),
- *     ExtractedCharacters: [ // ListOfExtractedCharacters
- *       { // ExtractedCharactersListItem
- *         Page: Number("int"),
- *         Count: Number("int"),
- *       },
- *     ],
- *   },
- *   DocumentType: [ // ListOfDocumentType
- *     { // DocumentTypeListItem
- *       Page: Number("int"),
- *       Type: "NATIVE_PDF" || "SCANNED_PDF" || "MS_WORD" || "IMAGE" || "PLAIN_TEXT" || "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON" || "TEXTRACT_ANALYZE_DOCUMENT_JSON",
- *     },
- *   ],
- *   Errors: [ // ListOfErrors
- *     { // ErrorsListItem
- *       Page: Number("int"),
- *       ErrorCode: "TEXTRACT_BAD_PAGE" || "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED" || "PAGE_CHARACTERS_EXCEEDED" || "PAGE_SIZE_EXCEEDED" || "INTERNAL_SERVER_ERROR",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   Warnings: [ // ListOfWarnings
- *     { // WarningsListItem
- *       Page: Number("int"),
- *       WarnCode: "INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL" || "INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL",
- *       WarnMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ClassifyDocumentResponse
+ * //   Classes: [ // ListOfClasses
+ * //     { // DocumentClass
+ * //       Name: "STRING_VALUE",
+ * //       Score: Number("float"),
+ * //       Page: Number("int"),
+ * //     },
+ * //   ],
+ * //   Labels: [ // ListOfLabels
+ * //     { // DocumentLabel
+ * //       Name: "STRING_VALUE",
+ * //       Score: Number("float"),
+ * //       Page: Number("int"),
+ * //     },
+ * //   ],
+ * //   DocumentMetadata: { // DocumentMetadata
+ * //     Pages: Number("int"),
+ * //     ExtractedCharacters: [ // ListOfExtractedCharacters
+ * //       { // ExtractedCharactersListItem
+ * //         Page: Number("int"),
+ * //         Count: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   DocumentType: [ // ListOfDocumentType
+ * //     { // DocumentTypeListItem
+ * //       Page: Number("int"),
+ * //       Type: "NATIVE_PDF" || "SCANNED_PDF" || "MS_WORD" || "IMAGE" || "PLAIN_TEXT" || "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON" || "TEXTRACT_ANALYZE_DOCUMENT_JSON",
+ * //     },
+ * //   ],
+ * //   Errors: [ // ListOfErrors
+ * //     { // ErrorsListItem
+ * //       Page: Number("int"),
+ * //       ErrorCode: "TEXTRACT_BAD_PAGE" || "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED" || "PAGE_CHARACTERS_EXCEEDED" || "PAGE_SIZE_EXCEEDED" || "INTERNAL_SERVER_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Warnings: [ // ListOfWarnings
+ * //     { // WarningsListItem
+ * //       Page: Number("int"),
+ * //       WarnCode: "INFERENCING_PLAINTEXT_WITH_NATIVE_TRAINED_MODEL" || "INFERENCING_NATIVE_DOCUMENT_WITH_PLAINTEXT_TRAINED_MODEL",
+ * //       WarnMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

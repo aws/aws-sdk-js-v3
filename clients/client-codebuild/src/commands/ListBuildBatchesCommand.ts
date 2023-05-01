@@ -49,13 +49,12 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * };
  * const command = new ListBuildBatchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBuildBatchesOutput
- *   ids: [ // BuildBatchIds
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBuildBatchesOutput
+ * //   ids: [ // BuildBatchIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

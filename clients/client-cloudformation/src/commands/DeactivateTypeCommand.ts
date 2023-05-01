@@ -51,8 +51,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * };
  * const command = new DeactivateTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

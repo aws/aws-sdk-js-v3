@@ -64,8 +64,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

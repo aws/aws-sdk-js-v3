@@ -47,8 +47,7 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * };
  * const command = new DisassociateIpGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

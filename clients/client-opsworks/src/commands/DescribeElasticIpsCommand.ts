@@ -56,18 +56,17 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * };
  * const command = new DescribeElasticIpsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeElasticIpsResult
- *   ElasticIps: [ // ElasticIps
- *     { // ElasticIp
- *       Ip: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Domain: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeElasticIpsResult
+ * //   ElasticIps: [ // ElasticIps
+ * //     { // ElasticIp
+ * //       Ip: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

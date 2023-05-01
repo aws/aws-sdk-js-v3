@@ -45,15 +45,14 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * };
  * const command = new ListStagingAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStagingAccountsResponse
- *   accounts: [ // Accounts
- *     { // Account
- *       accountID: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListStagingAccountsResponse
+ * //   accounts: [ // Accounts
+ * //     { // Account
+ * //       accountID: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

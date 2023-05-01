@@ -47,16 +47,15 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  * };
  * const command = new ListCasesForContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCasesForContactResponse
- *   cases: [ // CaseSummaryList // required
- *     { // CaseSummary
- *       caseId: "STRING_VALUE", // required
- *       templateId: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCasesForContactResponse
+ * //   cases: [ // CaseSummaryList // required
+ * //     { // CaseSummary
+ * //       caseId: "STRING_VALUE", // required
+ * //       templateId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

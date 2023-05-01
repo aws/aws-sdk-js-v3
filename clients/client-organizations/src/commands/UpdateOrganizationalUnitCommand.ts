@@ -48,14 +48,13 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateOrganizationalUnitResponse
- *   OrganizationalUnit: { // OrganizationalUnit
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateOrganizationalUnitResponse
+ * //   OrganizationalUnit: { // OrganizationalUnit
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

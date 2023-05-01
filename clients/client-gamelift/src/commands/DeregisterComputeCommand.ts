@@ -46,8 +46,7 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * };
  * const command = new DeregisterComputeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

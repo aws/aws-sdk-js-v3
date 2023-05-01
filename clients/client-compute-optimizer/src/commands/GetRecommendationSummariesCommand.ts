@@ -72,41 +72,40 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * };
  * const command = new GetRecommendationSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecommendationSummariesResponse
- *   nextToken: "STRING_VALUE",
- *   recommendationSummaries: [ // RecommendationSummaries
- *     { // RecommendationSummary
- *       summaries: [ // Summaries
- *         { // Summary
- *           name: "Underprovisioned" || "Overprovisioned" || "Optimized" || "NotOptimized",
- *           value: Number("double"),
- *           reasonCodeSummaries: [ // ReasonCodeSummaries
- *             { // ReasonCodeSummary
- *               name: "MemoryOverprovisioned" || "MemoryUnderprovisioned",
- *               value: Number("double"),
- *             },
- *           ],
- *         },
- *       ],
- *       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService",
- *       accountId: "STRING_VALUE",
- *       savingsOpportunity: { // SavingsOpportunity
- *         savingsOpportunityPercentage: Number("double"),
- *         estimatedMonthlySavings: { // EstimatedMonthlySavings
- *           currency: "USD" || "CNY",
- *           value: Number("double"),
- *         },
- *       },
- *       currentPerformanceRiskRatings: { // CurrentPerformanceRiskRatings
- *         high: Number("long"),
- *         medium: Number("long"),
- *         low: Number("long"),
- *         veryLow: Number("long"),
- *       },
- *     },
- *   ],
- * };
+ * // { // GetRecommendationSummariesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   recommendationSummaries: [ // RecommendationSummaries
+ * //     { // RecommendationSummary
+ * //       summaries: [ // Summaries
+ * //         { // Summary
+ * //           name: "Underprovisioned" || "Overprovisioned" || "Optimized" || "NotOptimized",
+ * //           value: Number("double"),
+ * //           reasonCodeSummaries: [ // ReasonCodeSummaries
+ * //             { // ReasonCodeSummary
+ * //               name: "MemoryOverprovisioned" || "MemoryUnderprovisioned",
+ * //               value: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService",
+ * //       accountId: "STRING_VALUE",
+ * //       savingsOpportunity: { // SavingsOpportunity
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       currentPerformanceRiskRatings: { // CurrentPerformanceRiskRatings
+ * //         high: Number("long"),
+ * //         medium: Number("long"),
+ * //         low: Number("long"),
+ * //         veryLow: Number("long"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

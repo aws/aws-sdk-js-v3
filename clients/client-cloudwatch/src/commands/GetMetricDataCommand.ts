@@ -123,35 +123,34 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetricDataOutput
- *   MetricDataResults: [ // MetricDataResults
- *     { // MetricDataResult
- *       Id: "STRING_VALUE",
- *       Label: "STRING_VALUE",
- *       Timestamps: [ // Timestamps
- *         new Date("TIMESTAMP"),
- *       ],
- *       Values: [ // DatapointValues
- *         Number("double"),
- *       ],
- *       StatusCode: "Complete" || "InternalError" || "PartialData" || "Forbidden",
- *       Messages: [ // MetricDataResultMessages
- *         { // MessageData
- *           Code: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Messages: [
- *     {
- *       Code: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetMetricDataOutput
+ * //   MetricDataResults: [ // MetricDataResults
+ * //     { // MetricDataResult
+ * //       Id: "STRING_VALUE",
+ * //       Label: "STRING_VALUE",
+ * //       Timestamps: [ // Timestamps
+ * //         new Date("TIMESTAMP"),
+ * //       ],
+ * //       Values: [ // DatapointValues
+ * //         Number("double"),
+ * //       ],
+ * //       StatusCode: "Complete" || "InternalError" || "PartialData" || "Forbidden",
+ * //       Messages: [ // MetricDataResultMessages
+ * //         { // MessageData
+ * //           Code: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Messages: [
+ * //     {
+ * //       Code: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

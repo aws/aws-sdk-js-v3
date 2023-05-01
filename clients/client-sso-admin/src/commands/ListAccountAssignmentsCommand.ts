@@ -48,18 +48,17 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * };
  * const command = new ListAccountAssignmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountAssignmentsResponse
- *   AccountAssignments: [ // AccountAssignmentList
- *     { // AccountAssignment
- *       AccountId: "STRING_VALUE",
- *       PermissionSetArn: "STRING_VALUE",
- *       PrincipalType: "USER" || "GROUP",
- *       PrincipalId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountAssignmentsResponse
+ * //   AccountAssignments: [ // AccountAssignmentList
+ * //     { // AccountAssignment
+ * //       AccountId: "STRING_VALUE",
+ * //       PermissionSetArn: "STRING_VALUE",
+ * //       PrincipalType: "USER" || "GROUP",
+ * //       PrincipalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

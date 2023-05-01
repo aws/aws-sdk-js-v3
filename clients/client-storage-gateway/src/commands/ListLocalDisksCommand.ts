@@ -52,24 +52,23 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * };
  * const command = new ListLocalDisksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLocalDisksOutput
- *   GatewayARN: "STRING_VALUE",
- *   Disks: [ // Disks
- *     { // Disk
- *       DiskId: "STRING_VALUE",
- *       DiskPath: "STRING_VALUE",
- *       DiskNode: "STRING_VALUE",
- *       DiskStatus: "STRING_VALUE",
- *       DiskSizeInBytes: Number("long"),
- *       DiskAllocationType: "STRING_VALUE",
- *       DiskAllocationResource: "STRING_VALUE",
- *       DiskAttributeList: [ // DiskAttributeList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListLocalDisksOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   Disks: [ // Disks
+ * //     { // Disk
+ * //       DiskId: "STRING_VALUE",
+ * //       DiskPath: "STRING_VALUE",
+ * //       DiskNode: "STRING_VALUE",
+ * //       DiskStatus: "STRING_VALUE",
+ * //       DiskSizeInBytes: Number("long"),
+ * //       DiskAllocationType: "STRING_VALUE",
+ * //       DiskAllocationResource: "STRING_VALUE",
+ * //       DiskAttributeList: [ // DiskAttributeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

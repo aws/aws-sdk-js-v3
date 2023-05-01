@@ -48,24 +48,23 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * };
  * const command = new GetMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   StartDate: "STRING_VALUE",
- *   EndDate: "STRING_VALUE",
- *   Schedule: "STRING_VALUE",
- *   ScheduleTimezone: "STRING_VALUE",
- *   ScheduleOffset: Number("int"),
- *   NextExecutionTime: "STRING_VALUE",
- *   Duration: Number("int"),
- *   Cutoff: Number("int"),
- *   AllowUnassociatedTargets: true || false,
- *   Enabled: true || false,
- *   CreatedDate: new Date("TIMESTAMP"),
- *   ModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // GetMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   StartDate: "STRING_VALUE",
+ * //   EndDate: "STRING_VALUE",
+ * //   Schedule: "STRING_VALUE",
+ * //   ScheduleTimezone: "STRING_VALUE",
+ * //   ScheduleOffset: Number("int"),
+ * //   NextExecutionTime: "STRING_VALUE",
+ * //   Duration: Number("int"),
+ * //   Cutoff: Number("int"),
+ * //   AllowUnassociatedTargets: true || false,
+ * //   Enabled: true || false,
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   ModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -51,19 +51,18 @@ export interface ListLogPatternsCommandOutput extends ListLogPatternsResponse, _
  * };
  * const command = new ListLogPatternsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLogPatternsResponse
- *   ResourceGroupName: "STRING_VALUE",
- *   LogPatterns: [ // LogPatternList
- *     { // LogPattern
- *       PatternSetName: "STRING_VALUE",
- *       PatternName: "STRING_VALUE",
- *       Pattern: "STRING_VALUE",
- *       Rank: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLogPatternsResponse
+ * //   ResourceGroupName: "STRING_VALUE",
+ * //   LogPatterns: [ // LogPatternList
+ * //     { // LogPattern
+ * //       PatternSetName: "STRING_VALUE",
+ * //       PatternName: "STRING_VALUE",
+ * //       Pattern: "STRING_VALUE",
+ * //       Rank: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

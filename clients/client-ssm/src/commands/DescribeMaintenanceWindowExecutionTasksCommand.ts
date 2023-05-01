@@ -63,36 +63,35 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowExecutionTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowExecutionTasksResult
- *   WindowExecutionTaskIdentities: [ // MaintenanceWindowExecutionTaskIdentityList
- *     { // MaintenanceWindowExecutionTaskIdentity
- *       WindowExecutionId: "STRING_VALUE",
- *       TaskExecutionId: "STRING_VALUE",
- *       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
- *       StatusDetails: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       TaskArn: "STRING_VALUE",
- *       TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
- *       AlarmConfiguration: { // AlarmConfiguration
- *         IgnorePollAlarmFailure: true || false,
- *         Alarms: [ // AlarmList // required
- *           { // Alarm
- *             Name: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       TriggeredAlarms: [ // AlarmStateInformationList
- *         { // AlarmStateInformation
- *           Name: "STRING_VALUE", // required
- *           State: "UNKNOWN" || "ALARM", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowExecutionTasksResult
+ * //   WindowExecutionTaskIdentities: [ // MaintenanceWindowExecutionTaskIdentityList
+ * //     { // MaintenanceWindowExecutionTaskIdentity
+ * //       WindowExecutionId: "STRING_VALUE",
+ * //       TaskExecutionId: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       TaskArn: "STRING_VALUE",
+ * //       TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
+ * //       AlarmConfiguration: { // AlarmConfiguration
+ * //         IgnorePollAlarmFailure: true || false,
+ * //         Alarms: [ // AlarmList // required
+ * //           { // Alarm
+ * //             Name: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       TriggeredAlarms: [ // AlarmStateInformationList
+ * //         { // AlarmStateInformation
+ * //           Name: "STRING_VALUE", // required
+ * //           State: "UNKNOWN" || "ALARM", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

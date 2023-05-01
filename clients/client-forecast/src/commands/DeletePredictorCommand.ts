@@ -45,8 +45,7 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePredictorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

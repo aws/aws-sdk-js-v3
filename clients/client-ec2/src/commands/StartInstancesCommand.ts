@@ -66,22 +66,21 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * };
  * const command = new StartInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartInstancesResult
- *   StartingInstances: [ // InstanceStateChangeList
- *     { // InstanceStateChange
- *       CurrentState: { // InstanceState
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *       InstanceId: "STRING_VALUE",
- *       PreviousState: {
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *     },
- *   ],
- * };
+ * // { // StartInstancesResult
+ * //   StartingInstances: [ // InstanceStateChangeList
+ * //     { // InstanceStateChange
+ * //       CurrentState: { // InstanceState
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //       InstanceId: "STRING_VALUE",
+ * //       PreviousState: {
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

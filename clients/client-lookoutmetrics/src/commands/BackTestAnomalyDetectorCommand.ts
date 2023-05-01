@@ -44,8 +44,7 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * };
  * const command = new BackTestAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

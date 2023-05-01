@@ -44,18 +44,17 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * };
  * const command = new GetVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVehicleResponse
- *   vehicleName: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   modelManifestArn: "STRING_VALUE",
- *   decoderManifestArn: "STRING_VALUE",
- *   attributes: { // attributesMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   creationTime: new Date("TIMESTAMP"),
- *   lastModificationTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetVehicleResponse
+ * //   vehicleName: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   modelManifestArn: "STRING_VALUE",
+ * //   decoderManifestArn: "STRING_VALUE",
+ * //   attributes: { // attributesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastModificationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -57,27 +57,26 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedNodesOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseReservedNodesOfferingResponse
- *   ReservedNode: { // ReservedNode
- *     ReservationId: "STRING_VALUE",
- *     ReservedNodesOfferingId: "STRING_VALUE",
- *     NodeType: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     Duration: Number("int"),
- *     FixedPrice: Number("double"),
- *     NodeCount: Number("int"),
- *     OfferingType: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     RecurringCharges: [ // RecurringChargeList
- *       { // RecurringCharge
- *         RecurringChargeAmount: Number("double"),
- *         RecurringChargeFrequency: "STRING_VALUE",
- *       },
- *     ],
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // PurchaseReservedNodesOfferingResponse
+ * //   ReservedNode: { // ReservedNode
+ * //     ReservationId: "STRING_VALUE",
+ * //     ReservedNodesOfferingId: "STRING_VALUE",
+ * //     NodeType: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     Duration: Number("int"),
+ * //     FixedPrice: Number("double"),
+ * //     NodeCount: Number("int"),
+ * //     OfferingType: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     RecurringCharges: [ // RecurringChargeList
+ * //       { // RecurringCharge
+ * //         RecurringChargeAmount: Number("double"),
+ * //         RecurringChargeFrequency: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

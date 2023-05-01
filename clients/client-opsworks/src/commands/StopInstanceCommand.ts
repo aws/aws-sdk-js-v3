@@ -53,8 +53,7 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

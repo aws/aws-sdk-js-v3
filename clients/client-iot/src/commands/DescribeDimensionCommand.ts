@@ -45,17 +45,16 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * };
  * const command = new DescribeDimensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDimensionResponse
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   type: "TOPIC_FILTER",
- *   stringValues: [ // DimensionStringValues
- *     "STRING_VALUE",
- *   ],
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeDimensionResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   type: "TOPIC_FILTER",
+ * //   stringValues: [ // DimensionStringValues
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

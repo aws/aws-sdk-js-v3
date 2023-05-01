@@ -235,25 +235,24 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  * };
  * const command = new SendUsersMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendUsersMessagesResponse
- *   SendUsersMessageResponse: { // SendUsersMessageResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     RequestId: "STRING_VALUE",
- *     Result: { // MapOfMapOfEndpointMessageResult
- *       "<keys>": { // MapOfEndpointMessageResult
- *         "<keys>": { // EndpointMessageResult
- *           Address: "STRING_VALUE",
- *           DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
- *           MessageId: "STRING_VALUE",
- *           StatusCode: Number("int"), // required
- *           StatusMessage: "STRING_VALUE",
- *           UpdatedToken: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // SendUsersMessagesResponse
+ * //   SendUsersMessageResponse: { // SendUsersMessageResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     RequestId: "STRING_VALUE",
+ * //     Result: { // MapOfMapOfEndpointMessageResult
+ * //       "<keys>": { // MapOfEndpointMessageResult
+ * //         "<keys>": { // EndpointMessageResult
+ * //           Address: "STRING_VALUE",
+ * //           DeliveryStatus: "SUCCESSFUL" || "THROTTLED" || "TEMPORARY_FAILURE" || "PERMANENT_FAILURE" || "UNKNOWN_FAILURE" || "OPT_OUT" || "DUPLICATE", // required
+ * //           MessageId: "STRING_VALUE",
+ * //           StatusCode: Number("int"), // required
+ * //           StatusMessage: "STRING_VALUE",
+ * //           UpdatedToken: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

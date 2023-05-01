@@ -48,8 +48,7 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGraphCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

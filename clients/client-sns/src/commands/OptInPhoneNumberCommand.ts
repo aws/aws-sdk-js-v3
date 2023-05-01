@@ -46,8 +46,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * };
  * const command = new OptInPhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

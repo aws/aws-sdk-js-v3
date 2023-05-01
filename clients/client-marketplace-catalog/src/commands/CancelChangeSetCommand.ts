@@ -52,11 +52,10 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * };
  * const command = new CancelChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelChangeSetResponse
- *   ChangeSetId: "STRING_VALUE",
- *   ChangeSetArn: "STRING_VALUE",
- * };
+ * // { // CancelChangeSetResponse
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   ChangeSetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

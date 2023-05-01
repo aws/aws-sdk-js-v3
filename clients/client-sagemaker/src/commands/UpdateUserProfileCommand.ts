@@ -127,10 +127,9 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserProfileResponse
- *   UserProfileArn: "STRING_VALUE",
- * };
+ * // { // UpdateUserProfileResponse
+ * //   UserProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

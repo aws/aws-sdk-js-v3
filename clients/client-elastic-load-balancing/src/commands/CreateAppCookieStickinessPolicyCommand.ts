@@ -63,8 +63,7 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * };
  * const command = new CreateAppCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

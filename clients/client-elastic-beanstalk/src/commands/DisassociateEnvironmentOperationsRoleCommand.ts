@@ -51,8 +51,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * };
  * const command = new DisassociateEnvironmentOperationsRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

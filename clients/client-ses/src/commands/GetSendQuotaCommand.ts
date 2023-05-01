@@ -43,12 +43,11 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * const input = {};
  * const command = new GetSendQuotaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSendQuotaResponse
- *   Max24HourSend: Number("double"),
- *   MaxSendRate: Number("double"),
- *   SentLast24Hours: Number("double"),
- * };
+ * // { // GetSendQuotaResponse
+ * //   Max24HourSend: Number("double"),
+ * //   MaxSendRate: Number("double"),
+ * //   SentLast24Hours: Number("double"),
+ * // };
  *
  * ```
  *

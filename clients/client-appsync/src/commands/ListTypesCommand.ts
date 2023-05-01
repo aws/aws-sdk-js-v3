@@ -47,19 +47,18 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypesResponse
- *   types: [ // TypeList
- *     { // Type
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       definition: "STRING_VALUE",
- *       format: "SDL" || "JSON",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTypesResponse
+ * //   types: [ // TypeList
+ * //     { // Type
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       definition: "STRING_VALUE",
+ * //       format: "SDL" || "JSON",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,21 +45,20 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * };
  * const command = new DescribeContactFlowModuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeContactFlowModuleResponse
- *   ContactFlowModule: { // ContactFlowModule
- *     Arn: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Content: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     State: "ACTIVE" || "ARCHIVED",
- *     Status: "PUBLISHED" || "SAVED",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeContactFlowModuleResponse
+ * //   ContactFlowModule: { // ContactFlowModule
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Content: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     State: "ACTIVE" || "ARCHIVED",
+ * //     Status: "PUBLISHED" || "SAVED",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

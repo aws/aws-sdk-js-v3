@@ -82,21 +82,20 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * };
  * const command = new CreateDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDetectorResponse
- *   DetectorId: "STRING_VALUE",
- *   UnprocessedDataSources: { // UnprocessedDataSourcesResult
- *     MalwareProtection: { // MalwareProtectionConfigurationResult
- *       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
- *         EbsVolumes: { // EbsVolumesResult
- *           Status: "ENABLED" || "DISABLED",
- *           Reason: "STRING_VALUE",
- *         },
- *       },
- *       ServiceRole: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateDetectorResponse
+ * //   DetectorId: "STRING_VALUE",
+ * //   UnprocessedDataSources: { // UnprocessedDataSourcesResult
+ * //     MalwareProtection: { // MalwareProtectionConfigurationResult
+ * //       ScanEc2InstanceWithFindings: { // ScanEc2InstanceWithFindingsResult
+ * //         EbsVolumes: { // EbsVolumesResult
+ * //           Status: "ENABLED" || "DISABLED",
+ * //           Reason: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ServiceRole: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

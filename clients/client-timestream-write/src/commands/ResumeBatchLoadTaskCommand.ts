@@ -46,8 +46,7 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * };
  * const command = new ResumeBatchLoadTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectionsResponse
- *   Connections: [ // ConnectionResponseList
- *     { // Connection
- *       ConnectionArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
- *       StateReason: "STRING_VALUE",
- *       AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       LastAuthorizedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectionsResponse
+ * //   Connections: [ // ConnectionResponseList
+ * //     { // Connection
+ * //       ConnectionArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //       StateReason: "STRING_VALUE",
+ * //       AuthorizationType: "BASIC" || "OAUTH_CLIENT_CREDENTIALS" || "API_KEY",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastAuthorizedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,14 +58,13 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * };
  * const command = new PutKeywordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutKeywordResult
- *   OriginationIdentityArn: "STRING_VALUE",
- *   OriginationIdentity: "STRING_VALUE",
- *   Keyword: "STRING_VALUE",
- *   KeywordMessage: "STRING_VALUE",
- *   KeywordAction: "STRING_VALUE",
- * };
+ * // { // PutKeywordResult
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   Keyword: "STRING_VALUE",
+ * //   KeywordMessage: "STRING_VALUE",
+ * //   KeywordAction: "STRING_VALUE",
+ * // };
  *
  * ```
  *

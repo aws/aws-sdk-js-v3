@@ -130,66 +130,65 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * };
  * const command = new GetReservationUtilizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReservationUtilizationResponse
- *   UtilizationsByTime: [ // UtilizationsByTime // required
- *     { // UtilizationByTime
- *       TimePeriod: { // DateInterval
- *         Start: "STRING_VALUE", // required
- *         End: "STRING_VALUE", // required
- *       },
- *       Groups: [ // ReservationUtilizationGroups
- *         { // ReservationUtilizationGroup
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *           Attributes: { // Attributes
- *             "<keys>": "STRING_VALUE",
- *           },
- *           Utilization: { // ReservationAggregates
- *             UtilizationPercentage: "STRING_VALUE",
- *             UtilizationPercentageInUnits: "STRING_VALUE",
- *             PurchasedHours: "STRING_VALUE",
- *             PurchasedUnits: "STRING_VALUE",
- *             TotalActualHours: "STRING_VALUE",
- *             TotalActualUnits: "STRING_VALUE",
- *             UnusedHours: "STRING_VALUE",
- *             UnusedUnits: "STRING_VALUE",
- *             OnDemandCostOfRIHoursUsed: "STRING_VALUE",
- *             NetRISavings: "STRING_VALUE",
- *             TotalPotentialRISavings: "STRING_VALUE",
- *             AmortizedUpfrontFee: "STRING_VALUE",
- *             AmortizedRecurringFee: "STRING_VALUE",
- *             TotalAmortizedFee: "STRING_VALUE",
- *             RICostForUnusedHours: "STRING_VALUE",
- *             RealizedSavings: "STRING_VALUE",
- *             UnrealizedSavings: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *       Total: {
- *         UtilizationPercentage: "STRING_VALUE",
- *         UtilizationPercentageInUnits: "STRING_VALUE",
- *         PurchasedHours: "STRING_VALUE",
- *         PurchasedUnits: "STRING_VALUE",
- *         TotalActualHours: "STRING_VALUE",
- *         TotalActualUnits: "STRING_VALUE",
- *         UnusedHours: "STRING_VALUE",
- *         UnusedUnits: "STRING_VALUE",
- *         OnDemandCostOfRIHoursUsed: "STRING_VALUE",
- *         NetRISavings: "STRING_VALUE",
- *         TotalPotentialRISavings: "STRING_VALUE",
- *         AmortizedUpfrontFee: "STRING_VALUE",
- *         AmortizedRecurringFee: "STRING_VALUE",
- *         TotalAmortizedFee: "STRING_VALUE",
- *         RICostForUnusedHours: "STRING_VALUE",
- *         RealizedSavings: "STRING_VALUE",
- *         UnrealizedSavings: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Total: "<ReservationAggregates>",
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // GetReservationUtilizationResponse
+ * //   UtilizationsByTime: [ // UtilizationsByTime // required
+ * //     { // UtilizationByTime
+ * //       TimePeriod: { // DateInterval
+ * //         Start: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE", // required
+ * //       },
+ * //       Groups: [ // ReservationUtilizationGroups
+ * //         { // ReservationUtilizationGroup
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //           Attributes: { // Attributes
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           Utilization: { // ReservationAggregates
+ * //             UtilizationPercentage: "STRING_VALUE",
+ * //             UtilizationPercentageInUnits: "STRING_VALUE",
+ * //             PurchasedHours: "STRING_VALUE",
+ * //             PurchasedUnits: "STRING_VALUE",
+ * //             TotalActualHours: "STRING_VALUE",
+ * //             TotalActualUnits: "STRING_VALUE",
+ * //             UnusedHours: "STRING_VALUE",
+ * //             UnusedUnits: "STRING_VALUE",
+ * //             OnDemandCostOfRIHoursUsed: "STRING_VALUE",
+ * //             NetRISavings: "STRING_VALUE",
+ * //             TotalPotentialRISavings: "STRING_VALUE",
+ * //             AmortizedUpfrontFee: "STRING_VALUE",
+ * //             AmortizedRecurringFee: "STRING_VALUE",
+ * //             TotalAmortizedFee: "STRING_VALUE",
+ * //             RICostForUnusedHours: "STRING_VALUE",
+ * //             RealizedSavings: "STRING_VALUE",
+ * //             UnrealizedSavings: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       Total: {
+ * //         UtilizationPercentage: "STRING_VALUE",
+ * //         UtilizationPercentageInUnits: "STRING_VALUE",
+ * //         PurchasedHours: "STRING_VALUE",
+ * //         PurchasedUnits: "STRING_VALUE",
+ * //         TotalActualHours: "STRING_VALUE",
+ * //         TotalActualUnits: "STRING_VALUE",
+ * //         UnusedHours: "STRING_VALUE",
+ * //         UnusedUnits: "STRING_VALUE",
+ * //         OnDemandCostOfRIHoursUsed: "STRING_VALUE",
+ * //         NetRISavings: "STRING_VALUE",
+ * //         TotalPotentialRISavings: "STRING_VALUE",
+ * //         AmortizedUpfrontFee: "STRING_VALUE",
+ * //         AmortizedRecurringFee: "STRING_VALUE",
+ * //         TotalAmortizedFee: "STRING_VALUE",
+ * //         RICostForUnusedHours: "STRING_VALUE",
+ * //         RealizedSavings: "STRING_VALUE",
+ * //         UnrealizedSavings: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Total: "<ReservationAggregates>",
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

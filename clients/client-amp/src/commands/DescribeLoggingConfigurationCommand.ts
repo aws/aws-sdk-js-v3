@@ -49,19 +49,18 @@ export interface DescribeLoggingConfigurationCommandOutput
  * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoggingConfigurationResponse
- *   loggingConfiguration: { // LoggingConfigurationMetadata
- *     status: { // LoggingConfigurationStatus
- *       statusCode: "STRING_VALUE", // required
- *       statusReason: "STRING_VALUE",
- *     },
- *     workspace: "STRING_VALUE", // required
- *     logGroupArn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     modifiedAt: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // DescribeLoggingConfigurationResponse
+ * //   loggingConfiguration: { // LoggingConfigurationMetadata
+ * //     status: { // LoggingConfigurationStatus
+ * //       statusCode: "STRING_VALUE", // required
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     workspace: "STRING_VALUE", // required
+ * //     logGroupArn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     modifiedAt: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

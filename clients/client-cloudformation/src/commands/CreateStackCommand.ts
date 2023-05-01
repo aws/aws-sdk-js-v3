@@ -87,10 +87,9 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * };
  * const command = new CreateStackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStackOutput
- *   StackId: "STRING_VALUE",
- * };
+ * // { // CreateStackOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

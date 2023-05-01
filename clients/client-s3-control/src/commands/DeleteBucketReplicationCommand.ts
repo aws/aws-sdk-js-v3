@@ -80,8 +80,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteBucketReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

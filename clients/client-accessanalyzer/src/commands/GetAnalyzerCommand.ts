@@ -44,24 +44,23 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * };
  * const command = new GetAnalyzerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAnalyzerResponse
- *   analyzer: { // AnalyzerSummary
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastResourceAnalyzed: "STRING_VALUE",
- *     lastResourceAnalyzedAt: new Date("TIMESTAMP"),
- *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     status: "STRING_VALUE", // required
- *     statusReason: { // StatusReason
- *       code: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // GetAnalyzerResponse
+ * //   analyzer: { // AnalyzerSummary
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastResourceAnalyzed: "STRING_VALUE",
+ * //     lastResourceAnalyzedAt: new Date("TIMESTAMP"),
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: { // StatusReason
+ * //       code: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

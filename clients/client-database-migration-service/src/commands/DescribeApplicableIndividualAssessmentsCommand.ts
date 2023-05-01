@@ -77,13 +77,12 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * };
  * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicableIndividualAssessmentsResponse
- *   IndividualAssessmentNames: [ // IndividualAssessmentNameList
- *     "STRING_VALUE",
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeApplicableIndividualAssessmentsResponse
+ * //   IndividualAssessmentNames: [ // IndividualAssessmentNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

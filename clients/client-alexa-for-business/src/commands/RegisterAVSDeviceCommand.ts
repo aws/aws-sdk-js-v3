@@ -56,10 +56,9 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * };
  * const command = new RegisterAVSDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterAVSDeviceResponse
- *   DeviceArn: "STRING_VALUE",
- * };
+ * // { // RegisterAVSDeviceResponse
+ * //   DeviceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

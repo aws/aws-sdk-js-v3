@@ -47,8 +47,7 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteMeetingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

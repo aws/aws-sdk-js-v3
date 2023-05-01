@@ -51,13 +51,12 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * };
  * const command = new StartReadSetActivationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartReadSetActivationJobResponse
- *   id: "STRING_VALUE", // required
- *   sequenceStoreId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // StartReadSetActivationJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   sequenceStoreId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

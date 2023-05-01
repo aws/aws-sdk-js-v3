@@ -50,8 +50,7 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutJobFailureResultCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

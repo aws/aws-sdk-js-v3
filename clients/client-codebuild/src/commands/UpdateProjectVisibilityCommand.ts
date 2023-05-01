@@ -83,12 +83,11 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * };
  * const command = new UpdateProjectVisibilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProjectVisibilityOutput
- *   projectArn: "STRING_VALUE",
- *   publicProjectAlias: "STRING_VALUE",
- *   projectVisibility: "STRING_VALUE",
- * };
+ * // { // UpdateProjectVisibilityOutput
+ * //   projectArn: "STRING_VALUE",
+ * //   publicProjectAlias: "STRING_VALUE",
+ * //   projectVisibility: "STRING_VALUE",
+ * // };
  *
  * ```
  *

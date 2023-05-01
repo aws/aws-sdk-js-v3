@@ -97,8 +97,7 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagServerCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,10 +62,9 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * };
  * const command = new CreateThesaurusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateThesaurusResponse
- *   Id: "STRING_VALUE",
- * };
+ * // { // CreateThesaurusResponse
+ * //   Id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

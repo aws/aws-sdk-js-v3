@@ -64,30 +64,29 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyDBClusterSnapshotResult
- *   DBClusterSnapshot: { // DBClusterSnapshot
- *     AvailabilityZones: [ // AvailabilityZones
- *       "STRING_VALUE",
- *     ],
- *     DBClusterSnapshotIdentifier: "STRING_VALUE",
- *     DBClusterIdentifier: "STRING_VALUE",
- *     SnapshotCreateTime: new Date("TIMESTAMP"),
- *     Engine: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Port: Number("int"),
- *     VpcId: "STRING_VALUE",
- *     ClusterCreateTime: new Date("TIMESTAMP"),
- *     MasterUsername: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     SnapshotType: "STRING_VALUE",
- *     PercentProgress: Number("int"),
- *     StorageEncrypted: true || false,
- *     KmsKeyId: "STRING_VALUE",
- *     DBClusterSnapshotArn: "STRING_VALUE",
- *     SourceDBClusterSnapshotArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CopyDBClusterSnapshotResult
+ * //   DBClusterSnapshot: { // DBClusterSnapshot
+ * //     AvailabilityZones: [ // AvailabilityZones
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     DBClusterSnapshotIdentifier: "STRING_VALUE",
+ * //     DBClusterIdentifier: "STRING_VALUE",
+ * //     SnapshotCreateTime: new Date("TIMESTAMP"),
+ * //     Engine: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Port: Number("int"),
+ * //     VpcId: "STRING_VALUE",
+ * //     ClusterCreateTime: new Date("TIMESTAMP"),
+ * //     MasterUsername: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     SnapshotType: "STRING_VALUE",
+ * //     PercentProgress: Number("int"),
+ * //     StorageEncrypted: true || false,
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     DBClusterSnapshotArn: "STRING_VALUE",
+ * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

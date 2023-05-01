@@ -62,10 +62,9 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * };
  * const command = new GetAccessKeyInfoCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessKeyInfoResponse
- *   Account: "STRING_VALUE",
- * };
+ * // { // GetAccessKeyInfoResponse
+ * //   Account: "STRING_VALUE",
+ * // };
  *
  * ```
  *

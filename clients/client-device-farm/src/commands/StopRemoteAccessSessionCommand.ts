@@ -44,94 +44,93 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * };
  * const command = new StopRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopRemoteAccessSessionResult
- *   remoteAccessSession: { // RemoteAccessSession
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     created: new Date("TIMESTAMP"),
- *     status: "PENDING" || "PENDING_CONCURRENCY" || "PENDING_DEVICE" || "PROCESSING" || "SCHEDULING" || "PREPARING" || "RUNNING" || "COMPLETED" || "STOPPING",
- *     result: "PENDING" || "PASSED" || "WARNED" || "FAILED" || "SKIPPED" || "ERRORED" || "STOPPED",
- *     message: "STRING_VALUE",
- *     started: new Date("TIMESTAMP"),
- *     stopped: new Date("TIMESTAMP"),
- *     device: { // Device
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       manufacturer: "STRING_VALUE",
- *       model: "STRING_VALUE",
- *       modelId: "STRING_VALUE",
- *       formFactor: "PHONE" || "TABLET",
- *       platform: "ANDROID" || "IOS",
- *       os: "STRING_VALUE",
- *       cpu: { // CPU
- *         frequency: "STRING_VALUE",
- *         architecture: "STRING_VALUE",
- *         clock: Number("double"),
- *       },
- *       resolution: { // Resolution
- *         width: Number("int"),
- *         height: Number("int"),
- *       },
- *       heapSize: Number("long"),
- *       memory: Number("long"),
- *       image: "STRING_VALUE",
- *       carrier: "STRING_VALUE",
- *       radio: "STRING_VALUE",
- *       remoteAccessEnabled: true || false,
- *       remoteDebugEnabled: true || false,
- *       fleetType: "STRING_VALUE",
- *       fleetName: "STRING_VALUE",
- *       instances: [ // DeviceInstances
- *         { // DeviceInstance
- *           arn: "STRING_VALUE",
- *           deviceArn: "STRING_VALUE",
- *           labels: [ // InstanceLabels
- *             "STRING_VALUE",
- *           ],
- *           status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
- *           udid: "STRING_VALUE",
- *           instanceProfile: { // InstanceProfile
- *             arn: "STRING_VALUE",
- *             packageCleanup: true || false,
- *             excludeAppPackagesFromCleanup: [ // PackageIds
- *               "STRING_VALUE",
- *             ],
- *             rebootAfterUse: true || false,
- *             name: "STRING_VALUE",
- *             description: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *       availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
- *     },
- *     instanceArn: "STRING_VALUE",
- *     remoteDebugEnabled: true || false,
- *     remoteRecordEnabled: true || false,
- *     remoteRecordAppArn: "STRING_VALUE",
- *     hostAddress: "STRING_VALUE",
- *     clientId: "STRING_VALUE",
- *     billingMethod: "METERED" || "UNMETERED",
- *     deviceMinutes: { // DeviceMinutes
- *       total: Number("double"),
- *       metered: Number("double"),
- *       unmetered: Number("double"),
- *     },
- *     endpoint: "STRING_VALUE",
- *     deviceUdid: "STRING_VALUE",
- *     interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
- *     skipAppResign: true || false,
- *     vpcConfig: { // VpcConfig
- *       securityGroupIds: [ // VpcSecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       subnetIds: [ // VpcSubnetIds // required
- *         "STRING_VALUE",
- *       ],
- *       vpcId: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // StopRemoteAccessSessionResult
+ * //   remoteAccessSession: { // RemoteAccessSession
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     created: new Date("TIMESTAMP"),
+ * //     status: "PENDING" || "PENDING_CONCURRENCY" || "PENDING_DEVICE" || "PROCESSING" || "SCHEDULING" || "PREPARING" || "RUNNING" || "COMPLETED" || "STOPPING",
+ * //     result: "PENDING" || "PASSED" || "WARNED" || "FAILED" || "SKIPPED" || "ERRORED" || "STOPPED",
+ * //     message: "STRING_VALUE",
+ * //     started: new Date("TIMESTAMP"),
+ * //     stopped: new Date("TIMESTAMP"),
+ * //     device: { // Device
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       manufacturer: "STRING_VALUE",
+ * //       model: "STRING_VALUE",
+ * //       modelId: "STRING_VALUE",
+ * //       formFactor: "PHONE" || "TABLET",
+ * //       platform: "ANDROID" || "IOS",
+ * //       os: "STRING_VALUE",
+ * //       cpu: { // CPU
+ * //         frequency: "STRING_VALUE",
+ * //         architecture: "STRING_VALUE",
+ * //         clock: Number("double"),
+ * //       },
+ * //       resolution: { // Resolution
+ * //         width: Number("int"),
+ * //         height: Number("int"),
+ * //       },
+ * //       heapSize: Number("long"),
+ * //       memory: Number("long"),
+ * //       image: "STRING_VALUE",
+ * //       carrier: "STRING_VALUE",
+ * //       radio: "STRING_VALUE",
+ * //       remoteAccessEnabled: true || false,
+ * //       remoteDebugEnabled: true || false,
+ * //       fleetType: "STRING_VALUE",
+ * //       fleetName: "STRING_VALUE",
+ * //       instances: [ // DeviceInstances
+ * //         { // DeviceInstance
+ * //           arn: "STRING_VALUE",
+ * //           deviceArn: "STRING_VALUE",
+ * //           labels: [ // InstanceLabels
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
+ * //           udid: "STRING_VALUE",
+ * //           instanceProfile: { // InstanceProfile
+ * //             arn: "STRING_VALUE",
+ * //             packageCleanup: true || false,
+ * //             excludeAppPackagesFromCleanup: [ // PackageIds
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             rebootAfterUse: true || false,
+ * //             name: "STRING_VALUE",
+ * //             description: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
+ * //     },
+ * //     instanceArn: "STRING_VALUE",
+ * //     remoteDebugEnabled: true || false,
+ * //     remoteRecordEnabled: true || false,
+ * //     remoteRecordAppArn: "STRING_VALUE",
+ * //     hostAddress: "STRING_VALUE",
+ * //     clientId: "STRING_VALUE",
+ * //     billingMethod: "METERED" || "UNMETERED",
+ * //     deviceMinutes: { // DeviceMinutes
+ * //       total: Number("double"),
+ * //       metered: Number("double"),
+ * //       unmetered: Number("double"),
+ * //     },
+ * //     endpoint: "STRING_VALUE",
+ * //     deviceUdid: "STRING_VALUE",
+ * //     interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
+ * //     skipAppResign: true || false,
+ * //     vpcConfig: { // VpcConfig
+ * //       securityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // VpcSubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

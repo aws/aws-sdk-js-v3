@@ -46,8 +46,7 @@ export interface DisassociateHealthCheckCommandOutput extends DisassociateHealth
  * };
  * const command = new DisassociateHealthCheckCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

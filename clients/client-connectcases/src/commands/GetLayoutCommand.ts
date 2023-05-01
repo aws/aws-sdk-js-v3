@@ -45,47 +45,46 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * };
  * const command = new GetLayoutCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLayoutResponse
- *   layoutId: "STRING_VALUE", // required
- *   layoutArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   content: { // LayoutContent Union: only one key present
- *     basic: { // BasicLayout
- *       topPanel: { // LayoutSections
- *         sections: [ // SectionsList
- *           { // Section Union: only one key present
- *             fieldGroup: { // FieldGroup
- *               name: "STRING_VALUE",
- *               fields: [ // FieldList // required
- *                 { // FieldItem
- *                   id: "STRING_VALUE", // required
- *                 },
- *               ],
- *             },
- *           },
- *         ],
- *       },
- *       moreInfo: {
- *         sections: [
- *           {//  Union: only one key present
- *             fieldGroup: {
- *               name: "STRING_VALUE",
- *               fields: [ // required
- *                 {
- *                   id: "STRING_VALUE", // required
- *                 },
- *               ],
- *             },
- *           },
- *         ],
- *       },
- *     },
- *   },
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetLayoutResponse
+ * //   layoutId: "STRING_VALUE", // required
+ * //   layoutArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   content: { // LayoutContent Union: only one key present
+ * //     basic: { // BasicLayout
+ * //       topPanel: { // LayoutSections
+ * //         sections: [ // SectionsList
+ * //           { // Section Union: only one key present
+ * //             fieldGroup: { // FieldGroup
+ * //               name: "STRING_VALUE",
+ * //               fields: [ // FieldList // required
+ * //                 { // FieldItem
+ * //                   id: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       moreInfo: {
+ * //         sections: [
+ * //           {//  Union: only one key present
+ * //             fieldGroup: {
+ * //               name: "STRING_VALUE",
+ * //               fields: [ // required
+ * //                 {
+ * //                   id: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

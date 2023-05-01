@@ -53,8 +53,7 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAlternateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

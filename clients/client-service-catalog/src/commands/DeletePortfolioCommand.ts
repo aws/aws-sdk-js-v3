@@ -48,8 +48,7 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * };
  * const command = new DeletePortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

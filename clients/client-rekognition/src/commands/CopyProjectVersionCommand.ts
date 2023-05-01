@@ -74,10 +74,9 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * };
  * const command = new CopyProjectVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyProjectVersionResponse
- *   ProjectVersionArn: "STRING_VALUE",
- * };
+ * // { // CopyProjectVersionResponse
+ * //   ProjectVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

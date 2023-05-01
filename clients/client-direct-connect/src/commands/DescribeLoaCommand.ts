@@ -49,11 +49,10 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * };
  * const command = new DescribeLoaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Loa
- *   loaContent: "BLOB_VALUE",
- *   loaContentType: "application/pdf",
- * };
+ * // { // Loa
+ * //   loaContent: "BLOB_VALUE",
+ * //   loaContentType: "application/pdf",
+ * // };
  *
  * ```
  *

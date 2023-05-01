@@ -52,15 +52,14 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * };
  * const command = new CreateFlowTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFlowTemplateResponse
- *   summary: { // FlowTemplateSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     revisionNumber: Number("long"),
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateFlowTemplateResponse
+ * //   summary: { // FlowTemplateSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     revisionNumber: Number("long"),
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

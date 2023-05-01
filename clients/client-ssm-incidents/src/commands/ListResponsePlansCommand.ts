@@ -45,17 +45,16 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * };
  * const command = new ListResponsePlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResponsePlansOutput
- *   responsePlanSummaries: [ // ResponsePlanSummaryList // required
- *     { // ResponsePlanSummary
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       displayName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResponsePlansOutput
+ * //   responsePlanSummaries: [ // ResponsePlanSummaryList // required
+ * //     { // ResponsePlanSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       displayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

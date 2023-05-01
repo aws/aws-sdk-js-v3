@@ -60,10 +60,9 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * };
  * const command = new ConfirmDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfirmDeviceResponse
- *   UserConfirmationNecessary: true || false,
- * };
+ * // { // ConfirmDeviceResponse
+ * //   UserConfirmationNecessary: true || false,
+ * // };
  *
  * ```
  *

@@ -197,10 +197,9 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  * };
  * const command = new CreateEndpointConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEndpointConfigOutput
- *   EndpointConfigArn: "STRING_VALUE", // required
- * };
+ * // { // CreateEndpointConfigOutput
+ * //   EndpointConfigArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

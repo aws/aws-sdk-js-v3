@@ -48,18 +48,17 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * };
  * const command = new TestMetricFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestMetricFilterResponse
- *   matches: [ // MetricFilterMatches
- *     { // MetricFilterMatchRecord
- *       eventNumber: Number("long"),
- *       eventMessage: "STRING_VALUE",
- *       extractedValues: { // ExtractedValues
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // TestMetricFilterResponse
+ * //   matches: [ // MetricFilterMatches
+ * //     { // MetricFilterMatchRecord
+ * //       eventNumber: Number("long"),
+ * //       eventMessage: "STRING_VALUE",
+ * //       extractedValues: { // ExtractedValues
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

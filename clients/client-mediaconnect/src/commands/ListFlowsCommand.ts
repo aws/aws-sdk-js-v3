@@ -45,26 +45,25 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFlowsResponse
- *   Flows: [ // __listOfListedFlow
- *     { // ListedFlow
- *       AvailabilityZone: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       FlowArn: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       SourceType: "OWNED" || "ENTITLED", // required
- *       Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR", // required
- *       Maintenance: { // Maintenance
- *         MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday",
- *         MaintenanceDeadline: "STRING_VALUE",
- *         MaintenanceScheduledDate: "STRING_VALUE",
- *         MaintenanceStartHour: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFlowsResponse
+ * //   Flows: [ // __listOfListedFlow
+ * //     { // ListedFlow
+ * //       AvailabilityZone: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       FlowArn: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       SourceType: "OWNED" || "ENTITLED", // required
+ * //       Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR", // required
+ * //       Maintenance: { // Maintenance
+ * //         MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday",
+ * //         MaintenanceDeadline: "STRING_VALUE",
+ * //         MaintenanceScheduledDate: "STRING_VALUE",
+ * //         MaintenanceStartHour: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

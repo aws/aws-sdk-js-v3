@@ -46,8 +46,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * };
  * const command = new DeleteTrailCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

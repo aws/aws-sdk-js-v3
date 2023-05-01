@@ -56,21 +56,20 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInstancesResponse
- *   InstanceSummaries: [ // InstanceSummaryList
- *     { // InstanceSummary
- *       InstanceId: "STRING_VALUE", // required
- *       Status: "STRING_VALUE", // required
- *       Products: [ // StringList // required
- *         "STRING_VALUE",
- *       ],
- *       LastStatusCheckDate: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInstancesResponse
+ * //   InstanceSummaries: [ // InstanceSummaryList
+ * //     { // InstanceSummary
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE", // required
+ * //       Products: [ // StringList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LastStatusCheckDate: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

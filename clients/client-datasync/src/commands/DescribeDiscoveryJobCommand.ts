@@ -44,15 +44,14 @@ export interface DescribeDiscoveryJobCommandOutput extends DescribeDiscoveryJobR
  * };
  * const command = new DescribeDiscoveryJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDiscoveryJobResponse
- *   StorageSystemArn: "STRING_VALUE",
- *   DiscoveryJobArn: "STRING_VALUE",
- *   CollectionDurationMinutes: Number("int"),
- *   Status: "RUNNING" || "WARNING" || "TERMINATED" || "FAILED" || "STOPPED" || "COMPLETED" || "COMPLETED_WITH_ISSUES",
- *   JobStartTime: new Date("TIMESTAMP"),
- *   JobEndTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeDiscoveryJobResponse
+ * //   StorageSystemArn: "STRING_VALUE",
+ * //   DiscoveryJobArn: "STRING_VALUE",
+ * //   CollectionDurationMinutes: Number("int"),
+ * //   Status: "RUNNING" || "WARNING" || "TERMINATED" || "FAILED" || "STOPPED" || "COMPLETED" || "COMPLETED_WITH_ISSUES",
+ * //   JobStartTime: new Date("TIMESTAMP"),
+ * //   JobEndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

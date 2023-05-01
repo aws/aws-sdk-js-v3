@@ -53,19 +53,18 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * };
  * const command = new ListHumanLoopsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHumanLoopsResponse
- *   HumanLoopSummaries: [ // HumanLoopSummaries // required
- *     { // HumanLoopSummary
- *       HumanLoopName: "STRING_VALUE",
- *       HumanLoopStatus: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       FailureReason: "STRING_VALUE",
- *       FlowDefinitionArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHumanLoopsResponse
+ * //   HumanLoopSummaries: [ // HumanLoopSummaries // required
+ * //     { // HumanLoopSummary
+ * //       HumanLoopName: "STRING_VALUE",
+ * //       HumanLoopStatus: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       FailureReason: "STRING_VALUE",
+ * //       FlowDefinitionArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

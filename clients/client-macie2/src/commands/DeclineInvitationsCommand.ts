@@ -46,16 +46,15 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeclineInvitationsResponse
- *   unprocessedAccounts: [ // __listOfUnprocessedAccount
- *     { // UnprocessedAccount
- *       accountId: "STRING_VALUE",
- *       errorCode: "ClientError" || "InternalError",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeclineInvitationsResponse
+ * //   unprocessedAccounts: [ // __listOfUnprocessedAccount
+ * //     { // UnprocessedAccount
+ * //       accountId: "STRING_VALUE",
+ * //       errorCode: "ClientError" || "InternalError",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

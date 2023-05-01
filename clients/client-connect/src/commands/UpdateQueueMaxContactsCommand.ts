@@ -48,8 +48,7 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateQueueMaxContactsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

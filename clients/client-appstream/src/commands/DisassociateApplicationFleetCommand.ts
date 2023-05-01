@@ -50,8 +50,7 @@ export interface DisassociateApplicationFleetCommandOutput
  * };
  * const command = new DisassociateApplicationFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

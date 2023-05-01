@@ -83,15 +83,14 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMembersResponse
- *   UnprocessedAccounts: [ // ResultList
- *     { // Result
- *       AccountId: "STRING_VALUE",
- *       ProcessingResult: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CreateMembersResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

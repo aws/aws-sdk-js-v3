@@ -77,11 +77,10 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * };
  * const command = new CreateMitigationActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMitigationActionResponse
- *   actionArn: "STRING_VALUE",
- *   actionId: "STRING_VALUE",
- * };
+ * // { // CreateMitigationActionResponse
+ * //   actionArn: "STRING_VALUE",
+ * //   actionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

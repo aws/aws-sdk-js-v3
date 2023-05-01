@@ -48,8 +48,7 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,15 +48,14 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * };
  * const command = new ListTopicsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTopicsResponse
- *   Topics: [ // TopicsList
- *     { // Topic
- *       TopicArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTopicsResponse
+ * //   Topics: [ // TopicsList
+ * //     { // Topic
+ * //       TopicArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

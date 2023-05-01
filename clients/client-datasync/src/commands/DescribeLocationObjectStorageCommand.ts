@@ -50,19 +50,18 @@ export interface DescribeLocationObjectStorageCommandOutput
  * };
  * const command = new DescribeLocationObjectStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationObjectStorageResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   AccessKey: "STRING_VALUE",
- *   ServerPort: Number("int"),
- *   ServerProtocol: "HTTPS" || "HTTP",
- *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- *   ServerCertificate: "BLOB_VALUE",
- * };
+ * // { // DescribeLocationObjectStorageResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   AccessKey: "STRING_VALUE",
+ * //   ServerPort: Number("int"),
+ * //   ServerProtocol: "HTTPS" || "HTTP",
+ * //   AgentArns: [ // AgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ServerCertificate: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

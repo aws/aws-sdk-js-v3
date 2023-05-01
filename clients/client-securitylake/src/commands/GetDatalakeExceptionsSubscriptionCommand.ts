@@ -50,13 +50,12 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * const input = {};
  * const command = new GetDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatalakeExceptionsSubscriptionResponse
- *   protocolAndNotificationEndpoint: { // ProtocolAndNotificationEndpoint
- *     protocol: "STRING_VALUE",
- *     endpoint: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDatalakeExceptionsSubscriptionResponse
+ * //   protocolAndNotificationEndpoint: { // ProtocolAndNotificationEndpoint
+ * //     protocol: "STRING_VALUE",
+ * //     endpoint: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

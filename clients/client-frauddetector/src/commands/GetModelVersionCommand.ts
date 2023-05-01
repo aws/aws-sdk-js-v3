@@ -46,38 +46,37 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * };
  * const command = new GetModelVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelVersionResult
- *   modelId: "STRING_VALUE",
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
- *   modelVersionNumber: "STRING_VALUE",
- *   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS",
- *   trainingDataSchema: { // TrainingDataSchema
- *     modelVariables: [ // ListOfStrings // required
- *       "STRING_VALUE",
- *     ],
- *     labelSchema: { // LabelSchema
- *       labelMapper: { // labelMapper
- *         "<keys>": [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
- *     },
- *   },
- *   externalEventsDetail: { // ExternalEventsDetail
- *     dataLocation: "STRING_VALUE", // required
- *     dataAccessRoleArn: "STRING_VALUE", // required
- *   },
- *   ingestedEventsDetail: { // IngestedEventsDetail
- *     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
- *       startTime: "STRING_VALUE", // required
- *       endTime: "STRING_VALUE", // required
- *     },
- *   },
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // GetModelVersionResult
+ * //   modelId: "STRING_VALUE",
+ * //   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ * //   modelVersionNumber: "STRING_VALUE",
+ * //   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS",
+ * //   trainingDataSchema: { // TrainingDataSchema
+ * //     modelVariables: [ // ListOfStrings // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     labelSchema: { // LabelSchema
+ * //       labelMapper: { // labelMapper
+ * //         "<keys>": [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
+ * //     },
+ * //   },
+ * //   externalEventsDetail: { // ExternalEventsDetail
+ * //     dataLocation: "STRING_VALUE", // required
+ * //     dataAccessRoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   ingestedEventsDetail: { // IngestedEventsDetail
+ * //     ingestedEventsTimeWindow: { // IngestedEventsTimeWindow
+ * //       startTime: "STRING_VALUE", // required
+ * //       endTime: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

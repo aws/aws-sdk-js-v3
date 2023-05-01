@@ -44,10 +44,9 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * };
  * const command = new DeleteApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApprovalRuleTemplateOutput
- *   approvalRuleTemplateId: "STRING_VALUE", // required
- * };
+ * // { // DeleteApprovalRuleTemplateOutput
+ * //   approvalRuleTemplateId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

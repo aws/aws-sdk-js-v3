@@ -57,42 +57,41 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBackupsResponse
- *   Backups: [ // Backups
- *     { // Backup
- *       BackupArn: "STRING_VALUE",
- *       BackupId: "STRING_VALUE",
- *       BackupType: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       Engine: "STRING_VALUE",
- *       EngineModel: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       InstanceProfileArn: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE",
- *       KeyPair: "STRING_VALUE",
- *       PreferredBackupWindow: "STRING_VALUE",
- *       PreferredMaintenanceWindow: "STRING_VALUE",
- *       S3DataSize: Number("int"),
- *       S3DataUrl: "STRING_VALUE",
- *       S3LogUrl: "STRING_VALUE",
- *       SecurityGroupIds: [ // Strings
- *         "STRING_VALUE",
- *       ],
- *       ServerName: "STRING_VALUE",
- *       ServiceRoleArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       StatusDescription: "STRING_VALUE",
- *       SubnetIds: [
- *         "STRING_VALUE",
- *       ],
- *       ToolsVersion: "STRING_VALUE",
- *       UserArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeBackupsResponse
+ * //   Backups: [ // Backups
+ * //     { // Backup
+ * //       BackupArn: "STRING_VALUE",
+ * //       BackupId: "STRING_VALUE",
+ * //       BackupType: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       EngineModel: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       InstanceProfileArn: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       KeyPair: "STRING_VALUE",
+ * //       PreferredBackupWindow: "STRING_VALUE",
+ * //       PreferredMaintenanceWindow: "STRING_VALUE",
+ * //       S3DataSize: Number("int"),
+ * //       S3DataUrl: "STRING_VALUE",
+ * //       S3LogUrl: "STRING_VALUE",
+ * //       SecurityGroupIds: [ // Strings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ServerName: "STRING_VALUE",
+ * //       ServiceRoleArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusDescription: "STRING_VALUE",
+ * //       SubnetIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ToolsVersion: "STRING_VALUE",
+ * //       UserArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

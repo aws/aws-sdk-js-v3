@@ -61,20 +61,19 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * };
  * const command = new ListPriceListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPriceListsResponse
- *   PriceLists: [ // PriceLists
- *     { // PriceList
- *       PriceListArn: "STRING_VALUE",
- *       RegionCode: "STRING_VALUE",
- *       CurrencyCode: "STRING_VALUE",
- *       FileFormats: [ // FileFormats
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPriceListsResponse
+ * //   PriceLists: [ // PriceLists
+ * //     { // PriceList
+ * //       PriceListArn: "STRING_VALUE",
+ * //       RegionCode: "STRING_VALUE",
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       FileFormats: [ // FileFormats
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

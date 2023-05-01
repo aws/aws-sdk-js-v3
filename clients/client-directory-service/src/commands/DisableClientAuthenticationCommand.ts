@@ -45,8 +45,7 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * };
  * const command = new DisableClientAuthenticationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

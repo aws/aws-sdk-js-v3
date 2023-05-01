@@ -46,8 +46,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * };
  * const command = new SendActivationCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

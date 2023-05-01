@@ -74,8 +74,7 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteResourceTreeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

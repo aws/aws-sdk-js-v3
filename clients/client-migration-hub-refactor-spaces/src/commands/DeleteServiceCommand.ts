@@ -50,16 +50,15 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceResponse
- *   ServiceId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   EnvironmentId: "STRING_VALUE",
- *   ApplicationId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // DeleteServiceResponse
+ * //   ServiceId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   EnvironmentId: "STRING_VALUE",
+ * //   ApplicationId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

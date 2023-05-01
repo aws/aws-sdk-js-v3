@@ -59,8 +59,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagLogGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

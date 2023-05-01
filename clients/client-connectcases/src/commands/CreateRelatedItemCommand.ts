@@ -63,11 +63,10 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * };
  * const command = new CreateRelatedItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRelatedItemResponse
- *   relatedItemId: "STRING_VALUE", // required
- *   relatedItemArn: "STRING_VALUE", // required
- * };
+ * // { // CreateRelatedItemResponse
+ * //   relatedItemId: "STRING_VALUE", // required
+ * //   relatedItemArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

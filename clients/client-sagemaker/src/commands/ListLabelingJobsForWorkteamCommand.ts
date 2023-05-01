@@ -53,24 +53,23 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  * };
  * const command = new ListLabelingJobsForWorkteamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLabelingJobsForWorkteamResponse
- *   LabelingJobSummaryList: [ // LabelingJobForWorkteamSummaryList // required
- *     { // LabelingJobForWorkteamSummary
- *       LabelingJobName: "STRING_VALUE",
- *       JobReferenceCode: "STRING_VALUE", // required
- *       WorkRequesterAccountId: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LabelCounters: { // LabelCountersForWorkteam
- *         HumanLabeled: Number("int"),
- *         PendingHuman: Number("int"),
- *         Total: Number("int"),
- *       },
- *       NumberOfHumanWorkersPerDataObject: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLabelingJobsForWorkteamResponse
+ * //   LabelingJobSummaryList: [ // LabelingJobForWorkteamSummaryList // required
+ * //     { // LabelingJobForWorkteamSummary
+ * //       LabelingJobName: "STRING_VALUE",
+ * //       JobReferenceCode: "STRING_VALUE", // required
+ * //       WorkRequesterAccountId: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LabelCounters: { // LabelCountersForWorkteam
+ * //         HumanLabeled: Number("int"),
+ * //         PendingHuman: Number("int"),
+ * //         Total: Number("int"),
+ * //       },
+ * //       NumberOfHumanWorkersPerDataObject: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

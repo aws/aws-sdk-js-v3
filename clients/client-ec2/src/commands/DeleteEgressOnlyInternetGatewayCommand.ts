@@ -50,10 +50,9 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  * };
  * const command = new DeleteEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEgressOnlyInternetGatewayResult
- *   ReturnCode: true || false,
- * };
+ * // { // DeleteEgressOnlyInternetGatewayResult
+ * //   ReturnCode: true || false,
+ * // };
  *
  * ```
  *

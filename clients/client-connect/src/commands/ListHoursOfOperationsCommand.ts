@@ -49,17 +49,16 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  * };
  * const command = new ListHoursOfOperationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHoursOfOperationsResponse
- *   HoursOfOperationSummaryList: [ // HoursOfOperationSummaryList
- *     { // HoursOfOperationSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHoursOfOperationsResponse
+ * //   HoursOfOperationSummaryList: [ // HoursOfOperationSummaryList
+ * //     { // HoursOfOperationSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

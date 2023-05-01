@@ -57,11 +57,10 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * };
  * const command = new UpdateChannelMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelMessageResponse
- *   ChannelArn: "STRING_VALUE",
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // UpdateChannelMessageResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

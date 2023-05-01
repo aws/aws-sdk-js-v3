@@ -194,22 +194,21 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * };
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAssetModelResponse
- *   assetModelStatus: { // AssetModelStatus
- *     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
- *     error: { // ErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *       details: [ // DetailedErrors
- *         { // DetailedError
- *           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *           message: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // UpdateAssetModelResponse
+ * //   assetModelStatus: { // AssetModelStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

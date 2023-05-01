@@ -54,27 +54,26 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUserResponse
- *   User: { // User
- *     Path: "STRING_VALUE", // required
- *     UserName: "STRING_VALUE", // required
- *     UserId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     PasswordLastUsed: new Date("TIMESTAMP"),
- *     PermissionsBoundary: { // AttachedPermissionsBoundary
- *       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *       PermissionsBoundaryArn: "STRING_VALUE",
- *     },
- *     Tags: [ // tagListType
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateUserResponse
+ * //   User: { // User
+ * //     Path: "STRING_VALUE", // required
+ * //     UserName: "STRING_VALUE", // required
+ * //     UserId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     PasswordLastUsed: new Date("TIMESTAMP"),
+ * //     PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //       PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //       PermissionsBoundaryArn: "STRING_VALUE",
+ * //     },
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

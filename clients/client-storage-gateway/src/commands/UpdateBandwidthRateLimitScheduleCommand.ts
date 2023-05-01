@@ -66,10 +66,9 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  * };
  * const command = new UpdateBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBandwidthRateLimitScheduleOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // UpdateBandwidthRateLimitScheduleOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

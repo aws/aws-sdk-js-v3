@@ -49,15 +49,14 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * };
  * const command = new GetAppInstanceRetentionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAppInstanceRetentionSettingsResponse
- *   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
- *     ChannelRetentionSettings: { // ChannelRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *   },
- *   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetAppInstanceRetentionSettingsResponse
+ * //   AppInstanceRetentionSettings: { // AppInstanceRetentionSettings
+ * //     ChannelRetentionSettings: { // ChannelRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

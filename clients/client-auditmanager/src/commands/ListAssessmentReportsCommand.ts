@@ -45,22 +45,21 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * };
  * const command = new ListAssessmentReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssessmentReportsResponse
- *   assessmentReports: [ // AssessmentReportsMetadata
- *     { // AssessmentReportMetadata
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       assessmentId: "STRING_VALUE",
- *       assessmentName: "STRING_VALUE",
- *       author: "STRING_VALUE",
- *       status: "COMPLETE" || "IN_PROGRESS" || "FAILED",
- *       creationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssessmentReportsResponse
+ * //   assessmentReports: [ // AssessmentReportsMetadata
+ * //     { // AssessmentReportMetadata
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       assessmentId: "STRING_VALUE",
+ * //       assessmentName: "STRING_VALUE",
+ * //       author: "STRING_VALUE",
+ * //       status: "COMPLETE" || "IN_PROGRESS" || "FAILED",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

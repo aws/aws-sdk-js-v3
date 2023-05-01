@@ -46,10 +46,9 @@ export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyR
  * };
  * const command = new AssociateSecurityKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateSecurityKeyResponse
- *   AssociationId: "STRING_VALUE",
- * };
+ * // { // AssociateSecurityKeyResponse
+ * //   AssociationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

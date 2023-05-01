@@ -54,10 +54,9 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * };
  * const command = new DeleteLunaClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLunaClientResponse
- *   Status: "STRING_VALUE", // required
- * };
+ * // { // DeleteLunaClientResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

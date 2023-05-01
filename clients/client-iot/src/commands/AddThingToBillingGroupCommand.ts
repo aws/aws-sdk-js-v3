@@ -48,8 +48,7 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * };
  * const command = new AddThingToBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

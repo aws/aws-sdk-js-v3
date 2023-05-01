@@ -50,34 +50,33 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * };
  * const command = new ListWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkspacesResponse
- *   workspaces: [ // WorkspaceList // required
- *     { // WorkspaceSummary
- *       created: new Date("TIMESTAMP"), // required
- *       description: "STRING_VALUE",
- *       endpoint: "STRING_VALUE", // required
- *       grafanaVersion: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       modified: new Date("TIMESTAMP"), // required
- *       name: "STRING_VALUE",
- *       notificationDestinations: [ // NotificationDestinationsList
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE", // required
- *       authentication: { // AuthenticationSummary
- *         providers: [ // AuthenticationProviders // required
- *           "STRING_VALUE",
- *         ],
- *         samlConfigurationStatus: "STRING_VALUE",
- *       },
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkspacesResponse
+ * //   workspaces: [ // WorkspaceList // required
+ * //     { // WorkspaceSummary
+ * //       created: new Date("TIMESTAMP"), // required
+ * //       description: "STRING_VALUE",
+ * //       endpoint: "STRING_VALUE", // required
+ * //       grafanaVersion: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       modified: new Date("TIMESTAMP"), // required
+ * //       name: "STRING_VALUE",
+ * //       notificationDestinations: [ // NotificationDestinationsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE", // required
+ * //       authentication: { // AuthenticationSummary
+ * //         providers: [ // AuthenticationProviders // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         samlConfigurationStatus: "STRING_VALUE",
+ * //       },
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

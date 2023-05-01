@@ -44,12 +44,11 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  * };
  * const command = new GetCognitoEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCognitoEventsResponse
- *   Events: { // Events
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetCognitoEventsResponse
+ * //   Events: { // Events
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

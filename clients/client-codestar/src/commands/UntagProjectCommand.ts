@@ -47,8 +47,7 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * };
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

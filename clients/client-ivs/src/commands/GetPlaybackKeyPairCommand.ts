@@ -48,17 +48,16 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * };
  * const command = new GetPlaybackKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPlaybackKeyPairResponse
- *   keyPair: { // PlaybackKeyPair
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     fingerprint: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetPlaybackKeyPairResponse
+ * //   keyPair: { // PlaybackKeyPair
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     fingerprint: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

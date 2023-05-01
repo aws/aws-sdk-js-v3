@@ -51,16 +51,15 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * };
  * const command = new ListAccountRolesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountRolesResponse
- *   nextToken: "STRING_VALUE",
- *   roleList: [ // RoleListType
- *     { // RoleInfo
- *       roleName: "STRING_VALUE",
- *       accountId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAccountRolesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   roleList: [ // RoleListType
+ * //     { // RoleInfo
+ * //       roleName: "STRING_VALUE",
+ * //       accountId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

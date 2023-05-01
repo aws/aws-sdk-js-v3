@@ -48,8 +48,7 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * };
  * const command = new MoveAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

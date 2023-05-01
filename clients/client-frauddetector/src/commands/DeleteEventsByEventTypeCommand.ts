@@ -44,11 +44,10 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * };
  * const command = new DeleteEventsByEventTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEventsByEventTypeResult
- *   eventTypeName: "STRING_VALUE",
- *   eventsDeletionStatus: "STRING_VALUE",
- * };
+ * // { // DeleteEventsByEventTypeResult
+ * //   eventTypeName: "STRING_VALUE",
+ * //   eventsDeletionStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

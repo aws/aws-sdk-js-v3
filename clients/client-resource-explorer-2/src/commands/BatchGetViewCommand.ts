@@ -50,31 +50,30 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * };
  * const command = new BatchGetViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetViewOutput
- *   Views: [ // ViewList
- *     { // View
- *       ViewArn: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       LastUpdatedAt: new Date("TIMESTAMP"),
- *       Scope: "STRING_VALUE",
- *       IncludedProperties: [ // IncludedPropertyList
- *         { // IncludedProperty
- *           Name: "STRING_VALUE", // required
- *         },
- *       ],
- *       Filters: { // SearchFilter
- *         FilterString: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   Errors: [ // BatchGetViewErrors
- *     { // BatchGetViewError
- *       ViewArn: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchGetViewOutput
+ * //   Views: [ // ViewList
+ * //     { // View
+ * //       ViewArn: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Scope: "STRING_VALUE",
+ * //       IncludedProperties: [ // IncludedPropertyList
+ * //         { // IncludedProperty
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Filters: { // SearchFilter
+ * //         FilterString: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchGetViewErrors
+ * //     { // BatchGetViewError
+ * //       ViewArn: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

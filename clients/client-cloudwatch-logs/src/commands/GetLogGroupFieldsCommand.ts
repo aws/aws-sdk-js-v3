@@ -60,15 +60,14 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * };
  * const command = new GetLogGroupFieldsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLogGroupFieldsResponse
- *   logGroupFields: [ // LogGroupFieldList
- *     { // LogGroupField
- *       name: "STRING_VALUE",
- *       percent: Number("int"),
- *     },
- *   ],
- * };
+ * // { // GetLogGroupFieldsResponse
+ * //   logGroupFields: [ // LogGroupFieldList
+ * //     { // LogGroupField
+ * //       name: "STRING_VALUE",
+ * //       percent: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

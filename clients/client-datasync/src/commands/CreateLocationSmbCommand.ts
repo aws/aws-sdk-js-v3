@@ -64,10 +64,9 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * };
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationSmbResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationSmbResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

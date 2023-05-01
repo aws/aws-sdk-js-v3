@@ -57,18 +57,17 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * };
  * const command = new ListServiceActionsForProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceActionsForProvisioningArtifactOutput
- *   ServiceActionSummaries: [ // ServiceActionSummaries
- *     { // ServiceActionSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DefinitionType: "SSM_AUTOMATION",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListServiceActionsForProvisioningArtifactOutput
+ * //   ServiceActionSummaries: [ // ServiceActionSummaries
+ * //     { // ServiceActionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefinitionType: "SSM_AUTOMATION",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

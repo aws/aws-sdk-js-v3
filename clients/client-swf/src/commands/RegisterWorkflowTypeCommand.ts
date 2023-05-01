@@ -102,8 +102,7 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RegisterWorkflowTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

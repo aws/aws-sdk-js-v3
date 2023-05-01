@@ -58,11 +58,10 @@ export interface UpdateGatewayCapabilityConfigurationCommandOutput
  * };
  * const command = new UpdateGatewayCapabilityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGatewayCapabilityConfigurationResponse
- *   capabilityNamespace: "STRING_VALUE", // required
- *   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
- * };
+ * // { // UpdateGatewayCapabilityConfigurationResponse
+ * //   capabilityNamespace: "STRING_VALUE", // required
+ * //   capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * // };
  *
  * ```
  *

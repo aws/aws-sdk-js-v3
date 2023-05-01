@@ -56,35 +56,34 @@ export interface GetResourceShareInvitationsCommandOutput
  * };
  * const command = new GetResourceShareInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceShareInvitationsResponse
- *   resourceShareInvitations: [ // ResourceShareInvitationList
- *     { // ResourceShareInvitation
- *       resourceShareInvitationArn: "STRING_VALUE",
- *       resourceShareName: "STRING_VALUE",
- *       resourceShareArn: "STRING_VALUE",
- *       senderAccountId: "STRING_VALUE",
- *       receiverAccountId: "STRING_VALUE",
- *       invitationTimestamp: new Date("TIMESTAMP"),
- *       status: "PENDING" || "ACCEPTED" || "REJECTED" || "EXPIRED",
- *       resourceShareAssociations: [ // ResourceShareAssociationList
- *         { // ResourceShareAssociation
- *           resourceShareArn: "STRING_VALUE",
- *           resourceShareName: "STRING_VALUE",
- *           associatedEntity: "STRING_VALUE",
- *           associationType: "PRINCIPAL" || "RESOURCE",
- *           status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
- *           statusMessage: "STRING_VALUE",
- *           creationTime: new Date("TIMESTAMP"),
- *           lastUpdatedTime: new Date("TIMESTAMP"),
- *           external: true || false,
- *         },
- *       ],
- *       receiverArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetResourceShareInvitationsResponse
+ * //   resourceShareInvitations: [ // ResourceShareInvitationList
+ * //     { // ResourceShareInvitation
+ * //       resourceShareInvitationArn: "STRING_VALUE",
+ * //       resourceShareName: "STRING_VALUE",
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       senderAccountId: "STRING_VALUE",
+ * //       receiverAccountId: "STRING_VALUE",
+ * //       invitationTimestamp: new Date("TIMESTAMP"),
+ * //       status: "PENDING" || "ACCEPTED" || "REJECTED" || "EXPIRED",
+ * //       resourceShareAssociations: [ // ResourceShareAssociationList
+ * //         { // ResourceShareAssociation
+ * //           resourceShareArn: "STRING_VALUE",
+ * //           resourceShareName: "STRING_VALUE",
+ * //           associatedEntity: "STRING_VALUE",
+ * //           associationType: "PRINCIPAL" || "RESOURCE",
+ * //           status: "ASSOCIATING" || "ASSOCIATED" || "FAILED" || "DISASSOCIATING" || "DISASSOCIATED",
+ * //           statusMessage: "STRING_VALUE",
+ * //           creationTime: new Date("TIMESTAMP"),
+ * //           lastUpdatedTime: new Date("TIMESTAMP"),
+ * //           external: true || false,
+ * //         },
+ * //       ],
+ * //       receiverArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

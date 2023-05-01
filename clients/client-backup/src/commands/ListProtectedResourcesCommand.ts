@@ -47,18 +47,17 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * };
  * const command = new ListProtectedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProtectedResourcesOutput
- *   Results: [ // ProtectedResourcesList
- *     { // ProtectedResource
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       LastBackupTime: new Date("TIMESTAMP"),
- *       ResourceName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProtectedResourcesOutput
+ * //   Results: [ // ProtectedResourcesList
+ * //     { // ProtectedResource
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       LastBackupTime: new Date("TIMESTAMP"),
+ * //       ResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

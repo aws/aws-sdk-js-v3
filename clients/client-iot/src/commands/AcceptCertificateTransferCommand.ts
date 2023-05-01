@@ -49,8 +49,7 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  * };
  * const command = new AcceptCertificateTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -53,35 +53,34 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * };
  * const command = new ListResolverRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverRulesResponse
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   ResolverRules: [ // ResolverRules
- *     { // ResolverRule
- *       Id: "STRING_VALUE",
- *       CreatorRequestId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       DomainName: "STRING_VALUE",
- *       Status: "COMPLETE" || "DELETING" || "UPDATING" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *       RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE",
- *       Name: "STRING_VALUE",
- *       TargetIps: [ // TargetList
- *         { // TargetAddress
- *           Ip: "STRING_VALUE",
- *           Port: Number("int"),
- *           Ipv6: "STRING_VALUE",
- *         },
- *       ],
- *       ResolverEndpointId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
- *       CreationTime: "STRING_VALUE",
- *       ModificationTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListResolverRulesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   ResolverRules: [ // ResolverRules
+ * //     { // ResolverRule
+ * //       Id: "STRING_VALUE",
+ * //       CreatorRequestId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
+ * //       Status: "COMPLETE" || "DELETING" || "UPDATING" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE",
+ * //       Name: "STRING_VALUE",
+ * //       TargetIps: [ // TargetList
+ * //         { // TargetAddress
+ * //           Ip: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           Ipv6: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ResolverEndpointId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ * //       CreationTime: "STRING_VALUE",
+ * //       ModificationTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

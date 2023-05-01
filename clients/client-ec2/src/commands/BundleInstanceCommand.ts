@@ -58,30 +58,29 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * };
  * const command = new BundleInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BundleInstanceResult
- *   BundleTask: { // BundleTask
- *     BundleId: "STRING_VALUE",
- *     BundleTaskError: { // BundleTaskError
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     InstanceId: "STRING_VALUE",
- *     Progress: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
- *     Storage: { // Storage
- *       S3: { // S3Storage
- *         AWSAccessKeyId: "STRING_VALUE",
- *         Bucket: "STRING_VALUE",
- *         Prefix: "STRING_VALUE",
- *         UploadPolicy: "BLOB_VALUE",
- *         UploadPolicySignature: "STRING_VALUE",
- *       },
- *     },
- *     UpdateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // BundleInstanceResult
+ * //   BundleTask: { // BundleTask
+ * //     BundleId: "STRING_VALUE",
+ * //     BundleTaskError: { // BundleTaskError
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InstanceId: "STRING_VALUE",
+ * //     Progress: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //     Storage: { // Storage
+ * //       S3: { // S3Storage
+ * //         AWSAccessKeyId: "STRING_VALUE",
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
+ * //         UploadPolicy: "BLOB_VALUE",
+ * //         UploadPolicySignature: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     UpdateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

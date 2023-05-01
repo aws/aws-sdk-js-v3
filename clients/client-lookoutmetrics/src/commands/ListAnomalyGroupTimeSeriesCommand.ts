@@ -48,29 +48,28 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * };
  * const command = new ListAnomalyGroupTimeSeriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnomalyGroupTimeSeriesResponse
- *   AnomalyGroupId: "STRING_VALUE",
- *   MetricName: "STRING_VALUE",
- *   TimestampList: [ // TimestampList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TimeSeriesList: [ // TimeSeriesList
- *     { // TimeSeries
- *       TimeSeriesId: "STRING_VALUE", // required
- *       DimensionList: [ // DimensionNameValueList // required
- *         { // DimensionNameValue
- *           DimensionName: "STRING_VALUE", // required
- *           DimensionValue: "STRING_VALUE", // required
- *         },
- *       ],
- *       MetricValueList: [ // MetricValueList // required
- *         Number("double"),
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListAnomalyGroupTimeSeriesResponse
+ * //   AnomalyGroupId: "STRING_VALUE",
+ * //   MetricName: "STRING_VALUE",
+ * //   TimestampList: [ // TimestampList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TimeSeriesList: [ // TimeSeriesList
+ * //     { // TimeSeries
+ * //       TimeSeriesId: "STRING_VALUE", // required
+ * //       DimensionList: [ // DimensionNameValueList // required
+ * //         { // DimensionNameValue
+ * //           DimensionName: "STRING_VALUE", // required
+ * //           DimensionValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       MetricValueList: [ // MetricValueList // required
+ * //         Number("double"),
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

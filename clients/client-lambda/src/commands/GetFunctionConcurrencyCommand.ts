@@ -45,10 +45,9 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * };
  * const command = new GetFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFunctionConcurrencyResponse
- *   ReservedConcurrentExecutions: Number("int"),
- * };
+ * // { // GetFunctionConcurrencyResponse
+ * //   ReservedConcurrentExecutions: Number("int"),
+ * // };
  *
  * ```
  *

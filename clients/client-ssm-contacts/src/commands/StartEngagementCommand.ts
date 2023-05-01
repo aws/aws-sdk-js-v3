@@ -52,10 +52,9 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * };
  * const command = new StartEngagementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartEngagementResult
- *   EngagementArn: "STRING_VALUE", // required
- * };
+ * // { // StartEngagementResult
+ * //   EngagementArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

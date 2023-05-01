@@ -67,29 +67,28 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateListenerResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   protocol: "STRING_VALUE",
- *   port: Number("int"),
- *   serviceArn: "STRING_VALUE",
- *   serviceId: "STRING_VALUE",
- *   defaultAction: { // RuleAction Union: only one key present
- *     forward: { // ForwardAction
- *       targetGroups: [ // WeightedTargetGroupList // required
- *         { // WeightedTargetGroup
- *           targetGroupIdentifier: "STRING_VALUE", // required
- *           weight: Number("int"),
- *         },
- *       ],
- *     },
- *     fixedResponse: { // FixedResponseAction
- *       statusCode: Number("int"), // required
- *     },
- *   },
- * };
+ * // { // CreateListenerResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   protocol: "STRING_VALUE",
+ * //   port: Number("int"),
+ * //   serviceArn: "STRING_VALUE",
+ * //   serviceId: "STRING_VALUE",
+ * //   defaultAction: { // RuleAction Union: only one key present
+ * //     forward: { // ForwardAction
+ * //       targetGroups: [ // WeightedTargetGroupList // required
+ * //         { // WeightedTargetGroup
+ * //           targetGroupIdentifier: "STRING_VALUE", // required
+ * //           weight: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //     fixedResponse: { // FixedResponseAction
+ * //       statusCode: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

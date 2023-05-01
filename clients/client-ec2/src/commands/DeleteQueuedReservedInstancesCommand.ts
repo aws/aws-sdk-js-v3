@@ -49,23 +49,22 @@ export interface DeleteQueuedReservedInstancesCommandOutput
  * };
  * const command = new DeleteQueuedReservedInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteQueuedReservedInstancesResult
- *   SuccessfulQueuedPurchaseDeletions: [ // SuccessfulQueuedPurchaseDeletionSet
- *     { // SuccessfulQueuedPurchaseDeletion
- *       ReservedInstancesId: "STRING_VALUE",
- *     },
- *   ],
- *   FailedQueuedPurchaseDeletions: [ // FailedQueuedPurchaseDeletionSet
- *     { // FailedQueuedPurchaseDeletion
- *       Error: { // DeleteQueuedReservedInstancesError
- *         Code: "reserved-instances-id-invalid" || "reserved-instances-not-in-queued-state" || "unexpected-error",
- *         Message: "STRING_VALUE",
- *       },
- *       ReservedInstancesId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteQueuedReservedInstancesResult
+ * //   SuccessfulQueuedPurchaseDeletions: [ // SuccessfulQueuedPurchaseDeletionSet
+ * //     { // SuccessfulQueuedPurchaseDeletion
+ * //       ReservedInstancesId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   FailedQueuedPurchaseDeletions: [ // FailedQueuedPurchaseDeletionSet
+ * //     { // FailedQueuedPurchaseDeletion
+ * //       Error: { // DeleteQueuedReservedInstancesError
+ * //         Code: "reserved-instances-id-invalid" || "reserved-instances-not-in-queued-state" || "unexpected-error",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ReservedInstancesId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

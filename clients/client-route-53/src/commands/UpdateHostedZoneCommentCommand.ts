@@ -46,23 +46,22 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * };
  * const command = new UpdateHostedZoneCommentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateHostedZoneCommentResponse
- *   HostedZone: { // HostedZone
- *     Id: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     CallerReference: "STRING_VALUE", // required
- *     Config: { // HostedZoneConfig
- *       Comment: "STRING_VALUE",
- *       PrivateZone: true || false,
- *     },
- *     ResourceRecordSetCount: Number("long"),
- *     LinkedService: { // LinkedService
- *       ServicePrincipal: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateHostedZoneCommentResponse
+ * //   HostedZone: { // HostedZone
+ * //     Id: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Config: { // HostedZoneConfig
+ * //       Comment: "STRING_VALUE",
+ * //       PrivateZone: true || false,
+ * //     },
+ * //     ResourceRecordSetCount: Number("long"),
+ * //     LinkedService: { // LinkedService
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

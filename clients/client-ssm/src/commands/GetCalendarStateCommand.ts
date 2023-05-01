@@ -55,12 +55,11 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * };
  * const command = new GetCalendarStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCalendarStateResponse
- *   State: "OPEN" || "CLOSED",
- *   AtTime: "STRING_VALUE",
- *   NextTransitionTime: "STRING_VALUE",
- * };
+ * // { // GetCalendarStateResponse
+ * //   State: "OPEN" || "CLOSED",
+ * //   AtTime: "STRING_VALUE",
+ * //   NextTransitionTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

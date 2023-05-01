@@ -51,10 +51,9 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelInstanceRefreshAnswer
- *   InstanceRefreshId: "STRING_VALUE",
- * };
+ * // { // CancelInstanceRefreshAnswer
+ * //   InstanceRefreshId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,11 +45,10 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * };
  * const command = new GetContactPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactPolicyResult
- *   ContactArn: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetContactPolicyResult
+ * //   ContactArn: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

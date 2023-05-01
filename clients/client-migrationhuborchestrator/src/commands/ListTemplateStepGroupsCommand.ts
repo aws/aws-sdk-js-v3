@@ -50,22 +50,21 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * };
  * const command = new ListTemplateStepGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplateStepGroupsResponse
- *   nextToken: "STRING_VALUE",
- *   templateStepGroupSummary: [ // TemplateStepGroupSummaryList // required
- *     { // TemplateStepGroupSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       previous: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       next: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- * };
+ * // { // ListTemplateStepGroupsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   templateStepGroupSummary: [ // TemplateStepGroupSummaryList // required
+ * //     { // TemplateStepGroupSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       previous: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       next: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

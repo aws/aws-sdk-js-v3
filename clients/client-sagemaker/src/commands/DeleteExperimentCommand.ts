@@ -46,10 +46,9 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteExperimentResponse
- *   ExperimentArn: "STRING_VALUE",
- * };
+ * // { // DeleteExperimentResponse
+ * //   ExperimentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,17 +47,16 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * };
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEmailIdentitiesResponse
- *   EmailIdentities: [ // IdentityInfoList
- *     { // IdentityInfo
- *       IdentityType: "STRING_VALUE",
- *       IdentityName: "STRING_VALUE",
- *       SendingEnabled: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEmailIdentitiesResponse
+ * //   EmailIdentities: [ // IdentityInfoList
+ * //     { // IdentityInfo
+ * //       IdentityType: "STRING_VALUE",
+ * //       IdentityName: "STRING_VALUE",
+ * //       SendingEnabled: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

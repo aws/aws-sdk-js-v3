@@ -62,10 +62,9 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * };
  * const command = new InvokeScreenAutomationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeScreenAutomationResult
- *   workbookCursor: Number("long"), // required
- * };
+ * // { // InvokeScreenAutomationResult
+ * //   workbookCursor: Number("long"), // required
+ * // };
  *
  * ```
  *

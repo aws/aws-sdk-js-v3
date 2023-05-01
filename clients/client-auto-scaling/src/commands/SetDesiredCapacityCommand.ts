@@ -51,8 +51,7 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetDesiredCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

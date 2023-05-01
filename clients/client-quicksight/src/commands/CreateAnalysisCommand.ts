@@ -4327,14 +4327,13 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  * };
  * const command = new CreateAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnalysisResponse
- *   Arn: "STRING_VALUE",
- *   AnalysisId: "STRING_VALUE",
- *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateAnalysisResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AnalysisId: "STRING_VALUE",
+ * //   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

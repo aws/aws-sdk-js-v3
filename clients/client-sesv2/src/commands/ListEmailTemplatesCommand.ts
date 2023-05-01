@@ -47,16 +47,15 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  * };
  * const command = new ListEmailTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEmailTemplatesResponse
- *   TemplatesMetadata: [ // EmailTemplateMetadataList
- *     { // EmailTemplateMetadata
- *       TemplateName: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEmailTemplatesResponse
+ * //   TemplatesMetadata: [ // EmailTemplateMetadataList
+ * //     { // EmailTemplateMetadata
+ * //       TemplateName: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

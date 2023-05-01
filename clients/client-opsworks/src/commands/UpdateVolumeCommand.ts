@@ -51,8 +51,7 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

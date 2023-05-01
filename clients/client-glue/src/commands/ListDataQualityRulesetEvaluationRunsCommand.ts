@@ -68,28 +68,27 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * };
  * const command = new ListDataQualityRulesetEvaluationRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataQualityRulesetEvaluationRunsResponse
- *   Runs: [ // DataQualityRulesetEvaluationRunList
- *     { // DataQualityRulesetEvaluationRunDescription
- *       RunId: "STRING_VALUE",
- *       Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
- *       StartedOn: new Date("TIMESTAMP"),
- *       DataSource: { // DataSource
- *         GlueTable: { // GlueTable
- *           DatabaseName: "STRING_VALUE", // required
- *           TableName: "STRING_VALUE", // required
- *           CatalogId: "STRING_VALUE",
- *           ConnectionName: "STRING_VALUE",
- *           AdditionalOptions: { // GlueTableAdditionalOptions
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataQualityRulesetEvaluationRunsResponse
+ * //   Runs: [ // DataQualityRulesetEvaluationRunList
+ * //     { // DataQualityRulesetEvaluationRunDescription
+ * //       RunId: "STRING_VALUE",
+ * //       Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       DataSource: { // DataSource
+ * //         GlueTable: { // GlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: { // GlueTableAdditionalOptions
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

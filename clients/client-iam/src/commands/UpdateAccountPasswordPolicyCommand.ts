@@ -62,8 +62,7 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * };
  * const command = new UpdateAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

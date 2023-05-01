@@ -64,29 +64,28 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  * };
  * const command = new GetConformancePackComplianceDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConformancePackComplianceDetailsResponse
- *   ConformancePackName: "STRING_VALUE", // required
- *   ConformancePackRuleEvaluationResults: [ // ConformancePackRuleEvaluationResultsList
- *     { // ConformancePackEvaluationResult
- *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA", // required
- *       EvaluationResultIdentifier: { // EvaluationResultIdentifier
- *         EvaluationResultQualifier: { // EvaluationResultQualifier
- *           ConfigRuleName: "STRING_VALUE",
- *           ResourceType: "STRING_VALUE",
- *           ResourceId: "STRING_VALUE",
- *           EvaluationMode: "DETECTIVE" || "PROACTIVE",
- *         },
- *         OrderingTimestamp: new Date("TIMESTAMP"),
- *         ResourceEvaluationId: "STRING_VALUE",
- *       },
- *       ConfigRuleInvokedTime: new Date("TIMESTAMP"), // required
- *       ResultRecordedTime: new Date("TIMESTAMP"), // required
- *       Annotation: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetConformancePackComplianceDetailsResponse
+ * //   ConformancePackName: "STRING_VALUE", // required
+ * //   ConformancePackRuleEvaluationResults: [ // ConformancePackRuleEvaluationResultsList
+ * //     { // ConformancePackEvaluationResult
+ * //       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "INSUFFICIENT_DATA", // required
+ * //       EvaluationResultIdentifier: { // EvaluationResultIdentifier
+ * //         EvaluationResultQualifier: { // EvaluationResultQualifier
+ * //           ConfigRuleName: "STRING_VALUE",
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceId: "STRING_VALUE",
+ * //           EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ * //         },
+ * //         OrderingTimestamp: new Date("TIMESTAMP"),
+ * //         ResourceEvaluationId: "STRING_VALUE",
+ * //       },
+ * //       ConfigRuleInvokedTime: new Date("TIMESTAMP"), // required
+ * //       ResultRecordedTime: new Date("TIMESTAMP"), // required
+ * //       Annotation: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,24 +51,23 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFolderResponse
- *   Metadata: { // FolderMetadata
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     CreatorId: "STRING_VALUE",
- *     ParentFolderId: "STRING_VALUE",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     ModifiedTimestamp: new Date("TIMESTAMP"),
- *     ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
- *     Signature: "STRING_VALUE",
- *     Labels: [ // SharedLabels
- *       "STRING_VALUE",
- *     ],
- *     Size: Number("long"),
- *     LatestVersionSize: Number("long"),
- *   },
- * };
+ * // { // CreateFolderResponse
+ * //   Metadata: { // FolderMetadata
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     CreatorId: "STRING_VALUE",
+ * //     ParentFolderId: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //     ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * //     Signature: "STRING_VALUE",
+ * //     Labels: [ // SharedLabels
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Size: Number("long"),
+ * //     LatestVersionSize: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

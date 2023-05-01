@@ -63,28 +63,27 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePolicyResponse
- *   Policy: { // Policy
- *     PolicyName: "STRING_VALUE",
- *     PolicyId: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Path: "STRING_VALUE",
- *     DefaultVersionId: "STRING_VALUE",
- *     AttachmentCount: Number("int"),
- *     PermissionsBoundaryUsageCount: Number("int"),
- *     IsAttachable: true || false,
- *     Description: "STRING_VALUE",
- *     CreateDate: new Date("TIMESTAMP"),
- *     UpdateDate: new Date("TIMESTAMP"),
- *     Tags: [ // tagListType
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreatePolicyResponse
+ * //   Policy: { // Policy
+ * //     PolicyName: "STRING_VALUE",
+ * //     PolicyId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Path: "STRING_VALUE",
+ * //     DefaultVersionId: "STRING_VALUE",
+ * //     AttachmentCount: Number("int"),
+ * //     PermissionsBoundaryUsageCount: Number("int"),
+ * //     IsAttachable: true || false,
+ * //     Description: "STRING_VALUE",
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //     UpdateDate: new Date("TIMESTAMP"),
+ * //     Tags: [ // tagListType
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

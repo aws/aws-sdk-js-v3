@@ -67,10 +67,9 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * };
  * const command = new StartContentModerationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartContentModerationResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartContentModerationResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

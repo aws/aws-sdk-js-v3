@@ -51,8 +51,7 @@ export interface DisassociateDelegateFromResourceCommandOutput
  * };
  * const command = new DisassociateDelegateFromResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

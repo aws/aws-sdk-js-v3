@@ -58,16 +58,15 @@ export interface AssociatePhoneNumbersWithVoiceConnectorCommandOutput
  * };
  * const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociatePhoneNumbersWithVoiceConnectorResponse
- *   PhoneNumberErrors: [ // PhoneNumberErrorList
- *     { // PhoneNumberError
- *       PhoneNumberId: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AssociatePhoneNumbersWithVoiceConnectorResponse
+ * //   PhoneNumberErrors: [ // PhoneNumberErrorList
+ * //     { // PhoneNumberError
+ * //       PhoneNumberId: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

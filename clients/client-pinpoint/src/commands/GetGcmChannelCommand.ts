@@ -44,22 +44,21 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  * };
  * const command = new GetGcmChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGcmChannelResponse
- *   GCMChannelResponse: { // GCMChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Credential: "STRING_VALUE", // required
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // GetGcmChannelResponse
+ * //   GCMChannelResponse: { // GCMChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Credential: "STRING_VALUE", // required
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

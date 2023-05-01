@@ -57,8 +57,7 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * };
  * const command = new RemoveRoleFromInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

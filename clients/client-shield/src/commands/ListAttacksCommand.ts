@@ -57,23 +57,22 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * };
  * const command = new ListAttacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttacksResponse
- *   AttackSummaries: [ // AttackSummaries
- *     { // AttackSummary
- *       AttackId: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       AttackVectors: [ // AttackVectorDescriptionList
- *         { // AttackVectorDescription
- *           VectorType: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAttacksResponse
+ * //   AttackSummaries: [ // AttackSummaries
+ * //     { // AttackSummary
+ * //       AttackId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       AttackVectors: [ // AttackVectorDescriptionList
+ * //         { // AttackVectorDescription
+ * //           VectorType: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -65,11 +65,10 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScriptResponse
- *   PythonScript: "STRING_VALUE",
- *   ScalaCode: "STRING_VALUE",
- * };
+ * // { // CreateScriptResponse
+ * //   PythonScript: "STRING_VALUE",
+ * //   ScalaCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

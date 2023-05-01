@@ -61,32 +61,31 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateUserResponse
- *   User: { // User
- *     Id: "STRING_VALUE",
- *     Username: "STRING_VALUE",
- *     EmailAddress: "STRING_VALUE",
- *     GivenName: "STRING_VALUE",
- *     Surname: "STRING_VALUE",
- *     OrganizationId: "STRING_VALUE",
- *     RootFolderId: "STRING_VALUE",
- *     RecycleBinFolderId: "STRING_VALUE",
- *     Status: "ACTIVE" || "INACTIVE" || "PENDING",
- *     Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     ModifiedTimestamp: new Date("TIMESTAMP"),
- *     TimeZoneId: "STRING_VALUE",
- *     Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
- *     Storage: { // UserStorageMetadata
- *       StorageUtilizedInBytes: Number("long"),
- *       StorageRule: { // StorageRuleType
- *         StorageAllocatedInBytes: Number("long"),
- *         StorageType: "UNLIMITED" || "QUOTA",
- *       },
- *     },
- *   },
- * };
+ * // { // UpdateUserResponse
+ * //   User: { // User
+ * //     Id: "STRING_VALUE",
+ * //     Username: "STRING_VALUE",
+ * //     EmailAddress: "STRING_VALUE",
+ * //     GivenName: "STRING_VALUE",
+ * //     Surname: "STRING_VALUE",
+ * //     OrganizationId: "STRING_VALUE",
+ * //     RootFolderId: "STRING_VALUE",
+ * //     RecycleBinFolderId: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "INACTIVE" || "PENDING",
+ * //     Type: "USER" || "ADMIN" || "POWERUSER" || "MINIMALUSER" || "WORKSPACESUSER",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     ModifiedTimestamp: new Date("TIMESTAMP"),
+ * //     TimeZoneId: "STRING_VALUE",
+ * //     Locale: "en" || "fr" || "ko" || "de" || "es" || "ja" || "ru" || "zh_CN" || "zh_TW" || "pt_BR" || "default",
+ * //     Storage: { // UserStorageMetadata
+ * //       StorageUtilizedInBytes: Number("long"),
+ * //       StorageRule: { // StorageRuleType
+ * //         StorageAllocatedInBytes: Number("long"),
+ * //         StorageType: "UNLIMITED" || "QUOTA",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * };
  * const command = new DeleteNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

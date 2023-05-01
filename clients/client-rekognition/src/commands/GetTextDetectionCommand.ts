@@ -64,57 +64,56 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  * };
  * const command = new GetTextDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTextDetectionResponse
- *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *   StatusMessage: "STRING_VALUE",
- *   VideoMetadata: { // VideoMetadata
- *     Codec: "STRING_VALUE",
- *     DurationMillis: Number("long"),
- *     Format: "STRING_VALUE",
- *     FrameRate: Number("float"),
- *     FrameHeight: Number("long"),
- *     FrameWidth: Number("long"),
- *     ColorRange: "FULL" || "LIMITED",
- *   },
- *   TextDetections: [ // TextDetectionResults
- *     { // TextDetectionResult
- *       Timestamp: Number("long"),
- *       TextDetection: { // TextDetection
- *         DetectedText: "STRING_VALUE",
- *         Type: "LINE" || "WORD",
- *         Id: Number("int"),
- *         ParentId: Number("int"),
- *         Confidence: Number("float"),
- *         Geometry: { // Geometry
- *           BoundingBox: { // BoundingBox
- *             Width: Number("float"),
- *             Height: Number("float"),
- *             Left: Number("float"),
- *             Top: Number("float"),
- *           },
- *           Polygon: [ // Polygon
- *             { // Point
- *               X: Number("float"),
- *               Y: Number("float"),
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TextModelVersion: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Video: { // Video
- *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   },
- *   JobTag: "STRING_VALUE",
- * };
+ * // { // GetTextDetectionResponse
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   VideoMetadata: { // VideoMetadata
+ * //     Codec: "STRING_VALUE",
+ * //     DurationMillis: Number("long"),
+ * //     Format: "STRING_VALUE",
+ * //     FrameRate: Number("float"),
+ * //     FrameHeight: Number("long"),
+ * //     FrameWidth: Number("long"),
+ * //     ColorRange: "FULL" || "LIMITED",
+ * //   },
+ * //   TextDetections: [ // TextDetectionResults
+ * //     { // TextDetectionResult
+ * //       Timestamp: Number("long"),
+ * //       TextDetection: { // TextDetection
+ * //         DetectedText: "STRING_VALUE",
+ * //         Type: "LINE" || "WORD",
+ * //         Id: Number("int"),
+ * //         ParentId: Number("int"),
+ * //         Confidence: Number("float"),
+ * //         Geometry: { // Geometry
+ * //           BoundingBox: { // BoundingBox
+ * //             Width: Number("float"),
+ * //             Height: Number("float"),
+ * //             Left: Number("float"),
+ * //             Top: Number("float"),
+ * //           },
+ * //           Polygon: [ // Polygon
+ * //             { // Point
+ * //               X: Number("float"),
+ * //               Y: Number("float"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TextModelVersion: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Video: { // Video
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobTag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,12 +59,11 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
  * };
  * const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplySecurityGroupsToClientVpnTargetNetworkResult
- *   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ApplySecurityGroupsToClientVpnTargetNetworkResult
+ * //   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

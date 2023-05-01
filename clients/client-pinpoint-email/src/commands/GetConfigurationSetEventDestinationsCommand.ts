@@ -58,37 +58,36 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * };
  * const command = new GetConfigurationSetEventDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConfigurationSetEventDestinationsResponse
- *   EventDestinations: [ // EventDestinations
- *     { // EventDestination
- *       Name: "STRING_VALUE", // required
- *       Enabled: true || false,
- *       MatchingEventTypes: [ // EventTypes // required
- *         "STRING_VALUE",
- *       ],
- *       KinesisFirehoseDestination: { // KinesisFirehoseDestination
- *         IamRoleArn: "STRING_VALUE", // required
- *         DeliveryStreamArn: "STRING_VALUE", // required
- *       },
- *       CloudWatchDestination: { // CloudWatchDestination
- *         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
- *           { // CloudWatchDimensionConfiguration
- *             DimensionName: "STRING_VALUE", // required
- *             DimensionValueSource: "STRING_VALUE", // required
- *             DefaultDimensionValue: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *       SnsDestination: { // SnsDestination
- *         TopicArn: "STRING_VALUE", // required
- *       },
- *       PinpointDestination: { // PinpointDestination
- *         ApplicationArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetConfigurationSetEventDestinationsResponse
+ * //   EventDestinations: [ // EventDestinations
+ * //     { // EventDestination
+ * //       Name: "STRING_VALUE", // required
+ * //       Enabled: true || false,
+ * //       MatchingEventTypes: [ // EventTypes // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       KinesisFirehoseDestination: { // KinesisFirehoseDestination
+ * //         IamRoleArn: "STRING_VALUE", // required
+ * //         DeliveryStreamArn: "STRING_VALUE", // required
+ * //       },
+ * //       CloudWatchDestination: { // CloudWatchDestination
+ * //         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
+ * //           { // CloudWatchDimensionConfiguration
+ * //             DimensionName: "STRING_VALUE", // required
+ * //             DimensionValueSource: "STRING_VALUE", // required
+ * //             DefaultDimensionValue: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       SnsDestination: { // SnsDestination
+ * //         TopicArn: "STRING_VALUE", // required
+ * //       },
+ * //       PinpointDestination: { // PinpointDestination
+ * //         ApplicationArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

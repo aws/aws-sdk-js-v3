@@ -53,33 +53,32 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * };
  * const command = new GetProfileObjectTypeTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProfileObjectTypeTemplateResponse
- *   TemplateId: "STRING_VALUE",
- *   SourceName: "STRING_VALUE",
- *   SourceObject: "STRING_VALUE",
- *   AllowProfileCreation: true || false,
- *   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
- *   Fields: { // FieldMap
- *     "<keys>": { // ObjectTypeField
- *       Source: "STRING_VALUE",
- *       Target: "STRING_VALUE",
- *       ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
- *     },
- *   },
- *   Keys: { // KeyMap
- *     "<keys>": [ // ObjectTypeKeyList
- *       { // ObjectTypeKey
- *         StandardIdentifiers: [ // StandardIdentifierList
- *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
- *         ],
- *         FieldNames: [ // FieldNameList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // GetProfileObjectTypeTemplateResponse
+ * //   TemplateId: "STRING_VALUE",
+ * //   SourceName: "STRING_VALUE",
+ * //   SourceObject: "STRING_VALUE",
+ * //   AllowProfileCreation: true || false,
+ * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //   Fields: { // FieldMap
+ * //     "<keys>": { // ObjectTypeField
+ * //       Source: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       ContentType: "STRING" || "NUMBER" || "PHONE_NUMBER" || "EMAIL_ADDRESS" || "NAME",
+ * //     },
+ * //   },
+ * //   Keys: { // KeyMap
+ * //     "<keys>": [ // ObjectTypeKeyList
+ * //       { // ObjectTypeKey
+ * //         StandardIdentifiers: [ // StandardIdentifierList
+ * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //         ],
+ * //         FieldNames: [ // FieldNameList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

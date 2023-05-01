@@ -48,10 +48,9 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * const input = {};
  * const command = new GetTrafficPolicyInstanceCountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTrafficPolicyInstanceCountResponse
- *   TrafficPolicyInstanceCount: Number("int"), // required
- * };
+ * // { // GetTrafficPolicyInstanceCountResponse
+ * //   TrafficPolicyInstanceCount: Number("int"), // required
+ * // };
  *
  * ```
  *

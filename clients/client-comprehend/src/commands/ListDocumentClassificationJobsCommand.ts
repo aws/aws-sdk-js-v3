@@ -56,48 +56,47 @@ export interface ListDocumentClassificationJobsCommandOutput
  * };
  * const command = new ListDocumentClassificationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDocumentClassificationJobsResponse
- *   DocumentClassificationJobPropertiesList: [ // DocumentClassificationJobPropertiesList
- *     { // DocumentClassificationJobProperties
- *       JobId: "STRING_VALUE",
- *       JobArn: "STRING_VALUE",
- *       JobName: "STRING_VALUE",
- *       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *       Message: "STRING_VALUE",
- *       SubmitTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       DocumentClassifierArn: "STRING_VALUE",
- *       InputDataConfig: { // InputDataConfig
- *         S3Uri: "STRING_VALUE", // required
- *         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
- *         DocumentReaderConfig: { // DocumentReaderConfig
- *           DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
- *           DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
- *           FeatureTypes: [ // ListOfDocumentReadFeatureTypes
- *             "TABLES" || "FORMS",
- *           ],
- *         },
- *       },
- *       OutputDataConfig: { // OutputDataConfig
- *         S3Uri: "STRING_VALUE", // required
- *         KmsKeyId: "STRING_VALUE",
- *       },
- *       DataAccessRoleArn: "STRING_VALUE",
- *       VolumeKmsKeyId: "STRING_VALUE",
- *       VpcConfig: { // VpcConfig
- *         SecurityGroupIds: [ // SecurityGroupIds // required
- *           "STRING_VALUE",
- *         ],
- *         Subnets: [ // Subnets // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       FlywheelArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDocumentClassificationJobsResponse
+ * //   DocumentClassificationJobPropertiesList: [ // DocumentClassificationJobPropertiesList
+ * //     { // DocumentClassificationJobProperties
+ * //       JobId: "STRING_VALUE",
+ * //       JobArn: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //       Message: "STRING_VALUE",
+ * //       SubmitTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       DocumentClassifierArn: "STRING_VALUE",
+ * //       InputDataConfig: { // InputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ * //         DocumentReaderConfig: { // DocumentReaderConfig
+ * //           DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ * //           DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ * //           FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ * //             "TABLES" || "FORMS",
+ * //           ],
+ * //         },
+ * //       },
+ * //       OutputDataConfig: { // OutputDataConfig
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
+ * //       DataAccessRoleArn: "STRING_VALUE",
+ * //       VolumeKmsKeyId: "STRING_VALUE",
+ * //       VpcConfig: { // VpcConfig
+ * //         SecurityGroupIds: [ // SecurityGroupIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Subnets: [ // Subnets // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       FlywheelArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

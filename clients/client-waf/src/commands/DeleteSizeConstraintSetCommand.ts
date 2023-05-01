@@ -68,10 +68,9 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * };
  * const command = new DeleteSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSizeConstraintSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteSizeConstraintSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

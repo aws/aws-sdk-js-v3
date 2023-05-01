@@ -45,8 +45,7 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAgreementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,18 +50,17 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * };
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVolumeRecoveryPointsOutput
- *   GatewayARN: "STRING_VALUE",
- *   VolumeRecoveryPointInfos: [ // VolumeRecoveryPointInfos
- *     { // VolumeRecoveryPointInfo
- *       VolumeARN: "STRING_VALUE",
- *       VolumeSizeInBytes: Number("long"),
- *       VolumeUsageInBytes: Number("long"),
- *       VolumeRecoveryPointTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListVolumeRecoveryPointsOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   VolumeRecoveryPointInfos: [ // VolumeRecoveryPointInfos
+ * //     { // VolumeRecoveryPointInfo
+ * //       VolumeARN: "STRING_VALUE",
+ * //       VolumeSizeInBytes: Number("long"),
+ * //       VolumeUsageInBytes: Number("long"),
+ * //       VolumeRecoveryPointTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

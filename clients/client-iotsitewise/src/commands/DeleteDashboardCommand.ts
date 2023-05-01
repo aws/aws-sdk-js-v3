@@ -45,8 +45,7 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  * };
  * const command = new DeleteDashboardCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

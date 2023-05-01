@@ -43,11 +43,10 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * const input = {};
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountResult
- *   DedicatedTenancySupport: "ENABLED" || "DISABLED",
- *   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
- * };
+ * // { // DescribeAccountResult
+ * //   DedicatedTenancySupport: "ENABLED" || "DISABLED",
+ * //   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ * // };
  *
  * ```
  *

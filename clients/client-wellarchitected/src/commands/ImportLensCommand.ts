@@ -68,11 +68,10 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * };
  * const command = new ImportLensCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportLensOutput
- *   LensArn: "STRING_VALUE",
- *   Status: "IN_PROGRESS" || "COMPLETE" || "ERROR",
- * };
+ * // { // ImportLensOutput
+ * //   LensArn: "STRING_VALUE",
+ * //   Status: "IN_PROGRESS" || "COMPLETE" || "ERROR",
+ * // };
  *
  * ```
  *

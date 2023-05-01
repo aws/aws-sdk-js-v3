@@ -92,12 +92,11 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * };
  * const command = new CreateBudgetActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBudgetActionResponse
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
- *   ActionId: "STRING_VALUE", // required
- * };
+ * // { // CreateBudgetActionResponse
+ * //   AccountId: "STRING_VALUE", // required
+ * //   BudgetName: "STRING_VALUE", // required
+ * //   ActionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

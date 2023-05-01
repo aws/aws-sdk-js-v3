@@ -54,11 +54,10 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * };
  * const command = new ModifyInstanceMaintenanceOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstanceMaintenanceOptionsResult
- *   InstanceId: "STRING_VALUE",
- *   AutoRecovery: "disabled" || "default",
- * };
+ * // { // ModifyInstanceMaintenanceOptionsResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   AutoRecovery: "disabled" || "default",
+ * // };
  *
  * ```
  *

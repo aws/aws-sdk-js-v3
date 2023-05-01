@@ -56,13 +56,12 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * };
  * const command = new ListDeadLetterSourceQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeadLetterSourceQueuesResult
- *   queueUrls: [ // QueueUrlList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDeadLetterSourceQueuesResult
+ * //   queueUrls: [ // QueueUrlList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

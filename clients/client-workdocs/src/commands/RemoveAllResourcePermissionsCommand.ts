@@ -51,8 +51,7 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * };
  * const command = new RemoveAllResourcePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

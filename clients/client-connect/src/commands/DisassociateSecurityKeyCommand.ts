@@ -46,8 +46,7 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  * };
  * const command = new DisassociateSecurityKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

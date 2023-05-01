@@ -45,8 +45,7 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * };
  * const command = new DeregisterApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

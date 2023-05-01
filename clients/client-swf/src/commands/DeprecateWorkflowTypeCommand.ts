@@ -91,8 +91,7 @@ export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeprecateWorkflowTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

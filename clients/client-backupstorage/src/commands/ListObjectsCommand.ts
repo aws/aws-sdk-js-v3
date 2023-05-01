@@ -50,20 +50,19 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectsOutput
- *   ObjectList: [ // ObjectList // required
- *     { // BackupObject
- *       Name: "STRING_VALUE", // required
- *       ChunksCount: Number("long"),
- *       MetadataString: "STRING_VALUE",
- *       ObjectChecksum: "STRING_VALUE", // required
- *       ObjectChecksumAlgorithm: "STRING_VALUE", // required
- *       ObjectToken: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListObjectsOutput
+ * //   ObjectList: [ // ObjectList // required
+ * //     { // BackupObject
+ * //       Name: "STRING_VALUE", // required
+ * //       ChunksCount: Number("long"),
+ * //       MetadataString: "STRING_VALUE",
+ * //       ObjectChecksum: "STRING_VALUE", // required
+ * //       ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ObjectToken: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

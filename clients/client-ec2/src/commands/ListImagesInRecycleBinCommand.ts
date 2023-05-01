@@ -51,19 +51,18 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * };
  * const command = new ListImagesInRecycleBinCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagesInRecycleBinResult
- *   Images: [ // ImageRecycleBinInfoList
- *     { // ImageRecycleBinInfo
- *       ImageId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       RecycleBinEnterTime: new Date("TIMESTAMP"),
- *       RecycleBinExitTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImagesInRecycleBinResult
+ * //   Images: [ // ImageRecycleBinInfoList
+ * //     { // ImageRecycleBinInfo
+ * //       ImageId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       RecycleBinEnterTime: new Date("TIMESTAMP"),
+ * //       RecycleBinExitTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

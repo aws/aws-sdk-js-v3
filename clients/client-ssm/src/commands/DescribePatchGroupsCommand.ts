@@ -53,22 +53,21 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * };
  * const command = new DescribePatchGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePatchGroupsResult
- *   Mappings: [ // PatchGroupPatchBaselineMappingList
- *     { // PatchGroupPatchBaselineMapping
- *       PatchGroup: "STRING_VALUE",
- *       BaselineIdentity: { // PatchBaselineIdentity
- *         BaselineId: "STRING_VALUE",
- *         BaselineName: "STRING_VALUE",
- *         OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
- *         BaselineDescription: "STRING_VALUE",
- *         DefaultBaseline: true || false,
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePatchGroupsResult
+ * //   Mappings: [ // PatchGroupPatchBaselineMappingList
+ * //     { // PatchGroupPatchBaselineMapping
+ * //       PatchGroup: "STRING_VALUE",
+ * //       BaselineIdentity: { // PatchBaselineIdentity
+ * //         BaselineId: "STRING_VALUE",
+ * //         BaselineName: "STRING_VALUE",
+ * //         OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * //         BaselineDescription: "STRING_VALUE",
+ * //         DefaultBaseline: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

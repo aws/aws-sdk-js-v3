@@ -156,10 +156,9 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * };
  * const command = new CreateLabelingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLabelingJobResponse
- *   LabelingJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateLabelingJobResponse
+ * //   LabelingJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

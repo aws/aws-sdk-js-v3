@@ -55,10 +55,9 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * };
  * const command = new CreateHapgCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHapgResponse
- *   HapgArn: "STRING_VALUE",
- * };
+ * // { // CreateHapgResponse
+ * //   HapgArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

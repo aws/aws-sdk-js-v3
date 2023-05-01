@@ -53,8 +53,7 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * };
  * const command = new RemoveThingFromThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

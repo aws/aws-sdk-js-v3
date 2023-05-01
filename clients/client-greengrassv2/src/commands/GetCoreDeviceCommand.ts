@@ -71,18 +71,17 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * };
  * const command = new GetCoreDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoreDeviceResponse
- *   coreDeviceThingName: "STRING_VALUE",
- *   coreVersion: "STRING_VALUE",
- *   platform: "STRING_VALUE",
- *   architecture: "STRING_VALUE",
- *   status: "HEALTHY" || "UNHEALTHY",
- *   lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetCoreDeviceResponse
+ * //   coreDeviceThingName: "STRING_VALUE",
+ * //   coreVersion: "STRING_VALUE",
+ * //   platform: "STRING_VALUE",
+ * //   architecture: "STRING_VALUE",
+ * //   status: "HEALTHY" || "UNHEALTHY",
+ * //   lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

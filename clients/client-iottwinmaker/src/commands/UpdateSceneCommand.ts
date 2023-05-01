@@ -53,10 +53,9 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * };
  * const command = new UpdateSceneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSceneResponse
- *   updateDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateSceneResponse
+ * //   updateDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -88,10 +88,9 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * };
  * const command = new ReportTaskProgressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReportTaskProgressOutput
- *   canceled: true || false, // required
- * };
+ * // { // ReportTaskProgressOutput
+ * //   canceled: true || false, // required
+ * // };
  *
  * ```
  *

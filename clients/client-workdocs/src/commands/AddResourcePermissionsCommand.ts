@@ -63,19 +63,18 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * };
  * const command = new AddResourcePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddResourcePermissionsResponse
- *   ShareResults: [ // ShareResultsList
- *     { // ShareResult
- *       PrincipalId: "STRING_VALUE",
- *       InviteePrincipalId: "STRING_VALUE",
- *       Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
- *       Status: "SUCCESS" || "FAILURE",
- *       ShareId: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AddResourcePermissionsResponse
+ * //   ShareResults: [ // ShareResultsList
+ * //     { // ShareResult
+ * //       PrincipalId: "STRING_VALUE",
+ * //       InviteePrincipalId: "STRING_VALUE",
+ * //       Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
+ * //       Status: "SUCCESS" || "FAILURE",
+ * //       ShareId: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

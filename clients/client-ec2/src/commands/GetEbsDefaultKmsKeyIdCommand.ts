@@ -48,10 +48,9 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  * };
  * const command = new GetEbsDefaultKmsKeyIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEbsDefaultKmsKeyIdResult
- *   KmsKeyId: "STRING_VALUE",
- * };
+ * // { // GetEbsDefaultKmsKeyIdResult
+ * //   KmsKeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

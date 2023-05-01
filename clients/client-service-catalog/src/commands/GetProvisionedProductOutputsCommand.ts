@@ -56,17 +56,16 @@ export interface GetProvisionedProductOutputsCommandOutput
  * };
  * const command = new GetProvisionedProductOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProvisionedProductOutputsOutput
- *   Outputs: [ // RecordOutputs
- *     { // RecordOutput
- *       OutputKey: "STRING_VALUE",
- *       OutputValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // GetProvisionedProductOutputsOutput
+ * //   Outputs: [ // RecordOutputs
+ * //     { // RecordOutput
+ * //       OutputKey: "STRING_VALUE",
+ * //       OutputValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

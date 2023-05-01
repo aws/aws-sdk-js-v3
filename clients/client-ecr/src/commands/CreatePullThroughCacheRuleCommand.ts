@@ -47,13 +47,12 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * };
  * const command = new CreatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePullThroughCacheRuleResponse
- *   ecrRepositoryPrefix: "STRING_VALUE",
- *   upstreamRegistryUrl: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   registryId: "STRING_VALUE",
- * };
+ * // { // CreatePullThroughCacheRuleResponse
+ * //   ecrRepositoryPrefix: "STRING_VALUE",
+ * //   upstreamRegistryUrl: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   registryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

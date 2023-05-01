@@ -52,10 +52,9 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * };
  * const command = new CreateAssessmentTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAssessmentTargetResponse
- *   assessmentTargetArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAssessmentTargetResponse
+ * //   assessmentTargetArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

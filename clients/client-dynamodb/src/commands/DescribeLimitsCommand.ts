@@ -111,13 +111,12 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLimitsOutput
- *   AccountMaxReadCapacityUnits: Number("long"),
- *   AccountMaxWriteCapacityUnits: Number("long"),
- *   TableMaxReadCapacityUnits: Number("long"),
- *   TableMaxWriteCapacityUnits: Number("long"),
- * };
+ * // { // DescribeLimitsOutput
+ * //   AccountMaxReadCapacityUnits: Number("long"),
+ * //   AccountMaxWriteCapacityUnits: Number("long"),
+ * //   TableMaxReadCapacityUnits: Number("long"),
+ * //   TableMaxWriteCapacityUnits: Number("long"),
+ * // };
  *
  * ```
  *

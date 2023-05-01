@@ -45,20 +45,19 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * };
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRegistriesResponse
- *   Registries: [ // RegistryListDefinition
- *     { // RegistryListItem
- *       RegistryName: "STRING_VALUE",
- *       RegistryArn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "AVAILABLE" || "DELETING",
- *       CreatedTime: "STRING_VALUE",
- *       UpdatedTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRegistriesResponse
+ * //   Registries: [ // RegistryListDefinition
+ * //     { // RegistryListItem
+ * //       RegistryName: "STRING_VALUE",
+ * //       RegistryArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "DELETING",
+ * //       CreatedTime: "STRING_VALUE",
+ * //       UpdatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

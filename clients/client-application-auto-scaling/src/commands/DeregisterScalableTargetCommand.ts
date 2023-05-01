@@ -55,8 +55,7 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * };
  * const command = new DeregisterScalableTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

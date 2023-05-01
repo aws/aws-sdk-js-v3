@@ -60,15 +60,14 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyVersionResponse
- *   PolicyVersion: { // PolicyVersion
- *     Document: "STRING_VALUE",
- *     VersionId: "STRING_VALUE",
- *     IsDefaultVersion: true || false,
- *     CreateDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetPolicyVersionResponse
+ * //   PolicyVersion: { // PolicyVersion
+ * //     Document: "STRING_VALUE",
+ * //     VersionId: "STRING_VALUE",
+ * //     IsDefaultVersion: true || false,
+ * //     CreateDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

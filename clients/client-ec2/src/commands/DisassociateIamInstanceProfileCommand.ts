@@ -51,19 +51,18 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * };
  * const command = new DisassociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateIamInstanceProfileResult
- *   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
- *     AssociationId: "STRING_VALUE",
- *     InstanceId: "STRING_VALUE",
- *     IamInstanceProfile: { // IamInstanceProfile
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *     },
- *     State: "associating" || "associated" || "disassociating" || "disassociated",
- *     Timestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DisassociateIamInstanceProfileResult
+ * //   IamInstanceProfileAssociation: { // IamInstanceProfileAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     IamInstanceProfile: { // IamInstanceProfile
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     Timestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

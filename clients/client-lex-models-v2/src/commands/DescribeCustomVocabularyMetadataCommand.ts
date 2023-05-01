@@ -51,15 +51,14 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  * };
  * const command = new DescribeCustomVocabularyMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomVocabularyMetadataResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
- *   creationDateTime: new Date("TIMESTAMP"),
- *   lastUpdatedDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeCustomVocabularyMetadataResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
+ * //   creationDateTime: new Date("TIMESTAMP"),
+ * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

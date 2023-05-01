@@ -44,8 +44,7 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * };
  * const command = new DeleteOriginEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

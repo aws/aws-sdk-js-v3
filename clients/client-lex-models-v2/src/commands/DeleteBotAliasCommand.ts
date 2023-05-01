@@ -46,12 +46,11 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * };
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBotAliasResponse
- *   botAliasId: "STRING_VALUE",
- *   botId: "STRING_VALUE",
- *   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
- * };
+ * // { // DeleteBotAliasResponse
+ * //   botAliasId: "STRING_VALUE",
+ * //   botId: "STRING_VALUE",
+ * //   botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
+ * // };
  *
  * ```
  *

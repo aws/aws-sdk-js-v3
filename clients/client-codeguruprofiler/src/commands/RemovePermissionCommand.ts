@@ -54,11 +54,10 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * };
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemovePermissionResponse
- *   policy: "STRING_VALUE", // required
- *   revisionId: "STRING_VALUE", // required
- * };
+ * // { // RemovePermissionResponse
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

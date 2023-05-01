@@ -46,12 +46,11 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
  * };
  * const command = new DeleteIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteIAMPolicyAssignmentResponse
- *   AssignmentName: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DeleteIAMPolicyAssignmentResponse
+ * //   AssignmentName: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

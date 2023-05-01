@@ -47,8 +47,7 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * };
  * const command = new DeleteDataQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

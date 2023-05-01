@@ -50,10 +50,9 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  * };
  * const command = new DeleteInferenceExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInferenceExperimentResponse
- *   InferenceExperimentArn: "STRING_VALUE", // required
- * };
+ * // { // DeleteInferenceExperimentResponse
+ * //   InferenceExperimentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,10 +51,9 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * };
  * const command = new StartVariantImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartVariantImportResponse
- *   jobId: "STRING_VALUE", // required
- * };
+ * // { // StartVariantImportResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

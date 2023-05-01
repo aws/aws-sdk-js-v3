@@ -49,8 +49,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

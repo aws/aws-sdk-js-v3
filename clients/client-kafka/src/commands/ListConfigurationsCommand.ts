@@ -45,27 +45,26 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * };
  * const command = new ListConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConfigurationsResponse
- *   Configurations: [ // __listOfConfiguration
- *     { // Configuration
- *       Arn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       Description: "STRING_VALUE", // required
- *       KafkaVersions: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       LatestRevision: { // ConfigurationRevision
- *         CreationTime: new Date("TIMESTAMP"), // required
- *         Description: "STRING_VALUE",
- *         Revision: Number("long"), // required
- *       },
- *       Name: "STRING_VALUE", // required
- *       State: "ACTIVE" || "DELETING" || "DELETE_FAILED", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConfigurationsResponse
+ * //   Configurations: [ // __listOfConfiguration
+ * //     { // Configuration
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       Description: "STRING_VALUE", // required
+ * //       KafkaVersions: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       LatestRevision: { // ConfigurationRevision
+ * //         CreationTime: new Date("TIMESTAMP"), // required
+ * //         Description: "STRING_VALUE",
+ * //         Revision: Number("long"), // required
+ * //       },
+ * //       Name: "STRING_VALUE", // required
+ * //       State: "ACTIVE" || "DELETING" || "DELETE_FAILED", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

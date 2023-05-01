@@ -52,21 +52,20 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * };
  * const command = new GetDevicePositionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDevicePositionResponse
- *   DeviceId: "STRING_VALUE",
- *   SampleTime: new Date("TIMESTAMP"), // required
- *   ReceivedTime: new Date("TIMESTAMP"), // required
- *   Position: [ // Position // required
- *     Number("double"),
- *   ],
- *   Accuracy: { // PositionalAccuracy
- *     Horizontal: Number("double"), // required
- *   },
- *   PositionProperties: { // PropertyMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetDevicePositionResponse
+ * //   DeviceId: "STRING_VALUE",
+ * //   SampleTime: new Date("TIMESTAMP"), // required
+ * //   ReceivedTime: new Date("TIMESTAMP"), // required
+ * //   Position: [ // Position // required
+ * //     Number("double"),
+ * //   ],
+ * //   Accuracy: { // PositionalAccuracy
+ * //     Horizontal: Number("double"), // required
+ * //   },
+ * //   PositionProperties: { // PropertyMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

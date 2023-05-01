@@ -65,25 +65,24 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * };
  * const command = new BatchEvaluateFeatureCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchEvaluateFeatureResponse
- *   results: [ // EvaluationResultsList
- *     { // EvaluationResult
- *       project: "STRING_VALUE",
- *       feature: "STRING_VALUE", // required
- *       variation: "STRING_VALUE",
- *       value: { // VariableValue Union: only one key present
- *         boolValue: true || false,
- *         stringValue: "STRING_VALUE",
- *         longValue: Number("long"),
- *         doubleValue: Number("double"),
- *       },
- *       entityId: "STRING_VALUE", // required
- *       reason: "STRING_VALUE",
- *       details: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchEvaluateFeatureResponse
+ * //   results: [ // EvaluationResultsList
+ * //     { // EvaluationResult
+ * //       project: "STRING_VALUE",
+ * //       feature: "STRING_VALUE", // required
+ * //       variation: "STRING_VALUE",
+ * //       value: { // VariableValue Union: only one key present
+ * //         boolValue: true || false,
+ * //         stringValue: "STRING_VALUE",
+ * //         longValue: Number("long"),
+ * //         doubleValue: Number("double"),
+ * //       },
+ * //       entityId: "STRING_VALUE", // required
+ * //       reason: "STRING_VALUE",
+ * //       details: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

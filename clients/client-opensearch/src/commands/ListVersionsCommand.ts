@@ -46,13 +46,12 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * };
  * const command = new ListVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVersionsResponse
- *   Versions: [ // VersionList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVersionsResponse
+ * //   Versions: [ // VersionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

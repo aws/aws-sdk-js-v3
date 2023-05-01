@@ -48,13 +48,12 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * };
  * const command = new ListCustomMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomMetricsResponse
- *   metricNames: [ // MetricNames
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomMetricsResponse
+ * //   metricNames: [ // MetricNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

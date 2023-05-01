@@ -53,16 +53,15 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * };
  * const command = new ListXssMatchSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListXssMatchSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   XssMatchSets: [ // XssMatchSetSummaries
- *     { // XssMatchSetSummary
- *       XssMatchSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListXssMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   XssMatchSets: [ // XssMatchSetSummaries
+ * //     { // XssMatchSetSummary
+ * //       XssMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -192,16 +192,15 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PolicyARNType
- *   PolicyARN: "STRING_VALUE",
- *   Alarms: [ // Alarms
- *     { // Alarm
- *       AlarmName: "STRING_VALUE",
- *       AlarmARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PolicyARNType
+ * //   PolicyARN: "STRING_VALUE",
+ * //   Alarms: [ // Alarms
+ * //     { // Alarm
+ * //       AlarmName: "STRING_VALUE",
+ * //       AlarmARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

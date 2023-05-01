@@ -53,13 +53,12 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * };
  * const command = new DescribeConnectionLoaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConnectionLoaResponse
- *   loa: { // Loa
- *     loaContent: "BLOB_VALUE",
- *     loaContentType: "application/pdf",
- *   },
- * };
+ * // { // DescribeConnectionLoaResponse
+ * //   loa: { // Loa
+ * //     loaContent: "BLOB_VALUE",
+ * //     loaContentType: "application/pdf",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

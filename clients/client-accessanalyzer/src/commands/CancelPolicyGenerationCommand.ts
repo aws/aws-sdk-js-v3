@@ -44,8 +44,7 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * };
  * const command = new CancelPolicyGenerationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

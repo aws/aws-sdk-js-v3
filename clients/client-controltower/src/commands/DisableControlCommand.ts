@@ -47,10 +47,9 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * };
  * const command = new DisableControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableControlOutput
- *   operationIdentifier: "STRING_VALUE", // required
- * };
+ * // { // DisableControlOutput
+ * //   operationIdentifier: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -47,13 +47,12 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * };
  * const command = new ListTypedLinkFacetNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypedLinkFacetNamesResponse
- *   FacetNames: [ // TypedLinkNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTypedLinkFacetNamesResponse
+ * //   FacetNames: [ // TypedLinkNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

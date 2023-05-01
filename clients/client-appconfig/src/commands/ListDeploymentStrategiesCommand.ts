@@ -45,22 +45,21 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * };
  * const command = new ListDeploymentStrategiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeploymentStrategies
- *   Items: [ // DeploymentStrategyList
- *     { // DeploymentStrategy
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DeploymentDurationInMinutes: Number("int"),
- *       GrowthType: "LINEAR" || "EXPONENTIAL",
- *       GrowthFactor: Number("float"),
- *       FinalBakeTimeInMinutes: Number("int"),
- *       ReplicateTo: "NONE" || "SSM_DOCUMENT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DeploymentStrategies
+ * //   Items: [ // DeploymentStrategyList
+ * //     { // DeploymentStrategy
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DeploymentDurationInMinutes: Number("int"),
+ * //       GrowthType: "LINEAR" || "EXPONENTIAL",
+ * //       GrowthFactor: Number("float"),
+ * //       FinalBakeTimeInMinutes: Number("int"),
+ * //       ReplicateTo: "NONE" || "SSM_DOCUMENT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

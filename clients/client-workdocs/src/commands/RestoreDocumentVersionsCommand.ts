@@ -45,8 +45,7 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * };
  * const command = new RestoreDocumentVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

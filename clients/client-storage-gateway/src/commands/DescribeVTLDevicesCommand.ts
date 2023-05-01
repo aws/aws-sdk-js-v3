@@ -52,25 +52,24 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * };
  * const command = new DescribeVTLDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVTLDevicesOutput
- *   GatewayARN: "STRING_VALUE",
- *   VTLDevices: [ // VTLDevices
- *     { // VTLDevice
- *       VTLDeviceARN: "STRING_VALUE",
- *       VTLDeviceType: "STRING_VALUE",
- *       VTLDeviceVendor: "STRING_VALUE",
- *       VTLDeviceProductIdentifier: "STRING_VALUE",
- *       DeviceiSCSIAttributes: { // DeviceiSCSIAttributes
- *         TargetARN: "STRING_VALUE",
- *         NetworkInterfaceId: "STRING_VALUE",
- *         NetworkInterfacePort: Number("int"),
- *         ChapEnabled: true || false,
- *       },
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeVTLDevicesOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   VTLDevices: [ // VTLDevices
+ * //     { // VTLDevice
+ * //       VTLDeviceARN: "STRING_VALUE",
+ * //       VTLDeviceType: "STRING_VALUE",
+ * //       VTLDeviceVendor: "STRING_VALUE",
+ * //       VTLDeviceProductIdentifier: "STRING_VALUE",
+ * //       DeviceiSCSIAttributes: { // DeviceiSCSIAttributes
+ * //         TargetARN: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         NetworkInterfacePort: Number("int"),
+ * //         ChapEnabled: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

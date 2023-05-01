@@ -80,11 +80,10 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelResponse
- *   ModelArn: "STRING_VALUE",
- *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
- * };
+ * // { // CreateModelResponse
+ * //   ModelArn: "STRING_VALUE",
+ * //   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -45,15 +45,14 @@ export interface ListBrowserSettingsCommandOutput extends ListBrowserSettingsRes
  * };
  * const command = new ListBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBrowserSettingsResponse
- *   browserSettings: [ // BrowserSettingsList
- *     { // BrowserSettingsSummary
- *       browserSettingsArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBrowserSettingsResponse
+ * //   browserSettings: [ // BrowserSettingsList
+ * //     { // BrowserSettingsSummary
+ * //       browserSettingsArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

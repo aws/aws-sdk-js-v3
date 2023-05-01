@@ -70,8 +70,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * };
  * const command = new UpdateInstanceAccessControlAttributeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

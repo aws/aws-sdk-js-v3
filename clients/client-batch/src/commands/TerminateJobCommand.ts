@@ -47,8 +47,7 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * };
  * const command = new TerminateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

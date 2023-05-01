@@ -46,18 +46,17 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * };
  * const command = new ListPageReceiptsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPageReceiptsResult
- *   NextToken: "STRING_VALUE",
- *   Receipts: [ // ReceiptsList
- *     { // Receipt
- *       ContactChannelArn: "STRING_VALUE",
- *       ReceiptType: "DELIVERED" || "ERROR" || "READ" || "SENT" || "STOP", // required
- *       ReceiptInfo: "STRING_VALUE",
- *       ReceiptTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListPageReceiptsResult
+ * //   NextToken: "STRING_VALUE",
+ * //   Receipts: [ // ReceiptsList
+ * //     { // Receipt
+ * //       ContactChannelArn: "STRING_VALUE",
+ * //       ReceiptType: "DELIVERED" || "ERROR" || "READ" || "SENT" || "STOP", // required
+ * //       ReceiptInfo: "STRING_VALUE",
+ * //       ReceiptTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

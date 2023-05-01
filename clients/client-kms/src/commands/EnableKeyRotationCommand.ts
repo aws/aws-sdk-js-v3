@@ -84,8 +84,7 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableKeyRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

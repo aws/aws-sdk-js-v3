@@ -45,12 +45,11 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * };
  * const command = new GetMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMetadataResponse
- *   features: { // FeaturesMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetMetadataResponse
+ * //   features: { // FeaturesMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

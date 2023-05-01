@@ -64,8 +64,7 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * };
  * const command = new TagCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

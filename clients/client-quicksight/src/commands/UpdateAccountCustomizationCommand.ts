@@ -53,18 +53,17 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * };
  * const command = new UpdateAccountCustomizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountCustomizationResponse
- *   Arn: "STRING_VALUE",
- *   AwsAccountId: "STRING_VALUE",
- *   Namespace: "STRING_VALUE",
- *   AccountCustomization: { // AccountCustomization
- *     DefaultTheme: "STRING_VALUE",
- *     DefaultEmailCustomizationTemplate: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateAccountCustomizationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   Namespace: "STRING_VALUE",
+ * //   AccountCustomization: { // AccountCustomization
+ * //     DefaultTheme: "STRING_VALUE",
+ * //     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

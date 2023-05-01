@@ -455,8 +455,7 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTopicRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

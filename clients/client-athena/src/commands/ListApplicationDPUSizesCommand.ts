@@ -46,18 +46,17 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * };
  * const command = new ListApplicationDPUSizesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationDPUSizesOutput
- *   ApplicationDPUSizes: [ // ApplicationDPUSizesList
- *     { // ApplicationDPUSizes
- *       ApplicationRuntimeId: "STRING_VALUE",
- *       SupportedDPUSizes: [ // SupportedDPUSizeList
- *         Number("int"),
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationDPUSizesOutput
+ * //   ApplicationDPUSizes: [ // ApplicationDPUSizesList
+ * //     { // ApplicationDPUSizes
+ * //       ApplicationRuntimeId: "STRING_VALUE",
+ * //       SupportedDPUSizes: [ // SupportedDPUSizeList
+ * //         Number("int"),
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

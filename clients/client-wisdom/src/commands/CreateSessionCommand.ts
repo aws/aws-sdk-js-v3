@@ -52,18 +52,17 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSessionResponse
- *   session: { // SessionData
- *     sessionArn: "STRING_VALUE", // required
- *     sessionId: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateSessionResponse
+ * //   session: { // SessionData
+ * //     sessionArn: "STRING_VALUE", // required
+ * //     sessionId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

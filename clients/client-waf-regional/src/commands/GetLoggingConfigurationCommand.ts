@@ -52,21 +52,20 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * };
  * const command = new GetLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLoggingConfigurationResponse
- *   LoggingConfiguration: { // LoggingConfiguration
- *     ResourceArn: "STRING_VALUE", // required
- *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       "STRING_VALUE",
- *     ],
- *     RedactedFields: [ // RedactedFields
- *       { // FieldToMatch
- *         Type: "STRING_VALUE", // required
- *         Data: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     ResourceArn: "STRING_VALUE", // required
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RedactedFields: [ // RedactedFields
+ * //       { // FieldToMatch
+ * //         Type: "STRING_VALUE", // required
+ * //         Data: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

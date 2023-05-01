@@ -49,8 +49,7 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

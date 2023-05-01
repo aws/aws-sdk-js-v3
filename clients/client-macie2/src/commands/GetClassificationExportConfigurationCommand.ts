@@ -50,16 +50,15 @@ export interface GetClassificationExportConfigurationCommandOutput
  * const input = {};
  * const command = new GetClassificationExportConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClassificationExportConfigurationResponse
- *   configuration: { // ClassificationExportConfiguration
- *     s3Destination: { // S3Destination
- *       bucketName: "STRING_VALUE", // required
- *       keyPrefix: "STRING_VALUE",
- *       kmsKeyArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // GetClassificationExportConfigurationResponse
+ * //   configuration: { // ClassificationExportConfiguration
+ * //     s3Destination: { // S3Destination
+ * //       bucketName: "STRING_VALUE", // required
+ * //       keyPrefix: "STRING_VALUE",
+ * //       kmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

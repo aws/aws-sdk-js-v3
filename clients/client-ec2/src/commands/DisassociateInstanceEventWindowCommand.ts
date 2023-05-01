@@ -66,43 +66,42 @@ export interface DisassociateInstanceEventWindowCommandOutput
  * };
  * const command = new DisassociateInstanceEventWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateInstanceEventWindowResult
- *   InstanceEventWindow: { // InstanceEventWindow
- *     InstanceEventWindowId: "STRING_VALUE",
- *     TimeRanges: [ // InstanceEventWindowTimeRangeList
- *       { // InstanceEventWindowTimeRange
- *         StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
- *         StartHour: Number("int"),
- *         EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
- *         EndHour: Number("int"),
- *       },
- *     ],
- *     Name: "STRING_VALUE",
- *     CronExpression: "STRING_VALUE",
- *     AssociationTarget: { // InstanceEventWindowAssociationTarget
- *       InstanceIds: [ // InstanceIdList
- *         "STRING_VALUE",
- *       ],
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       DedicatedHostIds: [ // DedicatedHostIdList
- *         "STRING_VALUE",
- *       ],
- *     },
- *     State: "creating" || "deleting" || "active" || "deleted",
- *     Tags: [
- *       {
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DisassociateInstanceEventWindowResult
+ * //   InstanceEventWindow: { // InstanceEventWindow
+ * //     InstanceEventWindowId: "STRING_VALUE",
+ * //     TimeRanges: [ // InstanceEventWindowTimeRangeList
+ * //       { // InstanceEventWindowTimeRange
+ * //         StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         StartHour: Number("int"),
+ * //         EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         EndHour: Number("int"),
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     CronExpression: "STRING_VALUE",
+ * //     AssociationTarget: { // InstanceEventWindowAssociationTarget
+ * //       InstanceIds: [ // InstanceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DedicatedHostIds: [ // DedicatedHostIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     State: "creating" || "deleting" || "active" || "deleted",
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

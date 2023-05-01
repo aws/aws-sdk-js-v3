@@ -53,8 +53,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * };
  * const command = new ConfirmTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

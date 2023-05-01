@@ -56,22 +56,21 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * };
  * const command = new DescribeEnvironmentManagedActionHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEnvironmentManagedActionHistoryResult
- *   ManagedActionHistoryItems: [ // ManagedActionHistoryItems
- *     { // ManagedActionHistoryItem
- *       ActionId: "STRING_VALUE",
- *       ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
- *       ActionDescription: "STRING_VALUE",
- *       FailureType: "UpdateCancelled" || "CancellationFailed" || "RollbackFailed" || "RollbackSuccessful" || "InternalFailure" || "InvalidEnvironmentState" || "PermissionsError",
- *       Status: "Completed" || "Failed" || "Unknown",
- *       FailureDescription: "STRING_VALUE",
- *       ExecutedTime: new Date("TIMESTAMP"),
- *       FinishedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeEnvironmentManagedActionHistoryResult
+ * //   ManagedActionHistoryItems: [ // ManagedActionHistoryItems
+ * //     { // ManagedActionHistoryItem
+ * //       ActionId: "STRING_VALUE",
+ * //       ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
+ * //       ActionDescription: "STRING_VALUE",
+ * //       FailureType: "UpdateCancelled" || "CancellationFailed" || "RollbackFailed" || "RollbackSuccessful" || "InternalFailure" || "InvalidEnvironmentState" || "PermissionsError",
+ * //       Status: "Completed" || "Failed" || "Unknown",
+ * //       FailureDescription: "STRING_VALUE",
+ * //       ExecutedTime: new Date("TIMESTAMP"),
+ * //       FinishedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,14 +45,13 @@ export interface GetExtensionCommandOutput extends GetExtensionResult, __Metadat
  * };
  * const command = new GetExtensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetExtensionResult
- *   Extension: { // ExtensionDetails
- *     Namespace: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetExtensionResult
+ * //   Extension: { // ExtensionDetails
+ * //     Namespace: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

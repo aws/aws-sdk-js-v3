@@ -47,20 +47,19 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * };
  * const command = new DescribeSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSnapshotScheduleOutput
- *   VolumeARN: "STRING_VALUE",
- *   StartAt: Number("int"),
- *   RecurrenceInHours: Number("int"),
- *   Description: "STRING_VALUE",
- *   Timezone: "STRING_VALUE",
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // DescribeSnapshotScheduleOutput
+ * //   VolumeARN: "STRING_VALUE",
+ * //   StartAt: Number("int"),
+ * //   RecurrenceInHours: Number("int"),
+ * //   Description: "STRING_VALUE",
+ * //   Timezone: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -53,21 +53,20 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * };
  * const command = new ListImageVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImageVersionsResponse
- *   ImageVersions: [ // ImageVersions
- *     { // ImageVersion
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       FailureReason: "STRING_VALUE",
- *       ImageArn: "STRING_VALUE", // required
- *       ImageVersionArn: "STRING_VALUE", // required
- *       ImageVersionStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       Version: Number("int"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImageVersionsResponse
+ * //   ImageVersions: [ // ImageVersions
+ * //     { // ImageVersion
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       FailureReason: "STRING_VALUE",
+ * //       ImageArn: "STRING_VALUE", // required
+ * //       ImageVersionArn: "STRING_VALUE", // required
+ * //       ImageVersionStatus: "CREATING" || "CREATED" || "CREATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       Version: Number("int"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

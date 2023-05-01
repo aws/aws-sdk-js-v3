@@ -46,8 +46,7 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * };
  * const command = new RemoveRoleFromDBInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -70,11 +70,10 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * };
  * const command = new CreateFindingsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFindingsFilterResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- * };
+ * // { // CreateFindingsFilterResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

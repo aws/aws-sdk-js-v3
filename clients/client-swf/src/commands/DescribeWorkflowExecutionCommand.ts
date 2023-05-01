@@ -76,50 +76,49 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * };
  * const command = new DescribeWorkflowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // WorkflowExecutionDetail
- *   executionInfo: { // WorkflowExecutionInfo
- *     execution: { // WorkflowExecution
- *       workflowId: "STRING_VALUE", // required
- *       runId: "STRING_VALUE", // required
- *     },
- *     workflowType: { // WorkflowType
- *       name: "STRING_VALUE", // required
- *       version: "STRING_VALUE", // required
- *     },
- *     startTimestamp: new Date("TIMESTAMP"), // required
- *     closeTimestamp: new Date("TIMESTAMP"),
- *     executionStatus: "OPEN" || "CLOSED", // required
- *     closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
- *     parent: {
- *       workflowId: "STRING_VALUE", // required
- *       runId: "STRING_VALUE", // required
- *     },
- *     tagList: [ // TagList
- *       "STRING_VALUE",
- *     ],
- *     cancelRequested: true || false,
- *   },
- *   executionConfiguration: { // WorkflowExecutionConfiguration
- *     taskStartToCloseTimeout: "STRING_VALUE", // required
- *     executionStartToCloseTimeout: "STRING_VALUE", // required
- *     taskList: { // TaskList
- *       name: "STRING_VALUE", // required
- *     },
- *     taskPriority: "STRING_VALUE",
- *     childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON", // required
- *     lambdaRole: "STRING_VALUE",
- *   },
- *   openCounts: { // WorkflowExecutionOpenCounts
- *     openActivityTasks: Number("int"), // required
- *     openDecisionTasks: Number("int"), // required
- *     openTimers: Number("int"), // required
- *     openChildWorkflowExecutions: Number("int"), // required
- *     openLambdaFunctions: Number("int"),
- *   },
- *   latestActivityTaskTimestamp: new Date("TIMESTAMP"),
- *   latestExecutionContext: "STRING_VALUE",
- * };
+ * // { // WorkflowExecutionDetail
+ * //   executionInfo: { // WorkflowExecutionInfo
+ * //     execution: { // WorkflowExecution
+ * //       workflowId: "STRING_VALUE", // required
+ * //       runId: "STRING_VALUE", // required
+ * //     },
+ * //     workflowType: { // WorkflowType
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //     startTimestamp: new Date("TIMESTAMP"), // required
+ * //     closeTimestamp: new Date("TIMESTAMP"),
+ * //     executionStatus: "OPEN" || "CLOSED", // required
+ * //     closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
+ * //     parent: {
+ * //       workflowId: "STRING_VALUE", // required
+ * //       runId: "STRING_VALUE", // required
+ * //     },
+ * //     tagList: [ // TagList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     cancelRequested: true || false,
+ * //   },
+ * //   executionConfiguration: { // WorkflowExecutionConfiguration
+ * //     taskStartToCloseTimeout: "STRING_VALUE", // required
+ * //     executionStartToCloseTimeout: "STRING_VALUE", // required
+ * //     taskList: { // TaskList
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     taskPriority: "STRING_VALUE",
+ * //     childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON", // required
+ * //     lambdaRole: "STRING_VALUE",
+ * //   },
+ * //   openCounts: { // WorkflowExecutionOpenCounts
+ * //     openActivityTasks: Number("int"), // required
+ * //     openDecisionTasks: Number("int"), // required
+ * //     openTimers: Number("int"), // required
+ * //     openChildWorkflowExecutions: Number("int"), // required
+ * //     openLambdaFunctions: Number("int"),
+ * //   },
+ * //   latestActivityTaskTimestamp: new Date("TIMESTAMP"),
+ * //   latestExecutionContext: "STRING_VALUE",
+ * // };
  *
  * ```
  *

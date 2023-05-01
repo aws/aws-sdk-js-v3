@@ -46,10 +46,9 @@ export interface GetCalculationExecutionCodeCommandOutput
  * };
  * const command = new GetCalculationExecutionCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCalculationExecutionCodeResponse
- *   CodeBlock: "STRING_VALUE",
- * };
+ * // { // GetCalculationExecutionCodeResponse
+ * //   CodeBlock: "STRING_VALUE",
+ * // };
  *
  * ```
  *

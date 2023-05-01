@@ -99,15 +99,14 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * };
  * const command = new UpdateThemeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateThemeResponse
- *   ThemeId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   VersionArn: "STRING_VALUE",
- *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // UpdateThemeResponse
+ * //   ThemeId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   VersionArn: "STRING_VALUE",
+ * //   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

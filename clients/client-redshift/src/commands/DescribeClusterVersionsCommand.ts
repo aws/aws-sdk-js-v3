@@ -52,17 +52,16 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterVersionsMessage
- *   Marker: "STRING_VALUE",
- *   ClusterVersions: [ // ClusterVersionList
- *     { // ClusterVersion
- *       ClusterVersion: "STRING_VALUE",
- *       ClusterParameterGroupFamily: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ClusterVersionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ClusterVersions: [ // ClusterVersionList
+ * //     { // ClusterVersion
+ * //       ClusterVersion: "STRING_VALUE",
+ * //       ClusterParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

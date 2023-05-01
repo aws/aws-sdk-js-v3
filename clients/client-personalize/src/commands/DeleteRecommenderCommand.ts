@@ -45,8 +45,7 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecommenderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

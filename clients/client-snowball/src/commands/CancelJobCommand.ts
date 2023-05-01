@@ -47,8 +47,7 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

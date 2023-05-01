@@ -56,16 +56,15 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * };
  * const command = new BatchDeleteImportDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteImportDataResponse
- *   errors: [ // BatchDeleteImportDataErrorList
- *     { // BatchDeleteImportDataError
- *       importTaskId: "STRING_VALUE",
- *       errorCode: "NOT_FOUND" || "INTERNAL_SERVER_ERROR" || "OVER_LIMIT",
- *       errorDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteImportDataResponse
+ * //   errors: [ // BatchDeleteImportDataErrorList
+ * //     { // BatchDeleteImportDataError
+ * //       importTaskId: "STRING_VALUE",
+ * //       errorCode: "NOT_FOUND" || "INTERNAL_SERVER_ERROR" || "OVER_LIMIT",
+ * //       errorDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

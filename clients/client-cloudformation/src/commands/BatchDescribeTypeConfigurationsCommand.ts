@@ -60,42 +60,41 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * };
  * const command = new BatchDescribeTypeConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDescribeTypeConfigurationsOutput
- *   Errors: [ // BatchDescribeTypeConfigurationsErrors
- *     { // BatchDescribeTypeConfigurationsError
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       TypeConfigurationIdentifier: { // TypeConfigurationIdentifier
- *         TypeArn: "STRING_VALUE",
- *         TypeConfigurationAlias: "STRING_VALUE",
- *         TypeConfigurationArn: "STRING_VALUE",
- *         Type: "RESOURCE" || "MODULE" || "HOOK",
- *         TypeName: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   UnprocessedTypeConfigurations: [ // UnprocessedTypeConfigurations
- *     {
- *       TypeArn: "STRING_VALUE",
- *       TypeConfigurationAlias: "STRING_VALUE",
- *       TypeConfigurationArn: "STRING_VALUE",
- *       Type: "RESOURCE" || "MODULE" || "HOOK",
- *       TypeName: "STRING_VALUE",
- *     },
- *   ],
- *   TypeConfigurations: [ // TypeConfigurationDetailsList
- *     { // TypeConfigurationDetails
- *       Arn: "STRING_VALUE",
- *       Alias: "STRING_VALUE",
- *       Configuration: "STRING_VALUE",
- *       LastUpdated: new Date("TIMESTAMP"),
- *       TypeArn: "STRING_VALUE",
- *       TypeName: "STRING_VALUE",
- *       IsDefaultConfiguration: true || false,
- *     },
- *   ],
- * };
+ * // { // BatchDescribeTypeConfigurationsOutput
+ * //   Errors: [ // BatchDescribeTypeConfigurationsErrors
+ * //     { // BatchDescribeTypeConfigurationsError
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       TypeConfigurationIdentifier: { // TypeConfigurationIdentifier
+ * //         TypeArn: "STRING_VALUE",
+ * //         TypeConfigurationAlias: "STRING_VALUE",
+ * //         TypeConfigurationArn: "STRING_VALUE",
+ * //         Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //         TypeName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   UnprocessedTypeConfigurations: [ // UnprocessedTypeConfigurations
+ * //     {
+ * //       TypeArn: "STRING_VALUE",
+ * //       TypeConfigurationAlias: "STRING_VALUE",
+ * //       TypeConfigurationArn: "STRING_VALUE",
+ * //       Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //       TypeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TypeConfigurations: [ // TypeConfigurationDetailsList
+ * //     { // TypeConfigurationDetails
+ * //       Arn: "STRING_VALUE",
+ * //       Alias: "STRING_VALUE",
+ * //       Configuration: "STRING_VALUE",
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       TypeArn: "STRING_VALUE",
+ * //       TypeName: "STRING_VALUE",
+ * //       IsDefaultConfiguration: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -86,10 +86,9 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * };
  * const command = new SendBounceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendBounceResponse
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // SendBounceResponse
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

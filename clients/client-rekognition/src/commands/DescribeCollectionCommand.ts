@@ -48,13 +48,12 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * };
  * const command = new DescribeCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCollectionResponse
- *   FaceCount: Number("long"),
- *   FaceModelVersion: "STRING_VALUE",
- *   CollectionARN: "STRING_VALUE",
- *   CreationTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeCollectionResponse
+ * //   FaceCount: Number("long"),
+ * //   FaceModelVersion: "STRING_VALUE",
+ * //   CollectionARN: "STRING_VALUE",
+ * //   CreationTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

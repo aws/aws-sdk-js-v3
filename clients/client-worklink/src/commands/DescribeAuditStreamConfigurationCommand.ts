@@ -51,10 +51,9 @@ export interface DescribeAuditStreamConfigurationCommandOutput
  * };
  * const command = new DescribeAuditStreamConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAuditStreamConfigurationResponse
- *   AuditStreamArn: "STRING_VALUE",
- * };
+ * // { // DescribeAuditStreamConfigurationResponse
+ * //   AuditStreamArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

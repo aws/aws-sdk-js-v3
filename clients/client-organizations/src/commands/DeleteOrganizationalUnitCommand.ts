@@ -46,8 +46,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

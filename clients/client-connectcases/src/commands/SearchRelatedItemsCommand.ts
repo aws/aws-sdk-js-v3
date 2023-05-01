@@ -62,31 +62,30 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * };
  * const command = new SearchRelatedItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchRelatedItemsResponse
- *   nextToken: "STRING_VALUE",
- *   relatedItems: [ // SearchRelatedItemsResponseItemList // required
- *     { // SearchRelatedItemsResponseItem
- *       relatedItemId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       associationTime: new Date("TIMESTAMP"), // required
- *       content: { // RelatedItemContent Union: only one key present
- *         contact: { // ContactContent
- *           contactArn: "STRING_VALUE", // required
- *           channel: "STRING_VALUE", // required
- *           connectedToSystemTime: new Date("TIMESTAMP"), // required
- *         },
- *         comment: { // CommentContent
- *           body: "STRING_VALUE", // required
- *           contentType: "STRING_VALUE", // required
- *         },
- *       },
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // SearchRelatedItemsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   relatedItems: [ // SearchRelatedItemsResponseItemList // required
+ * //     { // SearchRelatedItemsResponseItem
+ * //       relatedItemId: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       associationTime: new Date("TIMESTAMP"), // required
+ * //       content: { // RelatedItemContent Union: only one key present
+ * //         contact: { // ContactContent
+ * //           contactArn: "STRING_VALUE", // required
+ * //           channel: "STRING_VALUE", // required
+ * //           connectedToSystemTime: new Date("TIMESTAMP"), // required
+ * //         },
+ * //         comment: { // CommentContent
+ * //           body: "STRING_VALUE", // required
+ * //           contentType: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

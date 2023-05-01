@@ -52,12 +52,11 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * const input = {};
  * const command = new ListAvailableZonesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableZonesResponse
- *   AZList: [ // AZList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListAvailableZonesResponse
+ * //   AZList: [ // AZList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

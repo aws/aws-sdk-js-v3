@@ -62,35 +62,34 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGlobalClusterResult
- *   GlobalCluster: { // GlobalCluster
- *     GlobalClusterIdentifier: "STRING_VALUE",
- *     GlobalClusterResourceId: "STRING_VALUE",
- *     GlobalClusterArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Engine: "STRING_VALUE",
- *     EngineVersion: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     StorageEncrypted: true || false,
- *     DeletionProtection: true || false,
- *     GlobalClusterMembers: [ // GlobalClusterMemberList
- *       { // GlobalClusterMember
- *         DBClusterArn: "STRING_VALUE",
- *         Readers: [ // ReadersArnList
- *           "STRING_VALUE",
- *         ],
- *         IsWriter: true || false,
- *         GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
- *       },
- *     ],
- *     FailoverState: { // FailoverState
- *       Status: "pending" || "failing-over" || "cancelling",
- *       FromDbClusterArn: "STRING_VALUE",
- *       ToDbClusterArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateGlobalClusterResult
+ * //   GlobalCluster: { // GlobalCluster
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     GlobalClusterResourceId: "STRING_VALUE",
+ * //     GlobalClusterArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineVersion: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     StorageEncrypted: true || false,
+ * //     DeletionProtection: true || false,
+ * //     GlobalClusterMembers: [ // GlobalClusterMemberList
+ * //       { // GlobalClusterMember
+ * //         DBClusterArn: "STRING_VALUE",
+ * //         Readers: [ // ReadersArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IsWriter: true || false,
+ * //         GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
+ * //       },
+ * //     ],
+ * //     FailoverState: { // FailoverState
+ * //       Status: "pending" || "failing-over" || "cancelling",
+ * //       FromDbClusterArn: "STRING_VALUE",
+ * //       ToDbClusterArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

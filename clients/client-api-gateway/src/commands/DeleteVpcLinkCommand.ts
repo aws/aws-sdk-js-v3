@@ -44,8 +44,7 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

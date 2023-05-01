@@ -54,10 +54,9 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProjectResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // CreateProjectResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

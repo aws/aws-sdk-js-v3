@@ -47,18 +47,17 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * };
  * const command = new ListOutpostsWithS3Command(input);
  * const response = await client.send(command);
- * /**
- * { // ListOutpostsWithS3Result
- *   Outposts: [ // Outposts
- *     { // Outpost
- *       OutpostArn: "STRING_VALUE",
- *       OutpostId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       CapacityInBytes: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOutpostsWithS3Result
+ * //   Outposts: [ // Outposts
+ * //     { // Outpost
+ * //       OutpostArn: "STRING_VALUE",
+ * //       OutpostId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       CapacityInBytes: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

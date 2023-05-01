@@ -51,8 +51,7 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * };
  * const command = new RejectQualificationRequestCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

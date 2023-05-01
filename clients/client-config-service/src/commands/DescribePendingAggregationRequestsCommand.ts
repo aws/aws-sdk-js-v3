@@ -53,16 +53,15 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * };
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePendingAggregationRequestsResponse
- *   PendingAggregationRequests: [ // PendingAggregationRequestList
- *     { // PendingAggregationRequest
- *       RequesterAccountId: "STRING_VALUE",
- *       RequesterAwsRegion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePendingAggregationRequestsResponse
+ * //   PendingAggregationRequests: [ // PendingAggregationRequestList
+ * //     { // PendingAggregationRequest
+ * //       RequesterAccountId: "STRING_VALUE",
+ * //       RequesterAwsRegion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

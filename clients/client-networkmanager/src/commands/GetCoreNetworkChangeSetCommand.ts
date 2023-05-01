@@ -47,48 +47,47 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * };
  * const command = new GetCoreNetworkChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoreNetworkChangeSetResponse
- *   CoreNetworkChanges: [ // CoreNetworkChangeList
- *     { // CoreNetworkChange
- *       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
- *       Action: "ADD" || "MODIFY" || "REMOVE",
- *       Identifier: "STRING_VALUE",
- *       PreviousValues: { // CoreNetworkChangeValues
- *         SegmentName: "STRING_VALUE",
- *         EdgeLocations: [ // ExternalRegionCodeList
- *           "STRING_VALUE",
- *         ],
- *         Asn: Number("long"),
- *         Cidr: "STRING_VALUE",
- *         DestinationIdentifier: "STRING_VALUE",
- *         InsideCidrBlocks: [ // ConstrainedStringList
- *           "STRING_VALUE",
- *         ],
- *         SharedSegments: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       NewValues: {
- *         SegmentName: "STRING_VALUE",
- *         EdgeLocations: [
- *           "STRING_VALUE",
- *         ],
- *         Asn: Number("long"),
- *         Cidr: "STRING_VALUE",
- *         DestinationIdentifier: "STRING_VALUE",
- *         InsideCidrBlocks: [
- *           "STRING_VALUE",
- *         ],
- *         SharedSegments: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       IdentifierPath: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCoreNetworkChangeSetResponse
+ * //   CoreNetworkChanges: [ // CoreNetworkChangeList
+ * //     { // CoreNetworkChange
+ * //       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
+ * //       Action: "ADD" || "MODIFY" || "REMOVE",
+ * //       Identifier: "STRING_VALUE",
+ * //       PreviousValues: { // CoreNetworkChangeValues
+ * //         SegmentName: "STRING_VALUE",
+ * //         EdgeLocations: [ // ExternalRegionCodeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Asn: Number("long"),
+ * //         Cidr: "STRING_VALUE",
+ * //         DestinationIdentifier: "STRING_VALUE",
+ * //         InsideCidrBlocks: [ // ConstrainedStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SharedSegments: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       NewValues: {
+ * //         SegmentName: "STRING_VALUE",
+ * //         EdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Asn: Number("long"),
+ * //         Cidr: "STRING_VALUE",
+ * //         DestinationIdentifier: "STRING_VALUE",
+ * //         InsideCidrBlocks: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SharedSegments: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       IdentifierPath: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

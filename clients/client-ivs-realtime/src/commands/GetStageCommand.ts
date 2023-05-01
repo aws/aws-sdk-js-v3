@@ -44,17 +44,16 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStageResponse
- *   stage: { // Stage
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE",
- *     activeSessionId: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetStageResponse
+ * //   stage: { // Stage
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     activeSessionId: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

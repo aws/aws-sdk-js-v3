@@ -49,10 +49,9 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * };
  * const command = new RetrieveDomainAuthCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetrieveDomainAuthCodeResponse
- *   AuthCode: "STRING_VALUE",
- * };
+ * // { // RetrieveDomainAuthCodeResponse
+ * //   AuthCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

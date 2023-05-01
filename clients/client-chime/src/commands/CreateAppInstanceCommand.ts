@@ -57,10 +57,9 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * };
  * const command = new CreateAppInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppInstanceResponse
- *   AppInstanceArn: "STRING_VALUE",
- * };
+ * // { // CreateAppInstanceResponse
+ * //   AppInstanceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

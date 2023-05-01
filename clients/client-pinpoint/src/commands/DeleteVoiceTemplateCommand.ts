@@ -45,13 +45,12 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * };
  * const command = new DeleteVoiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVoiceTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteVoiceTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

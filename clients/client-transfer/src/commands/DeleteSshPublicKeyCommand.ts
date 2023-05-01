@@ -46,8 +46,7 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteSshPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

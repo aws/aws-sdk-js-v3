@@ -47,12 +47,11 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * };
  * const command = new PutBackupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BackupPolicyDescription
- *   BackupPolicy: { // BackupPolicy
- *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
- *   },
- * };
+ * // { // BackupPolicyDescription
+ * //   BackupPolicy: { // BackupPolicy
+ * //     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING", // required
+ * //   },
+ * // };
  *
  * ```
  *

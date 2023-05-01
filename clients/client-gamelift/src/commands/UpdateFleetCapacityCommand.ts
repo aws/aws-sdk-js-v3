@@ -92,12 +92,11 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * };
  * const command = new UpdateFleetCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFleetCapacityOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- *   Location: "STRING_VALUE",
- * };
+ * // { // UpdateFleetCapacityOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * //   Location: "STRING_VALUE",
+ * // };
  *
  * ```
  *

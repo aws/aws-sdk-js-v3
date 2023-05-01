@@ -66,156 +66,155 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  * };
  * const command = new GetAccountAuthorizationDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountAuthorizationDetailsResponse
- *   UserDetailList: [ // userDetailListType
- *     { // UserDetail
- *       Path: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       UserId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       UserPolicyList: [ // policyDetailListType
- *         { // PolicyDetail
- *           PolicyName: "STRING_VALUE",
- *           PolicyDocument: "STRING_VALUE",
- *         },
- *       ],
- *       GroupList: [ // groupNameListType
- *         "STRING_VALUE",
- *       ],
- *       AttachedManagedPolicies: [ // attachedPoliciesListType
- *         { // AttachedPolicy
- *           PolicyName: "STRING_VALUE",
- *           PolicyArn: "STRING_VALUE",
- *         },
- *       ],
- *       PermissionsBoundary: { // AttachedPermissionsBoundary
- *         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *         PermissionsBoundaryArn: "STRING_VALUE",
- *       },
- *       Tags: [ // tagListType
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   GroupDetailList: [ // groupDetailListType
- *     { // GroupDetail
- *       Path: "STRING_VALUE",
- *       GroupName: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       GroupPolicyList: [
- *         {
- *           PolicyName: "STRING_VALUE",
- *           PolicyDocument: "STRING_VALUE",
- *         },
- *       ],
- *       AttachedManagedPolicies: [
- *         {
- *           PolicyName: "STRING_VALUE",
- *           PolicyArn: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   RoleDetailList: [ // roleDetailListType
- *     { // RoleDetail
- *       Path: "STRING_VALUE",
- *       RoleName: "STRING_VALUE",
- *       RoleId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       AssumeRolePolicyDocument: "STRING_VALUE",
- *       InstanceProfileList: [ // instanceProfileListType
- *         { // InstanceProfile
- *           Path: "STRING_VALUE", // required
- *           InstanceProfileName: "STRING_VALUE", // required
- *           InstanceProfileId: "STRING_VALUE", // required
- *           Arn: "STRING_VALUE", // required
- *           CreateDate: new Date("TIMESTAMP"), // required
- *           Roles: [ // roleListType // required
- *             { // Role
- *               Path: "STRING_VALUE", // required
- *               RoleName: "STRING_VALUE", // required
- *               RoleId: "STRING_VALUE", // required
- *               Arn: "STRING_VALUE", // required
- *               CreateDate: new Date("TIMESTAMP"), // required
- *               AssumeRolePolicyDocument: "STRING_VALUE",
- *               Description: "STRING_VALUE",
- *               MaxSessionDuration: Number("int"),
- *               PermissionsBoundary: {
- *                 PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *                 PermissionsBoundaryArn: "STRING_VALUE",
- *               },
- *               Tags: [
- *                 {
- *                   Key: "STRING_VALUE", // required
- *                   Value: "STRING_VALUE", // required
- *                 },
- *               ],
- *               RoleLastUsed: { // RoleLastUsed
- *                 LastUsedDate: new Date("TIMESTAMP"),
- *                 Region: "STRING_VALUE",
- *               },
- *             },
- *           ],
- *           Tags: "<tagListType>",
- *         },
- *       ],
- *       RolePolicyList: [
- *         {
- *           PolicyName: "STRING_VALUE",
- *           PolicyDocument: "STRING_VALUE",
- *         },
- *       ],
- *       AttachedManagedPolicies: [
- *         {
- *           PolicyName: "STRING_VALUE",
- *           PolicyArn: "STRING_VALUE",
- *         },
- *       ],
- *       PermissionsBoundary: {
- *         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
- *         PermissionsBoundaryArn: "STRING_VALUE",
- *       },
- *       Tags: "<tagListType>",
- *       RoleLastUsed: {
- *         LastUsedDate: new Date("TIMESTAMP"),
- *         Region: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Policies: [ // ManagedPolicyDetailListType
- *     { // ManagedPolicyDetail
- *       PolicyName: "STRING_VALUE",
- *       PolicyId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Path: "STRING_VALUE",
- *       DefaultVersionId: "STRING_VALUE",
- *       AttachmentCount: Number("int"),
- *       PermissionsBoundaryUsageCount: Number("int"),
- *       IsAttachable: true || false,
- *       Description: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       UpdateDate: new Date("TIMESTAMP"),
- *       PolicyVersionList: [ // policyDocumentVersionListType
- *         { // PolicyVersion
- *           Document: "STRING_VALUE",
- *           VersionId: "STRING_VALUE",
- *           IsDefaultVersion: true || false,
- *           CreateDate: new Date("TIMESTAMP"),
- *         },
- *       ],
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // GetAccountAuthorizationDetailsResponse
+ * //   UserDetailList: [ // userDetailListType
+ * //     { // UserDetail
+ * //       Path: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       UserId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       UserPolicyList: [ // policyDetailListType
+ * //         { // PolicyDetail
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyDocument: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       GroupList: [ // groupNameListType
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AttachedManagedPolicies: [ // attachedPoliciesListType
+ * //         { // AttachedPolicy
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PermissionsBoundary: { // AttachedPermissionsBoundary
+ * //         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //         PermissionsBoundaryArn: "STRING_VALUE",
+ * //       },
+ * //       Tags: [ // tagListType
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   GroupDetailList: [ // groupDetailListType
+ * //     { // GroupDetail
+ * //       Path: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       GroupPolicyList: [
+ * //         {
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyDocument: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AttachedManagedPolicies: [
+ * //         {
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RoleDetailList: [ // roleDetailListType
+ * //     { // RoleDetail
+ * //       Path: "STRING_VALUE",
+ * //       RoleName: "STRING_VALUE",
+ * //       RoleId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       AssumeRolePolicyDocument: "STRING_VALUE",
+ * //       InstanceProfileList: [ // instanceProfileListType
+ * //         { // InstanceProfile
+ * //           Path: "STRING_VALUE", // required
+ * //           InstanceProfileName: "STRING_VALUE", // required
+ * //           InstanceProfileId: "STRING_VALUE", // required
+ * //           Arn: "STRING_VALUE", // required
+ * //           CreateDate: new Date("TIMESTAMP"), // required
+ * //           Roles: [ // roleListType // required
+ * //             { // Role
+ * //               Path: "STRING_VALUE", // required
+ * //               RoleName: "STRING_VALUE", // required
+ * //               RoleId: "STRING_VALUE", // required
+ * //               Arn: "STRING_VALUE", // required
+ * //               CreateDate: new Date("TIMESTAMP"), // required
+ * //               AssumeRolePolicyDocument: "STRING_VALUE",
+ * //               Description: "STRING_VALUE",
+ * //               MaxSessionDuration: Number("int"),
+ * //               PermissionsBoundary: {
+ * //                 PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //                 PermissionsBoundaryArn: "STRING_VALUE",
+ * //               },
+ * //               Tags: [
+ * //                 {
+ * //                   Key: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //               RoleLastUsed: { // RoleLastUsed
+ * //                 LastUsedDate: new Date("TIMESTAMP"),
+ * //                 Region: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           Tags: "<tagListType>",
+ * //         },
+ * //       ],
+ * //       RolePolicyList: [
+ * //         {
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyDocument: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AttachedManagedPolicies: [
+ * //         {
+ * //           PolicyName: "STRING_VALUE",
+ * //           PolicyArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PermissionsBoundary: {
+ * //         PermissionsBoundaryType: "PermissionsBoundaryPolicy",
+ * //         PermissionsBoundaryArn: "STRING_VALUE",
+ * //       },
+ * //       Tags: "<tagListType>",
+ * //       RoleLastUsed: {
+ * //         LastUsedDate: new Date("TIMESTAMP"),
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Policies: [ // ManagedPolicyDetailListType
+ * //     { // ManagedPolicyDetail
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
+ * //       DefaultVersionId: "STRING_VALUE",
+ * //       AttachmentCount: Number("int"),
+ * //       PermissionsBoundaryUsageCount: Number("int"),
+ * //       IsAttachable: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       UpdateDate: new Date("TIMESTAMP"),
+ * //       PolicyVersionList: [ // policyDocumentVersionListType
+ * //         { // PolicyVersion
+ * //           Document: "STRING_VALUE",
+ * //           VersionId: "STRING_VALUE",
+ * //           IsDefaultVersion: true || false,
+ * //           CreateDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

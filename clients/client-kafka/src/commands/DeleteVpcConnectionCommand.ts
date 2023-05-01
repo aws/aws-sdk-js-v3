@@ -44,11 +44,10 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  * };
  * const command = new DeleteVpcConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcConnectionResponse
- *   VpcConnectionArn: "STRING_VALUE",
- *   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
- * };
+ * // { // DeleteVpcConnectionResponse
+ * //   VpcConnectionArn: "STRING_VALUE",
+ * //   State: "CREATING" || "AVAILABLE" || "INACTIVE" || "DEACTIVATING" || "DELETING" || "FAILED" || "REJECTED" || "REJECTING",
+ * // };
  *
  * ```
  *

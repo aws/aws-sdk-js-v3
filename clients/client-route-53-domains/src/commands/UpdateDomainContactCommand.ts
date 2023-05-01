@@ -120,10 +120,9 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * };
  * const command = new UpdateDomainContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainContactResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdateDomainContactResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

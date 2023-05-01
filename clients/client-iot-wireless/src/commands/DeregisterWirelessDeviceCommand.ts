@@ -45,8 +45,7 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  * };
  * const command = new DeregisterWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

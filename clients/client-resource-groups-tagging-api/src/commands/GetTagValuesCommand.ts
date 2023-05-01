@@ -56,13 +56,12 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * };
  * const command = new GetTagValuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTagValuesOutput
- *   PaginationToken: "STRING_VALUE",
- *   TagValues: [ // TagValuesOutputList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetTagValuesOutput
+ * //   PaginationToken: "STRING_VALUE",
+ * //   TagValues: [ // TagValuesOutputList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,15 +46,14 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * };
  * const command = new ListTagsForCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForCertificateResponse
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListTagsForCertificateResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

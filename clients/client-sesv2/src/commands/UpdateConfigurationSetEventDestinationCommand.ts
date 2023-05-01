@@ -85,8 +85,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * };
  * const command = new UpdateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

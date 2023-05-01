@@ -81,22 +81,21 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * };
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLoggingConfigurationResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   LoggingConfiguration: { // LoggingConfiguration
- *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       { // LogDestinationConfig
- *         LogType: "ALERT" || "FLOW", // required
- *         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
- *         LogDestination: { // LogDestinationMap // required
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateLoggingConfigurationResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       { // LogDestinationConfig
+ * //         LogType: "ALERT" || "FLOW", // required
+ * //         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
+ * //         LogDestination: { // LogDestinationMap // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

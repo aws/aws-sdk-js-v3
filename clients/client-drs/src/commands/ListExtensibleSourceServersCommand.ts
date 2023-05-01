@@ -58,19 +58,18 @@ export interface ListExtensibleSourceServersCommandOutput
  * };
  * const command = new ListExtensibleSourceServersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExtensibleSourceServersResponse
- *   items: [ // StagingSourceServersList
- *     { // StagingSourceServer
- *       hostname: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       tags: { // TagsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListExtensibleSourceServersResponse
+ * //   items: [ // StagingSourceServersList
+ * //     { // StagingSourceServer
+ * //       hostname: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       tags: { // TagsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

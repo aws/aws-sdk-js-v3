@@ -64,10 +64,9 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * };
  * const command = new AssociateDelegationSignerToDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateDelegationSignerToDomainResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // AssociateDelegationSignerToDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

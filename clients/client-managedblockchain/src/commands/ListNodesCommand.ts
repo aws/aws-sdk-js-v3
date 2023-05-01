@@ -53,20 +53,19 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNodesOutput
- *   Nodes: [ // NodeSummaryList
- *     { // NodeSummary
- *       Id: "STRING_VALUE",
- *       Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",
- *       CreationDate: new Date("TIMESTAMP"),
- *       AvailabilityZone: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNodesOutput
+ * //   Nodes: [ // NodeSummaryList
+ * //     { // NodeSummary
+ * //       Id: "STRING_VALUE",
+ * //       Status: "CREATING" || "AVAILABLE" || "UNHEALTHY" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETED" || "FAILED" || "INACCESSIBLE_ENCRYPTION_KEY",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

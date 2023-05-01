@@ -56,10 +56,9 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * };
  * const command = new StartStreamProcessorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartStreamProcessorResponse
- *   SessionId: "STRING_VALUE",
- * };
+ * // { // StartStreamProcessorResponse
+ * //   SessionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

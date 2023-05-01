@@ -57,11 +57,10 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * };
  * const command = new CreateCustomMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomMetricResponse
- *   metricName: "STRING_VALUE",
- *   metricArn: "STRING_VALUE",
- * };
+ * // { // CreateCustomMetricResponse
+ * //   metricName: "STRING_VALUE",
+ * //   metricArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

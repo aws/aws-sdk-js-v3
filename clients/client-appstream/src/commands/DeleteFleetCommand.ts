@@ -44,8 +44,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

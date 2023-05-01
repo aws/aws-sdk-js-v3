@@ -187,92 +187,91 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * };
  * const command = new UpdateMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMaintenanceWindowTaskResult
- *   WindowId: "STRING_VALUE",
- *   WindowTaskId: "STRING_VALUE",
- *   Targets: [ // Targets
- *     { // Target
- *       Key: "STRING_VALUE",
- *       Values: [ // TargetValues
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   TaskArn: "STRING_VALUE",
- *   ServiceRoleArn: "STRING_VALUE",
- *   TaskParameters: { // MaintenanceWindowTaskParameters
- *     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
- *       Values: [ // MaintenanceWindowTaskParameterValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- *   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
- *     RunCommand: { // MaintenanceWindowRunCommandParameters
- *       Comment: "STRING_VALUE",
- *       CloudWatchOutputConfig: { // CloudWatchOutputConfig
- *         CloudWatchLogGroupName: "STRING_VALUE",
- *         CloudWatchOutputEnabled: true || false,
- *       },
- *       DocumentHash: "STRING_VALUE",
- *       DocumentHashType: "Sha256" || "Sha1",
- *       DocumentVersion: "STRING_VALUE",
- *       NotificationConfig: { // NotificationConfig
- *         NotificationArn: "STRING_VALUE",
- *         NotificationEvents: [ // NotificationEventList
- *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
- *         ],
- *         NotificationType: "Command" || "Invocation",
- *       },
- *       OutputS3BucketName: "STRING_VALUE",
- *       OutputS3KeyPrefix: "STRING_VALUE",
- *       Parameters: { // Parameters
- *         "<keys>": [ // ParameterValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       ServiceRoleArn: "STRING_VALUE",
- *       TimeoutSeconds: Number("int"),
- *     },
- *     Automation: { // MaintenanceWindowAutomationParameters
- *       DocumentVersion: "STRING_VALUE",
- *       Parameters: { // AutomationParameterMap
- *         "<keys>": [ // AutomationParameterValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
- *       Input: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     Lambda: { // MaintenanceWindowLambdaParameters
- *       ClientContext: "STRING_VALUE",
- *       Qualifier: "STRING_VALUE",
- *       Payload: "BLOB_VALUE",
- *     },
- *   },
- *   Priority: Number("int"),
- *   MaxConcurrency: "STRING_VALUE",
- *   MaxErrors: "STRING_VALUE",
- *   LoggingInfo: { // LoggingInfo
- *     S3BucketName: "STRING_VALUE", // required
- *     S3KeyPrefix: "STRING_VALUE",
- *     S3Region: "STRING_VALUE", // required
- *   },
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
- *   AlarmConfiguration: { // AlarmConfiguration
- *     IgnorePollAlarmFailure: true || false,
- *     Alarms: [ // AlarmList // required
- *       { // Alarm
- *         Name: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateMaintenanceWindowTaskResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTaskId: "STRING_VALUE",
+ * //   Targets: [ // Targets
+ * //     { // Target
+ * //       Key: "STRING_VALUE",
+ * //       Values: [ // TargetValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   TaskArn: "STRING_VALUE",
+ * //   ServiceRoleArn: "STRING_VALUE",
+ * //   TaskParameters: { // MaintenanceWindowTaskParameters
+ * //     "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ * //       Values: [ // MaintenanceWindowTaskParameterValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   TaskInvocationParameters: { // MaintenanceWindowTaskInvocationParameters
+ * //     RunCommand: { // MaintenanceWindowRunCommandParameters
+ * //       Comment: "STRING_VALUE",
+ * //       CloudWatchOutputConfig: { // CloudWatchOutputConfig
+ * //         CloudWatchLogGroupName: "STRING_VALUE",
+ * //         CloudWatchOutputEnabled: true || false,
+ * //       },
+ * //       DocumentHash: "STRING_VALUE",
+ * //       DocumentHashType: "Sha256" || "Sha1",
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       NotificationConfig: { // NotificationConfig
+ * //         NotificationArn: "STRING_VALUE",
+ * //         NotificationEvents: [ // NotificationEventList
+ * //           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ * //         ],
+ * //         NotificationType: "Command" || "Invocation",
+ * //       },
+ * //       OutputS3BucketName: "STRING_VALUE",
+ * //       OutputS3KeyPrefix: "STRING_VALUE",
+ * //       Parameters: { // Parameters
+ * //         "<keys>": [ // ParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ServiceRoleArn: "STRING_VALUE",
+ * //       TimeoutSeconds: Number("int"),
+ * //     },
+ * //     Automation: { // MaintenanceWindowAutomationParameters
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       Parameters: { // AutomationParameterMap
+ * //         "<keys>": [ // AutomationParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     StepFunctions: { // MaintenanceWindowStepFunctionsParameters
+ * //       Input: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Lambda: { // MaintenanceWindowLambdaParameters
+ * //       ClientContext: "STRING_VALUE",
+ * //       Qualifier: "STRING_VALUE",
+ * //       Payload: "BLOB_VALUE",
+ * //     },
+ * //   },
+ * //   Priority: Number("int"),
+ * //   MaxConcurrency: "STRING_VALUE",
+ * //   MaxErrors: "STRING_VALUE",
+ * //   LoggingInfo: { // LoggingInfo
+ * //     S3BucketName: "STRING_VALUE", // required
+ * //     S3KeyPrefix: "STRING_VALUE",
+ * //     S3Region: "STRING_VALUE", // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
+ * //   AlarmConfiguration: { // AlarmConfiguration
+ * //     IgnorePollAlarmFailure: true || false,
+ * //     Alarms: [ // AlarmList // required
+ * //       { // Alarm
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,17 +52,16 @@ export interface BatchDisassociateScramSecretCommandOutput
  * };
  * const command = new BatchDisassociateScramSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateScramSecretResponse
- *   ClusterArn: "STRING_VALUE",
- *   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
- *     { // UnprocessedScramSecret
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       SecretArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateScramSecretResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   UnprocessedScramSecrets: [ // __listOfUnprocessedScramSecret
+ * //     { // UnprocessedScramSecret
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       SecretArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

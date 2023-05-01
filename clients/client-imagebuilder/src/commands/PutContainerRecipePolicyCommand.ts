@@ -52,11 +52,10 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * };
  * const command = new PutContainerRecipePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutContainerRecipePolicyResponse
- *   requestId: "STRING_VALUE",
- *   containerRecipeArn: "STRING_VALUE",
- * };
+ * // { // PutContainerRecipePolicyResponse
+ * //   requestId: "STRING_VALUE",
+ * //   containerRecipeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

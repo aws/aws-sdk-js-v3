@@ -57,17 +57,16 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * };
  * const command = new GetAssociatedEnclaveCertificateIamRolesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssociatedEnclaveCertificateIamRolesResult
- *   AssociatedRoles: [ // AssociatedRolesList
- *     { // AssociatedRole
- *       AssociatedRoleArn: "STRING_VALUE",
- *       CertificateS3BucketName: "STRING_VALUE",
- *       CertificateS3ObjectKey: "STRING_VALUE",
- *       EncryptionKmsKeyId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetAssociatedEnclaveCertificateIamRolesResult
+ * //   AssociatedRoles: [ // AssociatedRolesList
+ * //     { // AssociatedRole
+ * //       AssociatedRoleArn: "STRING_VALUE",
+ * //       CertificateS3BucketName: "STRING_VALUE",
+ * //       CertificateS3ObjectKey: "STRING_VALUE",
+ * //       EncryptionKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

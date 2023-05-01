@@ -45,20 +45,19 @@ export interface ListNodeFromTemplateJobsCommandOutput extends ListNodeFromTempl
  * };
  * const command = new ListNodeFromTemplateJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNodeFromTemplateJobsResponse
- *   NodeFromTemplateJobs: [ // NodeFromTemplateJobList // required
- *     { // NodeFromTemplateJob
- *       JobId: "STRING_VALUE",
- *       TemplateType: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       NodeName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNodeFromTemplateJobsResponse
+ * //   NodeFromTemplateJobs: [ // NodeFromTemplateJobList // required
+ * //     { // NodeFromTemplateJob
+ * //       JobId: "STRING_VALUE",
+ * //       TemplateType: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       NodeName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

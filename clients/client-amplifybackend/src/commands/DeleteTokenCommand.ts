@@ -45,10 +45,9 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * };
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTokenResponse
- *   IsSuccess: true || false,
- * };
+ * // { // DeleteTokenResponse
+ * //   IsSuccess: true || false,
+ * // };
  *
  * ```
  *

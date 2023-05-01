@@ -54,8 +54,7 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * };
  * const command = new RestoreCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

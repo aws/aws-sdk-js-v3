@@ -51,20 +51,19 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * };
  * const command = new CreateBotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBotResponse
- *   Bot: { // Bot
- *     BotId: "STRING_VALUE",
- *     UserId: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     BotType: "ChatBot",
- *     Disabled: true || false,
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     BotEmail: "STRING_VALUE",
- *     SecurityToken: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateBotResponse
+ * //   Bot: { // Bot
+ * //     BotId: "STRING_VALUE",
+ * //     UserId: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     BotType: "ChatBot",
+ * //     Disabled: true || false,
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     BotEmail: "STRING_VALUE",
+ * //     SecurityToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

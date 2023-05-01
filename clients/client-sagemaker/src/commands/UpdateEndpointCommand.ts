@@ -93,10 +93,9 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEndpointOutput
- *   EndpointArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateEndpointOutput
+ * //   EndpointArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

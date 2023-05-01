@@ -88,10 +88,9 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * };
  * const command = new CreateDataSetImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSetImportTaskResponse
- *   taskId: "STRING_VALUE", // required
- * };
+ * // { // CreateDataSetImportTaskResponse
+ * //   taskId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

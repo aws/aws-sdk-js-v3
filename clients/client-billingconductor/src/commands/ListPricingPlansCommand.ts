@@ -56,21 +56,20 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * };
  * const command = new ListPricingPlansCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPricingPlansOutput
- *   BillingPeriod: "STRING_VALUE",
- *   PricingPlans: [ // PricingPlanList
- *     { // PricingPlanListElement
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Size: Number("long"),
- *       CreationTime: Number("long"),
- *       LastModifiedTime: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPricingPlansOutput
+ * //   BillingPeriod: "STRING_VALUE",
+ * //   PricingPlans: [ // PricingPlanList
+ * //     { // PricingPlanListElement
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Size: Number("long"),
+ * //       CreationTime: Number("long"),
+ * //       LastModifiedTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

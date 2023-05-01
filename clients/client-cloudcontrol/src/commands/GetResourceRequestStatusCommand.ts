@@ -50,21 +50,20 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * };
  * const command = new GetResourceRequestStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceRequestStatusOutput
- *   ProgressEvent: { // ProgressEvent
- *     TypeName: "STRING_VALUE",
- *     Identifier: "STRING_VALUE",
- *     RequestToken: "STRING_VALUE",
- *     Operation: "STRING_VALUE",
- *     OperationStatus: "STRING_VALUE",
- *     EventTime: new Date("TIMESTAMP"),
- *     ResourceModel: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     ErrorCode: "STRING_VALUE",
- *     RetryAfter: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetResourceRequestStatusOutput
+ * //   ProgressEvent: { // ProgressEvent
+ * //     TypeName: "STRING_VALUE",
+ * //     Identifier: "STRING_VALUE",
+ * //     RequestToken: "STRING_VALUE",
+ * //     Operation: "STRING_VALUE",
+ * //     OperationStatus: "STRING_VALUE",
+ * //     EventTime: new Date("TIMESTAMP"),
+ * //     ResourceModel: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ErrorCode: "STRING_VALUE",
+ * //     RetryAfter: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

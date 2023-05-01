@@ -52,10 +52,9 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterVolumeResult
- *   VolumeId: "STRING_VALUE",
- * };
+ * // { // RegisterVolumeResult
+ * //   VolumeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -68,8 +68,7 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBucketLifecycleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,16 +50,15 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpgradeElasticsearchDomainResponse
- *   DomainName: "STRING_VALUE",
- *   TargetVersion: "STRING_VALUE",
- *   PerformCheckOnly: true || false,
- *   ChangeProgressDetails: { // ChangeProgressDetails
- *     ChangeId: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // UpgradeElasticsearchDomainResponse
+ * //   DomainName: "STRING_VALUE",
+ * //   TargetVersion: "STRING_VALUE",
+ * //   PerformCheckOnly: true || false,
+ * //   ChangeProgressDetails: { // ChangeProgressDetails
+ * //     ChangeId: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,40 +49,39 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * };
  * const command = new DescribeEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EndpointAccessList
- *   EndpointAccessList: [ // EndpointAccesses
- *     { // EndpointAccess
- *       ClusterIdentifier: "STRING_VALUE",
- *       ResourceOwner: "STRING_VALUE",
- *       SubnetGroupName: "STRING_VALUE",
- *       EndpointStatus: "STRING_VALUE",
- *       EndpointName: "STRING_VALUE",
- *       EndpointCreateTime: new Date("TIMESTAMP"),
- *       Port: Number("int"),
- *       Address: "STRING_VALUE",
- *       VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
- *         { // VpcSecurityGroupMembership
- *           VpcSecurityGroupId: "STRING_VALUE",
- *           Status: "STRING_VALUE",
- *         },
- *       ],
- *       VpcEndpoint: { // VpcEndpoint
- *         VpcEndpointId: "STRING_VALUE",
- *         VpcId: "STRING_VALUE",
- *         NetworkInterfaces: [ // NetworkInterfaceList
- *           { // NetworkInterface
- *             NetworkInterfaceId: "STRING_VALUE",
- *             SubnetId: "STRING_VALUE",
- *             PrivateIpAddress: "STRING_VALUE",
- *             AvailabilityZone: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // EndpointAccessList
+ * //   EndpointAccessList: [ // EndpointAccesses
+ * //     { // EndpointAccess
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       ResourceOwner: "STRING_VALUE",
+ * //       SubnetGroupName: "STRING_VALUE",
+ * //       EndpointStatus: "STRING_VALUE",
+ * //       EndpointName: "STRING_VALUE",
+ * //       EndpointCreateTime: new Date("TIMESTAMP"),
+ * //       Port: Number("int"),
+ * //       Address: "STRING_VALUE",
+ * //       VpcSecurityGroups: [ // VpcSecurityGroupMembershipList
+ * //         { // VpcSecurityGroupMembership
+ * //           VpcSecurityGroupId: "STRING_VALUE",
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcEndpoint: { // VpcEndpoint
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //         VpcId: "STRING_VALUE",
+ * //         NetworkInterfaces: [ // NetworkInterfaceList
+ * //           { // NetworkInterface
+ * //             NetworkInterfaceId: "STRING_VALUE",
+ * //             SubnetId: "STRING_VALUE",
+ * //             PrivateIpAddress: "STRING_VALUE",
+ * //             AvailabilityZone: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

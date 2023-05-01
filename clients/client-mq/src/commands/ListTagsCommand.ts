@@ -44,12 +44,11 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsResponse
- *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListTagsResponse
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

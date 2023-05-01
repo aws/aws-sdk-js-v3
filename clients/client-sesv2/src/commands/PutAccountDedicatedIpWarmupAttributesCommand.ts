@@ -53,8 +53,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  * };
  * const command = new PutAccountDedicatedIpWarmupAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

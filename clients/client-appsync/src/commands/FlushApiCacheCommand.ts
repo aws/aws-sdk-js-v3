@@ -44,8 +44,7 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * };
  * const command = new FlushApiCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -93,8 +93,7 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

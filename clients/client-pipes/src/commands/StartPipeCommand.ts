@@ -44,15 +44,14 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * };
  * const command = new StartPipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartPipeResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   DesiredState: "STRING_VALUE",
- *   CurrentState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartPipeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   DesiredState: "STRING_VALUE",
+ * //   CurrentState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

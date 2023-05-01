@@ -46,20 +46,19 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * };
  * const command = new ListVirtualMachinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVirtualMachinesOutput
- *   VirtualMachines: [ // VirtualMachines
- *     { // VirtualMachine
- *       HostName: "STRING_VALUE",
- *       HypervisorId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Path: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       LastBackupDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVirtualMachinesOutput
+ * //   VirtualMachines: [ // VirtualMachines
+ * //     { // VirtualMachine
+ * //       HostName: "STRING_VALUE",
+ * //       HypervisorId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       LastBackupDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

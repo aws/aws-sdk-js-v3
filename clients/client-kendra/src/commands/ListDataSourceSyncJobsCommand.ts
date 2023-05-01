@@ -52,28 +52,27 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * };
  * const command = new ListDataSourceSyncJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataSourceSyncJobsResponse
- *   History: [ // DataSourceSyncJobHistoryList
- *     { // DataSourceSyncJob
- *       ExecutionId: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       Status: "FAILED" || "SUCCEEDED" || "SYNCING" || "INCOMPLETE" || "STOPPING" || "ABORTED" || "SYNCING_INDEXING",
- *       ErrorMessage: "STRING_VALUE",
- *       ErrorCode: "InternalError" || "InvalidRequest",
- *       DataSourceErrorCode: "STRING_VALUE",
- *       Metrics: { // DataSourceSyncJobMetrics
- *         DocumentsAdded: "STRING_VALUE",
- *         DocumentsModified: "STRING_VALUE",
- *         DocumentsDeleted: "STRING_VALUE",
- *         DocumentsFailed: "STRING_VALUE",
- *         DocumentsScanned: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDataSourceSyncJobsResponse
+ * //   History: [ // DataSourceSyncJobHistoryList
+ * //     { // DataSourceSyncJob
+ * //       ExecutionId: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       Status: "FAILED" || "SUCCEEDED" || "SYNCING" || "INCOMPLETE" || "STOPPING" || "ABORTED" || "SYNCING_INDEXING",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       ErrorCode: "InternalError" || "InvalidRequest",
+ * //       DataSourceErrorCode: "STRING_VALUE",
+ * //       Metrics: { // DataSourceSyncJobMetrics
+ * //         DocumentsAdded: "STRING_VALUE",
+ * //         DocumentsModified: "STRING_VALUE",
+ * //         DocumentsDeleted: "STRING_VALUE",
+ * //         DocumentsFailed: "STRING_VALUE",
+ * //         DocumentsScanned: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

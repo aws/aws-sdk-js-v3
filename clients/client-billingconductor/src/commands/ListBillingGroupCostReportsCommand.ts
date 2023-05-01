@@ -55,20 +55,19 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * };
  * const command = new ListBillingGroupCostReportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBillingGroupCostReportsOutput
- *   BillingGroupCostReports: [ // BillingGroupCostReportList
- *     { // BillingGroupCostReportElement
- *       Arn: "STRING_VALUE",
- *       AWSCost: "STRING_VALUE",
- *       ProformaCost: "STRING_VALUE",
- *       Margin: "STRING_VALUE",
- *       MarginPercentage: "STRING_VALUE",
- *       Currency: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBillingGroupCostReportsOutput
+ * //   BillingGroupCostReports: [ // BillingGroupCostReportList
+ * //     { // BillingGroupCostReportElement
+ * //       Arn: "STRING_VALUE",
+ * //       AWSCost: "STRING_VALUE",
+ * //       ProformaCost: "STRING_VALUE",
+ * //       Margin: "STRING_VALUE",
+ * //       MarginPercentage: "STRING_VALUE",
+ * //       Currency: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -81,15 +81,14 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * };
  * const command = new PutSecretValueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutSecretValueResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   VersionStages: [ // SecretVersionStagesType
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // PutSecretValueResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * //   VersionStages: [ // SecretVersionStagesType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

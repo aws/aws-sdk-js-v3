@@ -65,8 +65,7 @@ export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInsta
  * };
  * const command = new UpdateNotebookInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

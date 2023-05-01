@@ -60,18 +60,17 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * };
  * const command = new DeleteApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationCloudWatchLoggingOptionResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- *   CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
- *     { // CloudWatchLoggingOptionDescription
- *       CloudWatchLoggingOptionId: "STRING_VALUE",
- *       LogStreamARN: "STRING_VALUE", // required
- *       RoleARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteApplicationCloudWatchLoggingOptionResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * //   CloudWatchLoggingOptionDescriptions: [ // CloudWatchLoggingOptionDescriptions
+ * //     { // CloudWatchLoggingOptionDescription
+ * //       CloudWatchLoggingOptionId: "STRING_VALUE",
+ * //       LogStreamARN: "STRING_VALUE", // required
+ * //       RoleARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

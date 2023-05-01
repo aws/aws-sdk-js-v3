@@ -54,24 +54,23 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * };
  * const command = new DescribeFleetHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetHistoryResult
- *   HistoryRecords: [ // HistoryRecordSet
- *     { // HistoryRecordEntry
- *       EventInformation: { // EventInformation
- *         EventDescription: "STRING_VALUE",
- *         EventSubType: "STRING_VALUE",
- *         InstanceId: "STRING_VALUE",
- *       },
- *       EventType: "instance-change" || "fleet-change" || "service-error",
- *       Timestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   LastEvaluatedTime: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   FleetId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeFleetHistoryResult
+ * //   HistoryRecords: [ // HistoryRecordSet
+ * //     { // HistoryRecordEntry
+ * //       EventInformation: { // EventInformation
+ * //         EventDescription: "STRING_VALUE",
+ * //         EventSubType: "STRING_VALUE",
+ * //         InstanceId: "STRING_VALUE",
+ * //       },
+ * //       EventType: "instance-change" || "fleet-change" || "service-error",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   LastEvaluatedTime: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   FleetId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

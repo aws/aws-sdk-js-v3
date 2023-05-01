@@ -51,8 +51,7 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * };
  * const command = new AttachPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,35 +47,34 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * };
  * const command = new DescribeExclusionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExclusionsResponse
- *   exclusions: { // ExclusionMap // required
- *     "<keys>": { // Exclusion
- *       arn: "STRING_VALUE", // required
- *       title: "STRING_VALUE", // required
- *       description: "STRING_VALUE", // required
- *       recommendation: "STRING_VALUE", // required
- *       scopes: [ // ScopeList // required
- *         { // Scope
- *           key: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       attributes: [ // AttributeList
- *         { // Attribute
- *           key: "STRING_VALUE", // required
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // DescribeExclusionsResponse
+ * //   exclusions: { // ExclusionMap // required
+ * //     "<keys>": { // Exclusion
+ * //       arn: "STRING_VALUE", // required
+ * //       title: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       recommendation: "STRING_VALUE", // required
+ * //       scopes: [ // ScopeList // required
+ * //         { // Scope
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       attributes: [ // AttributeList
+ * //         { // Attribute
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,21 +49,20 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * };
  * const command = new ListDecoderManifestsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDecoderManifestsResponse
- *   summaries: [ // decoderManifestSummaries
- *     { // DecoderManifestSummary
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       modelManifestArn: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"), // required
- *       lastModificationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDecoderManifestsResponse
+ * //   summaries: [ // decoderManifestSummaries
+ * //     { // DecoderManifestSummary
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       modelManifestArn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

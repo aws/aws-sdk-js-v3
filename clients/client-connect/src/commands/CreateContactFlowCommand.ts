@@ -53,11 +53,10 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * };
  * const command = new CreateContactFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContactFlowResponse
- *   ContactFlowId: "STRING_VALUE",
- *   ContactFlowArn: "STRING_VALUE",
- * };
+ * // { // CreateContactFlowResponse
+ * //   ContactFlowId: "STRING_VALUE",
+ * //   ContactFlowArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

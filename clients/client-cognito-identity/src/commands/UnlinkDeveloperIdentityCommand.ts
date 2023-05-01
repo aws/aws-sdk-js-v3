@@ -52,8 +52,7 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * };
  * const command = new UnlinkDeveloperIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

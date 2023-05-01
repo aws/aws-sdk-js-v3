@@ -60,51 +60,50 @@ export interface UpdatePipelineNotificationsCommandOutput
  * };
  * const command = new UpdatePipelineNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePipelineNotificationsResponse
- *   Pipeline: { // Pipeline
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     InputBucket: "STRING_VALUE",
- *     OutputBucket: "STRING_VALUE",
- *     Role: "STRING_VALUE",
- *     AwsKmsKeyArn: "STRING_VALUE",
- *     Notifications: { // Notifications
- *       Progressing: "STRING_VALUE",
- *       Completed: "STRING_VALUE",
- *       Warning: "STRING_VALUE",
- *       Error: "STRING_VALUE",
- *     },
- *     ContentConfig: { // PipelineOutputConfig
- *       Bucket: "STRING_VALUE",
- *       StorageClass: "STRING_VALUE",
- *       Permissions: [ // Permissions
- *         { // Permission
- *           GranteeType: "STRING_VALUE",
- *           Grantee: "STRING_VALUE",
- *           Access: [ // AccessControls
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *     ThumbnailConfig: {
- *       Bucket: "STRING_VALUE",
- *       StorageClass: "STRING_VALUE",
- *       Permissions: [
- *         {
- *           GranteeType: "STRING_VALUE",
- *           Grantee: "STRING_VALUE",
- *           Access: [
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // UpdatePipelineNotificationsResponse
+ * //   Pipeline: { // Pipeline
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     InputBucket: "STRING_VALUE",
+ * //     OutputBucket: "STRING_VALUE",
+ * //     Role: "STRING_VALUE",
+ * //     AwsKmsKeyArn: "STRING_VALUE",
+ * //     Notifications: { // Notifications
+ * //       Progressing: "STRING_VALUE",
+ * //       Completed: "STRING_VALUE",
+ * //       Warning: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //     },
+ * //     ContentConfig: { // PipelineOutputConfig
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [ // Permissions
+ * //         { // Permission
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [ // AccessControls
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     ThumbnailConfig: {
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [
+ * //         {
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

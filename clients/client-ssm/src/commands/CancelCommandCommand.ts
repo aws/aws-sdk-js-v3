@@ -48,8 +48,7 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * };
  * const command = new CancelCommandCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

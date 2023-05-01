@@ -89,14 +89,13 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * };
  * const command = new ForgotPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ForgotPasswordResponse
- *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
- *     Destination: "STRING_VALUE",
- *     DeliveryMedium: "SMS" || "EMAIL",
- *     AttributeName: "STRING_VALUE",
- *   },
- * };
+ * // { // ForgotPasswordResponse
+ * //   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ * //     Destination: "STRING_VALUE",
+ * //     DeliveryMedium: "SMS" || "EMAIL",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

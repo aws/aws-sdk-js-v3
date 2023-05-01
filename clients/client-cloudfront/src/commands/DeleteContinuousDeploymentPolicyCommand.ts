@@ -51,8 +51,7 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * };
  * const command = new DeleteContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

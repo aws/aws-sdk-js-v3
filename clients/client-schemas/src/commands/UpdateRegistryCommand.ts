@@ -45,15 +45,14 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRegistryResponse
- *   Description: "STRING_VALUE",
- *   RegistryArn: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateRegistryResponse
+ * //   Description: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

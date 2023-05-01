@@ -44,8 +44,7 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

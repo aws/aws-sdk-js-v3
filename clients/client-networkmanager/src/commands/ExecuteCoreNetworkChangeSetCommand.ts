@@ -50,8 +50,7 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  * };
  * const command = new ExecuteCoreNetworkChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

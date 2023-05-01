@@ -45,27 +45,26 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelsResponse
- *   channelSummaries: [ // ChannelSummaries
- *     { // ChannelSummary
- *       channelName: "STRING_VALUE",
- *       channelStorage: { // ChannelStorageSummary
- *         serviceManagedS3: {},
- *         customerManagedS3: { // CustomerManagedChannelS3StorageSummary
- *           bucket: "STRING_VALUE",
- *           keyPrefix: "STRING_VALUE",
- *           roleArn: "STRING_VALUE",
- *         },
- *       },
- *       status: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *       lastMessageArrivalTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelsResponse
+ * //   channelSummaries: [ // ChannelSummaries
+ * //     { // ChannelSummary
+ * //       channelName: "STRING_VALUE",
+ * //       channelStorage: { // ChannelStorageSummary
+ * //         serviceManagedS3: {},
+ * //         customerManagedS3: { // CustomerManagedChannelS3StorageSummary
+ * //           bucket: "STRING_VALUE",
+ * //           keyPrefix: "STRING_VALUE",
+ * //           roleArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       lastMessageArrivalTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

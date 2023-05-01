@@ -48,8 +48,7 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

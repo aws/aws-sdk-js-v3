@@ -59,37 +59,36 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * };
  * const command = new BatchGetStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetStandardsControlAssociationsResponse
- *   StandardsControlAssociationDetails: [ // StandardsControlAssociationDetails // required
- *     { // StandardsControlAssociationDetail
- *       StandardsArn: "STRING_VALUE", // required
- *       SecurityControlId: "STRING_VALUE", // required
- *       SecurityControlArn: "STRING_VALUE", // required
- *       AssociationStatus: "ENABLED" || "DISABLED", // required
- *       RelatedRequirements: [ // RelatedRequirementsList
- *         "STRING_VALUE",
- *       ],
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       UpdatedReason: "STRING_VALUE",
- *       StandardsControlTitle: "STRING_VALUE",
- *       StandardsControlDescription: "STRING_VALUE",
- *       StandardsControlArns: [ // StandardsControlArnList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   UnprocessedAssociations: [ // UnprocessedStandardsControlAssociations
- *     { // UnprocessedStandardsControlAssociation
- *       StandardsControlAssociationId: { // StandardsControlAssociationId
- *         SecurityControlId: "STRING_VALUE", // required
- *         StandardsArn: "STRING_VALUE", // required
- *       },
- *       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
- *       ErrorReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetStandardsControlAssociationsResponse
+ * //   StandardsControlAssociationDetails: [ // StandardsControlAssociationDetails // required
+ * //     { // StandardsControlAssociationDetail
+ * //       StandardsArn: "STRING_VALUE", // required
+ * //       SecurityControlId: "STRING_VALUE", // required
+ * //       SecurityControlArn: "STRING_VALUE", // required
+ * //       AssociationStatus: "ENABLED" || "DISABLED", // required
+ * //       RelatedRequirements: [ // RelatedRequirementsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedReason: "STRING_VALUE",
+ * //       StandardsControlTitle: "STRING_VALUE",
+ * //       StandardsControlDescription: "STRING_VALUE",
+ * //       StandardsControlArns: [ // StandardsControlArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   UnprocessedAssociations: [ // UnprocessedStandardsControlAssociations
+ * //     { // UnprocessedStandardsControlAssociation
+ * //       StandardsControlAssociationId: { // StandardsControlAssociationId
+ * //         SecurityControlId: "STRING_VALUE", // required
+ * //         StandardsArn: "STRING_VALUE", // required
+ * //       },
+ * //       ErrorCode: "INVALID_INPUT" || "ACCESS_DENIED" || "NOT_FOUND" || "LIMIT_EXCEEDED", // required
+ * //       ErrorReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

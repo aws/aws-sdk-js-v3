@@ -53,25 +53,24 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  * };
  * const command = new ListPositionConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPositionConfigurationsResponse
- *   PositionConfigurationList: [ // PositionConfigurationList
- *     { // PositionConfigurationItem
- *       ResourceIdentifier: "STRING_VALUE",
- *       ResourceType: "WirelessDevice" || "WirelessGateway",
- *       Solvers: { // PositionSolverDetails
- *         SemtechGnss: { // SemtechGnssDetail
- *           Provider: "Semtech",
- *           Type: "GNSS",
- *           Status: "Enabled" || "Disabled",
- *           Fec: "ROSE" || "NONE",
- *         },
- *       },
- *       Destination: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPositionConfigurationsResponse
+ * //   PositionConfigurationList: [ // PositionConfigurationList
+ * //     { // PositionConfigurationItem
+ * //       ResourceIdentifier: "STRING_VALUE",
+ * //       ResourceType: "WirelessDevice" || "WirelessGateway",
+ * //       Solvers: { // PositionSolverDetails
+ * //         SemtechGnss: { // SemtechGnssDetail
+ * //           Provider: "Semtech",
+ * //           Type: "GNSS",
+ * //           Status: "Enabled" || "Disabled",
+ * //           Fec: "ROSE" || "NONE",
+ * //         },
+ * //       },
+ * //       Destination: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

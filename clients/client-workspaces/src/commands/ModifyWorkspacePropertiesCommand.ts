@@ -62,8 +62,7 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * };
  * const command = new ModifyWorkspacePropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

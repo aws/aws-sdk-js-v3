@@ -57,8 +57,7 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * };
  * const command = new AddRoleToInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * };
  * const command = new CancelContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ContactIdResponse
- *   contactId: "STRING_VALUE",
- * };
+ * // { // ContactIdResponse
+ * //   contactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

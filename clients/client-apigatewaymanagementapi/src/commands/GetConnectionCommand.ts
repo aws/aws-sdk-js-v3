@@ -48,15 +48,14 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectionResponse
- *   ConnectedAt: new Date("TIMESTAMP"),
- *   Identity: { // Identity
- *     SourceIp: "STRING_VALUE", // required
- *     UserAgent: "STRING_VALUE", // required
- *   },
- *   LastActiveAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetConnectionResponse
+ * //   ConnectedAt: new Date("TIMESTAMP"),
+ * //   Identity: { // Identity
+ * //     SourceIp: "STRING_VALUE", // required
+ * //     UserAgent: "STRING_VALUE", // required
+ * //   },
+ * //   LastActiveAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

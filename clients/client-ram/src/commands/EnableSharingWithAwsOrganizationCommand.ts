@@ -57,10 +57,9 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * const input = {};
  * const command = new EnableSharingWithAwsOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableSharingWithAwsOrganizationResponse
- *   returnValue: true || false,
- * };
+ * // { // EnableSharingWithAwsOrganizationResponse
+ * //   returnValue: true || false,
+ * // };
  *
  * ```
  *

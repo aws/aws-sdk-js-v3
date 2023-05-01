@@ -45,8 +45,7 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

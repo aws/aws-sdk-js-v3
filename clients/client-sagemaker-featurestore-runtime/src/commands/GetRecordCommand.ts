@@ -54,15 +54,14 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * };
  * const command = new GetRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecordResponse
- *   Record: [ // Record
- *     { // FeatureValue
- *       FeatureName: "STRING_VALUE", // required
- *       ValueAsString: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetRecordResponse
+ * //   Record: [ // Record
+ * //     { // FeatureValue
+ * //       FeatureName: "STRING_VALUE", // required
+ * //       ValueAsString: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

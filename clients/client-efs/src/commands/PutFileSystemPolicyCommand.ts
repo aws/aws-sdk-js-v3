@@ -57,11 +57,10 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * };
  * const command = new PutFileSystemPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FileSystemPolicyDescription
- *   FileSystemId: "STRING_VALUE",
- *   Policy: "STRING_VALUE",
- * };
+ * // { // FileSystemPolicyDescription
+ * //   FileSystemId: "STRING_VALUE",
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

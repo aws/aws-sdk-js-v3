@@ -54,18 +54,17 @@ export interface DescribeConditionalForwardersCommandOutput
  * };
  * const command = new DescribeConditionalForwardersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConditionalForwardersResult
- *   ConditionalForwarders: [ // ConditionalForwarders
- *     { // ConditionalForwarder
- *       RemoteDomainName: "STRING_VALUE",
- *       DnsIpAddrs: [ // DnsIpAddrs
- *         "STRING_VALUE",
- *       ],
- *       ReplicationScope: "Domain",
- *     },
- *   ],
- * };
+ * // { // DescribeConditionalForwardersResult
+ * //   ConditionalForwarders: [ // ConditionalForwarders
+ * //     { // ConditionalForwarder
+ * //       RemoteDomainName: "STRING_VALUE",
+ * //       DnsIpAddrs: [ // DnsIpAddrs
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ReplicationScope: "Domain",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

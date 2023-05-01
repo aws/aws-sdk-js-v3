@@ -126,10 +126,9 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * };
  * const command = new StartWorkflowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Run
- *   runId: "STRING_VALUE",
- * };
+ * // { // Run
+ * //   runId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

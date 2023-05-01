@@ -45,8 +45,7 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

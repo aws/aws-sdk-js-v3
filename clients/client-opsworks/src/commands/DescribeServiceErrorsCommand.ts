@@ -54,19 +54,18 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * };
  * const command = new DescribeServiceErrorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServiceErrorsResult
- *   ServiceErrors: [ // ServiceErrors
- *     { // ServiceError
- *       ServiceErrorId: "STRING_VALUE",
- *       StackId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreatedAt: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeServiceErrorsResult
+ * //   ServiceErrors: [ // ServiceErrors
+ * //     { // ServiceError
+ * //       ServiceErrorId: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

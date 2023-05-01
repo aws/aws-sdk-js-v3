@@ -46,21 +46,20 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * };
  * const command = new DescribeDataSetPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDataSetPermissionsResponse
- *   DataSetArn: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeDataSetPermissionsResponse
+ * //   DataSetArn: "STRING_VALUE",
+ * //   DataSetId: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

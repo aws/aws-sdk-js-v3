@@ -48,20 +48,19 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  * };
  * const command = new DescribeListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeListenerResponse
- *   Listener: { // Listener
- *     ListenerArn: "STRING_VALUE",
- *     PortRanges: [ // PortRanges
- *       { // PortRange
- *         FromPort: Number("int"),
- *         ToPort: Number("int"),
- *       },
- *     ],
- *     Protocol: "TCP" || "UDP",
- *     ClientAffinity: "NONE" || "SOURCE_IP",
- *   },
- * };
+ * // { // DescribeListenerResponse
+ * //   Listener: { // Listener
+ * //     ListenerArn: "STRING_VALUE",
+ * //     PortRanges: [ // PortRanges
+ * //       { // PortRange
+ * //         FromPort: Number("int"),
+ * //         ToPort: Number("int"),
+ * //       },
+ * //     ],
+ * //     Protocol: "TCP" || "UDP",
+ * //     ClientAffinity: "NONE" || "SOURCE_IP",
+ * //   },
+ * // };
  *
  * ```
  *

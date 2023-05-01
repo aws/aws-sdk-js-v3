@@ -47,13 +47,12 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * };
  * const command = new ListThingRegistrationTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingRegistrationTasksResponse
- *   taskIds: [ // TaskIdList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingRegistrationTasksResponse
+ * //   taskIds: [ // TaskIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,23 +60,22 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * };
  * const command = new ModifyInstanceCreditSpecificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstanceCreditSpecificationResult
- *   SuccessfulInstanceCreditSpecifications: [ // SuccessfulInstanceCreditSpecificationSet
- *     { // SuccessfulInstanceCreditSpecificationItem
- *       InstanceId: "STRING_VALUE",
- *     },
- *   ],
- *   UnsuccessfulInstanceCreditSpecifications: [ // UnsuccessfulInstanceCreditSpecificationSet
- *     { // UnsuccessfulInstanceCreditSpecificationItem
- *       InstanceId: "STRING_VALUE",
- *       Error: { // UnsuccessfulInstanceCreditSpecificationItemError
- *         Code: "InvalidInstanceID.Malformed" || "InvalidInstanceID.NotFound" || "IncorrectInstanceState" || "InstanceCreditSpecification.NotSupported",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ModifyInstanceCreditSpecificationResult
+ * //   SuccessfulInstanceCreditSpecifications: [ // SuccessfulInstanceCreditSpecificationSet
+ * //     { // SuccessfulInstanceCreditSpecificationItem
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnsuccessfulInstanceCreditSpecifications: [ // UnsuccessfulInstanceCreditSpecificationSet
+ * //     { // UnsuccessfulInstanceCreditSpecificationItem
+ * //       InstanceId: "STRING_VALUE",
+ * //       Error: { // UnsuccessfulInstanceCreditSpecificationItemError
+ * //         Code: "InvalidInstanceID.Malformed" || "InvalidInstanceID.NotFound" || "IncorrectInstanceState" || "InstanceCreditSpecification.NotSupported",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

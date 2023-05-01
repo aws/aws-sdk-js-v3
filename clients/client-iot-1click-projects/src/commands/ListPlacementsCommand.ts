@@ -50,18 +50,17 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * };
  * const command = new ListPlacementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPlacementsResponse
- *   placements: [ // PlacementSummaryList // required
- *     { // PlacementSummary
- *       projectName: "STRING_VALUE", // required
- *       placementName: "STRING_VALUE", // required
- *       createdDate: new Date("TIMESTAMP"), // required
- *       updatedDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPlacementsResponse
+ * //   placements: [ // PlacementSummaryList // required
+ * //     { // PlacementSummary
+ * //       projectName: "STRING_VALUE", // required
+ * //       placementName: "STRING_VALUE", // required
+ * //       createdDate: new Date("TIMESTAMP"), // required
+ * //       updatedDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -55,22 +55,21 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * };
  * const command = new ListVolumesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVolumesOutput
- *   GatewayARN: "STRING_VALUE",
- *   Marker: "STRING_VALUE",
- *   VolumeInfos: [ // VolumeInfos
- *     { // VolumeInfo
- *       VolumeARN: "STRING_VALUE",
- *       VolumeId: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       GatewayId: "STRING_VALUE",
- *       VolumeType: "STRING_VALUE",
- *       VolumeSizeInBytes: Number("long"),
- *       VolumeAttachmentStatus: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListVolumesOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   Marker: "STRING_VALUE",
+ * //   VolumeInfos: [ // VolumeInfos
+ * //     { // VolumeInfo
+ * //       VolumeARN: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       GatewayId: "STRING_VALUE",
+ * //       VolumeType: "STRING_VALUE",
+ * //       VolumeSizeInBytes: Number("long"),
+ * //       VolumeAttachmentStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

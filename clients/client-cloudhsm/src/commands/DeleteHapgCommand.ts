@@ -54,10 +54,9 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  * };
  * const command = new DeleteHapgCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteHapgResponse
- *   Status: "STRING_VALUE", // required
- * };
+ * // { // DeleteHapgResponse
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

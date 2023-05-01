@@ -53,8 +53,7 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * };
  * const command = new DeleteConfigurationRecorderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

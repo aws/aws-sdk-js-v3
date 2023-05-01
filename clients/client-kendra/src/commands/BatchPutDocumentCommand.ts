@@ -166,16 +166,15 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * };
  * const command = new BatchPutDocumentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutDocumentResponse
- *   FailedDocuments: [ // BatchPutDocumentResponseFailedDocuments
- *     { // BatchPutDocumentResponseFailedDocument
- *       Id: "STRING_VALUE",
- *       ErrorCode: "InternalError" || "InvalidRequest",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchPutDocumentResponse
+ * //   FailedDocuments: [ // BatchPutDocumentResponseFailedDocuments
+ * //     { // BatchPutDocumentResponseFailedDocument
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "InternalError" || "InvalidRequest",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

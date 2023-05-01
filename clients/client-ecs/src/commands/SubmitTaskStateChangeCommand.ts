@@ -87,10 +87,9 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * };
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubmitTaskStateChangeResponse
- *   acknowledgment: "STRING_VALUE",
- * };
+ * // { // SubmitTaskStateChangeResponse
+ * //   acknowledgment: "STRING_VALUE",
+ * // };
  *
  * ```
  *

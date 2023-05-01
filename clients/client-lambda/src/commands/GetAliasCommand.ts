@@ -45,19 +45,18 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * };
  * const command = new GetAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AliasConfiguration
- *   AliasArn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   FunctionVersion: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   RoutingConfig: { // AliasRoutingConfiguration
- *     AdditionalVersionWeights: { // AdditionalVersionWeights
- *       "<keys>": Number("double"),
- *     },
- *   },
- *   RevisionId: "STRING_VALUE",
- * };
+ * // { // AliasConfiguration
+ * //   AliasArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   FunctionVersion: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   RoutingConfig: { // AliasRoutingConfiguration
+ * //     AdditionalVersionWeights: { // AdditionalVersionWeights
+ * //       "<keys>": Number("double"),
+ * //     },
+ * //   },
+ * //   RevisionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

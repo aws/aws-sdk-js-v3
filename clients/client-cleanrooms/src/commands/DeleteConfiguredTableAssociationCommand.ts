@@ -50,8 +50,7 @@ export interface DeleteConfiguredTableAssociationCommandOutput
  * };
  * const command = new DeleteConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

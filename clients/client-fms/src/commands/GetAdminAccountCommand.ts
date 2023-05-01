@@ -43,11 +43,10 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * const input = {};
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAdminAccountResponse
- *   AdminAccount: "STRING_VALUE",
- *   RoleStatus: "READY" || "CREATING" || "PENDING_DELETION" || "DELETING" || "DELETED",
- * };
+ * // { // GetAdminAccountResponse
+ * //   AdminAccount: "STRING_VALUE",
+ * //   RoleStatus: "READY" || "CREATING" || "PENDING_DELETION" || "DELETING" || "DELETED",
+ * // };
  *
  * ```
  *

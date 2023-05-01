@@ -47,31 +47,30 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  * };
  * const command = new ListIdentityResolutionJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityResolutionJobsResponse
- *   IdentityResolutionJobsList: [ // IdentityResolutionJobsList
- *     { // IdentityResolutionJob
- *       DomainName: "STRING_VALUE",
- *       JobId: "STRING_VALUE",
- *       Status: "PENDING" || "PREPROCESSING" || "FIND_MATCHING" || "MERGING" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED",
- *       JobStartTime: new Date("TIMESTAMP"),
- *       JobEndTime: new Date("TIMESTAMP"),
- *       JobStats: { // JobStats
- *         NumberOfProfilesReviewed: Number("long"),
- *         NumberOfMatchesFound: Number("long"),
- *         NumberOfMergesDone: Number("long"),
- *       },
- *       ExportingLocation: { // ExportingLocation
- *         S3Exporting: { // S3ExportingLocation
- *           S3BucketName: "STRING_VALUE",
- *           S3KeyName: "STRING_VALUE",
- *         },
- *       },
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentityResolutionJobsResponse
+ * //   IdentityResolutionJobsList: [ // IdentityResolutionJobsList
+ * //     { // IdentityResolutionJob
+ * //       DomainName: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       Status: "PENDING" || "PREPROCESSING" || "FIND_MATCHING" || "MERGING" || "COMPLETED" || "PARTIAL_SUCCESS" || "FAILED",
+ * //       JobStartTime: new Date("TIMESTAMP"),
+ * //       JobEndTime: new Date("TIMESTAMP"),
+ * //       JobStats: { // JobStats
+ * //         NumberOfProfilesReviewed: Number("long"),
+ * //         NumberOfMatchesFound: Number("long"),
+ * //         NumberOfMergesDone: Number("long"),
+ * //       },
+ * //       ExportingLocation: { // ExportingLocation
+ * //         S3Exporting: { // S3ExportingLocation
+ * //           S3BucketName: "STRING_VALUE",
+ * //           S3KeyName: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

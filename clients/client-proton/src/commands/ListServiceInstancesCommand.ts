@@ -59,26 +59,25 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * };
  * const command = new ListServiceInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceInstancesOutput
- *   nextToken: "STRING_VALUE",
- *   serviceInstances: [ // ServiceInstanceSummaryList // required
- *     { // ServiceInstanceSummary
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
- *       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
- *       serviceName: "STRING_VALUE", // required
- *       environmentName: "STRING_VALUE", // required
- *       templateName: "STRING_VALUE", // required
- *       templateMajorVersion: "STRING_VALUE", // required
- *       templateMinorVersion: "STRING_VALUE", // required
- *       deploymentStatus: "STRING_VALUE", // required
- *       deploymentStatusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServiceInstancesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   serviceInstances: [ // ServiceInstanceSummaryList // required
+ * //     { // ServiceInstanceSummary
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentAttemptedAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"), // required
+ * //       serviceName: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       templateName: "STRING_VALUE", // required
+ * //       templateMajorVersion: "STRING_VALUE", // required
+ * //       templateMinorVersion: "STRING_VALUE", // required
+ * //       deploymentStatus: "STRING_VALUE", // required
+ * //       deploymentStatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

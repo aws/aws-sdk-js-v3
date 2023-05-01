@@ -46,10 +46,9 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDataSourceOutput
- *   DataSourceId: "STRING_VALUE",
- * };
+ * // { // UpdateDataSourceOutput
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

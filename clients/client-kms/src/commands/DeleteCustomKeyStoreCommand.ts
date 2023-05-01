@@ -102,8 +102,7 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * };
  * const command = new DeleteCustomKeyStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

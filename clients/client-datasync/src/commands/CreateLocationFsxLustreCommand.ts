@@ -54,10 +54,9 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * };
  * const command = new CreateLocationFsxLustreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLocationFsxLustreResponse
- *   LocationArn: "STRING_VALUE",
- * };
+ * // { // CreateLocationFsxLustreResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

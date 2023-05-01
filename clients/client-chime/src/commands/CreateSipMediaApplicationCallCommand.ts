@@ -59,12 +59,11 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * };
  * const command = new CreateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSipMediaApplicationCallResponse
- *   SipMediaApplicationCall: { // SipMediaApplicationCall
- *     TransactionId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateSipMediaApplicationCallResponse
+ * //   SipMediaApplicationCall: { // SipMediaApplicationCall
+ * //     TransactionId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

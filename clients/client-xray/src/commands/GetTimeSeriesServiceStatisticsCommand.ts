@@ -57,54 +57,53 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * };
  * const command = new GetTimeSeriesServiceStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTimeSeriesServiceStatisticsResult
- *   TimeSeriesServiceStatistics: [ // TimeSeriesServiceStatisticsList
- *     { // TimeSeriesServiceStatistics
- *       Timestamp: new Date("TIMESTAMP"),
- *       EdgeSummaryStatistics: { // EdgeStatistics
- *         OkCount: Number("long"),
- *         ErrorStatistics: { // ErrorStatistics
- *           ThrottleCount: Number("long"),
- *           OtherCount: Number("long"),
- *           TotalCount: Number("long"),
- *         },
- *         FaultStatistics: { // FaultStatistics
- *           OtherCount: Number("long"),
- *           TotalCount: Number("long"),
- *         },
- *         TotalCount: Number("long"),
- *         TotalResponseTime: Number("double"),
- *       },
- *       ServiceSummaryStatistics: { // ServiceStatistics
- *         OkCount: Number("long"),
- *         ErrorStatistics: {
- *           ThrottleCount: Number("long"),
- *           OtherCount: Number("long"),
- *           TotalCount: Number("long"),
- *         },
- *         FaultStatistics: {
- *           OtherCount: Number("long"),
- *           TotalCount: Number("long"),
- *         },
- *         TotalCount: Number("long"),
- *         TotalResponseTime: Number("double"),
- *       },
- *       ServiceForecastStatistics: { // ForecastStatistics
- *         FaultCountHigh: Number("long"),
- *         FaultCountLow: Number("long"),
- *       },
- *       ResponseTimeHistogram: [ // Histogram
- *         { // HistogramEntry
- *           Value: Number("double"),
- *           Count: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   ContainsOldGroupVersions: true || false,
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTimeSeriesServiceStatisticsResult
+ * //   TimeSeriesServiceStatistics: [ // TimeSeriesServiceStatisticsList
+ * //     { // TimeSeriesServiceStatistics
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       EdgeSummaryStatistics: { // EdgeStatistics
+ * //         OkCount: Number("long"),
+ * //         ErrorStatistics: { // ErrorStatistics
+ * //           ThrottleCount: Number("long"),
+ * //           OtherCount: Number("long"),
+ * //           TotalCount: Number("long"),
+ * //         },
+ * //         FaultStatistics: { // FaultStatistics
+ * //           OtherCount: Number("long"),
+ * //           TotalCount: Number("long"),
+ * //         },
+ * //         TotalCount: Number("long"),
+ * //         TotalResponseTime: Number("double"),
+ * //       },
+ * //       ServiceSummaryStatistics: { // ServiceStatistics
+ * //         OkCount: Number("long"),
+ * //         ErrorStatistics: {
+ * //           ThrottleCount: Number("long"),
+ * //           OtherCount: Number("long"),
+ * //           TotalCount: Number("long"),
+ * //         },
+ * //         FaultStatistics: {
+ * //           OtherCount: Number("long"),
+ * //           TotalCount: Number("long"),
+ * //         },
+ * //         TotalCount: Number("long"),
+ * //         TotalResponseTime: Number("double"),
+ * //       },
+ * //       ServiceForecastStatistics: { // ForecastStatistics
+ * //         FaultCountHigh: Number("long"),
+ * //         FaultCountLow: Number("long"),
+ * //       },
+ * //       ResponseTimeHistogram: [ // Histogram
+ * //         { // HistogramEntry
+ * //           Value: Number("double"),
+ * //           Count: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ContainsOldGroupVersions: true || false,
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

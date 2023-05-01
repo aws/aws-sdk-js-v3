@@ -47,19 +47,18 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * };
  * const command = new ListLFTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLFTagsResponse
- *   LFTags: [ // LFTagsList
- *     { // LFTagPair
- *       CatalogId: "STRING_VALUE",
- *       TagKey: "STRING_VALUE", // required
- *       TagValues: [ // TagValueList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLFTagsResponse
+ * //   LFTags: [ // LFTagsList
+ * //     { // LFTagPair
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // TagValueList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

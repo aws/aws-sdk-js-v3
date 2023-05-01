@@ -45,35 +45,34 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * };
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImportJobResponse
- *   ImportJobResponse: { // ImportJobResponse
- *     ApplicationId: "STRING_VALUE", // required
- *     CompletedPieces: Number("int"),
- *     CompletionDate: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE", // required
- *     Definition: { // ImportJobResource
- *       DefineSegment: true || false,
- *       ExternalId: "STRING_VALUE",
- *       Format: "CSV" || "JSON", // required
- *       RegisterEndpoints: true || false,
- *       RoleArn: "STRING_VALUE", // required
- *       S3Url: "STRING_VALUE", // required
- *       SegmentId: "STRING_VALUE",
- *       SegmentName: "STRING_VALUE",
- *     },
- *     FailedPieces: Number("int"),
- *     Failures: [ // ListOf__string
- *       "STRING_VALUE",
- *     ],
- *     Id: "STRING_VALUE", // required
- *     JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
- *     TotalFailures: Number("int"),
- *     TotalPieces: Number("int"),
- *     TotalProcessed: Number("int"),
- *     Type: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetImportJobResponse
+ * //   ImportJobResponse: { // ImportJobResponse
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     CompletedPieces: Number("int"),
+ * //     CompletionDate: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     Definition: { // ImportJobResource
+ * //       DefineSegment: true || false,
+ * //       ExternalId: "STRING_VALUE",
+ * //       Format: "CSV" || "JSON", // required
+ * //       RegisterEndpoints: true || false,
+ * //       RoleArn: "STRING_VALUE", // required
+ * //       S3Url: "STRING_VALUE", // required
+ * //       SegmentId: "STRING_VALUE",
+ * //       SegmentName: "STRING_VALUE",
+ * //     },
+ * //     FailedPieces: Number("int"),
+ * //     Failures: [ // ListOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Id: "STRING_VALUE", // required
+ * //     JobStatus: "CREATED" || "PREPARING_FOR_INITIALIZATION" || "INITIALIZING" || "PROCESSING" || "PENDING_JOB" || "COMPLETING" || "COMPLETED" || "FAILING" || "FAILED", // required
+ * //     TotalFailures: Number("int"),
+ * //     TotalPieces: Number("int"),
+ * //     TotalProcessed: Number("int"),
+ * //     Type: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

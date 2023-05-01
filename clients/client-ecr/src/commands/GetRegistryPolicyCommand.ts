@@ -42,11 +42,10 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * const input = {};
  * const command = new GetRegistryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegistryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // GetRegistryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

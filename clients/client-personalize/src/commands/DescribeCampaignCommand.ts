@@ -56,37 +56,36 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * };
  * const command = new DescribeCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCampaignResponse
- *   campaign: { // Campaign
- *     name: "STRING_VALUE",
- *     campaignArn: "STRING_VALUE",
- *     solutionVersionArn: "STRING_VALUE",
- *     minProvisionedTPS: Number("int"),
- *     campaignConfig: { // CampaignConfig
- *       itemExplorationConfig: { // HyperParameters
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     status: "STRING_VALUE",
- *     failureReason: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     latestCampaignUpdate: { // CampaignUpdateSummary
- *       solutionVersionArn: "STRING_VALUE",
- *       minProvisionedTPS: Number("int"),
- *       campaignConfig: {
- *         itemExplorationConfig: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       status: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   },
- * };
+ * // { // DescribeCampaignResponse
+ * //   campaign: { // Campaign
+ * //     name: "STRING_VALUE",
+ * //     campaignArn: "STRING_VALUE",
+ * //     solutionVersionArn: "STRING_VALUE",
+ * //     minProvisionedTPS: Number("int"),
+ * //     campaignConfig: { // CampaignConfig
+ * //       itemExplorationConfig: { // HyperParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     status: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     latestCampaignUpdate: { // CampaignUpdateSummary
+ * //       solutionVersionArn: "STRING_VALUE",
+ * //       minProvisionedTPS: Number("int"),
+ * //       campaignConfig: {
+ * //         itemExplorationConfig: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

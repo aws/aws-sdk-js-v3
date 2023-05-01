@@ -47,10 +47,9 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * };
  * const command = new UpdateSolNetworkPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSolNetworkPackageOutput
- *   nsdOperationalState: "ENABLED" || "DISABLED", // required
- * };
+ * // { // UpdateSolNetworkPackageOutput
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * // };
  *
  * ```
  *

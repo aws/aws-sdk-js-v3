@@ -44,8 +44,7 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteTerminologyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

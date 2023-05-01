@@ -61,16 +61,15 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * };
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListParentsResponse
- *   Parents: [ // Parents
- *     { // Parent
- *       Id: "STRING_VALUE",
- *       Type: "ROOT" || "ORGANIZATIONAL_UNIT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListParentsResponse
+ * //   Parents: [ // Parents
+ * //     { // Parent
+ * //       Id: "STRING_VALUE",
+ * //       Type: "ROOT" || "ORGANIZATIONAL_UNIT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,19 +51,18 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * };
  * const command = new UpdateInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateInstanceProfileResult
- *   instanceProfile: { // InstanceProfile
- *     arn: "STRING_VALUE",
- *     packageCleanup: true || false,
- *     excludeAppPackagesFromCleanup: [ // PackageIds
- *       "STRING_VALUE",
- *     ],
- *     rebootAfterUse: true || false,
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateInstanceProfileResult
+ * //   instanceProfile: { // InstanceProfile
+ * //     arn: "STRING_VALUE",
+ * //     packageCleanup: true || false,
+ * //     excludeAppPackagesFromCleanup: [ // PackageIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     rebootAfterUse: true || false,
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

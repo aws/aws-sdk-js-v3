@@ -53,16 +53,15 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * };
  * const command = new BatchPutFieldOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutFieldOptionsResponse
- *   errors: [ // FieldOptionErrorList
- *     { // FieldOptionError
- *       message: "STRING_VALUE", // required
- *       errorCode: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchPutFieldOptionsResponse
+ * //   errors: [ // FieldOptionErrorList
+ * //     { // FieldOptionError
+ * //       message: "STRING_VALUE", // required
+ * //       errorCode: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

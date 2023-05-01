@@ -50,38 +50,37 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImportsResponse
- *   items: [ // ImportList
- *     { // ImportTask
- *       importID: "STRING_VALUE",
- *       s3BucketSource: { // S3BucketSource
- *         s3Bucket: "STRING_VALUE", // required
- *         s3Key: "STRING_VALUE", // required
- *         s3BucketOwner: "STRING_VALUE",
- *       },
- *       creationDateTime: "STRING_VALUE",
- *       endDateTime: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       progressPercentage: Number("float"),
- *       summary: { // ImportTaskSummary
- *         waves: { // ImportTaskSummaryWaves
- *           createdCount: Number("long"),
- *           modifiedCount: Number("long"),
- *         },
- *         applications: { // ImportTaskSummaryApplications
- *           createdCount: Number("long"),
- *           modifiedCount: Number("long"),
- *         },
- *         servers: { // ImportTaskSummaryServers
- *           createdCount: Number("long"),
- *           modifiedCount: Number("long"),
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImportsResponse
+ * //   items: [ // ImportList
+ * //     { // ImportTask
+ * //       importID: "STRING_VALUE",
+ * //       s3BucketSource: { // S3BucketSource
+ * //         s3Bucket: "STRING_VALUE", // required
+ * //         s3Key: "STRING_VALUE", // required
+ * //         s3BucketOwner: "STRING_VALUE",
+ * //       },
+ * //       creationDateTime: "STRING_VALUE",
+ * //       endDateTime: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       progressPercentage: Number("float"),
+ * //       summary: { // ImportTaskSummary
+ * //         waves: { // ImportTaskSummaryWaves
+ * //           createdCount: Number("long"),
+ * //           modifiedCount: Number("long"),
+ * //         },
+ * //         applications: { // ImportTaskSummaryApplications
+ * //           createdCount: Number("long"),
+ * //           modifiedCount: Number("long"),
+ * //         },
+ * //         servers: { // ImportTaskSummaryServers
+ * //           createdCount: Number("long"),
+ * //           modifiedCount: Number("long"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

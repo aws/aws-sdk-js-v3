@@ -54,10 +54,9 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  * };
  * const command = new AssociateDefaultViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateDefaultViewOutput
- *   ViewArn: "STRING_VALUE",
- * };
+ * // { // AssociateDefaultViewOutput
+ * //   ViewArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

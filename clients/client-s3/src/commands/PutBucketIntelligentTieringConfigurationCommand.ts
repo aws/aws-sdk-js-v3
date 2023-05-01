@@ -156,8 +156,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  * };
  * const command = new PutBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

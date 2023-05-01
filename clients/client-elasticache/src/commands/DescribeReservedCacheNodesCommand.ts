@@ -52,32 +52,31 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * };
  * const command = new DescribeReservedCacheNodesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReservedCacheNodeMessage
- *   Marker: "STRING_VALUE",
- *   ReservedCacheNodes: [ // ReservedCacheNodeList
- *     { // ReservedCacheNode
- *       ReservedCacheNodeId: "STRING_VALUE",
- *       ReservedCacheNodesOfferingId: "STRING_VALUE",
- *       CacheNodeType: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       Duration: Number("int"),
- *       FixedPrice: Number("double"),
- *       UsagePrice: Number("double"),
- *       CacheNodeCount: Number("int"),
- *       ProductDescription: "STRING_VALUE",
- *       OfferingType: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       RecurringCharges: [ // RecurringChargeList
- *         { // RecurringCharge
- *           RecurringChargeAmount: Number("double"),
- *           RecurringChargeFrequency: "STRING_VALUE",
- *         },
- *       ],
- *       ReservationARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ReservedCacheNodeMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedCacheNodes: [ // ReservedCacheNodeList
+ * //     { // ReservedCacheNode
+ * //       ReservedCacheNodeId: "STRING_VALUE",
+ * //       ReservedCacheNodesOfferingId: "STRING_VALUE",
+ * //       CacheNodeType: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       UsagePrice: Number("double"),
+ * //       CacheNodeCount: Number("int"),
+ * //       ProductDescription: "STRING_VALUE",
+ * //       OfferingType: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ReservationARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

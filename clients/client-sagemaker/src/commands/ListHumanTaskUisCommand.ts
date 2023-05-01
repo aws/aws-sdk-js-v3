@@ -48,17 +48,16 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * };
  * const command = new ListHumanTaskUisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHumanTaskUisResponse
- *   HumanTaskUiSummaries: [ // HumanTaskUiSummaries // required
- *     { // HumanTaskUiSummary
- *       HumanTaskUiName: "STRING_VALUE", // required
- *       HumanTaskUiArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHumanTaskUisResponse
+ * //   HumanTaskUiSummaries: [ // HumanTaskUiSummaries // required
+ * //     { // HumanTaskUiSummary
+ * //       HumanTaskUiName: "STRING_VALUE", // required
+ * //       HumanTaskUiArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

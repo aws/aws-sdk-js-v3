@@ -54,8 +54,7 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * };
  * const command = new DisassociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

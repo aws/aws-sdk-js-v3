@@ -65,28 +65,27 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * };
  * const command = new ListStackSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStackSetsOutput
- *   Summaries: [ // StackSetSummaries
- *     { // StackSetSummary
- *       StackSetName: "STRING_VALUE",
- *       StackSetId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "ACTIVE" || "DELETED",
- *       AutoDeployment: { // AutoDeployment
- *         Enabled: true || false,
- *         RetainStacksOnAccountRemoval: true || false,
- *       },
- *       PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
- *       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
- *       LastDriftCheckTimestamp: new Date("TIMESTAMP"),
- *       ManagedExecution: { // ManagedExecution
- *         Active: true || false,
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListStackSetsOutput
+ * //   Summaries: [ // StackSetSummaries
+ * //     { // StackSetSummary
+ * //       StackSetName: "STRING_VALUE",
+ * //       StackSetId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "DELETED",
+ * //       AutoDeployment: { // AutoDeployment
+ * //         Enabled: true || false,
+ * //         RetainStacksOnAccountRemoval: true || false,
+ * //       },
+ * //       PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ * //       DriftStatus: "DRIFTED" || "IN_SYNC" || "UNKNOWN" || "NOT_CHECKED",
+ * //       LastDriftCheckTimestamp: new Date("TIMESTAMP"),
+ * //       ManagedExecution: { // ManagedExecution
+ * //         Active: true || false,
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

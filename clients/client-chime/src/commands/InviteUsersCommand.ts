@@ -55,17 +55,16 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * };
  * const command = new InviteUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InviteUsersResponse
- *   Invites: [ // InviteList
- *     { // Invite
- *       InviteId: "STRING_VALUE",
- *       Status: "Pending" || "Accepted" || "Failed",
- *       EmailAddress: "STRING_VALUE",
- *       EmailStatus: "NotSent" || "Sent" || "Failed",
- *     },
- *   ],
- * };
+ * // { // InviteUsersResponse
+ * //   Invites: [ // InviteList
+ * //     { // Invite
+ * //       InviteId: "STRING_VALUE",
+ * //       Status: "Pending" || "Accepted" || "Failed",
+ * //       EmailAddress: "STRING_VALUE",
+ * //       EmailStatus: "NotSent" || "Sent" || "Failed",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

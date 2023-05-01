@@ -61,10 +61,9 @@ export interface CreateMetricAttributionCommandOutput extends CreateMetricAttrib
  * };
  * const command = new CreateMetricAttributionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMetricAttributionResponse
- *   metricAttributionArn: "STRING_VALUE",
- * };
+ * // { // CreateMetricAttributionResponse
+ * //   metricAttributionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

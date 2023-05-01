@@ -57,13 +57,12 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * };
  * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallPolicyChangeProtectionResponse
- *   UpdateToken: "STRING_VALUE",
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   FirewallPolicyChangeProtection: true || false,
- * };
+ * // { // UpdateFirewallPolicyChangeProtectionResponse
+ * //   UpdateToken: "STRING_VALUE",
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   FirewallPolicyChangeProtection: true || false,
+ * // };
  *
  * ```
  *

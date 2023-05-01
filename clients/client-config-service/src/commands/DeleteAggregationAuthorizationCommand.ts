@@ -49,8 +49,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteAggregationAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

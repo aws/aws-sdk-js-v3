@@ -72,12 +72,11 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * };
  * const command = new GetClusterCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterCredentials
- *   DbUser: "STRING_VALUE",
- *   DbPassword: "STRING_VALUE",
- *   Expiration: new Date("TIMESTAMP"),
- * };
+ * // { // ClusterCredentials
+ * //   DbUser: "STRING_VALUE",
+ * //   DbPassword: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

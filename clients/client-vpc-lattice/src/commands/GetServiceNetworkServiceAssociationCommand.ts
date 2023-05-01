@@ -53,27 +53,26 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
  * };
  * const command = new GetServiceNetworkServiceAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceNetworkServiceAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   createdBy: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   serviceId: "STRING_VALUE",
- *   serviceName: "STRING_VALUE",
- *   serviceArn: "STRING_VALUE",
- *   serviceNetworkId: "STRING_VALUE",
- *   serviceNetworkName: "STRING_VALUE",
- *   serviceNetworkArn: "STRING_VALUE",
- *   dnsEntry: { // DnsEntry
- *     domainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- *   customDomainName: "STRING_VALUE",
- *   failureMessage: "STRING_VALUE",
- *   failureCode: "STRING_VALUE",
- * };
+ * // { // GetServiceNetworkServiceAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   serviceId: "STRING_VALUE",
+ * //   serviceName: "STRING_VALUE",
+ * //   serviceArn: "STRING_VALUE",
+ * //   serviceNetworkId: "STRING_VALUE",
+ * //   serviceNetworkName: "STRING_VALUE",
+ * //   serviceNetworkArn: "STRING_VALUE",
+ * //   dnsEntry: { // DnsEntry
+ * //     domainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * //   customDomainName: "STRING_VALUE",
+ * //   failureMessage: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

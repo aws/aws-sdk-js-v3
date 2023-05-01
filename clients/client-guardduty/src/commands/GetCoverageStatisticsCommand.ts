@@ -65,17 +65,16 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  * };
  * const command = new GetCoverageStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCoverageStatisticsResponse
- *   CoverageStatistics: { // CoverageStatistics
- *     CountByResourceType: { // CountByResourceType
- *       "<keys>": Number("long"),
- *     },
- *     CountByCoverageStatus: { // CountByCoverageStatus
- *       "<keys>": Number("long"),
- *     },
- *   },
- * };
+ * // { // GetCoverageStatisticsResponse
+ * //   CoverageStatistics: { // CoverageStatistics
+ * //     CountByResourceType: { // CountByResourceType
+ * //       "<keys>": Number("long"),
+ * //     },
+ * //     CountByCoverageStatus: { // CountByCoverageStatus
+ * //       "<keys>": Number("long"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * };
  * const command = new DeleteListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

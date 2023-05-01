@@ -65,25 +65,24 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * };
  * const command = new CreateTrafficMirrorTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrafficMirrorTargetResult
- *   TrafficMirrorTarget: { // TrafficMirrorTarget
- *     TrafficMirrorTargetId: "STRING_VALUE",
- *     NetworkInterfaceId: "STRING_VALUE",
- *     NetworkLoadBalancerArn: "STRING_VALUE",
- *     Type: "network-interface" || "network-load-balancer" || "gateway-load-balancer-endpoint",
- *     Description: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     GatewayLoadBalancerEndpointId: "STRING_VALUE",
- *   },
- *   ClientToken: "STRING_VALUE",
- * };
+ * // { // CreateTrafficMirrorTargetResult
+ * //   TrafficMirrorTarget: { // TrafficMirrorTarget
+ * //     TrafficMirrorTargetId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     NetworkLoadBalancerArn: "STRING_VALUE",
+ * //     Type: "network-interface" || "network-load-balancer" || "gateway-load-balancer-endpoint",
+ * //     Description: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GatewayLoadBalancerEndpointId: "STRING_VALUE",
+ * //   },
+ * //   ClientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

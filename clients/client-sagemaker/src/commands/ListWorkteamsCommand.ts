@@ -50,41 +50,40 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * };
  * const command = new ListWorkteamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkteamsResponse
- *   Workteams: [ // Workteams // required
- *     { // Workteam
- *       WorkteamName: "STRING_VALUE", // required
- *       MemberDefinitions: [ // MemberDefinitions // required
- *         { // MemberDefinition
- *           CognitoMemberDefinition: { // CognitoMemberDefinition
- *             UserPool: "STRING_VALUE", // required
- *             UserGroup: "STRING_VALUE", // required
- *             ClientId: "STRING_VALUE", // required
- *           },
- *           OidcMemberDefinition: { // OidcMemberDefinition
- *             Groups: [ // Groups // required
- *               "STRING_VALUE",
- *             ],
- *           },
- *         },
- *       ],
- *       WorkteamArn: "STRING_VALUE", // required
- *       WorkforceArn: "STRING_VALUE",
- *       ProductListingIds: [ // ProductListings
- *         "STRING_VALUE",
- *       ],
- *       Description: "STRING_VALUE", // required
- *       SubDomain: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       LastUpdatedDate: new Date("TIMESTAMP"),
- *       NotificationConfiguration: { // NotificationConfiguration
- *         NotificationTopicArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkteamsResponse
+ * //   Workteams: [ // Workteams // required
+ * //     { // Workteam
+ * //       WorkteamName: "STRING_VALUE", // required
+ * //       MemberDefinitions: [ // MemberDefinitions // required
+ * //         { // MemberDefinition
+ * //           CognitoMemberDefinition: { // CognitoMemberDefinition
+ * //             UserPool: "STRING_VALUE", // required
+ * //             UserGroup: "STRING_VALUE", // required
+ * //             ClientId: "STRING_VALUE", // required
+ * //           },
+ * //           OidcMemberDefinition: { // OidcMemberDefinition
+ * //             Groups: [ // Groups // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //       WorkteamArn: "STRING_VALUE", // required
+ * //       WorkforceArn: "STRING_VALUE",
+ * //       ProductListingIds: [ // ProductListings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Description: "STRING_VALUE", // required
+ * //       SubDomain: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       LastUpdatedDate: new Date("TIMESTAMP"),
+ * //       NotificationConfiguration: { // NotificationConfiguration
+ * //         NotificationTopicArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

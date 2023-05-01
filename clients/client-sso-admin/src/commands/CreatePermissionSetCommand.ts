@@ -59,17 +59,16 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * };
  * const command = new CreatePermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePermissionSetResponse
- *   PermissionSet: { // PermissionSet
- *     Name: "STRING_VALUE",
- *     PermissionSetArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedDate: new Date("TIMESTAMP"),
- *     SessionDuration: "STRING_VALUE",
- *     RelayState: "STRING_VALUE",
- *   },
- * };
+ * // { // CreatePermissionSetResponse
+ * //   PermissionSet: { // PermissionSet
+ * //     Name: "STRING_VALUE",
+ * //     PermissionSetArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     SessionDuration: "STRING_VALUE",
+ * //     RelayState: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -48,11 +48,10 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * };
  * const command = new DeleteStorageVirtualMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteStorageVirtualMachineResponse
- *   StorageVirtualMachineId: "STRING_VALUE",
- *   Lifecycle: "CREATED" || "CREATING" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING",
- * };
+ * // { // DeleteStorageVirtualMachineResponse
+ * //   StorageVirtualMachineId: "STRING_VALUE",
+ * //   Lifecycle: "CREATED" || "CREATING" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING",
+ * // };
  *
  * ```
  *

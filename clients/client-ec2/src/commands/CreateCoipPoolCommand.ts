@@ -56,23 +56,22 @@ export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __Met
  * };
  * const command = new CreateCoipPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCoipPoolResult
- *   CoipPool: { // CoipPool
- *     PoolId: "STRING_VALUE",
- *     PoolCidrs: [ // ValueStringList
- *       "STRING_VALUE",
- *     ],
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     PoolArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateCoipPoolResult
+ * //   CoipPool: { // CoipPool
+ * //     PoolId: "STRING_VALUE",
+ * //     PoolCidrs: [ // ValueStringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PoolArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

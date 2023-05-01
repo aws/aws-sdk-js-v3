@@ -54,20 +54,19 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * };
  * const command = new CreateCellCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCellResponse
- *   CellArn: "STRING_VALUE",
- *   CellName: "STRING_VALUE",
- *   Cells: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   ParentReadinessScopes: [
- *     "STRING_VALUE",
- *   ],
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateCellResponse
+ * //   CellArn: "STRING_VALUE",
+ * //   CellName: "STRING_VALUE",
+ * //   Cells: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ParentReadinessScopes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

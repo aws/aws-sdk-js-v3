@@ -45,23 +45,22 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * };
  * const command = new DeleteSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSubnetCidrReservationResult
- *   DeletedSubnetCidrReservation: { // SubnetCidrReservation
- *     SubnetCidrReservationId: "STRING_VALUE",
- *     SubnetId: "STRING_VALUE",
- *     Cidr: "STRING_VALUE",
- *     ReservationType: "prefix" || "explicit",
- *     OwnerId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteSubnetCidrReservationResult
+ * //   DeletedSubnetCidrReservation: { // SubnetCidrReservation
+ * //     SubnetCidrReservationId: "STRING_VALUE",
+ * //     SubnetId: "STRING_VALUE",
+ * //     Cidr: "STRING_VALUE",
+ * //     ReservationType: "prefix" || "explicit",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

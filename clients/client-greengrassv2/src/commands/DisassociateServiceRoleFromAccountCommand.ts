@@ -53,10 +53,9 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateServiceRoleFromAccountResponse
- *   disassociatedAt: "STRING_VALUE",
- * };
+ * // { // DisassociateServiceRoleFromAccountResponse
+ * //   disassociatedAt: "STRING_VALUE",
+ * // };
  *
  * ```
  *

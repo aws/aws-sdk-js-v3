@@ -50,14 +50,13 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResourceOutput
- *   TypeName: "STRING_VALUE",
- *   ResourceDescription: { // ResourceDescription
- *     Identifier: "STRING_VALUE",
- *     Properties: "STRING_VALUE",
- *   },
- * };
+ * // { // GetResourceOutput
+ * //   TypeName: "STRING_VALUE",
+ * //   ResourceDescription: { // ResourceDescription
+ * //     Identifier: "STRING_VALUE",
+ * //     Properties: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

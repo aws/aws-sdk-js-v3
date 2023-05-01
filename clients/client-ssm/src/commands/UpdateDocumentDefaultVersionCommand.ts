@@ -55,14 +55,13 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * };
  * const command = new UpdateDocumentDefaultVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDocumentDefaultVersionResult
- *   Description: { // DocumentDefaultVersionDescription
- *     Name: "STRING_VALUE",
- *     DefaultVersion: "STRING_VALUE",
- *     DefaultVersionName: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateDocumentDefaultVersionResult
+ * //   Description: { // DocumentDefaultVersionDescription
+ * //     Name: "STRING_VALUE",
+ * //     DefaultVersion: "STRING_VALUE",
+ * //     DefaultVersionName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

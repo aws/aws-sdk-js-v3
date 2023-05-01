@@ -53,8 +53,7 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * };
  * const command = new DeleteScheduleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,25 +44,24 @@ export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayIns
  * };
  * const command = new DescribeGatewayInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGatewayInstanceResponse
- *   GatewayInstance: { // GatewayInstance
- *     BridgePlacement: "AVAILABLE" || "LOCKED", // required
- *     ConnectionStatus: "CONNECTED" || "DISCONNECTED", // required
- *     GatewayArn: "STRING_VALUE", // required
- *     GatewayInstanceArn: "STRING_VALUE", // required
- *     InstanceId: "STRING_VALUE", // required
- *     InstanceMessages: [ // __listOfMessageDetail
- *       { // MessageDetail
- *         Code: "STRING_VALUE", // required
- *         Message: "STRING_VALUE", // required
- *         ResourceName: "STRING_VALUE",
- *       },
- *     ],
- *     InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR", // required
- *     RunningBridgeCount: Number("int"), // required
- *   },
- * };
+ * // { // DescribeGatewayInstanceResponse
+ * //   GatewayInstance: { // GatewayInstance
+ * //     BridgePlacement: "AVAILABLE" || "LOCKED", // required
+ * //     ConnectionStatus: "CONNECTED" || "DISCONNECTED", // required
+ * //     GatewayArn: "STRING_VALUE", // required
+ * //     GatewayInstanceArn: "STRING_VALUE", // required
+ * //     InstanceId: "STRING_VALUE", // required
+ * //     InstanceMessages: [ // __listOfMessageDetail
+ * //       { // MessageDetail
+ * //         Code: "STRING_VALUE", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     InstanceState: "REGISTERING" || "ACTIVE" || "DEREGISTERING" || "DEREGISTERED" || "REGISTRATION_ERROR" || "DEREGISTRATION_ERROR", // required
+ * //     RunningBridgeCount: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

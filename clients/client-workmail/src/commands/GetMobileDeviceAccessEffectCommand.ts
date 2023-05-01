@@ -51,16 +51,15 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * };
  * const command = new GetMobileDeviceAccessEffectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMobileDeviceAccessEffectResponse
- *   Effect: "ALLOW" || "DENY",
- *   MatchedRules: [ // MobileDeviceAccessMatchedRuleList
- *     { // MobileDeviceAccessMatchedRule
- *       MobileDeviceAccessRuleId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetMobileDeviceAccessEffectResponse
+ * //   Effect: "ALLOW" || "DENY",
+ * //   MatchedRules: [ // MobileDeviceAccessMatchedRuleList
+ * //     { // MobileDeviceAccessMatchedRule
+ * //       MobileDeviceAccessRuleId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

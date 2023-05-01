@@ -66,10 +66,9 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * };
  * const command = new UpdateObjectAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateObjectAttributesResponse
- *   ObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // UpdateObjectAttributesResponse
+ * //   ObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

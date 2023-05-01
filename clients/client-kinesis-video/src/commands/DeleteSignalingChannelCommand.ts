@@ -47,8 +47,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * };
  * const command = new DeleteSignalingChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

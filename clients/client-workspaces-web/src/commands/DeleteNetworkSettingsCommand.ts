@@ -44,8 +44,7 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * };
  * const command = new DeleteNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,35 +49,34 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * };
  * const command = new GetSolNetworkPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSolNetworkPackageOutput
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
- *   nsdOperationalState: "ENABLED" || "DISABLED", // required
- *   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
- *   nsdId: "STRING_VALUE", // required
- *   nsdName: "STRING_VALUE", // required
- *   nsdVersion: "STRING_VALUE", // required
- *   vnfPkgIds: [ // VnfPkgIdList // required
- *     "STRING_VALUE",
- *   ],
- *   metadata: { // GetSolNetworkPackageMetadata
- *     nsd: { // NetworkArtifactMeta
- *       overrides: [ // OverrideList
- *         { // ToscaOverride
- *           name: "STRING_VALUE",
- *           defaultValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModified: new Date("TIMESTAMP"), // required
- *   },
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSolNetworkPackageOutput
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   nsdOnboardingState: "CREATED" || "ONBOARDED" || "ERROR", // required
+ * //   nsdOperationalState: "ENABLED" || "DISABLED", // required
+ * //   nsdUsageState: "IN_USE" || "NOT_IN_USE", // required
+ * //   nsdId: "STRING_VALUE", // required
+ * //   nsdName: "STRING_VALUE", // required
+ * //   nsdVersion: "STRING_VALUE", // required
+ * //   vnfPkgIds: [ // VnfPkgIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   metadata: { // GetSolNetworkPackageMetadata
+ * //     nsd: { // NetworkArtifactMeta
+ * //       overrides: [ // OverrideList
+ * //         { // ToscaOverride
+ * //           name: "STRING_VALUE",
+ * //           defaultValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModified: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

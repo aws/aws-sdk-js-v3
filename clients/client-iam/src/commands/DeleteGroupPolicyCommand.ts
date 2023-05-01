@@ -50,8 +50,7 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
  * };
  * const command = new DeleteRobotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * };
  * const command = new UpdateActionTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

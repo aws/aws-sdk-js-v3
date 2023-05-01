@@ -62,21 +62,20 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVpcEndpointResponse
- *   UpdateVpcEndpointDetail: { // UpdateVpcEndpointDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     subnetIds: [ // SubnetIds
- *       "STRING_VALUE",
- *     ],
- *     securityGroupIds: [ // SecurityGroupIds
- *       "STRING_VALUE",
- *     ],
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // UpdateVpcEndpointResponse
+ * //   UpdateVpcEndpointDetail: { // UpdateVpcEndpointDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

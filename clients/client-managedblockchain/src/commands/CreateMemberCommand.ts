@@ -74,10 +74,9 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * };
  * const command = new CreateMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMemberOutput
- *   MemberId: "STRING_VALUE",
- * };
+ * // { // CreateMemberOutput
+ * //   MemberId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

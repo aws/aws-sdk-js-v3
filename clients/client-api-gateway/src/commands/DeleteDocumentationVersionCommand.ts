@@ -45,8 +45,7 @@ export interface DeleteDocumentationVersionCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteDocumentationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

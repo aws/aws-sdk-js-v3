@@ -70,8 +70,7 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RemoveEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

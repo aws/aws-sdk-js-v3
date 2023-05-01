@@ -43,12 +43,11 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * const input = {};
  * const command = new GetV2LoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetV2LoggingOptionsResponse
- *   roleArn: "STRING_VALUE",
- *   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
- *   disableAllLogs: true || false,
- * };
+ * // { // GetV2LoggingOptionsResponse
+ * //   roleArn: "STRING_VALUE",
+ * //   defaultLogLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ * //   disableAllLogs: true || false,
+ * // };
  *
  * ```
  *

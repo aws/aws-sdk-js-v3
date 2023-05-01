@@ -54,10 +54,9 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EstimateTemplateCostOutput
- *   Url: "STRING_VALUE",
- * };
+ * // { // EstimateTemplateCostOutput
+ * //   Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

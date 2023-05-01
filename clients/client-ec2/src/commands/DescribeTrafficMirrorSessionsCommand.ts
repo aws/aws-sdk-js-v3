@@ -59,29 +59,28 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
  * };
  * const command = new DescribeTrafficMirrorSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrafficMirrorSessionsResult
- *   TrafficMirrorSessions: [ // TrafficMirrorSessionSet
- *     { // TrafficMirrorSession
- *       TrafficMirrorSessionId: "STRING_VALUE",
- *       TrafficMirrorTargetId: "STRING_VALUE",
- *       TrafficMirrorFilterId: "STRING_VALUE",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       PacketLength: Number("int"),
- *       SessionNumber: Number("int"),
- *       VirtualNetworkId: Number("int"),
- *       Description: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTrafficMirrorSessionsResult
+ * //   TrafficMirrorSessions: [ // TrafficMirrorSessionSet
+ * //     { // TrafficMirrorSession
+ * //       TrafficMirrorSessionId: "STRING_VALUE",
+ * //       TrafficMirrorTargetId: "STRING_VALUE",
+ * //       TrafficMirrorFilterId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       PacketLength: Number("int"),
+ * //       SessionNumber: Number("int"),
+ * //       VirtualNetworkId: Number("int"),
+ * //       Description: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

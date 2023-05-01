@@ -297,8 +297,7 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * };
  * const command = new UpdateInsightCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

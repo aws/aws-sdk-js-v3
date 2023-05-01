@@ -56,18 +56,17 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBillingGroupOutput
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   PrimaryAccountId: "STRING_VALUE",
- *   PricingPlanArn: "STRING_VALUE",
- *   Size: Number("long"),
- *   LastModifiedTime: Number("long"),
- *   Status: "STRING_VALUE",
- *   StatusReason: "STRING_VALUE",
- * };
+ * // { // UpdateBillingGroupOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   PrimaryAccountId: "STRING_VALUE",
+ * //   PricingPlanArn: "STRING_VALUE",
+ * //   Size: Number("long"),
+ * //   LastModifiedTime: Number("long"),
+ * //   Status: "STRING_VALUE",
+ * //   StatusReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

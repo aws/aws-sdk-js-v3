@@ -45,10 +45,9 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * };
  * const command = new StopJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopJobRunResponse
- *   RunId: "STRING_VALUE", // required
- * };
+ * // { // StopJobRunResponse
+ * //   RunId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

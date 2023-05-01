@@ -48,12 +48,11 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  * };
  * const command = new ExportProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportProjectResult
- *   downloadUrl: "STRING_VALUE",
- *   shareUrl: "STRING_VALUE",
- *   snapshotId: "STRING_VALUE",
- * };
+ * // { // ExportProjectResult
+ * //   downloadUrl: "STRING_VALUE",
+ * //   shareUrl: "STRING_VALUE",
+ * //   snapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

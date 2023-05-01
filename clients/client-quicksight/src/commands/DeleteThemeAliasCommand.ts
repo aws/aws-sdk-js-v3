@@ -48,14 +48,13 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  * };
  * const command = new DeleteThemeAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteThemeAliasResponse
- *   AliasName: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- *   ThemeId: "STRING_VALUE",
- * };
+ * // { // DeleteThemeAliasResponse
+ * //   AliasName: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   ThemeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

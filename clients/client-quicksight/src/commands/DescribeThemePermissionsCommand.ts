@@ -45,21 +45,20 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  * };
  * const command = new DescribeThemePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeThemePermissionsResponse
- *   ThemeId: "STRING_VALUE",
- *   ThemeArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeThemePermissionsResponse
+ * //   ThemeId: "STRING_VALUE",
+ * //   ThemeArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

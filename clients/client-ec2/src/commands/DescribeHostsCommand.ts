@@ -59,59 +59,58 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * };
  * const command = new DescribeHostsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHostsResult
- *   Hosts: [ // HostList
- *     { // Host
- *       AutoPlacement: "on" || "off",
- *       AvailabilityZone: "STRING_VALUE",
- *       AvailableCapacity: { // AvailableCapacity
- *         AvailableInstanceCapacity: [ // AvailableInstanceCapacityList
- *           { // InstanceCapacity
- *             AvailableCapacity: Number("int"),
- *             InstanceType: "STRING_VALUE",
- *             TotalCapacity: Number("int"),
- *           },
- *         ],
- *         AvailableVCpus: Number("int"),
- *       },
- *       ClientToken: "STRING_VALUE",
- *       HostId: "STRING_VALUE",
- *       HostProperties: { // HostProperties
- *         Cores: Number("int"),
- *         InstanceType: "STRING_VALUE",
- *         InstanceFamily: "STRING_VALUE",
- *         Sockets: Number("int"),
- *         TotalVCpus: Number("int"),
- *       },
- *       HostReservationId: "STRING_VALUE",
- *       Instances: [ // HostInstanceList
- *         { // HostInstance
- *           InstanceId: "STRING_VALUE",
- *           InstanceType: "STRING_VALUE",
- *           OwnerId: "STRING_VALUE",
- *         },
- *       ],
- *       State: "available" || "under-assessment" || "permanent-failure" || "released" || "released-permanent-failure" || "pending",
- *       AllocationTime: new Date("TIMESTAMP"),
- *       ReleaseTime: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       HostRecovery: "on" || "off",
- *       AllowsMultipleInstanceTypes: "on" || "off",
- *       OwnerId: "STRING_VALUE",
- *       AvailabilityZoneId: "STRING_VALUE",
- *       MemberOfServiceLinkedResourceGroup: true || false,
- *       OutpostArn: "STRING_VALUE",
- *       HostMaintenance: "on" || "off",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeHostsResult
+ * //   Hosts: [ // HostList
+ * //     { // Host
+ * //       AutoPlacement: "on" || "off",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       AvailableCapacity: { // AvailableCapacity
+ * //         AvailableInstanceCapacity: [ // AvailableInstanceCapacityList
+ * //           { // InstanceCapacity
+ * //             AvailableCapacity: Number("int"),
+ * //             InstanceType: "STRING_VALUE",
+ * //             TotalCapacity: Number("int"),
+ * //           },
+ * //         ],
+ * //         AvailableVCpus: Number("int"),
+ * //       },
+ * //       ClientToken: "STRING_VALUE",
+ * //       HostId: "STRING_VALUE",
+ * //       HostProperties: { // HostProperties
+ * //         Cores: Number("int"),
+ * //         InstanceType: "STRING_VALUE",
+ * //         InstanceFamily: "STRING_VALUE",
+ * //         Sockets: Number("int"),
+ * //         TotalVCpus: Number("int"),
+ * //       },
+ * //       HostReservationId: "STRING_VALUE",
+ * //       Instances: [ // HostInstanceList
+ * //         { // HostInstance
+ * //           InstanceId: "STRING_VALUE",
+ * //           InstanceType: "STRING_VALUE",
+ * //           OwnerId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       State: "available" || "under-assessment" || "permanent-failure" || "released" || "released-permanent-failure" || "pending",
+ * //       AllocationTime: new Date("TIMESTAMP"),
+ * //       ReleaseTime: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       HostRecovery: "on" || "off",
+ * //       AllowsMultipleInstanceTypes: "on" || "off",
+ * //       OwnerId: "STRING_VALUE",
+ * //       AvailabilityZoneId: "STRING_VALUE",
+ * //       MemberOfServiceLinkedResourceGroup: true || false,
+ * //       OutpostArn: "STRING_VALUE",
+ * //       HostMaintenance: "on" || "off",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

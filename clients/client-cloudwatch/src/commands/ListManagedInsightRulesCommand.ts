@@ -52,20 +52,19 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * };
  * const command = new ListManagedInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedInsightRulesOutput
- *   ManagedRules: [ // ManagedRuleDescriptions
- *     { // ManagedRuleDescription
- *       TemplateName: "STRING_VALUE",
- *       ResourceARN: "STRING_VALUE",
- *       RuleState: { // ManagedRuleState
- *         RuleName: "STRING_VALUE", // required
- *         State: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedInsightRulesOutput
+ * //   ManagedRules: [ // ManagedRuleDescriptions
+ * //     { // ManagedRuleDescription
+ * //       TemplateName: "STRING_VALUE",
+ * //       ResourceARN: "STRING_VALUE",
+ * //       RuleState: { // ManagedRuleState
+ * //         RuleName: "STRING_VALUE", // required
+ * //         State: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

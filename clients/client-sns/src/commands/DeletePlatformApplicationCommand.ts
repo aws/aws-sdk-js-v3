@@ -47,8 +47,7 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * };
  * const command = new DeletePlatformApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

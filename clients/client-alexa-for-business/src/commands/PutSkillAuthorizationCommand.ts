@@ -54,8 +54,7 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * };
  * const command = new PutSkillAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

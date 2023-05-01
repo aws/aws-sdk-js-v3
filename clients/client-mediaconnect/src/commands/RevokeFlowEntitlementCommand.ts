@@ -45,11 +45,10 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * };
  * const command = new RevokeFlowEntitlementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RevokeFlowEntitlementResponse
- *   EntitlementArn: "STRING_VALUE",
- *   FlowArn: "STRING_VALUE",
- * };
+ * // { // RevokeFlowEntitlementResponse
+ * //   EntitlementArn: "STRING_VALUE",
+ * //   FlowArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

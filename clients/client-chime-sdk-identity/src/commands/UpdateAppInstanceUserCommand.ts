@@ -51,10 +51,9 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * };
  * const command = new UpdateAppInstanceUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppInstanceUserResponse
- *   AppInstanceUserArn: "STRING_VALUE",
- * };
+ * // { // UpdateAppInstanceUserResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

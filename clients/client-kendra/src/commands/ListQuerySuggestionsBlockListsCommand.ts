@@ -57,20 +57,19 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  * };
  * const command = new ListQuerySuggestionsBlockListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQuerySuggestionsBlockListsResponse
- *   BlockListSummaryItems: [ // QuerySuggestionsBlockListSummaryItems
- *     { // QuerySuggestionsBlockListSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       ItemCount: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQuerySuggestionsBlockListsResponse
+ * //   BlockListSummaryItems: [ // QuerySuggestionsBlockListSummaryItems
+ * //     { // QuerySuggestionsBlockListSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING" || "ACTIVE_BUT_UPDATE_FAILED" || "FAILED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       ItemCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

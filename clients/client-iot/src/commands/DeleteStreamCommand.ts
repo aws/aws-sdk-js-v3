@@ -45,8 +45,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * };
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

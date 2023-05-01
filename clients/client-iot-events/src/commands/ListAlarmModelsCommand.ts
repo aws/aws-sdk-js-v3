@@ -46,17 +46,16 @@ export interface ListAlarmModelsCommandOutput extends ListAlarmModelsResponse, _
  * };
  * const command = new ListAlarmModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAlarmModelsResponse
- *   alarmModelSummaries: [ // AlarmModelSummaries
- *     { // AlarmModelSummary
- *       creationTime: new Date("TIMESTAMP"),
- *       alarmModelDescription: "STRING_VALUE",
- *       alarmModelName: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAlarmModelsResponse
+ * //   alarmModelSummaries: [ // AlarmModelSummaries
+ * //     { // AlarmModelSummary
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       alarmModelDescription: "STRING_VALUE",
+ * //       alarmModelName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

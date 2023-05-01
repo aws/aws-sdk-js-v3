@@ -76,8 +76,7 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * };
  * const command = new UpdateStreamProcessorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

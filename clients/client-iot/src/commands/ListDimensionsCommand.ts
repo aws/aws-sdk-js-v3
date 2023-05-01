@@ -46,13 +46,12 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * };
  * const command = new ListDimensionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDimensionsResponse
- *   dimensionNames: [ // DimensionNames
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDimensionsResponse
+ * //   dimensionNames: [ // DimensionNames
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

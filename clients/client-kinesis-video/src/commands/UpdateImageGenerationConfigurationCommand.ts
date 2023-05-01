@@ -65,8 +65,7 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * };
  * const command = new UpdateImageGenerationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

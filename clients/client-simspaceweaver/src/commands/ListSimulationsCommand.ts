@@ -45,19 +45,18 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * };
  * const command = new ListSimulationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSimulationsOutput
- *   Simulations: [ // SimulationList
- *     { // SimulationMetadata
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       Status: "STRING_VALUE",
- *       TargetStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSimulationsOutput
+ * //   Simulations: [ // SimulationList
+ * //     { // SimulationMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Status: "STRING_VALUE",
+ * //       TargetStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

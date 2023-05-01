@@ -58,11 +58,10 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * };
  * const command = new SendEventCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendEventResponse
- *   Id: "STRING_VALUE",
- *   AbsoluteTime: "STRING_VALUE",
- * };
+ * // { // SendEventResponse
+ * //   Id: "STRING_VALUE",
+ * //   AbsoluteTime: "STRING_VALUE",
+ * // };
  *
  * ```
  *

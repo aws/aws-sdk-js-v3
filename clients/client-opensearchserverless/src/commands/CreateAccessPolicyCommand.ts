@@ -55,18 +55,17 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * };
  * const command = new CreateAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAccessPolicyResponse
- *   accessPolicyDetail: { // AccessPolicyDetail
- *     type: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     policyVersion: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     policy: "DOCUMENT_VALUE",
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // CreateAccessPolicyResponse
+ * //   accessPolicyDetail: { // AccessPolicyDetail
+ * //     type: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     policyVersion: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     policy: "DOCUMENT_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

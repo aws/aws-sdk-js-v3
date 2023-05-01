@@ -48,23 +48,22 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * };
  * const command = new DescribeIpGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIpGroupsResult
- *   Result: [ // WorkspacesIpGroupsList
- *     { // WorkspacesIpGroup
- *       groupId: "STRING_VALUE",
- *       groupName: "STRING_VALUE",
- *       groupDesc: "STRING_VALUE",
- *       userRules: [ // IpRuleList
- *         { // IpRuleItem
- *           ipRule: "STRING_VALUE",
- *           ruleDesc: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeIpGroupsResult
+ * //   Result: [ // WorkspacesIpGroupsList
+ * //     { // WorkspacesIpGroup
+ * //       groupId: "STRING_VALUE",
+ * //       groupName: "STRING_VALUE",
+ * //       groupDesc: "STRING_VALUE",
+ * //       userRules: [ // IpRuleList
+ * //         { // IpRuleItem
+ * //           ipRule: "STRING_VALUE",
+ * //           ruleDesc: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,34 +57,33 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  * };
  * const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDirectConnectGatewayAssociationProposalsResult
- *   directConnectGatewayAssociationProposals: [ // DirectConnectGatewayAssociationProposalList
- *     { // DirectConnectGatewayAssociationProposal
- *       proposalId: "STRING_VALUE",
- *       directConnectGatewayId: "STRING_VALUE",
- *       directConnectGatewayOwnerAccount: "STRING_VALUE",
- *       proposalState: "requested" || "accepted" || "deleted",
- *       associatedGateway: { // AssociatedGateway
- *         id: "STRING_VALUE",
- *         type: "virtualPrivateGateway" || "transitGateway",
- *         ownerAccount: "STRING_VALUE",
- *         region: "STRING_VALUE",
- *       },
- *       existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
- *         { // RouteFilterPrefix
- *           cidr: "STRING_VALUE",
- *         },
- *       ],
- *       requestedAllowedPrefixesToDirectConnectGateway: [
- *         {
- *           cidr: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeDirectConnectGatewayAssociationProposalsResult
+ * //   directConnectGatewayAssociationProposals: [ // DirectConnectGatewayAssociationProposalList
+ * //     { // DirectConnectGatewayAssociationProposal
+ * //       proposalId: "STRING_VALUE",
+ * //       directConnectGatewayId: "STRING_VALUE",
+ * //       directConnectGatewayOwnerAccount: "STRING_VALUE",
+ * //       proposalState: "requested" || "accepted" || "deleted",
+ * //       associatedGateway: { // AssociatedGateway
+ * //         id: "STRING_VALUE",
+ * //         type: "virtualPrivateGateway" || "transitGateway",
+ * //         ownerAccount: "STRING_VALUE",
+ * //         region: "STRING_VALUE",
+ * //       },
+ * //       existingAllowedPrefixesToDirectConnectGateway: [ // RouteFilterPrefixList
+ * //         { // RouteFilterPrefix
+ * //           cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       requestedAllowedPrefixesToDirectConnectGateway: [
+ * //         {
+ * //           cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * };
  * const command = new AttachThingPrincipalCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -66,10 +66,9 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * };
  * const command = new CreateLensShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLensShareOutput
- *   ShareId: "STRING_VALUE",
- * };
+ * // { // CreateLensShareOutput
+ * //   ShareId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

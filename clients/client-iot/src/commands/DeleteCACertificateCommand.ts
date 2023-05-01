@@ -45,8 +45,7 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * };
  * const command = new DeleteCACertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

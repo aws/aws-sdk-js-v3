@@ -51,54 +51,53 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * };
  * const command = new InferICD10CMCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InferICD10CMResponse
- *   Entities: [ // ICD10CMEntityList // required
- *     { // ICD10CMEntity
- *       Id: Number("int"),
- *       Text: "STRING_VALUE",
- *       Category: "MEDICAL_CONDITION",
- *       Type: "DX_NAME" || "TIME_EXPRESSION",
- *       Score: Number("float"),
- *       BeginOffset: Number("int"),
- *       EndOffset: Number("int"),
- *       Attributes: [ // ICD10CMAttributeList
- *         { // ICD10CMAttribute
- *           Type: "ACUITY" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "QUALITY" || "QUANTITY" || "TIME_TO_DX_NAME" || "TIME_EXPRESSION",
- *           Score: Number("float"),
- *           RelationshipScore: Number("float"),
- *           Id: Number("int"),
- *           BeginOffset: Number("int"),
- *           EndOffset: Number("int"),
- *           Text: "STRING_VALUE",
- *           Traits: [ // ICD10CMTraitList
- *             { // ICD10CMTrait
- *               Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE",
- *               Score: Number("float"),
- *             },
- *           ],
- *           Category: "DX_NAME" || "TIME_EXPRESSION",
- *           RelationshipType: "OVERLAP" || "SYSTEM_ORGAN_SITE",
- *         },
- *       ],
- *       Traits: [
- *         {
- *           Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE",
- *           Score: Number("float"),
- *         },
- *       ],
- *       ICD10CMConcepts: [ // ICD10CMConceptList
- *         { // ICD10CMConcept
- *           Description: "STRING_VALUE",
- *           Code: "STRING_VALUE",
- *           Score: Number("float"),
- *         },
- *       ],
- *     },
- *   ],
- *   PaginationToken: "STRING_VALUE",
- *   ModelVersion: "STRING_VALUE",
- * };
+ * // { // InferICD10CMResponse
+ * //   Entities: [ // ICD10CMEntityList // required
+ * //     { // ICD10CMEntity
+ * //       Id: Number("int"),
+ * //       Text: "STRING_VALUE",
+ * //       Category: "MEDICAL_CONDITION",
+ * //       Type: "DX_NAME" || "TIME_EXPRESSION",
+ * //       Score: Number("float"),
+ * //       BeginOffset: Number("int"),
+ * //       EndOffset: Number("int"),
+ * //       Attributes: [ // ICD10CMAttributeList
+ * //         { // ICD10CMAttribute
+ * //           Type: "ACUITY" || "DIRECTION" || "SYSTEM_ORGAN_SITE" || "QUALITY" || "QUANTITY" || "TIME_TO_DX_NAME" || "TIME_EXPRESSION",
+ * //           Score: Number("float"),
+ * //           RelationshipScore: Number("float"),
+ * //           Id: Number("int"),
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //           Text: "STRING_VALUE",
+ * //           Traits: [ // ICD10CMTraitList
+ * //             { // ICD10CMTrait
+ * //               Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE",
+ * //               Score: Number("float"),
+ * //             },
+ * //           ],
+ * //           Category: "DX_NAME" || "TIME_EXPRESSION",
+ * //           RelationshipType: "OVERLAP" || "SYSTEM_ORGAN_SITE",
+ * //         },
+ * //       ],
+ * //       Traits: [
+ * //         {
+ * //           Name: "NEGATION" || "DIAGNOSIS" || "SIGN" || "SYMPTOM" || "PERTAINS_TO_FAMILY" || "HYPOTHETICAL" || "LOW_CONFIDENCE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //       ICD10CMConcepts: [ // ICD10CMConceptList
+ * //         { // ICD10CMConcept
+ * //           Description: "STRING_VALUE",
+ * //           Code: "STRING_VALUE",
+ * //           Score: Number("float"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   PaginationToken: "STRING_VALUE",
+ * //   ModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

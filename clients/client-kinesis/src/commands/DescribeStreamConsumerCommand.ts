@@ -53,16 +53,15 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * };
  * const command = new DescribeStreamConsumerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStreamConsumerOutput
- *   ConsumerDescription: { // ConsumerDescription
- *     ConsumerName: "STRING_VALUE", // required
- *     ConsumerARN: "STRING_VALUE", // required
- *     ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
- *     ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
- *     StreamARN: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DescribeStreamConsumerOutput
+ * //   ConsumerDescription: { // ConsumerDescription
+ * //     ConsumerName: "STRING_VALUE", // required
+ * //     ConsumerARN: "STRING_VALUE", // required
+ * //     ConsumerStatus: "CREATING" || "DELETING" || "ACTIVE", // required
+ * //     ConsumerCreationTimestamp: new Date("TIMESTAMP"), // required
+ * //     StreamARN: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

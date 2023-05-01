@@ -45,17 +45,16 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * };
  * const command = new ListWorkerBlocksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkerBlocksResponse
- *   NextToken: "STRING_VALUE",
- *   NumResults: Number("int"),
- *   WorkerBlocks: [ // WorkerBlockList
- *     { // WorkerBlock
- *       WorkerId: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWorkerBlocksResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   NumResults: Number("int"),
+ * //   WorkerBlocks: [ // WorkerBlockList
+ * //     { // WorkerBlock
+ * //       WorkerId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

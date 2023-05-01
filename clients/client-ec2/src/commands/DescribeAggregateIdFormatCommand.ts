@@ -60,17 +60,16 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * };
  * const command = new DescribeAggregateIdFormatCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAggregateIdFormatResult
- *   UseLongIdsAggregated: true || false,
- *   Statuses: [ // IdFormatList
- *     { // IdFormat
- *       Deadline: new Date("TIMESTAMP"),
- *       Resource: "STRING_VALUE",
- *       UseLongIds: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeAggregateIdFormatResult
+ * //   UseLongIdsAggregated: true || false,
+ * //   Statuses: [ // IdFormatList
+ * //     { // IdFormat
+ * //       Deadline: new Date("TIMESTAMP"),
+ * //       Resource: "STRING_VALUE",
+ * //       UseLongIds: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

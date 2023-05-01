@@ -149,10 +149,9 @@ export interface CreateProcessingJobCommandOutput extends CreateProcessingJobRes
  * };
  * const command = new CreateProcessingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProcessingJobResponse
- *   ProcessingJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateProcessingJobResponse
+ * //   ProcessingJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

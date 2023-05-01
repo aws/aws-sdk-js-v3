@@ -45,13 +45,12 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * const input = {};
  * const command = new DescribeGlobalSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGlobalSettingsOutput
- *   GlobalSettings: { // GlobalSettings
- *     "<keys>": "STRING_VALUE",
- *   },
- *   LastUpdateTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeGlobalSettingsOutput
+ * //   GlobalSettings: { // GlobalSettings
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   LastUpdateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

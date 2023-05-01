@@ -51,20 +51,19 @@ export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsR
  * };
  * const command = new ListTestGridSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTestGridSessionsResult
- *   testGridSessions: [ // TestGridSessions
- *     { // TestGridSession
- *       arn: "STRING_VALUE",
- *       status: "ACTIVE" || "CLOSED" || "ERRORED",
- *       created: new Date("TIMESTAMP"),
- *       ended: new Date("TIMESTAMP"),
- *       billingMinutes: Number("double"),
- *       seleniumProperties: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTestGridSessionsResult
+ * //   testGridSessions: [ // TestGridSessions
+ * //     { // TestGridSession
+ * //       arn: "STRING_VALUE",
+ * //       status: "ACTIVE" || "CLOSED" || "ERRORED",
+ * //       created: new Date("TIMESTAMP"),
+ * //       ended: new Date("TIMESTAMP"),
+ * //       billingMinutes: Number("double"),
+ * //       seleniumProperties: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

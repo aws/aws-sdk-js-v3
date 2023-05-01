@@ -59,75 +59,74 @@ export interface UpdateBridgeCommandOutput extends UpdateBridgeResponse, __Metad
  * };
  * const command = new UpdateBridgeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBridgeResponse
- *   Bridge: { // Bridge
- *     BridgeArn: "STRING_VALUE", // required
- *     BridgeMessages: [ // __listOfMessageDetail
- *       { // MessageDetail
- *         Code: "STRING_VALUE", // required
- *         Message: "STRING_VALUE", // required
- *         ResourceName: "STRING_VALUE",
- *       },
- *     ],
- *     BridgeState: "CREATING" || "STANDBY" || "STARTING" || "DEPLOYING" || "ACTIVE" || "STOPPING" || "DELETING" || "DELETED" || "START_FAILED" || "START_PENDING" || "STOP_FAILED" || "UPDATING", // required
- *     EgressGatewayBridge: { // EgressGatewayBridge
- *       InstanceId: "STRING_VALUE",
- *       MaxBitrate: Number("int"), // required
- *     },
- *     IngressGatewayBridge: { // IngressGatewayBridge
- *       InstanceId: "STRING_VALUE",
- *       MaxBitrate: Number("int"), // required
- *       MaxOutputs: Number("int"), // required
- *     },
- *     Name: "STRING_VALUE", // required
- *     Outputs: [ // __listOfBridgeOutput
- *       { // BridgeOutput
- *         FlowOutput: { // BridgeFlowOutput
- *           FlowArn: "STRING_VALUE", // required
- *           FlowSourceArn: "STRING_VALUE", // required
- *           Name: "STRING_VALUE", // required
- *         },
- *         NetworkOutput: { // BridgeNetworkOutput
- *           IpAddress: "STRING_VALUE", // required
- *           Name: "STRING_VALUE", // required
- *           NetworkName: "STRING_VALUE", // required
- *           Port: Number("int"), // required
- *           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *           Ttl: Number("int"), // required
- *         },
- *       },
- *     ],
- *     PlacementArn: "STRING_VALUE", // required
- *     SourceFailoverConfig: { // FailoverConfig
- *       FailoverMode: "MERGE" || "FAILOVER",
- *       RecoveryWindow: Number("int"),
- *       SourcePriority: { // SourcePriority
- *         PrimarySource: "STRING_VALUE",
- *       },
- *       State: "ENABLED" || "DISABLED",
- *     },
- *     Sources: [ // __listOfBridgeSource
- *       { // BridgeSource
- *         FlowSource: { // BridgeFlowSource
- *           FlowArn: "STRING_VALUE", // required
- *           FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
- *             VpcInterfaceName: "STRING_VALUE",
- *           },
- *           Name: "STRING_VALUE", // required
- *           OutputArn: "STRING_VALUE",
- *         },
- *         NetworkSource: { // BridgeNetworkSource
- *           MulticastIp: "STRING_VALUE", // required
- *           Name: "STRING_VALUE", // required
- *           NetworkName: "STRING_VALUE", // required
- *           Port: Number("int"), // required
- *           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateBridgeResponse
+ * //   Bridge: { // Bridge
+ * //     BridgeArn: "STRING_VALUE", // required
+ * //     BridgeMessages: [ // __listOfMessageDetail
+ * //       { // MessageDetail
+ * //         Code: "STRING_VALUE", // required
+ * //         Message: "STRING_VALUE", // required
+ * //         ResourceName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     BridgeState: "CREATING" || "STANDBY" || "STARTING" || "DEPLOYING" || "ACTIVE" || "STOPPING" || "DELETING" || "DELETED" || "START_FAILED" || "START_PENDING" || "STOP_FAILED" || "UPDATING", // required
+ * //     EgressGatewayBridge: { // EgressGatewayBridge
+ * //       InstanceId: "STRING_VALUE",
+ * //       MaxBitrate: Number("int"), // required
+ * //     },
+ * //     IngressGatewayBridge: { // IngressGatewayBridge
+ * //       InstanceId: "STRING_VALUE",
+ * //       MaxBitrate: Number("int"), // required
+ * //       MaxOutputs: Number("int"), // required
+ * //     },
+ * //     Name: "STRING_VALUE", // required
+ * //     Outputs: [ // __listOfBridgeOutput
+ * //       { // BridgeOutput
+ * //         FlowOutput: { // BridgeFlowOutput
+ * //           FlowArn: "STRING_VALUE", // required
+ * //           FlowSourceArn: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //         },
+ * //         NetworkOutput: { // BridgeNetworkOutput
+ * //           IpAddress: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           NetworkName: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //           Ttl: Number("int"), // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     PlacementArn: "STRING_VALUE", // required
+ * //     SourceFailoverConfig: { // FailoverConfig
+ * //       FailoverMode: "MERGE" || "FAILOVER",
+ * //       RecoveryWindow: Number("int"),
+ * //       SourcePriority: { // SourcePriority
+ * //         PrimarySource: "STRING_VALUE",
+ * //       },
+ * //       State: "ENABLED" || "DISABLED",
+ * //     },
+ * //     Sources: [ // __listOfBridgeSource
+ * //       { // BridgeSource
+ * //         FlowSource: { // BridgeFlowSource
+ * //           FlowArn: "STRING_VALUE", // required
+ * //           FlowVpcInterfaceAttachment: { // VpcInterfaceAttachment
+ * //             VpcInterfaceName: "STRING_VALUE",
+ * //           },
+ * //           Name: "STRING_VALUE", // required
+ * //           OutputArn: "STRING_VALUE",
+ * //         },
+ * //         NetworkSource: { // BridgeNetworkSource
+ * //           MulticastIp: "STRING_VALUE", // required
+ * //           Name: "STRING_VALUE", // required
+ * //           NetworkName: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

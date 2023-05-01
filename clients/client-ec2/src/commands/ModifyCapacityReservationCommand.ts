@@ -54,10 +54,9 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * };
  * const command = new ModifyCapacityReservationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyCapacityReservationResult
- *   Return: true || false,
- * };
+ * // { // ModifyCapacityReservationResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

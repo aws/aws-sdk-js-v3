@@ -51,21 +51,20 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * };
  * const command = new CreateFirewallDomainListCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFirewallDomainListResponse
- *   FirewallDomainList: { // FirewallDomainList
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     DomainCount: Number("int"),
- *     Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
- *     StatusMessage: "STRING_VALUE",
- *     ManagedOwnerName: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *     ModificationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateFirewallDomainListResponse
+ * //   FirewallDomainList: { // FirewallDomainList
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     DomainCount: Number("int"),
+ * //     Status: "COMPLETE" || "COMPLETE_IMPORT_FAILED" || "IMPORTING" || "DELETING" || "UPDATING",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ManagedOwnerName: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //     ModificationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -86,10 +86,9 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * };
  * const command = new StartTextDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTextDetectionResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartTextDetectionResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

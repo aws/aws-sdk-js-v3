@@ -44,8 +44,7 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

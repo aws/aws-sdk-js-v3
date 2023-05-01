@@ -77,10 +77,9 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStackSetOutput
- *   StackSetId: "STRING_VALUE",
- * };
+ * // { // CreateStackSetOutput
+ * //   StackSetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -64,8 +64,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * };
  * const command = new RegisterTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

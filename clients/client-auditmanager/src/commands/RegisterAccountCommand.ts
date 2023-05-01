@@ -45,10 +45,9 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterAccountResponse
- *   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
- * };
+ * // { // RegisterAccountResponse
+ * //   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * // };
  *
  * ```
  *

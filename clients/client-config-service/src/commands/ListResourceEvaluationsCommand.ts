@@ -53,17 +53,16 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * };
  * const command = new ListResourceEvaluationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceEvaluationsResponse
- *   ResourceEvaluations: [ // ResourceEvaluations
- *     { // ResourceEvaluation
- *       ResourceEvaluationId: "STRING_VALUE",
- *       EvaluationMode: "DETECTIVE" || "PROACTIVE",
- *       EvaluationStartTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceEvaluationsResponse
+ * //   ResourceEvaluations: [ // ResourceEvaluations
+ * //     { // ResourceEvaluation
+ * //       ResourceEvaluationId: "STRING_VALUE",
+ * //       EvaluationMode: "DETECTIVE" || "PROACTIVE",
+ * //       EvaluationStartTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

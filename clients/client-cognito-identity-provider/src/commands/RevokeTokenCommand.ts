@@ -53,8 +53,7 @@ export interface RevokeTokenCommandOutput extends RevokeTokenResponse, __Metadat
  * };
  * const command = new RevokeTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

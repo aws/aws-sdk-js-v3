@@ -56,8 +56,7 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * };
  * const command = new UpdateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

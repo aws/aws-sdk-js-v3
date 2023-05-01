@@ -153,10 +153,9 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterDomainResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // RegisterDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

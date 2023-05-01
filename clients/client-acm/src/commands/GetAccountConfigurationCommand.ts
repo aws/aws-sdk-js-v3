@@ -42,12 +42,11 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * const input = {};
  * const command = new GetAccountConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountConfigurationResponse
- *   ExpiryEvents: { // ExpiryEventsConfiguration
- *     DaysBeforeExpiry: Number("int"),
- *   },
- * };
+ * // { // GetAccountConfigurationResponse
+ * //   ExpiryEvents: { // ExpiryEventsConfiguration
+ * //     DaysBeforeExpiry: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -165,10 +165,9 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * };
  * const command = new IssueCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IssueCertificateResponse
- *   CertificateArn: "STRING_VALUE",
- * };
+ * // { // IssueCertificateResponse
+ * //   CertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

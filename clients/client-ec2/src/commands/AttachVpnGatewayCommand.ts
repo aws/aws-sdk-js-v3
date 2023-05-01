@@ -49,13 +49,12 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * };
  * const command = new AttachVpnGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AttachVpnGatewayResult
- *   VpcAttachment: { // VpcAttachment
- *     State: "attaching" || "attached" || "detaching" || "detached",
- *     VpcId: "STRING_VALUE",
- *   },
- * };
+ * // { // AttachVpnGatewayResult
+ * //   VpcAttachment: { // VpcAttachment
+ * //     State: "attaching" || "attached" || "detaching" || "detached",
+ * //     VpcId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

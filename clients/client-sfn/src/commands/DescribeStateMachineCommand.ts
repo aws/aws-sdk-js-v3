@@ -54,31 +54,30 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStateMachineOutput
- *   stateMachineArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   status: "ACTIVE" || "DELETING",
- *   definition: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   type: "STANDARD" || "EXPRESS", // required
- *   creationDate: new Date("TIMESTAMP"), // required
- *   loggingConfiguration: { // LoggingConfiguration
- *     level: "ALL" || "ERROR" || "FATAL" || "OFF",
- *     includeExecutionData: true || false,
- *     destinations: [ // LogDestinationList
- *       { // LogDestination
- *         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
- *           logGroupArn: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- *   tracingConfiguration: { // TracingConfiguration
- *     enabled: true || false,
- *   },
- *   label: "STRING_VALUE",
- * };
+ * // { // DescribeStateMachineOutput
+ * //   stateMachineArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   status: "ACTIVE" || "DELETING",
+ * //   definition: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   type: "STANDARD" || "EXPRESS", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * //   loggingConfiguration: { // LoggingConfiguration
+ * //     level: "ALL" || "ERROR" || "FATAL" || "OFF",
+ * //     includeExecutionData: true || false,
+ * //     destinations: [ // LogDestinationList
+ * //       { // LogDestination
+ * //         cloudWatchLogsLogGroup: { // CloudWatchLogsLogGroup
+ * //           logGroupArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   tracingConfiguration: { // TracingConfiguration
+ * //     enabled: true || false,
+ * //   },
+ * //   label: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * };
  * const command = new UpdatePlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

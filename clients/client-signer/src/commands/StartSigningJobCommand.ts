@@ -86,11 +86,10 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * };
  * const command = new StartSigningJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSigningJobResponse
- *   jobId: "STRING_VALUE",
- *   jobOwner: "STRING_VALUE",
- * };
+ * // { // StartSigningJobResponse
+ * //   jobId: "STRING_VALUE",
+ * //   jobOwner: "STRING_VALUE",
+ * // };
  *
  * ```
  *

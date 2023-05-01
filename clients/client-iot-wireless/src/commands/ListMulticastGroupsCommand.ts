@@ -45,17 +45,16 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * };
  * const command = new ListMulticastGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMulticastGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   MulticastGroupList: [ // MulticastGroupList
- *     { // MulticastGroup
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListMulticastGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   MulticastGroupList: [ // MulticastGroupList
+ * //     { // MulticastGroup
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

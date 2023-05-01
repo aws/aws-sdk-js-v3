@@ -44,8 +44,7 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
  * };
  * const command = new StopConfigurationRecorderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

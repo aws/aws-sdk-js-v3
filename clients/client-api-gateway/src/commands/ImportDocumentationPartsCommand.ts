@@ -47,15 +47,14 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * };
  * const command = new ImportDocumentationPartsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DocumentationPartIds
- *   ids: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   warnings: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DocumentationPartIds
+ * //   ids: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   warnings: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

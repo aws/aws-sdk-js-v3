@@ -61,14 +61,13 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOrganizationalUnitResponse
- *   OrganizationalUnit: { // OrganizationalUnit
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateOrganizationalUnitResponse
+ * //   OrganizationalUnit: { // OrganizationalUnit
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

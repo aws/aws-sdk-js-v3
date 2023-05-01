@@ -67,24 +67,23 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChangeSetsResponse
- *   ChangeSetSummaryList: [ // ChangeSetSummaryList
- *     { // ChangeSetSummaryListItem
- *       ChangeSetId: "STRING_VALUE",
- *       ChangeSetArn: "STRING_VALUE",
- *       ChangeSetName: "STRING_VALUE",
- *       StartTime: "STRING_VALUE",
- *       EndTime: "STRING_VALUE",
- *       Status: "PREPARING" || "APPLYING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
- *       EntityIdList: [ // ResourceIdList
- *         "STRING_VALUE",
- *       ],
- *       FailureCode: "CLIENT_ERROR" || "SERVER_FAULT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChangeSetsResponse
+ * //   ChangeSetSummaryList: [ // ChangeSetSummaryList
+ * //     { // ChangeSetSummaryListItem
+ * //       ChangeSetId: "STRING_VALUE",
+ * //       ChangeSetArn: "STRING_VALUE",
+ * //       ChangeSetName: "STRING_VALUE",
+ * //       StartTime: "STRING_VALUE",
+ * //       EndTime: "STRING_VALUE",
+ * //       Status: "PREPARING" || "APPLYING" || "SUCCEEDED" || "CANCELLED" || "FAILED",
+ * //       EntityIdList: [ // ResourceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FailureCode: "CLIENT_ERROR" || "SERVER_FAULT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

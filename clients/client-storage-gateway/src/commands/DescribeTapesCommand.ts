@@ -52,27 +52,26 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * };
  * const command = new DescribeTapesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTapesOutput
- *   Tapes: [ // Tapes
- *     { // Tape
- *       TapeARN: "STRING_VALUE",
- *       TapeBarcode: "STRING_VALUE",
- *       TapeCreatedDate: new Date("TIMESTAMP"),
- *       TapeSizeInBytes: Number("long"),
- *       TapeStatus: "STRING_VALUE",
- *       VTLDevice: "STRING_VALUE",
- *       Progress: Number("double"),
- *       TapeUsedInBytes: Number("long"),
- *       KMSKey: "STRING_VALUE",
- *       PoolId: "STRING_VALUE",
- *       Worm: true || false,
- *       RetentionStartDate: new Date("TIMESTAMP"),
- *       PoolEntryDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeTapesOutput
+ * //   Tapes: [ // Tapes
+ * //     { // Tape
+ * //       TapeARN: "STRING_VALUE",
+ * //       TapeBarcode: "STRING_VALUE",
+ * //       TapeCreatedDate: new Date("TIMESTAMP"),
+ * //       TapeSizeInBytes: Number("long"),
+ * //       TapeStatus: "STRING_VALUE",
+ * //       VTLDevice: "STRING_VALUE",
+ * //       Progress: Number("double"),
+ * //       TapeUsedInBytes: Number("long"),
+ * //       KMSKey: "STRING_VALUE",
+ * //       PoolId: "STRING_VALUE",
+ * //       Worm: true || false,
+ * //       RetentionStartDate: new Date("TIMESTAMP"),
+ * //       PoolEntryDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

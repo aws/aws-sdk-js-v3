@@ -47,8 +47,7 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * };
  * const command = new EnableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface PutAccountSuppressionAttributesCommandOutput
  * };
  * const command = new PutAccountSuppressionAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

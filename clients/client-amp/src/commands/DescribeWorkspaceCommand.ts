@@ -44,22 +44,21 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * };
  * const command = new DescribeWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspaceResponse
- *   workspace: { // WorkspaceDescription
- *     workspaceId: "STRING_VALUE", // required
- *     alias: "STRING_VALUE",
- *     arn: "STRING_VALUE", // required
- *     status: { // WorkspaceStatus
- *       statusCode: "STRING_VALUE", // required
- *     },
- *     prometheusEndpoint: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"), // required
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeWorkspaceResponse
+ * //   workspace: { // WorkspaceDescription
+ * //     workspaceId: "STRING_VALUE", // required
+ * //     alias: "STRING_VALUE",
+ * //     arn: "STRING_VALUE", // required
+ * //     status: { // WorkspaceStatus
+ * //       statusCode: "STRING_VALUE", // required
+ * //     },
+ * //     prometheusEndpoint: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

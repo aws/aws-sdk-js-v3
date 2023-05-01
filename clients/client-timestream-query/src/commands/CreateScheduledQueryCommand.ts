@@ -117,10 +117,9 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * };
  * const command = new CreateScheduledQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScheduledQueryResponse
- *   Arn: "STRING_VALUE", // required
- * };
+ * // { // CreateScheduledQueryResponse
+ * //   Arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

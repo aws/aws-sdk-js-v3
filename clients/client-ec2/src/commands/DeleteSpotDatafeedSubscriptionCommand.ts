@@ -47,8 +47,7 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * };
  * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

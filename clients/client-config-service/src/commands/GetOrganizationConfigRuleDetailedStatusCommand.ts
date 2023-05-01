@@ -59,20 +59,19 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * };
  * const command = new GetOrganizationConfigRuleDetailedStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOrganizationConfigRuleDetailedStatusResponse
- *   OrganizationConfigRuleDetailedStatus: [ // OrganizationConfigRuleDetailedStatus
- *     { // MemberAccountStatus
- *       AccountId: "STRING_VALUE", // required
- *       ConfigRuleName: "STRING_VALUE", // required
- *       MemberAccountRuleStatus: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       LastUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetOrganizationConfigRuleDetailedStatusResponse
+ * //   OrganizationConfigRuleDetailedStatus: [ // OrganizationConfigRuleDetailedStatus
+ * //     { // MemberAccountStatus
+ * //       AccountId: "STRING_VALUE", // required
+ * //       ConfigRuleName: "STRING_VALUE", // required
+ * //       MemberAccountRuleStatus: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

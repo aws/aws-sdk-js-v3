@@ -52,25 +52,24 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * };
  * const command = new UpdateInputSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateInputSecurityGroupResponse
- *   SecurityGroup: { // InputSecurityGroup
- *     Arn: "STRING_VALUE",
- *     Id: "STRING_VALUE",
- *     Inputs: [ // __listOf__string
- *       "STRING_VALUE",
- *     ],
- *     State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
- *     Tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     WhitelistRules: [ // __listOfInputWhitelistRule
- *       { // InputWhitelistRule
- *         Cidr: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateInputSecurityGroupResponse
+ * //   SecurityGroup: { // InputSecurityGroup
+ * //     Arn: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Inputs: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     State: "IDLE" || "IN_USE" || "UPDATING" || "DELETED",
+ * //     Tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     WhitelistRules: [ // __listOfInputWhitelistRule
+ * //       { // InputWhitelistRule
+ * //         Cidr: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,22 +50,21 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * };
  * const command = new ListBackendJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackendJobsResponse
- *   Jobs: [ // ListOfBackendJobRespObj
- *     { // BackendJobRespObj
- *       AppId: "STRING_VALUE", // required
- *       BackendEnvironmentName: "STRING_VALUE", // required
- *       CreateTime: "STRING_VALUE",
- *       Error: "STRING_VALUE",
- *       JobId: "STRING_VALUE",
- *       Operation: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       UpdateTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListBackendJobsResponse
+ * //   Jobs: [ // ListOfBackendJobRespObj
+ * //     { // BackendJobRespObj
+ * //       AppId: "STRING_VALUE", // required
+ * //       BackendEnvironmentName: "STRING_VALUE", // required
+ * //       CreateTime: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       Operation: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       UpdateTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

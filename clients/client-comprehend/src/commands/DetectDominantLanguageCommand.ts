@@ -50,15 +50,14 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * };
  * const command = new DetectDominantLanguageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectDominantLanguageResponse
- *   Languages: [ // ListOfDominantLanguages
- *     { // DominantLanguage
- *       LanguageCode: "STRING_VALUE",
- *       Score: Number("float"),
- *     },
- *   ],
- * };
+ * // { // DetectDominantLanguageResponse
+ * //   Languages: [ // ListOfDominantLanguages
+ * //     { // DominantLanguage
+ * //       LanguageCode: "STRING_VALUE",
+ * //       Score: Number("float"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

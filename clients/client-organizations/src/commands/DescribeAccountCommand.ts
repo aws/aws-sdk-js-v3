@@ -50,18 +50,17 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountResponse
- *   Account: { // Account
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Email: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
- *     JoinedMethod: "INVITED" || "CREATED",
- *     JoinedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeAccountResponse
+ * //   Account: { // Account
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Email: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "SUSPENDED" || "PENDING_CLOSURE",
+ * //     JoinedMethod: "INVITED" || "CREATED",
+ * //     JoinedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

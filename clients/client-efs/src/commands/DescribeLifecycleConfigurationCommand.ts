@@ -57,15 +57,14 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * };
  * const command = new DescribeLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LifecycleConfigurationDescription
- *   LifecyclePolicies: [ // LifecyclePolicies
- *     { // LifecyclePolicy
- *       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
- *       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
- *     },
- *   ],
- * };
+ * // { // LifecycleConfigurationDescription
+ * //   LifecyclePolicies: [ // LifecyclePolicies
+ * //     { // LifecyclePolicy
+ * //       TransitionToIA: "AFTER_7_DAYS" || "AFTER_14_DAYS" || "AFTER_30_DAYS" || "AFTER_60_DAYS" || "AFTER_90_DAYS" || "AFTER_1_DAY",
+ * //       TransitionToPrimaryStorageClass: "AFTER_1_ACCESS",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

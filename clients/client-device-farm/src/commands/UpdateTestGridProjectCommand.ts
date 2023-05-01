@@ -55,24 +55,23 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * };
  * const command = new UpdateTestGridProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTestGridProjectResult
- *   testGridProject: { // TestGridProject
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     vpcConfig: { // TestGridVpcConfig
- *       securityGroupIds: [ // SecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       subnetIds: [ // SubnetIds // required
- *         "STRING_VALUE",
- *       ],
- *       vpcId: "STRING_VALUE", // required
- *     },
- *     created: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateTestGridProjectResult
+ * //   testGridProject: { // TestGridProject
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     vpcConfig: { // TestGridVpcConfig
+ * //       securityGroupIds: [ // SecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       subnetIds: [ // SubnetIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE", // required
+ * //     },
+ * //     created: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

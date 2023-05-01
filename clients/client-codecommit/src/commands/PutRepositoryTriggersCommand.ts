@@ -57,10 +57,9 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * };
  * const command = new PutRepositoryTriggersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRepositoryTriggersOutput
- *   configurationId: "STRING_VALUE",
- * };
+ * // { // PutRepositoryTriggersOutput
+ * //   configurationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

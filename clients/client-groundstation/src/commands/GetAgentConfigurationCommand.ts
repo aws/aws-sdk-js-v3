@@ -47,11 +47,10 @@ export interface GetAgentConfigurationCommandOutput extends GetAgentConfiguratio
  * };
  * const command = new GetAgentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAgentConfigurationResponse
- *   agentId: "STRING_VALUE",
- *   taskingDocument: "STRING_VALUE",
- * };
+ * // { // GetAgentConfigurationResponse
+ * //   agentId: "STRING_VALUE",
+ * //   taskingDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

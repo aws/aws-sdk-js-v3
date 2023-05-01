@@ -48,19 +48,18 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * };
  * const command = new ListTopicRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTopicRulesResponse
- *   rules: [ // TopicRuleList
- *     { // TopicRuleListItem
- *       ruleArn: "STRING_VALUE",
- *       ruleName: "STRING_VALUE",
- *       topicPattern: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       ruleDisabled: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTopicRulesResponse
+ * //   rules: [ // TopicRuleList
+ * //     { // TopicRuleListItem
+ * //       ruleArn: "STRING_VALUE",
+ * //       ruleName: "STRING_VALUE",
+ * //       topicPattern: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       ruleDisabled: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

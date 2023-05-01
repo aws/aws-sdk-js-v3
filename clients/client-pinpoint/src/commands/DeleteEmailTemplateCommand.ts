@@ -45,13 +45,12 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEmailTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteEmailTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -72,8 +72,7 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

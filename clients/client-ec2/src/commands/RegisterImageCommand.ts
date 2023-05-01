@@ -127,10 +127,9 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * };
  * const command = new RegisterImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterImageResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // RegisterImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

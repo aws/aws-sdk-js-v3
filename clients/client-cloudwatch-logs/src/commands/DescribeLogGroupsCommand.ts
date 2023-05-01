@@ -62,22 +62,21 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLogGroupsResponse
- *   logGroups: [ // LogGroups
- *     { // LogGroup
- *       logGroupName: "STRING_VALUE",
- *       creationTime: Number("long"),
- *       retentionInDays: Number("int"),
- *       metricFilterCount: Number("int"),
- *       arn: "STRING_VALUE",
- *       storedBytes: Number("long"),
- *       kmsKeyId: "STRING_VALUE",
- *       dataProtectionStatus: "ACTIVATED" || "DELETED" || "ARCHIVED" || "DISABLED",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLogGroupsResponse
+ * //   logGroups: [ // LogGroups
+ * //     { // LogGroup
+ * //       logGroupName: "STRING_VALUE",
+ * //       creationTime: Number("long"),
+ * //       retentionInDays: Number("int"),
+ * //       metricFilterCount: Number("int"),
+ * //       arn: "STRING_VALUE",
+ * //       storedBytes: Number("long"),
+ * //       kmsKeyId: "STRING_VALUE",
+ * //       dataProtectionStatus: "ACTIVATED" || "DELETED" || "ARCHIVED" || "DISABLED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

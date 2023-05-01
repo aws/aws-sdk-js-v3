@@ -56,25 +56,24 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  * };
  * const command = new DescribeFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFastSnapshotRestoresResult
- *   FastSnapshotRestores: [ // DescribeFastSnapshotRestoreSuccessSet
- *     { // DescribeFastSnapshotRestoreSuccessItem
- *       SnapshotId: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
- *       StateTransitionReason: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       OwnerAlias: "STRING_VALUE",
- *       EnablingTime: new Date("TIMESTAMP"),
- *       OptimizingTime: new Date("TIMESTAMP"),
- *       EnabledTime: new Date("TIMESTAMP"),
- *       DisablingTime: new Date("TIMESTAMP"),
- *       DisabledTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFastSnapshotRestoresResult
+ * //   FastSnapshotRestores: [ // DescribeFastSnapshotRestoreSuccessSet
+ * //     { // DescribeFastSnapshotRestoreSuccessItem
+ * //       SnapshotId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
+ * //       StateTransitionReason: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       OwnerAlias: "STRING_VALUE",
+ * //       EnablingTime: new Date("TIMESTAMP"),
+ * //       OptimizingTime: new Date("TIMESTAMP"),
+ * //       EnabledTime: new Date("TIMESTAMP"),
+ * //       DisablingTime: new Date("TIMESTAMP"),
+ * //       DisabledTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

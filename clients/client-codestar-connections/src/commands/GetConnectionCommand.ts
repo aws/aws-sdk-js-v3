@@ -48,17 +48,16 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectionOutput
- *   Connection: { // Connection
- *     ConnectionName: "STRING_VALUE",
- *     ConnectionArn: "STRING_VALUE",
- *     ProviderType: "STRING_VALUE",
- *     OwnerAccountId: "STRING_VALUE",
- *     ConnectionStatus: "STRING_VALUE",
- *     HostArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetConnectionOutput
+ * //   Connection: { // Connection
+ * //     ConnectionName: "STRING_VALUE",
+ * //     ConnectionArn: "STRING_VALUE",
+ * //     ProviderType: "STRING_VALUE",
+ * //     OwnerAccountId: "STRING_VALUE",
+ * //     ConnectionStatus: "STRING_VALUE",
+ * //     HostArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

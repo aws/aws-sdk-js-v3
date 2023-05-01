@@ -225,26 +225,25 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * };
  * const command = new ValidatePipelineDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidatePipelineDefinitionOutput
- *   validationErrors: [ // ValidationErrors
- *     { // ValidationError
- *       id: "STRING_VALUE",
- *       errors: [ // validationMessages
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   validationWarnings: [ // ValidationWarnings
- *     { // ValidationWarning
- *       id: "STRING_VALUE",
- *       warnings: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   errored: true || false, // required
- * };
+ * // { // ValidatePipelineDefinitionOutput
+ * //   validationErrors: [ // ValidationErrors
+ * //     { // ValidationError
+ * //       id: "STRING_VALUE",
+ * //       errors: [ // validationMessages
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   validationWarnings: [ // ValidationWarnings
+ * //     { // ValidationWarning
+ * //       id: "STRING_VALUE",
+ * //       warnings: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   errored: true || false, // required
+ * // };
  *
  * ```
  *

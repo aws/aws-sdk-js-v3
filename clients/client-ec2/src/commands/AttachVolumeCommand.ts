@@ -71,15 +71,14 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VolumeAttachment
- *   AttachTime: new Date("TIMESTAMP"),
- *   Device: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- *   VolumeId: "STRING_VALUE",
- *   DeleteOnTermination: true || false,
- * };
+ * // { // VolumeAttachment
+ * //   AttachTime: new Date("TIMESTAMP"),
+ * //   Device: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //   VolumeId: "STRING_VALUE",
+ * //   DeleteOnTermination: true || false,
+ * // };
  *
  * ```
  *

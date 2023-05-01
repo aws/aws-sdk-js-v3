@@ -154,21 +154,20 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  * };
  * const command = new UpdateThemePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateThemePermissionsResponse
- *   ThemeId: "STRING_VALUE",
- *   ThemeArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateThemePermissionsResponse
+ * //   ThemeId: "STRING_VALUE",
+ * //   ThemeArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

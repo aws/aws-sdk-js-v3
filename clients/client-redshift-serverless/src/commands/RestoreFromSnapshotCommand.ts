@@ -56,28 +56,27 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreFromSnapshotResponse
- *   snapshotName: "STRING_VALUE",
- *   ownerAccount: "STRING_VALUE",
- *   namespace: { // Namespace
- *     namespaceArn: "STRING_VALUE",
- *     namespaceId: "STRING_VALUE",
- *     namespaceName: "STRING_VALUE",
- *     adminUsername: "STRING_VALUE",
- *     dbName: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     defaultIamRoleArn: "STRING_VALUE",
- *     iamRoles: [ // IamRoleArnList
- *       "STRING_VALUE",
- *     ],
- *     logExports: [ // LogExportList
- *       "STRING_VALUE",
- *     ],
- *     status: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // RestoreFromSnapshotResponse
+ * //   snapshotName: "STRING_VALUE",
+ * //   ownerAccount: "STRING_VALUE",
+ * //   namespace: { // Namespace
+ * //     namespaceArn: "STRING_VALUE",
+ * //     namespaceId: "STRING_VALUE",
+ * //     namespaceName: "STRING_VALUE",
+ * //     adminUsername: "STRING_VALUE",
+ * //     dbName: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     defaultIamRoleArn: "STRING_VALUE",
+ * //     iamRoles: [ // IamRoleArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logExports: [ // LogExportList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

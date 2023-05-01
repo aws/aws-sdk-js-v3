@@ -114,10 +114,9 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * };
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartChangeRequestExecutionResult
- *   AutomationExecutionId: "STRING_VALUE",
- * };
+ * // { // StartChangeRequestExecutionResult
+ * //   AutomationExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface PutFindingsPublicationConfigurationCommandOutput
  * };
  * const command = new PutFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

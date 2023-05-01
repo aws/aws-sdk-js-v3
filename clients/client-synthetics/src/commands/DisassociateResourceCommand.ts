@@ -45,8 +45,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * };
  * const command = new DisassociateResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,40 +56,39 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * };
  * const command = new CreateAddonCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAddonResponse
- *   addon: { // Addon
- *     addonName: "STRING_VALUE",
- *     clusterName: "STRING_VALUE",
- *     status: "CREATING" || "ACTIVE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETE_FAILED" || "DEGRADED" || "UPDATE_FAILED",
- *     addonVersion: "STRING_VALUE",
- *     health: { // AddonHealth
- *       issues: [ // AddonIssueList
- *         { // AddonIssue
- *           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
- *           message: "STRING_VALUE",
- *           resourceIds: [ // StringList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *     addonArn: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     modifiedAt: new Date("TIMESTAMP"),
- *     serviceAccountRoleArn: "STRING_VALUE",
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     publisher: "STRING_VALUE",
- *     owner: "STRING_VALUE",
- *     marketplaceInformation: { // MarketplaceInformation
- *       productId: "STRING_VALUE",
- *       productUrl: "STRING_VALUE",
- *     },
- *     configurationValues: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateAddonResponse
+ * //   addon: { // Addon
+ * //     addonName: "STRING_VALUE",
+ * //     clusterName: "STRING_VALUE",
+ * //     status: "CREATING" || "ACTIVE" || "CREATE_FAILED" || "UPDATING" || "DELETING" || "DELETE_FAILED" || "DEGRADED" || "UPDATE_FAILED",
+ * //     addonVersion: "STRING_VALUE",
+ * //     health: { // AddonHealth
+ * //       issues: [ // AddonIssueList
+ * //         { // AddonIssue
+ * //           code: "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "InsufficientNumberOfReplicas" || "ConfigurationConflict" || "AdmissionRequestDenied" || "UnsupportedAddonModification" || "K8sResourceNotFound",
+ * //           message: "STRING_VALUE",
+ * //           resourceIds: [ // StringList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     addonArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     serviceAccountRoleArn: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     publisher: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     marketplaceInformation: { // MarketplaceInformation
+ * //       productId: "STRING_VALUE",
+ * //       productUrl: "STRING_VALUE",
+ * //     },
+ * //     configurationValues: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

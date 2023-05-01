@@ -134,25 +134,24 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateFindingsResponse
- *   ProcessedFindings: [ // AwsSecurityFindingIdentifierList // required
- *     { // AwsSecurityFindingIdentifier
- *       Id: "STRING_VALUE", // required
- *       ProductArn: "STRING_VALUE", // required
- *     },
- *   ],
- *   UnprocessedFindings: [ // BatchUpdateFindingsUnprocessedFindingsList // required
- *     { // BatchUpdateFindingsUnprocessedFinding
- *       FindingIdentifier: {
- *         Id: "STRING_VALUE", // required
- *         ProductArn: "STRING_VALUE", // required
- *       },
- *       ErrorCode: "STRING_VALUE", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchUpdateFindingsResponse
+ * //   ProcessedFindings: [ // AwsSecurityFindingIdentifierList // required
+ * //     { // AwsSecurityFindingIdentifier
+ * //       Id: "STRING_VALUE", // required
+ * //       ProductArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   UnprocessedFindings: [ // BatchUpdateFindingsUnprocessedFindingsList // required
+ * //     { // BatchUpdateFindingsUnprocessedFinding
+ * //       FindingIdentifier: {
+ * //         Id: "STRING_VALUE", // required
+ * //         ProductArn: "STRING_VALUE", // required
+ * //       },
+ * //       ErrorCode: "STRING_VALUE", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

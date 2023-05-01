@@ -44,11 +44,10 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * };
  * const command = new CheckDNSAvailabilityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckDNSAvailabilityResultMessage
- *   Available: true || false,
- *   FullyQualifiedCNAME: "STRING_VALUE",
- * };
+ * // { // CheckDNSAvailabilityResultMessage
+ * //   Available: true || false,
+ * //   FullyQualifiedCNAME: "STRING_VALUE",
+ * // };
  *
  * ```
  *

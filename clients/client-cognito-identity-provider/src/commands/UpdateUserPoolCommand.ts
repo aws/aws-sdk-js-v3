@@ -162,8 +162,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * };
  * const command = new UpdateUserPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

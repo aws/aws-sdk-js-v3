@@ -56,10 +56,9 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  * };
  * const command = new CreateEventIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEventIntegrationResponse
- *   EventIntegrationArn: "STRING_VALUE",
- * };
+ * // { // CreateEventIntegrationResponse
+ * //   EventIntegrationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

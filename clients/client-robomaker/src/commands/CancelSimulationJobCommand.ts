@@ -44,8 +44,7 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
  * };
  * const command = new CancelSimulationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

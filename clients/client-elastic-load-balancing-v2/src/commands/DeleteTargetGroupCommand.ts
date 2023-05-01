@@ -52,8 +52,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

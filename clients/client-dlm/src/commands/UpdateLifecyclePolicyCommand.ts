@@ -179,8 +179,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * };
  * const command = new UpdateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

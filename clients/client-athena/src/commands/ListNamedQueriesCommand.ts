@@ -51,13 +51,12 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * };
  * const command = new ListNamedQueriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNamedQueriesOutput
- *   NamedQueryIds: [ // NamedQueryIdList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNamedQueriesOutput
+ * //   NamedQueryIds: [ // NamedQueryIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,19 +45,18 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  * };
  * const command = new ListResourceSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceSetsResponse
- *   ResourceSets: [ // ResourceSetSummaryList
- *     { // ResourceSetSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       LastUpdateTime: new Date("TIMESTAMP"),
- *       ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourceSetsResponse
+ * //   ResourceSets: [ // ResourceSetSummaryList
+ * //     { // ResourceSetSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LastUpdateTime: new Date("TIMESTAMP"),
+ * //       ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

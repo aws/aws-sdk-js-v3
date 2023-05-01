@@ -48,8 +48,7 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * };
  * const command = new DeleteFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

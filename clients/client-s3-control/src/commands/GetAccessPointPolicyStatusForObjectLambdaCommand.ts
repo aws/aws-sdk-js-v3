@@ -55,12 +55,11 @@ export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
  * };
  * const command = new GetAccessPointPolicyStatusForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointPolicyStatusForObjectLambdaResult
- *   PolicyStatus: { // PolicyStatus
- *     IsPublic: true || false,
- *   },
- * };
+ * // { // GetAccessPointPolicyStatusForObjectLambdaResult
+ * //   PolicyStatus: { // PolicyStatus
+ * //     IsPublic: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

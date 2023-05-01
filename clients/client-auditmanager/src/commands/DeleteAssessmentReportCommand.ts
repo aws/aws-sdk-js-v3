@@ -66,8 +66,7 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * };
  * const command = new DeleteAssessmentReportCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

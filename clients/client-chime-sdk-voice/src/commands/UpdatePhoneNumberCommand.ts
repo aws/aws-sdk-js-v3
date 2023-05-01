@@ -58,38 +58,37 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePhoneNumberResponse
- *   PhoneNumber: { // PhoneNumber
- *     PhoneNumberId: "STRING_VALUE",
- *     E164PhoneNumber: "STRING_VALUE",
- *     Country: "STRING_VALUE",
- *     Type: "Local" || "TollFree",
- *     ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
- *     Status: "Cancelled" || "PortinCancelRequested" || "PortinInProgress" || "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
- *     Capabilities: { // PhoneNumberCapabilities
- *       InboundCall: true || false,
- *       OutboundCall: true || false,
- *       InboundSMS: true || false,
- *       OutboundSMS: true || false,
- *       InboundMMS: true || false,
- *       OutboundMMS: true || false,
- *     },
- *     Associations: [ // PhoneNumberAssociationList
- *       { // PhoneNumberAssociation
- *         Value: "STRING_VALUE",
- *         Name: "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
- *         AssociatedTimestamp: new Date("TIMESTAMP"),
- *       },
- *     ],
- *     CallingName: "STRING_VALUE",
- *     CallingNameStatus: "Unassigned" || "UpdateInProgress" || "UpdateSucceeded" || "UpdateFailed",
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     DeletionTimestamp: new Date("TIMESTAMP"),
- *     OrderId: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdatePhoneNumberResponse
+ * //   PhoneNumber: { // PhoneNumber
+ * //     PhoneNumberId: "STRING_VALUE",
+ * //     E164PhoneNumber: "STRING_VALUE",
+ * //     Country: "STRING_VALUE",
+ * //     Type: "Local" || "TollFree",
+ * //     ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
+ * //     Status: "Cancelled" || "PortinCancelRequested" || "PortinInProgress" || "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
+ * //     Capabilities: { // PhoneNumberCapabilities
+ * //       InboundCall: true || false,
+ * //       OutboundCall: true || false,
+ * //       InboundSMS: true || false,
+ * //       OutboundSMS: true || false,
+ * //       InboundMMS: true || false,
+ * //       OutboundMMS: true || false,
+ * //     },
+ * //     Associations: [ // PhoneNumberAssociationList
+ * //       { // PhoneNumberAssociation
+ * //         Value: "STRING_VALUE",
+ * //         Name: "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
+ * //         AssociatedTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //     CallingName: "STRING_VALUE",
+ * //     CallingNameStatus: "Unassigned" || "UpdateInProgress" || "UpdateSucceeded" || "UpdateFailed",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     DeletionTimestamp: new Date("TIMESTAMP"),
+ * //     OrderId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

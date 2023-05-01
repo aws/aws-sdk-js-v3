@@ -65,10 +65,9 @@ export interface PurchaseReservedInstancesOfferingCommandOutput
  * };
  * const command = new PurchaseReservedInstancesOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseReservedInstancesOfferingResult
- *   ReservedInstancesId: "STRING_VALUE",
- * };
+ * // { // PurchaseReservedInstancesOfferingResult
+ * //   ReservedInstancesId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

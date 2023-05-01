@@ -47,11 +47,10 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * };
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RebootBrokerResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // RebootBrokerResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

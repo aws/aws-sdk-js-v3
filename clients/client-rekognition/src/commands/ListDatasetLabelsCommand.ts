@@ -51,19 +51,18 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * };
  * const command = new ListDatasetLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetLabelsResponse
- *   DatasetLabelDescriptions: [ // DatasetLabelDescriptions
- *     { // DatasetLabelDescription
- *       LabelName: "STRING_VALUE",
- *       LabelStats: { // DatasetLabelStats
- *         EntryCount: Number("int"),
- *         BoundingBoxCount: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetLabelsResponse
+ * //   DatasetLabelDescriptions: [ // DatasetLabelDescriptions
+ * //     { // DatasetLabelDescription
+ * //       LabelName: "STRING_VALUE",
+ * //       LabelStats: { // DatasetLabelStats
+ * //         EntryCount: Number("int"),
+ * //         BoundingBoxCount: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

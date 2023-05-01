@@ -56,10 +56,9 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * };
  * const command = new StartProjectVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartProjectVersionResponse
- *   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
- * };
+ * // { // StartProjectVersionResponse
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * // };
  *
  * ```
  *

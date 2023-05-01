@@ -60,21 +60,20 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * };
  * const command = new SearchRoomsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchRoomsResponse
- *   Rooms: [ // RoomDataList
- *     { // RoomData
- *       RoomArn: "STRING_VALUE",
- *       RoomName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ProviderCalendarId: "STRING_VALUE",
- *       ProfileArn: "STRING_VALUE",
- *       ProfileName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchRoomsResponse
+ * //   Rooms: [ // RoomDataList
+ * //     { // RoomData
+ * //       RoomArn: "STRING_VALUE",
+ * //       RoomName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ProviderCalendarId: "STRING_VALUE",
+ * //       ProfileArn: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

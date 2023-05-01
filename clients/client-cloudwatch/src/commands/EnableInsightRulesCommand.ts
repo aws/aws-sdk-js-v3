@@ -46,17 +46,16 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * };
  * const command = new EnableInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableInsightRulesOutput
- *   Failures: [ // BatchFailures
- *     { // PartialFailure
- *       FailureResource: "STRING_VALUE",
- *       ExceptionType: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // EnableInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

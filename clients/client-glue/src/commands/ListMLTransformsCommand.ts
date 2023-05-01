@@ -72,13 +72,12 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * };
  * const command = new ListMLTransformsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMLTransformsResponse
- *   TransformIds: [ // TransformIdList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMLTransformsResponse
+ * //   TransformIds: [ // TransformIdList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

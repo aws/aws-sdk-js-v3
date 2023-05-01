@@ -60,21 +60,20 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchUsersResponse
- *   Users: [ // UserDataList
- *     { // UserData
- *       UserArn: "STRING_VALUE",
- *       FirstName: "STRING_VALUE",
- *       LastName: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       EnrollmentStatus: "STRING_VALUE",
- *       EnrollmentId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- * };
+ * // { // SearchUsersResponse
+ * //   Users: [ // UserDataList
+ * //     { // UserData
+ * //       UserArn: "STRING_VALUE",
+ * //       FirstName: "STRING_VALUE",
+ * //       LastName: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       EnrollmentStatus: "STRING_VALUE",
+ * //       EnrollmentId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * // };
  *
  * ```
  *

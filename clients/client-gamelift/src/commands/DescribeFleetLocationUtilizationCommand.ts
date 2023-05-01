@@ -67,18 +67,17 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * };
  * const command = new DescribeFleetLocationUtilizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetLocationUtilizationOutput
- *   FleetUtilization: { // FleetUtilization
- *     FleetId: "STRING_VALUE",
- *     FleetArn: "STRING_VALUE",
- *     ActiveServerProcessCount: Number("int"),
- *     ActiveGameSessionCount: Number("int"),
- *     CurrentPlayerSessionCount: Number("int"),
- *     MaximumPlayerSessionCount: Number("int"),
- *     Location: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFleetLocationUtilizationOutput
+ * //   FleetUtilization: { // FleetUtilization
+ * //     FleetId: "STRING_VALUE",
+ * //     FleetArn: "STRING_VALUE",
+ * //     ActiveServerProcessCount: Number("int"),
+ * //     ActiveGameSessionCount: Number("int"),
+ * //     CurrentPlayerSessionCount: Number("int"),
+ * //     MaximumPlayerSessionCount: Number("int"),
+ * //     Location: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

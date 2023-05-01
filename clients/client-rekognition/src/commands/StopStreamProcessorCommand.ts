@@ -44,8 +44,7 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * };
  * const command = new StopStreamProcessorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

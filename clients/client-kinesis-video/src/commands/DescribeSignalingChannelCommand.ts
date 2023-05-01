@@ -47,20 +47,19 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * };
  * const command = new DescribeSignalingChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSignalingChannelOutput
- *   ChannelInfo: { // ChannelInfo
- *     ChannelName: "STRING_VALUE",
- *     ChannelARN: "STRING_VALUE",
- *     ChannelType: "SINGLE_MASTER" || "FULL_MESH",
- *     ChannelStatus: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
- *     CreationTime: new Date("TIMESTAMP"),
- *     SingleMasterConfiguration: { // SingleMasterConfiguration
- *       MessageTtlSeconds: Number("int"),
- *     },
- *     Version: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeSignalingChannelOutput
+ * //   ChannelInfo: { // ChannelInfo
+ * //     ChannelName: "STRING_VALUE",
+ * //     ChannelARN: "STRING_VALUE",
+ * //     ChannelType: "SINGLE_MASTER" || "FULL_MESH",
+ * //     ChannelStatus: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     SingleMasterConfiguration: { // SingleMasterConfiguration
+ * //       MessageTtlSeconds: Number("int"),
+ * //     },
+ * //     Version: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

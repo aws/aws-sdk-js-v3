@@ -53,12 +53,11 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  * };
  * const command = new GetMapTileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMapTileResponse
- *   Blob: "BLOB_VALUE",
- *   ContentType: "STRING_VALUE",
- *   CacheControl: "STRING_VALUE",
- * };
+ * // { // GetMapTileResponse
+ * //   Blob: "BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   CacheControl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

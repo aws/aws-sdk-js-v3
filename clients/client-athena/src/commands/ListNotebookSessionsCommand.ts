@@ -49,16 +49,15 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * };
  * const command = new ListNotebookSessionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNotebookSessionsResponse
- *   NotebookSessionsList: [ // NotebookSessionsList // required
- *     { // NotebookSessionSummary
- *       SessionId: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListNotebookSessionsResponse
+ * //   NotebookSessionsList: [ // NotebookSessionsList // required
+ * //     { // NotebookSessionSummary
+ * //       SessionId: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

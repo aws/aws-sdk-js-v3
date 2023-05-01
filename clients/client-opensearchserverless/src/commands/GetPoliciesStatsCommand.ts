@@ -47,20 +47,19 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * const input = {};
  * const command = new GetPoliciesStatsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPoliciesStatsResponse
- *   AccessPolicyStats: { // AccessPolicyStats
- *     DataPolicyCount: Number("long"),
- *   },
- *   SecurityPolicyStats: { // SecurityPolicyStats
- *     EncryptionPolicyCount: Number("long"),
- *     NetworkPolicyCount: Number("long"),
- *   },
- *   SecurityConfigStats: { // SecurityConfigStats
- *     SamlConfigCount: Number("long"),
- *   },
- *   TotalPolicyCount: Number("long"),
- * };
+ * // { // GetPoliciesStatsResponse
+ * //   AccessPolicyStats: { // AccessPolicyStats
+ * //     DataPolicyCount: Number("long"),
+ * //   },
+ * //   SecurityPolicyStats: { // SecurityPolicyStats
+ * //     EncryptionPolicyCount: Number("long"),
+ * //     NetworkPolicyCount: Number("long"),
+ * //   },
+ * //   SecurityConfigStats: { // SecurityConfigStats
+ * //     SamlConfigCount: Number("long"),
+ * //   },
+ * //   TotalPolicyCount: Number("long"),
+ * // };
  *
  * ```
  *

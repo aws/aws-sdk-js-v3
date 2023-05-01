@@ -46,11 +46,10 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * };
  * const command = new ApplySchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplySchemaResponse
- *   AppliedSchemaArn: "STRING_VALUE",
- *   DirectoryArn: "STRING_VALUE",
- * };
+ * // { // ApplySchemaResponse
+ * //   AppliedSchemaArn: "STRING_VALUE",
+ * //   DirectoryArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

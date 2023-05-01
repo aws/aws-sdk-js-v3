@@ -44,21 +44,20 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  * };
  * const command = new GetSdkTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SdkType
- *   id: "STRING_VALUE",
- *   friendlyName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   configurationProperties: [ // ListOfSdkConfigurationProperty
- *     { // SdkConfigurationProperty
- *       name: "STRING_VALUE",
- *       friendlyName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       required: true || false,
- *       defaultValue: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // SdkType
+ * //   id: "STRING_VALUE",
+ * //   friendlyName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   configurationProperties: [ // ListOfSdkConfigurationProperty
+ * //     { // SdkConfigurationProperty
+ * //       name: "STRING_VALUE",
+ * //       friendlyName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       required: true || false,
+ * //       defaultValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

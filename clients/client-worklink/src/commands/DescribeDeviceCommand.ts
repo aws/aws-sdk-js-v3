@@ -47,18 +47,17 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * };
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeviceResponse
- *   Status: "STRING_VALUE",
- *   Model: "STRING_VALUE",
- *   Manufacturer: "STRING_VALUE",
- *   OperatingSystem: "STRING_VALUE",
- *   OperatingSystemVersion: "STRING_VALUE",
- *   PatchLevel: "STRING_VALUE",
- *   FirstAccessedTime: new Date("TIMESTAMP"),
- *   LastAccessedTime: new Date("TIMESTAMP"),
- *   Username: "STRING_VALUE",
- * };
+ * // { // DescribeDeviceResponse
+ * //   Status: "STRING_VALUE",
+ * //   Model: "STRING_VALUE",
+ * //   Manufacturer: "STRING_VALUE",
+ * //   OperatingSystem: "STRING_VALUE",
+ * //   OperatingSystemVersion: "STRING_VALUE",
+ * //   PatchLevel: "STRING_VALUE",
+ * //   FirstAccessedTime: new Date("TIMESTAMP"),
+ * //   LastAccessedTime: new Date("TIMESTAMP"),
+ * //   Username: "STRING_VALUE",
+ * // };
  *
  * ```
  *

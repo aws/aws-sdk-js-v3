@@ -59,13 +59,12 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  * };
  * const command = new StartBackupJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartBackupJobOutput
- *   BackupJobId: "STRING_VALUE",
- *   RecoveryPointArn: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- *   IsParent: true || false,
- * };
+ * // { // StartBackupJobOutput
+ * //   BackupJobId: "STRING_VALUE",
+ * //   RecoveryPointArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   IsParent: true || false,
+ * // };
  *
  * ```
  *

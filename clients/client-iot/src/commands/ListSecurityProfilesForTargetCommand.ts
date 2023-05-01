@@ -54,21 +54,20 @@ export interface ListSecurityProfilesForTargetCommandOutput
  * };
  * const command = new ListSecurityProfilesForTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityProfilesForTargetResponse
- *   securityProfileTargetMappings: [ // SecurityProfileTargetMappings
- *     { // SecurityProfileTargetMapping
- *       securityProfileIdentifier: { // SecurityProfileIdentifier
- *         name: "STRING_VALUE", // required
- *         arn: "STRING_VALUE", // required
- *       },
- *       target: { // SecurityProfileTarget
- *         arn: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityProfilesForTargetResponse
+ * //   securityProfileTargetMappings: [ // SecurityProfileTargetMappings
+ * //     { // SecurityProfileTargetMapping
+ * //       securityProfileIdentifier: { // SecurityProfileIdentifier
+ * //         name: "STRING_VALUE", // required
+ * //         arn: "STRING_VALUE", // required
+ * //       },
+ * //       target: { // SecurityProfileTarget
+ * //         arn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

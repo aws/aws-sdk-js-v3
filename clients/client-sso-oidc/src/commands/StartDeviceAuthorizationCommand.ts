@@ -47,15 +47,14 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * };
  * const command = new StartDeviceAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartDeviceAuthorizationResponse
- *   deviceCode: "STRING_VALUE",
- *   userCode: "STRING_VALUE",
- *   verificationUri: "STRING_VALUE",
- *   verificationUriComplete: "STRING_VALUE",
- *   expiresIn: Number("int"),
- *   interval: Number("int"),
- * };
+ * // { // StartDeviceAuthorizationResponse
+ * //   deviceCode: "STRING_VALUE",
+ * //   userCode: "STRING_VALUE",
+ * //   verificationUri: "STRING_VALUE",
+ * //   verificationUriComplete: "STRING_VALUE",
+ * //   expiresIn: Number("int"),
+ * //   interval: Number("int"),
+ * // };
  *
  * ```
  *

@@ -57,10 +57,9 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMonitorResponse
- *   MonitorArn: "STRING_VALUE",
- * };
+ * // { // CreateMonitorResponse
+ * //   MonitorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

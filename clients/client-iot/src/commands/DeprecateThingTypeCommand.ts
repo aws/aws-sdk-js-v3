@@ -47,8 +47,7 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * };
  * const command = new DeprecateThingTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

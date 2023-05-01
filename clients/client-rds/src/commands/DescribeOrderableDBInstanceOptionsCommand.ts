@@ -64,65 +64,64 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OrderableDBInstanceOptionsMessage
- *   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
- *     { // OrderableDBInstanceOption
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       DBInstanceClass: "STRING_VALUE",
- *       LicenseModel: "STRING_VALUE",
- *       AvailabilityZoneGroup: "STRING_VALUE",
- *       AvailabilityZones: [ // AvailabilityZoneList
- *         { // AvailabilityZone
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *       MultiAZCapable: true || false,
- *       ReadReplicaCapable: true || false,
- *       Vpc: true || false,
- *       SupportsStorageEncryption: true || false,
- *       StorageType: "STRING_VALUE",
- *       SupportsIops: true || false,
- *       SupportsEnhancedMonitoring: true || false,
- *       SupportsIAMDatabaseAuthentication: true || false,
- *       SupportsPerformanceInsights: true || false,
- *       MinStorageSize: Number("int"),
- *       MaxStorageSize: Number("int"),
- *       MinIopsPerDbInstance: Number("int"),
- *       MaxIopsPerDbInstance: Number("int"),
- *       MinIopsPerGib: Number("double"),
- *       MaxIopsPerGib: Number("double"),
- *       AvailableProcessorFeatures: [ // AvailableProcessorFeatureList
- *         { // AvailableProcessorFeature
- *           Name: "STRING_VALUE",
- *           DefaultValue: "STRING_VALUE",
- *           AllowedValues: "STRING_VALUE",
- *         },
- *       ],
- *       SupportedEngineModes: [ // EngineModeList
- *         "STRING_VALUE",
- *       ],
- *       SupportsStorageAutoscaling: true || false,
- *       SupportsKerberosAuthentication: true || false,
- *       OutpostCapable: true || false,
- *       SupportedActivityStreamModes: [ // ActivityStreamModeList
- *         "STRING_VALUE",
- *       ],
- *       SupportsGlobalDatabases: true || false,
- *       SupportsClusters: true || false,
- *       SupportedNetworkTypes: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       SupportsStorageThroughput: true || false,
- *       MinStorageThroughputPerDbInstance: Number("int"),
- *       MaxStorageThroughputPerDbInstance: Number("int"),
- *       MinStorageThroughputPerIops: Number("double"),
- *       MaxStorageThroughputPerIops: Number("double"),
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // OrderableDBInstanceOptionsMessage
+ * //   OrderableDBInstanceOptions: [ // OrderableDBInstanceOptionsList
+ * //     { // OrderableDBInstanceOption
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       DBInstanceClass: "STRING_VALUE",
+ * //       LicenseModel: "STRING_VALUE",
+ * //       AvailabilityZoneGroup: "STRING_VALUE",
+ * //       AvailabilityZones: [ // AvailabilityZoneList
+ * //         { // AvailabilityZone
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       MultiAZCapable: true || false,
+ * //       ReadReplicaCapable: true || false,
+ * //       Vpc: true || false,
+ * //       SupportsStorageEncryption: true || false,
+ * //       StorageType: "STRING_VALUE",
+ * //       SupportsIops: true || false,
+ * //       SupportsEnhancedMonitoring: true || false,
+ * //       SupportsIAMDatabaseAuthentication: true || false,
+ * //       SupportsPerformanceInsights: true || false,
+ * //       MinStorageSize: Number("int"),
+ * //       MaxStorageSize: Number("int"),
+ * //       MinIopsPerDbInstance: Number("int"),
+ * //       MaxIopsPerDbInstance: Number("int"),
+ * //       MinIopsPerGib: Number("double"),
+ * //       MaxIopsPerGib: Number("double"),
+ * //       AvailableProcessorFeatures: [ // AvailableProcessorFeatureList
+ * //         { // AvailableProcessorFeature
+ * //           Name: "STRING_VALUE",
+ * //           DefaultValue: "STRING_VALUE",
+ * //           AllowedValues: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SupportedEngineModes: [ // EngineModeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsStorageAutoscaling: true || false,
+ * //       SupportsKerberosAuthentication: true || false,
+ * //       OutpostCapable: true || false,
+ * //       SupportedActivityStreamModes: [ // ActivityStreamModeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsGlobalDatabases: true || false,
+ * //       SupportsClusters: true || false,
+ * //       SupportedNetworkTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsStorageThroughput: true || false,
+ * //       MinStorageThroughputPerDbInstance: Number("int"),
+ * //       MaxStorageThroughputPerDbInstance: Number("int"),
+ * //       MinStorageThroughputPerIops: Number("double"),
+ * //       MaxStorageThroughputPerIops: Number("double"),
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

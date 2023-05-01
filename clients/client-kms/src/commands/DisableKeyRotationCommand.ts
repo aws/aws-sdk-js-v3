@@ -76,8 +76,7 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

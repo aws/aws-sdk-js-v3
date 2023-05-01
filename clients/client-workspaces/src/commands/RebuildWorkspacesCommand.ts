@@ -56,16 +56,15 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * };
  * const command = new RebuildWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RebuildWorkspacesResult
- *   FailedRequests: [ // FailedRebuildWorkspaceRequests
- *     { // FailedWorkspaceChangeRequest
- *       WorkspaceId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RebuildWorkspacesResult
+ * //   FailedRequests: [ // FailedRebuildWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

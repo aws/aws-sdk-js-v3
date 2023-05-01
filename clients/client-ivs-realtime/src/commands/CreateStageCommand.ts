@@ -59,32 +59,31 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStageResponse
- *   stage: { // Stage
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE",
- *     activeSessionId: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   participantTokens: [ // ParticipantTokenList
- *     { // ParticipantToken
- *       participantId: "STRING_VALUE",
- *       token: "STRING_VALUE",
- *       userId: "STRING_VALUE",
- *       attributes: { // ParticipantTokenAttributes
- *         "<keys>": "STRING_VALUE",
- *       },
- *       duration: Number("int"),
- *       capabilities: [ // ParticipantTokenCapabilities
- *         "STRING_VALUE",
- *       ],
- *       expirationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // CreateStageResponse
+ * //   stage: { // Stage
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     activeSessionId: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   participantTokens: [ // ParticipantTokenList
+ * //     { // ParticipantToken
+ * //       participantId: "STRING_VALUE",
+ * //       token: "STRING_VALUE",
+ * //       userId: "STRING_VALUE",
+ * //       attributes: { // ParticipantTokenAttributes
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       duration: Number("int"),
+ * //       capabilities: [ // ParticipantTokenCapabilities
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       expirationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

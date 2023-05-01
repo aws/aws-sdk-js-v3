@@ -61,14 +61,13 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * };
  * const command = new CreateAppInstanceAdminCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppInstanceAdminResponse
- *   AppInstanceAdmin: { // Identity
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- *   AppInstanceArn: "STRING_VALUE",
- * };
+ * // { // CreateAppInstanceAdminResponse
+ * //   AppInstanceAdmin: { // Identity
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * //   AppInstanceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

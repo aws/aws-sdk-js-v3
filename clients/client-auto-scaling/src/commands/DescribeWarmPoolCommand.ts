@@ -48,36 +48,35 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * };
  * const command = new DescribeWarmPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWarmPoolAnswer
- *   WarmPoolConfiguration: { // WarmPoolConfiguration
- *     MaxGroupPreparedCapacity: Number("int"),
- *     MinSize: Number("int"),
- *     PoolState: "Stopped" || "Running" || "Hibernated",
- *     Status: "PendingDelete",
- *     InstanceReusePolicy: { // InstanceReusePolicy
- *       ReuseOnScaleIn: true || false,
- *     },
- *   },
- *   Instances: [ // Instances
- *     { // Instance
- *       InstanceId: "STRING_VALUE", // required
- *       InstanceType: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE", // required
- *       LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
- *       HealthStatus: "STRING_VALUE", // required
- *       LaunchConfigurationName: "STRING_VALUE",
- *       LaunchTemplate: { // LaunchTemplateSpecification
- *         LaunchTemplateId: "STRING_VALUE",
- *         LaunchTemplateName: "STRING_VALUE",
- *         Version: "STRING_VALUE",
- *       },
- *       ProtectedFromScaleIn: true || false, // required
- *       WeightedCapacity: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeWarmPoolAnswer
+ * //   WarmPoolConfiguration: { // WarmPoolConfiguration
+ * //     MaxGroupPreparedCapacity: Number("int"),
+ * //     MinSize: Number("int"),
+ * //     PoolState: "Stopped" || "Running" || "Hibernated",
+ * //     Status: "PendingDelete",
+ * //     InstanceReusePolicy: { // InstanceReusePolicy
+ * //       ReuseOnScaleIn: true || false,
+ * //     },
+ * //   },
+ * //   Instances: [ // Instances
+ * //     { // Instance
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       InstanceType: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE", // required
+ * //       LifecycleState: "Pending" || "Pending:Wait" || "Pending:Proceed" || "Quarantined" || "InService" || "Terminating" || "Terminating:Wait" || "Terminating:Proceed" || "Terminated" || "Detaching" || "Detached" || "EnteringStandby" || "Standby" || "Warmed:Pending" || "Warmed:Pending:Wait" || "Warmed:Pending:Proceed" || "Warmed:Terminating" || "Warmed:Terminating:Wait" || "Warmed:Terminating:Proceed" || "Warmed:Terminated" || "Warmed:Stopped" || "Warmed:Running" || "Warmed:Hibernated", // required
+ * //       HealthStatus: "STRING_VALUE", // required
+ * //       LaunchConfigurationName: "STRING_VALUE",
+ * //       LaunchTemplate: { // LaunchTemplateSpecification
+ * //         LaunchTemplateId: "STRING_VALUE",
+ * //         LaunchTemplateName: "STRING_VALUE",
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       ProtectedFromScaleIn: true || false, // required
+ * //       WeightedCapacity: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

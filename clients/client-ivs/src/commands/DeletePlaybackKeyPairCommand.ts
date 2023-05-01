@@ -46,8 +46,7 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * };
  * const command = new DeletePlaybackKeyPairCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,79 +45,78 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * };
  * const command = new DeleteNodegroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNodegroupResponse
- *   nodegroup: { // Nodegroup
- *     nodegroupName: "STRING_VALUE",
- *     nodegroupArn: "STRING_VALUE",
- *     clusterName: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *     releaseVersion: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     modifiedAt: new Date("TIMESTAMP"),
- *     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "DEGRADED",
- *     capacityType: "ON_DEMAND" || "SPOT",
- *     scalingConfig: { // NodegroupScalingConfig
- *       minSize: Number("int"),
- *       maxSize: Number("int"),
- *       desiredSize: Number("int"),
- *     },
- *     instanceTypes: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     subnets: [
- *       "STRING_VALUE",
- *     ],
- *     remoteAccess: { // RemoteAccessConfig
- *       ec2SshKey: "STRING_VALUE",
- *       sourceSecurityGroups: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64",
- *     nodeRole: "STRING_VALUE",
- *     labels: { // labelsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     taints: [ // taintsList
- *       { // Taint
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
- *       },
- *     ],
- *     resources: { // NodegroupResources
- *       autoScalingGroups: [ // AutoScalingGroupList
- *         { // AutoScalingGroup
- *           name: "STRING_VALUE",
- *         },
- *       ],
- *       remoteAccessSecurityGroup: "STRING_VALUE",
- *     },
- *     diskSize: Number("int"),
- *     health: { // NodegroupHealth
- *       issues: [ // IssueList
- *         { // Issue
- *           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "Ec2SubnetMissingIpv6Assignment",
- *           message: "STRING_VALUE",
- *           resourceIds: "<StringList>",
- *         },
- *       ],
- *     },
- *     updateConfig: { // NodegroupUpdateConfig
- *       maxUnavailable: Number("int"),
- *       maxUnavailablePercentage: Number("int"),
- *     },
- *     launchTemplate: { // LaunchTemplateSpecification
- *       name: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *     },
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeleteNodegroupResponse
+ * //   nodegroup: { // Nodegroup
+ * //     nodegroupName: "STRING_VALUE",
+ * //     nodegroupArn: "STRING_VALUE",
+ * //     clusterName: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //     releaseVersion: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "DEGRADED",
+ * //     capacityType: "ON_DEMAND" || "SPOT",
+ * //     scalingConfig: { // NodegroupScalingConfig
+ * //       minSize: Number("int"),
+ * //       maxSize: Number("int"),
+ * //       desiredSize: Number("int"),
+ * //     },
+ * //     instanceTypes: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     subnets: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     remoteAccess: { // RemoteAccessConfig
+ * //       ec2SshKey: "STRING_VALUE",
+ * //       sourceSecurityGroups: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64",
+ * //     nodeRole: "STRING_VALUE",
+ * //     labels: { // labelsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     taints: [ // taintsList
+ * //       { // Taint
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //         effect: "NO_SCHEDULE" || "NO_EXECUTE" || "PREFER_NO_SCHEDULE",
+ * //       },
+ * //     ],
+ * //     resources: { // NodegroupResources
+ * //       autoScalingGroups: [ // AutoScalingGroupList
+ * //         { // AutoScalingGroup
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       remoteAccessSecurityGroup: "STRING_VALUE",
+ * //     },
+ * //     diskSize: Number("int"),
+ * //     health: { // NodegroupHealth
+ * //       issues: [ // IssueList
+ * //         { // Issue
+ * //           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "Ec2SubnetMissingIpv6Assignment",
+ * //           message: "STRING_VALUE",
+ * //           resourceIds: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     updateConfig: { // NodegroupUpdateConfig
+ * //       maxUnavailable: Number("int"),
+ * //       maxUnavailablePercentage: Number("int"),
+ * //     },
+ * //     launchTemplate: { // LaunchTemplateSpecification
+ * //       name: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

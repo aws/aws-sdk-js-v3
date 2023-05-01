@@ -45,10 +45,9 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * };
  * const command = new DisableDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableDirectoryResponse
- *   DirectoryArn: "STRING_VALUE", // required
- * };
+ * // { // DisableDirectoryResponse
+ * //   DirectoryArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * };
  * const command = new DeletePlaceIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

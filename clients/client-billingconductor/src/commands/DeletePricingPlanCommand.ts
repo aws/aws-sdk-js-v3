@@ -45,10 +45,9 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * };
  * const command = new DeletePricingPlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePricingPlanOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DeletePricingPlanOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

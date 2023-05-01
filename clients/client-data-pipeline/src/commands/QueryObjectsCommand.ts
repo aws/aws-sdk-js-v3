@@ -98,14 +98,13 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * };
  * const command = new QueryObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryObjectsOutput
- *   ids: [ // idList
- *     "STRING_VALUE",
- *   ],
- *   marker: "STRING_VALUE",
- *   hasMoreResults: true || false,
- * };
+ * // { // QueryObjectsOutput
+ * //   ids: [ // idList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   marker: "STRING_VALUE",
+ * //   hasMoreResults: true || false,
+ * // };
  *
  * ```
  *

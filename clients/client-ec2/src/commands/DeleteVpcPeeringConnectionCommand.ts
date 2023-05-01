@@ -49,10 +49,9 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * };
  * const command = new DeleteVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVpcPeeringConnectionResult
- *   Return: true || false,
- * };
+ * // { // DeleteVpcPeeringConnectionResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

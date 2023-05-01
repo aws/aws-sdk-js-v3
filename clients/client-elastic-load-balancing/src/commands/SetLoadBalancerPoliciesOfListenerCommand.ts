@@ -63,8 +63,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * };
  * const command = new SetLoadBalancerPoliciesOfListenerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

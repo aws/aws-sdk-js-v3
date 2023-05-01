@@ -51,11 +51,10 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * };
  * const command = new PutActionRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutActionRevisionOutput
- *   newRevision: true || false,
- *   pipelineExecutionId: "STRING_VALUE",
- * };
+ * // { // PutActionRevisionOutput
+ * //   newRevision: true || false,
+ * //   pipelineExecutionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

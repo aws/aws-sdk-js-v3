@@ -53,16 +53,15 @@ export interface ListGeoMatchSetsCommandOutput extends ListGeoMatchSetsResponse,
  * };
  * const command = new ListGeoMatchSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGeoMatchSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   GeoMatchSets: [ // GeoMatchSetSummaries
- *     { // GeoMatchSetSummary
- *       GeoMatchSetId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListGeoMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   GeoMatchSets: [ // GeoMatchSetSummaries
+ * //     { // GeoMatchSetSummary
+ * //       GeoMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

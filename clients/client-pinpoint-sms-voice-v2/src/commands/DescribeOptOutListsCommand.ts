@@ -57,17 +57,16 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  * };
  * const command = new DescribeOptOutListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOptOutListsResult
- *   OptOutLists: [ // OptOutListInformationList
- *     { // OptOutListInformation
- *       OptOutListArn: "STRING_VALUE", // required
- *       OptOutListName: "STRING_VALUE", // required
- *       CreatedTimestamp: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeOptOutListsResult
+ * //   OptOutLists: [ // OptOutListInformationList
+ * //     { // OptOutListInformation
+ * //       OptOutListArn: "STRING_VALUE", // required
+ * //       OptOutListName: "STRING_VALUE", // required
+ * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

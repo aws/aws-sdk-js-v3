@@ -45,16 +45,15 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProjectsResult
- *   projects: [ // ProjectsList // required
- *     { // ProjectSummary
- *       projectId: "STRING_VALUE",
- *       projectArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProjectsResult
+ * //   projects: [ // ProjectsList // required
+ * //     { // ProjectSummary
+ * //       projectId: "STRING_VALUE",
+ * //       projectArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

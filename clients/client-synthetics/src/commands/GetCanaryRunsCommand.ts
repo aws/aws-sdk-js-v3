@@ -46,26 +46,25 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * };
  * const command = new GetCanaryRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCanaryRunsResponse
- *   CanaryRuns: [ // CanaryRuns
- *     { // CanaryRun
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Status: { // CanaryRunStatus
- *         State: "STRING_VALUE",
- *         StateReason: "STRING_VALUE",
- *         StateReasonCode: "STRING_VALUE",
- *       },
- *       Timeline: { // CanaryRunTimeline
- *         Started: new Date("TIMESTAMP"),
- *         Completed: new Date("TIMESTAMP"),
- *       },
- *       ArtifactS3Location: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCanaryRunsResponse
+ * //   CanaryRuns: [ // CanaryRuns
+ * //     { // CanaryRun
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Status: { // CanaryRunStatus
+ * //         State: "STRING_VALUE",
+ * //         StateReason: "STRING_VALUE",
+ * //         StateReasonCode: "STRING_VALUE",
+ * //       },
+ * //       Timeline: { // CanaryRunTimeline
+ * //         Started: new Date("TIMESTAMP"),
+ * //         Completed: new Date("TIMESTAMP"),
+ * //       },
+ * //       ArtifactS3Location: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

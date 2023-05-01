@@ -89,54 +89,53 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectVersionsOutput
- *   IsTruncated: true || false,
- *   KeyMarker: "STRING_VALUE",
- *   VersionIdMarker: "STRING_VALUE",
- *   NextKeyMarker: "STRING_VALUE",
- *   NextVersionIdMarker: "STRING_VALUE",
- *   Versions: [ // ObjectVersionList
- *     { // ObjectVersion
- *       ETag: "STRING_VALUE",
- *       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- *         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *       ],
- *       Size: Number("long"),
- *       StorageClass: "STANDARD",
- *       Key: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       IsLatest: true || false,
- *       LastModified: new Date("TIMESTAMP"),
- *       Owner: { // Owner
- *         DisplayName: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   DeleteMarkers: [ // DeleteMarkers
- *     { // DeleteMarkerEntry
- *       Owner: {
- *         DisplayName: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *       },
- *       Key: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       IsLatest: true || false,
- *       LastModified: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Name: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   Delimiter: "STRING_VALUE",
- *   MaxKeys: Number("int"),
- *   CommonPrefixes: [ // CommonPrefixList
- *     { // CommonPrefix
- *       Prefix: "STRING_VALUE",
- *     },
- *   ],
- *   EncodingType: "url",
- * };
+ * // { // ListObjectVersionsOutput
+ * //   IsTruncated: true || false,
+ * //   KeyMarker: "STRING_VALUE",
+ * //   VersionIdMarker: "STRING_VALUE",
+ * //   NextKeyMarker: "STRING_VALUE",
+ * //   NextVersionIdMarker: "STRING_VALUE",
+ * //   Versions: [ // ObjectVersionList
+ * //     { // ObjectVersion
+ * //       ETag: "STRING_VALUE",
+ * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //       ],
+ * //       Size: Number("long"),
+ * //       StorageClass: "STANDARD",
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsLatest: true || false,
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       Owner: { // Owner
+ * //         DisplayName: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   DeleteMarkers: [ // DeleteMarkers
+ * //     { // DeleteMarkerEntry
+ * //       Owner: {
+ * //         DisplayName: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //       },
+ * //       Key: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsLatest: true || false,
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   Prefix: "STRING_VALUE",
+ * //   Delimiter: "STRING_VALUE",
+ * //   MaxKeys: Number("int"),
+ * //   CommonPrefixes: [ // CommonPrefixList
+ * //     { // CommonPrefix
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncodingType: "url",
+ * // };
  *
  * ```
  *

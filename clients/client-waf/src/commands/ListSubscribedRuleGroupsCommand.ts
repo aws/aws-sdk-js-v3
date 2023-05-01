@@ -53,17 +53,16 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * };
  * const command = new ListSubscribedRuleGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubscribedRuleGroupsResponse
- *   NextMarker: "STRING_VALUE",
- *   RuleGroups: [ // SubscribedRuleGroupSummaries
- *     { // SubscribedRuleGroupSummary
- *       RuleGroupId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       MetricName: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListSubscribedRuleGroupsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RuleGroups: [ // SubscribedRuleGroupSummaries
+ * //     { // SubscribedRuleGroupSummary
+ * //       RuleGroupId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       MetricName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,26 +48,25 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * const input = {};
  * const command = new GetRegisterAccountStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegisterAccountStatusResponse
- *   customerAccountId: "STRING_VALUE", // required
- *   accountStatus: "STRING_VALUE", // required
- *   timestreamRegistrationResponse: { // TimestreamRegistrationResponse
- *     timestreamDatabaseName: "STRING_VALUE", // required
- *     timestreamTableName: "STRING_VALUE", // required
- *     timestreamDatabaseArn: "STRING_VALUE",
- *     timestreamTableArn: "STRING_VALUE",
- *     registrationStatus: "STRING_VALUE", // required
- *     errorMessage: "STRING_VALUE",
- *   },
- *   iamRegistrationResponse: { // IamRegistrationResponse
- *     roleArn: "STRING_VALUE", // required
- *     registrationStatus: "STRING_VALUE", // required
- *     errorMessage: "STRING_VALUE",
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- *   lastModificationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetRegisterAccountStatusResponse
+ * //   customerAccountId: "STRING_VALUE", // required
+ * //   accountStatus: "STRING_VALUE", // required
+ * //   timestreamRegistrationResponse: { // TimestreamRegistrationResponse
+ * //     timestreamDatabaseName: "STRING_VALUE", // required
+ * //     timestreamTableName: "STRING_VALUE", // required
+ * //     timestreamDatabaseArn: "STRING_VALUE",
+ * //     timestreamTableArn: "STRING_VALUE",
+ * //     registrationStatus: "STRING_VALUE", // required
+ * //     errorMessage: "STRING_VALUE",
+ * //   },
+ * //   iamRegistrationResponse: { // IamRegistrationResponse
+ * //     roleArn: "STRING_VALUE", // required
+ * //     registrationStatus: "STRING_VALUE", // required
+ * //     errorMessage: "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   lastModificationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

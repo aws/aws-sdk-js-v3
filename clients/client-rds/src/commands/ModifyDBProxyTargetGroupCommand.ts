@@ -55,27 +55,26 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * };
  * const command = new ModifyDBProxyTargetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyDBProxyTargetGroupResponse
- *   DBProxyTargetGroup: { // DBProxyTargetGroup
- *     DBProxyName: "STRING_VALUE",
- *     TargetGroupName: "STRING_VALUE",
- *     TargetGroupArn: "STRING_VALUE",
- *     IsDefault: true || false,
- *     Status: "STRING_VALUE",
- *     ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
- *       MaxConnectionsPercent: Number("int"),
- *       MaxIdleConnectionsPercent: Number("int"),
- *       ConnectionBorrowTimeout: Number("int"),
- *       SessionPinningFilters: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       InitQuery: "STRING_VALUE",
- *     },
- *     CreatedDate: new Date("TIMESTAMP"),
- *     UpdatedDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // ModifyDBProxyTargetGroupResponse
+ * //   DBProxyTargetGroup: { // DBProxyTargetGroup
+ * //     DBProxyName: "STRING_VALUE",
+ * //     TargetGroupName: "STRING_VALUE",
+ * //     TargetGroupArn: "STRING_VALUE",
+ * //     IsDefault: true || false,
+ * //     Status: "STRING_VALUE",
+ * //     ConnectionPoolConfig: { // ConnectionPoolConfigurationInfo
+ * //       MaxConnectionsPercent: Number("int"),
+ * //       MaxIdleConnectionsPercent: Number("int"),
+ * //       ConnectionBorrowTimeout: Number("int"),
+ * //       SessionPinningFilters: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       InitQuery: "STRING_VALUE",
+ * //     },
+ * //     CreatedDate: new Date("TIMESTAMP"),
+ * //     UpdatedDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

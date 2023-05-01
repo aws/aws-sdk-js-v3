@@ -55,15 +55,14 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * };
  * const command = new StartActivityStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartActivityStreamResponse
- *   KmsKeyId: "STRING_VALUE",
- *   KinesisStreamName: "STRING_VALUE",
- *   Status: "stopped" || "starting" || "started" || "stopping",
- *   Mode: "sync" || "async",
- *   ApplyImmediately: true || false,
- *   EngineNativeAuditFieldsIncluded: true || false,
- * };
+ * // { // StartActivityStreamResponse
+ * //   KmsKeyId: "STRING_VALUE",
+ * //   KinesisStreamName: "STRING_VALUE",
+ * //   Status: "stopped" || "starting" || "started" || "stopping",
+ * //   Mode: "sync" || "async",
+ * //   ApplyImmediately: true || false,
+ * //   EngineNativeAuditFieldsIncluded: true || false,
+ * // };
  *
  * ```
  *

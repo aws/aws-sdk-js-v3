@@ -44,13 +44,12 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * };
  * const command = new CreateTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTokenResponse
- *   AppId: "STRING_VALUE",
- *   ChallengeCode: "STRING_VALUE",
- *   SessionId: "STRING_VALUE",
- *   Ttl: "STRING_VALUE",
- * };
+ * // { // CreateTokenResponse
+ * //   AppId: "STRING_VALUE",
+ * //   ChallengeCode: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   Ttl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,16 +45,15 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryOutput
- *   repository: { // Repository
- *     arn: "STRING_VALUE", // required
- *     provider: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     connectionArn: "STRING_VALUE", // required
- *     encryptionKey: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteRepositoryOutput
+ * //   repository: { // Repository
+ * //     arn: "STRING_VALUE", // required
+ * //     provider: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     connectionArn: "STRING_VALUE", // required
+ * //     encryptionKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleOutput, __Met
  * };
  * const command = new DeleteScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,28 +62,27 @@ export interface DescribeTransitGatewayConnectsCommandOutput
  * };
  * const command = new DescribeTransitGatewayConnectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayConnectsResult
- *   TransitGatewayConnects: [ // TransitGatewayConnectList
- *     { // TransitGatewayConnect
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       TransportTransitGatewayAttachmentId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
- *       CreationTime: new Date("TIMESTAMP"),
- *       Options: { // TransitGatewayConnectOptions
- *         Protocol: "gre",
- *       },
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayConnectsResult
+ * //   TransitGatewayConnects: [ // TransitGatewayConnectList
+ * //     { // TransitGatewayConnect
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransportTransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Options: { // TransitGatewayConnectOptions
+ * //         Protocol: "gre",
+ * //       },
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,19 +50,18 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * };
  * const command = new QueryWhatIfForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryWhatIfForecastResponse
- *   Forecast: { // Forecast
- *     Predictions: { // Predictions
- *       "<keys>": [ // TimeSeries
- *         { // DataPoint
- *           Timestamp: "STRING_VALUE",
- *           Value: Number("double"),
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // QueryWhatIfForecastResponse
+ * //   Forecast: { // Forecast
+ * //     Predictions: { // Predictions
+ * //       "<keys>": [ // TimeSeries
+ * //         { // DataPoint
+ * //           Timestamp: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

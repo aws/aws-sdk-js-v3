@@ -49,10 +49,9 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * };
  * const command = new ExportBundleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportBundleResult
- *   downloadUrl: "STRING_VALUE",
- * };
+ * // { // ExportBundleResult
+ * //   downloadUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

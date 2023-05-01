@@ -45,17 +45,16 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * };
  * const command = new DescribeLocationFsxWindowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationFsxWindowsResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
- *     "STRING_VALUE",
- *   ],
- *   CreationTime: new Date("TIMESTAMP"),
- *   User: "STRING_VALUE",
- *   Domain: "STRING_VALUE",
- * };
+ * // { // DescribeLocationFsxWindowsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   User: "STRING_VALUE",
+ * //   Domain: "STRING_VALUE",
+ * // };
  *
  * ```
  *

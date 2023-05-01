@@ -61,36 +61,35 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * };
  * const command = new ModifyTargetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyTargetGroupOutput
- *   TargetGroups: [ // TargetGroups
- *     { // TargetGroup
- *       TargetGroupArn: "STRING_VALUE",
- *       TargetGroupName: "STRING_VALUE",
- *       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *       Port: Number("int"),
- *       VpcId: "STRING_VALUE",
- *       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
- *       HealthCheckPort: "STRING_VALUE",
- *       HealthCheckEnabled: true || false,
- *       HealthCheckIntervalSeconds: Number("int"),
- *       HealthCheckTimeoutSeconds: Number("int"),
- *       HealthyThresholdCount: Number("int"),
- *       UnhealthyThresholdCount: Number("int"),
- *       HealthCheckPath: "STRING_VALUE",
- *       Matcher: { // Matcher
- *         HttpCode: "STRING_VALUE",
- *         GrpcCode: "STRING_VALUE",
- *       },
- *       LoadBalancerArns: [ // LoadBalancerArns
- *         "STRING_VALUE",
- *       ],
- *       TargetType: "instance" || "ip" || "lambda" || "alb",
- *       ProtocolVersion: "STRING_VALUE",
- *       IpAddressType: "ipv4" || "ipv6",
- *     },
- *   ],
- * };
+ * // { // ModifyTargetGroupOutput
+ * //   TargetGroups: [ // TargetGroups
+ * //     { // TargetGroup
+ * //       TargetGroupArn: "STRING_VALUE",
+ * //       TargetGroupName: "STRING_VALUE",
+ * //       Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       Port: Number("int"),
+ * //       VpcId: "STRING_VALUE",
+ * //       HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ * //       HealthCheckPort: "STRING_VALUE",
+ * //       HealthCheckEnabled: true || false,
+ * //       HealthCheckIntervalSeconds: Number("int"),
+ * //       HealthCheckTimeoutSeconds: Number("int"),
+ * //       HealthyThresholdCount: Number("int"),
+ * //       UnhealthyThresholdCount: Number("int"),
+ * //       HealthCheckPath: "STRING_VALUE",
+ * //       Matcher: { // Matcher
+ * //         HttpCode: "STRING_VALUE",
+ * //         GrpcCode: "STRING_VALUE",
+ * //       },
+ * //       LoadBalancerArns: [ // LoadBalancerArns
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TargetType: "instance" || "ip" || "lambda" || "alb",
+ * //       ProtocolVersion: "STRING_VALUE",
+ * //       IpAddressType: "ipv4" || "ipv6",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

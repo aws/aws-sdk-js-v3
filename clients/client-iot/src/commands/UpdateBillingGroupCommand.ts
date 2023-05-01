@@ -49,10 +49,9 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * };
  * const command = new UpdateBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBillingGroupResponse
- *   version: Number("long"),
- * };
+ * // { // UpdateBillingGroupResponse
+ * //   version: Number("long"),
+ * // };
  *
  * ```
  *

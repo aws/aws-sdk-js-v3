@@ -44,8 +44,7 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * };
  * const command = new DeleteApiCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

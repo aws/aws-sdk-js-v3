@@ -115,8 +115,7 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateLayerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

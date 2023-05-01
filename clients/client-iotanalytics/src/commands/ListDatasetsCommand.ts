@@ -45,34 +45,33 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   datasetSummaries: [ // DatasetSummaries
- *     { // DatasetSummary
- *       datasetName: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *       triggers: [ // DatasetTriggers
- *         { // DatasetTrigger
- *           schedule: { // Schedule
- *             expression: "STRING_VALUE",
- *           },
- *           dataset: { // TriggeringDataset
- *             name: "STRING_VALUE", // required
- *           },
- *         },
- *       ],
- *       actions: [ // DatasetActionSummaries
- *         { // DatasetActionSummary
- *           actionName: "STRING_VALUE",
- *           actionType: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetsResponse
+ * //   datasetSummaries: [ // DatasetSummaries
+ * //     { // DatasetSummary
+ * //       datasetName: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       triggers: [ // DatasetTriggers
+ * //         { // DatasetTrigger
+ * //           schedule: { // Schedule
+ * //             expression: "STRING_VALUE",
+ * //           },
+ * //           dataset: { // TriggeringDataset
+ * //             name: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
+ * //       actions: [ // DatasetActionSummaries
+ * //         { // DatasetActionSummary
+ * //           actionName: "STRING_VALUE",
+ * //           actionType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

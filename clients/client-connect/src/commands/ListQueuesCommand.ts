@@ -55,18 +55,17 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueuesResponse
- *   QueueSummaryList: [ // QueueSummaryList
- *     { // QueueSummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       QueueType: "STANDARD" || "AGENT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListQueuesResponse
+ * //   QueueSummaryList: [ // QueueSummaryList
+ * //     { // QueueSummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       QueueType: "STANDARD" || "AGENT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

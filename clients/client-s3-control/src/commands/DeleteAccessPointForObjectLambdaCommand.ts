@@ -68,8 +68,7 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  * };
  * const command = new DeleteAccessPointForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

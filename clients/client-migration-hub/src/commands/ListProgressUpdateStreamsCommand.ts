@@ -45,15 +45,14 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * };
  * const command = new ListProgressUpdateStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProgressUpdateStreamsResult
- *   ProgressUpdateStreamSummaryList: [ // ProgressUpdateStreamSummaryList
- *     { // ProgressUpdateStreamSummary
- *       ProgressUpdateStreamName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProgressUpdateStreamsResult
+ * //   ProgressUpdateStreamSummaryList: [ // ProgressUpdateStreamSummaryList
+ * //     { // ProgressUpdateStreamSummary
+ * //       ProgressUpdateStreamName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

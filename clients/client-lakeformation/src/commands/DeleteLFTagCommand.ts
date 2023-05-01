@@ -45,8 +45,7 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * };
  * const command = new DeleteLFTagCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

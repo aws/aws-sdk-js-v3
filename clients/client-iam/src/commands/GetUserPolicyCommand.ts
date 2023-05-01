@@ -59,12 +59,11 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * };
  * const command = new GetUserPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserPolicyResponse
- *   UserName: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
- *   PolicyDocument: "STRING_VALUE", // required
- * };
+ * // { // GetUserPolicyResponse
+ * //   UserName: "STRING_VALUE", // required
+ * //   PolicyName: "STRING_VALUE", // required
+ * //   PolicyDocument: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,21 +46,20 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * };
  * const command = new ListManagedJobTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedJobTemplatesResponse
- *   managedJobTemplates: [ // ManagedJobTemplatesSummaryList
- *     { // ManagedJobTemplateSummary
- *       templateArn: "STRING_VALUE",
- *       templateName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       environments: [ // Environments
- *         "STRING_VALUE",
- *       ],
- *       templateVersion: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListManagedJobTemplatesResponse
+ * //   managedJobTemplates: [ // ManagedJobTemplatesSummaryList
+ * //     { // ManagedJobTemplateSummary
+ * //       templateArn: "STRING_VALUE",
+ * //       templateName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       environments: [ // Environments
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       templateVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

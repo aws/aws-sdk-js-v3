@@ -45,17 +45,16 @@ export interface DisableAddressTransferCommandOutput extends DisableAddressTrans
  * };
  * const command = new DisableAddressTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableAddressTransferResult
- *   AddressTransfer: { // AddressTransfer
- *     PublicIp: "STRING_VALUE",
- *     AllocationId: "STRING_VALUE",
- *     TransferAccountId: "STRING_VALUE",
- *     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
- *     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
- *     AddressTransferStatus: "pending" || "disabled" || "accepted",
- *   },
- * };
+ * // { // DisableAddressTransferResult
+ * //   AddressTransfer: { // AddressTransfer
+ * //     PublicIp: "STRING_VALUE",
+ * //     AllocationId: "STRING_VALUE",
+ * //     TransferAccountId: "STRING_VALUE",
+ * //     TransferOfferExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     TransferOfferAcceptedTimestamp: new Date("TIMESTAMP"),
+ * //     AddressTransferStatus: "pending" || "disabled" || "accepted",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,22 +49,21 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  * };
  * const command = new ListCallAnalyticsJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCallAnalyticsJobsResponse
- *   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *   NextToken: "STRING_VALUE",
- *   CallAnalyticsJobSummaries: [ // CallAnalyticsJobSummaries
- *     { // CallAnalyticsJobSummary
- *       CallAnalyticsJobName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       StartTime: new Date("TIMESTAMP"),
- *       CompletionTime: new Date("TIMESTAMP"),
- *       LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
- *       CallAnalyticsJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCallAnalyticsJobsResponse
+ * //   Status: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //   NextToken: "STRING_VALUE",
+ * //   CallAnalyticsJobSummaries: [ // CallAnalyticsJobSummaries
+ * //     { // CallAnalyticsJobSummary
+ * //       CallAnalyticsJobName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       CompletionTime: new Date("TIMESTAMP"),
+ * //       LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ * //       CallAnalyticsJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

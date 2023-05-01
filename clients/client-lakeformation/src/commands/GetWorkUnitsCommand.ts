@@ -46,18 +46,17 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * };
  * const command = new GetWorkUnitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkUnitsResponse
- *   NextToken: "STRING_VALUE",
- *   QueryId: "STRING_VALUE", // required
- *   WorkUnitRanges: [ // WorkUnitRangeList // required
- *     { // WorkUnitRange
- *       WorkUnitIdMax: Number("long"), // required
- *       WorkUnitIdMin: Number("long"), // required
- *       WorkUnitToken: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetWorkUnitsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   QueryId: "STRING_VALUE", // required
+ * //   WorkUnitRanges: [ // WorkUnitRangeList // required
+ * //     { // WorkUnitRange
+ * //       WorkUnitIdMax: Number("long"), // required
+ * //       WorkUnitIdMin: Number("long"), // required
+ * //       WorkUnitToken: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

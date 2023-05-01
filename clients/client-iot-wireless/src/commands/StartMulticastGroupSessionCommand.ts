@@ -51,8 +51,7 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * };
  * const command = new StartMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

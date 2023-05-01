@@ -46,13 +46,12 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * };
  * const command = new DeleteThemeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteThemeResponse
- *   Arn: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- *   ThemeId: "STRING_VALUE",
- * };
+ * // { // DeleteThemeResponse
+ * //   Arn: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   ThemeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

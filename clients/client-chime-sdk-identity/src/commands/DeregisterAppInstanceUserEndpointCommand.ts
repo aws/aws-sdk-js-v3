@@ -51,8 +51,7 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * };
  * const command = new DeregisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

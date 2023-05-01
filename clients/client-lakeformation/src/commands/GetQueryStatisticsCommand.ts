@@ -44,21 +44,20 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * };
  * const command = new GetQueryStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueryStatisticsResponse
- *   ExecutionStatistics: { // ExecutionStatistics
- *     AverageExecutionTimeMillis: Number("long"),
- *     DataScannedBytes: Number("long"),
- *     WorkUnitsExecutedCount: Number("long"),
- *   },
- *   PlanningStatistics: { // PlanningStatistics
- *     EstimatedDataToScanBytes: Number("long"),
- *     PlanningTimeMillis: Number("long"),
- *     QueueTimeMillis: Number("long"),
- *     WorkUnitsGeneratedCount: Number("long"),
- *   },
- *   QuerySubmissionTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetQueryStatisticsResponse
+ * //   ExecutionStatistics: { // ExecutionStatistics
+ * //     AverageExecutionTimeMillis: Number("long"),
+ * //     DataScannedBytes: Number("long"),
+ * //     WorkUnitsExecutedCount: Number("long"),
+ * //   },
+ * //   PlanningStatistics: { // PlanningStatistics
+ * //     EstimatedDataToScanBytes: Number("long"),
+ * //     PlanningTimeMillis: Number("long"),
+ * //     QueueTimeMillis: Number("long"),
+ * //     WorkUnitsGeneratedCount: Number("long"),
+ * //   },
+ * //   QuerySubmissionTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

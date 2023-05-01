@@ -66,10 +66,9 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteWebACLResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteWebACLResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  * };
  * const command = new DeregisterFromWorkMailCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

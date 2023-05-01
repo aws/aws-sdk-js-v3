@@ -60,10 +60,9 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * };
  * const command = new MergeDeveloperIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergeDeveloperIdentitiesResponse
- *   IdentityId: "STRING_VALUE",
- * };
+ * // { // MergeDeveloperIdentitiesResponse
+ * //   IdentityId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

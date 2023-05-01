@@ -54,8 +54,7 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
  * };
  * const command = new DisassociateAwsAccountFromPartnerAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

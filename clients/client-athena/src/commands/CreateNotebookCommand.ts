@@ -48,10 +48,9 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * };
  * const command = new CreateNotebookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNotebookOutput
- *   NotebookId: "STRING_VALUE",
- * };
+ * // { // CreateNotebookOutput
+ * //   NotebookId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

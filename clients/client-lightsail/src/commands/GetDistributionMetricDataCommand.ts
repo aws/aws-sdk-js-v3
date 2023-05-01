@@ -56,21 +56,20 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  * };
  * const command = new GetDistributionMetricDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDistributionMetricDataResult
- *   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate",
- *   metricData: [ // MetricDatapointList
- *     { // MetricDatapoint
- *       average: Number("double"),
- *       maximum: Number("double"),
- *       minimum: Number("double"),
- *       sampleCount: Number("double"),
- *       sum: Number("double"),
- *       timestamp: new Date("TIMESTAMP"),
- *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
- *     },
- *   ],
- * };
+ * // { // GetDistributionMetricDataResult
+ * //   metricName: "Requests" || "BytesDownloaded" || "BytesUploaded" || "TotalErrorRate" || "Http4xxErrorRate" || "Http5xxErrorRate",
+ * //   metricData: [ // MetricDatapointList
+ * //     { // MetricDatapoint
+ * //       average: Number("double"),
+ * //       maximum: Number("double"),
+ * //       minimum: Number("double"),
+ * //       sampleCount: Number("double"),
+ * //       sum: Number("double"),
+ * //       timestamp: new Date("TIMESTAMP"),
+ * //       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

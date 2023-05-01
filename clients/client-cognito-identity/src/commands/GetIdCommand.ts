@@ -50,10 +50,9 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * };
  * const command = new GetIdCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdResponse
- *   IdentityId: "STRING_VALUE",
- * };
+ * // { // GetIdResponse
+ * //   IdentityId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

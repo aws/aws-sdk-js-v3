@@ -53,13 +53,12 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * };
  * const command = new ListCrawlersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCrawlersResponse
- *   CrawlerNames: [ // CrawlerNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCrawlersResponse
+ * //   CrawlerNames: [ // CrawlerNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

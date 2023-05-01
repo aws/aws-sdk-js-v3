@@ -50,17 +50,16 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelsOutput
- *   Models: [ // ModelSummaryList // required
- *     { // ModelSummary
- *       ModelName: "STRING_VALUE", // required
- *       ModelArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelsOutput
+ * //   Models: [ // ModelSummaryList // required
+ * //     { // ModelSummary
+ * //       ModelName: "STRING_VALUE", // required
+ * //       ModelArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

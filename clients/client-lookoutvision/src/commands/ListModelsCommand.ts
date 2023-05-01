@@ -51,25 +51,24 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelsResponse
- *   Models: [ // ModelMetadataList
- *     { // ModelMetadata
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       ModelVersion: "STRING_VALUE",
- *       ModelArn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "TRAINING" || "TRAINED" || "TRAINING_FAILED" || "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING" || "DELETING",
- *       StatusMessage: "STRING_VALUE",
- *       Performance: { // ModelPerformance
- *         F1Score: Number("float"),
- *         Recall: Number("float"),
- *         Precision: Number("float"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelsResponse
+ * //   Models: [ // ModelMetadataList
+ * //     { // ModelMetadata
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       ModelVersion: "STRING_VALUE",
+ * //       ModelArn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "TRAINING" || "TRAINED" || "TRAINING_FAILED" || "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING" || "DELETING",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Performance: { // ModelPerformance
+ * //         F1Score: Number("float"),
+ * //         Recall: Number("float"),
+ * //         Precision: Number("float"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

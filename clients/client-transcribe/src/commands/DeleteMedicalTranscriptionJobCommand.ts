@@ -49,8 +49,7 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * };
  * const command = new DeleteMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

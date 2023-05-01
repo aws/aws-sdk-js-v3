@@ -52,22 +52,21 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * };
  * const command = new DescribeTestCasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTestCasesOutput
- *   nextToken: "STRING_VALUE",
- *   testCases: [ // TestCases
- *     { // TestCase
- *       reportArn: "STRING_VALUE",
- *       testRawDataPath: "STRING_VALUE",
- *       prefix: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       durationInNanoSeconds: Number("long"),
- *       message: "STRING_VALUE",
- *       expired: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeTestCasesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   testCases: [ // TestCases
+ * //     { // TestCase
+ * //       reportArn: "STRING_VALUE",
+ * //       testRawDataPath: "STRING_VALUE",
+ * //       prefix: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       durationInNanoSeconds: Number("long"),
+ * //       message: "STRING_VALUE",
+ * //       expired: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

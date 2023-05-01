@@ -46,29 +46,28 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * };
  * const command = new ListContentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListContentsResponse
- *   contentSummaries: [ // ContentSummaryList // required
- *     { // ContentSummary
- *       contentArn: "STRING_VALUE", // required
- *       contentId: "STRING_VALUE", // required
- *       knowledgeBaseArn: "STRING_VALUE", // required
- *       knowledgeBaseId: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       revisionId: "STRING_VALUE", // required
- *       title: "STRING_VALUE", // required
- *       contentType: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       metadata: { // ContentMetadata // required
- *         "<keys>": "STRING_VALUE",
- *       },
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListContentsResponse
+ * //   contentSummaries: [ // ContentSummaryList // required
+ * //     { // ContentSummary
+ * //       contentArn: "STRING_VALUE", // required
+ * //       contentId: "STRING_VALUE", // required
+ * //       knowledgeBaseArn: "STRING_VALUE", // required
+ * //       knowledgeBaseId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       revisionId: "STRING_VALUE", // required
+ * //       title: "STRING_VALUE", // required
+ * //       contentType: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       metadata: { // ContentMetadata // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

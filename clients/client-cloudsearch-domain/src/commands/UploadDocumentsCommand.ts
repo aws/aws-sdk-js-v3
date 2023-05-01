@@ -65,17 +65,16 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * };
  * const command = new UploadDocumentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadDocumentsResponse
- *   status: "STRING_VALUE",
- *   adds: Number("long"),
- *   deletes: Number("long"),
- *   warnings: [ // DocumentServiceWarnings
- *     { // DocumentServiceWarning
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UploadDocumentsResponse
+ * //   status: "STRING_VALUE",
+ * //   adds: Number("long"),
+ * //   deletes: Number("long"),
+ * //   warnings: [ // DocumentServiceWarnings
+ * //     { // DocumentServiceWarning
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

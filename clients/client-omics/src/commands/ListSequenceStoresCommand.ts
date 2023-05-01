@@ -50,23 +50,22 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * };
  * const command = new ListSequenceStoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSequenceStoresResponse
- *   nextToken: "STRING_VALUE",
- *   sequenceStores: [ // SequenceStoreDetailList // required
- *     { // SequenceStoreDetail
- *       arn: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       sseConfig: { // SseConfig
- *         type: "STRING_VALUE", // required
- *         keyArn: "STRING_VALUE",
- *       },
- *       creationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // ListSequenceStoresResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sequenceStores: [ // SequenceStoreDetailList // required
+ * //     { // SequenceStoreDetail
+ * //       arn: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       sseConfig: { // SseConfig
+ * //         type: "STRING_VALUE", // required
+ * //         keyArn: "STRING_VALUE",
+ * //       },
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,16 +48,15 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * };
  * const command = new UpdateShareInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateShareInvitationOutput
- *   ShareInvitation: { // ShareInvitation
- *     ShareInvitationId: "STRING_VALUE",
- *     ShareResourceType: "WORKLOAD" || "LENS",
- *     WorkloadId: "STRING_VALUE",
- *     LensAlias: "STRING_VALUE",
- *     LensArn: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateShareInvitationOutput
+ * //   ShareInvitation: { // ShareInvitation
+ * //     ShareInvitationId: "STRING_VALUE",
+ * //     ShareResourceType: "WORKLOAD" || "LENS",
+ * //     WorkloadId: "STRING_VALUE",
+ * //     LensAlias: "STRING_VALUE",
+ * //     LensArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

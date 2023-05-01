@@ -44,8 +44,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

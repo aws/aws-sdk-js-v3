@@ -51,19 +51,18 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * };
  * const command = new CreateInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateInstanceProfileResult
- *   instanceProfile: { // InstanceProfile
- *     arn: "STRING_VALUE",
- *     packageCleanup: true || false,
- *     excludeAppPackagesFromCleanup: [ // PackageIds
- *       "STRING_VALUE",
- *     ],
- *     rebootAfterUse: true || false,
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateInstanceProfileResult
+ * //   instanceProfile: { // InstanceProfile
+ * //     arn: "STRING_VALUE",
+ * //     packageCleanup: true || false,
+ * //     excludeAppPackagesFromCleanup: [ // PackageIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     rebootAfterUse: true || false,
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

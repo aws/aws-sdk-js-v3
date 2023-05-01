@@ -96,41 +96,40 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMultipartUploadsOutput
- *   Bucket: "STRING_VALUE",
- *   KeyMarker: "STRING_VALUE",
- *   UploadIdMarker: "STRING_VALUE",
- *   NextKeyMarker: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   Delimiter: "STRING_VALUE",
- *   NextUploadIdMarker: "STRING_VALUE",
- *   MaxUploads: Number("int"),
- *   IsTruncated: true || false,
- *   Uploads: [ // MultipartUploadList
- *     { // MultipartUpload
- *       UploadId: "STRING_VALUE",
- *       Key: "STRING_VALUE",
- *       Initiated: new Date("TIMESTAMP"),
- *       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
- *       Owner: { // Owner
- *         DisplayName: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *       },
- *       Initiator: { // Initiator
- *         ID: "STRING_VALUE",
- *         DisplayName: "STRING_VALUE",
- *       },
- *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *     },
- *   ],
- *   CommonPrefixes: [ // CommonPrefixList
- *     { // CommonPrefix
- *       Prefix: "STRING_VALUE",
- *     },
- *   ],
- *   EncodingType: "url",
- * };
+ * // { // ListMultipartUploadsOutput
+ * //   Bucket: "STRING_VALUE",
+ * //   KeyMarker: "STRING_VALUE",
+ * //   UploadIdMarker: "STRING_VALUE",
+ * //   NextKeyMarker: "STRING_VALUE",
+ * //   Prefix: "STRING_VALUE",
+ * //   Delimiter: "STRING_VALUE",
+ * //   NextUploadIdMarker: "STRING_VALUE",
+ * //   MaxUploads: Number("int"),
+ * //   IsTruncated: true || false,
+ * //   Uploads: [ // MultipartUploadList
+ * //     { // MultipartUpload
+ * //       UploadId: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       Initiated: new Date("TIMESTAMP"),
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //       Owner: { // Owner
+ * //         DisplayName: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //       },
+ * //       Initiator: { // Initiator
+ * //         ID: "STRING_VALUE",
+ * //         DisplayName: "STRING_VALUE",
+ * //       },
+ * //       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //     },
+ * //   ],
+ * //   CommonPrefixes: [ // CommonPrefixList
+ * //     { // CommonPrefix
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncodingType: "url",
+ * // };
  *
  * ```
  *

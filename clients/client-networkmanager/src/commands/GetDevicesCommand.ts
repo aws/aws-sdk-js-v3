@@ -50,40 +50,39 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  * };
  * const command = new GetDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDevicesResponse
- *   Devices: [ // DeviceList
- *     { // Device
- *       DeviceId: "STRING_VALUE",
- *       DeviceArn: "STRING_VALUE",
- *       GlobalNetworkId: "STRING_VALUE",
- *       AWSLocation: { // AWSLocation
- *         Zone: "STRING_VALUE",
- *         SubnetArn: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       Vendor: "STRING_VALUE",
- *       Model: "STRING_VALUE",
- *       SerialNumber: "STRING_VALUE",
- *       Location: { // Location
- *         Address: "STRING_VALUE",
- *         Latitude: "STRING_VALUE",
- *         Longitude: "STRING_VALUE",
- *       },
- *       SiteId: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetDevicesResponse
+ * //   Devices: [ // DeviceList
+ * //     { // Device
+ * //       DeviceId: "STRING_VALUE",
+ * //       DeviceArn: "STRING_VALUE",
+ * //       GlobalNetworkId: "STRING_VALUE",
+ * //       AWSLocation: { // AWSLocation
+ * //         Zone: "STRING_VALUE",
+ * //         SubnetArn: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Vendor: "STRING_VALUE",
+ * //       Model: "STRING_VALUE",
+ * //       SerialNumber: "STRING_VALUE",
+ * //       Location: { // Location
+ * //         Address: "STRING_VALUE",
+ * //         Latitude: "STRING_VALUE",
+ * //         Longitude: "STRING_VALUE",
+ * //       },
+ * //       SiteId: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

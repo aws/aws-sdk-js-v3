@@ -48,8 +48,7 @@ export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecoveryGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

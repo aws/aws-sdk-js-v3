@@ -62,11 +62,10 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * };
  * const command = new ResetClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClusterParameterGroupNameMessage
- *   ParameterGroupName: "STRING_VALUE",
- *   ParameterGroupStatus: "STRING_VALUE",
- * };
+ * // { // ClusterParameterGroupNameMessage
+ * //   ParameterGroupName: "STRING_VALUE",
+ * //   ParameterGroupStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

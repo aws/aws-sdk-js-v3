@@ -44,17 +44,16 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * };
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainResponse
- *   domainId: "STRING_VALUE", // required
- *   domainArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   createdTime: new Date("TIMESTAMP"), // required
- *   domainStatus: "STRING_VALUE", // required
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetDomainResponse
+ * //   domainId: "STRING_VALUE", // required
+ * //   domainArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   createdTime: new Date("TIMESTAMP"), // required
+ * //   domainStatus: "STRING_VALUE", // required
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

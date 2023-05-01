@@ -75,14 +75,13 @@ export interface PutChannelExpirationSettingsCommandOutput
  * };
  * const command = new PutChannelExpirationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutChannelExpirationSettingsResponse
- *   ChannelArn: "STRING_VALUE",
- *   ExpirationSettings: { // ExpirationSettings
- *     ExpirationDays: Number("int"), // required
- *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
- *   },
- * };
+ * // { // PutChannelExpirationSettingsResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   ExpirationSettings: { // ExpirationSettings
+ * //     ExpirationDays: Number("int"), // required
+ * //     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ * //   },
+ * // };
  *
  * ```
  *

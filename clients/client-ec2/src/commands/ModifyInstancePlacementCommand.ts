@@ -76,10 +76,9 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  * };
  * const command = new ModifyInstancePlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyInstancePlacementResult
- *   Return: true || false,
- * };
+ * // { // ModifyInstancePlacementResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

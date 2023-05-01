@@ -47,10 +47,9 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * };
  * const command = new UpdateEphemerisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EphemerisIdResponse
- *   ephemerisId: "STRING_VALUE",
- * };
+ * // { // EphemerisIdResponse
+ * //   ephemerisId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

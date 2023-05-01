@@ -50,12 +50,11 @@ export interface DescribeSecurityConfigurationCommandOutput
  * };
  * const command = new DescribeSecurityConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSecurityConfigurationOutput
- *   Name: "STRING_VALUE",
- *   SecurityConfiguration: "STRING_VALUE",
- *   CreationDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeSecurityConfigurationOutput
+ * //   Name: "STRING_VALUE",
+ * //   SecurityConfiguration: "STRING_VALUE",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

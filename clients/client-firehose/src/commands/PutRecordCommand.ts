@@ -78,11 +78,10 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRecordOutput
- *   RecordId: "STRING_VALUE", // required
- *   Encrypted: true || false,
- * };
+ * // { // PutRecordOutput
+ * //   RecordId: "STRING_VALUE", // required
+ * //   Encrypted: true || false,
+ * // };
  *
  * ```
  *

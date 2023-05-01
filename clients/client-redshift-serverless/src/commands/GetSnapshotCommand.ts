@@ -50,35 +50,34 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * };
  * const command = new GetSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSnapshotResponse
- *   snapshot: { // Snapshot
- *     namespaceName: "STRING_VALUE",
- *     namespaceArn: "STRING_VALUE",
- *     snapshotName: "STRING_VALUE",
- *     snapshotCreateTime: new Date("TIMESTAMP"),
- *     adminUsername: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     ownerAccount: "STRING_VALUE",
- *     totalBackupSizeInMegaBytes: Number("double"),
- *     actualIncrementalBackupSizeInMegaBytes: Number("double"),
- *     backupProgressInMegaBytes: Number("double"),
- *     currentBackupRateInMegaBytesPerSecond: Number("double"),
- *     estimatedSecondsToCompletion: Number("long"),
- *     elapsedTimeInSeconds: Number("long"),
- *     snapshotRetentionPeriod: Number("int"),
- *     snapshotRemainingDays: Number("int"),
- *     snapshotRetentionStartTime: new Date("TIMESTAMP"),
- *     snapshotArn: "STRING_VALUE",
- *     accountsWithRestoreAccess: [ // AccountIdList
- *       "STRING_VALUE",
- *     ],
- *     accountsWithProvisionedRestoreAccess: [
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetSnapshotResponse
+ * //   snapshot: { // Snapshot
+ * //     namespaceName: "STRING_VALUE",
+ * //     namespaceArn: "STRING_VALUE",
+ * //     snapshotName: "STRING_VALUE",
+ * //     snapshotCreateTime: new Date("TIMESTAMP"),
+ * //     adminUsername: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     ownerAccount: "STRING_VALUE",
+ * //     totalBackupSizeInMegaBytes: Number("double"),
+ * //     actualIncrementalBackupSizeInMegaBytes: Number("double"),
+ * //     backupProgressInMegaBytes: Number("double"),
+ * //     currentBackupRateInMegaBytesPerSecond: Number("double"),
+ * //     estimatedSecondsToCompletion: Number("long"),
+ * //     elapsedTimeInSeconds: Number("long"),
+ * //     snapshotRetentionPeriod: Number("int"),
+ * //     snapshotRemainingDays: Number("int"),
+ * //     snapshotRetentionStartTime: new Date("TIMESTAMP"),
+ * //     snapshotArn: "STRING_VALUE",
+ * //     accountsWithRestoreAccess: [ // AccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     accountsWithProvisionedRestoreAccess: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

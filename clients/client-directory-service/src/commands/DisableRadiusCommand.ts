@@ -45,8 +45,7 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
  * };
  * const command = new DisableRadiusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

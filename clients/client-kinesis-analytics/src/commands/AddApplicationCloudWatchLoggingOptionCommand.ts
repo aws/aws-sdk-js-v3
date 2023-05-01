@@ -64,8 +64,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * };
  * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

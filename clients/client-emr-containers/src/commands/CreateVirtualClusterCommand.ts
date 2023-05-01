@@ -60,12 +60,11 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * };
  * const command = new CreateVirtualClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVirtualClusterResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // CreateVirtualClusterResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

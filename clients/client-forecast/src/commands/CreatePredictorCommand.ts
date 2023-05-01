@@ -189,10 +189,9 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * };
  * const command = new CreatePredictorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePredictorResponse
- *   PredictorArn: "STRING_VALUE",
- * };
+ * // { // CreatePredictorResponse
+ * //   PredictorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

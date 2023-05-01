@@ -47,10 +47,9 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * };
  * const command = new PurchaseProvisionedCapacityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseProvisionedCapacityOutput
- *   capacityId: "STRING_VALUE",
- * };
+ * // { // PurchaseProvisionedCapacityOutput
+ * //   capacityId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

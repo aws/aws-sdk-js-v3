@@ -46,17 +46,16 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * };
  * const command = new GetDataRetrievalPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataRetrievalPolicyOutput
- *   Policy: { // DataRetrievalPolicy
- *     Rules: [ // DataRetrievalRulesList
- *       { // DataRetrievalRule
- *         Strategy: "STRING_VALUE",
- *         BytesPerHour: Number("long"),
- *       },
- *     ],
- *   },
- * };
+ * // { // GetDataRetrievalPolicyOutput
+ * //   Policy: { // DataRetrievalPolicy
+ * //     Rules: [ // DataRetrievalRulesList
+ * //       { // DataRetrievalRule
+ * //         Strategy: "STRING_VALUE",
+ * //         BytesPerHour: Number("long"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

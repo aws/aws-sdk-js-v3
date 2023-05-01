@@ -47,8 +47,7 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RevokeSignatureCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

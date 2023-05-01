@@ -49,8 +49,7 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateKmsKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

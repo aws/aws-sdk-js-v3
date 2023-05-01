@@ -54,18 +54,17 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * };
  * const command = new ListPublicKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPublicKeysResponse
- *   PublicKeyList: [ // PublicKeyList
- *     { // PublicKey
- *       Value: "BLOB_VALUE",
- *       ValidityStartTime: new Date("TIMESTAMP"),
- *       ValidityEndTime: new Date("TIMESTAMP"),
- *       Fingerprint: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPublicKeysResponse
+ * //   PublicKeyList: [ // PublicKeyList
+ * //     { // PublicKey
+ * //       Value: "BLOB_VALUE",
+ * //       ValidityStartTime: new Date("TIMESTAMP"),
+ * //       ValidityEndTime: new Date("TIMESTAMP"),
+ * //       Fingerprint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

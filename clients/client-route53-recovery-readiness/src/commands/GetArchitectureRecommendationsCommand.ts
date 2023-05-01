@@ -55,16 +55,15 @@ export interface GetArchitectureRecommendationsCommandOutput
  * };
  * const command = new GetArchitectureRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetArchitectureRecommendationsResponse
- *   LastAuditTimestamp: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   Recommendations: [ // __listOfRecommendation
- *     { // Recommendation
- *       RecommendationText: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetArchitectureRecommendationsResponse
+ * //   LastAuditTimestamp: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   Recommendations: [ // __listOfRecommendation
+ * //     { // Recommendation
+ * //       RecommendationText: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * };
  * const command = new PutLexiconCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

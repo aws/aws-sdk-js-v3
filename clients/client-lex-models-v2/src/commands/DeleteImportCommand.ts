@@ -45,11 +45,10 @@ export interface DeleteImportCommandOutput extends DeleteImportResponse, __Metad
  * };
  * const command = new DeleteImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteImportResponse
- *   importId: "STRING_VALUE",
- *   importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- * };
+ * // { // DeleteImportResponse
+ * //   importId: "STRING_VALUE",
+ * //   importStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ * // };
  *
  * ```
  *

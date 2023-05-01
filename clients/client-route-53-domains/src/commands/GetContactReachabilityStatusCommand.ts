@@ -53,11 +53,10 @@ export interface GetContactReachabilityStatusCommandOutput
  * };
  * const command = new GetContactReachabilityStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactReachabilityStatusResponse
- *   domainName: "STRING_VALUE",
- *   status: "PENDING" || "DONE" || "EXPIRED",
- * };
+ * // { // GetContactReachabilityStatusResponse
+ * //   domainName: "STRING_VALUE",
+ * //   status: "PENDING" || "DONE" || "EXPIRED",
+ * // };
  *
  * ```
  *

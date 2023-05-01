@@ -109,10 +109,9 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * };
  * const command = new UpdateRecipeJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecipeJobResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateRecipeJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

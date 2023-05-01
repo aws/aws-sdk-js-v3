@@ -47,26 +47,25 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * };
  * const command = new ListConnectPeersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectPeersResponse
- *   ConnectPeers: [ // ConnectPeerSummaryList
- *     { // ConnectPeerSummary
- *       CoreNetworkId: "STRING_VALUE",
- *       ConnectAttachmentId: "STRING_VALUE",
- *       ConnectPeerId: "STRING_VALUE",
- *       EdgeLocation: "STRING_VALUE",
- *       ConnectPeerState: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectPeersResponse
+ * //   ConnectPeers: [ // ConnectPeerSummaryList
+ * //     { // ConnectPeerSummary
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       ConnectAttachmentId: "STRING_VALUE",
+ * //       ConnectPeerId: "STRING_VALUE",
+ * //       EdgeLocation: "STRING_VALUE",
+ * //       ConnectPeerState: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

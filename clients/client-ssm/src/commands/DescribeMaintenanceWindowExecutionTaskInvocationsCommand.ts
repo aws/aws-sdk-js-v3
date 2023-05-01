@@ -66,26 +66,25 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowExecutionTaskInvocationsResult
- *   WindowExecutionTaskInvocationIdentities: [ // MaintenanceWindowExecutionTaskInvocationIdentityList
- *     { // MaintenanceWindowExecutionTaskInvocationIdentity
- *       WindowExecutionId: "STRING_VALUE",
- *       TaskExecutionId: "STRING_VALUE",
- *       InvocationId: "STRING_VALUE",
- *       ExecutionId: "STRING_VALUE",
- *       TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
- *       Parameters: "STRING_VALUE",
- *       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
- *       StatusDetails: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       OwnerInformation: "STRING_VALUE",
- *       WindowTargetId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowExecutionTaskInvocationsResult
+ * //   WindowExecutionTaskInvocationIdentities: [ // MaintenanceWindowExecutionTaskInvocationIdentityList
+ * //     { // MaintenanceWindowExecutionTaskInvocationIdentity
+ * //       WindowExecutionId: "STRING_VALUE",
+ * //       TaskExecutionId: "STRING_VALUE",
+ * //       InvocationId: "STRING_VALUE",
+ * //       ExecutionId: "STRING_VALUE",
+ * //       TaskType: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
+ * //       Parameters: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       OwnerInformation: "STRING_VALUE",
+ * //       WindowTargetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

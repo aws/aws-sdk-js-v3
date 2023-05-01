@@ -48,8 +48,7 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * const input = {};
  * const command = new DeleteElasticsearchServiceRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

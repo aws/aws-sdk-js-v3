@@ -51,21 +51,20 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRepositoriesResult
- *   repositories: [ // RepositorySummaryList
- *     { // RepositorySummary
- *       name: "STRING_VALUE",
- *       administratorAccount: "STRING_VALUE",
- *       domainName: "STRING_VALUE",
- *       domainOwner: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRepositoriesResult
+ * //   repositories: [ // RepositorySummaryList
+ * //     { // RepositorySummary
+ * //       name: "STRING_VALUE",
+ * //       administratorAccount: "STRING_VALUE",
+ * //       domainName: "STRING_VALUE",
+ * //       domainOwner: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

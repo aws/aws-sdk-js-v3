@@ -50,8 +50,7 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * };
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

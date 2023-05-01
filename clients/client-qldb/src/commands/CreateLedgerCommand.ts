@@ -50,16 +50,15 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * };
  * const command = new CreateLedgerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLedgerResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
- *   CreationDateTime: new Date("TIMESTAMP"),
- *   PermissionsMode: "ALLOW_ALL" || "STANDARD",
- *   DeletionProtection: true || false,
- *   KmsKeyArn: "STRING_VALUE",
- * };
+ * // { // CreateLedgerResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * //   DeletionProtection: true || false,
+ * //   KmsKeyArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

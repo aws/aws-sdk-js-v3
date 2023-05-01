@@ -44,8 +44,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * };
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

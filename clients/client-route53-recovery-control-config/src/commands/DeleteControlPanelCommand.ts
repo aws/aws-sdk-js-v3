@@ -48,8 +48,7 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * };
  * const command = new DeleteControlPanelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,20 +47,19 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsResult
- *   domains: [ // DomainSummaryList
- *     { // DomainSummary
- *       name: "STRING_VALUE",
- *       owner: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       status: "Active" || "Deleted",
- *       createdTime: new Date("TIMESTAMP"),
- *       encryptionKey: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainsResult
+ * //   domains: [ // DomainSummaryList
+ * //     { // DomainSummary
+ * //       name: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       status: "Active" || "Deleted",
+ * //       createdTime: new Date("TIMESTAMP"),
+ * //       encryptionKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

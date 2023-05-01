@@ -60,14 +60,13 @@ export interface AssociateOriginationIdentityCommandOutput
  * };
  * const command = new AssociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateOriginationIdentityResult
- *   PoolArn: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
- *   OriginationIdentityArn: "STRING_VALUE",
- *   OriginationIdentity: "STRING_VALUE",
- *   IsoCountryCode: "STRING_VALUE",
- * };
+ * // { // AssociateOriginationIdentityResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   IsoCountryCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

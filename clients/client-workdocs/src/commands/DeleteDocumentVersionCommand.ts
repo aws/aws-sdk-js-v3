@@ -47,8 +47,7 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDocumentVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

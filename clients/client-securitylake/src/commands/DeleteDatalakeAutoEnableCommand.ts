@@ -56,8 +56,7 @@ export interface DeleteDatalakeAutoEnableCommandOutput extends DeleteDatalakeAut
  * };
  * const command = new DeleteDatalakeAutoEnableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

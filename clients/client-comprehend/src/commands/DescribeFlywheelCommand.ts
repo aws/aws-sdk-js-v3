@@ -45,50 +45,49 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * };
  * const command = new DescribeFlywheelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFlywheelResponse
- *   FlywheelProperties: { // FlywheelProperties
- *     FlywheelArn: "STRING_VALUE",
- *     ActiveModelArn: "STRING_VALUE",
- *     DataAccessRoleArn: "STRING_VALUE",
- *     TaskConfig: { // TaskConfig
- *       LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
- *       DocumentClassificationConfig: { // DocumentClassificationConfig
- *         Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
- *         Labels: [ // LabelsList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       EntityRecognitionConfig: { // EntityRecognitionConfig
- *         EntityTypes: [ // EntityTypesList // required
- *           { // EntityTypesListItem
- *             Type: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     },
- *     DataLakeS3Uri: "STRING_VALUE",
- *     DataSecurityConfig: { // DataSecurityConfig
- *       ModelKmsKeyId: "STRING_VALUE",
- *       VolumeKmsKeyId: "STRING_VALUE",
- *       DataLakeKmsKeyId: "STRING_VALUE",
- *       VpcConfig: { // VpcConfig
- *         SecurityGroupIds: [ // SecurityGroupIds // required
- *           "STRING_VALUE",
- *         ],
- *         Subnets: [ // Subnets // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
- *     ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
- *     Message: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     LatestFlywheelIteration: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFlywheelResponse
+ * //   FlywheelProperties: { // FlywheelProperties
+ * //     FlywheelArn: "STRING_VALUE",
+ * //     ActiveModelArn: "STRING_VALUE",
+ * //     DataAccessRoleArn: "STRING_VALUE",
+ * //     TaskConfig: { // TaskConfig
+ * //       LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * //       DocumentClassificationConfig: { // DocumentClassificationConfig
+ * //         Mode: "MULTI_CLASS" || "MULTI_LABEL", // required
+ * //         Labels: [ // LabelsList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       EntityRecognitionConfig: { // EntityRecognitionConfig
+ * //         EntityTypes: [ // EntityTypesList // required
+ * //           { // EntityTypesListItem
+ * //             Type: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     DataLakeS3Uri: "STRING_VALUE",
+ * //     DataSecurityConfig: { // DataSecurityConfig
+ * //       ModelKmsKeyId: "STRING_VALUE",
+ * //       VolumeKmsKeyId: "STRING_VALUE",
+ * //       DataLakeKmsKeyId: "STRING_VALUE",
+ * //       VpcConfig: { // VpcConfig
+ * //         SecurityGroupIds: [ // SecurityGroupIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Subnets: [ // Subnets // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
+ * //     ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
+ * //     Message: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     LatestFlywheelIteration: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

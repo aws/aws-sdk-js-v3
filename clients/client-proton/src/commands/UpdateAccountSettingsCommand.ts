@@ -51,19 +51,18 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountSettingsOutput
- *   accountSettings: { // AccountSettings
- *     pipelineServiceRoleArn: "STRING_VALUE",
- *     pipelineProvisioningRepository: { // RepositoryBranch
- *       arn: "STRING_VALUE", // required
- *       provider: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       branch: "STRING_VALUE", // required
- *     },
- *     pipelineCodebuildRoleArn: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateAccountSettingsOutput
+ * //   accountSettings: { // AccountSettings
+ * //     pipelineServiceRoleArn: "STRING_VALUE",
+ * //     pipelineProvisioningRepository: { // RepositoryBranch
+ * //       arn: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       branch: "STRING_VALUE", // required
+ * //     },
+ * //     pipelineCodebuildRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

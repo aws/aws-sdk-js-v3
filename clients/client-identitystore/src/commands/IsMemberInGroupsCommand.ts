@@ -54,18 +54,17 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * };
  * const command = new IsMemberInGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // IsMemberInGroupsResponse
- *   Results: [ // GroupMembershipExistenceResults // required
- *     { // GroupMembershipExistenceResult
- *       GroupId: "STRING_VALUE",
- *       MemberId: { // MemberId Union: only one key present
- *         UserId: "STRING_VALUE",
- *       },
- *       MembershipExists: true || false,
- *     },
- *   ],
- * };
+ * // { // IsMemberInGroupsResponse
+ * //   Results: [ // GroupMembershipExistenceResults // required
+ * //     { // GroupMembershipExistenceResult
+ * //       GroupId: "STRING_VALUE",
+ * //       MemberId: { // MemberId Union: only one key present
+ * //         UserId: "STRING_VALUE",
+ * //       },
+ * //       MembershipExists: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

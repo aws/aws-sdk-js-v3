@@ -51,18 +51,17 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * };
  * const command = new ListMFADevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMFADevicesResponse
- *   MFADevices: [ // mfaDeviceListType // required
- *     { // MFADevice
- *       UserName: "STRING_VALUE", // required
- *       SerialNumber: "STRING_VALUE", // required
- *       EnableDate: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListMFADevicesResponse
+ * //   MFADevices: [ // mfaDeviceListType // required
+ * //     { // MFADevice
+ * //       UserName: "STRING_VALUE", // required
+ * //       SerialNumber: "STRING_VALUE", // required
+ * //       EnableDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

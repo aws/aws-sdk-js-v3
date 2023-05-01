@@ -47,17 +47,16 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * };
  * const command = new ListImagePackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImagePackagesResponse
- *   requestId: "STRING_VALUE",
- *   imagePackageList: [ // ImagePackageList
- *     { // ImagePackage
- *       packageName: "STRING_VALUE",
- *       packageVersion: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListImagePackagesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imagePackageList: [ // ImagePackageList
+ * //     { // ImagePackage
+ * //       packageName: "STRING_VALUE",
+ * //       packageVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

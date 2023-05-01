@@ -53,18 +53,17 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * };
  * const command = new CreateHomeRegionControlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHomeRegionControlResult
- *   HomeRegionControl: { // HomeRegionControl
- *     ControlId: "STRING_VALUE",
- *     HomeRegion: "STRING_VALUE",
- *     Target: { // Target
- *       Type: "STRING_VALUE", // required
- *       Id: "STRING_VALUE",
- *     },
- *     RequestedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateHomeRegionControlResult
+ * //   HomeRegionControl: { // HomeRegionControl
+ * //     ControlId: "STRING_VALUE",
+ * //     HomeRegion: "STRING_VALUE",
+ * //     Target: { // Target
+ * //       Type: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE",
+ * //     },
+ * //     RequestedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

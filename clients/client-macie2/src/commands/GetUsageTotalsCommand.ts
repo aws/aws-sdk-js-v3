@@ -44,17 +44,16 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * };
  * const command = new GetUsageTotalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUsageTotalsResponse
- *   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
- *   usageTotals: [ // __listOfUsageTotal
- *     { // UsageTotal
- *       currency: "USD",
- *       estimatedCost: "STRING_VALUE",
- *       type: "DATA_INVENTORY_EVALUATION" || "SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_OBJECT_MONITORING",
- *     },
- *   ],
- * };
+ * // { // GetUsageTotalsResponse
+ * //   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
+ * //   usageTotals: [ // __listOfUsageTotal
+ * //     { // UsageTotal
+ * //       currency: "USD",
+ * //       estimatedCost: "STRING_VALUE",
+ * //       type: "DATA_INVENTORY_EVALUATION" || "SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_SENSITIVE_DATA_DISCOVERY" || "AUTOMATED_OBJECT_MONITORING",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

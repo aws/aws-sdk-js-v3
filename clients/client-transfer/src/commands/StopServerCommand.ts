@@ -55,8 +55,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

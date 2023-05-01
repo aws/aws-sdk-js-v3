@@ -46,25 +46,24 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  * };
  * const command = new PostCommentReplyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PostCommentReplyOutput
- *   comment: { // Comment
- *     commentId: "STRING_VALUE",
- *     content: "STRING_VALUE",
- *     inReplyTo: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     authorArn: "STRING_VALUE",
- *     deleted: true || false,
- *     clientRequestToken: "STRING_VALUE",
- *     callerReactions: [ // CallerReactions
- *       "STRING_VALUE",
- *     ],
- *     reactionCounts: { // ReactionCountsMap
- *       "<keys>": Number("int"),
- *     },
- *   },
- * };
+ * // { // PostCommentReplyOutput
+ * //   comment: { // Comment
+ * //     commentId: "STRING_VALUE",
+ * //     content: "STRING_VALUE",
+ * //     inReplyTo: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     authorArn: "STRING_VALUE",
+ * //     deleted: true || false,
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     callerReactions: [ // CallerReactions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     reactionCounts: { // ReactionCountsMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

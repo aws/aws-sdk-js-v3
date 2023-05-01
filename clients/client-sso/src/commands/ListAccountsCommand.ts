@@ -48,17 +48,16 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * };
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountsResponse
- *   nextToken: "STRING_VALUE",
- *   accountList: [ // AccountListType
- *     { // AccountInfo
- *       accountId: "STRING_VALUE",
- *       accountName: "STRING_VALUE",
- *       emailAddress: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListAccountsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   accountList: [ // AccountListType
+ * //     { // AccountInfo
+ * //       accountId: "STRING_VALUE",
+ * //       accountName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

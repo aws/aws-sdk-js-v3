@@ -56,8 +56,7 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  * };
  * const command = new DeleteEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -280,10 +280,9 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobResult
- *   JobId: "STRING_VALUE",
- * };
+ * // { // CreateJobResult
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

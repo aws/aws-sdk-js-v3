@@ -46,10 +46,9 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * };
  * const command = new UpdateEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEvaluationOutput
- *   EvaluationId: "STRING_VALUE",
- * };
+ * // { // UpdateEvaluationOutput
+ * //   EvaluationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

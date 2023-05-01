@@ -54,11 +54,10 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * };
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendSSHPublicKeyResponse
- *   RequestId: "STRING_VALUE",
- *   Success: true || false,
- * };
+ * // { // SendSSHPublicKeyResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Success: true || false,
+ * // };
  *
  * ```
  *

@@ -64,34 +64,33 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * };
  * const command = new CreateReportGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReportGroupOutput
- *   reportGroup: { // ReportGroup
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     exportConfig: { // ReportExportConfig
- *       exportConfigType: "STRING_VALUE",
- *       s3Destination: { // S3ReportExportConfig
- *         bucket: "STRING_VALUE",
- *         bucketOwner: "STRING_VALUE",
- *         path: "STRING_VALUE",
- *         packaging: "STRING_VALUE",
- *         encryptionKey: "STRING_VALUE",
- *         encryptionDisabled: true || false,
- *       },
- *     },
- *     created: new Date("TIMESTAMP"),
- *     lastModified: new Date("TIMESTAMP"),
- *     tags: [ // TagList
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     status: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateReportGroupOutput
+ * //   reportGroup: { // ReportGroup
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     exportConfig: { // ReportExportConfig
+ * //       exportConfigType: "STRING_VALUE",
+ * //       s3Destination: { // S3ReportExportConfig
+ * //         bucket: "STRING_VALUE",
+ * //         bucketOwner: "STRING_VALUE",
+ * //         path: "STRING_VALUE",
+ * //         packaging: "STRING_VALUE",
+ * //         encryptionKey: "STRING_VALUE",
+ * //         encryptionDisabled: true || false,
+ * //       },
+ * //     },
+ * //     created: new Date("TIMESTAMP"),
+ * //     lastModified: new Date("TIMESTAMP"),
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

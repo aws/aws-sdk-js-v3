@@ -57,8 +57,7 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * };
  * const command = new EnableRadiusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,23 +50,22 @@ export interface DescribeProvisioningTemplateCommandOutput
  * };
  * const command = new DescribeProvisioningTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProvisioningTemplateResponse
- *   templateArn: "STRING_VALUE",
- *   templateName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- *   defaultVersionId: Number("int"),
- *   templateBody: "STRING_VALUE",
- *   enabled: true || false,
- *   provisioningRoleArn: "STRING_VALUE",
- *   preProvisioningHook: { // ProvisioningHook
- *     payloadVersion: "STRING_VALUE",
- *     targetArn: "STRING_VALUE", // required
- *   },
- *   type: "FLEET_PROVISIONING" || "JITP",
- * };
+ * // { // DescribeProvisioningTemplateResponse
+ * //   templateArn: "STRING_VALUE",
+ * //   templateName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   defaultVersionId: Number("int"),
+ * //   templateBody: "STRING_VALUE",
+ * //   enabled: true || false,
+ * //   provisioningRoleArn: "STRING_VALUE",
+ * //   preProvisioningHook: { // ProvisioningHook
+ * //     payloadVersion: "STRING_VALUE",
+ * //     targetArn: "STRING_VALUE", // required
+ * //   },
+ * //   type: "FLEET_PROVISIONING" || "JITP",
+ * // };
  *
  * ```
  *

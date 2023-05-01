@@ -51,8 +51,7 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * };
  * const command = new DeleteSecurityConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

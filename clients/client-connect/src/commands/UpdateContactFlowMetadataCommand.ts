@@ -48,8 +48,7 @@ export interface UpdateContactFlowMetadataCommandOutput extends UpdateContactFlo
  * };
  * const command = new UpdateContactFlowMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

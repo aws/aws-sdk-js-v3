@@ -50,13 +50,12 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * };
  * const command = new CreateApiDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApiDestinationResponse
- *   ApiDestinationArn: "STRING_VALUE",
- *   ApiDestinationState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateApiDestinationResponse
+ * //   ApiDestinationArn: "STRING_VALUE",
+ * //   ApiDestinationState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

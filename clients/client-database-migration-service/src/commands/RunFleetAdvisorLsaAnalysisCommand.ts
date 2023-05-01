@@ -46,11 +46,10 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * const input = {};
  * const command = new RunFleetAdvisorLsaAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RunFleetAdvisorLsaAnalysisResponse
- *   LsaAnalysisId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // RunFleetAdvisorLsaAnalysisResponse
+ * //   LsaAnalysisId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

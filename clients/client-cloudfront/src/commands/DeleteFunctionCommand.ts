@@ -51,8 +51,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

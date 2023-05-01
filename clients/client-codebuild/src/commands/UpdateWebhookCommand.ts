@@ -60,26 +60,25 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * };
  * const command = new UpdateWebhookCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWebhookOutput
- *   webhook: { // Webhook
- *     url: "STRING_VALUE",
- *     payloadUrl: "STRING_VALUE",
- *     secret: "STRING_VALUE",
- *     branchFilter: "STRING_VALUE",
- *     filterGroups: [ // FilterGroups
- *       [ // FilterGroup
- *         { // WebhookFilter
- *           type: "STRING_VALUE", // required
- *           pattern: "STRING_VALUE", // required
- *           excludeMatchedPattern: true || false,
- *         },
- *       ],
- *     ],
- *     buildType: "STRING_VALUE",
- *     lastModifiedSecret: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateWebhookOutput
+ * //   webhook: { // Webhook
+ * //     url: "STRING_VALUE",
+ * //     payloadUrl: "STRING_VALUE",
+ * //     secret: "STRING_VALUE",
+ * //     branchFilter: "STRING_VALUE",
+ * //     filterGroups: [ // FilterGroups
+ * //       [ // FilterGroup
+ * //         { // WebhookFilter
+ * //           type: "STRING_VALUE", // required
+ * //           pattern: "STRING_VALUE", // required
+ * //           excludeMatchedPattern: true || false,
+ * //         },
+ * //       ],
+ * //     ],
+ * //     buildType: "STRING_VALUE",
+ * //     lastModifiedSecret: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

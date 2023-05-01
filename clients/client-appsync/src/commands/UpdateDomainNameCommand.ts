@@ -45,16 +45,15 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDomainNameResponse
- *   domainNameConfig: { // DomainNameConfig
- *     domainName: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     certificateArn: "STRING_VALUE",
- *     appsyncDomainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateDomainNameResponse
+ * //   domainNameConfig: { // DomainNameConfig
+ * //     domainName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     certificateArn: "STRING_VALUE",
+ * //     appsyncDomainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

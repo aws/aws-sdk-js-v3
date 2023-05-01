@@ -46,16 +46,15 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * };
  * const command = new CreateTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTypeResponse
- *   type: { // Type
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     definition: "STRING_VALUE",
- *     format: "SDL" || "JSON",
- *   },
- * };
+ * // { // CreateTypeResponse
+ * //   type: { // Type
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     definition: "STRING_VALUE",
+ * //     format: "SDL" || "JSON",
+ * //   },
+ * // };
  *
  * ```
  *

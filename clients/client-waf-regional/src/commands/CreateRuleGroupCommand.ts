@@ -74,15 +74,14 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRuleGroupResponse
- *   RuleGroup: { // RuleGroup
- *     RuleGroupId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     MetricName: "STRING_VALUE",
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateRuleGroupResponse
+ * //   RuleGroup: { // RuleGroup
+ * //     RuleGroupId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

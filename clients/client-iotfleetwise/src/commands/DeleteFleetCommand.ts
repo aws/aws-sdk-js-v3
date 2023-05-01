@@ -50,11 +50,10 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFleetResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // DeleteFleetResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

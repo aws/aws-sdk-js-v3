@@ -48,20 +48,19 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * };
  * const command = new GetListsMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetListsMetadataResult
- *   lists: [ // AllowDenyLists
- *     { // AllowDenyList
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       variableType: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       updatedTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetListsMetadataResult
+ * //   lists: [ // AllowDenyLists
+ * //     { // AllowDenyList
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       variableType: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       updatedTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

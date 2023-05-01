@@ -66,11 +66,10 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * };
  * const command = new GetActivityTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetActivityTaskOutput
- *   taskToken: "STRING_VALUE",
- *   input: "STRING_VALUE",
- * };
+ * // { // GetActivityTaskOutput
+ * //   taskToken: "STRING_VALUE",
+ * //   input: "STRING_VALUE",
+ * // };
  *
  * ```
  *

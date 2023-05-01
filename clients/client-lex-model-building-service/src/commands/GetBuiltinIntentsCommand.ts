@@ -54,18 +54,17 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * };
  * const command = new GetBuiltinIntentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBuiltinIntentsResponse
- *   intents: [ // BuiltinIntentMetadataList
- *     { // BuiltinIntentMetadata
- *       signature: "STRING_VALUE",
- *       supportedLocales: [ // LocaleList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetBuiltinIntentsResponse
+ * //   intents: [ // BuiltinIntentMetadataList
+ * //     { // BuiltinIntentMetadata
+ * //       signature: "STRING_VALUE",
+ * //       supportedLocales: [ // LocaleList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

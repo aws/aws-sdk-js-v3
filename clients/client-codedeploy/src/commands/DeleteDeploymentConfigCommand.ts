@@ -48,8 +48,7 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

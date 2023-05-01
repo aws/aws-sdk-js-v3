@@ -49,18 +49,17 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
  * };
  * const command = new GetCloudFrontOriginAccessIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCloudFrontOriginAccessIdentityResult
- *   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
- *     Id: "STRING_VALUE", // required
- *     S3CanonicalUserId: "STRING_VALUE", // required
- *     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
- *       CallerReference: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE", // required
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetCloudFrontOriginAccessIdentityResult
+ * //   CloudFrontOriginAccessIdentity: { // CloudFrontOriginAccessIdentity
+ * //     Id: "STRING_VALUE", // required
+ * //     S3CanonicalUserId: "STRING_VALUE", // required
+ * //     CloudFrontOriginAccessIdentityConfig: { // CloudFrontOriginAccessIdentityConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

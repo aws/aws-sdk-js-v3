@@ -55,23 +55,22 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * };
  * const command = new SearchSystemInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchSystemInstancesResponse
- *   summaries: [ // SystemInstanceSummaries
- *     { // SystemInstanceSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       target: "STRING_VALUE",
- *       greengrassGroupName: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *       greengrassGroupId: "STRING_VALUE",
- *       greengrassGroupVersionId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchSystemInstancesResponse
+ * //   summaries: [ // SystemInstanceSummaries
+ * //     { // SystemInstanceSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       target: "STRING_VALUE",
+ * //       greengrassGroupName: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //       greengrassGroupId: "STRING_VALUE",
+ * //       greengrassGroupVersionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -67,10 +67,9 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * };
  * const command = new CreatePresignedNotebookInstanceUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePresignedNotebookInstanceUrlOutput
- *   AuthorizedUrl: "STRING_VALUE",
- * };
+ * // { // CreatePresignedNotebookInstanceUrlOutput
+ * //   AuthorizedUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

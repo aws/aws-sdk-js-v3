@@ -148,11 +148,10 @@ export interface UpdateCostCategoryDefinitionCommandOutput
  * };
  * const command = new UpdateCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCostCategoryDefinitionResponse
- *   CostCategoryArn: "STRING_VALUE",
- *   EffectiveStart: "STRING_VALUE",
- * };
+ * // { // UpdateCostCategoryDefinitionResponse
+ * //   CostCategoryArn: "STRING_VALUE",
+ * //   EffectiveStart: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -184,106 +184,105 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * };
  * const command = new BatchWriteItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchWriteItemOutput
- *   UnprocessedItems: { // BatchWriteItemRequestMap
- *     "<keys>": [ // WriteRequests
- *       { // WriteRequest
- *         PutRequest: { // PutRequest
- *           Item: { // PutItemInputAttributeMap // required
- *             "<keys>": { // AttributeValue Union: only one key present
- *               S: "STRING_VALUE",
- *               N: "STRING_VALUE",
- *               B: "BLOB_VALUE",
- *               SS: [ // StringSetAttributeValue
- *                 "STRING_VALUE",
- *               ],
- *               NS: [ // NumberSetAttributeValue
- *                 "STRING_VALUE",
- *               ],
- *               BS: [ // BinarySetAttributeValue
- *                 "BLOB_VALUE",
- *               ],
- *               M: { // MapAttributeValue
- *                 "<keys>": {//  Union: only one key present
- *                   S: "STRING_VALUE",
- *                   N: "STRING_VALUE",
- *                   B: "BLOB_VALUE",
- *                   SS: [
- *                     "STRING_VALUE",
- *                   ],
- *                   NS: [
- *                     "STRING_VALUE",
- *                   ],
- *                   BS: [
- *                     "BLOB_VALUE",
- *                   ],
- *                   M: {
- *                     "<keys>": "<AttributeValue>",
- *                   },
- *                   L: [ // ListAttributeValue
- *                     "<AttributeValue>",
- *                   ],
- *                   NULL: true || false,
- *                   BOOL: true || false,
- *                 },
- *               },
- *               L: [
- *                 "<AttributeValue>",
- *               ],
- *               NULL: true || false,
- *               BOOL: true || false,
- *             },
- *           },
- *         },
- *         DeleteRequest: { // DeleteRequest
- *           Key: { // Key // required
- *             "<keys>": "<AttributeValue>",
- *           },
- *         },
- *       },
- *     ],
- *   },
- *   ItemCollectionMetrics: { // ItemCollectionMetricsPerTable
- *     "<keys>": [ // ItemCollectionMetricsMultiple
- *       { // ItemCollectionMetrics
- *         ItemCollectionKey: { // ItemCollectionKeyAttributeMap
- *           "<keys>": "<AttributeValue>",
- *         },
- *         SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
- *           Number("double"),
- *         ],
- *       },
- *     ],
- *   },
- *   ConsumedCapacity: [ // ConsumedCapacityMultiple
- *     { // ConsumedCapacity
- *       TableName: "STRING_VALUE",
- *       CapacityUnits: Number("double"),
- *       ReadCapacityUnits: Number("double"),
- *       WriteCapacityUnits: Number("double"),
- *       Table: { // Capacity
- *         ReadCapacityUnits: Number("double"),
- *         WriteCapacityUnits: Number("double"),
- *         CapacityUnits: Number("double"),
- *       },
- *       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
- *         "<keys>": {
- *           ReadCapacityUnits: Number("double"),
- *           WriteCapacityUnits: Number("double"),
- *           CapacityUnits: Number("double"),
- *         },
- *       },
- *       GlobalSecondaryIndexes: {
- *         "<keys>": {
- *           ReadCapacityUnits: Number("double"),
- *           WriteCapacityUnits: Number("double"),
- *           CapacityUnits: Number("double"),
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchWriteItemOutput
+ * //   UnprocessedItems: { // BatchWriteItemRequestMap
+ * //     "<keys>": [ // WriteRequests
+ * //       { // WriteRequest
+ * //         PutRequest: { // PutRequest
+ * //           Item: { // PutItemInputAttributeMap // required
+ * //             "<keys>": { // AttributeValue Union: only one key present
+ * //               S: "STRING_VALUE",
+ * //               N: "STRING_VALUE",
+ * //               B: "BLOB_VALUE",
+ * //               SS: [ // StringSetAttributeValue
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               NS: [ // NumberSetAttributeValue
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               BS: [ // BinarySetAttributeValue
+ * //                 "BLOB_VALUE",
+ * //               ],
+ * //               M: { // MapAttributeValue
+ * //                 "<keys>": {//  Union: only one key present
+ * //                   S: "STRING_VALUE",
+ * //                   N: "STRING_VALUE",
+ * //                   B: "BLOB_VALUE",
+ * //                   SS: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   NS: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   BS: [
+ * //                     "BLOB_VALUE",
+ * //                   ],
+ * //                   M: {
+ * //                     "<keys>": "<AttributeValue>",
+ * //                   },
+ * //                   L: [ // ListAttributeValue
+ * //                     "<AttributeValue>",
+ * //                   ],
+ * //                   NULL: true || false,
+ * //                   BOOL: true || false,
+ * //                 },
+ * //               },
+ * //               L: [
+ * //                 "<AttributeValue>",
+ * //               ],
+ * //               NULL: true || false,
+ * //               BOOL: true || false,
+ * //             },
+ * //           },
+ * //         },
+ * //         DeleteRequest: { // DeleteRequest
+ * //           Key: { // Key // required
+ * //             "<keys>": "<AttributeValue>",
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   ItemCollectionMetrics: { // ItemCollectionMetricsPerTable
+ * //     "<keys>": [ // ItemCollectionMetricsMultiple
+ * //       { // ItemCollectionMetrics
+ * //         ItemCollectionKey: { // ItemCollectionKeyAttributeMap
+ * //           "<keys>": "<AttributeValue>",
+ * //         },
+ * //         SizeEstimateRangeGB: [ // ItemCollectionSizeEstimateRange
+ * //           Number("double"),
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * //   ConsumedCapacity: [ // ConsumedCapacityMultiple
+ * //     { // ConsumedCapacity
+ * //       TableName: "STRING_VALUE",
+ * //       CapacityUnits: Number("double"),
+ * //       ReadCapacityUnits: Number("double"),
+ * //       WriteCapacityUnits: Number("double"),
+ * //       Table: { // Capacity
+ * //         ReadCapacityUnits: Number("double"),
+ * //         WriteCapacityUnits: Number("double"),
+ * //         CapacityUnits: Number("double"),
+ * //       },
+ * //       LocalSecondaryIndexes: { // SecondaryIndexesCapacityMap
+ * //         "<keys>": {
+ * //           ReadCapacityUnits: Number("double"),
+ * //           WriteCapacityUnits: Number("double"),
+ * //           CapacityUnits: Number("double"),
+ * //         },
+ * //       },
+ * //       GlobalSecondaryIndexes: {
+ * //         "<keys>": {
+ * //           ReadCapacityUnits: Number("double"),
+ * //           WriteCapacityUnits: Number("double"),
+ * //           CapacityUnits: Number("double"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

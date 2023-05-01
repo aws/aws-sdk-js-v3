@@ -49,8 +49,7 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,21 +57,20 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  * };
  * const command = new CreateCarrierGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCarrierGatewayResult
- *   CarrierGateway: { // CarrierGateway
- *     CarrierGatewayId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     OwnerId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateCarrierGatewayResult
+ * //   CarrierGateway: { // CarrierGateway
+ * //     CarrierGatewayId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

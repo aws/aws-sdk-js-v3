@@ -47,20 +47,19 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * };
  * const command = new ListEventSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEventSourcesResponse
- *   EventSources: [ // EventSourceList
- *     { // EventSource
- *       Arn: "STRING_VALUE",
- *       CreatedBy: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       ExpirationTime: new Date("TIMESTAMP"),
- *       Name: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEventSourcesResponse
+ * //   EventSources: [ // EventSourceList
+ * //     { // EventSource
+ * //       Arn: "STRING_VALUE",
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       ExpirationTime: new Date("TIMESTAMP"),
+ * //       Name: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

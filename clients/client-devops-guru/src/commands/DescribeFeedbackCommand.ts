@@ -45,13 +45,12 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * };
  * const command = new DescribeFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFeedbackResponse
- *   InsightFeedback: { // InsightFeedback
- *     Id: "STRING_VALUE",
- *     Feedback: "VALID_COLLECTION" || "RECOMMENDATION_USEFUL" || "ALERT_TOO_SENSITIVE" || "DATA_NOISY_ANOMALY" || "DATA_INCORRECT",
- *   },
- * };
+ * // { // DescribeFeedbackResponse
+ * //   InsightFeedback: { // InsightFeedback
+ * //     Id: "STRING_VALUE",
+ * //     Feedback: "VALID_COLLECTION" || "RECOMMENDATION_USEFUL" || "ALERT_TOO_SENSITIVE" || "DATA_NOISY_ANOMALY" || "DATA_INCORRECT",
+ * //   },
+ * // };
  *
  * ```
  *

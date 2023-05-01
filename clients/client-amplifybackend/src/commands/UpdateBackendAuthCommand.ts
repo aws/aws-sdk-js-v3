@@ -123,15 +123,14 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * };
  * const command = new UpdateBackendAuthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackendAuthResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // UpdateBackendAuthResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,28 +52,27 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * };
  * const command = new BatchGetGraphMemberDatasourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetGraphMemberDatasourcesResponse
- *   MemberDatasources: [ // MembershipDatasourcesList
- *     { // MembershipDatasources
- *       AccountId: "STRING_VALUE",
- *       GraphArn: "STRING_VALUE",
- *       DatasourcePackageIngestHistory: { // DatasourcePackageIngestHistory
- *         "<keys>": { // LastIngestStateChangeDates
- *           "<keys>": { // TimestampForCollection
- *             Timestamp: new Date("TIMESTAMP"),
- *           },
- *         },
- *       },
- *     },
- *   ],
- *   UnprocessedAccounts: [ // UnprocessedAccountList
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetGraphMemberDatasourcesResponse
+ * //   MemberDatasources: [ // MembershipDatasourcesList
+ * //     { // MembershipDatasources
+ * //       AccountId: "STRING_VALUE",
+ * //       GraphArn: "STRING_VALUE",
+ * //       DatasourcePackageIngestHistory: { // DatasourcePackageIngestHistory
+ * //         "<keys>": { // LastIngestStateChangeDates
+ * //           "<keys>": { // TimestampForCollection
+ * //             Timestamp: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   UnprocessedAccounts: [ // UnprocessedAccountList
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

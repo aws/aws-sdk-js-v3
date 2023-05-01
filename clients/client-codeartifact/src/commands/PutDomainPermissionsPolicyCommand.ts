@@ -54,14 +54,13 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * };
  * const command = new PutDomainPermissionsPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDomainPermissionsPolicyResult
- *   policy: { // ResourcePolicy
- *     resourceArn: "STRING_VALUE",
- *     revision: "STRING_VALUE",
- *     document: "STRING_VALUE",
- *   },
- * };
+ * // { // PutDomainPermissionsPolicyResult
+ * //   policy: { // ResourcePolicy
+ * //     resourceArn: "STRING_VALUE",
+ * //     revision: "STRING_VALUE",
+ * //     document: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -59,12 +59,11 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * };
  * const command = new DetachLoadBalancerFromSubnetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachLoadBalancerFromSubnetsOutput
- *   Subnets: [ // Subnets
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DetachLoadBalancerFromSubnetsOutput
+ * //   Subnets: [ // Subnets
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

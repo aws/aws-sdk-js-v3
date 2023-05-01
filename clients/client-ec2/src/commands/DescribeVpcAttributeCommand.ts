@@ -46,19 +46,18 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcAttributeResult
- *   VpcId: "STRING_VALUE",
- *   EnableDnsHostnames: { // AttributeBooleanValue
- *     Value: true || false,
- *   },
- *   EnableDnsSupport: {
- *     Value: true || false,
- *   },
- *   EnableNetworkAddressUsageMetrics: {
- *     Value: true || false,
- *   },
- * };
+ * // { // DescribeVpcAttributeResult
+ * //   VpcId: "STRING_VALUE",
+ * //   EnableDnsHostnames: { // AttributeBooleanValue
+ * //     Value: true || false,
+ * //   },
+ * //   EnableDnsSupport: {
+ * //     Value: true || false,
+ * //   },
+ * //   EnableNetworkAddressUsageMetrics: {
+ * //     Value: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

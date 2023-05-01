@@ -63,16 +63,15 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestInvokeAuthorizerResponse
- *   isAuthenticated: true || false,
- *   principalId: "STRING_VALUE",
- *   policyDocuments: [ // PolicyDocuments
- *     "STRING_VALUE",
- *   ],
- *   refreshAfterInSeconds: Number("int"),
- *   disconnectAfterInSeconds: Number("int"),
- * };
+ * // { // TestInvokeAuthorizerResponse
+ * //   isAuthenticated: true || false,
+ * //   principalId: "STRING_VALUE",
+ * //   policyDocuments: [ // PolicyDocuments
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   refreshAfterInSeconds: Number("int"),
+ * //   disconnectAfterInSeconds: Number("int"),
+ * // };
  *
  * ```
  *

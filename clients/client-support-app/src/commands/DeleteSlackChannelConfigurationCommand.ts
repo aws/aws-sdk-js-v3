@@ -51,8 +51,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * };
  * const command = new DeleteSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

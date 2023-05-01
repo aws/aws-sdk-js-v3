@@ -47,51 +47,50 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * };
  * const command = new DescribeNFSFileSharesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNFSFileSharesOutput
- *   NFSFileShareInfoList: [ // NFSFileShareInfoList
- *     { // NFSFileShareInfo
- *       NFSFileShareDefaults: { // NFSFileShareDefaults
- *         FileMode: "STRING_VALUE",
- *         DirectoryMode: "STRING_VALUE",
- *         GroupId: Number("long"),
- *         OwnerId: Number("long"),
- *       },
- *       FileShareARN: "STRING_VALUE",
- *       FileShareId: "STRING_VALUE",
- *       FileShareStatus: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *       KMSEncrypted: true || false,
- *       KMSKey: "STRING_VALUE",
- *       Path: "STRING_VALUE",
- *       Role: "STRING_VALUE",
- *       LocationARN: "STRING_VALUE",
- *       DefaultStorageClass: "STRING_VALUE",
- *       ObjectACL: "STRING_VALUE",
- *       ClientList: [ // FileShareClientList
- *         "STRING_VALUE",
- *       ],
- *       Squash: "STRING_VALUE",
- *       ReadOnly: true || false,
- *       GuessMIMETypeEnabled: true || false,
- *       RequesterPays: true || false,
- *       Tags: [ // Tags
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       FileShareName: "STRING_VALUE",
- *       CacheAttributes: { // CacheAttributes
- *         CacheStaleTimeoutInSeconds: Number("int"),
- *       },
- *       NotificationPolicy: "STRING_VALUE",
- *       VPCEndpointDNSName: "STRING_VALUE",
- *       BucketRegion: "STRING_VALUE",
- *       AuditDestinationARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeNFSFileSharesOutput
+ * //   NFSFileShareInfoList: [ // NFSFileShareInfoList
+ * //     { // NFSFileShareInfo
+ * //       NFSFileShareDefaults: { // NFSFileShareDefaults
+ * //         FileMode: "STRING_VALUE",
+ * //         DirectoryMode: "STRING_VALUE",
+ * //         GroupId: Number("long"),
+ * //         OwnerId: Number("long"),
+ * //       },
+ * //       FileShareARN: "STRING_VALUE",
+ * //       FileShareId: "STRING_VALUE",
+ * //       FileShareStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       KMSEncrypted: true || false,
+ * //       KMSKey: "STRING_VALUE",
+ * //       Path: "STRING_VALUE",
+ * //       Role: "STRING_VALUE",
+ * //       LocationARN: "STRING_VALUE",
+ * //       DefaultStorageClass: "STRING_VALUE",
+ * //       ObjectACL: "STRING_VALUE",
+ * //       ClientList: [ // FileShareClientList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Squash: "STRING_VALUE",
+ * //       ReadOnly: true || false,
+ * //       GuessMIMETypeEnabled: true || false,
+ * //       RequesterPays: true || false,
+ * //       Tags: [ // Tags
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       FileShareName: "STRING_VALUE",
+ * //       CacheAttributes: { // CacheAttributes
+ * //         CacheStaleTimeoutInSeconds: Number("int"),
+ * //       },
+ * //       NotificationPolicy: "STRING_VALUE",
+ * //       VPCEndpointDNSName: "STRING_VALUE",
+ * //       BucketRegion: "STRING_VALUE",
+ * //       AuditDestinationARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

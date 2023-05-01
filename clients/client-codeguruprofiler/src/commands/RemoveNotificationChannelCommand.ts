@@ -45,20 +45,19 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveNotificationChannelResponse
- *   notificationConfiguration: { // NotificationConfiguration
- *     channels: [ // Channels
- *       { // Channel
- *         id: "STRING_VALUE",
- *         uri: "STRING_VALUE", // required
- *         eventPublishers: [ // EventPublishers // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // RemoveNotificationChannelResponse
+ * //   notificationConfiguration: { // NotificationConfiguration
+ * //     channels: [ // Channels
+ * //       { // Channel
+ * //         id: "STRING_VALUE",
+ * //         uri: "STRING_VALUE", // required
+ * //         eventPublishers: [ // EventPublishers // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

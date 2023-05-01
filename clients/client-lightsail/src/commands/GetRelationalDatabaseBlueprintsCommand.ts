@@ -52,20 +52,19 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * };
  * const command = new GetRelationalDatabaseBlueprintsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseBlueprintsResult
- *   blueprints: [ // RelationalDatabaseBlueprintList
- *     { // RelationalDatabaseBlueprint
- *       blueprintId: "STRING_VALUE",
- *       engine: "mysql",
- *       engineVersion: "STRING_VALUE",
- *       engineDescription: "STRING_VALUE",
- *       engineVersionDescription: "STRING_VALUE",
- *       isEngineDefault: true || false,
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetRelationalDatabaseBlueprintsResult
+ * //   blueprints: [ // RelationalDatabaseBlueprintList
+ * //     { // RelationalDatabaseBlueprint
+ * //       blueprintId: "STRING_VALUE",
+ * //       engine: "mysql",
+ * //       engineVersion: "STRING_VALUE",
+ * //       engineDescription: "STRING_VALUE",
+ * //       engineVersionDescription: "STRING_VALUE",
+ * //       isEngineDefault: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

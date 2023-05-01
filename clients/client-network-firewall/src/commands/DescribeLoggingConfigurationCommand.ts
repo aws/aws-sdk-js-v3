@@ -50,21 +50,20 @@ export interface DescribeLoggingConfigurationCommandOutput
  * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoggingConfigurationResponse
- *   FirewallArn: "STRING_VALUE",
- *   LoggingConfiguration: { // LoggingConfiguration
- *     LogDestinationConfigs: [ // LogDestinationConfigs // required
- *       { // LogDestinationConfig
- *         LogType: "ALERT" || "FLOW", // required
- *         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
- *         LogDestination: { // LogDestinationMap // required
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeLoggingConfigurationResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     LogDestinationConfigs: [ // LogDestinationConfigs // required
+ * //       { // LogDestinationConfig
+ * //         LogType: "ALERT" || "FLOW", // required
+ * //         LogDestinationType: "S3" || "CloudWatchLogs" || "KinesisDataFirehose", // required
+ * //         LogDestination: { // LogDestinationMap // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

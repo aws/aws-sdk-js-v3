@@ -44,34 +44,33 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * };
  * const command = new DescribeCampaignCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCampaignResponse
- *   campaign: { // Campaign
- *     id: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     connectInstanceId: "STRING_VALUE", // required
- *     dialerConfig: { // DialerConfig Union: only one key present
- *       progressiveDialerConfig: { // ProgressiveDialerConfig
- *         bandwidthAllocation: Number("double"), // required
- *       },
- *       predictiveDialerConfig: { // PredictiveDialerConfig
- *         bandwidthAllocation: Number("double"), // required
- *       },
- *     },
- *     outboundCallConfig: { // OutboundCallConfig
- *       connectContactFlowId: "STRING_VALUE", // required
- *       connectSourcePhoneNumber: "STRING_VALUE",
- *       connectQueueId: "STRING_VALUE", // required
- *       answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
- *         enableAnswerMachineDetection: true || false, // required
- *       },
- *     },
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeCampaignResponse
+ * //   campaign: { // Campaign
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     connectInstanceId: "STRING_VALUE", // required
+ * //     dialerConfig: { // DialerConfig Union: only one key present
+ * //       progressiveDialerConfig: { // ProgressiveDialerConfig
+ * //         bandwidthAllocation: Number("double"), // required
+ * //       },
+ * //       predictiveDialerConfig: { // PredictiveDialerConfig
+ * //         bandwidthAllocation: Number("double"), // required
+ * //       },
+ * //     },
+ * //     outboundCallConfig: { // OutboundCallConfig
+ * //       connectContactFlowId: "STRING_VALUE", // required
+ * //       connectSourcePhoneNumber: "STRING_VALUE",
+ * //       connectQueueId: "STRING_VALUE", // required
+ * //       answerMachineDetectionConfig: { // AnswerMachineDetectionConfig
+ * //         enableAnswerMachineDetection: true || false, // required
+ * //       },
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * };
  * const command = new StopHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

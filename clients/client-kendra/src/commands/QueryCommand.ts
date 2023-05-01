@@ -200,204 +200,203 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryResult
- *   QueryId: "STRING_VALUE",
- *   ResultItems: [ // QueryResultItemList
- *     { // QueryResultItem
- *       Id: "STRING_VALUE",
- *       Type: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
- *       Format: "TABLE" || "TEXT",
- *       AdditionalAttributes: [ // AdditionalResultAttributeList
- *         { // AdditionalResultAttribute
- *           Key: "STRING_VALUE", // required
- *           ValueType: "TEXT_WITH_HIGHLIGHTS_VALUE", // required
- *           Value: { // AdditionalResultAttributeValue
- *             TextWithHighlightsValue: { // TextWithHighlights
- *               Text: "STRING_VALUE",
- *               Highlights: [ // HighlightList
- *                 { // Highlight
- *                   BeginOffset: Number("int"), // required
- *                   EndOffset: Number("int"), // required
- *                   TopAnswer: true || false,
- *                   Type: "STANDARD" || "THESAURUS_SYNONYM",
- *                 },
- *               ],
- *             },
- *           },
- *         },
- *       ],
- *       DocumentId: "STRING_VALUE",
- *       DocumentTitle: {
- *         Text: "STRING_VALUE",
- *         Highlights: [
- *           {
- *             BeginOffset: Number("int"), // required
- *             EndOffset: Number("int"), // required
- *             TopAnswer: true || false,
- *             Type: "STANDARD" || "THESAURUS_SYNONYM",
- *           },
- *         ],
- *       },
- *       DocumentExcerpt: {
- *         Text: "STRING_VALUE",
- *         Highlights: [
- *           {
- *             BeginOffset: Number("int"), // required
- *             EndOffset: Number("int"), // required
- *             TopAnswer: true || false,
- *             Type: "STANDARD" || "THESAURUS_SYNONYM",
- *           },
- *         ],
- *       },
- *       DocumentURI: "STRING_VALUE",
- *       DocumentAttributes: [ // DocumentAttributeList
- *         { // DocumentAttribute
- *           Key: "STRING_VALUE", // required
- *           Value: { // DocumentAttributeValue
- *             StringValue: "STRING_VALUE",
- *             StringListValue: [ // DocumentAttributeStringListValue
- *               "STRING_VALUE",
- *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
- *           },
- *         },
- *       ],
- *       ScoreAttributes: { // ScoreAttributes
- *         ScoreConfidence: "VERY_HIGH" || "HIGH" || "MEDIUM" || "LOW" || "NOT_AVAILABLE",
- *       },
- *       FeedbackToken: "STRING_VALUE",
- *       TableExcerpt: { // TableExcerpt
- *         Rows: [ // TableRowList
- *           { // TableRow
- *             Cells: [ // TableCellList
- *               { // TableCell
- *                 Value: "STRING_VALUE",
- *                 TopAnswer: true || false,
- *                 Highlighted: true || false,
- *                 Header: true || false,
- *               },
- *             ],
- *           },
- *         ],
- *         TotalNumberOfRows: Number("int"),
- *       },
- *     },
- *   ],
- *   FacetResults: [ // FacetResultList
- *     { // FacetResult
- *       DocumentAttributeKey: "STRING_VALUE",
- *       DocumentAttributeValueType: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE",
- *       DocumentAttributeValueCountPairs: [ // DocumentAttributeValueCountPairList
- *         { // DocumentAttributeValueCountPair
- *           DocumentAttributeValue: {
- *             StringValue: "STRING_VALUE",
- *             StringListValue: [
- *               "STRING_VALUE",
- *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
- *           },
- *           Count: Number("int"),
- *           FacetResults: [
- *             {
- *               DocumentAttributeKey: "STRING_VALUE",
- *               DocumentAttributeValueType: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE",
- *               DocumentAttributeValueCountPairs: [
- *                 {
- *                   DocumentAttributeValue: {
- *                     StringValue: "STRING_VALUE",
- *                     StringListValue: [
- *                       "STRING_VALUE",
- *                     ],
- *                     LongValue: Number("long"),
- *                     DateValue: new Date("TIMESTAMP"),
- *                   },
- *                   Count: Number("int"),
- *                   FacetResults: "<FacetResultList>",
- *                 },
- *               ],
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- *   TotalNumberOfResults: Number("int"),
- *   Warnings: [ // WarningList
- *     { // Warning
- *       Message: "STRING_VALUE",
- *       Code: "QUERY_LANGUAGE_INVALID_SYNTAX",
- *     },
- *   ],
- *   SpellCorrectedQueries: [ // SpellCorrectedQueryList
- *     { // SpellCorrectedQuery
- *       SuggestedQueryText: "STRING_VALUE",
- *       Corrections: [ // CorrectionList
- *         { // Correction
- *           BeginOffset: Number("int"),
- *           EndOffset: Number("int"),
- *           Term: "STRING_VALUE",
- *           CorrectedTerm: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   FeaturedResultsItems: [ // FeaturedResultsItemList
- *     { // FeaturedResultsItem
- *       Id: "STRING_VALUE",
- *       Type: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
- *       AdditionalAttributes: [
- *         {
- *           Key: "STRING_VALUE", // required
- *           ValueType: "TEXT_WITH_HIGHLIGHTS_VALUE", // required
- *           Value: {
- *             TextWithHighlightsValue: {
- *               Text: "STRING_VALUE",
- *               Highlights: [
- *                 {
- *                   BeginOffset: Number("int"), // required
- *                   EndOffset: Number("int"), // required
- *                   TopAnswer: true || false,
- *                   Type: "STANDARD" || "THESAURUS_SYNONYM",
- *                 },
- *               ],
- *             },
- *           },
- *         },
- *       ],
- *       DocumentId: "STRING_VALUE",
- *       DocumentTitle: {
- *         Text: "STRING_VALUE",
- *         Highlights: [
- *           {
- *             BeginOffset: Number("int"), // required
- *             EndOffset: Number("int"), // required
- *             TopAnswer: true || false,
- *             Type: "STANDARD" || "THESAURUS_SYNONYM",
- *           },
- *         ],
- *       },
- *       DocumentExcerpt: "<TextWithHighlights>",
- *       DocumentURI: "STRING_VALUE",
- *       DocumentAttributes: [
- *         {
- *           Key: "STRING_VALUE", // required
- *           Value: {
- *             StringValue: "STRING_VALUE",
- *             StringListValue: [
- *               "STRING_VALUE",
- *             ],
- *             LongValue: Number("long"),
- *             DateValue: new Date("TIMESTAMP"),
- *           },
- *         },
- *       ],
- *       FeedbackToken: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // QueryResult
+ * //   QueryId: "STRING_VALUE",
+ * //   ResultItems: [ // QueryResultItemList
+ * //     { // QueryResultItem
+ * //       Id: "STRING_VALUE",
+ * //       Type: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
+ * //       Format: "TABLE" || "TEXT",
+ * //       AdditionalAttributes: [ // AdditionalResultAttributeList
+ * //         { // AdditionalResultAttribute
+ * //           Key: "STRING_VALUE", // required
+ * //           ValueType: "TEXT_WITH_HIGHLIGHTS_VALUE", // required
+ * //           Value: { // AdditionalResultAttributeValue
+ * //             TextWithHighlightsValue: { // TextWithHighlights
+ * //               Text: "STRING_VALUE",
+ * //               Highlights: [ // HighlightList
+ * //                 { // Highlight
+ * //                   BeginOffset: Number("int"), // required
+ * //                   EndOffset: Number("int"), // required
+ * //                   TopAnswer: true || false,
+ * //                   Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       DocumentId: "STRING_VALUE",
+ * //       DocumentTitle: {
+ * //         Text: "STRING_VALUE",
+ * //         Highlights: [
+ * //           {
+ * //             BeginOffset: Number("int"), // required
+ * //             EndOffset: Number("int"), // required
+ * //             TopAnswer: true || false,
+ * //             Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //           },
+ * //         ],
+ * //       },
+ * //       DocumentExcerpt: {
+ * //         Text: "STRING_VALUE",
+ * //         Highlights: [
+ * //           {
+ * //             BeginOffset: Number("int"), // required
+ * //             EndOffset: Number("int"), // required
+ * //             TopAnswer: true || false,
+ * //             Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //           },
+ * //         ],
+ * //       },
+ * //       DocumentURI: "STRING_VALUE",
+ * //       DocumentAttributes: [ // DocumentAttributeList
+ * //         { // DocumentAttribute
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: { // DocumentAttributeValue
+ * //             StringValue: "STRING_VALUE",
+ * //             StringListValue: [ // DocumentAttributeStringListValue
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             LongValue: Number("long"),
+ * //             DateValue: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
+ * //       ],
+ * //       ScoreAttributes: { // ScoreAttributes
+ * //         ScoreConfidence: "VERY_HIGH" || "HIGH" || "MEDIUM" || "LOW" || "NOT_AVAILABLE",
+ * //       },
+ * //       FeedbackToken: "STRING_VALUE",
+ * //       TableExcerpt: { // TableExcerpt
+ * //         Rows: [ // TableRowList
+ * //           { // TableRow
+ * //             Cells: [ // TableCellList
+ * //               { // TableCell
+ * //                 Value: "STRING_VALUE",
+ * //                 TopAnswer: true || false,
+ * //                 Highlighted: true || false,
+ * //                 Header: true || false,
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TotalNumberOfRows: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   FacetResults: [ // FacetResultList
+ * //     { // FacetResult
+ * //       DocumentAttributeKey: "STRING_VALUE",
+ * //       DocumentAttributeValueType: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE",
+ * //       DocumentAttributeValueCountPairs: [ // DocumentAttributeValueCountPairList
+ * //         { // DocumentAttributeValueCountPair
+ * //           DocumentAttributeValue: {
+ * //             StringValue: "STRING_VALUE",
+ * //             StringListValue: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             LongValue: Number("long"),
+ * //             DateValue: new Date("TIMESTAMP"),
+ * //           },
+ * //           Count: Number("int"),
+ * //           FacetResults: [
+ * //             {
+ * //               DocumentAttributeKey: "STRING_VALUE",
+ * //               DocumentAttributeValueType: "STRING_VALUE" || "STRING_LIST_VALUE" || "LONG_VALUE" || "DATE_VALUE",
+ * //               DocumentAttributeValueCountPairs: [
+ * //                 {
+ * //                   DocumentAttributeValue: {
+ * //                     StringValue: "STRING_VALUE",
+ * //                     StringListValue: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     LongValue: Number("long"),
+ * //                     DateValue: new Date("TIMESTAMP"),
+ * //                   },
+ * //                   Count: Number("int"),
+ * //                   FacetResults: "<FacetResultList>",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   TotalNumberOfResults: Number("int"),
+ * //   Warnings: [ // WarningList
+ * //     { // Warning
+ * //       Message: "STRING_VALUE",
+ * //       Code: "QUERY_LANGUAGE_INVALID_SYNTAX",
+ * //     },
+ * //   ],
+ * //   SpellCorrectedQueries: [ // SpellCorrectedQueryList
+ * //     { // SpellCorrectedQuery
+ * //       SuggestedQueryText: "STRING_VALUE",
+ * //       Corrections: [ // CorrectionList
+ * //         { // Correction
+ * //           BeginOffset: Number("int"),
+ * //           EndOffset: Number("int"),
+ * //           Term: "STRING_VALUE",
+ * //           CorrectedTerm: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   FeaturedResultsItems: [ // FeaturedResultsItemList
+ * //     { // FeaturedResultsItem
+ * //       Id: "STRING_VALUE",
+ * //       Type: "DOCUMENT" || "QUESTION_ANSWER" || "ANSWER",
+ * //       AdditionalAttributes: [
+ * //         {
+ * //           Key: "STRING_VALUE", // required
+ * //           ValueType: "TEXT_WITH_HIGHLIGHTS_VALUE", // required
+ * //           Value: {
+ * //             TextWithHighlightsValue: {
+ * //               Text: "STRING_VALUE",
+ * //               Highlights: [
+ * //                 {
+ * //                   BeginOffset: Number("int"), // required
+ * //                   EndOffset: Number("int"), // required
+ * //                   TopAnswer: true || false,
+ * //                   Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       DocumentId: "STRING_VALUE",
+ * //       DocumentTitle: {
+ * //         Text: "STRING_VALUE",
+ * //         Highlights: [
+ * //           {
+ * //             BeginOffset: Number("int"), // required
+ * //             EndOffset: Number("int"), // required
+ * //             TopAnswer: true || false,
+ * //             Type: "STANDARD" || "THESAURUS_SYNONYM",
+ * //           },
+ * //         ],
+ * //       },
+ * //       DocumentExcerpt: "<TextWithHighlights>",
+ * //       DocumentURI: "STRING_VALUE",
+ * //       DocumentAttributes: [
+ * //         {
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: {
+ * //             StringValue: "STRING_VALUE",
+ * //             StringListValue: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             LongValue: Number("long"),
+ * //             DateValue: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
+ * //       ],
+ * //       FeedbackToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

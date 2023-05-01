@@ -50,10 +50,9 @@ export interface GetInlinePolicyForPermissionSetCommandOutput
  * };
  * const command = new GetInlinePolicyForPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInlinePolicyForPermissionSetResponse
- *   InlinePolicy: "STRING_VALUE",
- * };
+ * // { // GetInlinePolicyForPermissionSetResponse
+ * //   InlinePolicy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

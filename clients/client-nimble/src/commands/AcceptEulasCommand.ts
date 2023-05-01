@@ -48,18 +48,17 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  * };
  * const command = new AcceptEulasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptEulasResponse
- *   eulaAcceptances: [ // EulaAcceptanceList
- *     { // EulaAcceptance
- *       acceptedAt: new Date("TIMESTAMP"),
- *       acceptedBy: "STRING_VALUE",
- *       accepteeId: "STRING_VALUE",
- *       eulaAcceptanceId: "STRING_VALUE",
- *       eulaId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // AcceptEulasResponse
+ * //   eulaAcceptances: [ // EulaAcceptanceList
+ * //     { // EulaAcceptance
+ * //       acceptedAt: new Date("TIMESTAMP"),
+ * //       acceptedBy: "STRING_VALUE",
+ * //       accepteeId: "STRING_VALUE",
+ * //       eulaAcceptanceId: "STRING_VALUE",
+ * //       eulaId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

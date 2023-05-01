@@ -45,10 +45,9 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Template
- *   value: "STRING_VALUE",
- * };
+ * // { // Template
+ * //   value: "STRING_VALUE",
+ * // };
  *
  * ```
  *

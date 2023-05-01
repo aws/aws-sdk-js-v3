@@ -47,10 +47,9 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * };
  * const command = new DeleteVirtualClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVirtualClusterResponse
- *   id: "STRING_VALUE",
- * };
+ * // { // DeleteVirtualClusterResponse
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

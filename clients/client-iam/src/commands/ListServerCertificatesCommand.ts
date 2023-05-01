@@ -57,21 +57,20 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * };
  * const command = new ListServerCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServerCertificatesResponse
- *   ServerCertificateMetadataList: [ // serverCertificateMetadataListType // required
- *     { // ServerCertificateMetadata
- *       Path: "STRING_VALUE", // required
- *       ServerCertificateName: "STRING_VALUE", // required
- *       ServerCertificateId: "STRING_VALUE", // required
- *       Arn: "STRING_VALUE", // required
- *       UploadDate: new Date("TIMESTAMP"),
- *       Expiration: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListServerCertificatesResponse
+ * //   ServerCertificateMetadataList: [ // serverCertificateMetadataListType // required
+ * //     { // ServerCertificateMetadata
+ * //       Path: "STRING_VALUE", // required
+ * //       ServerCertificateName: "STRING_VALUE", // required
+ * //       ServerCertificateId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       UploadDate: new Date("TIMESTAMP"),
+ * //       Expiration: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

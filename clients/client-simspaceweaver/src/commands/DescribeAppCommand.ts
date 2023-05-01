@@ -46,29 +46,28 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * };
  * const command = new DescribeAppCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppOutput
- *   Name: "STRING_VALUE",
- *   Simulation: "STRING_VALUE",
- *   Domain: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   TargetStatus: "STRING_VALUE",
- *   LaunchOverrides: { // LaunchOverrides
- *     LaunchCommands: [ // LaunchCommandList
- *       "STRING_VALUE",
- *     ],
- *   },
- *   Description: "STRING_VALUE",
- *   EndpointInfo: { // SimulationAppEndpointInfo
- *     Address: "STRING_VALUE",
- *     IngressPortMappings: [ // AppPortMappings
- *       { // SimulationAppPortMapping
- *         Declared: Number("int"),
- *         Actual: Number("int"),
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeAppOutput
+ * //   Name: "STRING_VALUE",
+ * //   Simulation: "STRING_VALUE",
+ * //   Domain: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   TargetStatus: "STRING_VALUE",
+ * //   LaunchOverrides: { // LaunchOverrides
+ * //     LaunchCommands: [ // LaunchCommandList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   Description: "STRING_VALUE",
+ * //   EndpointInfo: { // SimulationAppEndpointInfo
+ * //     Address: "STRING_VALUE",
+ * //     IngressPortMappings: [ // AppPortMappings
+ * //       { // SimulationAppPortMapping
+ * //         Declared: Number("int"),
+ * //         Actual: Number("int"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

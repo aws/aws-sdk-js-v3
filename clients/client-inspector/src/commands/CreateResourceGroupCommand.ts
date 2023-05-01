@@ -52,10 +52,9 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * };
  * const command = new CreateResourceGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResourceGroupResponse
- *   resourceGroupArn: "STRING_VALUE", // required
- * };
+ * // { // CreateResourceGroupResponse
+ * //   resourceGroupArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -52,16 +52,15 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * };
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForStreamOutput
- *   Tags: [ // TagList // required
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   HasMoreTags: true || false, // required
- * };
+ * // { // ListTagsForStreamOutput
+ * //   Tags: [ // TagList // required
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   HasMoreTags: true || false, // required
+ * // };
  *
  * ```
  *

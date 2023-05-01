@@ -47,23 +47,22 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  * };
  * const command = new ListAnomalyDetectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnomalyDetectorsResponse
- *   AnomalyDetectorSummaryList: [ // AnomalyDetectorSummaryList
- *     { // AnomalyDetectorSummary
- *       AnomalyDetectorArn: "STRING_VALUE",
- *       AnomalyDetectorName: "STRING_VALUE",
- *       AnomalyDetectorDescription: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *       Status: "STRING_VALUE",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAnomalyDetectorsResponse
+ * //   AnomalyDetectorSummaryList: [ // AnomalyDetectorSummaryList
+ * //     { // AnomalyDetectorSummary
+ * //       AnomalyDetectorArn: "STRING_VALUE",
+ * //       AnomalyDetectorName: "STRING_VALUE",
+ * //       AnomalyDetectorDescription: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //       Status: "STRING_VALUE",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

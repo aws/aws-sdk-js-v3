@@ -48,84 +48,83 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * };
  * const command = new StartExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExperimentResponse
- *   experiment: { // Experiment
- *     id: "STRING_VALUE",
- *     experimentTemplateId: "STRING_VALUE",
- *     roleArn: "STRING_VALUE",
- *     state: { // ExperimentState
- *       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
- *       reason: "STRING_VALUE",
- *     },
- *     targets: { // ExperimentTargetMap
- *       "<keys>": { // ExperimentTarget
- *         resourceType: "STRING_VALUE",
- *         resourceArns: [ // ResourceArnList
- *           "STRING_VALUE",
- *         ],
- *         resourceTags: { // TagMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         filters: [ // ExperimentTargetFilterList
- *           { // ExperimentTargetFilter
- *             path: "STRING_VALUE",
- *             values: [ // ExperimentTargetFilterValues
- *               "STRING_VALUE",
- *             ],
- *           },
- *         ],
- *         selectionMode: "STRING_VALUE",
- *         parameters: { // ExperimentTargetParameterMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     },
- *     actions: { // ExperimentActionMap
- *       "<keys>": { // ExperimentAction
- *         actionId: "STRING_VALUE",
- *         description: "STRING_VALUE",
- *         parameters: { // ExperimentActionParameterMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         targets: { // ExperimentActionTargetMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *         startAfter: [ // ExperimentActionStartAfterList
- *           "STRING_VALUE",
- *         ],
- *         state: { // ExperimentActionState
- *           status: "pending" || "initiating" || "running" || "completed" || "cancelled" || "stopping" || "stopped" || "failed",
- *           reason: "STRING_VALUE",
- *         },
- *         startTime: new Date("TIMESTAMP"),
- *         endTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *     stopConditions: [ // ExperimentStopConditionList
- *       { // ExperimentStopCondition
- *         source: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     creationTime: new Date("TIMESTAMP"),
- *     startTime: new Date("TIMESTAMP"),
- *     endTime: new Date("TIMESTAMP"),
- *     tags: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *     logConfiguration: { // ExperimentLogConfiguration
- *       cloudWatchLogsConfiguration: { // ExperimentCloudWatchLogsLogConfiguration
- *         logGroupArn: "STRING_VALUE",
- *       },
- *       s3Configuration: { // ExperimentS3LogConfiguration
- *         bucketName: "STRING_VALUE",
- *         prefix: "STRING_VALUE",
- *       },
- *       logSchemaVersion: Number("int"),
- *     },
- *   },
- * };
+ * // { // StartExperimentResponse
+ * //   experiment: { // Experiment
+ * //     id: "STRING_VALUE",
+ * //     experimentTemplateId: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     state: { // ExperimentState
+ * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //       reason: "STRING_VALUE",
+ * //     },
+ * //     targets: { // ExperimentTargetMap
+ * //       "<keys>": { // ExperimentTarget
+ * //         resourceType: "STRING_VALUE",
+ * //         resourceArns: [ // ResourceArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         resourceTags: { // TagMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         filters: [ // ExperimentTargetFilterList
+ * //           { // ExperimentTargetFilter
+ * //             path: "STRING_VALUE",
+ * //             values: [ // ExperimentTargetFilterValues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         selectionMode: "STRING_VALUE",
+ * //         parameters: { // ExperimentTargetParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     actions: { // ExperimentActionMap
+ * //       "<keys>": { // ExperimentAction
+ * //         actionId: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         parameters: { // ExperimentActionParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         targets: { // ExperimentActionTargetMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         startAfter: [ // ExperimentActionStartAfterList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         state: { // ExperimentActionState
+ * //           status: "pending" || "initiating" || "running" || "completed" || "cancelled" || "stopping" || "stopped" || "failed",
+ * //           reason: "STRING_VALUE",
+ * //         },
+ * //         startTime: new Date("TIMESTAMP"),
+ * //         endTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //     stopConditions: [ // ExperimentStopConditionList
+ * //       { // ExperimentStopCondition
+ * //         source: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     logConfiguration: { // ExperimentLogConfiguration
+ * //       cloudWatchLogsConfiguration: { // ExperimentCloudWatchLogsLogConfiguration
+ * //         logGroupArn: "STRING_VALUE",
+ * //       },
+ * //       s3Configuration: { // ExperimentS3LogConfiguration
+ * //         bucketName: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       logSchemaVersion: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

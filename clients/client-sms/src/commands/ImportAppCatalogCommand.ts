@@ -44,8 +44,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * };
  * const command = new ImportAppCatalogCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

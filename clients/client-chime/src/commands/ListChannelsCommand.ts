@@ -72,20 +72,19 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelsResponse
- *   Channels: [ // ChannelSummaryList
- *     { // ChannelSummary
- *       Name: "STRING_VALUE",
- *       ChannelArn: "STRING_VALUE",
- *       Mode: "UNRESTRICTED" || "RESTRICTED",
- *       Privacy: "PUBLIC" || "PRIVATE",
- *       Metadata: "STRING_VALUE",
- *       LastMessageTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelsResponse
+ * //   Channels: [ // ChannelSummaryList
+ * //     { // ChannelSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //       LastMessageTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

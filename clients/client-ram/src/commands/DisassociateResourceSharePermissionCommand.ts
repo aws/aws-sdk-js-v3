@@ -56,11 +56,10 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * };
  * const command = new DisassociateResourceSharePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateResourceSharePermissionResponse
- *   returnValue: true || false,
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // DisassociateResourceSharePermissionResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

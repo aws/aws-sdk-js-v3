@@ -58,8 +58,7 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisableKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

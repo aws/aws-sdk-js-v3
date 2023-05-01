@@ -67,10 +67,9 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * };
  * const command = new CreateApplicationPresignedUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationPresignedUrlResponse
- *   AuthorizedUrl: "STRING_VALUE",
- * };
+ * // { // CreateApplicationPresignedUrlResponse
+ * //   AuthorizedUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

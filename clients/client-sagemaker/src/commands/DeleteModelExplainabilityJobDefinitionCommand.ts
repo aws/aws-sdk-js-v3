@@ -48,8 +48,7 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * };
  * const command = new DeleteModelExplainabilityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

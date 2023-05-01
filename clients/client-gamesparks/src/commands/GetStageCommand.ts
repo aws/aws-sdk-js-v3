@@ -45,23 +45,22 @@ export interface GetStageCommandOutput extends GetStageResult, __MetadataBearer 
  * };
  * const command = new GetStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStageResult
- *   Stage: { // StageDetails
- *     Name: "STRING_VALUE",
- *     GameKey: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Role: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *     State: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     LogGroup: "STRING_VALUE",
- *   },
- * };
+ * // { // GetStageResult
+ * //   Stage: { // StageDetails
+ * //     Name: "STRING_VALUE",
+ * //     GameKey: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Role: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     State: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     LogGroup: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

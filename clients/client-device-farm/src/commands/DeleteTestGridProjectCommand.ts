@@ -50,8 +50,7 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * };
  * const command = new DeleteTestGridProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

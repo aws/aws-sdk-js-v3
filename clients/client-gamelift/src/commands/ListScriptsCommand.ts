@@ -58,26 +58,25 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * };
  * const command = new ListScriptsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListScriptsOutput
- *   Scripts: [ // ScriptList
- *     { // Script
- *       ScriptId: "STRING_VALUE",
- *       ScriptArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *       SizeOnDisk: Number("long"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       StorageLocation: { // S3Location
- *         Bucket: "STRING_VALUE",
- *         Key: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE",
- *         ObjectVersion: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListScriptsOutput
+ * //   Scripts: [ // ScriptList
+ * //     { // Script
+ * //       ScriptId: "STRING_VALUE",
+ * //       ScriptArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //       SizeOnDisk: Number("long"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       StorageLocation: { // S3Location
+ * //         Bucket: "STRING_VALUE",
+ * //         Key: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE",
+ * //         ObjectVersion: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

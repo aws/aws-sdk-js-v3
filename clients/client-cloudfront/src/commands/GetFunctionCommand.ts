@@ -48,12 +48,11 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFunctionResult
- *   FunctionCode: "BLOB_VALUE",
- *   ETag: "STRING_VALUE",
- *   ContentType: "STRING_VALUE",
- * };
+ * // { // GetFunctionResult
+ * //   FunctionCode: "BLOB_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

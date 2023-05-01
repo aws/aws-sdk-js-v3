@@ -44,8 +44,7 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * };
  * const command = new DeleteFindingsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

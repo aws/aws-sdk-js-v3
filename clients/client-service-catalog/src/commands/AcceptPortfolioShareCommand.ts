@@ -46,8 +46,7 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  * };
  * const command = new AcceptPortfolioShareCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

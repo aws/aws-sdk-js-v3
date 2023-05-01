@@ -56,8 +56,7 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * };
  * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

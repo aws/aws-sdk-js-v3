@@ -54,8 +54,7 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * };
  * const command = new UpdateProvisioningTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

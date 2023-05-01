@@ -49,11 +49,10 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * };
  * const command = new DeleteResourceShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResourceShareResponse
- *   returnValue: true || false,
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // DeleteResourceShareResponse
+ * //   returnValue: true || false,
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

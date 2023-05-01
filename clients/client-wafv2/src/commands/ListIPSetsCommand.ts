@@ -47,19 +47,18 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * };
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIPSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   IPSets: [ // IPSetSummaries
- *     { // IPSetSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       LockToken: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListIPSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   IPSets: [ // IPSetSummaries
+ * //     { // IPSetSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LockToken: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

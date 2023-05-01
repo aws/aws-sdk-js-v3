@@ -46,27 +46,26 @@ export interface ListSolNetworkOperationsCommandOutput extends ListSolNetworkOpe
  * };
  * const command = new ListSolNetworkOperationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSolNetworkOperationsOutput
- *   nextToken: "STRING_VALUE",
- *   networkOperations: [ // ListSolNetworkOperationsResources
- *     { // ListSolNetworkOperationsInfo
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       operationState: "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
- *       nsInstanceId: "STRING_VALUE", // required
- *       lcmOperationType: "INSTANTIATE" || "UPDATE" || "TERMINATE", // required
- *       error: { // ProblemDetails
- *         detail: "STRING_VALUE", // required
- *         title: "STRING_VALUE",
- *       },
- *       metadata: { // ListSolNetworkOperationsMetadata
- *         createdAt: new Date("TIMESTAMP"), // required
- *         lastModified: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- * };
+ * // { // ListSolNetworkOperationsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   networkOperations: [ // ListSolNetworkOperationsResources
+ * //     { // ListSolNetworkOperationsInfo
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       operationState: "PROCESSING" || "COMPLETED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //       nsInstanceId: "STRING_VALUE", // required
+ * //       lcmOperationType: "INSTANTIATE" || "UPDATE" || "TERMINATE", // required
+ * //       error: { // ProblemDetails
+ * //         detail: "STRING_VALUE", // required
+ * //         title: "STRING_VALUE",
+ * //       },
+ * //       metadata: { // ListSolNetworkOperationsMetadata
+ * //         createdAt: new Date("TIMESTAMP"), // required
+ * //         lastModified: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

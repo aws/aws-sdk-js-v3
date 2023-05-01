@@ -93,10 +93,9 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImageResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // CreateImageResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -68,8 +68,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

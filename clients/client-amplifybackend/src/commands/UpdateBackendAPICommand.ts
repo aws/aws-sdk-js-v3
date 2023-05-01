@@ -82,15 +82,14 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * };
  * const command = new UpdateBackendAPICommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackendAPIResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Operation: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // UpdateBackendAPIResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Operation: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

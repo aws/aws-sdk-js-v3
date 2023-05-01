@@ -44,10 +44,9 @@ export interface StartInferenceExperimentCommandOutput extends StartInferenceExp
  * };
  * const command = new StartInferenceExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartInferenceExperimentResponse
- *   InferenceExperimentArn: "STRING_VALUE", // required
- * };
+ * // { // StartInferenceExperimentResponse
+ * //   InferenceExperimentArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

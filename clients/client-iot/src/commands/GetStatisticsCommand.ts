@@ -50,19 +50,18 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * };
  * const command = new GetStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStatisticsResponse
- *   statistics: { // Statistics
- *     count: Number("int"),
- *     average: Number("double"),
- *     sum: Number("double"),
- *     minimum: Number("double"),
- *     maximum: Number("double"),
- *     sumOfSquares: Number("double"),
- *     variance: Number("double"),
- *     stdDeviation: Number("double"),
- *   },
- * };
+ * // { // GetStatisticsResponse
+ * //   statistics: { // Statistics
+ * //     count: Number("int"),
+ * //     average: Number("double"),
+ * //     sum: Number("double"),
+ * //     minimum: Number("double"),
+ * //     maximum: Number("double"),
+ * //     sumOfSquares: Number("double"),
+ * //     variance: Number("double"),
+ * //     stdDeviation: Number("double"),
+ * //   },
+ * // };
  *
  * ```
  *

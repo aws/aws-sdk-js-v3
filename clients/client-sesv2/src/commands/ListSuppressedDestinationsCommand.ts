@@ -51,17 +51,16 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * };
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSuppressedDestinationsResponse
- *   SuppressedDestinationSummaries: [ // SuppressedDestinationSummaries
- *     { // SuppressedDestinationSummary
- *       EmailAddress: "STRING_VALUE", // required
- *       Reason: "BOUNCE" || "COMPLAINT", // required
- *       LastUpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSuppressedDestinationsResponse
+ * //   SuppressedDestinationSummaries: [ // SuppressedDestinationSummaries
+ * //     { // SuppressedDestinationSummary
+ * //       EmailAddress: "STRING_VALUE", // required
+ * //       Reason: "BOUNCE" || "COMPLAINT", // required
+ * //       LastUpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

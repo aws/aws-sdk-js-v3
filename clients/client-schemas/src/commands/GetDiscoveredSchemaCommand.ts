@@ -47,10 +47,9 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * };
  * const command = new GetDiscoveredSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDiscoveredSchemaResponse
- *   Content: "STRING_VALUE",
- * };
+ * // { // GetDiscoveredSchemaResponse
+ * //   Content: "STRING_VALUE",
+ * // };
  *
  * ```
  *

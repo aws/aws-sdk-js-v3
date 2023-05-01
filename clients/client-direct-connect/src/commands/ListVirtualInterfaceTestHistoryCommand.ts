@@ -56,24 +56,23 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * };
  * const command = new ListVirtualInterfaceTestHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVirtualInterfaceTestHistoryResponse
- *   virtualInterfaceTestHistory: [ // VirtualInterfaceTestHistoryList
- *     { // VirtualInterfaceTestHistory
- *       testId: "STRING_VALUE",
- *       virtualInterfaceId: "STRING_VALUE",
- *       bgpPeers: [ // BGPPeerIdList
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE",
- *       ownerAccount: "STRING_VALUE",
- *       testDurationInMinutes: Number("int"),
- *       startTime: new Date("TIMESTAMP"),
- *       endTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVirtualInterfaceTestHistoryResponse
+ * //   virtualInterfaceTestHistory: [ // VirtualInterfaceTestHistoryList
+ * //     { // VirtualInterfaceTestHistory
+ * //       testId: "STRING_VALUE",
+ * //       virtualInterfaceId: "STRING_VALUE",
+ * //       bgpPeers: [ // BGPPeerIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       testDurationInMinutes: Number("int"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

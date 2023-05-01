@@ -47,8 +47,7 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * };
  * const command = new DeleteEventCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

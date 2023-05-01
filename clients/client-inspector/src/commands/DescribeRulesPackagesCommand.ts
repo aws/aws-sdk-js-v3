@@ -48,24 +48,23 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRulesPackagesResponse
- *   rulesPackages: [ // RulesPackageList // required
- *     { // RulesPackage
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       version: "STRING_VALUE", // required
- *       provider: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // DescribeRulesPackagesResponse
+ * //   rulesPackages: [ // RulesPackageList // required
+ * //     { // RulesPackage
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

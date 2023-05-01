@@ -58,10 +58,9 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * };
  * const command = new GetSchemaVersionsDiffCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaVersionsDiffResponse
- *   Diff: "STRING_VALUE",
- * };
+ * // { // GetSchemaVersionsDiffResponse
+ * //   Diff: "STRING_VALUE",
+ * // };
  *
  * ```
  *

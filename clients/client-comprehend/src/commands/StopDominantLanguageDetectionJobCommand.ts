@@ -58,11 +58,10 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * };
  * const command = new StopDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopDominantLanguageDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopDominantLanguageDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

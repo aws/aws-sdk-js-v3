@@ -45,22 +45,21 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * };
  * const command = new ListUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserSettingsResponse
- *   userSettings: [ // UserSettingsList
- *     { // UserSettingsSummary
- *       userSettingsArn: "STRING_VALUE",
- *       copyAllowed: "STRING_VALUE",
- *       pasteAllowed: "STRING_VALUE",
- *       downloadAllowed: "STRING_VALUE",
- *       uploadAllowed: "STRING_VALUE",
- *       printAllowed: "STRING_VALUE",
- *       disconnectTimeoutInMinutes: Number("int"),
- *       idleDisconnectTimeoutInMinutes: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUserSettingsResponse
+ * //   userSettings: [ // UserSettingsList
+ * //     { // UserSettingsSummary
+ * //       userSettingsArn: "STRING_VALUE",
+ * //       copyAllowed: "STRING_VALUE",
+ * //       pasteAllowed: "STRING_VALUE",
+ * //       downloadAllowed: "STRING_VALUE",
+ * //       uploadAllowed: "STRING_VALUE",
+ * //       printAllowed: "STRING_VALUE",
+ * //       disconnectTimeoutInMinutes: Number("int"),
+ * //       idleDisconnectTimeoutInMinutes: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

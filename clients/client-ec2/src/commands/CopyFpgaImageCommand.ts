@@ -49,10 +49,9 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * };
  * const command = new CopyFpgaImageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CopyFpgaImageResult
- *   FpgaImageId: "STRING_VALUE",
- * };
+ * // { // CopyFpgaImageResult
+ * //   FpgaImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

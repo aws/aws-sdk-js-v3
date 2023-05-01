@@ -45,12 +45,11 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * };
  * const command = new GetTopicAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTopicAttributesResponse
- *   Attributes: { // TopicAttributesMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetTopicAttributesResponse
+ * //   Attributes: { // TopicAttributesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

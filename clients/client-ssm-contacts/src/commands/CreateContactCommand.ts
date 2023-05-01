@@ -77,10 +77,9 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContactResult
- *   ContactArn: "STRING_VALUE", // required
- * };
+ * // { // CreateContactResult
+ * //   ContactArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

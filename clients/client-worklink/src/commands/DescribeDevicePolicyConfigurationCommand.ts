@@ -54,10 +54,9 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  * };
  * const command = new DescribeDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDevicePolicyConfigurationResponse
- *   DeviceCaCertificate: "STRING_VALUE",
- * };
+ * // { // DescribeDevicePolicyConfigurationResponse
+ * //   DeviceCaCertificate: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,28 +44,27 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * };
  * const command = new GetVariantStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVariantStoreResponse
- *   id: "STRING_VALUE", // required
- *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
- *   },
- *   status: "STRING_VALUE", // required
- *   storeArn: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   description: "STRING_VALUE", // required
- *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- *   updateTime: new Date("TIMESTAMP"), // required
- *   tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- *   statusMessage: "STRING_VALUE", // required
- *   storeSizeBytes: Number("long"), // required
- * };
+ * // { // GetVariantStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   storeArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   description: "STRING_VALUE", // required
+ * //   sseConfig: { // SseConfig
+ * //     type: "STRING_VALUE", // required
+ * //     keyArn: "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"), // required
+ * //   tags: { // TagMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   statusMessage: "STRING_VALUE", // required
+ * //   storeSizeBytes: Number("long"), // required
+ * // };
  *
  * ```
  *

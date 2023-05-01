@@ -44,18 +44,17 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * };
  * const command = new GetManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetManagedScalingPolicyOutput
- *   ManagedScalingPolicy: { // ManagedScalingPolicy
- *     ComputeLimits: { // ComputeLimits
- *       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
- *       MinimumCapacityUnits: Number("int"), // required
- *       MaximumCapacityUnits: Number("int"), // required
- *       MaximumOnDemandCapacityUnits: Number("int"),
- *       MaximumCoreCapacityUnits: Number("int"),
- *     },
- *   },
- * };
+ * // { // GetManagedScalingPolicyOutput
+ * //   ManagedScalingPolicy: { // ManagedScalingPolicy
+ * //     ComputeLimits: { // ComputeLimits
+ * //       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
+ * //       MinimumCapacityUnits: Number("int"), // required
+ * //       MaximumCapacityUnits: Number("int"), // required
+ * //       MaximumOnDemandCapacityUnits: Number("int"),
+ * //       MaximumCoreCapacityUnits: Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

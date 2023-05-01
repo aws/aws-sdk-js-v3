@@ -46,8 +46,7 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * };
  * const command = new DetachSecurityProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * };
  * const command = new RegisterDelegatedAdministratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

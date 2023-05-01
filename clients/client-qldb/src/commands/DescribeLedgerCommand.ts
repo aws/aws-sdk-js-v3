@@ -45,20 +45,19 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * };
  * const command = new DescribeLedgerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLedgerResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
- *   CreationDateTime: new Date("TIMESTAMP"),
- *   PermissionsMode: "ALLOW_ALL" || "STANDARD",
- *   DeletionProtection: true || false,
- *   EncryptionDescription: { // LedgerEncryptionDescription
- *     KmsKeyArn: "STRING_VALUE", // required
- *     EncryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE", // required
- *     InaccessibleKmsKeyDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeLedgerResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * //   DeletionProtection: true || false,
+ * //   EncryptionDescription: { // LedgerEncryptionDescription
+ * //     KmsKeyArn: "STRING_VALUE", // required
+ * //     EncryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE", // required
+ * //     InaccessibleKmsKeyDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

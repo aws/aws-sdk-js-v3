@@ -50,15 +50,14 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * };
  * const command = new UpdateFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFindingAggregatorResponse
- *   FindingAggregatorArn: "STRING_VALUE",
- *   FindingAggregationRegion: "STRING_VALUE",
- *   RegionLinkingMode: "STRING_VALUE",
- *   Regions: [ // StringList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UpdateFindingAggregatorResponse
+ * //   FindingAggregatorArn: "STRING_VALUE",
+ * //   FindingAggregationRegion: "STRING_VALUE",
+ * //   RegionLinkingMode: "STRING_VALUE",
+ * //   Regions: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

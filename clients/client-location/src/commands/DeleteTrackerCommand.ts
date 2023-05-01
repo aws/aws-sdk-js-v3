@@ -49,8 +49,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * };
  * const command = new DeleteTrackerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

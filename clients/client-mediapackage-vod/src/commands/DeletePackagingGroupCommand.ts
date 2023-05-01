@@ -44,8 +44,7 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * };
  * const command = new DeletePackagingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

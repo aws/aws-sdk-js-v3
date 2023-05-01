@@ -49,8 +49,7 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * };
  * const command = new UpdateEventConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * };
  * const command = new PutManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

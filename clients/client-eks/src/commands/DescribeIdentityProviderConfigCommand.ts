@@ -53,29 +53,28 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * };
  * const command = new DescribeIdentityProviderConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIdentityProviderConfigResponse
- *   identityProviderConfig: { // IdentityProviderConfigResponse
- *     oidc: { // OidcIdentityProviderConfig
- *       identityProviderConfigName: "STRING_VALUE",
- *       identityProviderConfigArn: "STRING_VALUE",
- *       clusterName: "STRING_VALUE",
- *       issuerUrl: "STRING_VALUE",
- *       clientId: "STRING_VALUE",
- *       usernameClaim: "STRING_VALUE",
- *       usernamePrefix: "STRING_VALUE",
- *       groupsClaim: "STRING_VALUE",
- *       groupsPrefix: "STRING_VALUE",
- *       requiredClaims: { // requiredClaimsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       status: "CREATING" || "DELETING" || "ACTIVE",
- *     },
- *   },
- * };
+ * // { // DescribeIdentityProviderConfigResponse
+ * //   identityProviderConfig: { // IdentityProviderConfigResponse
+ * //     oidc: { // OidcIdentityProviderConfig
+ * //       identityProviderConfigName: "STRING_VALUE",
+ * //       identityProviderConfigArn: "STRING_VALUE",
+ * //       clusterName: "STRING_VALUE",
+ * //       issuerUrl: "STRING_VALUE",
+ * //       clientId: "STRING_VALUE",
+ * //       usernameClaim: "STRING_VALUE",
+ * //       usernamePrefix: "STRING_VALUE",
+ * //       groupsClaim: "STRING_VALUE",
+ * //       groupsPrefix: "STRING_VALUE",
+ * //       requiredClaims: { // requiredClaimsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       status: "CREATING" || "DELETING" || "ACTIVE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

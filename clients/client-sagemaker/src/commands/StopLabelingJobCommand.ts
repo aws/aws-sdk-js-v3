@@ -45,8 +45,7 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopLabelingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

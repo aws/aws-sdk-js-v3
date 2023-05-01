@@ -49,22 +49,21 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentsResponse
- *   environments: [ // EnvironmentSummaryList // required
- *     { // EnvironmentSummary
- *       name: "STRING_VALUE", // required
- *       environmentArn: "STRING_VALUE", // required
- *       environmentId: "STRING_VALUE", // required
- *       instanceType: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       engineType: "STRING_VALUE", // required
- *       engineVersion: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEnvironmentsResponse
+ * //   environments: [ // EnvironmentSummaryList // required
+ * //     { // EnvironmentSummary
+ * //       name: "STRING_VALUE", // required
+ * //       environmentArn: "STRING_VALUE", // required
+ * //       environmentId: "STRING_VALUE", // required
+ * //       instanceType: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       engineType: "STRING_VALUE", // required
+ * //       engineVersion: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

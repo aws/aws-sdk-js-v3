@@ -61,15 +61,14 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagListMessage
- *   TagList: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // TagListMessage
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

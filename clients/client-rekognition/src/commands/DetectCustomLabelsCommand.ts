@@ -85,29 +85,28 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectCustomLabelsResponse
- *   CustomLabels: [ // CustomLabels
- *     { // CustomLabel
- *       Name: "STRING_VALUE",
- *       Confidence: Number("float"),
- *       Geometry: { // Geometry
- *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *         },
- *         Polygon: [ // Polygon
- *           { // Point
- *             X: Number("float"),
- *             Y: Number("float"),
- *           },
- *         ],
- *       },
- *     },
- *   ],
- * };
+ * // { // DetectCustomLabelsResponse
+ * //   CustomLabels: [ // CustomLabels
+ * //     { // CustomLabel
+ * //       Name: "STRING_VALUE",
+ * //       Confidence: Number("float"),
+ * //       Geometry: { // Geometry
+ * //         BoundingBox: { // BoundingBox
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         Polygon: [ // Polygon
+ * //           { // Point
+ * //             X: Number("float"),
+ * //             Y: Number("float"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

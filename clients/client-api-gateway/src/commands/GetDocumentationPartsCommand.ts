@@ -50,23 +50,22 @@ export interface GetDocumentationPartsCommandOutput extends DocumentationParts, 
  * };
  * const command = new GetDocumentationPartsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DocumentationParts
- *   items: [ // ListOfDocumentationPart
- *     { // DocumentationPart
- *       id: "STRING_VALUE",
- *       location: { // DocumentationPartLocation
- *         type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY", // required
- *         path: "STRING_VALUE",
- *         method: "STRING_VALUE",
- *         statusCode: "STRING_VALUE",
- *         name: "STRING_VALUE",
- *       },
- *       properties: "STRING_VALUE",
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // DocumentationParts
+ * //   items: [ // ListOfDocumentationPart
+ * //     { // DocumentationPart
+ * //       id: "STRING_VALUE",
+ * //       location: { // DocumentationPartLocation
+ * //         type: "API" || "AUTHORIZER" || "MODEL" || "RESOURCE" || "METHOD" || "PATH_PARAMETER" || "QUERY_PARAMETER" || "REQUEST_HEADER" || "REQUEST_BODY" || "RESPONSE" || "RESPONSE_HEADER" || "RESPONSE_BODY", // required
+ * //         path: "STRING_VALUE",
+ * //         method: "STRING_VALUE",
+ * //         statusCode: "STRING_VALUE",
+ * //         name: "STRING_VALUE",
+ * //       },
+ * //       properties: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

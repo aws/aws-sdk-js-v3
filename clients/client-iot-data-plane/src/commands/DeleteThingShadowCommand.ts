@@ -47,10 +47,9 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  * };
  * const command = new DeleteThingShadowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteThingShadowResponse
- *   payload: "BLOB_VALUE", // required
- * };
+ * // { // DeleteThingShadowResponse
+ * //   payload: "BLOB_VALUE", // required
+ * // };
  *
  * ```
  *

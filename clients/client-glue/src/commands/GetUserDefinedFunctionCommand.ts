@@ -46,24 +46,23 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * };
  * const command = new GetUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserDefinedFunctionResponse
- *   UserDefinedFunction: { // UserDefinedFunction
- *     FunctionName: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     ClassName: "STRING_VALUE",
- *     OwnerName: "STRING_VALUE",
- *     OwnerType: "USER" || "ROLE" || "GROUP",
- *     CreateTime: new Date("TIMESTAMP"),
- *     ResourceUris: [ // ResourceUriList
- *       { // ResourceUri
- *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
- *         Uri: "STRING_VALUE",
- *       },
- *     ],
- *     CatalogId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetUserDefinedFunctionResponse
+ * //   UserDefinedFunction: { // UserDefinedFunction
+ * //     FunctionName: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     ClassName: "STRING_VALUE",
+ * //     OwnerName: "STRING_VALUE",
+ * //     OwnerType: "USER" || "ROLE" || "GROUP",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     ResourceUris: [ // ResourceUriList
+ * //       { // ResourceUri
+ * //         ResourceType: "JAR" || "FILE" || "ARCHIVE",
+ * //         Uri: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     CatalogId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

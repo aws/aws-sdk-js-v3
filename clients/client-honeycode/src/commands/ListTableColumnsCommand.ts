@@ -48,18 +48,17 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * };
  * const command = new ListTableColumnsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTableColumnsResult
- *   tableColumns: [ // TableColumns // required
- *     { // TableColumn
- *       tableColumnId: "STRING_VALUE",
- *       tableColumnName: "STRING_VALUE",
- *       format: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   workbookCursor: Number("long"),
- * };
+ * // { // ListTableColumnsResult
+ * //   tableColumns: [ // TableColumns // required
+ * //     { // TableColumn
+ * //       tableColumnId: "STRING_VALUE",
+ * //       tableColumnName: "STRING_VALUE",
+ * //       format: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   workbookCursor: Number("long"),
+ * // };
  *
  * ```
  *

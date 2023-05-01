@@ -85,19 +85,18 @@ export interface ModifyVpcPeeringConnectionOptionsCommandOutput
  * };
  * const command = new ModifyVpcPeeringConnectionOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVpcPeeringConnectionOptionsResult
- *   AccepterPeeringConnectionOptions: { // PeeringConnectionOptions
- *     AllowDnsResolutionFromRemoteVpc: true || false,
- *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
- *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
- *   },
- *   RequesterPeeringConnectionOptions: {
- *     AllowDnsResolutionFromRemoteVpc: true || false,
- *     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
- *     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
- *   },
- * };
+ * // { // ModifyVpcPeeringConnectionOptionsResult
+ * //   AccepterPeeringConnectionOptions: { // PeeringConnectionOptions
+ * //     AllowDnsResolutionFromRemoteVpc: true || false,
+ * //     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ * //     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //   },
+ * //   RequesterPeeringConnectionOptions: {
+ * //     AllowDnsResolutionFromRemoteVpc: true || false,
+ * //     AllowEgressFromLocalClassicLinkToRemoteVpc: true || false,
+ * //     AllowEgressFromLocalVpcToRemoteClassicLink: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

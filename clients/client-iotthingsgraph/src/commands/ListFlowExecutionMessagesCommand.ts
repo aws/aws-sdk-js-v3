@@ -48,18 +48,17 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * };
  * const command = new ListFlowExecutionMessagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFlowExecutionMessagesResponse
- *   messages: [ // FlowExecutionMessages
- *     { // FlowExecutionMessage
- *       messageId: "STRING_VALUE",
- *       eventType: "STRING_VALUE",
- *       timestamp: new Date("TIMESTAMP"),
- *       payload: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFlowExecutionMessagesResponse
+ * //   messages: [ // FlowExecutionMessages
+ * //     { // FlowExecutionMessage
+ * //       messageId: "STRING_VALUE",
+ * //       eventType: "STRING_VALUE",
+ * //       timestamp: new Date("TIMESTAMP"),
+ * //       payload: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

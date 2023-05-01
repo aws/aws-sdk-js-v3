@@ -71,17 +71,16 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * };
  * const command = new PutManagedInsightRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutManagedInsightRulesOutput
- *   Failures: [ // BatchFailures
- *     { // PartialFailure
- *       FailureResource: "STRING_VALUE",
- *       ExceptionType: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureDescription: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutManagedInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

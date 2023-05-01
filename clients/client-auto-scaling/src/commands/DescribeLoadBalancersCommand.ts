@@ -76,16 +76,15 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancersResponse
- *   LoadBalancers: [ // LoadBalancerStates
- *     { // LoadBalancerState
- *       LoadBalancerName: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLoadBalancersResponse
+ * //   LoadBalancers: [ // LoadBalancerStates
+ * //     { // LoadBalancerState
+ * //       LoadBalancerName: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

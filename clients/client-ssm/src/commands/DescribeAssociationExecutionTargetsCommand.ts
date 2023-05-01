@@ -61,26 +61,25 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * };
  * const command = new DescribeAssociationExecutionTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAssociationExecutionTargetsResult
- *   AssociationExecutionTargets: [ // AssociationExecutionTargetsList
- *     { // AssociationExecutionTarget
- *       AssociationId: "STRING_VALUE",
- *       AssociationVersion: "STRING_VALUE",
- *       ExecutionId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       DetailedStatus: "STRING_VALUE",
- *       LastExecutionDate: new Date("TIMESTAMP"),
- *       OutputSource: { // OutputSource
- *         OutputSourceId: "STRING_VALUE",
- *         OutputSourceType: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAssociationExecutionTargetsResult
+ * //   AssociationExecutionTargets: [ // AssociationExecutionTargetsList
+ * //     { // AssociationExecutionTarget
+ * //       AssociationId: "STRING_VALUE",
+ * //       AssociationVersion: "STRING_VALUE",
+ * //       ExecutionId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       DetailedStatus: "STRING_VALUE",
+ * //       LastExecutionDate: new Date("TIMESTAMP"),
+ * //       OutputSource: { // OutputSource
+ * //         OutputSourceId: "STRING_VALUE",
+ * //         OutputSourceType: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

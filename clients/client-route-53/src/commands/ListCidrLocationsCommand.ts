@@ -47,15 +47,14 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * };
  * const command = new ListCidrLocationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCidrLocationsResponse
- *   NextToken: "STRING_VALUE",
- *   CidrLocations: [ // LocationSummaries
- *     { // LocationSummary
- *       LocationName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListCidrLocationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   CidrLocations: [ // LocationSummaries
+ * //     { // LocationSummary
+ * //       LocationName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -48,15 +48,14 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * };
  * const command = new ResetParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetParameterGroupResponse
- *   ParameterGroup: { // ParameterGroup
- *     Name: "STRING_VALUE",
- *     Family: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // ResetParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     Name: "STRING_VALUE",
+ * //     Family: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

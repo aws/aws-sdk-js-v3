@@ -105,13 +105,12 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * };
  * const command = new UpdateIndexTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIndexTypeOutput
- *   Arn: "STRING_VALUE",
- *   Type: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateIndexTypeOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

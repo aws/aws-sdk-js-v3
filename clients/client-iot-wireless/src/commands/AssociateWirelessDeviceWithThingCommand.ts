@@ -50,8 +50,7 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * };
  * const command = new AssociateWirelessDeviceWithThingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

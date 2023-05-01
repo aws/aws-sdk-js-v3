@@ -55,8 +55,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * };
  * const command = new DeleteWorkforceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,19 +52,18 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * };
  * const command = new DescribeTapeRecoveryPointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTapeRecoveryPointsOutput
- *   GatewayARN: "STRING_VALUE",
- *   TapeRecoveryPointInfos: [ // TapeRecoveryPointInfos
- *     { // TapeRecoveryPointInfo
- *       TapeARN: "STRING_VALUE",
- *       TapeRecoveryPointTime: new Date("TIMESTAMP"),
- *       TapeSizeInBytes: Number("long"),
- *       TapeStatus: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeTapeRecoveryPointsOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * //   TapeRecoveryPointInfos: [ // TapeRecoveryPointInfos
+ * //     { // TapeRecoveryPointInfo
+ * //       TapeARN: "STRING_VALUE",
+ * //       TapeRecoveryPointTime: new Date("TIMESTAMP"),
+ * //       TapeSizeInBytes: Number("long"),
+ * //       TapeStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

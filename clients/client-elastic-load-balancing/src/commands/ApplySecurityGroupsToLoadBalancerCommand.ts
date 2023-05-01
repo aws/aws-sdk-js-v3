@@ -58,12 +58,11 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * };
  * const command = new ApplySecurityGroupsToLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplySecurityGroupsToLoadBalancerOutput
- *   SecurityGroups: [ // SecurityGroups
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ApplySecurityGroupsToLoadBalancerOutput
+ * //   SecurityGroups: [ // SecurityGroups
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

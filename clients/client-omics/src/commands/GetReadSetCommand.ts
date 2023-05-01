@@ -52,10 +52,9 @@ export interface GetReadSetCommandOutput
  * };
  * const command = new GetReadSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReadSetResponse
- *   payload: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetReadSetResponse
+ * //   payload: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,10 +60,9 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * };
  * const command = new SetTypeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetTypeConfigurationOutput
- *   ConfigurationArn: "STRING_VALUE",
- * };
+ * // { // SetTypeConfigurationOutput
+ * //   ConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

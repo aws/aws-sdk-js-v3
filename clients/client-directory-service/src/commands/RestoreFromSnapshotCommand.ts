@@ -49,8 +49,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

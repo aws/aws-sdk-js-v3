@@ -71,10 +71,9 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterInstanceResult
- *   InstanceId: "STRING_VALUE",
- * };
+ * // { // RegisterInstanceResult
+ * //   InstanceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

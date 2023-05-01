@@ -45,32 +45,31 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsResponse
- *   DomainSummaries: [ // DomainSummaries
- *     { // DomainSummary
- *       DomainId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DomainStatus: "STRING_VALUE",
- *       ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *         KmsKeyId: "STRING_VALUE", // required
- *       },
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *       ServerSideEncryptionUpdateDetails: { // ServerSideEncryptionUpdateDetails
- *         OldKmsKeyId: "STRING_VALUE",
- *         UpdateStatus: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *       WatchlistDetails: { // WatchlistDetails
- *         DefaultWatchlistId: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainsResponse
+ * //   DomainSummaries: [ // DomainSummaries
+ * //     { // DomainSummary
+ * //       DomainId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DomainStatus: "STRING_VALUE",
+ * //       ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //         KmsKeyId: "STRING_VALUE", // required
+ * //       },
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //       ServerSideEncryptionUpdateDetails: { // ServerSideEncryptionUpdateDetails
+ * //         OldKmsKeyId: "STRING_VALUE",
+ * //         UpdateStatus: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       WatchlistDetails: { // WatchlistDetails
+ * //         DefaultWatchlistId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

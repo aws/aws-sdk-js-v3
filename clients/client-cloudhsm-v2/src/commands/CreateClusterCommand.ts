@@ -58,53 +58,52 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClusterResponse
- *   Cluster: { // Cluster
- *     BackupPolicy: "STRING_VALUE",
- *     BackupRetentionPolicy: { // BackupRetentionPolicy
- *       Type: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *     ClusterId: "STRING_VALUE",
- *     CreateTimestamp: new Date("TIMESTAMP"),
- *     Hsms: [ // Hsms
- *       { // Hsm
- *         AvailabilityZone: "STRING_VALUE",
- *         ClusterId: "STRING_VALUE",
- *         SubnetId: "STRING_VALUE",
- *         EniId: "STRING_VALUE",
- *         EniIp: "STRING_VALUE",
- *         HsmId: "STRING_VALUE", // required
- *         State: "STRING_VALUE",
- *         StateMessage: "STRING_VALUE",
- *       },
- *     ],
- *     HsmType: "STRING_VALUE",
- *     PreCoPassword: "STRING_VALUE",
- *     SecurityGroup: "STRING_VALUE",
- *     SourceBackupId: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     StateMessage: "STRING_VALUE",
- *     SubnetMapping: { // ExternalSubnetMapping
- *       "<keys>": "STRING_VALUE",
- *     },
- *     VpcId: "STRING_VALUE",
- *     Certificates: { // Certificates
- *       ClusterCsr: "STRING_VALUE",
- *       HsmCertificate: "STRING_VALUE",
- *       AwsHardwareCertificate: "STRING_VALUE",
- *       ManufacturerHardwareCertificate: "STRING_VALUE",
- *       ClusterCertificate: "STRING_VALUE",
- *     },
- *     TagList: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateClusterResponse
+ * //   Cluster: { // Cluster
+ * //     BackupPolicy: "STRING_VALUE",
+ * //     BackupRetentionPolicy: { // BackupRetentionPolicy
+ * //       Type: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //     ClusterId: "STRING_VALUE",
+ * //     CreateTimestamp: new Date("TIMESTAMP"),
+ * //     Hsms: [ // Hsms
+ * //       { // Hsm
+ * //         AvailabilityZone: "STRING_VALUE",
+ * //         ClusterId: "STRING_VALUE",
+ * //         SubnetId: "STRING_VALUE",
+ * //         EniId: "STRING_VALUE",
+ * //         EniIp: "STRING_VALUE",
+ * //         HsmId: "STRING_VALUE", // required
+ * //         State: "STRING_VALUE",
+ * //         StateMessage: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     PreCoPassword: "STRING_VALUE",
+ * //     SecurityGroup: "STRING_VALUE",
+ * //     SourceBackupId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     StateMessage: "STRING_VALUE",
+ * //     SubnetMapping: { // ExternalSubnetMapping
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     VpcId: "STRING_VALUE",
+ * //     Certificates: { // Certificates
+ * //       ClusterCsr: "STRING_VALUE",
+ * //       HsmCertificate: "STRING_VALUE",
+ * //       AwsHardwareCertificate: "STRING_VALUE",
+ * //       ManufacturerHardwareCertificate: "STRING_VALUE",
+ * //       ClusterCertificate: "STRING_VALUE",
+ * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

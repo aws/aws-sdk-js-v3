@@ -47,8 +47,7 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteIntegrationResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

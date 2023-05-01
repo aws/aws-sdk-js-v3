@@ -45,8 +45,7 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  * };
  * const command = new DeleteFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

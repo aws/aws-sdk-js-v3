@@ -50,8 +50,7 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * };
  * const command = new StopMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,10 +54,9 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * };
  * const command = new UpdatePermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePermissionGroupResponse
- *   permissionGroupId: "STRING_VALUE",
- * };
+ * // { // UpdatePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

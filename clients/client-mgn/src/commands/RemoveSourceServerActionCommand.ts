@@ -45,8 +45,7 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * };
  * const command = new RemoveSourceServerActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

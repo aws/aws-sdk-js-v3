@@ -73,8 +73,7 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * };
  * const command = new DeleteFacetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

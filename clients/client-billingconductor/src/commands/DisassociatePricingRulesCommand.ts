@@ -49,10 +49,9 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  * };
  * const command = new DisassociatePricingRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociatePricingRulesOutput
- *   Arn: "STRING_VALUE",
- * };
+ * // { // DisassociatePricingRulesOutput
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

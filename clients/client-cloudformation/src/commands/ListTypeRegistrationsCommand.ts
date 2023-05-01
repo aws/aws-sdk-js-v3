@@ -49,13 +49,12 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * };
  * const command = new ListTypeRegistrationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypeRegistrationsOutput
- *   RegistrationTokenList: [ // RegistrationTokenList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTypeRegistrationsOutput
+ * //   RegistrationTokenList: [ // RegistrationTokenList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

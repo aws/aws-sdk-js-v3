@@ -48,13 +48,12 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNodegroupsResponse
- *   nodegroups: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListNodegroupsResponse
+ * //   nodegroups: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

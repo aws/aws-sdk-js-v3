@@ -57,18 +57,17 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * };
  * const command = new ResetServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetServiceSpecificCredentialResponse
- *   ServiceSpecificCredential: { // ServiceSpecificCredential
- *     CreateDate: new Date("TIMESTAMP"), // required
- *     ServiceName: "STRING_VALUE", // required
- *     ServiceUserName: "STRING_VALUE", // required
- *     ServicePassword: "STRING_VALUE", // required
- *     ServiceSpecificCredentialId: "STRING_VALUE", // required
- *     UserName: "STRING_VALUE", // required
- *     Status: "Active" || "Inactive", // required
- *   },
- * };
+ * // { // ResetServiceSpecificCredentialResponse
+ * //   ServiceSpecificCredential: { // ServiceSpecificCredential
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //     ServiceName: "STRING_VALUE", // required
+ * //     ServiceUserName: "STRING_VALUE", // required
+ * //     ServicePassword: "STRING_VALUE", // required
+ * //     ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * //     UserName: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //   },
+ * // };
  *
  * ```
  *

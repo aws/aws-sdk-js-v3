@@ -45,8 +45,7 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

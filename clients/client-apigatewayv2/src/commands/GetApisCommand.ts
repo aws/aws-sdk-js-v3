@@ -45,51 +45,50 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * };
  * const command = new GetApisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApisResponse
- *   Items: [ // __listOfApi
- *     { // Api
- *       ApiEndpoint: "STRING_VALUE",
- *       ApiGatewayManaged: true || false,
- *       ApiId: "STRING_VALUE",
- *       ApiKeySelectionExpression: "STRING_VALUE",
- *       CorsConfiguration: { // Cors
- *         AllowCredentials: true || false,
- *         AllowHeaders: [ // CorsHeaderList
- *           "STRING_VALUE",
- *         ],
- *         AllowMethods: [ // CorsMethodList
- *           "STRING_VALUE",
- *         ],
- *         AllowOrigins: [ // CorsOriginList
- *           "STRING_VALUE",
- *         ],
- *         ExposeHeaders: [
- *           "STRING_VALUE",
- *         ],
- *         MaxAge: Number("int"),
- *       },
- *       CreatedDate: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       DisableSchemaValidation: true || false,
- *       DisableExecuteApiEndpoint: true || false,
- *       ImportInfo: [ // __listOf__string
- *         "STRING_VALUE",
- *       ],
- *       Name: "STRING_VALUE", // required
- *       ProtocolType: "STRING_VALUE", // required
- *       RouteSelectionExpression: "STRING_VALUE", // required
- *       Tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *       Version: "STRING_VALUE",
- *       Warnings: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetApisResponse
+ * //   Items: [ // __listOfApi
+ * //     { // Api
+ * //       ApiEndpoint: "STRING_VALUE",
+ * //       ApiGatewayManaged: true || false,
+ * //       ApiId: "STRING_VALUE",
+ * //       ApiKeySelectionExpression: "STRING_VALUE",
+ * //       CorsConfiguration: { // Cors
+ * //         AllowCredentials: true || false,
+ * //         AllowHeaders: [ // CorsHeaderList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowMethods: [ // CorsMethodList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowOrigins: [ // CorsOriginList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         ExposeHeaders: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         MaxAge: Number("int"),
+ * //       },
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       DisableSchemaValidation: true || false,
+ * //       DisableExecuteApiEndpoint: true || false,
+ * //       ImportInfo: [ // __listOf__string
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Name: "STRING_VALUE", // required
+ * //       ProtocolType: "STRING_VALUE", // required
+ * //       RouteSelectionExpression: "STRING_VALUE", // required
+ * //       Tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       Version: "STRING_VALUE",
+ * //       Warnings: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

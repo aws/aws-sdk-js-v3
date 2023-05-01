@@ -54,26 +54,25 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * };
  * const command = new SearchTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchTransitGatewayRoutesResult
- *   Routes: [ // TransitGatewayRouteList
- *     { // TransitGatewayRoute
- *       DestinationCidrBlock: "STRING_VALUE",
- *       PrefixListId: "STRING_VALUE",
- *       TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
- *       TransitGatewayAttachments: [ // TransitGatewayRouteAttachmentList
- *         { // TransitGatewayRouteAttachment
- *           ResourceId: "STRING_VALUE",
- *           TransitGatewayAttachmentId: "STRING_VALUE",
- *           ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *         },
- *       ],
- *       Type: "static" || "propagated",
- *       State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
- *     },
- *   ],
- *   AdditionalRoutesAvailable: true || false,
- * };
+ * // { // SearchTransitGatewayRoutesResult
+ * //   Routes: [ // TransitGatewayRouteList
+ * //     { // TransitGatewayRoute
+ * //       DestinationCidrBlock: "STRING_VALUE",
+ * //       PrefixListId: "STRING_VALUE",
+ * //       TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //       TransitGatewayAttachments: [ // TransitGatewayRouteAttachmentList
+ * //         { // TransitGatewayRouteAttachment
+ * //           ResourceId: "STRING_VALUE",
+ * //           TransitGatewayAttachmentId: "STRING_VALUE",
+ * //           ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //         },
+ * //       ],
+ * //       Type: "static" || "propagated",
+ * //       State: "pending" || "active" || "blackhole" || "deleting" || "deleted",
+ * //     },
+ * //   ],
+ * //   AdditionalRoutesAvailable: true || false,
+ * // };
  *
  * ```
  *

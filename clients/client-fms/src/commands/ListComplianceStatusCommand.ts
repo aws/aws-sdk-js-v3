@@ -48,29 +48,28 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * };
  * const command = new ListComplianceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComplianceStatusResponse
- *   PolicyComplianceStatusList: [ // PolicyComplianceStatusList
- *     { // PolicyComplianceStatus
- *       PolicyOwner: "STRING_VALUE",
- *       PolicyId: "STRING_VALUE",
- *       PolicyName: "STRING_VALUE",
- *       MemberAccount: "STRING_VALUE",
- *       EvaluationResults: [ // EvaluationResults
- *         { // EvaluationResult
- *           ComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
- *           ViolatorCount: Number("long"),
- *           EvaluationLimitExceeded: true || false,
- *         },
- *       ],
- *       LastUpdated: new Date("TIMESTAMP"),
- *       IssueInfoMap: { // IssueInfoMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListComplianceStatusResponse
+ * //   PolicyComplianceStatusList: [ // PolicyComplianceStatusList
+ * //     { // PolicyComplianceStatus
+ * //       PolicyOwner: "STRING_VALUE",
+ * //       PolicyId: "STRING_VALUE",
+ * //       PolicyName: "STRING_VALUE",
+ * //       MemberAccount: "STRING_VALUE",
+ * //       EvaluationResults: [ // EvaluationResults
+ * //         { // EvaluationResult
+ * //           ComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
+ * //           ViolatorCount: Number("long"),
+ * //           EvaluationLimitExceeded: true || false,
+ * //         },
+ * //       ],
+ * //       LastUpdated: new Date("TIMESTAMP"),
+ * //       IssueInfoMap: { // IssueInfoMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

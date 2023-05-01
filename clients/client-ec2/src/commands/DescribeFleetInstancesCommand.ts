@@ -56,19 +56,18 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * };
  * const command = new DescribeFleetInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetInstancesResult
- *   ActiveInstances: [ // ActiveInstanceSet
- *     { // ActiveInstance
- *       InstanceId: "STRING_VALUE",
- *       InstanceType: "STRING_VALUE",
- *       SpotInstanceRequestId: "STRING_VALUE",
- *       InstanceHealth: "healthy" || "unhealthy",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   FleetId: "STRING_VALUE",
- * };
+ * // { // DescribeFleetInstancesResult
+ * //   ActiveInstances: [ // ActiveInstanceSet
+ * //     { // ActiveInstance
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceType: "STRING_VALUE",
+ * //       SpotInstanceRequestId: "STRING_VALUE",
+ * //       InstanceHealth: "healthy" || "unhealthy",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   FleetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

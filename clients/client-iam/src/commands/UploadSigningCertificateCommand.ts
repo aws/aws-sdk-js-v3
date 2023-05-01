@@ -64,16 +64,15 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * };
  * const command = new UploadSigningCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadSigningCertificateResponse
- *   Certificate: { // SigningCertificate
- *     UserName: "STRING_VALUE", // required
- *     CertificateId: "STRING_VALUE", // required
- *     CertificateBody: "STRING_VALUE", // required
- *     Status: "Active" || "Inactive", // required
- *     UploadDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UploadSigningCertificateResponse
+ * //   Certificate: { // SigningCertificate
+ * //     UserName: "STRING_VALUE", // required
+ * //     CertificateId: "STRING_VALUE", // required
+ * //     CertificateBody: "STRING_VALUE", // required
+ * //     Status: "Active" || "Inactive", // required
+ * //     UploadDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

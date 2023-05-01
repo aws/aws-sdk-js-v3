@@ -62,13 +62,12 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * };
  * const command = new UpdateDataSetPermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDataSetPermissionsResponse
- *   DataSetArn: "STRING_VALUE",
- *   DataSetId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // UpdateDataSetPermissionsResponse
+ * //   DataSetArn: "STRING_VALUE",
+ * //   DataSetId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

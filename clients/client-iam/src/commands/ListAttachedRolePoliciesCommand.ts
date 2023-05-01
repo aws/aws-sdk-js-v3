@@ -56,17 +56,16 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  * };
  * const command = new ListAttachedRolePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttachedRolePoliciesResponse
- *   AttachedPolicies: [ // attachedPoliciesListType
- *     { // AttachedPolicy
- *       PolicyName: "STRING_VALUE",
- *       PolicyArn: "STRING_VALUE",
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListAttachedRolePoliciesResponse
+ * //   AttachedPolicies: [ // attachedPoliciesListType
+ * //     { // AttachedPolicy
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

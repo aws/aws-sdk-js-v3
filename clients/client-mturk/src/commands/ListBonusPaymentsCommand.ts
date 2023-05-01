@@ -52,20 +52,19 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * };
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBonusPaymentsResponse
- *   NumResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   BonusPayments: [ // BonusPaymentList
- *     { // BonusPayment
- *       WorkerId: "STRING_VALUE",
- *       BonusAmount: "STRING_VALUE",
- *       AssignmentId: "STRING_VALUE",
- *       Reason: "STRING_VALUE",
- *       GrantTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListBonusPaymentsResponse
+ * //   NumResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   BonusPayments: [ // BonusPaymentList
+ * //     { // BonusPayment
+ * //       WorkerId: "STRING_VALUE",
+ * //       BonusAmount: "STRING_VALUE",
+ * //       AssignmentId: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //       GrantTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

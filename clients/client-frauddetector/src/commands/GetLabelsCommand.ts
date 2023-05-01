@@ -51,19 +51,18 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * };
  * const command = new GetLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLabelsResult
- *   labels: [ // labelList
- *     { // Label
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetLabelsResult
+ * //   labels: [ // labelList
+ * //     { // Label
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

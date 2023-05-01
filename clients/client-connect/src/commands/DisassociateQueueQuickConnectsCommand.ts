@@ -52,8 +52,7 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * };
  * const command = new DisassociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

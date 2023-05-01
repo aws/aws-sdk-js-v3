@@ -46,18 +46,17 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * };
  * const command = new GetUploadStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUploadStatusResponse
- *   uploadId: "STRING_VALUE", // required
- *   uploadStatus: "STRING_VALUE", // required
- *   namespaceArn: "STRING_VALUE",
- *   namespaceName: "STRING_VALUE",
- *   namespaceVersion: Number("long"),
- *   failureReason: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   createdDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetUploadStatusResponse
+ * //   uploadId: "STRING_VALUE", // required
+ * //   uploadStatus: "STRING_VALUE", // required
+ * //   namespaceArn: "STRING_VALUE",
+ * //   namespaceName: "STRING_VALUE",
+ * //   namespaceVersion: Number("long"),
+ * //   failureReason: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

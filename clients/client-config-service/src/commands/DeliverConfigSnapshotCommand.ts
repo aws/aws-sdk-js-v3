@@ -60,10 +60,9 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * };
  * const command = new DeliverConfigSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeliverConfigSnapshotResponse
- *   configSnapshotId: "STRING_VALUE",
- * };
+ * // { // DeliverConfigSnapshotResponse
+ * //   configSnapshotId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

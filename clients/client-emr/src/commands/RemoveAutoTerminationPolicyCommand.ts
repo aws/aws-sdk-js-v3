@@ -44,8 +44,7 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * };
  * const command = new RemoveAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

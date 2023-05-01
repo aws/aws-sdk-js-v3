@@ -52,15 +52,14 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * };
  * const command = new GetRoleCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoleCredentialsResponse
- *   roleCredentials: { // RoleCredentials
- *     accessKeyId: "STRING_VALUE",
- *     secretAccessKey: "STRING_VALUE",
- *     sessionToken: "STRING_VALUE",
- *     expiration: Number("long"),
- *   },
- * };
+ * // { // GetRoleCredentialsResponse
+ * //   roleCredentials: { // RoleCredentials
+ * //     accessKeyId: "STRING_VALUE",
+ * //     secretAccessKey: "STRING_VALUE",
+ * //     sessionToken: "STRING_VALUE",
+ * //     expiration: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

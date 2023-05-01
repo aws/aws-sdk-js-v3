@@ -45,10 +45,9 @@ export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkIns
  * };
  * const command = new DeleteNetworkInsightsPathCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNetworkInsightsPathResult
- *   NetworkInsightsPathId: "STRING_VALUE",
- * };
+ * // { // DeleteNetworkInsightsPathResult
+ * //   NetworkInsightsPathId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

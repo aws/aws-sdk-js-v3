@@ -46,15 +46,14 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcesResult
- *   resources: [ // ResourcesResult
- *     { // Resource
- *       id: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcesResult
+ * //   resources: [ // ResourcesResult
+ * //     { // Resource
+ * //       id: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

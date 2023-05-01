@@ -88,11 +88,10 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateComputeEnvironmentResponse
- *   computeEnvironmentName: "STRING_VALUE",
- *   computeEnvironmentArn: "STRING_VALUE",
- * };
+ * // { // UpdateComputeEnvironmentResponse
+ * //   computeEnvironmentName: "STRING_VALUE",
+ * //   computeEnvironmentArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

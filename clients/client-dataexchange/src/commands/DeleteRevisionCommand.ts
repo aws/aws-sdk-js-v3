@@ -45,8 +45,7 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

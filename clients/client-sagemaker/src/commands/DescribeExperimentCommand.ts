@@ -44,39 +44,38 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * };
  * const command = new DescribeExperimentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeExperimentResponse
- *   ExperimentName: "STRING_VALUE",
- *   ExperimentArn: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   Source: { // ExperimentSource
- *     SourceArn: "STRING_VALUE", // required
- *     SourceType: "STRING_VALUE",
- *   },
- *   Description: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeExperimentResponse
+ * //   ExperimentName: "STRING_VALUE",
+ * //   ExperimentArn: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   Source: { // ExperimentSource
+ * //     SourceArn: "STRING_VALUE", // required
+ * //     SourceType: "STRING_VALUE",
+ * //   },
+ * //   Description: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

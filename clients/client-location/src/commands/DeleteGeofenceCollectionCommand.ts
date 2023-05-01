@@ -48,8 +48,7 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * };
  * const command = new DeleteGeofenceCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

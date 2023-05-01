@@ -45,20 +45,19 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * };
  * const command = new ListPlaceIndexesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPlaceIndexesResponse
- *   Entries: [ // ListPlaceIndexesResponseEntryList // required
- *     { // ListPlaceIndexesResponseEntry
- *       IndexName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       DataSource: "STRING_VALUE", // required
- *       PricingPlan: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPlaceIndexesResponse
+ * //   Entries: [ // ListPlaceIndexesResponseEntryList // required
+ * //     { // ListPlaceIndexesResponseEntry
+ * //       IndexName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DataSource: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

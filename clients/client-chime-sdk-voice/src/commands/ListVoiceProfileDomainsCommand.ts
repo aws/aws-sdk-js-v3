@@ -50,20 +50,19 @@ export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDo
  * };
  * const command = new ListVoiceProfileDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVoiceProfileDomainsResponse
- *   VoiceProfileDomains: [ // VoiceProfileDomainSummaryList
- *     { // VoiceProfileDomainSummary
- *       VoiceProfileDomainId: "STRING_VALUE",
- *       VoiceProfileDomainArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       UpdatedTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListVoiceProfileDomainsResponse
+ * //   VoiceProfileDomains: [ // VoiceProfileDomainSummaryList
+ * //     { // VoiceProfileDomainSummary
+ * //       VoiceProfileDomainId: "STRING_VALUE",
+ * //       VoiceProfileDomainArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

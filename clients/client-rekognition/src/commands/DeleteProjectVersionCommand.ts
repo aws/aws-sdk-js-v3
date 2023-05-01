@@ -51,10 +51,9 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProjectVersionResponse
- *   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
- * };
+ * // { // DeleteProjectVersionResponse
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * // };
  *
  * ```
  *

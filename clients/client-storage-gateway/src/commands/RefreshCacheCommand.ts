@@ -97,11 +97,10 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  * };
  * const command = new RefreshCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RefreshCacheOutput
- *   FileShareARN: "STRING_VALUE",
- *   NotificationId: "STRING_VALUE",
- * };
+ * // { // RefreshCacheOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * //   NotificationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

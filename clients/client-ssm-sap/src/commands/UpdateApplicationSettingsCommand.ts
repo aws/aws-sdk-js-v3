@@ -63,13 +63,12 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApplicationSettingsOutput
- *   Message: "STRING_VALUE",
- *   OperationIds: [ // OperationIdList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // UpdateApplicationSettingsOutput
+ * //   Message: "STRING_VALUE",
+ * //   OperationIds: [ // OperationIdList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

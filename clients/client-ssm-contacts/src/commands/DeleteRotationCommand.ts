@@ -45,8 +45,7 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  * };
  * const command = new DeleteRotationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

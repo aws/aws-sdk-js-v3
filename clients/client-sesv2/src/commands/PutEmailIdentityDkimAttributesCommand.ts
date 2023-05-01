@@ -50,8 +50,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

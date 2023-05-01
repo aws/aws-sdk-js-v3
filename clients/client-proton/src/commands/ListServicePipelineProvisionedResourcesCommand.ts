@@ -54,17 +54,16 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
  * };
  * const command = new ListServicePipelineProvisionedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicePipelineProvisionedResourcesOutput
- *   nextToken: "STRING_VALUE",
- *   provisionedResources: [ // ProvisionedResourceList // required
- *     { // ProvisionedResource
- *       name: "STRING_VALUE",
- *       identifier: "STRING_VALUE",
- *       provisioningEngine: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServicePipelineProvisionedResourcesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   provisionedResources: [ // ProvisionedResourceList // required
+ * //     { // ProvisionedResource
+ * //       name: "STRING_VALUE",
+ * //       identifier: "STRING_VALUE",
+ * //       provisioningEngine: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

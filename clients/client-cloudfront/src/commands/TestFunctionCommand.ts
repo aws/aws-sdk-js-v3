@@ -61,31 +61,30 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * };
  * const command = new TestFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestFunctionResult
- *   TestResult: { // TestResult
- *     FunctionSummary: { // FunctionSummary
- *       Name: "STRING_VALUE", // required
- *       Status: "STRING_VALUE",
- *       FunctionConfig: { // FunctionConfig
- *         Comment: "STRING_VALUE", // required
- *         Runtime: "cloudfront-js-1.0", // required
- *       },
- *       FunctionMetadata: { // FunctionMetadata
- *         FunctionARN: "STRING_VALUE", // required
- *         Stage: "DEVELOPMENT" || "LIVE",
- *         CreatedTime: new Date("TIMESTAMP"),
- *         LastModifiedTime: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *     ComputeUtilization: "STRING_VALUE",
- *     FunctionExecutionLogs: [ // FunctionExecutionLogList
- *       "STRING_VALUE",
- *     ],
- *     FunctionErrorMessage: "STRING_VALUE",
- *     FunctionOutput: "STRING_VALUE",
- *   },
- * };
+ * // { // TestFunctionResult
+ * //   TestResult: { // TestResult
+ * //     FunctionSummary: { // FunctionSummary
+ * //       Name: "STRING_VALUE", // required
+ * //       Status: "STRING_VALUE",
+ * //       FunctionConfig: { // FunctionConfig
+ * //         Comment: "STRING_VALUE", // required
+ * //         Runtime: "cloudfront-js-1.0", // required
+ * //       },
+ * //       FunctionMetadata: { // FunctionMetadata
+ * //         FunctionARN: "STRING_VALUE", // required
+ * //         Stage: "DEVELOPMENT" || "LIVE",
+ * //         CreatedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //     ComputeUtilization: "STRING_VALUE",
+ * //     FunctionExecutionLogs: [ // FunctionExecutionLogList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     FunctionErrorMessage: "STRING_VALUE",
+ * //     FunctionOutput: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

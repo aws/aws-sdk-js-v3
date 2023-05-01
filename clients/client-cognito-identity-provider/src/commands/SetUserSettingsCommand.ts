@@ -61,8 +61,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * };
  * const command = new SetUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

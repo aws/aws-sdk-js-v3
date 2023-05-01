@@ -61,8 +61,7 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * };
  * const command = new AllowCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

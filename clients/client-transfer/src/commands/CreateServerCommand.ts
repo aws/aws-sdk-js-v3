@@ -105,10 +105,9 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServerResponse
- *   ServerId: "STRING_VALUE", // required
- * };
+ * // { // CreateServerResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

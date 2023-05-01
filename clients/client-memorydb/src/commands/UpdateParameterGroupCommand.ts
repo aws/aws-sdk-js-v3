@@ -50,15 +50,14 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * };
  * const command = new UpdateParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateParameterGroupResponse
- *   ParameterGroup: { // ParameterGroup
- *     Name: "STRING_VALUE",
- *     Family: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     Name: "STRING_VALUE",
+ * //     Family: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

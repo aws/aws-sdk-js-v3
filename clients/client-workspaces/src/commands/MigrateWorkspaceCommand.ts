@@ -55,11 +55,10 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * };
  * const command = new MigrateWorkspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MigrateWorkspaceResult
- *   SourceWorkspaceId: "STRING_VALUE",
- *   TargetWorkspaceId: "STRING_VALUE",
- * };
+ * // { // MigrateWorkspaceResult
+ * //   SourceWorkspaceId: "STRING_VALUE",
+ * //   TargetWorkspaceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

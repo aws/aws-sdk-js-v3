@@ -53,27 +53,26 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * };
  * const command = new ListLicenseConversionTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLicenseConversionTasksResponse
- *   LicenseConversionTasks: [ // LicenseConversionTasks
- *     { // LicenseConversionTask
- *       LicenseConversionTaskId: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       SourceLicenseContext: { // LicenseConversionContext
- *         UsageOperation: "STRING_VALUE",
- *       },
- *       DestinationLicenseContext: {
- *         UsageOperation: "STRING_VALUE",
- *       },
- *       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *       StatusMessage: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       LicenseConversionTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLicenseConversionTasksResponse
+ * //   LicenseConversionTasks: [ // LicenseConversionTasks
+ * //     { // LicenseConversionTask
+ * //       LicenseConversionTaskId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       SourceLicenseContext: { // LicenseConversionContext
+ * //         UsageOperation: "STRING_VALUE",
+ * //       },
+ * //       DestinationLicenseContext: {
+ * //         UsageOperation: "STRING_VALUE",
+ * //       },
+ * //       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       LicenseConversionTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

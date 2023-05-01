@@ -72,8 +72,7 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UndeprecateDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

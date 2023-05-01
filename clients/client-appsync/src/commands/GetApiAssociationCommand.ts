@@ -44,15 +44,14 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * };
  * const command = new GetApiAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApiAssociationResponse
- *   apiAssociation: { // ApiAssociation
- *     domainName: "STRING_VALUE",
- *     apiId: "STRING_VALUE",
- *     associationStatus: "PROCESSING" || "FAILED" || "SUCCESS",
- *     deploymentDetail: "STRING_VALUE",
- *   },
- * };
+ * // { // GetApiAssociationResponse
+ * //   apiAssociation: { // ApiAssociation
+ * //     domainName: "STRING_VALUE",
+ * //     apiId: "STRING_VALUE",
+ * //     associationStatus: "PROCESSING" || "FAILED" || "SUCCESS",
+ * //     deploymentDetail: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

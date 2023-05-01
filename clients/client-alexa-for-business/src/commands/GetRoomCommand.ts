@@ -44,16 +44,15 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRoomResponse
- *   Room: { // Room
- *     RoomArn: "STRING_VALUE",
- *     RoomName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     ProviderCalendarId: "STRING_VALUE",
- *     ProfileArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRoomResponse
+ * //   Room: { // Room
+ * //     RoomArn: "STRING_VALUE",
+ * //     RoomName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     ProviderCalendarId: "STRING_VALUE",
+ * //     ProfileArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -58,8 +58,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateKmsKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -57,12 +57,11 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * };
  * const command = new DeleteDataRepositoryAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDataRepositoryAssociationResponse
- *   AssociationId: "STRING_VALUE",
- *   Lifecycle: "CREATING" || "AVAILABLE" || "MISCONFIGURED" || "UPDATING" || "DELETING" || "FAILED",
- *   DeleteDataInFileSystem: true || false,
- * };
+ * // { // DeleteDataRepositoryAssociationResponse
+ * //   AssociationId: "STRING_VALUE",
+ * //   Lifecycle: "CREATING" || "AVAILABLE" || "MISCONFIGURED" || "UPDATING" || "DELETING" || "FAILED",
+ * //   DeleteDataInFileSystem: true || false,
+ * // };
  *
  * ```
  *

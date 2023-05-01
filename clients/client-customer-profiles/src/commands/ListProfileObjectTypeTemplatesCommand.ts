@@ -50,17 +50,16 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * };
  * const command = new ListProfileObjectTypeTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfileObjectTypeTemplatesResponse
- *   Items: [ // ProfileObjectTypeTemplateList
- *     { // ListProfileObjectTypeTemplateItem
- *       TemplateId: "STRING_VALUE",
- *       SourceName: "STRING_VALUE",
- *       SourceObject: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProfileObjectTypeTemplatesResponse
+ * //   Items: [ // ProfileObjectTypeTemplateList
+ * //     { // ListProfileObjectTypeTemplateItem
+ * //       TemplateId: "STRING_VALUE",
+ * //       SourceName: "STRING_VALUE",
+ * //       SourceObject: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

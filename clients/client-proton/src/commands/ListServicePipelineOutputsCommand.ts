@@ -49,16 +49,15 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  * };
  * const command = new ListServicePipelineOutputsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServicePipelineOutputsOutput
- *   nextToken: "STRING_VALUE",
- *   outputs: [ // OutputsList // required
- *     { // Output
- *       key: "STRING_VALUE",
- *       valueString: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServicePipelineOutputsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   outputs: [ // OutputsList // required
+ * //     { // Output
+ * //       key: "STRING_VALUE",
+ * //       valueString: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

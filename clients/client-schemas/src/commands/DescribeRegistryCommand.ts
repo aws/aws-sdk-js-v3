@@ -44,15 +44,14 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * };
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRegistryResponse
- *   Description: "STRING_VALUE",
- *   RegistryArn: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeRegistryResponse
+ * //   Description: "STRING_VALUE",
+ * //   RegistryArn: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
  * };
  * const command = new GenerateMobileSdkReleaseUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateMobileSdkReleaseUrlResponse
- *   Url: "STRING_VALUE",
- * };
+ * // { // GenerateMobileSdkReleaseUrlResponse
+ * //   Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

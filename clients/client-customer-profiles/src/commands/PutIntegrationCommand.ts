@@ -122,22 +122,21 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutIntegrationResponse
- *   DomainName: "STRING_VALUE", // required
- *   Uri: "STRING_VALUE", // required
- *   ObjectTypeName: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"), // required
- *   LastUpdatedAt: new Date("TIMESTAMP"), // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ObjectTypeNames: { // ObjectTypeNames
- *     "<keys>": "STRING_VALUE",
- *   },
- *   WorkflowId: "STRING_VALUE",
- *   IsUnstructured: true || false,
- * };
+ * // { // PutIntegrationResponse
+ * //   DomainName: "STRING_VALUE", // required
+ * //   Uri: "STRING_VALUE", // required
+ * //   ObjectTypeName: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ObjectTypeNames: { // ObjectTypeNames
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   WorkflowId: "STRING_VALUE",
+ * //   IsUnstructured: true || false,
+ * // };
  *
  * ```
  *

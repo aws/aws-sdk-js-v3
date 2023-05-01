@@ -50,8 +50,7 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * };
  * const command = new DisassociateVehicleFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

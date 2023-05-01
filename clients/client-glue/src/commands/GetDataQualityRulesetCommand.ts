@@ -44,19 +44,18 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * };
  * const command = new GetDataQualityRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataQualityRulesetResponse
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Ruleset: "STRING_VALUE",
- *   TargetTable: { // DataQualityTargetTable
- *     TableName: "STRING_VALUE", // required
- *     DatabaseName: "STRING_VALUE", // required
- *   },
- *   CreatedOn: new Date("TIMESTAMP"),
- *   LastModifiedOn: new Date("TIMESTAMP"),
- *   RecommendationRunId: "STRING_VALUE",
- * };
+ * // { // GetDataQualityRulesetResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Ruleset: "STRING_VALUE",
+ * //   TargetTable: { // DataQualityTargetTable
+ * //     TableName: "STRING_VALUE", // required
+ * //     DatabaseName: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedOn: new Date("TIMESTAMP"),
+ * //   LastModifiedOn: new Date("TIMESTAMP"),
+ * //   RecommendationRunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,28 +46,27 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * };
  * const command = new ListImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImportJobsResponse
- *   ImportJobs: [ // ImportJobSummaryList
- *     { // ImportJobSummary
- *       JobId: "STRING_VALUE",
- *       ImportDestination: { // ImportDestination
- *         SuppressionListDestination: { // SuppressionListDestination
- *           SuppressionListImportAction: "DELETE" || "PUT", // required
- *         },
- *         ContactListDestination: { // ContactListDestination
- *           ContactListName: "STRING_VALUE", // required
- *           ContactListImportAction: "DELETE" || "PUT", // required
- *         },
- *       },
- *       JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
- *       CreatedTimestamp: new Date("TIMESTAMP"),
- *       ProcessedRecordsCount: Number("int"),
- *       FailedRecordsCount: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImportJobsResponse
+ * //   ImportJobs: [ // ImportJobSummaryList
+ * //     { // ImportJobSummary
+ * //       JobId: "STRING_VALUE",
+ * //       ImportDestination: { // ImportDestination
+ * //         SuppressionListDestination: { // SuppressionListDestination
+ * //           SuppressionListImportAction: "DELETE" || "PUT", // required
+ * //         },
+ * //         ContactListDestination: { // ContactListDestination
+ * //           ContactListName: "STRING_VALUE", // required
+ * //           ContactListImportAction: "DELETE" || "PUT", // required
+ * //         },
+ * //       },
+ * //       JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ProcessedRecordsCount: Number("int"),
+ * //       FailedRecordsCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

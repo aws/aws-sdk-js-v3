@@ -58,31 +58,30 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * };
  * const command = new DescribeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfigurationOptionsDescription
- *   SolutionStackName: "STRING_VALUE",
- *   PlatformArn: "STRING_VALUE",
- *   Options: [ // ConfigurationOptionDescriptionsList
- *     { // ConfigurationOptionDescription
- *       Namespace: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       DefaultValue: "STRING_VALUE",
- *       ChangeSeverity: "STRING_VALUE",
- *       UserDefined: true || false,
- *       ValueType: "Scalar" || "List",
- *       ValueOptions: [ // ConfigurationOptionPossibleValues
- *         "STRING_VALUE",
- *       ],
- *       MinValue: Number("int"),
- *       MaxValue: Number("int"),
- *       MaxLength: Number("int"),
- *       Regex: { // OptionRestrictionRegex
- *         Pattern: "STRING_VALUE",
- *         Label: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // ConfigurationOptionsDescription
+ * //   SolutionStackName: "STRING_VALUE",
+ * //   PlatformArn: "STRING_VALUE",
+ * //   Options: [ // ConfigurationOptionDescriptionsList
+ * //     { // ConfigurationOptionDescription
+ * //       Namespace: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       ChangeSeverity: "STRING_VALUE",
+ * //       UserDefined: true || false,
+ * //       ValueType: "Scalar" || "List",
+ * //       ValueOptions: [ // ConfigurationOptionPossibleValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MinValue: Number("int"),
+ * //       MaxValue: Number("int"),
+ * //       MaxLength: Number("int"),
+ * //       Regex: { // OptionRestrictionRegex
+ * //         Pattern: "STRING_VALUE",
+ * //         Label: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

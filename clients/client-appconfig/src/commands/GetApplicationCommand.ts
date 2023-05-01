@@ -44,12 +44,11 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Application
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // Application
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

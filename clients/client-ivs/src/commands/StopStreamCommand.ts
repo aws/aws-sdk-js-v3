@@ -51,8 +51,7 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * };
  * const command = new StopStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

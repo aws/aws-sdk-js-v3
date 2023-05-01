@@ -52,8 +52,7 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * };
  * const command = new CancelCertificateTransferCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

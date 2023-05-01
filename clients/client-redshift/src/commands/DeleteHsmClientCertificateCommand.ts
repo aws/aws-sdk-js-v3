@@ -44,8 +44,7 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteHsmClientCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

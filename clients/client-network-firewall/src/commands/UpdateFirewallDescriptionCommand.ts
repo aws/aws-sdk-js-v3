@@ -48,13 +48,12 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * };
  * const command = new UpdateFirewallDescriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallDescriptionResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   UpdateToken: "STRING_VALUE",
- * };
+ * // { // UpdateFirewallDescriptionResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

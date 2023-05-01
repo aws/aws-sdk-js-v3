@@ -51,10 +51,9 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  * };
  * const command = new UpdateTerminationProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTerminationProtectionOutput
- *   StackId: "STRING_VALUE",
- * };
+ * // { // UpdateTerminationProtectionOutput
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

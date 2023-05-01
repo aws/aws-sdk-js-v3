@@ -47,8 +47,7 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * const input = {};
  * const command = new DeleteUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

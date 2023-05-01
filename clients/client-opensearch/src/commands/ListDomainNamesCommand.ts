@@ -45,15 +45,14 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainNamesResponse
- *   DomainNames: [ // DomainInfoList
- *     { // DomainInfo
- *       DomainName: "STRING_VALUE",
- *       EngineType: "OpenSearch" || "Elasticsearch",
- *     },
- *   ],
- * };
+ * // { // ListDomainNamesResponse
+ * //   DomainNames: [ // DomainInfoList
+ * //     { // DomainInfo
+ * //       DomainName: "STRING_VALUE",
+ * //       EngineType: "OpenSearch" || "Elasticsearch",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -72,13 +72,12 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * };
  * const command = new UpdateTimeToLiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTimeToLiveOutput
- *   TimeToLiveSpecification: { // TimeToLiveSpecification
- *     Enabled: true || false, // required
- *     AttributeName: "STRING_VALUE", // required
- *   },
- * };
+ * // { // UpdateTimeToLiveOutput
+ * //   TimeToLiveSpecification: { // TimeToLiveSpecification
+ * //     Enabled: true || false, // required
+ * //     AttributeName: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -65,22 +65,21 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * };
  * const command = new ListPoolOriginationIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPoolOriginationIdentitiesResult
- *   PoolArn: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
- *   OriginationIdentities: [ // OriginationIdentityMetadataList
- *     { // OriginationIdentityMetadata
- *       OriginationIdentityArn: "STRING_VALUE", // required
- *       OriginationIdentity: "STRING_VALUE", // required
- *       IsoCountryCode: "STRING_VALUE", // required
- *       NumberCapabilities: [ // NumberCapabilityList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPoolOriginationIdentitiesResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   OriginationIdentities: [ // OriginationIdentityMetadataList
+ * //     { // OriginationIdentityMetadata
+ * //       OriginationIdentityArn: "STRING_VALUE", // required
+ * //       OriginationIdentity: "STRING_VALUE", // required
+ * //       IsoCountryCode: "STRING_VALUE", // required
+ * //       NumberCapabilities: [ // NumberCapabilityList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

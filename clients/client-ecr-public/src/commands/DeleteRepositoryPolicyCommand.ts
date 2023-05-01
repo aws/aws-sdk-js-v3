@@ -45,12 +45,11 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // DeleteRepositoryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

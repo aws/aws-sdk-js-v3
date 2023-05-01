@@ -67,8 +67,7 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ModifyIdentityIdFormatCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

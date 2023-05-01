@@ -57,29 +57,28 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * };
  * const command = new DescribeConfigRuleEvaluationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigRuleEvaluationStatusResponse
- *   ConfigRulesEvaluationStatus: [ // ConfigRuleEvaluationStatusList
- *     { // ConfigRuleEvaluationStatus
- *       ConfigRuleName: "STRING_VALUE",
- *       ConfigRuleArn: "STRING_VALUE",
- *       ConfigRuleId: "STRING_VALUE",
- *       LastSuccessfulInvocationTime: new Date("TIMESTAMP"),
- *       LastFailedInvocationTime: new Date("TIMESTAMP"),
- *       LastSuccessfulEvaluationTime: new Date("TIMESTAMP"),
- *       LastFailedEvaluationTime: new Date("TIMESTAMP"),
- *       FirstActivatedTime: new Date("TIMESTAMP"),
- *       LastDeactivatedTime: new Date("TIMESTAMP"),
- *       LastErrorCode: "STRING_VALUE",
- *       LastErrorMessage: "STRING_VALUE",
- *       FirstEvaluationStarted: true || false,
- *       LastDebugLogDeliveryStatus: "STRING_VALUE",
- *       LastDebugLogDeliveryStatusReason: "STRING_VALUE",
- *       LastDebugLogDeliveryTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeConfigRuleEvaluationStatusResponse
+ * //   ConfigRulesEvaluationStatus: [ // ConfigRuleEvaluationStatusList
+ * //     { // ConfigRuleEvaluationStatus
+ * //       ConfigRuleName: "STRING_VALUE",
+ * //       ConfigRuleArn: "STRING_VALUE",
+ * //       ConfigRuleId: "STRING_VALUE",
+ * //       LastSuccessfulInvocationTime: new Date("TIMESTAMP"),
+ * //       LastFailedInvocationTime: new Date("TIMESTAMP"),
+ * //       LastSuccessfulEvaluationTime: new Date("TIMESTAMP"),
+ * //       LastFailedEvaluationTime: new Date("TIMESTAMP"),
+ * //       FirstActivatedTime: new Date("TIMESTAMP"),
+ * //       LastDeactivatedTime: new Date("TIMESTAMP"),
+ * //       LastErrorCode: "STRING_VALUE",
+ * //       LastErrorMessage: "STRING_VALUE",
+ * //       FirstEvaluationStarted: true || false,
+ * //       LastDebugLogDeliveryStatus: "STRING_VALUE",
+ * //       LastDebugLogDeliveryStatusReason: "STRING_VALUE",
+ * //       LastDebugLogDeliveryTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

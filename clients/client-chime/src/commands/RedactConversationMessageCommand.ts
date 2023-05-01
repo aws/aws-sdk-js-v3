@@ -46,8 +46,7 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
  * };
  * const command = new RedactConversationMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

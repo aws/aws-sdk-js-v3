@@ -45,8 +45,7 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  * };
  * const command = new RejectClientVpcConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

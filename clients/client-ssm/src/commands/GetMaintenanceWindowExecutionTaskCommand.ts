@@ -55,44 +55,43 @@ export interface GetMaintenanceWindowExecutionTaskCommandOutput
  * };
  * const command = new GetMaintenanceWindowExecutionTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMaintenanceWindowExecutionTaskResult
- *   WindowExecutionId: "STRING_VALUE",
- *   TaskExecutionId: "STRING_VALUE",
- *   TaskArn: "STRING_VALUE",
- *   ServiceRole: "STRING_VALUE",
- *   Type: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
- *   TaskParameters: [ // MaintenanceWindowTaskParametersList
- *     { // MaintenanceWindowTaskParameters
- *       "<keys>": { // MaintenanceWindowTaskParameterValueExpression
- *         Values: [ // MaintenanceWindowTaskParameterValueList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   ],
- *   Priority: Number("int"),
- *   MaxConcurrency: "STRING_VALUE",
- *   MaxErrors: "STRING_VALUE",
- *   Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
- *   StatusDetails: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   AlarmConfiguration: { // AlarmConfiguration
- *     IgnorePollAlarmFailure: true || false,
- *     Alarms: [ // AlarmList // required
- *       { // Alarm
- *         Name: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   TriggeredAlarms: [ // AlarmStateInformationList
- *     { // AlarmStateInformation
- *       Name: "STRING_VALUE", // required
- *       State: "UNKNOWN" || "ALARM", // required
- *     },
- *   ],
- * };
+ * // { // GetMaintenanceWindowExecutionTaskResult
+ * //   WindowExecutionId: "STRING_VALUE",
+ * //   TaskExecutionId: "STRING_VALUE",
+ * //   TaskArn: "STRING_VALUE",
+ * //   ServiceRole: "STRING_VALUE",
+ * //   Type: "RUN_COMMAND" || "AUTOMATION" || "STEP_FUNCTIONS" || "LAMBDA",
+ * //   TaskParameters: [ // MaintenanceWindowTaskParametersList
+ * //     { // MaintenanceWindowTaskParameters
+ * //       "<keys>": { // MaintenanceWindowTaskParameterValueExpression
+ * //         Values: [ // MaintenanceWindowTaskParameterValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   Priority: Number("int"),
+ * //   MaxConcurrency: "STRING_VALUE",
+ * //   MaxErrors: "STRING_VALUE",
+ * //   Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //   StatusDetails: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   AlarmConfiguration: { // AlarmConfiguration
+ * //     IgnorePollAlarmFailure: true || false,
+ * //     Alarms: [ // AlarmList // required
+ * //       { // Alarm
+ * //         Name: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   TriggeredAlarms: [ // AlarmStateInformationList
+ * //     { // AlarmStateInformation
+ * //       Name: "STRING_VALUE", // required
+ * //       State: "UNKNOWN" || "ALARM", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

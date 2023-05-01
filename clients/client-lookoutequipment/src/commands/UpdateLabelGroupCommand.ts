@@ -49,8 +49,7 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateLabelGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -63,25 +63,24 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
  * };
  * const command = new SearchTransitGatewayMulticastGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchTransitGatewayMulticastGroupsResult
- *   MulticastGroups: [ // TransitGatewayMulticastGroupList
- *     { // TransitGatewayMulticastGroup
- *       GroupIpAddress: "STRING_VALUE",
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       ResourceOwnerId: "STRING_VALUE",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       GroupMember: true || false,
- *       GroupSource: true || false,
- *       MemberType: "static" || "igmp",
- *       SourceType: "static" || "igmp",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // SearchTransitGatewayMulticastGroupsResult
+ * //   MulticastGroups: [ // TransitGatewayMulticastGroupList
+ * //     { // TransitGatewayMulticastGroup
+ * //       GroupIpAddress: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       GroupMember: true || false,
+ * //       GroupSource: true || false,
+ * //       MemberType: "static" || "igmp",
+ * //       SourceType: "static" || "igmp",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

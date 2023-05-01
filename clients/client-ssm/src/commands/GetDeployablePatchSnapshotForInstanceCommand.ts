@@ -114,13 +114,12 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeployablePatchSnapshotForInstanceResult
- *   InstanceId: "STRING_VALUE",
- *   SnapshotId: "STRING_VALUE",
- *   SnapshotDownloadUrl: "STRING_VALUE",
- *   Product: "STRING_VALUE",
- * };
+ * // { // GetDeployablePatchSnapshotForInstanceResult
+ * //   InstanceId: "STRING_VALUE",
+ * //   SnapshotId: "STRING_VALUE",
+ * //   SnapshotDownloadUrl: "STRING_VALUE",
+ * //   Product: "STRING_VALUE",
+ * // };
  *
  * ```
  *

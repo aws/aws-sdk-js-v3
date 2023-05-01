@@ -54,17 +54,16 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * };
  * const command = new CreateStreamKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamKeyResponse
- *   streamKey: { // StreamKey
- *     arn: "STRING_VALUE",
- *     value: "STRING_VALUE",
- *     channelArn: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateStreamKeyResponse
+ * //   streamKey: { // StreamKey
+ * //     arn: "STRING_VALUE",
+ * //     value: "STRING_VALUE",
+ * //     channelArn: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

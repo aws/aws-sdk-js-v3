@@ -45,13 +45,12 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * };
  * const command = new ResolveAppVersionResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveAppVersionResourcesResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   resolutionId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- * };
+ * // { // ResolveAppVersionResourcesResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   resolutionId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -54,22 +54,21 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
  * };
  * const command = new GetDetectorModelAnalysisResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDetectorModelAnalysisResultsResponse
- *   analysisResults: [ // AnalysisResults
- *     { // AnalysisResult
- *       type: "STRING_VALUE",
- *       level: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *       locations: [ // AnalysisResultLocations
- *         { // AnalysisResultLocation
- *           path: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetDetectorModelAnalysisResultsResponse
+ * //   analysisResults: [ // AnalysisResults
+ * //     { // AnalysisResult
+ * //       type: "STRING_VALUE",
+ * //       level: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //       locations: [ // AnalysisResultLocations
+ * //         { // AnalysisResultLocation
+ * //           path: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,40 +58,39 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * };
  * const command = new GetAnomaliesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAnomaliesResponse
- *   Anomalies: [ // Anomalies // required
- *     { // Anomaly
- *       AnomalyId: "STRING_VALUE", // required
- *       AnomalyStartDate: "STRING_VALUE",
- *       AnomalyEndDate: "STRING_VALUE",
- *       DimensionValue: "STRING_VALUE",
- *       RootCauses: [ // RootCauses
- *         { // RootCause
- *           Service: "STRING_VALUE",
- *           Region: "STRING_VALUE",
- *           LinkedAccount: "STRING_VALUE",
- *           UsageType: "STRING_VALUE",
- *           LinkedAccountName: "STRING_VALUE",
- *         },
- *       ],
- *       AnomalyScore: { // AnomalyScore
- *         MaxScore: Number("double"), // required
- *         CurrentScore: Number("double"), // required
- *       },
- *       Impact: { // Impact
- *         MaxImpact: Number("double"), // required
- *         TotalImpact: Number("double"),
- *         TotalActualSpend: Number("double"),
- *         TotalExpectedSpend: Number("double"),
- *         TotalImpactPercentage: Number("double"),
- *       },
- *       MonitorArn: "STRING_VALUE", // required
- *       Feedback: "YES" || "NO" || "PLANNED_ACTIVITY",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // GetAnomaliesResponse
+ * //   Anomalies: [ // Anomalies // required
+ * //     { // Anomaly
+ * //       AnomalyId: "STRING_VALUE", // required
+ * //       AnomalyStartDate: "STRING_VALUE",
+ * //       AnomalyEndDate: "STRING_VALUE",
+ * //       DimensionValue: "STRING_VALUE",
+ * //       RootCauses: [ // RootCauses
+ * //         { // RootCause
+ * //           Service: "STRING_VALUE",
+ * //           Region: "STRING_VALUE",
+ * //           LinkedAccount: "STRING_VALUE",
+ * //           UsageType: "STRING_VALUE",
+ * //           LinkedAccountName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AnomalyScore: { // AnomalyScore
+ * //         MaxScore: Number("double"), // required
+ * //         CurrentScore: Number("double"), // required
+ * //       },
+ * //       Impact: { // Impact
+ * //         MaxImpact: Number("double"), // required
+ * //         TotalImpact: Number("double"),
+ * //         TotalActualSpend: Number("double"),
+ * //         TotalExpectedSpend: Number("double"),
+ * //         TotalImpactPercentage: Number("double"),
+ * //       },
+ * //       MonitorArn: "STRING_VALUE", // required
+ * //       Feedback: "YES" || "NO" || "PLANNED_ACTIVITY",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

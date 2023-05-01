@@ -50,8 +50,7 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

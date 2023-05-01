@@ -66,12 +66,11 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * };
  * const command = new InvokeEndpointAsyncCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeEndpointAsyncOutput
- *   InferenceId: "STRING_VALUE",
- *   OutputLocation: "STRING_VALUE",
- *   FailureLocation: "STRING_VALUE",
- * };
+ * // { // InvokeEndpointAsyncOutput
+ * //   InferenceId: "STRING_VALUE",
+ * //   OutputLocation: "STRING_VALUE",
+ * //   FailureLocation: "STRING_VALUE",
+ * // };
  *
  * ```
  *

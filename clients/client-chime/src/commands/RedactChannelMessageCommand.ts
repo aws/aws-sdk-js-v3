@@ -52,11 +52,10 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * };
  * const command = new RedactChannelMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RedactChannelMessageResponse
- *   ChannelArn: "STRING_VALUE",
- *   MessageId: "STRING_VALUE",
- * };
+ * // { // RedactChannelMessageResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   MessageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

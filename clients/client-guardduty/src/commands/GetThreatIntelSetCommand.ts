@@ -45,16 +45,15 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * };
  * const command = new GetThreatIntelSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetThreatIntelSetResponse
- *   Name: "STRING_VALUE", // required
- *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
- *   Location: "STRING_VALUE", // required
- *   Status: "INACTIVE" || "ACTIVATING" || "ACTIVE" || "DEACTIVATING" || "ERROR" || "DELETE_PENDING" || "DELETED", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetThreatIntelSetResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
+ * //   Location: "STRING_VALUE", // required
+ * //   Status: "INACTIVE" || "ACTIVATING" || "ACTIVE" || "DEACTIVATING" || "ERROR" || "DELETE_PENDING" || "DELETED", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

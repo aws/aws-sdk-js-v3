@@ -44,10 +44,9 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * };
  * const command = new DeletePatchBaselineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePatchBaselineResult
- *   BaselineId: "STRING_VALUE",
- * };
+ * // { // DeletePatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

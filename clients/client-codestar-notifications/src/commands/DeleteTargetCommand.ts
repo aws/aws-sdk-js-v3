@@ -49,8 +49,7 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * };
  * const command = new DeleteTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

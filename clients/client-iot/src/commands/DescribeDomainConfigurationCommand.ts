@@ -50,30 +50,29 @@ export interface DescribeDomainConfigurationCommandOutput
  * };
  * const command = new DescribeDomainConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDomainConfigurationResponse
- *   domainConfigurationName: "STRING_VALUE",
- *   domainConfigurationArn: "STRING_VALUE",
- *   domainName: "STRING_VALUE",
- *   serverCertificates: [ // ServerCertificates
- *     { // ServerCertificateSummary
- *       serverCertificateArn: "STRING_VALUE",
- *       serverCertificateStatus: "INVALID" || "VALID",
- *       serverCertificateStatusDetail: "STRING_VALUE",
- *     },
- *   ],
- *   authorizerConfig: { // AuthorizerConfig
- *     defaultAuthorizerName: "STRING_VALUE",
- *     allowAuthorizerOverride: true || false,
- *   },
- *   domainConfigurationStatus: "ENABLED" || "DISABLED",
- *   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
- *   domainType: "ENDPOINT" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
- *   lastStatusChangeDate: new Date("TIMESTAMP"),
- *   tlsConfig: { // TlsConfig
- *     securityPolicy: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeDomainConfigurationResponse
+ * //   domainConfigurationName: "STRING_VALUE",
+ * //   domainConfigurationArn: "STRING_VALUE",
+ * //   domainName: "STRING_VALUE",
+ * //   serverCertificates: [ // ServerCertificates
+ * //     { // ServerCertificateSummary
+ * //       serverCertificateArn: "STRING_VALUE",
+ * //       serverCertificateStatus: "INVALID" || "VALID",
+ * //       serverCertificateStatusDetail: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   authorizerConfig: { // AuthorizerConfig
+ * //     defaultAuthorizerName: "STRING_VALUE",
+ * //     allowAuthorizerOverride: true || false,
+ * //   },
+ * //   domainConfigurationStatus: "ENABLED" || "DISABLED",
+ * //   serviceType: "DATA" || "CREDENTIAL_PROVIDER" || "JOBS",
+ * //   domainType: "ENDPOINT" || "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ * //   lastStatusChangeDate: new Date("TIMESTAMP"),
+ * //   tlsConfig: { // TlsConfig
+ * //     securityPolicy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

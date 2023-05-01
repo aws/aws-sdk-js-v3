@@ -61,19 +61,18 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * };
  * const command = new QueryForecastCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryForecastResponse
- *   Forecast: { // Forecast
- *     Predictions: { // Predictions
- *       "<keys>": [ // TimeSeries
- *         { // DataPoint
- *           Timestamp: "STRING_VALUE",
- *           Value: Number("double"),
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // QueryForecastResponse
+ * //   Forecast: { // Forecast
+ * //     Predictions: { // Predictions
+ * //       "<keys>": [ // TimeSeries
+ * //         { // DataPoint
+ * //           Timestamp: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * };
  * const command = new ListVirtualServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVirtualServicesOutput
- *   virtualServices: [ // VirtualServiceList // required
- *     { // VirtualServiceRef
- *       meshName: "STRING_VALUE", // required
- *       virtualServiceName: "STRING_VALUE", // required
- *       meshOwner: "STRING_VALUE", // required
- *       resourceOwner: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       version: Number("long"), // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVirtualServicesOutput
+ * //   virtualServices: [ // VirtualServiceList // required
+ * //     { // VirtualServiceRef
+ * //       meshName: "STRING_VALUE", // required
+ * //       virtualServiceName: "STRING_VALUE", // required
+ * //       meshOwner: "STRING_VALUE", // required
+ * //       resourceOwner: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       version: Number("long"), // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

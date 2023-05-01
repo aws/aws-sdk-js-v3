@@ -53,19 +53,18 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * };
  * const command = new ListStudioLifecycleConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListStudioLifecycleConfigsResponse
- *   NextToken: "STRING_VALUE",
- *   StudioLifecycleConfigs: [ // StudioLifecycleConfigsList
- *     { // StudioLifecycleConfigDetails
- *       StudioLifecycleConfigArn: "STRING_VALUE",
- *       StudioLifecycleConfigName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
- *     },
- *   ],
- * };
+ * // { // ListStudioLifecycleConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   StudioLifecycleConfigs: [ // StudioLifecycleConfigsList
+ * //     { // StudioLifecycleConfigDetails
+ * //       StudioLifecycleConfigArn: "STRING_VALUE",
+ * //       StudioLifecycleConfigName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

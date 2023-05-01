@@ -44,8 +44,7 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  * };
  * const command = new DeleteDeviceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,46 +51,45 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * };
  * const command = new GetOpsItemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpsItemResponse
- *   OpsItem: { // OpsItem
- *     CreatedBy: "STRING_VALUE",
- *     OpsItemType: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     Description: "STRING_VALUE",
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *     Notifications: [ // OpsItemNotifications
- *       { // OpsItemNotification
- *         Arn: "STRING_VALUE",
- *       },
- *     ],
- *     Priority: Number("int"),
- *     RelatedOpsItems: [ // RelatedOpsItems
- *       { // RelatedOpsItem
- *         OpsItemId: "STRING_VALUE", // required
- *       },
- *     ],
- *     Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
- *     OpsItemId: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     Title: "STRING_VALUE",
- *     Source: "STRING_VALUE",
- *     OperationalData: { // OpsItemOperationalData
- *       "<keys>": { // OpsItemDataValue
- *         Value: "STRING_VALUE",
- *         Type: "SearchableString" || "String",
- *       },
- *     },
- *     Category: "STRING_VALUE",
- *     Severity: "STRING_VALUE",
- *     ActualStartTime: new Date("TIMESTAMP"),
- *     ActualEndTime: new Date("TIMESTAMP"),
- *     PlannedStartTime: new Date("TIMESTAMP"),
- *     PlannedEndTime: new Date("TIMESTAMP"),
- *     OpsItemArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetOpsItemResponse
+ * //   OpsItem: { // OpsItem
+ * //     CreatedBy: "STRING_VALUE",
+ * //     OpsItemType: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     Description: "STRING_VALUE",
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     Notifications: [ // OpsItemNotifications
+ * //       { // OpsItemNotification
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Priority: Number("int"),
+ * //     RelatedOpsItems: [ // RelatedOpsItems
+ * //       { // RelatedOpsItem
+ * //         OpsItemId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ * //     OpsItemId: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Title: "STRING_VALUE",
+ * //     Source: "STRING_VALUE",
+ * //     OperationalData: { // OpsItemOperationalData
+ * //       "<keys>": { // OpsItemDataValue
+ * //         Value: "STRING_VALUE",
+ * //         Type: "SearchableString" || "String",
+ * //       },
+ * //     },
+ * //     Category: "STRING_VALUE",
+ * //     Severity: "STRING_VALUE",
+ * //     ActualStartTime: new Date("TIMESTAMP"),
+ * //     ActualEndTime: new Date("TIMESTAMP"),
+ * //     PlannedStartTime: new Date("TIMESTAMP"),
+ * //     PlannedEndTime: new Date("TIMESTAMP"),
+ * //     OpsItemArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

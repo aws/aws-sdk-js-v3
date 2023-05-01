@@ -62,35 +62,34 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * };
  * const command = new DescribeFleetAdvisorCollectorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetAdvisorCollectorsResponse
- *   Collectors: [ // CollectorResponses
- *     { // CollectorResponse
- *       CollectorReferencedId: "STRING_VALUE",
- *       CollectorName: "STRING_VALUE",
- *       CollectorVersion: "STRING_VALUE",
- *       VersionStatus: "UP_TO_DATE" || "OUTDATED" || "UNSUPPORTED",
- *       Description: "STRING_VALUE",
- *       S3BucketName: "STRING_VALUE",
- *       ServiceAccessRoleArn: "STRING_VALUE",
- *       CollectorHealthCheck: { // CollectorHealthCheck
- *         CollectorStatus: "UNREGISTERED" || "ACTIVE",
- *         LocalCollectorS3Access: true || false,
- *         WebCollectorS3Access: true || false,
- *         WebCollectorGrantedRoleBasedAccess: true || false,
- *       },
- *       LastDataReceived: "STRING_VALUE",
- *       RegisteredDate: "STRING_VALUE",
- *       CreatedDate: "STRING_VALUE",
- *       ModifiedDate: "STRING_VALUE",
- *       InventoryData: { // InventoryData
- *         NumberOfDatabases: Number("int"),
- *         NumberOfSchemas: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFleetAdvisorCollectorsResponse
+ * //   Collectors: [ // CollectorResponses
+ * //     { // CollectorResponse
+ * //       CollectorReferencedId: "STRING_VALUE",
+ * //       CollectorName: "STRING_VALUE",
+ * //       CollectorVersion: "STRING_VALUE",
+ * //       VersionStatus: "UP_TO_DATE" || "OUTDATED" || "UNSUPPORTED",
+ * //       Description: "STRING_VALUE",
+ * //       S3BucketName: "STRING_VALUE",
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       CollectorHealthCheck: { // CollectorHealthCheck
+ * //         CollectorStatus: "UNREGISTERED" || "ACTIVE",
+ * //         LocalCollectorS3Access: true || false,
+ * //         WebCollectorS3Access: true || false,
+ * //         WebCollectorGrantedRoleBasedAccess: true || false,
+ * //       },
+ * //       LastDataReceived: "STRING_VALUE",
+ * //       RegisteredDate: "STRING_VALUE",
+ * //       CreatedDate: "STRING_VALUE",
+ * //       ModifiedDate: "STRING_VALUE",
+ * //       InventoryData: { // InventoryData
+ * //         NumberOfDatabases: Number("int"),
+ * //         NumberOfSchemas: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

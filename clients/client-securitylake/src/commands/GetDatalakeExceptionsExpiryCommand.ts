@@ -49,10 +49,9 @@ export interface GetDatalakeExceptionsExpiryCommandOutput
  * const input = {};
  * const command = new GetDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatalakeExceptionsExpiryResponse
- *   exceptionMessageExpiry: Number("long"), // required
- * };
+ * // { // GetDatalakeExceptionsExpiryResponse
+ * //   exceptionMessageExpiry: Number("long"), // required
+ * // };
  *
  * ```
  *

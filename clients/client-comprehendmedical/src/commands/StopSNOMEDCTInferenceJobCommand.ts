@@ -50,10 +50,9 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  * };
  * const command = new StopSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopSNOMEDCTInferenceJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StopSNOMEDCTInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

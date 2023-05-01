@@ -47,8 +47,7 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * };
  * const command = new ResendOperationAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

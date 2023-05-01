@@ -46,26 +46,25 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * };
  * const command = new ListNetworkProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListNetworkProfilesResult
- *   networkProfiles: [ // NetworkProfiles
- *     { // NetworkProfile
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       type: "CURATED" || "PRIVATE",
- *       uplinkBandwidthBits: Number("long"),
- *       downlinkBandwidthBits: Number("long"),
- *       uplinkDelayMs: Number("long"),
- *       downlinkDelayMs: Number("long"),
- *       uplinkJitterMs: Number("long"),
- *       downlinkJitterMs: Number("long"),
- *       uplinkLossPercent: Number("int"),
- *       downlinkLossPercent: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListNetworkProfilesResult
+ * //   networkProfiles: [ // NetworkProfiles
+ * //     { // NetworkProfile
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       type: "CURATED" || "PRIVATE",
+ * //       uplinkBandwidthBits: Number("long"),
+ * //       downlinkBandwidthBits: Number("long"),
+ * //       uplinkDelayMs: Number("long"),
+ * //       downlinkDelayMs: Number("long"),
+ * //       uplinkJitterMs: Number("long"),
+ * //       downlinkJitterMs: Number("long"),
+ * //       uplinkLossPercent: Number("int"),
+ * //       downlinkLossPercent: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

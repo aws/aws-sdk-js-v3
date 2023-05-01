@@ -45,25 +45,24 @@ export interface DescribeProtectionCommandOutput extends DescribeProtectionRespo
  * };
  * const command = new DescribeProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProtectionResponse
- *   Protection: { // Protection
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     ResourceArn: "STRING_VALUE",
- *     HealthCheckIds: [ // HealthCheckIds
- *       "STRING_VALUE",
- *     ],
- *     ProtectionArn: "STRING_VALUE",
- *     ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
- *       Status: "STRING_VALUE", // required
- *       Action: { // ResponseAction
- *         Block: {},
- *         Count: {},
- *       },
- *     },
- *   },
- * };
+ * // { // DescribeProtectionResponse
+ * //   Protection: { // Protection
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     ResourceArn: "STRING_VALUE",
+ * //     HealthCheckIds: [ // HealthCheckIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ProtectionArn: "STRING_VALUE",
+ * //     ApplicationLayerAutomaticResponseConfiguration: { // ApplicationLayerAutomaticResponseConfiguration
+ * //       Status: "STRING_VALUE", // required
+ * //       Action: { // ResponseAction
+ * //         Block: {},
+ * //         Count: {},
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

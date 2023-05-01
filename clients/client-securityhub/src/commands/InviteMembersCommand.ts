@@ -52,15 +52,14 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InviteMembersResponse
- *   UnprocessedAccounts: [ // ResultList
- *     { // Result
- *       AccountId: "STRING_VALUE",
- *       ProcessingResult: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // InviteMembersResponse
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

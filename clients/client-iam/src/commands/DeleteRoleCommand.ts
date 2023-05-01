@@ -67,8 +67,7 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

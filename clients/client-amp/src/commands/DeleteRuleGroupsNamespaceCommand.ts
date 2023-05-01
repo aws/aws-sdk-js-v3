@@ -46,8 +46,7 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

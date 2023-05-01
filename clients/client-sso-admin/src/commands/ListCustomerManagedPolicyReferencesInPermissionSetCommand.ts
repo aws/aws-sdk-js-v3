@@ -56,16 +56,15 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * };
  * const command = new ListCustomerManagedPolicyReferencesInPermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCustomerManagedPolicyReferencesInPermissionSetResponse
- *   CustomerManagedPolicyReferences: [ // CustomerManagedPolicyReferenceList
- *     { // CustomerManagedPolicyReference
- *       Name: "STRING_VALUE", // required
- *       Path: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCustomerManagedPolicyReferencesInPermissionSetResponse
+ * //   CustomerManagedPolicyReferences: [ // CustomerManagedPolicyReferenceList
+ * //     { // CustomerManagedPolicyReference
+ * //       Name: "STRING_VALUE", // required
+ * //       Path: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

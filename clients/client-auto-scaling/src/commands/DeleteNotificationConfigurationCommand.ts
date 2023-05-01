@@ -48,8 +48,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

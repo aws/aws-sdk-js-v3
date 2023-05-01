@@ -51,13 +51,12 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSchemasResponse
- *   Marker: "STRING_VALUE",
- *   Schemas: [ // SchemaList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeSchemasResponse
+ * //   Marker: "STRING_VALUE",
+ * //   Schemas: [ // SchemaList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

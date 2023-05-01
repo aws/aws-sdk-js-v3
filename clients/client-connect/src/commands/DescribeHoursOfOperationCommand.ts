@@ -46,32 +46,31 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * };
  * const command = new DescribeHoursOfOperationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHoursOfOperationResponse
- *   HoursOfOperation: { // HoursOfOperation
- *     HoursOfOperationId: "STRING_VALUE",
- *     HoursOfOperationArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     TimeZone: "STRING_VALUE",
- *     Config: [ // HoursOfOperationConfigList
- *       { // HoursOfOperationConfig
- *         Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
- *         StartTime: { // HoursOfOperationTimeSlice
- *           Hours: Number("int"), // required
- *           Minutes: Number("int"), // required
- *         },
- *         EndTime: {
- *           Hours: Number("int"), // required
- *           Minutes: Number("int"), // required
- *         },
- *       },
- *     ],
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeHoursOfOperationResponse
+ * //   HoursOfOperation: { // HoursOfOperation
+ * //     HoursOfOperationId: "STRING_VALUE",
+ * //     HoursOfOperationArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     TimeZone: "STRING_VALUE",
+ * //     Config: [ // HoursOfOperationConfigList
+ * //       { // HoursOfOperationConfig
+ * //         Day: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ * //         StartTime: { // HoursOfOperationTimeSlice
+ * //           Hours: Number("int"), // required
+ * //           Minutes: Number("int"), // required
+ * //         },
+ * //         EndTime: {
+ * //           Hours: Number("int"), // required
+ * //           Minutes: Number("int"), // required
+ * //         },
+ * //       },
+ * //     ],
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

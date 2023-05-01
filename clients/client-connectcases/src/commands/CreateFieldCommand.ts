@@ -48,11 +48,10 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * };
  * const command = new CreateFieldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFieldResponse
- *   fieldId: "STRING_VALUE", // required
- *   fieldArn: "STRING_VALUE", // required
- * };
+ * // { // CreateFieldResponse
+ * //   fieldId: "STRING_VALUE", // required
+ * //   fieldArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

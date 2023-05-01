@@ -60,8 +60,7 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutContactInformationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -66,27 +66,26 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  * };
  * const command = new GetAggregateConfigRuleComplianceSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAggregateConfigRuleComplianceSummaryResponse
- *   GroupByKey: "STRING_VALUE",
- *   AggregateComplianceCounts: [ // AggregateComplianceCountList
- *     { // AggregateComplianceCount
- *       GroupName: "STRING_VALUE",
- *       ComplianceSummary: { // ComplianceSummary
- *         CompliantResourceCount: { // ComplianceContributorCount
- *           CappedCount: Number("int"),
- *           CapExceeded: true || false,
- *         },
- *         NonCompliantResourceCount: {
- *           CappedCount: Number("int"),
- *           CapExceeded: true || false,
- *         },
- *         ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAggregateConfigRuleComplianceSummaryResponse
+ * //   GroupByKey: "STRING_VALUE",
+ * //   AggregateComplianceCounts: [ // AggregateComplianceCountList
+ * //     { // AggregateComplianceCount
+ * //       GroupName: "STRING_VALUE",
+ * //       ComplianceSummary: { // ComplianceSummary
+ * //         CompliantResourceCount: { // ComplianceContributorCount
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //         NonCompliantResourceCount: {
+ * //           CappedCount: Number("int"),
+ * //           CapExceeded: true || false,
+ * //         },
+ * //         ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

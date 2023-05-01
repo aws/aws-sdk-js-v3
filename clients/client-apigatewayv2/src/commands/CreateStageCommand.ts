@@ -75,44 +75,43 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStageResponse
- *   AccessLogSettings: { // AccessLogSettings
- *     DestinationArn: "STRING_VALUE",
- *     Format: "STRING_VALUE",
- *   },
- *   ApiGatewayManaged: true || false,
- *   AutoDeploy: true || false,
- *   ClientCertificateId: "STRING_VALUE",
- *   CreatedDate: new Date("TIMESTAMP"),
- *   DefaultRouteSettings: { // RouteSettings
- *     DataTraceEnabled: true || false,
- *     DetailedMetricsEnabled: true || false,
- *     LoggingLevel: "STRING_VALUE",
- *     ThrottlingBurstLimit: Number("int"),
- *     ThrottlingRateLimit: Number("double"),
- *   },
- *   DeploymentId: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   LastDeploymentStatusMessage: "STRING_VALUE",
- *   LastUpdatedDate: new Date("TIMESTAMP"),
- *   RouteSettings: { // RouteSettingsMap
- *     "<keys>": {
- *       DataTraceEnabled: true || false,
- *       DetailedMetricsEnabled: true || false,
- *       LoggingLevel: "STRING_VALUE",
- *       ThrottlingBurstLimit: Number("int"),
- *       ThrottlingRateLimit: Number("double"),
- *     },
- *   },
- *   StageName: "STRING_VALUE",
- *   StageVariables: { // StageVariablesMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateStageResponse
+ * //   AccessLogSettings: { // AccessLogSettings
+ * //     DestinationArn: "STRING_VALUE",
+ * //     Format: "STRING_VALUE",
+ * //   },
+ * //   ApiGatewayManaged: true || false,
+ * //   AutoDeploy: true || false,
+ * //   ClientCertificateId: "STRING_VALUE",
+ * //   CreatedDate: new Date("TIMESTAMP"),
+ * //   DefaultRouteSettings: { // RouteSettings
+ * //     DataTraceEnabled: true || false,
+ * //     DetailedMetricsEnabled: true || false,
+ * //     LoggingLevel: "STRING_VALUE",
+ * //     ThrottlingBurstLimit: Number("int"),
+ * //     ThrottlingRateLimit: Number("double"),
+ * //   },
+ * //   DeploymentId: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   LastDeploymentStatusMessage: "STRING_VALUE",
+ * //   LastUpdatedDate: new Date("TIMESTAMP"),
+ * //   RouteSettings: { // RouteSettingsMap
+ * //     "<keys>": {
+ * //       DataTraceEnabled: true || false,
+ * //       DetailedMetricsEnabled: true || false,
+ * //       LoggingLevel: "STRING_VALUE",
+ * //       ThrottlingBurstLimit: Number("int"),
+ * //       ThrottlingRateLimit: Number("double"),
+ * //     },
+ * //   },
+ * //   StageName: "STRING_VALUE",
+ * //   StageVariables: { // StageVariablesMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -50,22 +50,21 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * };
  * const command = new ListTypeVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTypeVersionsOutput
- *   TypeVersionSummaries: [ // TypeVersionSummaries
- *     { // TypeVersionSummary
- *       Type: "RESOURCE" || "MODULE" || "HOOK",
- *       TypeName: "STRING_VALUE",
- *       VersionId: "STRING_VALUE",
- *       IsDefaultVersion: true || false,
- *       Arn: "STRING_VALUE",
- *       TimeCreated: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       PublicVersionNumber: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTypeVersionsOutput
+ * //   TypeVersionSummaries: [ // TypeVersionSummaries
+ * //     { // TypeVersionSummary
+ * //       Type: "RESOURCE" || "MODULE" || "HOOK",
+ * //       TypeName: "STRING_VALUE",
+ * //       VersionId: "STRING_VALUE",
+ * //       IsDefaultVersion: true || false,
+ * //       Arn: "STRING_VALUE",
+ * //       TimeCreated: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       PublicVersionNumber: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

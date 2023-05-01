@@ -75,24 +75,23 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUtterancesViewResponse
- *   botName: "STRING_VALUE",
- *   utterances: [ // ListsOfUtterances
- *     { // UtteranceList
- *       botVersion: "STRING_VALUE",
- *       utterances: [ // ListOfUtterance
- *         { // UtteranceData
- *           utteranceString: "STRING_VALUE",
- *           count: Number("int"),
- *           distinctUsers: Number("int"),
- *           firstUtteredDate: new Date("TIMESTAMP"),
- *           lastUtteredDate: new Date("TIMESTAMP"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetUtterancesViewResponse
+ * //   botName: "STRING_VALUE",
+ * //   utterances: [ // ListsOfUtterances
+ * //     { // UtteranceList
+ * //       botVersion: "STRING_VALUE",
+ * //       utterances: [ // ListOfUtterance
+ * //         { // UtteranceData
+ * //           utteranceString: "STRING_VALUE",
+ * //           count: Number("int"),
+ * //           distinctUsers: Number("int"),
+ * //           firstUtteredDate: new Date("TIMESTAMP"),
+ * //           lastUtteredDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

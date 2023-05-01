@@ -45,13 +45,12 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * };
  * const command = new GetProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProjectResponse
- *   spaceName: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   description: "STRING_VALUE",
- * };
+ * // { // GetProjectResponse
+ * //   spaceName: "STRING_VALUE",
+ * //   name: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

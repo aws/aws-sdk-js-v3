@@ -45,16 +45,15 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * };
  * const command = new GetIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIPSetResponse
- *   Name: "STRING_VALUE", // required
- *   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
- *   Location: "STRING_VALUE", // required
- *   Status: "INACTIVE" || "ACTIVATING" || "ACTIVE" || "DEACTIVATING" || "ERROR" || "DELETE_PENDING" || "DELETED", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetIPSetResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   Format: "TXT" || "STIX" || "OTX_CSV" || "ALIEN_VAULT" || "PROOF_POINT" || "FIRE_EYE", // required
+ * //   Location: "STRING_VALUE", // required
+ * //   Status: "INACTIVE" || "ACTIVATING" || "ACTIVE" || "DEACTIVATING" || "ERROR" || "DELETE_PENDING" || "DELETED", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

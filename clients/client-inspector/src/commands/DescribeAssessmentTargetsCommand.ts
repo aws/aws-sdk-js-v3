@@ -47,24 +47,23 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * };
  * const command = new DescribeAssessmentTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAssessmentTargetsResponse
- *   assessmentTargets: [ // AssessmentTargetList // required
- *     { // AssessmentTarget
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       resourceGroupArn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"), // required
- *       updatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   failedItems: { // FailedItems // required
- *     "<keys>": { // FailedItemDetails
- *       failureCode: "STRING_VALUE", // required
- *       retryable: true || false, // required
- *     },
- *   },
- * };
+ * // { // DescribeAssessmentTargetsResponse
+ * //   assessmentTargets: [ // AssessmentTargetList // required
+ * //     { // AssessmentTarget
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       resourceGroupArn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

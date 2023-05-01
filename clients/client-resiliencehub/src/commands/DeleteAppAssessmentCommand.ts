@@ -46,11 +46,10 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * };
  * const command = new DeleteAppAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAppAssessmentResponse
- *   assessmentArn: "STRING_VALUE", // required
- *   assessmentStatus: "STRING_VALUE", // required
- * };
+ * // { // DeleteAppAssessmentResponse
+ * //   assessmentArn: "STRING_VALUE", // required
+ * //   assessmentStatus: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

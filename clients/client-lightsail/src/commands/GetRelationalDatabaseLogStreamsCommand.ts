@@ -49,12 +49,11 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  * };
  * const command = new GetRelationalDatabaseLogStreamsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseLogStreamsResult
- *   logStreams: [ // StringList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetRelationalDatabaseLogStreamsResult
+ * //   logStreams: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

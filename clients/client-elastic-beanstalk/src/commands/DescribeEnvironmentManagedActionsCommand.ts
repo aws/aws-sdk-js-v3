@@ -51,18 +51,17 @@ export interface DescribeEnvironmentManagedActionsCommandOutput
  * };
  * const command = new DescribeEnvironmentManagedActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEnvironmentManagedActionsResult
- *   ManagedActions: [ // ManagedActions
- *     { // ManagedAction
- *       ActionId: "STRING_VALUE",
- *       ActionDescription: "STRING_VALUE",
- *       ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
- *       Status: "Scheduled" || "Pending" || "Running" || "Unknown",
- *       WindowStartTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeEnvironmentManagedActionsResult
+ * //   ManagedActions: [ // ManagedActions
+ * //     { // ManagedAction
+ * //       ActionId: "STRING_VALUE",
+ * //       ActionDescription: "STRING_VALUE",
+ * //       ActionType: "InstanceRefresh" || "PlatformUpdate" || "Unknown",
+ * //       Status: "Scheduled" || "Pending" || "Running" || "Unknown",
+ * //       WindowStartTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -66,29 +66,28 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput
  * };
  * const command = new DescribeInboundCrossClusterSearchConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInboundCrossClusterSearchConnectionsResponse
- *   CrossClusterSearchConnections: [ // InboundCrossClusterSearchConnections
- *     { // InboundCrossClusterSearchConnection
- *       SourceDomainInfo: { // DomainInformation
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *       DestinationDomainInfo: {
- *         OwnerId: "STRING_VALUE",
- *         DomainName: "STRING_VALUE", // required
- *         Region: "STRING_VALUE",
- *       },
- *       CrossClusterSearchConnectionId: "STRING_VALUE",
- *       ConnectionStatus: { // InboundCrossClusterSearchConnectionStatus
- *         StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInboundCrossClusterSearchConnectionsResponse
+ * //   CrossClusterSearchConnections: [ // InboundCrossClusterSearchConnections
+ * //     { // InboundCrossClusterSearchConnection
+ * //       SourceDomainInfo: { // DomainInformation
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //       DestinationDomainInfo: {
+ * //         OwnerId: "STRING_VALUE",
+ * //         DomainName: "STRING_VALUE", // required
+ * //         Region: "STRING_VALUE",
+ * //       },
+ * //       CrossClusterSearchConnectionId: "STRING_VALUE",
+ * //       ConnectionStatus: { // InboundCrossClusterSearchConnectionStatus
+ * //         StatusCode: "PENDING_ACCEPTANCE" || "APPROVED" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

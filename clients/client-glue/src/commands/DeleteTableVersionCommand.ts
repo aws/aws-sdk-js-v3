@@ -47,8 +47,7 @@ export interface DeleteTableVersionCommandOutput extends DeleteTableVersionRespo
  * };
  * const command = new DeleteTableVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

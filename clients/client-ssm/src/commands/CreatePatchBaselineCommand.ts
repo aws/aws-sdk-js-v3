@@ -109,10 +109,9 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * };
  * const command = new CreatePatchBaselineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePatchBaselineResult
- *   BaselineId: "STRING_VALUE",
- * };
+ * // { // CreatePatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

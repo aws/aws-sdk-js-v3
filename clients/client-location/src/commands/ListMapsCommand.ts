@@ -45,20 +45,19 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * };
  * const command = new ListMapsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMapsResponse
- *   Entries: [ // ListMapsResponseEntryList // required
- *     { // ListMapsResponseEntry
- *       MapName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       DataSource: "STRING_VALUE", // required
- *       PricingPlan: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMapsResponse
+ * //   Entries: [ // ListMapsResponseEntryList // required
+ * //     { // ListMapsResponseEntry
+ * //       MapName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       DataSource: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

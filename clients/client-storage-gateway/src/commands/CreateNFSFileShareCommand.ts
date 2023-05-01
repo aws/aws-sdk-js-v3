@@ -94,10 +94,9 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * };
  * const command = new CreateNFSFileShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNFSFileShareOutput
- *   FileShareARN: "STRING_VALUE",
- * };
+ * // { // CreateNFSFileShareOutput
+ * //   FileShareARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,8 +57,7 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * };
  * const command = new DeleteMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

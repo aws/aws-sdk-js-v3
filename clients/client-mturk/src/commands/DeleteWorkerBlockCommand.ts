@@ -45,8 +45,7 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * };
  * const command = new DeleteWorkerBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

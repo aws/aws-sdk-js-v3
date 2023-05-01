@@ -50,10 +50,9 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * };
  * const command = new StopModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopModelResponse
- *   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
- * };
+ * // { // StopModelResponse
+ * //   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
+ * // };
  *
  * ```
  *

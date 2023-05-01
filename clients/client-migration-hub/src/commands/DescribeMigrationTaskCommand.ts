@@ -45,25 +45,24 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * };
  * const command = new DescribeMigrationTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMigrationTaskResult
- *   MigrationTask: { // MigrationTask
- *     ProgressUpdateStream: "STRING_VALUE",
- *     MigrationTaskName: "STRING_VALUE",
- *     Task: { // Task
- *       Status: "STRING_VALUE", // required
- *       StatusDetail: "STRING_VALUE",
- *       ProgressPercent: Number("int"),
- *     },
- *     UpdateDateTime: new Date("TIMESTAMP"),
- *     ResourceAttributeList: [ // LatestResourceAttributeList
- *       { // ResourceAttribute
- *         Type: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeMigrationTaskResult
+ * //   MigrationTask: { // MigrationTask
+ * //     ProgressUpdateStream: "STRING_VALUE",
+ * //     MigrationTaskName: "STRING_VALUE",
+ * //     Task: { // Task
+ * //       Status: "STRING_VALUE", // required
+ * //       StatusDetail: "STRING_VALUE",
+ * //       ProgressPercent: Number("int"),
+ * //     },
+ * //     UpdateDateTime: new Date("TIMESTAMP"),
+ * //     ResourceAttributeList: [ // LatestResourceAttributeList
+ * //       { // ResourceAttribute
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

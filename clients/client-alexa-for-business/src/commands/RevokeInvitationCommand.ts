@@ -45,8 +45,7 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * };
  * const command = new RevokeInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

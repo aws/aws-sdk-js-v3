@@ -46,8 +46,7 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  * };
  * const command = new DeleteEventTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

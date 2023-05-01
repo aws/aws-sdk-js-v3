@@ -65,8 +65,7 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * };
  * const command = new PublishMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

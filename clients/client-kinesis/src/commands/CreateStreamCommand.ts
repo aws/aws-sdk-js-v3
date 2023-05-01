@@ -91,8 +91,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

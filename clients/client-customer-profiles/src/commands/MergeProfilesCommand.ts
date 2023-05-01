@@ -115,10 +115,9 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * };
  * const command = new MergeProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergeProfilesResponse
- *   Message: "STRING_VALUE",
- * };
+ * // { // MergeProfilesResponse
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

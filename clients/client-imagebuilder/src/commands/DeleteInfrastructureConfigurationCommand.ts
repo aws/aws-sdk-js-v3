@@ -52,11 +52,10 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * };
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInfrastructureConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   infrastructureConfigurationArn: "STRING_VALUE",
- * };
+ * // { // DeleteInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

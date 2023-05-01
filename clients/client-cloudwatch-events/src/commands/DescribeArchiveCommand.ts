@@ -44,20 +44,19 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * };
  * const command = new DescribeArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeArchiveResponse
- *   ArchiveArn: "STRING_VALUE",
- *   ArchiveName: "STRING_VALUE",
- *   EventSourceArn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   EventPattern: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- *   RetentionDays: Number("int"),
- *   SizeBytes: Number("long"),
- *   EventCount: Number("long"),
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeArchiveResponse
+ * //   ArchiveArn: "STRING_VALUE",
+ * //   ArchiveName: "STRING_VALUE",
+ * //   EventSourceArn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   EventPattern: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   RetentionDays: Number("int"),
+ * //   SizeBytes: Number("long"),
+ * //   EventCount: Number("long"),
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

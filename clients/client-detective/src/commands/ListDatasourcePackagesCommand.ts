@@ -46,20 +46,19 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * };
  * const command = new ListDatasourcePackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasourcePackagesResponse
- *   DatasourcePackages: { // DatasourcePackageIngestDetails
- *     "<keys>": { // DatasourcePackageIngestDetail
- *       DatasourcePackageIngestState: "STARTED" || "STOPPED" || "DISABLED",
- *       LastIngestStateChange: { // LastIngestStateChangeDates
- *         "<keys>": { // TimestampForCollection
- *           Timestamp: new Date("TIMESTAMP"),
- *         },
- *       },
- *     },
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasourcePackagesResponse
+ * //   DatasourcePackages: { // DatasourcePackageIngestDetails
+ * //     "<keys>": { // DatasourcePackageIngestDetail
+ * //       DatasourcePackageIngestState: "STARTED" || "STOPPED" || "DISABLED",
+ * //       LastIngestStateChange: { // LastIngestStateChangeDates
+ * //         "<keys>": { // TimestampForCollection
+ * //           Timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

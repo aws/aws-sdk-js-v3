@@ -47,19 +47,18 @@ export interface DescribeAvailabilityOptionsCommandOutput
  * };
  * const command = new DescribeAvailabilityOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAvailabilityOptionsResponse
- *   AvailabilityOptions: { // AvailabilityOptionsStatus
- *     Options: true || false, // required
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DescribeAvailabilityOptionsResponse
+ * //   AvailabilityOptions: { // AvailabilityOptionsStatus
+ * //     Options: true || false, // required
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

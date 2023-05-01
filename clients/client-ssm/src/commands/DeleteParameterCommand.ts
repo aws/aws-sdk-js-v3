@@ -45,8 +45,7 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * };
  * const command = new DeleteParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

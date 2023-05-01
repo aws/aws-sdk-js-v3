@@ -46,8 +46,7 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

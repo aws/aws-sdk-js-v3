@@ -55,10 +55,9 @@ export interface SetTextMessageSpendLimitOverrideCommandOutput
  * };
  * const command = new SetTextMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetTextMessageSpendLimitOverrideResult
- *   MonthlyLimit: Number("long"),
- * };
+ * // { // SetTextMessageSpendLimitOverrideResult
+ * //   MonthlyLimit: Number("long"),
+ * // };
  *
  * ```
  *

@@ -47,12 +47,11 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  * };
  * const command = new CancelMLTaskRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelMLTaskRunResponse
- *   TransformId: "STRING_VALUE",
- *   TaskRunId: "STRING_VALUE",
- *   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
- * };
+ * // { // CancelMLTaskRunResponse
+ * //   TransformId: "STRING_VALUE",
+ * //   TaskRunId: "STRING_VALUE",
+ * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
+ * // };
  *
  * ```
  *

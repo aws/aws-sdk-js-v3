@@ -55,10 +55,9 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * };
  * const command = new FinalizeDeviceClaimCommand(input);
  * const response = await client.send(command);
- * /**
- * { // FinalizeDeviceClaimResponse
- *   State: "STRING_VALUE",
- * };
+ * // { // FinalizeDeviceClaimResponse
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

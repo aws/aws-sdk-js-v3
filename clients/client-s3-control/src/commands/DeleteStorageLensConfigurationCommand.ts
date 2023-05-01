@@ -57,8 +57,7 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

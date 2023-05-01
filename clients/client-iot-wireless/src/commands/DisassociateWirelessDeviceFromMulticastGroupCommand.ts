@@ -54,8 +54,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * };
  * const command = new DisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

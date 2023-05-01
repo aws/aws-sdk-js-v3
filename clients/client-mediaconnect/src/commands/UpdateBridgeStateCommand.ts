@@ -45,11 +45,10 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  * };
  * const command = new UpdateBridgeStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBridgeStateResponse
- *   BridgeArn: "STRING_VALUE",
- *   DesiredState: "ACTIVE" || "STANDBY" || "DELETED",
- * };
+ * // { // UpdateBridgeStateResponse
+ * //   BridgeArn: "STRING_VALUE",
+ * //   DesiredState: "ACTIVE" || "STANDBY" || "DELETED",
+ * // };
  *
  * ```
  *

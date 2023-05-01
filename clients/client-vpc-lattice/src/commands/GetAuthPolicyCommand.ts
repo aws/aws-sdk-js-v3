@@ -45,13 +45,12 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  * };
  * const command = new GetAuthPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAuthPolicyResponse
- *   policy: "STRING_VALUE",
- *   state: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetAuthPolicyResponse
+ * //   policy: "STRING_VALUE",
+ * //   state: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

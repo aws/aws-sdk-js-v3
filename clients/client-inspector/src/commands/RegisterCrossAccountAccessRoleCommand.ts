@@ -48,8 +48,7 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * };
  * const command = new RegisterCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

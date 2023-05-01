@@ -48,19 +48,18 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  * };
  * const command = new DisableCrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CrlDetailResponse
- *   crl: { // CrlDetail
- *     crlId: "STRING_VALUE",
- *     crlArn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     enabled: true || false,
- *     crlData: "BLOB_VALUE",
- *     trustAnchorArn: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CrlDetailResponse
+ * //   crl: { // CrlDetail
+ * //     crlId: "STRING_VALUE",
+ * //     crlArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     enabled: true || false,
+ * //     crlData: "BLOB_VALUE",
+ * //     trustAnchorArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,8 +52,7 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDBSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

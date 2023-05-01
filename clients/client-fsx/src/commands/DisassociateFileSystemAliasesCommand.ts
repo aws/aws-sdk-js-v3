@@ -61,15 +61,14 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * };
  * const command = new DisassociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateFileSystemAliasesResponse
- *   Aliases: [ // Aliases
- *     { // Alias
- *       Name: "STRING_VALUE",
- *       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
- *     },
- *   ],
- * };
+ * // { // DisassociateFileSystemAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     { // Alias
+ * //       Name: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteWhatIfForecastExportCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteWhatIfForecastExportCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

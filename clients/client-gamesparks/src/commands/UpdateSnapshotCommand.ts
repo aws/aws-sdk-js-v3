@@ -46,22 +46,21 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResult, __Met
  * };
  * const command = new UpdateSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSnapshotResult
- *   Snapshot: { // SnapshotDetails
- *     Id: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Sections: { // Sections
- *       "<keys>": { // Section
- *         Name: "STRING_VALUE",
- *         Size: Number("int"),
- *         Attributes: "DOCUMENT_VALUE",
- *       },
- *     },
- *     Created: new Date("TIMESTAMP"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateSnapshotResult
+ * //   Snapshot: { // SnapshotDetails
+ * //     Id: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Sections: { // Sections
+ * //       "<keys>": { // Section
+ * //         Name: "STRING_VALUE",
+ * //         Size: Number("int"),
+ * //         Attributes: "DOCUMENT_VALUE",
+ * //       },
+ * //     },
+ * //     Created: new Date("TIMESTAMP"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

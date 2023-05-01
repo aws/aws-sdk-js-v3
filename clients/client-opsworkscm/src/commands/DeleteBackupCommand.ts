@@ -51,8 +51,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * };
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

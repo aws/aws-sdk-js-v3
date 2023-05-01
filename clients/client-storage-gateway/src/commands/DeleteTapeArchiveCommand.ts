@@ -46,10 +46,9 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  * };
  * const command = new DeleteTapeArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTapeArchiveOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // DeleteTapeArchiveOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

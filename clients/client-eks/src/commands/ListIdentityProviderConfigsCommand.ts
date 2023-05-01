@@ -51,16 +51,15 @@ export interface ListIdentityProviderConfigsCommandOutput
  * };
  * const command = new ListIdentityProviderConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityProviderConfigsResponse
- *   identityProviderConfigs: [ // IdentityProviderConfigs
- *     { // IdentityProviderConfig
- *       type: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentityProviderConfigsResponse
+ * //   identityProviderConfigs: [ // IdentityProviderConfigs
+ * //     { // IdentityProviderConfig
+ * //       type: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

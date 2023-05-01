@@ -65,25 +65,24 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  * };
  * const command = new CreateReplaceRootVolumeTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReplaceRootVolumeTaskResult
- *   ReplaceRootVolumeTask: { // ReplaceRootVolumeTask
- *     ReplaceRootVolumeTaskId: "STRING_VALUE",
- *     InstanceId: "STRING_VALUE",
- *     TaskState: "pending" || "in-progress" || "failing" || "succeeded" || "failed" || "failed-detached",
- *     StartTime: "STRING_VALUE",
- *     CompleteTime: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     ImageId: "STRING_VALUE",
- *     SnapshotId: "STRING_VALUE",
- *     DeleteReplacedRootVolume: true || false,
- *   },
- * };
+ * // { // CreateReplaceRootVolumeTaskResult
+ * //   ReplaceRootVolumeTask: { // ReplaceRootVolumeTask
+ * //     ReplaceRootVolumeTaskId: "STRING_VALUE",
+ * //     InstanceId: "STRING_VALUE",
+ * //     TaskState: "pending" || "in-progress" || "failing" || "succeeded" || "failed" || "failed-detached",
+ * //     StartTime: "STRING_VALUE",
+ * //     CompleteTime: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ImageId: "STRING_VALUE",
+ * //     SnapshotId: "STRING_VALUE",
+ * //     DeleteReplacedRootVolume: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

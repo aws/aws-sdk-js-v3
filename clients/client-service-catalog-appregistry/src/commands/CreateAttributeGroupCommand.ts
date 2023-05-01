@@ -57,20 +57,19 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * };
  * const command = new CreateAttributeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAttributeGroupResponse
- *   attributeGroup: { // AttributeGroup
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateAttributeGroupResponse
+ * //   attributeGroup: { // AttributeGroup
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

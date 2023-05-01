@@ -56,27 +56,26 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * };
  * const command = new DescribeReplicationConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReplicationConfigurationsResponse
- *   Replications: [ // ReplicationConfigurationDescriptions
- *     { // ReplicationConfigurationDescription
- *       SourceFileSystemId: "STRING_VALUE", // required
- *       SourceFileSystemRegion: "STRING_VALUE", // required
- *       SourceFileSystemArn: "STRING_VALUE", // required
- *       OriginalSourceFileSystemArn: "STRING_VALUE", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       Destinations: [ // Destinations // required
- *         { // Destination
- *           Status: "ENABLED" || "ENABLING" || "DELETING" || "ERROR" || "PAUSED" || "PAUSING", // required
- *           FileSystemId: "STRING_VALUE", // required
- *           Region: "STRING_VALUE", // required
- *           LastReplicatedTimestamp: new Date("TIMESTAMP"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeReplicationConfigurationsResponse
+ * //   Replications: [ // ReplicationConfigurationDescriptions
+ * //     { // ReplicationConfigurationDescription
+ * //       SourceFileSystemId: "STRING_VALUE", // required
+ * //       SourceFileSystemRegion: "STRING_VALUE", // required
+ * //       SourceFileSystemArn: "STRING_VALUE", // required
+ * //       OriginalSourceFileSystemArn: "STRING_VALUE", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       Destinations: [ // Destinations // required
+ * //         { // Destination
+ * //           Status: "ENABLED" || "ENABLING" || "DELETING" || "ERROR" || "PAUSED" || "PAUSING", // required
+ * //           FileSystemId: "STRING_VALUE", // required
+ * //           Region: "STRING_VALUE", // required
+ * //           LastReplicatedTimestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,17 +54,16 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * };
  * const command = new ListVpcEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVpcEndpointsResponse
- *   vpcEndpointSummaries: [ // VpcEndpointSummaries
- *     { // VpcEndpointSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListVpcEndpointsResponse
+ * //   vpcEndpointSummaries: [ // VpcEndpointSummaries
+ * //     { // VpcEndpointSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

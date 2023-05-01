@@ -67,68 +67,67 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * };
  * const command = new GetSegmentDetectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSegmentDetectionResponse
- *   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
- *   StatusMessage: "STRING_VALUE",
- *   VideoMetadata: [ // VideoMetadataList
- *     { // VideoMetadata
- *       Codec: "STRING_VALUE",
- *       DurationMillis: Number("long"),
- *       Format: "STRING_VALUE",
- *       FrameRate: Number("float"),
- *       FrameHeight: Number("long"),
- *       FrameWidth: Number("long"),
- *       ColorRange: "FULL" || "LIMITED",
- *     },
- *   ],
- *   AudioMetadata: [ // AudioMetadataList
- *     { // AudioMetadata
- *       Codec: "STRING_VALUE",
- *       DurationMillis: Number("long"),
- *       SampleRate: Number("long"),
- *       NumberOfChannels: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Segments: [ // SegmentDetections
- *     { // SegmentDetection
- *       Type: "TECHNICAL_CUE" || "SHOT",
- *       StartTimestampMillis: Number("long"),
- *       EndTimestampMillis: Number("long"),
- *       DurationMillis: Number("long"),
- *       StartTimecodeSMPTE: "STRING_VALUE",
- *       EndTimecodeSMPTE: "STRING_VALUE",
- *       DurationSMPTE: "STRING_VALUE",
- *       TechnicalCueSegment: { // TechnicalCueSegment
- *         Type: "ColorBars" || "EndCredits" || "BlackFrames" || "OpeningCredits" || "StudioLogo" || "Slate" || "Content",
- *         Confidence: Number("float"),
- *       },
- *       ShotSegment: { // ShotSegment
- *         Index: Number("long"),
- *         Confidence: Number("float"),
- *       },
- *       StartFrameNumber: Number("long"),
- *       EndFrameNumber: Number("long"),
- *       DurationFrames: Number("long"),
- *     },
- *   ],
- *   SelectedSegmentTypes: [ // SegmentTypesInfo
- *     { // SegmentTypeInfo
- *       Type: "TECHNICAL_CUE" || "SHOT",
- *       ModelVersion: "STRING_VALUE",
- *     },
- *   ],
- *   JobId: "STRING_VALUE",
- *   Video: { // Video
- *     S3Object: { // S3Object
- *       Bucket: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Version: "STRING_VALUE",
- *     },
- *   },
- *   JobTag: "STRING_VALUE",
- * };
+ * // { // GetSegmentDetectionResponse
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   VideoMetadata: [ // VideoMetadataList
+ * //     { // VideoMetadata
+ * //       Codec: "STRING_VALUE",
+ * //       DurationMillis: Number("long"),
+ * //       Format: "STRING_VALUE",
+ * //       FrameRate: Number("float"),
+ * //       FrameHeight: Number("long"),
+ * //       FrameWidth: Number("long"),
+ * //       ColorRange: "FULL" || "LIMITED",
+ * //     },
+ * //   ],
+ * //   AudioMetadata: [ // AudioMetadataList
+ * //     { // AudioMetadata
+ * //       Codec: "STRING_VALUE",
+ * //       DurationMillis: Number("long"),
+ * //       SampleRate: Number("long"),
+ * //       NumberOfChannels: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Segments: [ // SegmentDetections
+ * //     { // SegmentDetection
+ * //       Type: "TECHNICAL_CUE" || "SHOT",
+ * //       StartTimestampMillis: Number("long"),
+ * //       EndTimestampMillis: Number("long"),
+ * //       DurationMillis: Number("long"),
+ * //       StartTimecodeSMPTE: "STRING_VALUE",
+ * //       EndTimecodeSMPTE: "STRING_VALUE",
+ * //       DurationSMPTE: "STRING_VALUE",
+ * //       TechnicalCueSegment: { // TechnicalCueSegment
+ * //         Type: "ColorBars" || "EndCredits" || "BlackFrames" || "OpeningCredits" || "StudioLogo" || "Slate" || "Content",
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       ShotSegment: { // ShotSegment
+ * //         Index: Number("long"),
+ * //         Confidence: Number("float"),
+ * //       },
+ * //       StartFrameNumber: Number("long"),
+ * //       EndFrameNumber: Number("long"),
+ * //       DurationFrames: Number("long"),
+ * //     },
+ * //   ],
+ * //   SelectedSegmentTypes: [ // SegmentTypesInfo
+ * //     { // SegmentTypeInfo
+ * //       Type: "TECHNICAL_CUE" || "SHOT",
+ * //       ModelVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   JobId: "STRING_VALUE",
+ * //   Video: { // Video
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobTag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

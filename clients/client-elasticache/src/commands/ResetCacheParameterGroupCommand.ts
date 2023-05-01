@@ -54,10 +54,9 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * };
  * const command = new ResetCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CacheParameterGroupNameMessage
- *   CacheParameterGroupName: "STRING_VALUE",
- * };
+ * // { // CacheParameterGroupNameMessage
+ * //   CacheParameterGroupName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

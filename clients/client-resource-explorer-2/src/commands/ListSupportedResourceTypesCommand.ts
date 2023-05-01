@@ -49,16 +49,15 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * };
  * const command = new ListSupportedResourceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSupportedResourceTypesOutput
- *   ResourceTypes: [ // ResourceTypeList
- *     { // SupportedResourceType
- *       Service: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSupportedResourceTypesOutput
+ * //   ResourceTypes: [ // ResourceTypeList
+ * //     { // SupportedResourceType
+ * //       Service: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -76,11 +76,10 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCaseResponse
- *   caseId: "STRING_VALUE", // required
- *   caseArn: "STRING_VALUE", // required
- * };
+ * // { // CreateCaseResponse
+ * //   caseId: "STRING_VALUE", // required
+ * //   caseArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -49,12 +49,11 @@ export interface DeleteWorkflowCommandOutput extends DeleteMigrationWorkflowResp
  * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMigrationWorkflowResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // DeleteMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

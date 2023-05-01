@@ -107,29 +107,28 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * };
  * const command = new DescribePipelinesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePipelinesOutput
- *   pipelineDescriptionList: [ // PipelineDescriptionList // required
- *     { // PipelineDescription
- *       pipelineId: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       fields: [ // fieldList // required
- *         { // Field
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE",
- *           refValue: "STRING_VALUE",
- *         },
- *       ],
- *       description: "STRING_VALUE",
- *       tags: [ // tagList
- *         { // Tag
- *           key: "STRING_VALUE", // required
- *           value: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribePipelinesOutput
+ * //   pipelineDescriptionList: [ // PipelineDescriptionList // required
+ * //     { // PipelineDescription
+ * //       pipelineId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       fields: [ // fieldList // required
+ * //         { // Field
+ * //           key: "STRING_VALUE", // required
+ * //           stringValue: "STRING_VALUE",
+ * //           refValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       description: "STRING_VALUE",
+ * //       tags: [ // tagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

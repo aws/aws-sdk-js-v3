@@ -48,15 +48,14 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  * };
  * const command = new StartMonitoringMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMonitoringMembersResponse
- *   UnprocessedAccounts: [ // UnprocessedAccounts // required
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE", // required
- *       Result: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // StartMonitoringMembersResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

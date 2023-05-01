@@ -51,17 +51,16 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * };
  * const command = new ResolveRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResolveRoomResponse
- *   RoomArn: "STRING_VALUE",
- *   RoomName: "STRING_VALUE",
- *   RoomSkillParameters: [ // RoomSkillParameters
- *     { // RoomSkillParameter
- *       ParameterKey: "STRING_VALUE", // required
- *       ParameterValue: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ResolveRoomResponse
+ * //   RoomArn: "STRING_VALUE",
+ * //   RoomName: "STRING_VALUE",
+ * //   RoomSkillParameters: [ // RoomSkillParameters
+ * //     { // RoomSkillParameter
+ * //       ParameterKey: "STRING_VALUE", // required
+ * //       ParameterValue: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -163,8 +163,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

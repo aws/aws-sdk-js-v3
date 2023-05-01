@@ -51,13 +51,12 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * };
  * const command = new RestoreSnapshotTierCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RestoreSnapshotTierResult
- *   SnapshotId: "STRING_VALUE",
- *   RestoreStartTime: new Date("TIMESTAMP"),
- *   RestoreDuration: Number("int"),
- *   IsPermanentRestore: true || false,
- * };
+ * // { // RestoreSnapshotTierResult
+ * //   SnapshotId: "STRING_VALUE",
+ * //   RestoreStartTime: new Date("TIMESTAMP"),
+ * //   RestoreDuration: Number("int"),
+ * //   IsPermanentRestore: true || false,
+ * // };
  *
  * ```
  *

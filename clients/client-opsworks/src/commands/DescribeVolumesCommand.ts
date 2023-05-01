@@ -57,27 +57,26 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVolumesResult
- *   Volumes: [ // Volumes
- *     { // Volume
- *       VolumeId: "STRING_VALUE",
- *       Ec2VolumeId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       RaidArrayId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Size: Number("int"),
- *       Device: "STRING_VALUE",
- *       MountPoint: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       VolumeType: "STRING_VALUE",
- *       Iops: Number("int"),
- *       Encrypted: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeVolumesResult
+ * //   Volumes: [ // Volumes
+ * //     { // Volume
+ * //       VolumeId: "STRING_VALUE",
+ * //       Ec2VolumeId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       RaidArrayId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Size: Number("int"),
+ * //       Device: "STRING_VALUE",
+ * //       MountPoint: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       VolumeType: "STRING_VALUE",
+ * //       Iops: Number("int"),
+ * //       Encrypted: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

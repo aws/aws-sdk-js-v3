@@ -44,26 +44,25 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * };
  * const command = new DeleteEmailChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEmailChannelResponse
- *   EmailChannelResponse: { // EmailChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     ConfigurationSet: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     Enabled: true || false,
- *     FromAddress: "STRING_VALUE",
- *     HasCredential: true || false,
- *     Id: "STRING_VALUE",
- *     Identity: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     MessagesPerSecond: Number("int"),
- *     Platform: "STRING_VALUE", // required
- *     RoleArn: "STRING_VALUE",
- *     Version: Number("int"),
- *   },
- * };
+ * // { // DeleteEmailChannelResponse
+ * //   EmailChannelResponse: { // EmailChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     ConfigurationSet: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     FromAddress: "STRING_VALUE",
+ * //     HasCredential: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Identity: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     MessagesPerSecond: Number("int"),
+ * //     Platform: "STRING_VALUE", // required
+ * //     RoleArn: "STRING_VALUE",
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

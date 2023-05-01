@@ -45,30 +45,29 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * };
  * const command = new ListConferenceProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConferenceProvidersResponse
- *   ConferenceProviders: [ // ConferenceProvidersList
- *     { // ConferenceProvider
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       IPDialIn: { // IPDialIn
- *         Endpoint: "STRING_VALUE", // required
- *         CommsProtocol: "STRING_VALUE", // required
- *       },
- *       PSTNDialIn: { // PSTNDialIn
- *         CountryCode: "STRING_VALUE", // required
- *         PhoneNumber: "STRING_VALUE", // required
- *         OneClickIdDelay: "STRING_VALUE", // required
- *         OneClickPinDelay: "STRING_VALUE", // required
- *       },
- *       MeetingSetting: { // MeetingSetting
- *         RequirePin: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConferenceProvidersResponse
+ * //   ConferenceProviders: [ // ConferenceProvidersList
+ * //     { // ConferenceProvider
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       IPDialIn: { // IPDialIn
+ * //         Endpoint: "STRING_VALUE", // required
+ * //         CommsProtocol: "STRING_VALUE", // required
+ * //       },
+ * //       PSTNDialIn: { // PSTNDialIn
+ * //         CountryCode: "STRING_VALUE", // required
+ * //         PhoneNumber: "STRING_VALUE", // required
+ * //         OneClickIdDelay: "STRING_VALUE", // required
+ * //         OneClickPinDelay: "STRING_VALUE", // required
+ * //       },
+ * //       MeetingSetting: { // MeetingSetting
+ * //         RequirePin: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

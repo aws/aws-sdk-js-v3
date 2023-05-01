@@ -51,8 +51,7 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * };
  * const command = new UpdateRulesOfIpGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

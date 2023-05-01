@@ -52,23 +52,22 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * };
  * const command = new ListLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLabelsResponse
- *   NextToken: "STRING_VALUE",
- *   LabelSummaries: [ // LabelSummaries
- *     { // LabelSummary
- *       LabelGroupName: "STRING_VALUE",
- *       LabelId: "STRING_VALUE",
- *       LabelGroupArn: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *       Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL",
- *       FaultCode: "STRING_VALUE",
- *       Equipment: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListLabelsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   LabelSummaries: [ // LabelSummaries
+ * //     { // LabelSummary
+ * //       LabelGroupName: "STRING_VALUE",
+ * //       LabelId: "STRING_VALUE",
+ * //       LabelGroupArn: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL",
+ * //       FaultCode: "STRING_VALUE",
+ * //       Equipment: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

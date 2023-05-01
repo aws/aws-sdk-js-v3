@@ -52,26 +52,25 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * };
  * const command = new ListFunctionEventInvokeConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFunctionEventInvokeConfigsResponse
- *   FunctionEventInvokeConfigs: [ // FunctionEventInvokeConfigList
- *     { // FunctionEventInvokeConfig
- *       LastModified: new Date("TIMESTAMP"),
- *       FunctionArn: "STRING_VALUE",
- *       MaximumRetryAttempts: Number("int"),
- *       MaximumEventAgeInSeconds: Number("int"),
- *       DestinationConfig: { // DestinationConfig
- *         OnSuccess: { // OnSuccess
- *           Destination: "STRING_VALUE",
- *         },
- *         OnFailure: { // OnFailure
- *           Destination: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // ListFunctionEventInvokeConfigsResponse
+ * //   FunctionEventInvokeConfigs: [ // FunctionEventInvokeConfigList
+ * //     { // FunctionEventInvokeConfig
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       FunctionArn: "STRING_VALUE",
+ * //       MaximumRetryAttempts: Number("int"),
+ * //       MaximumEventAgeInSeconds: Number("int"),
+ * //       DestinationConfig: { // DestinationConfig
+ * //         OnSuccess: { // OnSuccess
+ * //           Destination: "STRING_VALUE",
+ * //         },
+ * //         OnFailure: { // OnFailure
+ * //           Destination: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

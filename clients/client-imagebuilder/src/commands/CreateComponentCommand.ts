@@ -69,12 +69,11 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateComponentResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   componentBuildVersionArn: "STRING_VALUE",
- * };
+ * // { // CreateComponentResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   componentBuildVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

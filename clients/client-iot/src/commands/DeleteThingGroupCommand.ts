@@ -46,8 +46,7 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * };
  * const command = new DeleteThingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -60,24 +60,23 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSpotFleetRequestHistoryResponse
- *   HistoryRecords: [ // HistoryRecords
- *     { // HistoryRecord
- *       EventInformation: { // EventInformation
- *         EventDescription: "STRING_VALUE",
- *         EventSubType: "STRING_VALUE",
- *         InstanceId: "STRING_VALUE",
- *       },
- *       EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
- *       Timestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   LastEvaluatedTime: new Date("TIMESTAMP"),
- *   NextToken: "STRING_VALUE",
- *   SpotFleetRequestId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeSpotFleetRequestHistoryResponse
+ * //   HistoryRecords: [ // HistoryRecords
+ * //     { // HistoryRecord
+ * //       EventInformation: { // EventInformation
+ * //         EventDescription: "STRING_VALUE",
+ * //         EventSubType: "STRING_VALUE",
+ * //         InstanceId: "STRING_VALUE",
+ * //       },
+ * //       EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   LastEvaluatedTime: new Date("TIMESTAMP"),
+ * //   NextToken: "STRING_VALUE",
+ * //   SpotFleetRequestId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

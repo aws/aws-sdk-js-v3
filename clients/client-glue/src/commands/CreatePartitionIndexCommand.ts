@@ -52,8 +52,7 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * };
  * const command = new CreatePartitionIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

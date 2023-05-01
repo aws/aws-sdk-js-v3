@@ -48,35 +48,34 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * };
  * const command = new ListTableMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTableMetadataOutput
- *   TableMetadataList: [ // TableMetadataList
- *     { // TableMetadata
- *       Name: "STRING_VALUE", // required
- *       CreateTime: new Date("TIMESTAMP"),
- *       LastAccessTime: new Date("TIMESTAMP"),
- *       TableType: "STRING_VALUE",
- *       Columns: [ // ColumnList
- *         { // Column
- *           Name: "STRING_VALUE", // required
- *           Type: "STRING_VALUE",
- *           Comment: "STRING_VALUE",
- *         },
- *       ],
- *       PartitionKeys: [
- *         {
- *           Name: "STRING_VALUE", // required
- *           Type: "STRING_VALUE",
- *           Comment: "STRING_VALUE",
- *         },
- *       ],
- *       Parameters: { // ParametersMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTableMetadataOutput
+ * //   TableMetadataList: [ // TableMetadataList
+ * //     { // TableMetadata
+ * //       Name: "STRING_VALUE", // required
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       LastAccessTime: new Date("TIMESTAMP"),
+ * //       TableType: "STRING_VALUE",
+ * //       Columns: [ // ColumnList
+ * //         { // Column
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE",
+ * //           Comment: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       PartitionKeys: [
+ * //         {
+ * //           Name: "STRING_VALUE", // required
+ * //           Type: "STRING_VALUE",
+ * //           Comment: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Parameters: { // ParametersMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,16 +44,15 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * };
  * const command = new GetDomainNameCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainNameResponse
- *   domainNameConfig: { // DomainNameConfig
- *     domainName: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     certificateArn: "STRING_VALUE",
- *     appsyncDomainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDomainNameResponse
+ * //   domainNameConfig: { // DomainNameConfig
+ * //     domainName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     certificateArn: "STRING_VALUE",
+ * //     appsyncDomainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

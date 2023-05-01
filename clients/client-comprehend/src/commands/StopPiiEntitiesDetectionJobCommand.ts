@@ -46,11 +46,10 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  * };
  * const command = new StopPiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopPiiEntitiesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopPiiEntitiesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

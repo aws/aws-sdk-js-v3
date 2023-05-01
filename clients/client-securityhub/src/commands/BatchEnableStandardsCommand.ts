@@ -55,22 +55,21 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * };
  * const command = new BatchEnableStandardsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchEnableStandardsResponse
- *   StandardsSubscriptions: [ // StandardsSubscriptions
- *     { // StandardsSubscription
- *       StandardsSubscriptionArn: "STRING_VALUE", // required
- *       StandardsArn: "STRING_VALUE", // required
- *       StandardsInput: { // StandardsInputParameterMap // required
- *         "<keys>": "STRING_VALUE",
- *       },
- *       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
- *       StandardsStatusReason: { // StandardsStatusReason
- *         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchEnableStandardsResponse
+ * //   StandardsSubscriptions: [ // StandardsSubscriptions
+ * //     { // StandardsSubscription
+ * //       StandardsSubscriptionArn: "STRING_VALUE", // required
+ * //       StandardsArn: "STRING_VALUE", // required
+ * //       StandardsInput: { // StandardsInputParameterMap // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
+ * //       StandardsStatusReason: { // StandardsStatusReason
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,13 +50,12 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * };
  * const command = new ListObjectPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectPoliciesResponse
- *   AttachedPolicyIds: [ // ObjectIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListObjectPoliciesResponse
+ * //   AttachedPolicyIds: [ // ObjectIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,21 +61,20 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * };
  * const command = new DeleteAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAppVersionAppComponentResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appComponent: { // AppComponent
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     id: "STRING_VALUE",
- *     additionalInfo: { // AdditionalInfoMap
- *       "<keys>": [ // AdditionalInfoValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // DeleteAppVersionAppComponentResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appComponent: { // AppComponent
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE",
+ * //     additionalInfo: { // AdditionalInfoMap
+ * //       "<keys>": [ // AdditionalInfoValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

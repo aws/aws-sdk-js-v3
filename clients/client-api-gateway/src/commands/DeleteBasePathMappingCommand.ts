@@ -45,8 +45,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBasePathMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

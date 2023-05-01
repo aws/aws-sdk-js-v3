@@ -57,13 +57,12 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * };
  * const command = new PutVoiceConnectorLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutVoiceConnectorLoggingConfigurationResponse
- *   LoggingConfiguration: { // LoggingConfiguration
- *     EnableSIPLogs: true || false,
- *     EnableMediaMetricLogs: true || false,
- *   },
- * };
+ * // { // PutVoiceConnectorLoggingConfigurationResponse
+ * //   LoggingConfiguration: { // LoggingConfiguration
+ * //     EnableSIPLogs: true || false,
+ * //     EnableMediaMetricLogs: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

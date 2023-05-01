@@ -141,10 +141,9 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * };
  * const command = new UpdateScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateScheduleOutput
- *   ScheduleArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateScheduleOutput
+ * //   ScheduleArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

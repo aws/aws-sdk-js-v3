@@ -55,24 +55,23 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * };
  * const command = new ListHubsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHubsResponse
- *   HubSummaries: [ // HubInfoList // required
- *     { // HubInfo
- *       HubName: "STRING_VALUE", // required
- *       HubArn: "STRING_VALUE", // required
- *       HubDisplayName: "STRING_VALUE",
- *       HubDescription: "STRING_VALUE",
- *       HubSearchKeywords: [ // HubSearchKeywordList
- *         "STRING_VALUE",
- *       ],
- *       HubStatus: "InService" || "Creating" || "Updating" || "Deleting" || "CreateFailed" || "UpdateFailed" || "DeleteFailed", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHubsResponse
+ * //   HubSummaries: [ // HubInfoList // required
+ * //     { // HubInfo
+ * //       HubName: "STRING_VALUE", // required
+ * //       HubArn: "STRING_VALUE", // required
+ * //       HubDisplayName: "STRING_VALUE",
+ * //       HubDescription: "STRING_VALUE",
+ * //       HubSearchKeywords: [ // HubSearchKeywordList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       HubStatus: "InService" || "Creating" || "Updating" || "Deleting" || "CreateFailed" || "UpdateFailed" || "DeleteFailed", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

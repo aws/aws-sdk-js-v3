@@ -44,18 +44,17 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * };
  * const command = new ListResourcePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourcePoliciesResult
- *   ResourcePolicies: [ // ResourcePolicyList
- *     { // ResourcePolicy
- *       PolicyName: "STRING_VALUE",
- *       PolicyDocument: "STRING_VALUE",
- *       PolicyRevisionId: "STRING_VALUE",
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListResourcePoliciesResult
+ * //   ResourcePolicies: [ // ResourcePolicyList
+ * //     { // ResourcePolicy
+ * //       PolicyName: "STRING_VALUE",
+ * //       PolicyDocument: "STRING_VALUE",
+ * //       PolicyRevisionId: "STRING_VALUE",
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

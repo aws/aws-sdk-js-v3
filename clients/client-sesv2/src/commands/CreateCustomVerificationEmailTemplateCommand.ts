@@ -62,8 +62,7 @@ export interface CreateCustomVerificationEmailTemplateCommandOutput
  * };
  * const command = new CreateCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

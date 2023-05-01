@@ -47,25 +47,24 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * };
  * const command = new BatchGetOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetOnPremisesInstancesOutput
- *   instanceInfos: [ // InstanceInfoList
- *     { // InstanceInfo
- *       instanceName: "STRING_VALUE",
- *       iamSessionArn: "STRING_VALUE",
- *       iamUserArn: "STRING_VALUE",
- *       instanceArn: "STRING_VALUE",
- *       registerTime: new Date("TIMESTAMP"),
- *       deregisterTime: new Date("TIMESTAMP"),
- *       tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // BatchGetOnPremisesInstancesOutput
+ * //   instanceInfos: [ // InstanceInfoList
+ * //     { // InstanceInfo
+ * //       instanceName: "STRING_VALUE",
+ * //       iamSessionArn: "STRING_VALUE",
+ * //       iamUserArn: "STRING_VALUE",
+ * //       instanceArn: "STRING_VALUE",
+ * //       registerTime: new Date("TIMESTAMP"),
+ * //       deregisterTime: new Date("TIMESTAMP"),
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

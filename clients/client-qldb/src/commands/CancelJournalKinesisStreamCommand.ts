@@ -49,10 +49,9 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * };
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelJournalKinesisStreamResponse
- *   StreamId: "STRING_VALUE",
- * };
+ * // { // CancelJournalKinesisStreamResponse
+ * //   StreamId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

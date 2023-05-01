@@ -47,26 +47,25 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * };
  * const command = new GetPipelineExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPipelineExecutionOutput
- *   pipelineExecution: { // PipelineExecution
- *     pipelineName: "STRING_VALUE",
- *     pipelineVersion: Number("int"),
- *     pipelineExecutionId: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     statusSummary: "STRING_VALUE",
- *     artifactRevisions: [ // ArtifactRevisionList
- *       { // ArtifactRevision
- *         name: "STRING_VALUE",
- *         revisionId: "STRING_VALUE",
- *         revisionChangeIdentifier: "STRING_VALUE",
- *         revisionSummary: "STRING_VALUE",
- *         created: new Date("TIMESTAMP"),
- *         revisionUrl: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetPipelineExecutionOutput
+ * //   pipelineExecution: { // PipelineExecution
+ * //     pipelineName: "STRING_VALUE",
+ * //     pipelineVersion: Number("int"),
+ * //     pipelineExecutionId: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     statusSummary: "STRING_VALUE",
+ * //     artifactRevisions: [ // ArtifactRevisionList
+ * //       { // ArtifactRevision
+ * //         name: "STRING_VALUE",
+ * //         revisionId: "STRING_VALUE",
+ * //         revisionChangeIdentifier: "STRING_VALUE",
+ * //         revisionSummary: "STRING_VALUE",
+ * //         created: new Date("TIMESTAMP"),
+ * //         revisionUrl: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -45,25 +45,24 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * };
  * const command = new GetVoiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceTemplateResponse
- *   VoiceTemplateResponse: { // VoiceTemplateResponse
- *     Arn: "STRING_VALUE",
- *     Body: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE", // required
- *     DefaultSubstitutions: "STRING_VALUE",
- *     LanguageCode: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE", // required
- *     tags: { // MapOf__string
- *       "<keys>": "STRING_VALUE",
- *     },
- *     TemplateDescription: "STRING_VALUE",
- *     TemplateName: "STRING_VALUE", // required
- *     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
- *     Version: "STRING_VALUE",
- *     VoiceId: "STRING_VALUE",
- *   },
- * };
+ * // { // GetVoiceTemplateResponse
+ * //   VoiceTemplateResponse: { // VoiceTemplateResponse
+ * //     Arn: "STRING_VALUE",
+ * //     Body: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE", // required
+ * //     DefaultSubstitutions: "STRING_VALUE",
+ * //     LanguageCode: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE", // required
+ * //     tags: { // MapOf__string
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TemplateDescription: "STRING_VALUE",
+ * //     TemplateName: "STRING_VALUE", // required
+ * //     TemplateType: "EMAIL" || "SMS" || "VOICE" || "PUSH" || "INAPP", // required
+ * //     Version: "STRING_VALUE",
+ * //     VoiceId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -46,25 +46,24 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * };
  * const command = new GetManagedResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetManagedResourceResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   appliedWeights: { // AppliedWeights // required
- *     "<keys>": Number("float"),
- *   },
- *   zonalShifts: [ // ZonalShiftsInResource // required
- *     { // ZonalShiftInResource
- *       appliedStatus: "APPLIED" || "NOT_APPLIED", // required
- *       zonalShiftId: "STRING_VALUE", // required
- *       resourceIdentifier: "STRING_VALUE", // required
- *       awayFrom: "STRING_VALUE", // required
- *       expiryTime: new Date("TIMESTAMP"), // required
- *       startTime: new Date("TIMESTAMP"), // required
- *       comment: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetManagedResourceResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   appliedWeights: { // AppliedWeights // required
+ * //     "<keys>": Number("float"),
+ * //   },
+ * //   zonalShifts: [ // ZonalShiftsInResource // required
+ * //     { // ZonalShiftInResource
+ * //       appliedStatus: "APPLIED" || "NOT_APPLIED", // required
+ * //       zonalShiftId: "STRING_VALUE", // required
+ * //       resourceIdentifier: "STRING_VALUE", // required
+ * //       awayFrom: "STRING_VALUE", // required
+ * //       expiryTime: new Date("TIMESTAMP"), // required
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       comment: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

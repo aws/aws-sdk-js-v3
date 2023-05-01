@@ -50,18 +50,17 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * };
  * const command = new UpdateBackendConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBackendConfigResponse
- *   AppId: "STRING_VALUE",
- *   BackendManagerAppId: "STRING_VALUE",
- *   Error: "STRING_VALUE",
- *   LoginAuthConfig: { // LoginAuthConfigReqObj
- *     AwsCognitoIdentityPoolId: "STRING_VALUE",
- *     AwsCognitoRegion: "STRING_VALUE",
- *     AwsUserPoolsId: "STRING_VALUE",
- *     AwsUserPoolsWebClientId: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateBackendConfigResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendManagerAppId: "STRING_VALUE",
+ * //   Error: "STRING_VALUE",
+ * //   LoginAuthConfig: { // LoginAuthConfigReqObj
+ * //     AwsCognitoIdentityPoolId: "STRING_VALUE",
+ * //     AwsCognitoRegion: "STRING_VALUE",
+ * //     AwsUserPoolsId: "STRING_VALUE",
+ * //     AwsUserPoolsWebClientId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteModelCardCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,16 +48,15 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  * };
  * const command = new ListAuthorizersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAuthorizersResponse
- *   authorizers: [ // Authorizers
- *     { // AuthorizerSummary
- *       authorizerName: "STRING_VALUE",
- *       authorizerArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListAuthorizersResponse
+ * //   authorizers: [ // Authorizers
+ * //     { // AuthorizerSummary
+ * //       authorizerName: "STRING_VALUE",
+ * //       authorizerArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

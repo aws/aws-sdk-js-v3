@@ -53,10 +53,9 @@ export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJo
  * };
  * const command = new StartGeneratedCodeJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartGeneratedCodeJobResult
- *   GeneratedCodeJobId: "STRING_VALUE",
- * };
+ * // { // StartGeneratedCodeJobResult
+ * //   GeneratedCodeJobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

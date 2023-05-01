@@ -63,11 +63,10 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * };
  * const command = new CreateQuickConnectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQuickConnectResponse
- *   QuickConnectARN: "STRING_VALUE",
- *   QuickConnectId: "STRING_VALUE",
- * };
+ * // { // CreateQuickConnectResponse
+ * //   QuickConnectARN: "STRING_VALUE",
+ * //   QuickConnectId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

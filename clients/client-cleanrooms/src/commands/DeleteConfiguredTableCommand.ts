@@ -44,8 +44,7 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * };
  * const command = new DeleteConfiguredTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

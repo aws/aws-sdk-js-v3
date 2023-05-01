@@ -46,13 +46,12 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * };
  * const command = new CreateUsagePlanKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UsagePlanKey
- *   id: "STRING_VALUE",
- *   type: "STRING_VALUE",
- *   value: "STRING_VALUE",
- *   name: "STRING_VALUE",
- * };
+ * // { // UsagePlanKey
+ * //   id: "STRING_VALUE",
+ * //   type: "STRING_VALUE",
+ * //   value: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

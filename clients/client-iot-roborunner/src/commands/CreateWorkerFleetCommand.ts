@@ -47,13 +47,12 @@ export interface CreateWorkerFleetCommandOutput extends CreateWorkerFleetRespons
  * };
  * const command = new CreateWorkerFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkerFleetResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateWorkerFleetResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * };
  * const command = new DeleteCustomLogSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCustomLogSourceResponse
- *   customDataLocation: "STRING_VALUE", // required
- * };
+ * // { // DeleteCustomLogSourceResponse
+ * //   customDataLocation: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

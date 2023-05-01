@@ -64,8 +64,7 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * };
  * const command = new DeleteCustomRoutingAcceleratorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

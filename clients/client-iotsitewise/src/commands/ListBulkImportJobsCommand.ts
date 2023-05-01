@@ -47,17 +47,16 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * };
  * const command = new ListBulkImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBulkImportJobsResponse
- *   jobSummaries: [ // JobSummaries // required
- *     { // JobSummary
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       status: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBulkImportJobsResponse
+ * //   jobSummaries: [ // JobSummaries // required
+ * //     { // JobSummary
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       status: "PENDING" || "CANCELLED" || "RUNNING" || "COMPLETED" || "FAILED" || "COMPLETED_WITH_FAILURES", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

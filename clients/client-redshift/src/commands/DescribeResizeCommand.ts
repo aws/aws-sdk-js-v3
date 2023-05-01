@@ -50,31 +50,30 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * };
  * const command = new DescribeResizeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResizeProgressMessage
- *   TargetNodeType: "STRING_VALUE",
- *   TargetNumberOfNodes: Number("int"),
- *   TargetClusterType: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   ImportTablesCompleted: [ // ImportTablesCompleted
- *     "STRING_VALUE",
- *   ],
- *   ImportTablesInProgress: [ // ImportTablesInProgress
- *     "STRING_VALUE",
- *   ],
- *   ImportTablesNotStarted: [ // ImportTablesNotStarted
- *     "STRING_VALUE",
- *   ],
- *   AvgResizeRateInMegaBytesPerSecond: Number("double"),
- *   TotalResizeDataInMegaBytes: Number("long"),
- *   ProgressInMegaBytes: Number("long"),
- *   ElapsedTimeInSeconds: Number("long"),
- *   EstimatedTimeToCompletionInSeconds: Number("long"),
- *   ResizeType: "STRING_VALUE",
- *   Message: "STRING_VALUE",
- *   TargetEncryptionType: "STRING_VALUE",
- *   DataTransferProgressPercent: Number("double"),
- * };
+ * // { // ResizeProgressMessage
+ * //   TargetNodeType: "STRING_VALUE",
+ * //   TargetNumberOfNodes: Number("int"),
+ * //   TargetClusterType: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   ImportTablesCompleted: [ // ImportTablesCompleted
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ImportTablesInProgress: [ // ImportTablesInProgress
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ImportTablesNotStarted: [ // ImportTablesNotStarted
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   AvgResizeRateInMegaBytesPerSecond: Number("double"),
+ * //   TotalResizeDataInMegaBytes: Number("long"),
+ * //   ProgressInMegaBytes: Number("long"),
+ * //   ElapsedTimeInSeconds: Number("long"),
+ * //   EstimatedTimeToCompletionInSeconds: Number("long"),
+ * //   ResizeType: "STRING_VALUE",
+ * //   Message: "STRING_VALUE",
+ * //   TargetEncryptionType: "STRING_VALUE",
+ * //   DataTransferProgressPercent: Number("double"),
+ * // };
  *
  * ```
  *

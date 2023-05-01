@@ -52,8 +52,7 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * };
  * const command = new DeleteClientBrandingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

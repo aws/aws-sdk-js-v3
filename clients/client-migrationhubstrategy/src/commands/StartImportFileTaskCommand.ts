@@ -58,10 +58,9 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * };
  * const command = new StartImportFileTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartImportFileTaskResponse
- *   id: "STRING_VALUE",
- * };
+ * // { // StartImportFileTaskResponse
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

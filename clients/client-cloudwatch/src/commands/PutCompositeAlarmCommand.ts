@@ -103,8 +103,7 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutCompositeAlarmCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

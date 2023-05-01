@@ -93,8 +93,7 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

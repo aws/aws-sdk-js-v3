@@ -49,21 +49,20 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  * };
  * const command = new ListAPIKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAPIKeysResponse
- *   NextMarker: "STRING_VALUE",
- *   APIKeySummaries: [ // APIKeySummaries
- *     { // APIKeySummary
- *       TokenDomains: [ // TokenDomains
- *         "STRING_VALUE",
- *       ],
- *       APIKey: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       Version: Number("int"),
- *     },
- *   ],
- *   ApplicationIntegrationURL: "STRING_VALUE",
- * };
+ * // { // ListAPIKeysResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   APIKeySummaries: [ // APIKeySummaries
+ * //     { // APIKeySummary
+ * //       TokenDomains: [ // TokenDomains
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       APIKey: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       Version: Number("int"),
+ * //     },
+ * //   ],
+ * //   ApplicationIntegrationURL: "STRING_VALUE",
+ * // };
  *
  * ```
  *

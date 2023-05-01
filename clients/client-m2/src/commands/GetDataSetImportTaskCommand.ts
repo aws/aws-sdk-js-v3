@@ -45,18 +45,17 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * };
  * const command = new GetDataSetImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataSetImportTaskResponse
- *   taskId: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   summary: { // DataSetImportSummary
- *     total: Number("int"), // required
- *     succeeded: Number("int"), // required
- *     failed: Number("int"), // required
- *     pending: Number("int"), // required
- *     inProgress: Number("int"), // required
- *   },
- * };
+ * // { // GetDataSetImportTaskResponse
+ * //   taskId: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   summary: { // DataSetImportSummary
+ * //     total: Number("int"), // required
+ * //     succeeded: Number("int"), // required
+ * //     failed: Number("int"), // required
+ * //     pending: Number("int"), // required
+ * //     inProgress: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

@@ -61,8 +61,7 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

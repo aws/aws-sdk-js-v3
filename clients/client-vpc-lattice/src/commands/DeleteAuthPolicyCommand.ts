@@ -47,8 +47,7 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  * };
  * const command = new DeleteAuthPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

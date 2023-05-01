@@ -55,20 +55,19 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * };
  * const command = new CreateNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkInterfacePermissionResult
- *   InterfacePermission: { // NetworkInterfacePermission
- *     NetworkInterfacePermissionId: "STRING_VALUE",
- *     NetworkInterfaceId: "STRING_VALUE",
- *     AwsAccountId: "STRING_VALUE",
- *     AwsService: "STRING_VALUE",
- *     Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE",
- *     PermissionState: { // NetworkInterfacePermissionState
- *       State: "pending" || "granted" || "revoking" || "revoked",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateNetworkInterfacePermissionResult
+ * //   InterfacePermission: { // NetworkInterfacePermission
+ * //     NetworkInterfacePermissionId: "STRING_VALUE",
+ * //     NetworkInterfaceId: "STRING_VALUE",
+ * //     AwsAccountId: "STRING_VALUE",
+ * //     AwsService: "STRING_VALUE",
+ * //     Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE",
+ * //     PermissionState: { // NetworkInterfacePermissionState
+ * //       State: "pending" || "granted" || "revoking" || "revoked",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

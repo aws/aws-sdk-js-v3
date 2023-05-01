@@ -79,22 +79,21 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * };
  * const command = new StopInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopInstancesResult
- *   StoppingInstances: [ // InstanceStateChangeList
- *     { // InstanceStateChange
- *       CurrentState: { // InstanceState
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *       InstanceId: "STRING_VALUE",
- *       PreviousState: {
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *     },
- *   ],
- * };
+ * // { // StopInstancesResult
+ * //   StoppingInstances: [ // InstanceStateChangeList
+ * //     { // InstanceStateChange
+ * //       CurrentState: { // InstanceState
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //       InstanceId: "STRING_VALUE",
+ * //       PreviousState: {
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

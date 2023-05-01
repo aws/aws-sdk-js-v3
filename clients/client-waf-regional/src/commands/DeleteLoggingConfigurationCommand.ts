@@ -53,8 +53,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

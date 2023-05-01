@@ -45,25 +45,24 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * };
  * const command = new UpdateCommentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCommentOutput
- *   comment: { // Comment
- *     commentId: "STRING_VALUE",
- *     content: "STRING_VALUE",
- *     inReplyTo: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *     lastModifiedDate: new Date("TIMESTAMP"),
- *     authorArn: "STRING_VALUE",
- *     deleted: true || false,
- *     clientRequestToken: "STRING_VALUE",
- *     callerReactions: [ // CallerReactions
- *       "STRING_VALUE",
- *     ],
- *     reactionCounts: { // ReactionCountsMap
- *       "<keys>": Number("int"),
- *     },
- *   },
- * };
+ * // { // UpdateCommentOutput
+ * //   comment: { // Comment
+ * //     commentId: "STRING_VALUE",
+ * //     content: "STRING_VALUE",
+ * //     inReplyTo: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     authorArn: "STRING_VALUE",
+ * //     deleted: true || false,
+ * //     clientRequestToken: "STRING_VALUE",
+ * //     callerReactions: [ // CallerReactions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     reactionCounts: { // ReactionCountsMap
+ * //       "<keys>": Number("int"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

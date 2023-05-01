@@ -68,19 +68,18 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * };
  * const command = new DescribeReplicationTaskIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReplicationTaskIndividualAssessmentsResponse
- *   Marker: "STRING_VALUE",
- *   ReplicationTaskIndividualAssessments: [ // ReplicationTaskIndividualAssessmentList
- *     { // ReplicationTaskIndividualAssessment
- *       ReplicationTaskIndividualAssessmentArn: "STRING_VALUE",
- *       ReplicationTaskAssessmentRunArn: "STRING_VALUE",
- *       IndividualAssessmentName: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       ReplicationTaskIndividualAssessmentStartDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeReplicationTaskIndividualAssessmentsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   ReplicationTaskIndividualAssessments: [ // ReplicationTaskIndividualAssessmentList
+ * //     { // ReplicationTaskIndividualAssessment
+ * //       ReplicationTaskIndividualAssessmentArn: "STRING_VALUE",
+ * //       ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ * //       IndividualAssessmentName: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ReplicationTaskIndividualAssessmentStartDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,27 +47,26 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * };
  * const command = new UpdateResourceShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateResourceShareResponse
- *   resourceShare: { // ResourceShare
- *     resourceShareArn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     owningAccountId: "STRING_VALUE",
- *     allowExternalPrincipals: true || false,
- *     status: "PENDING" || "ACTIVE" || "FAILED" || "DELETING" || "DELETED",
- *     statusMessage: "STRING_VALUE",
- *     tags: [ // TagList
- *       { // Tag
- *         key: "STRING_VALUE",
- *         value: "STRING_VALUE",
- *       },
- *     ],
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdatedTime: new Date("TIMESTAMP"),
- *     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
- *   },
- *   clientToken: "STRING_VALUE",
- * };
+ * // { // UpdateResourceShareResponse
+ * //   resourceShare: { // ResourceShare
+ * //     resourceShareArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     owningAccountId: "STRING_VALUE",
+ * //     allowExternalPrincipals: true || false,
+ * //     status: "PENDING" || "ACTIVE" || "FAILED" || "DELETING" || "DELETED",
+ * //     statusMessage: "STRING_VALUE",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedTime: new Date("TIMESTAMP"),
+ * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //   },
+ * //   clientToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

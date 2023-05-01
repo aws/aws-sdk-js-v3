@@ -44,18 +44,17 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * };
  * const command = new GetClassificationScopeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetClassificationScopeResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   s3: { // S3ClassificationScope
- *     excludes: { // S3ClassificationScopeExclusion
- *       bucketNames: [ // __listOfS3BucketName // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // GetClassificationScopeResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   s3: { // S3ClassificationScope
+ * //     excludes: { // S3ClassificationScopeExclusion
+ * //       bucketNames: [ // __listOfS3BucketName // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

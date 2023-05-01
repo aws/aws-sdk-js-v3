@@ -66,25 +66,24 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * };
  * const command = new CancelCapacityReservationFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelCapacityReservationFleetsResult
- *   SuccessfulFleetCancellations: [ // CapacityReservationFleetCancellationStateSet
- *     { // CapacityReservationFleetCancellationState
- *       CurrentFleetState: "submitted" || "modifying" || "active" || "partially_fulfilled" || "expiring" || "expired" || "cancelling" || "cancelled" || "failed",
- *       PreviousFleetState: "submitted" || "modifying" || "active" || "partially_fulfilled" || "expiring" || "expired" || "cancelling" || "cancelled" || "failed",
- *       CapacityReservationFleetId: "STRING_VALUE",
- *     },
- *   ],
- *   FailedFleetCancellations: [ // FailedCapacityReservationFleetCancellationResultSet
- *     { // FailedCapacityReservationFleetCancellationResult
- *       CapacityReservationFleetId: "STRING_VALUE",
- *       CancelCapacityReservationFleetError: { // CancelCapacityReservationFleetError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // CancelCapacityReservationFleetsResult
+ * //   SuccessfulFleetCancellations: [ // CapacityReservationFleetCancellationStateSet
+ * //     { // CapacityReservationFleetCancellationState
+ * //       CurrentFleetState: "submitted" || "modifying" || "active" || "partially_fulfilled" || "expiring" || "expired" || "cancelling" || "cancelled" || "failed",
+ * //       PreviousFleetState: "submitted" || "modifying" || "active" || "partially_fulfilled" || "expiring" || "expired" || "cancelling" || "cancelled" || "failed",
+ * //       CapacityReservationFleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   FailedFleetCancellations: [ // FailedCapacityReservationFleetCancellationResultSet
+ * //     { // FailedCapacityReservationFleetCancellationResult
+ * //       CapacityReservationFleetId: "STRING_VALUE",
+ * //       CancelCapacityReservationFleetError: { // CancelCapacityReservationFleetError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

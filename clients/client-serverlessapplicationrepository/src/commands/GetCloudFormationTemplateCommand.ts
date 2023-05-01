@@ -49,16 +49,15 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * };
  * const command = new GetCloudFormationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCloudFormationTemplateResponse
- *   ApplicationId: "STRING_VALUE",
- *   CreationTime: "STRING_VALUE",
- *   ExpirationTime: "STRING_VALUE",
- *   SemanticVersion: "STRING_VALUE",
- *   Status: "PREPARING" || "ACTIVE" || "EXPIRED",
- *   TemplateId: "STRING_VALUE",
- *   TemplateUrl: "STRING_VALUE",
- * };
+ * // { // GetCloudFormationTemplateResponse
+ * //   ApplicationId: "STRING_VALUE",
+ * //   CreationTime: "STRING_VALUE",
+ * //   ExpirationTime: "STRING_VALUE",
+ * //   SemanticVersion: "STRING_VALUE",
+ * //   Status: "PREPARING" || "ACTIVE" || "EXPIRED",
+ * //   TemplateId: "STRING_VALUE",
+ * //   TemplateUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

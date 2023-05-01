@@ -58,12 +58,11 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * };
  * const command = new GetIdentityPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityPoliciesResponse
- *   Policies: { // PolicyMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetIdentityPoliciesResponse
+ * //   Policies: { // PolicyMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

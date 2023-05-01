@@ -59,16 +59,15 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // HostedConfigurationVersion
- *   ApplicationId: "STRING_VALUE",
- *   ConfigurationProfileId: "STRING_VALUE",
- *   VersionNumber: Number("int"),
- *   Description: "STRING_VALUE",
- *   Content: "BLOB_VALUE",
- *   ContentType: "STRING_VALUE",
- *   VersionLabel: "STRING_VALUE",
- * };
+ * // { // HostedConfigurationVersion
+ * //   ApplicationId: "STRING_VALUE",
+ * //   ConfigurationProfileId: "STRING_VALUE",
+ * //   VersionNumber: Number("int"),
+ * //   Description: "STRING_VALUE",
+ * //   Content: "BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   VersionLabel: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

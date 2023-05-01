@@ -79,10 +79,9 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProfileResponse
- *   ProfileArn: "STRING_VALUE",
- * };
+ * // { // CreateProfileResponse
+ * //   ProfileArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

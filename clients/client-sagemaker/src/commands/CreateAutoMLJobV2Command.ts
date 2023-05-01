@@ -115,10 +115,9 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * };
  * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAutoMLJobV2Response
- *   AutoMLJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAutoMLJobV2Response
+ * //   AutoMLJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

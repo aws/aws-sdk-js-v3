@@ -62,8 +62,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

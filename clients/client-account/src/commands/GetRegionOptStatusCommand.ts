@@ -45,11 +45,10 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * };
  * const command = new GetRegionOptStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRegionOptStatusResponse
- *   RegionName: "STRING_VALUE",
- *   RegionOptStatus: "STRING_VALUE",
- * };
+ * // { // GetRegionOptStatusResponse
+ * //   RegionName: "STRING_VALUE",
+ * //   RegionOptStatus: "STRING_VALUE",
+ * // };
  *
  * ```
  *

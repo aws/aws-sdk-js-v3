@@ -54,8 +54,7 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResendValidationEmailCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,13 +49,12 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * };
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessControlEffectResponse
- *   Effect: "ALLOW" || "DENY",
- *   MatchedRules: [ // AccessControlRuleNameList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetAccessControlEffectResponse
+ * //   Effect: "ALLOW" || "DENY",
+ * //   MatchedRules: [ // AccessControlRuleNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

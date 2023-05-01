@@ -49,29 +49,28 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * };
  * const command = new ListPeeringsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPeeringsResponse
- *   Peerings: [ // PeeringList
- *     { // Peering
- *       CoreNetworkId: "STRING_VALUE",
- *       CoreNetworkArn: "STRING_VALUE",
- *       PeeringId: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       PeeringType: "TRANSIT_GATEWAY",
- *       State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
- *       EdgeLocation: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPeeringsResponse
+ * //   Peerings: [ // PeeringList
+ * //     { // Peering
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       CoreNetworkArn: "STRING_VALUE",
+ * //       PeeringId: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       PeeringType: "TRANSIT_GATEWAY",
+ * //       State: "CREATING" || "FAILED" || "AVAILABLE" || "DELETING",
+ * //       EdgeLocation: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

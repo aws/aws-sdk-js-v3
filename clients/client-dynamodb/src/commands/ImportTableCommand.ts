@@ -105,86 +105,85 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * };
  * const command = new ImportTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportTableOutput
- *   ImportTableDescription: { // ImportTableDescription
- *     ImportArn: "STRING_VALUE",
- *     ImportStatus: "IN_PROGRESS" || "COMPLETED" || "CANCELLING" || "CANCELLED" || "FAILED",
- *     TableArn: "STRING_VALUE",
- *     TableId: "STRING_VALUE",
- *     ClientToken: "STRING_VALUE",
- *     S3BucketSource: { // S3BucketSource
- *       S3BucketOwner: "STRING_VALUE",
- *       S3Bucket: "STRING_VALUE", // required
- *       S3KeyPrefix: "STRING_VALUE",
- *     },
- *     ErrorCount: Number("long"),
- *     CloudWatchLogGroupArn: "STRING_VALUE",
- *     InputFormat: "DYNAMODB_JSON" || "ION" || "CSV",
- *     InputFormatOptions: { // InputFormatOptions
- *       Csv: { // CsvOptions
- *         Delimiter: "STRING_VALUE",
- *         HeaderList: [ // CsvHeaderList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *     InputCompressionType: "GZIP" || "ZSTD" || "NONE",
- *     TableCreationParameters: { // TableCreationParameters
- *       TableName: "STRING_VALUE", // required
- *       AttributeDefinitions: [ // AttributeDefinitions // required
- *         { // AttributeDefinition
- *           AttributeName: "STRING_VALUE", // required
- *           AttributeType: "S" || "N" || "B", // required
- *         },
- *       ],
- *       KeySchema: [ // KeySchema // required
- *         { // KeySchemaElement
- *           AttributeName: "STRING_VALUE", // required
- *           KeyType: "HASH" || "RANGE", // required
- *         },
- *       ],
- *       BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
- *       ProvisionedThroughput: { // ProvisionedThroughput
- *         ReadCapacityUnits: Number("long"), // required
- *         WriteCapacityUnits: Number("long"), // required
- *       },
- *       SSESpecification: { // SSESpecification
- *         Enabled: true || false,
- *         SSEType: "AES256" || "KMS",
- *         KMSMasterKeyId: "STRING_VALUE",
- *       },
- *       GlobalSecondaryIndexes: [ // GlobalSecondaryIndexList
- *         { // GlobalSecondaryIndex
- *           IndexName: "STRING_VALUE", // required
- *           KeySchema: [ // required
- *             {
- *               AttributeName: "STRING_VALUE", // required
- *               KeyType: "HASH" || "RANGE", // required
- *             },
- *           ],
- *           Projection: { // Projection
- *             ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
- *             NonKeyAttributes: [ // NonKeyAttributeNameList
- *               "STRING_VALUE",
- *             ],
- *           },
- *           ProvisionedThroughput: {
- *             ReadCapacityUnits: Number("long"), // required
- *             WriteCapacityUnits: Number("long"), // required
- *           },
- *         },
- *       ],
- *     },
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     ProcessedSizeBytes: Number("long"),
- *     ProcessedItemCount: Number("long"),
- *     ImportedItemCount: Number("long"),
- *     FailureCode: "STRING_VALUE",
- *     FailureMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // ImportTableOutput
+ * //   ImportTableDescription: { // ImportTableDescription
+ * //     ImportArn: "STRING_VALUE",
+ * //     ImportStatus: "IN_PROGRESS" || "COMPLETED" || "CANCELLING" || "CANCELLED" || "FAILED",
+ * //     TableArn: "STRING_VALUE",
+ * //     TableId: "STRING_VALUE",
+ * //     ClientToken: "STRING_VALUE",
+ * //     S3BucketSource: { // S3BucketSource
+ * //       S3BucketOwner: "STRING_VALUE",
+ * //       S3Bucket: "STRING_VALUE", // required
+ * //       S3KeyPrefix: "STRING_VALUE",
+ * //     },
+ * //     ErrorCount: Number("long"),
+ * //     CloudWatchLogGroupArn: "STRING_VALUE",
+ * //     InputFormat: "DYNAMODB_JSON" || "ION" || "CSV",
+ * //     InputFormatOptions: { // InputFormatOptions
+ * //       Csv: { // CsvOptions
+ * //         Delimiter: "STRING_VALUE",
+ * //         HeaderList: [ // CsvHeaderList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //     InputCompressionType: "GZIP" || "ZSTD" || "NONE",
+ * //     TableCreationParameters: { // TableCreationParameters
+ * //       TableName: "STRING_VALUE", // required
+ * //       AttributeDefinitions: [ // AttributeDefinitions // required
+ * //         { // AttributeDefinition
+ * //           AttributeName: "STRING_VALUE", // required
+ * //           AttributeType: "S" || "N" || "B", // required
+ * //         },
+ * //       ],
+ * //       KeySchema: [ // KeySchema // required
+ * //         { // KeySchemaElement
+ * //           AttributeName: "STRING_VALUE", // required
+ * //           KeyType: "HASH" || "RANGE", // required
+ * //         },
+ * //       ],
+ * //       BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ * //       ProvisionedThroughput: { // ProvisionedThroughput
+ * //         ReadCapacityUnits: Number("long"), // required
+ * //         WriteCapacityUnits: Number("long"), // required
+ * //       },
+ * //       SSESpecification: { // SSESpecification
+ * //         Enabled: true || false,
+ * //         SSEType: "AES256" || "KMS",
+ * //         KMSMasterKeyId: "STRING_VALUE",
+ * //       },
+ * //       GlobalSecondaryIndexes: [ // GlobalSecondaryIndexList
+ * //         { // GlobalSecondaryIndex
+ * //           IndexName: "STRING_VALUE", // required
+ * //           KeySchema: [ // required
+ * //             {
+ * //               AttributeName: "STRING_VALUE", // required
+ * //               KeyType: "HASH" || "RANGE", // required
+ * //             },
+ * //           ],
+ * //           Projection: { // Projection
+ * //             ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ * //             NonKeyAttributes: [ // NonKeyAttributeNameList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           ProvisionedThroughput: {
+ * //             ReadCapacityUnits: Number("long"), // required
+ * //             WriteCapacityUnits: Number("long"), // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     ProcessedSizeBytes: Number("long"),
+ * //     ProcessedItemCount: Number("long"),
+ * //     ImportedItemCount: Number("long"),
+ * //     FailureCode: "STRING_VALUE",
+ * //     FailureMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -68,10 +68,9 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateIPSetResponse
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // UpdateIPSetResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

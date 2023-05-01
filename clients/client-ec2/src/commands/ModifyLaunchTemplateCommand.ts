@@ -50,23 +50,22 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * };
  * const command = new ModifyLaunchTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyLaunchTemplateResult
- *   LaunchTemplate: { // LaunchTemplate
- *     LaunchTemplateId: "STRING_VALUE",
- *     LaunchTemplateName: "STRING_VALUE",
- *     CreateTime: new Date("TIMESTAMP"),
- *     CreatedBy: "STRING_VALUE",
- *     DefaultVersionNumber: Number("long"),
- *     LatestVersionNumber: Number("long"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // ModifyLaunchTemplateResult
+ * //   LaunchTemplate: { // LaunchTemplate
+ * //     LaunchTemplateId: "STRING_VALUE",
+ * //     LaunchTemplateName: "STRING_VALUE",
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     CreatedBy: "STRING_VALUE",
+ * //     DefaultVersionNumber: Number("long"),
+ * //     LatestVersionNumber: Number("long"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

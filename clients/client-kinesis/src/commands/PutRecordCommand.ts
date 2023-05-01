@@ -88,12 +88,11 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * };
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRecordOutput
- *   ShardId: "STRING_VALUE", // required
- *   SequenceNumber: "STRING_VALUE", // required
- *   EncryptionType: "NONE" || "KMS",
- * };
+ * // { // PutRecordOutput
+ * //   ShardId: "STRING_VALUE", // required
+ * //   SequenceNumber: "STRING_VALUE", // required
+ * //   EncryptionType: "NONE" || "KMS",
+ * // };
  *
  * ```
  *

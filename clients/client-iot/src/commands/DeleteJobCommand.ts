@@ -54,8 +54,7 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,13 +49,12 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * };
  * const command = new ListUpdatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUpdatesResponse
- *   updateIds: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListUpdatesResponse
+ * //   updateIds: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,41 +54,40 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * };
  * const command = new ListSigningPlatformsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSigningPlatformsResponse
- *   platforms: [ // SigningPlatforms
- *     { // SigningPlatform
- *       platformId: "STRING_VALUE",
- *       displayName: "STRING_VALUE",
- *       partner: "STRING_VALUE",
- *       target: "STRING_VALUE",
- *       category: "STRING_VALUE",
- *       signingConfiguration: { // SigningConfiguration
- *         encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
- *           allowedValues: [ // EncryptionAlgorithms // required
- *             "STRING_VALUE",
- *           ],
- *           defaultValue: "STRING_VALUE", // required
- *         },
- *         hashAlgorithmOptions: { // HashAlgorithmOptions
- *           allowedValues: [ // HashAlgorithms // required
- *             "STRING_VALUE",
- *           ],
- *           defaultValue: "STRING_VALUE", // required
- *         },
- *       },
- *       signingImageFormat: { // SigningImageFormat
- *         supportedFormats: [ // ImageFormats // required
- *           "STRING_VALUE",
- *         ],
- *         defaultFormat: "STRING_VALUE", // required
- *       },
- *       maxSizeInMB: Number("int"),
- *       revocationSupported: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSigningPlatformsResponse
+ * //   platforms: [ // SigningPlatforms
+ * //     { // SigningPlatform
+ * //       platformId: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       partner: "STRING_VALUE",
+ * //       target: "STRING_VALUE",
+ * //       category: "STRING_VALUE",
+ * //       signingConfiguration: { // SigningConfiguration
+ * //         encryptionAlgorithmOptions: { // EncryptionAlgorithmOptions
+ * //           allowedValues: [ // EncryptionAlgorithms // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           defaultValue: "STRING_VALUE", // required
+ * //         },
+ * //         hashAlgorithmOptions: { // HashAlgorithmOptions
+ * //           allowedValues: [ // HashAlgorithms // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           defaultValue: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       signingImageFormat: { // SigningImageFormat
+ * //         supportedFormats: [ // ImageFormats // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         defaultFormat: "STRING_VALUE", // required
+ * //       },
+ * //       maxSizeInMB: Number("int"),
+ * //       revocationSupported: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

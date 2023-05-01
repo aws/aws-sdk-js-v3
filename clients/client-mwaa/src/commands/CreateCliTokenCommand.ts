@@ -48,11 +48,10 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * };
  * const command = new CreateCliTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCliTokenResponse
- *   CliToken: "STRING_VALUE",
- *   WebServerHostname: "STRING_VALUE",
- * };
+ * // { // CreateCliTokenResponse
+ * //   CliToken: "STRING_VALUE",
+ * //   WebServerHostname: "STRING_VALUE",
+ * // };
  *
  * ```
  *

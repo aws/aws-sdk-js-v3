@@ -91,19 +91,18 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * };
  * const command = new BatchEvaluateGeofencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchEvaluateGeofencesResponse
- *   Errors: [ // BatchEvaluateGeofencesErrorList // required
- *     { // BatchEvaluateGeofencesError
- *       DeviceId: "STRING_VALUE", // required
- *       SampleTime: new Date("TIMESTAMP"), // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchEvaluateGeofencesResponse
+ * //   Errors: [ // BatchEvaluateGeofencesErrorList // required
+ * //     { // BatchEvaluateGeofencesError
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       SampleTime: new Date("TIMESTAMP"), // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

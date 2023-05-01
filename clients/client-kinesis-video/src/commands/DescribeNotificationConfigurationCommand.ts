@@ -50,15 +50,14 @@ export interface DescribeNotificationConfigurationCommandOutput
  * };
  * const command = new DescribeNotificationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotificationConfigurationOutput
- *   NotificationConfiguration: { // NotificationConfiguration
- *     Status: "ENABLED" || "DISABLED", // required
- *     DestinationConfig: { // NotificationDestinationConfig
- *       Uri: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // DescribeNotificationConfigurationOutput
+ * //   NotificationConfiguration: { // NotificationConfiguration
+ * //     Status: "ENABLED" || "DISABLED", // required
+ * //     DestinationConfig: { // NotificationDestinationConfig
+ * //       Uri: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

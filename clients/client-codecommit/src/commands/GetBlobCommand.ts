@@ -45,10 +45,9 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * };
  * const command = new GetBlobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBlobOutput
- *   content: "BLOB_VALUE", // required
- * };
+ * // { // GetBlobOutput
+ * //   content: "BLOB_VALUE", // required
+ * // };
  *
  * ```
  *

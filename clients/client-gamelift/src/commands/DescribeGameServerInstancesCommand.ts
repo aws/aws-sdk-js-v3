@@ -71,18 +71,17 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  * };
  * const command = new DescribeGameServerInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGameServerInstancesOutput
- *   GameServerInstances: [ // GameServerInstances
- *     { // GameServerInstance
- *       GameServerGroupName: "STRING_VALUE",
- *       GameServerGroupArn: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       InstanceStatus: "ACTIVE" || "DRAINING" || "SPOT_TERMINATING",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeGameServerInstancesOutput
+ * //   GameServerInstances: [ // GameServerInstances
+ * //     { // GameServerInstance
+ * //       GameServerGroupName: "STRING_VALUE",
+ * //       GameServerGroupArn: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       InstanceStatus: "ACTIVE" || "DRAINING" || "SPOT_TERMINATING",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

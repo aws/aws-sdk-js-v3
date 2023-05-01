@@ -103,15 +103,14 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * };
  * const command = new DisassociateVPCFromHostedZoneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateVPCFromHostedZoneResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // DisassociateVPCFromHostedZoneResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -63,11 +63,10 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * };
  * const command = new UpdateAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccessResponse
- *   ServerId: "STRING_VALUE", // required
- *   ExternalId: "STRING_VALUE", // required
- * };
+ * // { // UpdateAccessResponse
+ * //   ServerId: "STRING_VALUE", // required
+ * //   ExternalId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -48,16 +48,15 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * };
  * const command = new GetBrowserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBrowserSettingsResponse
- *   browserSettings: { // BrowserSettings
- *     browserSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     browserPolicy: "STRING_VALUE",
- *   },
- * };
+ * // { // GetBrowserSettingsResponse
+ * //   browserSettings: { // BrowserSettings
+ * //     browserSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     browserPolicy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

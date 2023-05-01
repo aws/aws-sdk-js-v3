@@ -82,10 +82,9 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  * };
  * const command = new CreateFlowDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFlowDefinitionResponse
- *   FlowDefinitionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateFlowDefinitionResponse
+ * //   FlowDefinitionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

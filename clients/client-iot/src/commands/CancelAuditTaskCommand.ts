@@ -45,8 +45,7 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * };
  * const command = new CancelAuditTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

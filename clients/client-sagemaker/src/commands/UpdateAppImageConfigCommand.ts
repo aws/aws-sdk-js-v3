@@ -57,10 +57,9 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * };
  * const command = new UpdateAppImageConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppImageConfigResponse
- *   AppImageConfigArn: "STRING_VALUE",
- * };
+ * // { // UpdateAppImageConfigResponse
+ * //   AppImageConfigArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

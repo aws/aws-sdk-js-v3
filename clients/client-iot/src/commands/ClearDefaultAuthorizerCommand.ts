@@ -43,8 +43,7 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  * const input = {};
  * const command = new ClearDefaultAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

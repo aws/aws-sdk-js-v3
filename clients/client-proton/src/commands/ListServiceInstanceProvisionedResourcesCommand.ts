@@ -55,17 +55,16 @@ export interface ListServiceInstanceProvisionedResourcesCommandOutput
  * };
  * const command = new ListServiceInstanceProvisionedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceInstanceProvisionedResourcesOutput
- *   nextToken: "STRING_VALUE",
- *   provisionedResources: [ // ProvisionedResourceList // required
- *     { // ProvisionedResource
- *       name: "STRING_VALUE",
- *       identifier: "STRING_VALUE",
- *       provisioningEngine: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServiceInstanceProvisionedResourcesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   provisionedResources: [ // ProvisionedResourceList // required
+ * //     { // ProvisionedResource
+ * //       name: "STRING_VALUE",
+ * //       identifier: "STRING_VALUE",
+ * //       provisioningEngine: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

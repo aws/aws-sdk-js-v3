@@ -48,18 +48,17 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * };
  * const command = new ListThemesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThemesResponse
- *   entities: [ // ThemeSummaryList // required
- *     { // ThemeSummary
- *       appId: "STRING_VALUE", // required
- *       environmentName: "STRING_VALUE", // required
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThemesResponse
+ * //   entities: [ // ThemeSummaryList // required
+ * //     { // ThemeSummary
+ * //       appId: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -51,17 +51,16 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * };
  * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCostAllocationTagsResponse
- *   CostAllocationTags: [ // CostAllocationTagList
- *     { // CostAllocationTag
- *       TagKey: "STRING_VALUE", // required
- *       Type: "AWSGenerated" || "UserDefined", // required
- *       Status: "Active" || "Inactive", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCostAllocationTagsResponse
+ * //   CostAllocationTags: [ // CostAllocationTagList
+ * //     { // CostAllocationTag
+ * //       TagKey: "STRING_VALUE", // required
+ * //       Type: "AWSGenerated" || "UserDefined", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

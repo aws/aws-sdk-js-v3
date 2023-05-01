@@ -46,18 +46,17 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  * };
  * const command = new ListFirewallConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFirewallConfigsResponse
- *   NextToken: "STRING_VALUE",
- *   FirewallConfigs: [ // FirewallConfigList
- *     { // FirewallConfig
- *       Id: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING",
- *     },
- *   ],
- * };
+ * // { // ListFirewallConfigsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FirewallConfigs: [ // FirewallConfigList
+ * //     { // FirewallConfig
+ * //       Id: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       FirewallFailOpen: "ENABLED" || "DISABLED" || "USE_LOCAL_RESOURCE_SETTING",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

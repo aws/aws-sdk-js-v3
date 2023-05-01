@@ -56,8 +56,7 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * };
  * const command = new CreateBatchPredictionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

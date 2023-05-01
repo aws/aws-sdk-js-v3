@@ -50,25 +50,24 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * };
  * const command = new DescribeComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeComponentResponse
- *   ApplicationComponent: { // ApplicationComponent
- *     ComponentName: "STRING_VALUE",
- *     ComponentRemarks: "STRING_VALUE",
- *     ResourceType: "STRING_VALUE",
- *     OsType: "STRING_VALUE",
- *     Tier: "STRING_VALUE",
- *     Monitor: true || false,
- *     DetectedWorkload: { // DetectedWorkload
- *       "<keys>": { // WorkloadMetaData
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   },
- *   ResourceList: [ // ResourceList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // DescribeComponentResponse
+ * //   ApplicationComponent: { // ApplicationComponent
+ * //     ComponentName: "STRING_VALUE",
+ * //     ComponentRemarks: "STRING_VALUE",
+ * //     ResourceType: "STRING_VALUE",
+ * //     OsType: "STRING_VALUE",
+ * //     Tier: "STRING_VALUE",
+ * //     Monitor: true || false,
+ * //     DetectedWorkload: { // DetectedWorkload
+ * //       "<keys>": { // WorkloadMetaData
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   ResourceList: [ // ResourceList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

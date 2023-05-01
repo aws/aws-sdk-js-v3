@@ -54,16 +54,15 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
  * };
  * const command = new BatchDeleteFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteFeaturedResultsSetResponse
- *   Errors: [ // BatchDeleteFeaturedResultsSetErrors // required
- *     { // BatchDeleteFeaturedResultsSetError
- *       Id: "STRING_VALUE", // required
- *       ErrorCode: "InternalError" || "InvalidRequest", // required
- *       ErrorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchDeleteFeaturedResultsSetResponse
+ * //   Errors: [ // BatchDeleteFeaturedResultsSetErrors // required
+ * //     { // BatchDeleteFeaturedResultsSetError
+ * //       Id: "STRING_VALUE", // required
+ * //       ErrorCode: "InternalError" || "InvalidRequest", // required
+ * //       ErrorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

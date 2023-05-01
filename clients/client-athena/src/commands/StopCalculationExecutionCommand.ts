@@ -53,10 +53,9 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * };
  * const command = new StopCalculationExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopCalculationExecutionResponse
- *   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
- * };
+ * // { // StopCalculationExecutionResponse
+ * //   State: "CREATING" || "CREATED" || "QUEUED" || "RUNNING" || "CANCELING" || "CANCELED" || "COMPLETED" || "FAILED",
+ * // };
  *
  * ```
  *

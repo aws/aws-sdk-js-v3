@@ -45,8 +45,7 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  * };
  * const command = new DeleteDomainConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

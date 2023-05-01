@@ -44,20 +44,19 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * };
  * const command = new DescribeLocationNfsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationNfsResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   OnPremConfig: { // OnPremConfig
- *     AgentArns: [ // AgentArnList // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   MountOptions: { // NfsMountOptions
- *     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLocationNfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   OnPremConfig: { // OnPremConfig
+ * //     AgentArns: [ // AgentArnList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   MountOptions: { // NfsMountOptions
+ * //     Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -51,16 +51,15 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrganizationAdminAccountsResponse
- *   AdminAccounts: [ // AdminAccounts
- *     { // AdminAccount
- *       AccountId: "STRING_VALUE",
- *       Status: "ENABLED" || "DISABLE_IN_PROGRESS",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOrganizationAdminAccountsResponse
+ * //   AdminAccounts: [ // AdminAccounts
+ * //     { // AdminAccount
+ * //       AccountId: "STRING_VALUE",
+ * //       Status: "ENABLED" || "DISABLE_IN_PROGRESS",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

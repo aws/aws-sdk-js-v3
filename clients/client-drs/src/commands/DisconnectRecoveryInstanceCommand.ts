@@ -44,8 +44,7 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * };
  * const command = new DisconnectRecoveryInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

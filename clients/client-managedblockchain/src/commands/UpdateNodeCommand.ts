@@ -65,8 +65,7 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * };
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

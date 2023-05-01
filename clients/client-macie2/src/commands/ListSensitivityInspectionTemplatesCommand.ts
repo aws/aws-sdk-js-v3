@@ -53,16 +53,15 @@ export interface ListSensitivityInspectionTemplatesCommandOutput
  * };
  * const command = new ListSensitivityInspectionTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSensitivityInspectionTemplatesResponse
- *   nextToken: "STRING_VALUE",
- *   sensitivityInspectionTemplates: [ // __listOfSensitivityInspectionTemplatesEntry
- *     { // SensitivityInspectionTemplatesEntry
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListSensitivityInspectionTemplatesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   sensitivityInspectionTemplates: [ // __listOfSensitivityInspectionTemplatesEntry
+ * //     { // SensitivityInspectionTemplatesEntry
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

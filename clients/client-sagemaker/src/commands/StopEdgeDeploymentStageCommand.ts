@@ -45,8 +45,7 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * };
  * const command = new StopEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

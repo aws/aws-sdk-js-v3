@@ -48,8 +48,7 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

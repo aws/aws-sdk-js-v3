@@ -51,8 +51,7 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * };
  * const command = new DeregisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

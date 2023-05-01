@@ -47,8 +47,7 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * };
  * const command = new UnarchiveFindingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

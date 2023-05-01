@@ -62,16 +62,15 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  * };
  * const command = new GetBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketOwnershipControlsOutput
- *   OwnershipControls: { // OwnershipControls
- *     Rules: [ // OwnershipControlsRules // required
- *       { // OwnershipControlsRule
- *         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetBucketOwnershipControlsOutput
+ * //   OwnershipControls: { // OwnershipControls
+ * //     Rules: [ // OwnershipControlsRules // required
+ * //       { // OwnershipControlsRule
+ * //         ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

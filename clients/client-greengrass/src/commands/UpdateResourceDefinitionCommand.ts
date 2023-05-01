@@ -45,8 +45,7 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * };
  * const command = new UpdateResourceDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

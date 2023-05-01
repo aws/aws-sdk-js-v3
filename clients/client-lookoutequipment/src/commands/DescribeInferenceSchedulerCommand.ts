@@ -45,39 +45,38 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * };
  * const command = new DescribeInferenceSchedulerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInferenceSchedulerResponse
- *   ModelArn: "STRING_VALUE",
- *   ModelName: "STRING_VALUE",
- *   InferenceSchedulerName: "STRING_VALUE",
- *   InferenceSchedulerArn: "STRING_VALUE",
- *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
- *   DataDelayOffsetInMinutes: Number("long"),
- *   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   UpdatedAt: new Date("TIMESTAMP"),
- *   DataInputConfiguration: { // InferenceInputConfiguration
- *     S3InputConfiguration: { // InferenceS3InputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
- *     },
- *     InputTimeZoneOffset: "STRING_VALUE",
- *     InferenceInputNameConfiguration: { // InferenceInputNameConfiguration
- *       TimestampFormat: "STRING_VALUE",
- *       ComponentTimestampDelimiter: "STRING_VALUE",
- *     },
- *   },
- *   DataOutputConfiguration: { // InferenceOutputConfiguration
- *     S3OutputConfiguration: { // InferenceS3OutputConfiguration
- *       Bucket: "STRING_VALUE", // required
- *       Prefix: "STRING_VALUE",
- *     },
- *     KmsKeyId: "STRING_VALUE",
- *   },
- *   RoleArn: "STRING_VALUE",
- *   ServerSideKmsKeyId: "STRING_VALUE",
- *   LatestInferenceResult: "ANOMALOUS" || "NORMAL",
- * };
+ * // { // DescribeInferenceSchedulerResponse
+ * //   ModelArn: "STRING_VALUE",
+ * //   ModelName: "STRING_VALUE",
+ * //   InferenceSchedulerName: "STRING_VALUE",
+ * //   InferenceSchedulerArn: "STRING_VALUE",
+ * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * //   DataDelayOffsetInMinutes: Number("long"),
+ * //   DataUploadFrequency: "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   DataInputConfiguration: { // InferenceInputConfiguration
+ * //     S3InputConfiguration: { // InferenceS3InputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //     InputTimeZoneOffset: "STRING_VALUE",
+ * //     InferenceInputNameConfiguration: { // InferenceInputNameConfiguration
+ * //       TimestampFormat: "STRING_VALUE",
+ * //       ComponentTimestampDelimiter: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DataOutputConfiguration: { // InferenceOutputConfiguration
+ * //     S3OutputConfiguration: { // InferenceS3OutputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   RoleArn: "STRING_VALUE",
+ * //   ServerSideKmsKeyId: "STRING_VALUE",
+ * //   LatestInferenceResult: "ANOMALOUS" || "NORMAL",
+ * // };
  *
  * ```
  *

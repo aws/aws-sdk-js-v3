@@ -45,10 +45,9 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * };
  * const command = new DeletePermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePermissionGroupResponse
- *   permissionGroupId: "STRING_VALUE",
- * };
+ * // { // DeletePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,47 +52,46 @@ export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, 
  * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMigrationWorkflowResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   templateId: "STRING_VALUE",
- *   adsApplicationConfigurationId: "STRING_VALUE",
- *   adsApplicationName: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   statusMessage: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- *   lastStartTime: new Date("TIMESTAMP"),
- *   lastStopTime: new Date("TIMESTAMP"),
- *   lastModifiedTime: new Date("TIMESTAMP"),
- *   endTime: new Date("TIMESTAMP"),
- *   tools: [ // ToolsList
- *     { // Tool
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   totalSteps: Number("int"),
- *   completedSteps: Number("int"),
- *   workflowInputs: { // StepInputParameters
- *     "<keys>": { // StepInput Union: only one key present
- *       integerValue: Number("int"),
- *       stringValue: "STRING_VALUE",
- *       listOfStringsValue: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       mapOfStringValue: { // StringMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   },
- *   tags: {
- *     "<keys>": "STRING_VALUE",
- *   },
- *   workflowBucket: "STRING_VALUE",
- * };
+ * // { // GetMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   templateId: "STRING_VALUE",
+ * //   adsApplicationConfigurationId: "STRING_VALUE",
+ * //   adsApplicationName: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   lastStartTime: new Date("TIMESTAMP"),
+ * //   lastStopTime: new Date("TIMESTAMP"),
+ * //   lastModifiedTime: new Date("TIMESTAMP"),
+ * //   endTime: new Date("TIMESTAMP"),
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   totalSteps: Number("int"),
+ * //   completedSteps: Number("int"),
+ * //   workflowInputs: { // StepInputParameters
+ * //     "<keys>": { // StepInput Union: only one key present
+ * //       integerValue: Number("int"),
+ * //       stringValue: "STRING_VALUE",
+ * //       listOfStringsValue: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       mapOfStringValue: { // StringMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   tags: {
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   workflowBucket: "STRING_VALUE",
+ * // };
  *
  * ```
  *

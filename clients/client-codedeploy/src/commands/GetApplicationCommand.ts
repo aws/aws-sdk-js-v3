@@ -44,17 +44,16 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationOutput
- *   application: { // ApplicationInfo
- *     applicationId: "STRING_VALUE",
- *     applicationName: "STRING_VALUE",
- *     createTime: new Date("TIMESTAMP"),
- *     linkedToGitHub: true || false,
- *     gitHubAccountName: "STRING_VALUE",
- *     computePlatform: "Server" || "Lambda" || "ECS",
- *   },
- * };
+ * // { // GetApplicationOutput
+ * //   application: { // ApplicationInfo
+ * //     applicationId: "STRING_VALUE",
+ * //     applicationName: "STRING_VALUE",
+ * //     createTime: new Date("TIMESTAMP"),
+ * //     linkedToGitHub: true || false,
+ * //     gitHubAccountName: "STRING_VALUE",
+ * //     computePlatform: "Server" || "Lambda" || "ECS",
+ * //   },
+ * // };
  *
  * ```
  *

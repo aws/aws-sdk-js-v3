@@ -50,8 +50,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

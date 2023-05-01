@@ -68,17 +68,16 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * };
  * const command = new GetPersonalizedRankingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPersonalizedRankingResponse
- *   personalizedRanking: [ // ItemList
- *     { // PredictedItem
- *       itemId: "STRING_VALUE",
- *       score: Number("double"),
- *       promotionName: "STRING_VALUE",
- *     },
- *   ],
- *   recommendationId: "STRING_VALUE",
- * };
+ * // { // GetPersonalizedRankingResponse
+ * //   personalizedRanking: [ // ItemList
+ * //     { // PredictedItem
+ * //       itemId: "STRING_VALUE",
+ * //       score: Number("double"),
+ * //       promotionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   recommendationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,16 +48,15 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * };
  * const command = new GetManagedPrefixListEntriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetManagedPrefixListEntriesResult
- *   Entries: [ // PrefixListEntrySet
- *     { // PrefixListEntry
- *       Cidr: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetManagedPrefixListEntriesResult
+ * //   Entries: [ // PrefixListEntrySet
+ * //     { // PrefixListEntry
+ * //       Cidr: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

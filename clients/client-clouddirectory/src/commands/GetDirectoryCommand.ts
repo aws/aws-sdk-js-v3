@@ -44,15 +44,14 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * };
  * const command = new GetDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDirectoryResponse
- *   Directory: { // Directory
- *     Name: "STRING_VALUE",
- *     DirectoryArn: "STRING_VALUE",
- *     State: "ENABLED" || "DISABLED" || "DELETED",
- *     CreationDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetDirectoryResponse
+ * //   Directory: { // Directory
+ * //     Name: "STRING_VALUE",
+ * //     DirectoryArn: "STRING_VALUE",
+ * //     State: "ENABLED" || "DISABLED" || "DELETED",
+ * //     CreationDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

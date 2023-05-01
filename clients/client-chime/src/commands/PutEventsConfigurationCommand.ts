@@ -54,14 +54,13 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * };
  * const command = new PutEventsConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEventsConfigurationResponse
- *   EventsConfiguration: { // EventsConfiguration
- *     BotId: "STRING_VALUE",
- *     OutboundEventsHTTPSEndpoint: "STRING_VALUE",
- *     LambdaFunctionArn: "STRING_VALUE",
- *   },
- * };
+ * // { // PutEventsConfigurationResponse
+ * //   EventsConfiguration: { // EventsConfiguration
+ * //     BotId: "STRING_VALUE",
+ * //     OutboundEventsHTTPSEndpoint: "STRING_VALUE",
+ * //     LambdaFunctionArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

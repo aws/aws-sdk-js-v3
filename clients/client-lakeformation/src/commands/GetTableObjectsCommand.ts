@@ -51,24 +51,23 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * };
  * const command = new GetTableObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTableObjectsResponse
- *   Objects: [ // PartitionedTableObjectsList
- *     { // PartitionObjects
- *       PartitionValues: [ // PartitionValuesList
- *         "STRING_VALUE",
- *       ],
- *       Objects: [ // TableObjectList
- *         { // TableObject
- *           Uri: "STRING_VALUE",
- *           ETag: "STRING_VALUE",
- *           Size: Number("long"),
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTableObjectsResponse
+ * //   Objects: [ // PartitionedTableObjectsList
+ * //     { // PartitionObjects
+ * //       PartitionValues: [ // PartitionValuesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Objects: [ // TableObjectList
+ * //         { // TableObject
+ * //           Uri: "STRING_VALUE",
+ * //           ETag: "STRING_VALUE",
+ * //           Size: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateWorkspaceAliasCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

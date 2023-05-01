@@ -133,10 +133,9 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateScheduleOutput
- *   ScheduleArn: "STRING_VALUE", // required
- * };
+ * // { // CreateScheduleOutput
+ * //   ScheduleArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

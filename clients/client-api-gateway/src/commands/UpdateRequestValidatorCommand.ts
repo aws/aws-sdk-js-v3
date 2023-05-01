@@ -53,13 +53,12 @@ export interface UpdateRequestValidatorCommandOutput extends RequestValidator, _
  * };
  * const command = new UpdateRequestValidatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RequestValidator
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   validateRequestBody: true || false,
- *   validateRequestParameters: true || false,
- * };
+ * // { // RequestValidator
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   validateRequestBody: true || false,
+ * //   validateRequestParameters: true || false,
+ * // };
  *
  * ```
  *

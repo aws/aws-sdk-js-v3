@@ -60,15 +60,14 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * };
  * const command = new GetVaultNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVaultNotificationsOutput
- *   vaultNotificationConfig: { // VaultNotificationConfig
- *     SNSTopic: "STRING_VALUE",
- *     Events: [ // NotificationEventList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetVaultNotificationsOutput
+ * //   vaultNotificationConfig: { // VaultNotificationConfig
+ * //     SNSTopic: "STRING_VALUE",
+ * //     Events: [ // NotificationEventList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

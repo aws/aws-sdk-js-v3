@@ -96,8 +96,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

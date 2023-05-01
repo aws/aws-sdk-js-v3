@@ -90,11 +90,10 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * };
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStateMachineOutput
- *   stateMachineArn: "STRING_VALUE", // required
- *   creationDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateStateMachineOutput
+ * //   stateMachineArn: "STRING_VALUE", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

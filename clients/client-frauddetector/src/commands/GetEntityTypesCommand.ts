@@ -51,19 +51,18 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * };
  * const command = new GetEntityTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEntityTypesResult
- *   entityTypes: [ // entityTypeList
- *     { // EntityType
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetEntityTypesResult
+ * //   entityTypes: [ // entityTypeList
+ * //     { // EntityType
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

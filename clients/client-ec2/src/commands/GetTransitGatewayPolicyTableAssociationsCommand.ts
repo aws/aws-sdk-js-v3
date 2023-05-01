@@ -64,19 +64,18 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * };
  * const command = new GetTransitGatewayPolicyTableAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTransitGatewayPolicyTableAssociationsResult
- *   Associations: [ // TransitGatewayPolicyTableAssociationList
- *     { // TransitGatewayPolicyTableAssociation
- *       TransitGatewayPolicyTableId: "STRING_VALUE",
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       State: "associating" || "associated" || "disassociating" || "disassociated",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetTransitGatewayPolicyTableAssociationsResult
+ * //   Associations: [ // TransitGatewayPolicyTableAssociationList
+ * //     { // TransitGatewayPolicyTableAssociation
+ * //       TransitGatewayPolicyTableId: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

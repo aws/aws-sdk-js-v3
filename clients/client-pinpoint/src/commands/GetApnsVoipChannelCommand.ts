@@ -44,23 +44,22 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  * };
  * const command = new GetApnsVoipChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApnsVoipChannelResponse
- *   APNSVoipChannelResponse: { // APNSVoipChannelResponse
- *     ApplicationId: "STRING_VALUE",
- *     CreationDate: "STRING_VALUE",
- *     DefaultAuthenticationMethod: "STRING_VALUE",
- *     Enabled: true || false,
- *     HasCredential: true || false,
- *     HasTokenKey: true || false,
- *     Id: "STRING_VALUE",
- *     IsArchived: true || false,
- *     LastModifiedBy: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     Platform: "STRING_VALUE", // required
- *     Version: Number("int"),
- *   },
- * };
+ * // { // GetApnsVoipChannelResponse
+ * //   APNSVoipChannelResponse: { // APNSVoipChannelResponse
+ * //     ApplicationId: "STRING_VALUE",
+ * //     CreationDate: "STRING_VALUE",
+ * //     DefaultAuthenticationMethod: "STRING_VALUE",
+ * //     Enabled: true || false,
+ * //     HasCredential: true || false,
+ * //     HasTokenKey: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     IsArchived: true || false,
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     Platform: "STRING_VALUE", // required
+ * //     Version: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

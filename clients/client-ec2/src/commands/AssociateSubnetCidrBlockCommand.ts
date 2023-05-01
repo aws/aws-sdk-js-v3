@@ -46,18 +46,17 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * };
  * const command = new AssociateSubnetCidrBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateSubnetCidrBlockResult
- *   Ipv6CidrBlockAssociation: { // SubnetIpv6CidrBlockAssociation
- *     AssociationId: "STRING_VALUE",
- *     Ipv6CidrBlock: "STRING_VALUE",
- *     Ipv6CidrBlockState: { // SubnetCidrBlockState
- *       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
- *       StatusMessage: "STRING_VALUE",
- *     },
- *   },
- *   SubnetId: "STRING_VALUE",
- * };
+ * // { // AssociateSubnetCidrBlockResult
+ * //   Ipv6CidrBlockAssociation: { // SubnetIpv6CidrBlockAssociation
+ * //     AssociationId: "STRING_VALUE",
+ * //     Ipv6CidrBlock: "STRING_VALUE",
+ * //     Ipv6CidrBlockState: { // SubnetCidrBlockState
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   SubnetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

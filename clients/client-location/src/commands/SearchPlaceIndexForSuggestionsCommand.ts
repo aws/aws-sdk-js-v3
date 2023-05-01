@@ -77,30 +77,29 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * };
  * const command = new SearchPlaceIndexForSuggestionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchPlaceIndexForSuggestionsResponse
- *   Summary: { // SearchPlaceIndexForSuggestionsSummary
- *     Text: "STRING_VALUE", // required
- *     BiasPosition: [ // Position
- *       Number("double"),
- *     ],
- *     FilterBBox: [ // BoundingBox
- *       Number("double"),
- *     ],
- *     FilterCountries: [ // CountryCodeList
- *       "STRING_VALUE",
- *     ],
- *     MaxResults: Number("int"),
- *     DataSource: "STRING_VALUE", // required
- *     Language: "STRING_VALUE",
- *   },
- *   Results: [ // SearchForSuggestionsResultList // required
- *     { // SearchForSuggestionsResult
- *       Text: "STRING_VALUE", // required
- *       PlaceId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // SearchPlaceIndexForSuggestionsResponse
+ * //   Summary: { // SearchPlaceIndexForSuggestionsSummary
+ * //     Text: "STRING_VALUE", // required
+ * //     BiasPosition: [ // Position
+ * //       Number("double"),
+ * //     ],
+ * //     FilterBBox: [ // BoundingBox
+ * //       Number("double"),
+ * //     ],
+ * //     FilterCountries: [ // CountryCodeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MaxResults: Number("int"),
+ * //     DataSource: "STRING_VALUE", // required
+ * //     Language: "STRING_VALUE",
+ * //   },
+ * //   Results: [ // SearchForSuggestionsResultList // required
+ * //     { // SearchForSuggestionsResult
+ * //       Text: "STRING_VALUE", // required
+ * //       PlaceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

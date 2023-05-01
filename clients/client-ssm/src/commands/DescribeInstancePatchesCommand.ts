@@ -55,21 +55,20 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * };
  * const command = new DescribeInstancePatchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInstancePatchesResult
- *   Patches: [ // PatchComplianceDataList
- *     { // PatchComplianceData
- *       Title: "STRING_VALUE", // required
- *       KBId: "STRING_VALUE", // required
- *       Classification: "STRING_VALUE", // required
- *       Severity: "STRING_VALUE", // required
- *       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED", // required
- *       InstalledTime: new Date("TIMESTAMP"), // required
- *       CVEIds: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInstancePatchesResult
+ * //   Patches: [ // PatchComplianceDataList
+ * //     { // PatchComplianceData
+ * //       Title: "STRING_VALUE", // required
+ * //       KBId: "STRING_VALUE", // required
+ * //       Classification: "STRING_VALUE", // required
+ * //       Severity: "STRING_VALUE", // required
+ * //       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED", // required
+ * //       InstalledTime: new Date("TIMESTAMP"), // required
+ * //       CVEIds: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

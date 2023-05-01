@@ -58,16 +58,15 @@ export interface PutClassificationExportConfigurationCommandOutput
  * };
  * const command = new PutClassificationExportConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutClassificationExportConfigurationResponse
- *   configuration: { // ClassificationExportConfiguration
- *     s3Destination: { // S3Destination
- *       bucketName: "STRING_VALUE", // required
- *       keyPrefix: "STRING_VALUE",
- *       kmsKeyArn: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // PutClassificationExportConfigurationResponse
+ * //   configuration: { // ClassificationExportConfiguration
+ * //     s3Destination: { // S3Destination
+ * //       bucketName: "STRING_VALUE", // required
+ * //       keyPrefix: "STRING_VALUE",
+ * //       kmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

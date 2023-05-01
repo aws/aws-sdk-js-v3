@@ -65,8 +65,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

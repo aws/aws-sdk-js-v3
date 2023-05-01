@@ -47,24 +47,23 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRunsResponse
- *   items: [ // RunList
- *     { // RunListItem
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       workflowId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       priority: Number("int"),
- *       storageCapacity: Number("int"),
- *       creationTime: new Date("TIMESTAMP"),
- *       startTime: new Date("TIMESTAMP"),
- *       stopTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRunsResponse
+ * //   items: [ // RunList
+ * //     { // RunListItem
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       workflowId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       priority: Number("int"),
+ * //       storageCapacity: Number("int"),
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       stopTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

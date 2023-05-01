@@ -50,17 +50,16 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * };
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentityProvidersResponse
- *   nextToken: "STRING_VALUE",
- *   identityProviders: [ // IdentityProviderList
- *     { // IdentityProviderSummary
- *       identityProviderArn: "STRING_VALUE",
- *       identityProviderName: "STRING_VALUE",
- *       identityProviderType: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListIdentityProvidersResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   identityProviders: [ // IdentityProviderList
+ * //     { // IdentityProviderSummary
+ * //       identityProviderArn: "STRING_VALUE",
+ * //       identityProviderName: "STRING_VALUE",
+ * //       identityProviderType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

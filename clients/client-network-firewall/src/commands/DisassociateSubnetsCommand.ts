@@ -52,18 +52,17 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * };
  * const command = new DisassociateSubnetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateSubnetsResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   SubnetMappings: [ // SubnetMappings
- *     { // SubnetMapping
- *       SubnetId: "STRING_VALUE", // required
- *       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
- *     },
- *   ],
- *   UpdateToken: "STRING_VALUE",
- * };
+ * // { // DisassociateSubnetsResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   SubnetMappings: [ // SubnetMappings
+ * //     { // SubnetMapping
+ * //       SubnetId: "STRING_VALUE", // required
+ * //       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ * //     },
+ * //   ],
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

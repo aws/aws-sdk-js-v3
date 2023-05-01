@@ -62,10 +62,9 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTaskContactResponse
- *   ContactId: "STRING_VALUE",
- * };
+ * // { // StartTaskContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

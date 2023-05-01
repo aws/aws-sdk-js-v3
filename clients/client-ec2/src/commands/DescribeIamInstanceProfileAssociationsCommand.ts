@@ -65,22 +65,21 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * };
  * const command = new DescribeIamInstanceProfileAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIamInstanceProfileAssociationsResult
- *   IamInstanceProfileAssociations: [ // IamInstanceProfileAssociationSet
- *     { // IamInstanceProfileAssociation
- *       AssociationId: "STRING_VALUE",
- *       InstanceId: "STRING_VALUE",
- *       IamInstanceProfile: { // IamInstanceProfile
- *         Arn: "STRING_VALUE",
- *         Id: "STRING_VALUE",
- *       },
- *       State: "associating" || "associated" || "disassociating" || "disassociated",
- *       Timestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeIamInstanceProfileAssociationsResult
+ * //   IamInstanceProfileAssociations: [ // IamInstanceProfileAssociationSet
+ * //     { // IamInstanceProfileAssociation
+ * //       AssociationId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       IamInstanceProfile: { // IamInstanceProfile
+ * //         Arn: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //       },
+ * //       State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

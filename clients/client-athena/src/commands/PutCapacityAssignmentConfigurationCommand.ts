@@ -56,8 +56,7 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
  * };
  * const command = new PutCapacityAssignmentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

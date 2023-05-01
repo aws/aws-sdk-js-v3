@@ -62,26 +62,25 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * };
  * const command = new ListProductSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProductSubscriptionsResponse
- *   ProductUserSummaries: [ // ProductUserSummaryList
- *     { // ProductUserSummary
- *       Username: "STRING_VALUE", // required
- *       Product: "STRING_VALUE", // required
- *       IdentityProvider: { // IdentityProvider Union: only one key present
- *         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *           DirectoryId: "STRING_VALUE",
- *         },
- *       },
- *       Status: "STRING_VALUE", // required
- *       StatusMessage: "STRING_VALUE",
- *       Domain: "STRING_VALUE",
- *       SubscriptionStartDate: "STRING_VALUE",
- *       SubscriptionEndDate: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProductSubscriptionsResponse
+ * //   ProductUserSummaries: [ // ProductUserSummaryList
+ * //     { // ProductUserSummary
+ * //       Username: "STRING_VALUE", // required
+ * //       Product: "STRING_VALUE", // required
+ * //       IdentityProvider: { // IdentityProvider Union: only one key present
+ * //         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //           DirectoryId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       SubscriptionStartDate: "STRING_VALUE",
+ * //       SubscriptionEndDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

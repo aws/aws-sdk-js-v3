@@ -44,33 +44,32 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * };
  * const command = new GetSamplingRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSamplingRulesResult
- *   SamplingRuleRecords: [ // SamplingRuleRecordList
- *     { // SamplingRuleRecord
- *       SamplingRule: { // SamplingRule
- *         RuleName: "STRING_VALUE",
- *         RuleARN: "STRING_VALUE",
- *         ResourceARN: "STRING_VALUE", // required
- *         Priority: Number("int"), // required
- *         FixedRate: Number("double"), // required
- *         ReservoirSize: Number("int"), // required
- *         ServiceName: "STRING_VALUE", // required
- *         ServiceType: "STRING_VALUE", // required
- *         Host: "STRING_VALUE", // required
- *         HTTPMethod: "STRING_VALUE", // required
- *         URLPath: "STRING_VALUE", // required
- *         Version: Number("int"), // required
- *         Attributes: { // AttributeMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       CreatedAt: new Date("TIMESTAMP"),
- *       ModifiedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetSamplingRulesResult
+ * //   SamplingRuleRecords: [ // SamplingRuleRecordList
+ * //     { // SamplingRuleRecord
+ * //       SamplingRule: { // SamplingRule
+ * //         RuleName: "STRING_VALUE",
+ * //         RuleARN: "STRING_VALUE",
+ * //         ResourceARN: "STRING_VALUE", // required
+ * //         Priority: Number("int"), // required
+ * //         FixedRate: Number("double"), // required
+ * //         ReservoirSize: Number("int"), // required
+ * //         ServiceName: "STRING_VALUE", // required
+ * //         ServiceType: "STRING_VALUE", // required
+ * //         Host: "STRING_VALUE", // required
+ * //         HTTPMethod: "STRING_VALUE", // required
+ * //         URLPath: "STRING_VALUE", // required
+ * //         Version: Number("int"), // required
+ * //         Attributes: { // AttributeMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       ModifiedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

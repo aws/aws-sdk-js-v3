@@ -59,16 +59,15 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * };
  * const command = new DescribeRetentionConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRetentionConfigurationsResponse
- *   RetentionConfigurations: [ // RetentionConfigurationList
- *     { // RetentionConfiguration
- *       Name: "STRING_VALUE", // required
- *       RetentionPeriodInDays: Number("int"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeRetentionConfigurationsResponse
+ * //   RetentionConfigurations: [ // RetentionConfigurationList
+ * //     { // RetentionConfiguration
+ * //       Name: "STRING_VALUE", // required
+ * //       RetentionPeriodInDays: Number("int"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,31 +45,30 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * };
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDetectorResponse
- *   detector: { // Detector
- *     detectorModelName: "STRING_VALUE",
- *     keyValue: "STRING_VALUE",
- *     detectorModelVersion: "STRING_VALUE",
- *     state: { // DetectorState
- *       stateName: "STRING_VALUE", // required
- *       variables: [ // Variables // required
- *         { // Variable
- *           name: "STRING_VALUE", // required
- *           value: "STRING_VALUE", // required
- *         },
- *       ],
- *       timers: [ // Timers // required
- *         { // Timer
- *           name: "STRING_VALUE", // required
- *           timestamp: new Date("TIMESTAMP"), // required
- *         },
- *       ],
- *     },
- *     creationTime: new Date("TIMESTAMP"),
- *     lastUpdateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeDetectorResponse
+ * //   detector: { // Detector
+ * //     detectorModelName: "STRING_VALUE",
+ * //     keyValue: "STRING_VALUE",
+ * //     detectorModelVersion: "STRING_VALUE",
+ * //     state: { // DetectorState
+ * //       stateName: "STRING_VALUE", // required
+ * //       variables: [ // Variables // required
+ * //         { // Variable
+ * //           name: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       timers: [ // Timers // required
+ * //         { // Timer
+ * //           name: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     lastUpdateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

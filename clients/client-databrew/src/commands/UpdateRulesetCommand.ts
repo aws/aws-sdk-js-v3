@@ -66,10 +66,9 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * };
  * const command = new UpdateRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRulesetResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateRulesetResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

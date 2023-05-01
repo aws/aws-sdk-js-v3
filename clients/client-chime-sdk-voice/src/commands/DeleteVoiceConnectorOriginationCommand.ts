@@ -51,8 +51,7 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  * };
  * const command = new DeleteVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

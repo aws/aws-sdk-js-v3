@@ -66,8 +66,7 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartStreamEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

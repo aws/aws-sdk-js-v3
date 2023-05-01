@@ -57,13 +57,12 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * };
  * const command = new ListPermissionSetsProvisionedToAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPermissionSetsProvisionedToAccountResponse
- *   NextToken: "STRING_VALUE",
- *   PermissionSets: [ // PermissionSetList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListPermissionSetsProvisionedToAccountResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   PermissionSets: [ // PermissionSetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

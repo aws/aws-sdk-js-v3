@@ -46,8 +46,7 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateScheduledQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

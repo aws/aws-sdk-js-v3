@@ -51,10 +51,9 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnsubscribeResult
- *   Arn: "STRING_VALUE", // required
- * };
+ * // { // UnsubscribeResult
+ * //   Arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

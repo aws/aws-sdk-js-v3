@@ -55,8 +55,7 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * };
  * const command = new UpdateTimelineEventCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

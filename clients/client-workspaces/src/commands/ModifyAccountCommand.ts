@@ -46,8 +46,7 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

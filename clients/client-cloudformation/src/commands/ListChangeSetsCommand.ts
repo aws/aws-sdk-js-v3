@@ -46,26 +46,25 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * };
  * const command = new ListChangeSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChangeSetsOutput
- *   Summaries: [ // ChangeSetSummaries
- *     { // ChangeSetSummary
- *       StackId: "STRING_VALUE",
- *       StackName: "STRING_VALUE",
- *       ChangeSetId: "STRING_VALUE",
- *       ChangeSetName: "STRING_VALUE",
- *       ExecutionStatus: "UNAVAILABLE" || "AVAILABLE" || "EXECUTE_IN_PROGRESS" || "EXECUTE_COMPLETE" || "EXECUTE_FAILED" || "OBSOLETE",
- *       Status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "FAILED",
- *       StatusReason: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       IncludeNestedStacks: true || false,
- *       ParentChangeSetId: "STRING_VALUE",
- *       RootChangeSetId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChangeSetsOutput
+ * //   Summaries: [ // ChangeSetSummaries
+ * //     { // ChangeSetSummary
+ * //       StackId: "STRING_VALUE",
+ * //       StackName: "STRING_VALUE",
+ * //       ChangeSetId: "STRING_VALUE",
+ * //       ChangeSetName: "STRING_VALUE",
+ * //       ExecutionStatus: "UNAVAILABLE" || "AVAILABLE" || "EXECUTE_IN_PROGRESS" || "EXECUTE_COMPLETE" || "EXECUTE_FAILED" || "OBSOLETE",
+ * //       Status: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "DELETE_PENDING" || "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "FAILED",
+ * //       StatusReason: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       IncludeNestedStacks: true || false,
+ * //       ParentChangeSetId: "STRING_VALUE",
+ * //       RootChangeSetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

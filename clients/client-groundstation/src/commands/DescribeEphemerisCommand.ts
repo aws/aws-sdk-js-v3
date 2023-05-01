@@ -44,38 +44,37 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * };
  * const command = new DescribeEphemerisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEphemerisResponse
- *   ephemerisId: "STRING_VALUE",
- *   satelliteId: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   priority: Number("int"),
- *   creationTime: new Date("TIMESTAMP"),
- *   enabled: true || false,
- *   name: "STRING_VALUE",
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   suppliedData: { // EphemerisTypeDescription Union: only one key present
- *     tle: { // EphemerisDescription
- *       sourceS3Object: { // S3Object
- *         bucket: "STRING_VALUE",
- *         key: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *       ephemerisData: "STRING_VALUE",
- *     },
- *     oem: {
- *       sourceS3Object: {
- *         bucket: "STRING_VALUE",
- *         key: "STRING_VALUE",
- *         version: "STRING_VALUE",
- *       },
- *       ephemerisData: "STRING_VALUE",
- *     },
- *   },
- *   invalidReason: "STRING_VALUE",
- * };
+ * // { // DescribeEphemerisResponse
+ * //   ephemerisId: "STRING_VALUE",
+ * //   satelliteId: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   priority: Number("int"),
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   enabled: true || false,
+ * //   name: "STRING_VALUE",
+ * //   tags: { // TagsMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   suppliedData: { // EphemerisTypeDescription Union: only one key present
+ * //     tle: { // EphemerisDescription
+ * //       sourceS3Object: { // S3Object
+ * //         bucket: "STRING_VALUE",
+ * //         key: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //       ephemerisData: "STRING_VALUE",
+ * //     },
+ * //     oem: {
+ * //       sourceS3Object: {
+ * //         bucket: "STRING_VALUE",
+ * //         key: "STRING_VALUE",
+ * //         version: "STRING_VALUE",
+ * //       },
+ * //       ephemerisData: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   invalidReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

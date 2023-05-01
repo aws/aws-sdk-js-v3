@@ -46,19 +46,18 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * };
  * const command = new ListFieldsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFieldsResponse
- *   fields: [ // FieldSummaryList // required
- *     { // FieldSummary
- *       fieldId: "STRING_VALUE", // required
- *       fieldArn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
- *       namespace: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFieldsResponse
+ * //   fields: [ // FieldSummaryList // required
+ * //     { // FieldSummary
+ * //       fieldId: "STRING_VALUE", // required
+ * //       fieldArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       namespace: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

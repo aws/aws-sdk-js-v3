@@ -45,17 +45,16 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  * };
  * const command = new GetRotationOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRotationOverrideResult
- *   RotationOverrideId: "STRING_VALUE",
- *   RotationArn: "STRING_VALUE",
- *   NewContactIds: [ // SsmContactsArnList
- *     "STRING_VALUE",
- *   ],
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   CreateTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetRotationOverrideResult
+ * //   RotationOverrideId: "STRING_VALUE",
+ * //   RotationArn: "STRING_VALUE",
+ * //   NewContactIds: [ // SsmContactsArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   CreateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

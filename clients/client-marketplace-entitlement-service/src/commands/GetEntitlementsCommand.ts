@@ -56,24 +56,23 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * };
  * const command = new GetEntitlementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEntitlementsResult
- *   Entitlements: [ // EntitlementList
- *     { // Entitlement
- *       ProductCode: "STRING_VALUE",
- *       Dimension: "STRING_VALUE",
- *       CustomerIdentifier: "STRING_VALUE",
- *       Value: { // EntitlementValue
- *         IntegerValue: Number("int"),
- *         DoubleValue: Number("double"),
- *         BooleanValue: true || false,
- *         StringValue: "STRING_VALUE",
- *       },
- *       ExpirationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetEntitlementsResult
+ * //   Entitlements: [ // EntitlementList
+ * //     { // Entitlement
+ * //       ProductCode: "STRING_VALUE",
+ * //       Dimension: "STRING_VALUE",
+ * //       CustomerIdentifier: "STRING_VALUE",
+ * //       Value: { // EntitlementValue
+ * //         IntegerValue: Number("int"),
+ * //         DoubleValue: Number("double"),
+ * //         BooleanValue: true || false,
+ * //         StringValue: "STRING_VALUE",
+ * //       },
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

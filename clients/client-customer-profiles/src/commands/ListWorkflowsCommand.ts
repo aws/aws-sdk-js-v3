@@ -50,20 +50,19 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkflowsResponse
- *   Items: [ // WorkflowList
- *     { // ListWorkflowsItem
- *       WorkflowType: "APPFLOW_INTEGRATION", // required
- *       WorkflowId: "STRING_VALUE", // required
- *       Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED", // required
- *       StatusDescription: "STRING_VALUE", // required
- *       CreatedAt: new Date("TIMESTAMP"), // required
- *       LastUpdatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWorkflowsResponse
+ * //   Items: [ // WorkflowList
+ * //     { // ListWorkflowsItem
+ * //       WorkflowType: "APPFLOW_INTEGRATION", // required
+ * //       WorkflowId: "STRING_VALUE", // required
+ * //       Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "SPLIT" || "RETRY" || "CANCELLED", // required
+ * //       StatusDescription: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       LastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

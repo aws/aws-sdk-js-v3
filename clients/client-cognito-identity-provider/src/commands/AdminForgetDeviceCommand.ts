@@ -52,8 +52,7 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AdminForgetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

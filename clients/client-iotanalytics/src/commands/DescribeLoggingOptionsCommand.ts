@@ -42,14 +42,13 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * const input = {};
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoggingOptionsResponse
- *   loggingOptions: { // LoggingOptions
- *     roleArn: "STRING_VALUE", // required
- *     level: "STRING_VALUE", // required
- *     enabled: true || false, // required
- *   },
- * };
+ * // { // DescribeLoggingOptionsResponse
+ * //   loggingOptions: { // LoggingOptions
+ * //     roleArn: "STRING_VALUE", // required
+ * //     level: "STRING_VALUE", // required
+ * //     enabled: true || false, // required
+ * //   },
+ * // };
  *
  * ```
  *

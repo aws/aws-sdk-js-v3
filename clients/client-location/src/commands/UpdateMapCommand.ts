@@ -46,12 +46,11 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  * };
  * const command = new UpdateMapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMapResponse
- *   MapName: "STRING_VALUE", // required
- *   MapArn: "STRING_VALUE", // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateMapResponse
+ * //   MapName: "STRING_VALUE", // required
+ * //   MapArn: "STRING_VALUE", // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

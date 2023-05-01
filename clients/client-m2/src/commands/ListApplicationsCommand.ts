@@ -51,26 +51,25 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationsResponse
- *   applications: [ // ApplicationSummaryList // required
- *     { // ApplicationSummary
- *       name: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       applicationId: "STRING_VALUE", // required
- *       applicationArn: "STRING_VALUE", // required
- *       applicationVersion: Number("int"), // required
- *       status: "STRING_VALUE", // required
- *       engineType: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       environmentId: "STRING_VALUE",
- *       lastStartTime: new Date("TIMESTAMP"),
- *       versionStatus: "STRING_VALUE",
- *       deploymentStatus: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationsResponse
+ * //   applications: [ // ApplicationSummaryList // required
+ * //     { // ApplicationSummary
+ * //       name: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       applicationId: "STRING_VALUE", // required
+ * //       applicationArn: "STRING_VALUE", // required
+ * //       applicationVersion: Number("int"), // required
+ * //       status: "STRING_VALUE", // required
+ * //       engineType: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       environmentId: "STRING_VALUE",
+ * //       lastStartTime: new Date("TIMESTAMP"),
+ * //       versionStatus: "STRING_VALUE",
+ * //       deploymentStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

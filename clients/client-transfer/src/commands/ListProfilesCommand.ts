@@ -49,18 +49,17 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfilesResponse
- *   NextToken: "STRING_VALUE",
- *   Profiles: [ // ListedProfiles // required
- *     { // ListedProfile
- *       Arn: "STRING_VALUE",
- *       ProfileId: "STRING_VALUE",
- *       As2Id: "STRING_VALUE",
- *       ProfileType: "LOCAL" || "PARTNER",
- *     },
- *   ],
- * };
+ * // { // ListProfilesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Profiles: [ // ListedProfiles // required
+ * //     { // ListedProfile
+ * //       Arn: "STRING_VALUE",
+ * //       ProfileId: "STRING_VALUE",
+ * //       As2Id: "STRING_VALUE",
+ * //       ProfileType: "LOCAL" || "PARTNER",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

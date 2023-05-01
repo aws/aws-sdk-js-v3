@@ -55,13 +55,12 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * };
  * const command = new CreateProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProvisioningTemplateVersionResponse
- *   templateArn: "STRING_VALUE",
- *   templateName: "STRING_VALUE",
- *   versionId: Number("int"),
- *   isDefaultVersion: true || false,
- * };
+ * // { // CreateProvisioningTemplateVersionResponse
+ * //   templateArn: "STRING_VALUE",
+ * //   templateName: "STRING_VALUE",
+ * //   versionId: Number("int"),
+ * //   isDefaultVersion: true || false,
+ * // };
  *
  * ```
  *

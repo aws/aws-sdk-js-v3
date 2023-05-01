@@ -44,14 +44,13 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * };
  * const command = new GetCatalogImportStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCatalogImportStatusResponse
- *   ImportStatus: { // CatalogImportStatus
- *     ImportCompleted: true || false,
- *     ImportTime: new Date("TIMESTAMP"),
- *     ImportedBy: "STRING_VALUE",
- *   },
- * };
+ * // { // GetCatalogImportStatusResponse
+ * //   ImportStatus: { // CatalogImportStatus
+ * //     ImportCompleted: true || false,
+ * //     ImportTime: new Date("TIMESTAMP"),
+ * //     ImportedBy: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

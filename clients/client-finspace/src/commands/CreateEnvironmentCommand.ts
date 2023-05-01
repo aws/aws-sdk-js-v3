@@ -72,12 +72,11 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEnvironmentResponse
- *   environmentId: "STRING_VALUE",
- *   environmentArn: "STRING_VALUE",
- *   environmentUrl: "STRING_VALUE",
- * };
+ * // { // CreateEnvironmentResponse
+ * //   environmentId: "STRING_VALUE",
+ * //   environmentArn: "STRING_VALUE",
+ * //   environmentUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

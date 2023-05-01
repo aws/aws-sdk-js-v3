@@ -44,8 +44,7 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRegistryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

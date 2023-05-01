@@ -54,16 +54,15 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * };
  * const command = new ListDelegatedServicesForAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDelegatedServicesForAccountResponse
- *   DelegatedServices: [ // DelegatedServices
- *     { // DelegatedService
- *       ServicePrincipal: "STRING_VALUE",
- *       DelegationEnabledDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDelegatedServicesForAccountResponse
+ * //   DelegatedServices: [ // DelegatedServices
+ * //     { // DelegatedService
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       DelegationEnabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

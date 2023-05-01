@@ -49,20 +49,19 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * };
  * const command = new RegenerateSecurityTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegenerateSecurityTokenResponse
- *   Bot: { // Bot
- *     BotId: "STRING_VALUE",
- *     UserId: "STRING_VALUE",
- *     DisplayName: "STRING_VALUE",
- *     BotType: "ChatBot",
- *     Disabled: true || false,
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     BotEmail: "STRING_VALUE",
- *     SecurityToken: "STRING_VALUE",
- *   },
- * };
+ * // { // RegenerateSecurityTokenResponse
+ * //   Bot: { // Bot
+ * //     BotId: "STRING_VALUE",
+ * //     UserId: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     BotType: "ChatBot",
+ * //     Disabled: true || false,
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     BotEmail: "STRING_VALUE",
+ * //     SecurityToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

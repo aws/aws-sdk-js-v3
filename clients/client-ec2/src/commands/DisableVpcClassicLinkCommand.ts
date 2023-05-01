@@ -48,10 +48,9 @@ export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLin
  * };
  * const command = new DisableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableVpcClassicLinkResult
- *   Return: true || false,
- * };
+ * // { // DisableVpcClassicLinkResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

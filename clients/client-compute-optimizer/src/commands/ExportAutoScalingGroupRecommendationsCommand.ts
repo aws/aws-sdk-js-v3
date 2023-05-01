@@ -82,15 +82,14 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  * };
  * const command = new ExportAutoScalingGroupRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportAutoScalingGroupRecommendationsResponse
- *   jobId: "STRING_VALUE",
- *   s3Destination: { // S3Destination
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *     metadataKey: "STRING_VALUE",
- *   },
- * };
+ * // { // ExportAutoScalingGroupRecommendationsResponse
+ * //   jobId: "STRING_VALUE",
+ * //   s3Destination: { // S3Destination
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     metadataKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

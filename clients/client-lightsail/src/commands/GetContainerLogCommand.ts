@@ -58,16 +58,15 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * };
  * const command = new GetContainerLogCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContainerLogResult
- *   logEvents: [ // ContainerServiceLogEventList
- *     { // ContainerServiceLogEvent
- *       createdAt: new Date("TIMESTAMP"),
- *       message: "STRING_VALUE",
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- * };
+ * // { // GetContainerLogResult
+ * //   logEvents: [ // ContainerServiceLogEventList
+ * //     { // ContainerServiceLogEvent
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

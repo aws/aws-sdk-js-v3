@@ -59,18 +59,17 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * };
  * const command = new BatchDeleteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteTableResponse
- *   Errors: [ // TableErrors
- *     { // TableError
- *       TableName: "STRING_VALUE",
- *       ErrorDetail: { // ErrorDetail
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDeleteTableResponse
+ * //   Errors: [ // TableErrors
+ * //     { // TableError
+ * //       TableName: "STRING_VALUE",
+ * //       ErrorDetail: { // ErrorDetail
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

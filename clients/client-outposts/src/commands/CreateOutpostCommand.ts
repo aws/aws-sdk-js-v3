@@ -53,25 +53,24 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * };
  * const command = new CreateOutpostCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOutpostOutput
- *   Outpost: { // Outpost
- *     OutpostId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     OutpostArn: "STRING_VALUE",
- *     SiteId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     LifeCycleStatus: "STRING_VALUE",
- *     AvailabilityZone: "STRING_VALUE",
- *     AvailabilityZoneId: "STRING_VALUE",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     SiteArn: "STRING_VALUE",
- *     SupportedHardwareType: "RACK" || "SERVER",
- *   },
- * };
+ * // { // CreateOutpostOutput
+ * //   Outpost: { // Outpost
+ * //     OutpostId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     SiteId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LifeCycleStatus: "STRING_VALUE",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     AvailabilityZoneId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     SiteArn: "STRING_VALUE",
+ * //     SupportedHardwareType: "RACK" || "SERVER",
+ * //   },
+ * // };
  *
  * ```
  *

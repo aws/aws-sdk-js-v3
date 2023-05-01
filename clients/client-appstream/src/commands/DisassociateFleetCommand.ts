@@ -45,8 +45,7 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * };
  * const command = new DisassociateFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

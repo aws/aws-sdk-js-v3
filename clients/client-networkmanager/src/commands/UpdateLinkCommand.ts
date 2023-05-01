@@ -53,30 +53,29 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLinkResponse
- *   Link: { // Link
- *     LinkId: "STRING_VALUE",
- *     LinkArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     SiteId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Bandwidth: { // Bandwidth
- *       UploadSpeed: Number("int"),
- *       DownloadSpeed: Number("int"),
- *     },
- *     Provider: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateLinkResponse
+ * //   Link: { // Link
+ * //     LinkId: "STRING_VALUE",
+ * //     LinkArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     SiteId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Bandwidth: { // Bandwidth
+ * //       UploadSpeed: Number("int"),
+ * //       DownloadSpeed: Number("int"),
+ * //     },
+ * //     Provider: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -57,8 +57,7 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  * };
  * const command = new DeleteVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface AssociateWirelessDeviceWithMulticastGroupCommandOutput
  * };
  * const command = new AssociateWirelessDeviceWithMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

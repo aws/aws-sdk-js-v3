@@ -44,32 +44,31 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * };
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetImportJobResponse
- *   JobId: "STRING_VALUE",
- *   ImportDestination: { // ImportDestination
- *     SuppressionListDestination: { // SuppressionListDestination
- *       SuppressionListImportAction: "DELETE" || "PUT", // required
- *     },
- *     ContactListDestination: { // ContactListDestination
- *       ContactListName: "STRING_VALUE", // required
- *       ContactListImportAction: "DELETE" || "PUT", // required
- *     },
- *   },
- *   ImportDataSource: { // ImportDataSource
- *     S3Url: "STRING_VALUE", // required
- *     DataFormat: "CSV" || "JSON", // required
- *   },
- *   FailureInfo: { // FailureInfo
- *     FailedRecordsS3Url: "STRING_VALUE",
- *     ErrorMessage: "STRING_VALUE",
- *   },
- *   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
- *   CreatedTimestamp: new Date("TIMESTAMP"),
- *   CompletedTimestamp: new Date("TIMESTAMP"),
- *   ProcessedRecordsCount: Number("int"),
- *   FailedRecordsCount: Number("int"),
- * };
+ * // { // GetImportJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   ImportDestination: { // ImportDestination
+ * //     SuppressionListDestination: { // SuppressionListDestination
+ * //       SuppressionListImportAction: "DELETE" || "PUT", // required
+ * //     },
+ * //     ContactListDestination: { // ContactListDestination
+ * //       ContactListName: "STRING_VALUE", // required
+ * //       ContactListImportAction: "DELETE" || "PUT", // required
+ * //     },
+ * //   },
+ * //   ImportDataSource: { // ImportDataSource
+ * //     S3Url: "STRING_VALUE", // required
+ * //     DataFormat: "CSV" || "JSON", // required
+ * //   },
+ * //   FailureInfo: { // FailureInfo
+ * //     FailedRecordsS3Url: "STRING_VALUE",
+ * //     ErrorMessage: "STRING_VALUE",
+ * //   },
+ * //   JobStatus: "CREATED" || "PROCESSING" || "COMPLETED" || "FAILED",
+ * //   CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   CompletedTimestamp: new Date("TIMESTAMP"),
+ * //   ProcessedRecordsCount: Number("int"),
+ * //   FailedRecordsCount: Number("int"),
+ * // };
  *
  * ```
  *

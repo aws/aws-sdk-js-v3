@@ -116,50 +116,49 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * };
  * const command = new CalculateRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CalculateRouteResponse
- *   Legs: [ // LegList // required
- *     { // Leg
- *       StartPosition: [ // Position // required
- *         Number("double"),
- *       ],
- *       EndPosition: [ // required
- *         Number("double"),
- *       ],
- *       Distance: Number("double"), // required
- *       DurationSeconds: Number("double"), // required
- *       Geometry: { // LegGeometry
- *         LineString: [ // LineString
- *           [
- *             Number("double"),
- *           ],
- *         ],
- *       },
- *       Steps: [ // StepList // required
- *         { // Step
- *           StartPosition: [ // required
- *             Number("double"),
- *           ],
- *           EndPosition: [ // required
- *             Number("double"),
- *           ],
- *           Distance: Number("double"), // required
- *           DurationSeconds: Number("double"), // required
- *           GeometryOffset: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- *   Summary: { // CalculateRouteSummary
- *     RouteBBox: [ // BoundingBox // required
- *       Number("double"),
- *     ],
- *     DataSource: "STRING_VALUE", // required
- *     Distance: Number("double"), // required
- *     DurationSeconds: Number("double"), // required
- *     DistanceUnit: "STRING_VALUE", // required
- *   },
- * };
+ * // { // CalculateRouteResponse
+ * //   Legs: [ // LegList // required
+ * //     { // Leg
+ * //       StartPosition: [ // Position // required
+ * //         Number("double"),
+ * //       ],
+ * //       EndPosition: [ // required
+ * //         Number("double"),
+ * //       ],
+ * //       Distance: Number("double"), // required
+ * //       DurationSeconds: Number("double"), // required
+ * //       Geometry: { // LegGeometry
+ * //         LineString: [ // LineString
+ * //           [
+ * //             Number("double"),
+ * //           ],
+ * //         ],
+ * //       },
+ * //       Steps: [ // StepList // required
+ * //         { // Step
+ * //           StartPosition: [ // required
+ * //             Number("double"),
+ * //           ],
+ * //           EndPosition: [ // required
+ * //             Number("double"),
+ * //           ],
+ * //           Distance: Number("double"), // required
+ * //           DurationSeconds: Number("double"), // required
+ * //           GeometryOffset: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Summary: { // CalculateRouteSummary
+ * //     RouteBBox: [ // BoundingBox // required
+ * //       Number("double"),
+ * //     ],
+ * //     DataSource: "STRING_VALUE", // required
+ * //     Distance: Number("double"), // required
+ * //     DurationSeconds: Number("double"), // required
+ * //     DistanceUnit: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

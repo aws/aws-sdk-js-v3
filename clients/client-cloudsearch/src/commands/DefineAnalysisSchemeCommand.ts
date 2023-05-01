@@ -55,29 +55,28 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  * };
  * const command = new DefineAnalysisSchemeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DefineAnalysisSchemeResponse
- *   AnalysisScheme: { // AnalysisSchemeStatus
- *     Options: { // AnalysisScheme
- *       AnalysisSchemeName: "STRING_VALUE", // required
- *       AnalysisSchemeLanguage: "STRING_VALUE", // required
- *       AnalysisOptions: { // AnalysisOptions
- *         Synonyms: "STRING_VALUE",
- *         Stopwords: "STRING_VALUE",
- *         StemmingDictionary: "STRING_VALUE",
- *         JapaneseTokenizationDictionary: "STRING_VALUE",
- *         AlgorithmicStemming: "STRING_VALUE",
- *       },
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DefineAnalysisSchemeResponse
+ * //   AnalysisScheme: { // AnalysisSchemeStatus
+ * //     Options: { // AnalysisScheme
+ * //       AnalysisSchemeName: "STRING_VALUE", // required
+ * //       AnalysisSchemeLanguage: "STRING_VALUE", // required
+ * //       AnalysisOptions: { // AnalysisOptions
+ * //         Synonyms: "STRING_VALUE",
+ * //         Stopwords: "STRING_VALUE",
+ * //         StemmingDictionary: "STRING_VALUE",
+ * //         JapaneseTokenizationDictionary: "STRING_VALUE",
+ * //         AlgorithmicStemming: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

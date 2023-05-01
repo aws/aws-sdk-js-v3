@@ -54,22 +54,21 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * };
  * const command = new UpdateRoomMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRoomMembershipResponse
- *   RoomMembership: { // RoomMembership
- *     RoomId: "STRING_VALUE",
- *     Member: { // Member
- *       MemberId: "STRING_VALUE",
- *       MemberType: "User" || "Bot" || "Webhook",
- *       Email: "STRING_VALUE",
- *       FullName: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *     },
- *     Role: "Administrator" || "Member",
- *     InvitedBy: "STRING_VALUE",
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateRoomMembershipResponse
+ * //   RoomMembership: { // RoomMembership
+ * //     RoomId: "STRING_VALUE",
+ * //     Member: { // Member
+ * //       MemberId: "STRING_VALUE",
+ * //       MemberType: "User" || "Bot" || "Webhook",
+ * //       Email: "STRING_VALUE",
+ * //       FullName: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //     },
+ * //     Role: "Administrator" || "Member",
+ * //     InvitedBy: "STRING_VALUE",
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,23 +51,22 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * };
  * const command = new GetVariablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVariablesResult
- *   variables: [ // VariableList
- *     { // Variable
- *       name: "STRING_VALUE",
- *       dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN",
- *       dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE",
- *       defaultValue: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       variableType: "STRING_VALUE",
- *       lastUpdatedTime: "STRING_VALUE",
- *       createdTime: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetVariablesResult
+ * //   variables: [ // VariableList
+ * //     { // Variable
+ * //       name: "STRING_VALUE",
+ * //       dataType: "STRING" || "INTEGER" || "FLOAT" || "BOOLEAN",
+ * //       dataSource: "EVENT" || "MODEL_SCORE" || "EXTERNAL_MODEL_SCORE",
+ * //       defaultValue: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       variableType: "STRING_VALUE",
+ * //       lastUpdatedTime: "STRING_VALUE",
+ * //       createdTime: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

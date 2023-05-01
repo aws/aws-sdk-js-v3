@@ -49,14 +49,13 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeploymentResult
- *   jobId: "STRING_VALUE",
- *   fileUploadUrls: { // FileUploadUrls // required
- *     "<keys>": "STRING_VALUE",
- *   },
- *   zipUploadUrl: "STRING_VALUE", // required
- * };
+ * // { // CreateDeploymentResult
+ * //   jobId: "STRING_VALUE",
+ * //   fileUploadUrls: { // FileUploadUrls // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   zipUploadUrl: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

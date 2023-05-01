@@ -47,20 +47,19 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * };
  * const command = new ListItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListItemsResponse
- *   Items: [ // ItemList
- *     { // Item
- *       Name: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       ETag: "STRING_VALUE",
- *       LastModified: new Date("TIMESTAMP"),
- *       ContentType: "STRING_VALUE",
- *       ContentLength: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListItemsResponse
+ * //   Items: [ // ItemList
+ * //     { // Item
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       ETag: "STRING_VALUE",
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       ContentType: "STRING_VALUE",
+ * //       ContentLength: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

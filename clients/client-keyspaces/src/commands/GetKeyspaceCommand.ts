@@ -44,11 +44,10 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * };
  * const command = new GetKeyspaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetKeyspaceResponse
- *   keyspaceName: "STRING_VALUE", // required
- *   resourceArn: "STRING_VALUE", // required
- * };
+ * // { // GetKeyspaceResponse
+ * //   keyspaceName: "STRING_VALUE", // required
+ * //   resourceArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

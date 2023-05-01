@@ -45,8 +45,7 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * };
  * const command = new DeleteSuiteDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

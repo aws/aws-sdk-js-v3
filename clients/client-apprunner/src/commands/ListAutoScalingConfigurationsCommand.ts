@@ -56,17 +56,16 @@ export interface ListAutoScalingConfigurationsCommandOutput
  * };
  * const command = new ListAutoScalingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAutoScalingConfigurationsResponse
- *   AutoScalingConfigurationSummaryList: [ // AutoScalingConfigurationSummaryList // required
- *     { // AutoScalingConfigurationSummary
- *       AutoScalingConfigurationArn: "STRING_VALUE",
- *       AutoScalingConfigurationName: "STRING_VALUE",
- *       AutoScalingConfigurationRevision: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAutoScalingConfigurationsResponse
+ * //   AutoScalingConfigurationSummaryList: [ // AutoScalingConfigurationSummaryList // required
+ * //     { // AutoScalingConfigurationSummary
+ * //       AutoScalingConfigurationArn: "STRING_VALUE",
+ * //       AutoScalingConfigurationName: "STRING_VALUE",
+ * //       AutoScalingConfigurationRevision: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

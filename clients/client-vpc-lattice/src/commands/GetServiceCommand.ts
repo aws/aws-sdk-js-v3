@@ -44,24 +44,23 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   dnsEntry: { // DnsEntry
- *     domainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- *   customDomainName: "STRING_VALUE",
- *   certificateArn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- *   failureCode: "STRING_VALUE",
- *   failureMessage: "STRING_VALUE",
- * };
+ * // { // GetServiceResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   dnsEntry: { // DnsEntry
+ * //     domainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * //   customDomainName: "STRING_VALUE",
+ * //   certificateArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * //   failureMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

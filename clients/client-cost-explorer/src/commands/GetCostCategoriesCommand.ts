@@ -128,18 +128,17 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * };
  * const command = new GetCostCategoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCostCategoriesResponse
- *   NextPageToken: "STRING_VALUE",
- *   CostCategoryNames: [ // CostCategoryNamesList
- *     "STRING_VALUE",
- *   ],
- *   CostCategoryValues: [ // CostCategoryValuesList
- *     "STRING_VALUE",
- *   ],
- *   ReturnSize: Number("int"), // required
- *   TotalSize: Number("int"), // required
- * };
+ * // { // GetCostCategoriesResponse
+ * //   NextPageToken: "STRING_VALUE",
+ * //   CostCategoryNames: [ // CostCategoryNamesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CostCategoryValues: [ // CostCategoryValuesList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ReturnSize: Number("int"), // required
+ * //   TotalSize: Number("int"), // required
+ * // };
  *
  * ```
  *

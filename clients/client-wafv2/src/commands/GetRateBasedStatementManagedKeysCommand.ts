@@ -66,21 +66,20 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * };
  * const command = new GetRateBasedStatementManagedKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRateBasedStatementManagedKeysResponse
- *   ManagedKeysIPV4: { // RateBasedStatementManagedKeysIPSet
- *     IPAddressVersion: "IPV4" || "IPV6",
- *     Addresses: [ // IPAddresses
- *       "STRING_VALUE",
- *     ],
- *   },
- *   ManagedKeysIPV6: {
- *     IPAddressVersion: "IPV4" || "IPV6",
- *     Addresses: [
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetRateBasedStatementManagedKeysResponse
+ * //   ManagedKeysIPV4: { // RateBasedStatementManagedKeysIPSet
+ * //     IPAddressVersion: "IPV4" || "IPV6",
+ * //     Addresses: [ // IPAddresses
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ManagedKeysIPV6: {
+ * //     IPAddressVersion: "IPV4" || "IPV6",
+ * //     Addresses: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

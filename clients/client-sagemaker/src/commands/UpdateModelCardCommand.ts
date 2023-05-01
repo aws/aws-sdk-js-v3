@@ -53,10 +53,9 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * };
  * const command = new UpdateModelCardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateModelCardResponse
- *   ModelCardArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateModelCardResponse
+ * //   ModelCardArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

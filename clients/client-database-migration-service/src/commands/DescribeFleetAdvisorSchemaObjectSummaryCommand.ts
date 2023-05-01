@@ -67,19 +67,18 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * };
  * const command = new DescribeFleetAdvisorSchemaObjectSummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetAdvisorSchemaObjectSummaryResponse
- *   FleetAdvisorSchemaObjects: [ // FleetAdvisorSchemaObjectList
- *     { // FleetAdvisorSchemaObjectResponse
- *       SchemaId: "STRING_VALUE",
- *       ObjectType: "STRING_VALUE",
- *       NumberOfObjects: Number("long"),
- *       CodeLineCount: Number("long"),
- *       CodeSize: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFleetAdvisorSchemaObjectSummaryResponse
+ * //   FleetAdvisorSchemaObjects: [ // FleetAdvisorSchemaObjectList
+ * //     { // FleetAdvisorSchemaObjectResponse
+ * //       SchemaId: "STRING_VALUE",
+ * //       ObjectType: "STRING_VALUE",
+ * //       NumberOfObjects: Number("long"),
+ * //       CodeLineCount: Number("long"),
+ * //       CodeSize: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,31 +48,30 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatabaseOutput
- *   Database: { // Database
- *     ApplicationId: "STRING_VALUE",
- *     ComponentId: "STRING_VALUE",
- *     Credentials: [ // ApplicationCredentialList
- *       { // ApplicationCredential
- *         DatabaseName: "STRING_VALUE", // required
- *         CredentialType: "STRING_VALUE", // required
- *         SecretId: "STRING_VALUE", // required
- *       },
- *     ],
- *     DatabaseId: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     DatabaseType: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     PrimaryHost: "STRING_VALUE",
- *     SQLPort: Number("int"),
- *     LastUpdated: new Date("TIMESTAMP"),
- *   },
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetDatabaseOutput
+ * //   Database: { // Database
+ * //     ApplicationId: "STRING_VALUE",
+ * //     ComponentId: "STRING_VALUE",
+ * //     Credentials: [ // ApplicationCredentialList
+ * //       { // ApplicationCredential
+ * //         DatabaseName: "STRING_VALUE", // required
+ * //         CredentialType: "STRING_VALUE", // required
+ * //         SecretId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     DatabaseId: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     DatabaseType: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     PrimaryHost: "STRING_VALUE",
+ * //     SQLPort: Number("int"),
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

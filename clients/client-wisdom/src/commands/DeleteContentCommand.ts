@@ -45,8 +45,7 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * };
  * const command = new DeleteContentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

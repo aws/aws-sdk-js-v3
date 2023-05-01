@@ -44,8 +44,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * };
  * const command = new DeletePortalCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

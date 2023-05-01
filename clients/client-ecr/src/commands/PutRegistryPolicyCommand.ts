@@ -46,11 +46,10 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * };
  * const command = new PutRegistryPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRegistryPolicyResponse
- *   registryId: "STRING_VALUE",
- *   policyText: "STRING_VALUE",
- * };
+ * // { // PutRegistryPolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   policyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -59,13 +59,12 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * };
  * const command = new GetTemporaryGlueTableCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTemporaryGlueTableCredentialsResponse
- *   AccessKeyId: "STRING_VALUE",
- *   SecretAccessKey: "STRING_VALUE",
- *   SessionToken: "STRING_VALUE",
- *   Expiration: new Date("TIMESTAMP"),
- * };
+ * // { // GetTemporaryGlueTableCredentialsResponse
+ * //   AccessKeyId: "STRING_VALUE",
+ * //   SecretAccessKey: "STRING_VALUE",
+ * //   SessionToken: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

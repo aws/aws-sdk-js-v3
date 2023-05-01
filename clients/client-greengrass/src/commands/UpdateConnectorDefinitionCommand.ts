@@ -45,8 +45,7 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * };
  * const command = new UpdateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

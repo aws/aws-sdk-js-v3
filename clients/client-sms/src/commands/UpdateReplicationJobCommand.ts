@@ -52,8 +52,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * };
  * const command = new UpdateReplicationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

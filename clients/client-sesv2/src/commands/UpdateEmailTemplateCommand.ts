@@ -52,8 +52,7 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * };
  * const command = new UpdateEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

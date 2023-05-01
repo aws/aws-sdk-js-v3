@@ -45,8 +45,7 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * };
  * const command = new DeleteProgramCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

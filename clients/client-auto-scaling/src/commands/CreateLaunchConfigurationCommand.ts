@@ -99,8 +99,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * };
  * const command = new CreateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

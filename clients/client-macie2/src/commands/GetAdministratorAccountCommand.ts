@@ -42,15 +42,14 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAdministratorAccountResponse
- *   administrator: { // Invitation
- *     accountId: "STRING_VALUE",
- *     invitationId: "STRING_VALUE",
- *     invitedAt: new Date("TIMESTAMP"),
- *     relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
- *   },
- * };
+ * // { // GetAdministratorAccountResponse
+ * //   administrator: { // Invitation
+ * //     accountId: "STRING_VALUE",
+ * //     invitationId: "STRING_VALUE",
+ * //     invitedAt: new Date("TIMESTAMP"),
+ * //     relationshipStatus: "Enabled" || "Paused" || "Invited" || "Created" || "Removed" || "Resigned" || "EmailVerificationInProgress" || "EmailVerificationFailed" || "RegionDisabled" || "AccountSuspended",
+ * //   },
+ * // };
  *
  * ```
  *

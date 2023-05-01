@@ -46,16 +46,15 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelsResponse
- *   Channels: [ // Channels
- *     { // Channel
- *       ChannelArn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelsResponse
+ * //   Channels: [ // Channels
+ * //     { // Channel
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

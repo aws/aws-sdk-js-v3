@@ -61,8 +61,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

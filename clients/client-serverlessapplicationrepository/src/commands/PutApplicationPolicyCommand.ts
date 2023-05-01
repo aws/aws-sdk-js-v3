@@ -65,23 +65,22 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * };
  * const command = new PutApplicationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutApplicationPolicyResponse
- *   Statements: [ // __listOfApplicationPolicyStatement
- *     { // ApplicationPolicyStatement
- *       Actions: [ // __listOf__string // required
- *         "STRING_VALUE",
- *       ],
- *       PrincipalOrgIDs: [
- *         "STRING_VALUE",
- *       ],
- *       Principals: [ // required
- *         "STRING_VALUE",
- *       ],
- *       StatementId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutApplicationPolicyResponse
+ * //   Statements: [ // __listOfApplicationPolicyStatement
+ * //     { // ApplicationPolicyStatement
+ * //       Actions: [ // __listOf__string // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       PrincipalOrgIDs: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Principals: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       StatementId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

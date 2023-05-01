@@ -74,11 +74,10 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * };
  * const command = new MergeBranchesBySquashCommand(input);
  * const response = await client.send(command);
- * /**
- * { // MergeBranchesBySquashOutput
- *   commitId: "STRING_VALUE",
- *   treeId: "STRING_VALUE",
- * };
+ * // { // MergeBranchesBySquashOutput
+ * //   commitId: "STRING_VALUE",
+ * //   treeId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,28 +56,27 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * };
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetImportJobsResponse
- *   DatasetImportJobs: [ // DatasetImportJobs
- *     { // DatasetImportJobSummary
- *       DatasetImportJobArn: "STRING_VALUE",
- *       DatasetImportJobName: "STRING_VALUE",
- *       DataSource: { // DataSource
- *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
- *         },
- *       },
- *       Status: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *       ImportMode: "FULL" || "INCREMENTAL",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetImportJobsResponse
+ * //   DatasetImportJobs: [ // DatasetImportJobs
+ * //     { // DatasetImportJobSummary
+ * //       DatasetImportJobArn: "STRING_VALUE",
+ * //       DatasetImportJobName: "STRING_VALUE",
+ * //       DataSource: { // DataSource
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //       ImportMode: "FULL" || "INCREMENTAL",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

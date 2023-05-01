@@ -58,13 +58,12 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * };
  * const command = new CreateBackendStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackendStorageResponse
- *   AppId: "STRING_VALUE",
- *   BackendEnvironmentName: "STRING_VALUE",
- *   JobId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // CreateBackendStorageResponse
+ * //   AppId: "STRING_VALUE",
+ * //   BackendEnvironmentName: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

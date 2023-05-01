@@ -49,40 +49,39 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * };
  * const command = new DescribeModelCardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeModelCardResponse
- *   ModelCardArn: "STRING_VALUE", // required
- *   ModelCardName: "STRING_VALUE", // required
- *   ModelCardVersion: Number("int"), // required
- *   Content: "STRING_VALUE", // required
- *   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
- *   SecurityConfig: { // ModelCardSecurityConfig
- *     KmsKeyId: "STRING_VALUE",
- *   },
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   CreatedBy: { // UserContext
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: { // IamIdentity
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LastModifiedBy: {
- *     UserProfileArn: "STRING_VALUE",
- *     UserProfileName: "STRING_VALUE",
- *     DomainId: "STRING_VALUE",
- *     IamIdentity: {
- *       Arn: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *       SourceIdentity: "STRING_VALUE",
- *     },
- *   },
- *   ModelCardProcessingStatus: "DeleteInProgress" || "DeletePending" || "ContentDeleted" || "ExportJobsDeleted" || "DeleteCompleted" || "DeleteFailed",
- * };
+ * // { // DescribeModelCardResponse
+ * //   ModelCardArn: "STRING_VALUE", // required
+ * //   ModelCardName: "STRING_VALUE", // required
+ * //   ModelCardVersion: Number("int"), // required
+ * //   Content: "STRING_VALUE", // required
+ * //   ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived", // required
+ * //   SecurityConfig: { // ModelCardSecurityConfig
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   CreatedBy: { // UserContext
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: { // IamIdentity
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LastModifiedBy: {
+ * //     UserProfileArn: "STRING_VALUE",
+ * //     UserProfileName: "STRING_VALUE",
+ * //     DomainId: "STRING_VALUE",
+ * //     IamIdentity: {
+ * //       Arn: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //       SourceIdentity: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ModelCardProcessingStatus: "DeleteInProgress" || "DeletePending" || "ContentDeleted" || "ExportJobsDeleted" || "DeleteCompleted" || "DeleteFailed",
+ * // };
  *
  * ```
  *

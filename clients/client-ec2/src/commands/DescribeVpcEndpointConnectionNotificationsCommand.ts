@@ -65,23 +65,22 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * };
  * const command = new DescribeVpcEndpointConnectionNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcEndpointConnectionNotificationsResult
- *   ConnectionNotificationSet: [ // ConnectionNotificationSet
- *     { // ConnectionNotification
- *       ConnectionNotificationId: "STRING_VALUE",
- *       ServiceId: "STRING_VALUE",
- *       VpcEndpointId: "STRING_VALUE",
- *       ConnectionNotificationType: "Topic",
- *       ConnectionNotificationArn: "STRING_VALUE",
- *       ConnectionEvents: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       ConnectionNotificationState: "Enabled" || "Disabled",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeVpcEndpointConnectionNotificationsResult
+ * //   ConnectionNotificationSet: [ // ConnectionNotificationSet
+ * //     { // ConnectionNotification
+ * //       ConnectionNotificationId: "STRING_VALUE",
+ * //       ServiceId: "STRING_VALUE",
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       ConnectionNotificationType: "Topic",
+ * //       ConnectionNotificationArn: "STRING_VALUE",
+ * //       ConnectionEvents: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ConnectionNotificationState: "Enabled" || "Disabled",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

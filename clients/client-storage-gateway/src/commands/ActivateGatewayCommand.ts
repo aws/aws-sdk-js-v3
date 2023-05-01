@@ -63,10 +63,9 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivateGatewayOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // ActivateGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

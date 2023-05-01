@@ -46,15 +46,14 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * };
  * const command = new ImportApiKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApiKeyIds
- *   ids: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   warnings: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ApiKeyIds
+ * //   ids: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   warnings: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

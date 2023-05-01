@@ -44,8 +44,7 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUsageLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

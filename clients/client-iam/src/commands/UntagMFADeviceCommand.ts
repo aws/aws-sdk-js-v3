@@ -49,8 +49,7 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagMFADeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

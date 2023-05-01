@@ -620,10 +620,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSourceResponse
- *   Id: "STRING_VALUE", // required
- * };
+ * // { // CreateDataSourceResponse
+ * //   Id: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

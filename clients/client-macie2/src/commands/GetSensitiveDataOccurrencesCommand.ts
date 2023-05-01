@@ -49,18 +49,17 @@ export interface GetSensitiveDataOccurrencesCommandOutput
  * };
  * const command = new GetSensitiveDataOccurrencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSensitiveDataOccurrencesResponse
- *   error: "STRING_VALUE",
- *   sensitiveDataOccurrences: { // SensitiveDataOccurrences
- *     "<keys>": [ // __listOfDetectedDataDetails
- *       { // DetectedDataDetails
- *         value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   status: "SUCCESS" || "PROCESSING" || "ERROR",
- * };
+ * // { // GetSensitiveDataOccurrencesResponse
+ * //   error: "STRING_VALUE",
+ * //   sensitiveDataOccurrences: { // SensitiveDataOccurrences
+ * //     "<keys>": [ // __listOfDetectedDataDetails
+ * //       { // DetectedDataDetails
+ * //         value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   status: "SUCCESS" || "PROCESSING" || "ERROR",
+ * // };
  *
  * ```
  *

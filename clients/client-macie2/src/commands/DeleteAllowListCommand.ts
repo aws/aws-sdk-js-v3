@@ -45,8 +45,7 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * };
  * const command = new DeleteAllowListCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

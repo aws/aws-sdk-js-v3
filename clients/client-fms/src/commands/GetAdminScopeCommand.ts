@@ -44,38 +44,37 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * };
  * const command = new GetAdminScopeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAdminScopeResponse
- *   AdminScope: { // AdminScope
- *     AccountScope: { // AccountScope
- *       Accounts: [ // AccountIdList
- *         "STRING_VALUE",
- *       ],
- *       AllAccountsEnabled: true || false,
- *       ExcludeSpecifiedAccounts: true || false,
- *     },
- *     OrganizationalUnitScope: { // OrganizationalUnitScope
- *       OrganizationalUnits: [ // OrganizationalUnitIdList
- *         "STRING_VALUE",
- *       ],
- *       AllOrganizationalUnitsEnabled: true || false,
- *       ExcludeSpecifiedOrganizationalUnits: true || false,
- *     },
- *     RegionScope: { // RegionScope
- *       Regions: [ // AWSRegionList
- *         "STRING_VALUE",
- *       ],
- *       AllRegionsEnabled: true || false,
- *     },
- *     PolicyTypeScope: { // PolicyTypeScope
- *       PolicyTypes: [ // SecurityServiceTypeList
- *         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
- *       ],
- *       AllPolicyTypesEnabled: true || false,
- *     },
- *   },
- *   Status: "ONBOARDING" || "ONBOARDING_COMPLETE" || "OFFBOARDING" || "OFFBOARDING_COMPLETE",
- * };
+ * // { // GetAdminScopeResponse
+ * //   AdminScope: { // AdminScope
+ * //     AccountScope: { // AccountScope
+ * //       Accounts: [ // AccountIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllAccountsEnabled: true || false,
+ * //       ExcludeSpecifiedAccounts: true || false,
+ * //     },
+ * //     OrganizationalUnitScope: { // OrganizationalUnitScope
+ * //       OrganizationalUnits: [ // OrganizationalUnitIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllOrganizationalUnitsEnabled: true || false,
+ * //       ExcludeSpecifiedOrganizationalUnits: true || false,
+ * //     },
+ * //     RegionScope: { // RegionScope
+ * //       Regions: [ // AWSRegionList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllRegionsEnabled: true || false,
+ * //     },
+ * //     PolicyTypeScope: { // PolicyTypeScope
+ * //       PolicyTypes: [ // SecurityServiceTypeList
+ * //         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ * //       ],
+ * //       AllPolicyTypesEnabled: true || false,
+ * //     },
+ * //   },
+ * //   Status: "ONBOARDING" || "ONBOARDING_COMPLETE" || "OFFBOARDING" || "OFFBOARDING_COMPLETE",
+ * // };
  *
  * ```
  *

@@ -97,31 +97,30 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * };
  * const command = new UpdateFirewallPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFirewallPolicyResponse
- *   UpdateToken: "STRING_VALUE", // required
- *   FirewallPolicyResponse: { // FirewallPolicyResponse
- *     FirewallPolicyName: "STRING_VALUE", // required
- *     FirewallPolicyArn: "STRING_VALUE", // required
- *     FirewallPolicyId: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     FirewallPolicyStatus: "ACTIVE" || "DELETING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *     ConsumedStatelessRuleCapacity: Number("int"),
- *     ConsumedStatefulRuleCapacity: Number("int"),
- *     NumberOfAssociations: Number("int"),
- *     EncryptionConfiguration: { // EncryptionConfiguration
- *       KeyId: "STRING_VALUE",
- *       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
- *     },
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateFirewallPolicyResponse
+ * //   UpdateToken: "STRING_VALUE", // required
+ * //   FirewallPolicyResponse: { // FirewallPolicyResponse
+ * //     FirewallPolicyName: "STRING_VALUE", // required
+ * //     FirewallPolicyArn: "STRING_VALUE", // required
+ * //     FirewallPolicyId: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     FirewallPolicyStatus: "ACTIVE" || "DELETING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ConsumedStatelessRuleCapacity: Number("int"),
+ * //     ConsumedStatefulRuleCapacity: Number("int"),
+ * //     NumberOfAssociations: Number("int"),
+ * //     EncryptionConfiguration: { // EncryptionConfiguration
+ * //       KeyId: "STRING_VALUE",
+ * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ * //     },
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

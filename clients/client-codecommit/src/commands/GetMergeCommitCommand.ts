@@ -48,13 +48,12 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * };
  * const command = new GetMergeCommitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMergeCommitOutput
- *   sourceCommitId: "STRING_VALUE",
- *   destinationCommitId: "STRING_VALUE",
- *   baseCommitId: "STRING_VALUE",
- *   mergedCommitId: "STRING_VALUE",
- * };
+ * // { // GetMergeCommitOutput
+ * //   sourceCommitId: "STRING_VALUE",
+ * //   destinationCommitId: "STRING_VALUE",
+ * //   baseCommitId: "STRING_VALUE",
+ * //   mergedCommitId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,25 +47,24 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Deployments
- *   Items: [ // DeploymentList
- *     { // DeploymentSummary
- *       DeploymentNumber: Number("int"),
- *       ConfigurationName: "STRING_VALUE",
- *       ConfigurationVersion: "STRING_VALUE",
- *       DeploymentDurationInMinutes: Number("int"),
- *       GrowthType: "LINEAR" || "EXPONENTIAL",
- *       GrowthFactor: Number("float"),
- *       FinalBakeTimeInMinutes: Number("int"),
- *       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
- *       PercentageComplete: Number("float"),
- *       StartedAt: new Date("TIMESTAMP"),
- *       CompletedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // Deployments
+ * //   Items: [ // DeploymentList
+ * //     { // DeploymentSummary
+ * //       DeploymentNumber: Number("int"),
+ * //       ConfigurationName: "STRING_VALUE",
+ * //       ConfigurationVersion: "STRING_VALUE",
+ * //       DeploymentDurationInMinutes: Number("int"),
+ * //       GrowthType: "LINEAR" || "EXPONENTIAL",
+ * //       GrowthFactor: Number("float"),
+ * //       FinalBakeTimeInMinutes: Number("int"),
+ * //       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //       PercentageComplete: Number("float"),
+ * //       StartedAt: new Date("TIMESTAMP"),
+ * //       CompletedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

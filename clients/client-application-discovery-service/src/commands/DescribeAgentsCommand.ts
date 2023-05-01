@@ -63,29 +63,28 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * };
  * const command = new DescribeAgentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAgentsResponse
- *   agentsInfo: [ // AgentsInfo
- *     { // AgentInfo
- *       agentId: "STRING_VALUE",
- *       hostName: "STRING_VALUE",
- *       agentNetworkInfoList: [ // AgentNetworkInfoList
- *         { // AgentNetworkInfo
- *           ipAddress: "STRING_VALUE",
- *           macAddress: "STRING_VALUE",
- *         },
- *       ],
- *       connectorId: "STRING_VALUE",
- *       version: "STRING_VALUE",
- *       health: "HEALTHY" || "UNHEALTHY" || "RUNNING" || "UNKNOWN" || "BLACKLISTED" || "SHUTDOWN",
- *       lastHealthPingTime: "STRING_VALUE",
- *       collectionStatus: "STRING_VALUE",
- *       agentType: "STRING_VALUE",
- *       registeredTime: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAgentsResponse
+ * //   agentsInfo: [ // AgentsInfo
+ * //     { // AgentInfo
+ * //       agentId: "STRING_VALUE",
+ * //       hostName: "STRING_VALUE",
+ * //       agentNetworkInfoList: [ // AgentNetworkInfoList
+ * //         { // AgentNetworkInfo
+ * //           ipAddress: "STRING_VALUE",
+ * //           macAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       connectorId: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //       health: "HEALTHY" || "UNHEALTHY" || "RUNNING" || "UNKNOWN" || "BLACKLISTED" || "SHUTDOWN",
+ * //       lastHealthPingTime: "STRING_VALUE",
+ * //       collectionStatus: "STRING_VALUE",
+ * //       agentType: "STRING_VALUE",
+ * //       registeredTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

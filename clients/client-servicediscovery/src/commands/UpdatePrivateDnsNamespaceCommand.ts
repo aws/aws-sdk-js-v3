@@ -56,10 +56,9 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePrivateDnsNamespaceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // UpdatePrivateDnsNamespaceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

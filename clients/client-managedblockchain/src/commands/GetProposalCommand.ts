@@ -50,38 +50,37 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * };
  * const command = new GetProposalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProposalOutput
- *   Proposal: { // Proposal
- *     ProposalId: "STRING_VALUE",
- *     NetworkId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Actions: { // ProposalActions
- *       Invitations: [ // InviteActionList
- *         { // InviteAction
- *           Principal: "STRING_VALUE", // required
- *         },
- *       ],
- *       Removals: [ // RemoveActionList
- *         { // RemoveAction
- *           MemberId: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *     ProposedByMemberId: "STRING_VALUE",
- *     ProposedByMemberName: "STRING_VALUE",
- *     Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
- *     CreationDate: new Date("TIMESTAMP"),
- *     ExpirationDate: new Date("TIMESTAMP"),
- *     YesVoteCount: Number("int"),
- *     NoVoteCount: Number("int"),
- *     OutstandingVoteCount: Number("int"),
- *     Tags: { // OutputTagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     Arn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetProposalOutput
+ * //   Proposal: { // Proposal
+ * //     ProposalId: "STRING_VALUE",
+ * //     NetworkId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Actions: { // ProposalActions
+ * //       Invitations: [ // InviteActionList
+ * //         { // InviteAction
+ * //           Principal: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Removals: [ // RemoveActionList
+ * //         { // RemoveAction
+ * //           MemberId: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     ProposedByMemberId: "STRING_VALUE",
+ * //     ProposedByMemberName: "STRING_VALUE",
+ * //     Status: "IN_PROGRESS" || "APPROVED" || "REJECTED" || "EXPIRED" || "ACTION_FAILED",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     ExpirationDate: new Date("TIMESTAMP"),
+ * //     YesVoteCount: Number("int"),
+ * //     NoVoteCount: Number("int"),
+ * //     OutstandingVoteCount: Number("int"),
+ * //     Tags: { // OutputTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     Arn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,27 +49,26 @@ export interface ListTrustAnchorsCommandOutput extends ListTrustAnchorsResponse,
  * };
  * const command = new ListTrustAnchorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrustAnchorsResponse
- *   nextToken: "STRING_VALUE",
- *   trustAnchors: [ // TrustAnchorDetails
- *     { // TrustAnchorDetail
- *       trustAnchorId: "STRING_VALUE",
- *       trustAnchorArn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       source: { // Source
- *         sourceType: "STRING_VALUE",
- *         sourceData: { // SourceData Union: only one key present
- *           x509CertificateData: "STRING_VALUE",
- *           acmPcaArn: "STRING_VALUE",
- *         },
- *       },
- *       enabled: true || false,
- *       createdAt: new Date("TIMESTAMP"),
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListTrustAnchorsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   trustAnchors: [ // TrustAnchorDetails
+ * //     { // TrustAnchorDetail
+ * //       trustAnchorId: "STRING_VALUE",
+ * //       trustAnchorArn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       source: { // Source
+ * //         sourceType: "STRING_VALUE",
+ * //         sourceData: { // SourceData Union: only one key present
+ * //           x509CertificateData: "STRING_VALUE",
+ * //           acmPcaArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       enabled: true || false,
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

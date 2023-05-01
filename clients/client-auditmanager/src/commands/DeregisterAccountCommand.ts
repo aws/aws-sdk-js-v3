@@ -51,10 +51,9 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * const input = {};
  * const command = new DeregisterAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterAccountResponse
- *   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
- * };
+ * // { // DeregisterAccountResponse
+ * //   status: "ACTIVE" || "INACTIVE" || "PENDING_ACTIVATION",
+ * // };
  *
  * ```
  *

@@ -63,18 +63,17 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * };
  * const command = new GetJobBookmarkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobBookmarkResponse
- *   JobBookmarkEntry: { // JobBookmarkEntry
- *     JobName: "STRING_VALUE",
- *     Version: Number("int"),
- *     Run: Number("int"),
- *     Attempt: Number("int"),
- *     PreviousRunId: "STRING_VALUE",
- *     RunId: "STRING_VALUE",
- *     JobBookmark: "STRING_VALUE",
- *   },
- * };
+ * // { // GetJobBookmarkResponse
+ * //   JobBookmarkEntry: { // JobBookmarkEntry
+ * //     JobName: "STRING_VALUE",
+ * //     Version: Number("int"),
+ * //     Run: Number("int"),
+ * //     Attempt: Number("int"),
+ * //     PreviousRunId: "STRING_VALUE",
+ * //     RunId: "STRING_VALUE",
+ * //     JobBookmark: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -74,10 +74,9 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * };
  * const command = new CreateBatchInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBatchInferenceJobResponse
- *   batchInferenceJobArn: "STRING_VALUE",
- * };
+ * // { // CreateBatchInferenceJobResponse
+ * //   batchInferenceJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

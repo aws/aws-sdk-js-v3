@@ -49,22 +49,21 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * };
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListArchivesResponse
- *   Archives: [ // ArchiveResponseList
- *     { // Archive
- *       ArchiveName: "STRING_VALUE",
- *       EventSourceArn: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       StateReason: "STRING_VALUE",
- *       RetentionDays: Number("int"),
- *       SizeBytes: Number("long"),
- *       EventCount: Number("long"),
- *       CreationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListArchivesResponse
+ * //   Archives: [ // ArchiveResponseList
+ * //     { // Archive
+ * //       ArchiveName: "STRING_VALUE",
+ * //       EventSourceArn: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
+ * //       RetentionDays: Number("int"),
+ * //       SizeBytes: Number("long"),
+ * //       EventCount: Number("long"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

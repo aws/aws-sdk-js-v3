@@ -47,27 +47,26 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOfferingsResult
- *   offerings: [ // Offerings
- *     { // Offering
- *       id: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       type: "RECURRING",
- *       platform: "ANDROID" || "IOS",
- *       recurringCharges: [ // RecurringCharges
- *         { // RecurringCharge
- *           cost: { // MonetaryAmount
- *             amount: Number("double"),
- *             currencyCode: "USD",
- *           },
- *           frequency: "MONTHLY",
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOfferingsResult
+ * //   offerings: [ // Offerings
+ * //     { // Offering
+ * //       id: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       type: "RECURRING",
+ * //       platform: "ANDROID" || "IOS",
+ * //       recurringCharges: [ // RecurringCharges
+ * //         { // RecurringCharge
+ * //           cost: { // MonetaryAmount
+ * //             amount: Number("double"),
+ * //             currencyCode: "USD",
+ * //           },
+ * //           frequency: "MONTHLY",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

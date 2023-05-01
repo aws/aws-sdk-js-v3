@@ -77,11 +77,10 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * };
  * const command = new TransferDomainToAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TransferDomainToAnotherAwsAccountResponse
- *   OperationId: "STRING_VALUE",
- *   Password: "STRING_VALUE",
- * };
+ * // { // TransferDomainToAnotherAwsAccountResponse
+ * //   OperationId: "STRING_VALUE",
+ * //   Password: "STRING_VALUE",
+ * // };
  *
  * ```
  *

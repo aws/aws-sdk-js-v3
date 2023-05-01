@@ -49,12 +49,11 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * };
  * const command = new GetGroupCertificateConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGroupCertificateConfigurationResponse
- *   CertificateAuthorityExpiryInMilliseconds: "STRING_VALUE",
- *   CertificateExpiryInMilliseconds: "STRING_VALUE",
- *   GroupId: "STRING_VALUE",
- * };
+ * // { // GetGroupCertificateConfigurationResponse
+ * //   CertificateAuthorityExpiryInMilliseconds: "STRING_VALUE",
+ * //   CertificateExpiryInMilliseconds: "STRING_VALUE",
+ * //   GroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

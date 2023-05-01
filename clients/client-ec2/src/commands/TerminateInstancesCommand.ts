@@ -106,22 +106,21 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateInstancesResult
- *   TerminatingInstances: [ // InstanceStateChangeList
- *     { // InstanceStateChange
- *       CurrentState: { // InstanceState
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *       InstanceId: "STRING_VALUE",
- *       PreviousState: {
- *         Code: Number("int"),
- *         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
- *       },
- *     },
- *   ],
- * };
+ * // { // TerminateInstancesResult
+ * //   TerminatingInstances: [ // InstanceStateChangeList
+ * //     { // InstanceStateChange
+ * //       CurrentState: { // InstanceState
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //       InstanceId: "STRING_VALUE",
+ * //       PreviousState: {
+ * //         Code: Number("int"),
+ * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

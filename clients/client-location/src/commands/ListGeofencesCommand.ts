@@ -50,33 +50,32 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * };
  * const command = new ListGeofencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGeofencesResponse
- *   Entries: [ // ListGeofenceResponseEntryList // required
- *     { // ListGeofenceResponseEntry
- *       GeofenceId: "STRING_VALUE", // required
- *       Geometry: { // GeofenceGeometry
- *         Polygon: [ // LinearRings
- *           [ // LinearRing
- *             [ // Position
- *               Number("double"),
- *             ],
- *           ],
- *         ],
- *         Circle: { // Circle
- *           Center: [ // required
- *             Number("double"),
- *           ],
- *           Radius: Number("double"), // required
- *         },
- *       },
- *       Status: "STRING_VALUE", // required
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGeofencesResponse
+ * //   Entries: [ // ListGeofenceResponseEntryList // required
+ * //     { // ListGeofenceResponseEntry
+ * //       GeofenceId: "STRING_VALUE", // required
+ * //       Geometry: { // GeofenceGeometry
+ * //         Polygon: [ // LinearRings
+ * //           [ // LinearRing
+ * //             [ // Position
+ * //               Number("double"),
+ * //             ],
+ * //           ],
+ * //         ],
+ * //         Circle: { // Circle
+ * //           Center: [ // required
+ * //             Number("double"),
+ * //           ],
+ * //           Radius: Number("double"), // required
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE", // required
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -74,12 +74,11 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * };
  * const command = new GetBucketCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketResult
- *   Bucket: "STRING_VALUE",
- *   PublicAccessBlockEnabled: true || false,
- *   CreationDate: new Date("TIMESTAMP"),
- * };
+ * // { // GetBucketResult
+ * //   Bucket: "STRING_VALUE",
+ * //   PublicAccessBlockEnabled: true || false,
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

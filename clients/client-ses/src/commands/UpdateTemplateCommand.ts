@@ -52,8 +52,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

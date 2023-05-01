@@ -86,8 +86,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * };
  * const command = new AdminResetUserPasswordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

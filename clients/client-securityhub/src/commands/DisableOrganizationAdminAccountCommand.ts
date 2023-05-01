@@ -50,8 +50,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

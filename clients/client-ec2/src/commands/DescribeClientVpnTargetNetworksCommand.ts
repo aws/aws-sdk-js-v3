@@ -63,25 +63,24 @@ export interface DescribeClientVpnTargetNetworksCommandOutput
  * };
  * const command = new DescribeClientVpnTargetNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientVpnTargetNetworksResult
- *   ClientVpnTargetNetworks: [ // TargetNetworkSet
- *     { // TargetNetwork
- *       AssociationId: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       TargetNetworkId: "STRING_VALUE",
- *       ClientVpnEndpointId: "STRING_VALUE",
- *       Status: { // AssociationStatus
- *         Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
- *         Message: "STRING_VALUE",
- *       },
- *       SecurityGroups: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeClientVpnTargetNetworksResult
+ * //   ClientVpnTargetNetworks: [ // TargetNetworkSet
+ * //     { // TargetNetwork
+ * //       AssociationId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       TargetNetworkId: "STRING_VALUE",
+ * //       ClientVpnEndpointId: "STRING_VALUE",
+ * //       Status: { // AssociationStatus
+ * //         Code: "associating" || "associated" || "association-failed" || "disassociating" || "disassociated",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       SecurityGroups: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

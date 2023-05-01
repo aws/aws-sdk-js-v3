@@ -44,16 +44,15 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * };
  * const command = new DescribeIpRestrictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIpRestrictionResponse
- *   AwsAccountId: "STRING_VALUE",
- *   IpRestrictionRuleMap: { // IpRestrictionRuleMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   Enabled: true || false,
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeIpRestrictionResponse
+ * //   AwsAccountId: "STRING_VALUE",
+ * //   IpRestrictionRuleMap: { // IpRestrictionRuleMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   Enabled: true || false,
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

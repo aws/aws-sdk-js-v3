@@ -47,16 +47,15 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupResponse
- *   Group: { // Group
- *     Path: "STRING_VALUE", // required
- *     GroupName: "STRING_VALUE", // required
- *     GroupId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *     CreateDate: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // CreateGroupResponse
+ * //   Group: { // Group
+ * //     Path: "STRING_VALUE", // required
+ * //     GroupName: "STRING_VALUE", // required
+ * //     GroupId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //     CreateDate: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

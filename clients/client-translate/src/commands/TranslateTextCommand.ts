@@ -54,27 +54,26 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * };
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TranslateTextResponse
- *   TranslatedText: "STRING_VALUE", // required
- *   SourceLanguageCode: "STRING_VALUE", // required
- *   TargetLanguageCode: "STRING_VALUE", // required
- *   AppliedTerminologies: [ // AppliedTerminologyList
- *     { // AppliedTerminology
- *       Name: "STRING_VALUE",
- *       Terms: [ // TermList
- *         { // Term
- *           SourceText: "STRING_VALUE",
- *           TargetText: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   AppliedSettings: { // TranslationSettings
- *     Formality: "FORMAL" || "INFORMAL",
- *     Profanity: "MASK",
- *   },
- * };
+ * // { // TranslateTextResponse
+ * //   TranslatedText: "STRING_VALUE", // required
+ * //   SourceLanguageCode: "STRING_VALUE", // required
+ * //   TargetLanguageCode: "STRING_VALUE", // required
+ * //   AppliedTerminologies: [ // AppliedTerminologyList
+ * //     { // AppliedTerminology
+ * //       Name: "STRING_VALUE",
+ * //       Terms: [ // TermList
+ * //         { // Term
+ * //           SourceText: "STRING_VALUE",
+ * //           TargetText: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   AppliedSettings: { // TranslationSettings
+ * //     Formality: "FORMAL" || "INFORMAL",
+ * //     Profanity: "MASK",
+ * //   },
+ * // };
  *
  * ```
  *

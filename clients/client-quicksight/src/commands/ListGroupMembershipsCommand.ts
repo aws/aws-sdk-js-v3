@@ -48,18 +48,17 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupMembershipsResponse
- *   GroupMemberList: [ // GroupMemberList
- *     { // GroupMember
- *       Arn: "STRING_VALUE",
- *       MemberName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // ListGroupMembershipsResponse
+ * //   GroupMemberList: [ // GroupMemberList
+ * //     { // GroupMember
+ * //       Arn: "STRING_VALUE",
+ * //       MemberName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

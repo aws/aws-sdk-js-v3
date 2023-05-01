@@ -54,17 +54,16 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
  * };
  * const command = new GetRelationalDatabaseLogEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRelationalDatabaseLogEventsResult
- *   resourceLogEvents: [ // LogEventList
- *     { // LogEvent
- *       createdAt: new Date("TIMESTAMP"),
- *       message: "STRING_VALUE",
- *     },
- *   ],
- *   nextBackwardToken: "STRING_VALUE",
- *   nextForwardToken: "STRING_VALUE",
- * };
+ * // { // GetRelationalDatabaseLogEventsResult
+ * //   resourceLogEvents: [ // LogEventList
+ * //     { // LogEvent
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextBackwardToken: "STRING_VALUE",
+ * //   nextForwardToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

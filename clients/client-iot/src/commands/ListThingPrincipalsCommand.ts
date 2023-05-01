@@ -49,13 +49,12 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * };
  * const command = new ListThingPrincipalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingPrincipalsResponse
- *   principals: [ // Principals
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingPrincipalsResponse
+ * //   principals: [ // Principals
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

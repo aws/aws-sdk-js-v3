@@ -50,10 +50,9 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * };
  * const command = new UpdateRecommenderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecommenderResponse
- *   recommenderArn: "STRING_VALUE",
- * };
+ * // { // UpdateRecommenderResponse
+ * //   recommenderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

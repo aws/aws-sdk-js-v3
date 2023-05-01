@@ -57,22 +57,21 @@ export interface DescribeResourcePermissionsCommandOutput
  * };
  * const command = new DescribeResourcePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourcePermissionsResponse
- *   Principals: [ // PrincipalList
- *     { // Principal
- *       Id: "STRING_VALUE",
- *       Type: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION",
- *       Roles: [ // PermissionInfoList
- *         { // PermissionInfo
- *           Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
- *           Type: "DIRECT" || "INHERITED",
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeResourcePermissionsResponse
+ * //   Principals: [ // PrincipalList
+ * //     { // Principal
+ * //       Id: "STRING_VALUE",
+ * //       Type: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION",
+ * //       Roles: [ // PermissionInfoList
+ * //         { // PermissionInfo
+ * //           Role: "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
+ * //           Type: "DIRECT" || "INHERITED",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,16 +45,15 @@ export interface ListClassificationScopesCommandOutput extends ListClassificatio
  * };
  * const command = new ListClassificationScopesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClassificationScopesResponse
- *   classificationScopes: [ // __listOfClassificationScopeSummary
- *     { // ClassificationScopeSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListClassificationScopesResponse
+ * //   classificationScopes: [ // __listOfClassificationScopeSummary
+ * //     { // ClassificationScopeSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

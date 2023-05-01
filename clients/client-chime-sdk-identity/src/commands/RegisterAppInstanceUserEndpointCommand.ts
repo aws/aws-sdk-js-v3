@@ -63,11 +63,10 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * };
  * const command = new RegisterAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterAppInstanceUserEndpointResponse
- *   AppInstanceUserArn: "STRING_VALUE",
- *   EndpointId: "STRING_VALUE",
- * };
+ * // { // RegisterAppInstanceUserEndpointResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * //   EndpointId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

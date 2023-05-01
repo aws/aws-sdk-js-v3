@@ -45,16 +45,15 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * };
  * const command = new GetTelemetryMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTelemetryMetadataResponse
- *   telemetryMetadata: [ // TelemetryMetadataList // required
- *     { // TelemetryMetadata
- *       messageType: "STRING_VALUE", // required
- *       count: Number("long"), // required
- *       dataSize: Number("long"),
- *     },
- *   ],
- * };
+ * // { // GetTelemetryMetadataResponse
+ * //   telemetryMetadata: [ // TelemetryMetadataList // required
+ * //     { // TelemetryMetadata
+ * //       messageType: "STRING_VALUE", // required
+ * //       count: Number("long"), // required
+ * //       dataSize: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

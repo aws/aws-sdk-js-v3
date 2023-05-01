@@ -49,10 +49,9 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * };
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteEvaluationOutput
- *   EvaluationId: "STRING_VALUE",
- * };
+ * // { // DeleteEvaluationOutput
+ * //   EvaluationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

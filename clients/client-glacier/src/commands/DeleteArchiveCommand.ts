@@ -72,8 +72,7 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

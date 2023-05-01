@@ -58,8 +58,7 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

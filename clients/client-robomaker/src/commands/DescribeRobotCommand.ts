@@ -49,21 +49,20 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  * };
  * const command = new DescribeRobotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRobotResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   fleetArn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   greengrassGroupId: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   architecture: "STRING_VALUE",
- *   lastDeploymentJob: "STRING_VALUE",
- *   lastDeploymentTime: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeRobotResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   fleetArn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   greengrassGroupId: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   architecture: "STRING_VALUE",
+ * //   lastDeploymentJob: "STRING_VALUE",
+ * //   lastDeploymentTime: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

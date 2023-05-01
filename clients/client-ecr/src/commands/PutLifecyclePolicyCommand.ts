@@ -48,12 +48,11 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutLifecyclePolicyResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   lifecyclePolicyText: "STRING_VALUE",
- * };
+ * // { // PutLifecyclePolicyResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * // };
  *
  * ```
  *

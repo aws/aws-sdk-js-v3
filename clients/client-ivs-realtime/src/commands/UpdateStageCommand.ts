@@ -45,17 +45,16 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStageResponse
- *   stage: { // Stage
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE",
- *     activeSessionId: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UpdateStageResponse
+ * //   stage: { // Stage
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE",
+ * //     activeSessionId: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * };
  * const command = new DeleteIdentityProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

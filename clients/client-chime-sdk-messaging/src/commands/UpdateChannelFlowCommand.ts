@@ -66,10 +66,9 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * };
  * const command = new UpdateChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateChannelFlowResponse
- *   ChannelFlowArn: "STRING_VALUE",
- * };
+ * // { // UpdateChannelFlowResponse
+ * //   ChannelFlowArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

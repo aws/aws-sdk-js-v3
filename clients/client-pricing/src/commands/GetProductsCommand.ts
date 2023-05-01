@@ -54,14 +54,13 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * };
  * const command = new GetProductsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetProductsResponse
- *   FormatVersion: "STRING_VALUE",
- *   PriceList: [ // PriceListJsonItems
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetProductsResponse
+ * //   FormatVersion: "STRING_VALUE",
+ * //   PriceList: [ // PriceListJsonItems
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

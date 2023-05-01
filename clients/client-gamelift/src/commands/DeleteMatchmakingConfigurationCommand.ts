@@ -51,8 +51,7 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  * };
  * const command = new DeleteMatchmakingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

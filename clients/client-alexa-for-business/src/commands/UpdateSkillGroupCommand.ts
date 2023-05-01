@@ -46,8 +46,7 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  * };
  * const command = new UpdateSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

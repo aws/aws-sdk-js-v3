@@ -58,23 +58,22 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * };
  * const command = new DescribeScriptCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeScriptOutput
- *   Script: { // Script
- *     ScriptId: "STRING_VALUE",
- *     ScriptArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     SizeOnDisk: Number("long"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     StorageLocation: { // S3Location
- *       Bucket: "STRING_VALUE",
- *       Key: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       ObjectVersion: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeScriptOutput
+ * //   Script: { // Script
+ * //     ScriptId: "STRING_VALUE",
+ * //     ScriptArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     SizeOnDisk: Number("long"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     StorageLocation: { // S3Location
+ * //       Bucket: "STRING_VALUE",
+ * //       Key: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       ObjectVersion: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

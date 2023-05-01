@@ -45,20 +45,19 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * };
  * const command = new ListIndicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIndicesResponse
- *   IndexConfigurationSummaryItems: [ // IndexConfigurationSummaryList
- *     { // IndexConfigurationSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
- *       CreatedAt: new Date("TIMESTAMP"), // required
- *       UpdatedAt: new Date("TIMESTAMP"), // required
- *       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIndicesResponse
+ * //   IndexConfigurationSummaryItems: [ // IndexConfigurationSummaryList
+ * //     { // IndexConfigurationSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       UpdatedAt: new Date("TIMESTAMP"), // required
+ * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "SYSTEM_UPDATING", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

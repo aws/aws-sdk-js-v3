@@ -50,8 +50,7 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateCertificateOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

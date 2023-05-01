@@ -62,8 +62,7 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * };
  * const command = new UpdateDataCellsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

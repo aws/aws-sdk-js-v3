@@ -49,27 +49,26 @@ export interface GetBatchImportJobsCommandOutput extends GetBatchImportJobsResul
  * };
  * const command = new GetBatchImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBatchImportJobsResult
- *   batchImports: [ // BatchImportList
- *     { // BatchImport
- *       jobId: "STRING_VALUE",
- *       status: "IN_PROGRESS_INITIALIZING" || "IN_PROGRESS" || "CANCEL_IN_PROGRESS" || "CANCELED" || "COMPLETE" || "FAILED",
- *       failureReason: "STRING_VALUE",
- *       startTime: "STRING_VALUE",
- *       completionTime: "STRING_VALUE",
- *       inputPath: "STRING_VALUE",
- *       outputPath: "STRING_VALUE",
- *       eventTypeName: "STRING_VALUE",
- *       iamRoleArn: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       processedRecordsCount: Number("int"),
- *       failedRecordsCount: Number("int"),
- *       totalRecordsCount: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetBatchImportJobsResult
+ * //   batchImports: [ // BatchImportList
+ * //     { // BatchImport
+ * //       jobId: "STRING_VALUE",
+ * //       status: "IN_PROGRESS_INITIALIZING" || "IN_PROGRESS" || "CANCEL_IN_PROGRESS" || "CANCELED" || "COMPLETE" || "FAILED",
+ * //       failureReason: "STRING_VALUE",
+ * //       startTime: "STRING_VALUE",
+ * //       completionTime: "STRING_VALUE",
+ * //       inputPath: "STRING_VALUE",
+ * //       outputPath: "STRING_VALUE",
+ * //       eventTypeName: "STRING_VALUE",
+ * //       iamRoleArn: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       processedRecordsCount: Number("int"),
+ * //       failedRecordsCount: Number("int"),
+ * //       totalRecordsCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

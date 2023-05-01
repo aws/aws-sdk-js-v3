@@ -54,12 +54,11 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * };
  * const command = new CreateBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBillingGroupResponse
- *   billingGroupName: "STRING_VALUE",
- *   billingGroupArn: "STRING_VALUE",
- *   billingGroupId: "STRING_VALUE",
- * };
+ * // { // CreateBillingGroupResponse
+ * //   billingGroupName: "STRING_VALUE",
+ * //   billingGroupArn: "STRING_VALUE",
+ * //   billingGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

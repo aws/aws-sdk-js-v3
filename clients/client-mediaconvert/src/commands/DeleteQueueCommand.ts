@@ -44,8 +44,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

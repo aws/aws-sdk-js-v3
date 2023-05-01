@@ -45,8 +45,7 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  * };
  * const command = new DeleteExternalModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

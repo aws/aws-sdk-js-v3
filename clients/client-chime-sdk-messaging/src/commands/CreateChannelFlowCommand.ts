@@ -92,10 +92,9 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * };
  * const command = new CreateChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelFlowResponse
- *   ChannelFlowArn: "STRING_VALUE",
- * };
+ * // { // CreateChannelFlowResponse
+ * //   ChannelFlowArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -43,11 +43,10 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * const input = {};
  * const command = new CreateUploadUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUploadUrlResponse
- *   importId: "STRING_VALUE",
- *   uploadUrl: "STRING_VALUE",
- * };
+ * // { // CreateUploadUrlResponse
+ * //   importId: "STRING_VALUE",
+ * //   uploadUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

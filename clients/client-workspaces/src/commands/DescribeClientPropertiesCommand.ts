@@ -46,18 +46,17 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * };
  * const command = new DescribeClientPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientPropertiesResult
- *   ClientPropertiesList: [ // ClientPropertiesList
- *     { // ClientPropertiesResult
- *       ResourceId: "STRING_VALUE",
- *       ClientProperties: { // ClientProperties
- *         ReconnectEnabled: "ENABLED" || "DISABLED",
- *         LogUploadEnabled: "ENABLED" || "DISABLED",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeClientPropertiesResult
+ * //   ClientPropertiesList: [ // ClientPropertiesList
+ * //     { // ClientPropertiesResult
+ * //       ResourceId: "STRING_VALUE",
+ * //       ClientProperties: { // ClientProperties
+ * //         ReconnectEnabled: "ENABLED" || "DISABLED",
+ * //         LogUploadEnabled: "ENABLED" || "DISABLED",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

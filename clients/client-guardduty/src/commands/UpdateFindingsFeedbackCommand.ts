@@ -49,8 +49,7 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * };
  * const command = new UpdateFindingsFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

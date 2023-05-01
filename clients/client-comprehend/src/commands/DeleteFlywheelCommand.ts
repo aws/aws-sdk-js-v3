@@ -47,8 +47,7 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * };
  * const command = new DeleteFlywheelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

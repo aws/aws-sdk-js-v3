@@ -55,13 +55,12 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * };
  * const command = new ListDeploymentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeploymentsOutput
- *   deployments: [ // DeploymentsList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListDeploymentsOutput
+ * //   deployments: [ // DeploymentsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

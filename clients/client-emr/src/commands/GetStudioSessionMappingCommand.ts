@@ -48,18 +48,17 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * };
  * const command = new GetStudioSessionMappingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStudioSessionMappingOutput
- *   SessionMapping: { // SessionMappingDetail
- *     StudioId: "STRING_VALUE",
- *     IdentityId: "STRING_VALUE",
- *     IdentityName: "STRING_VALUE",
- *     IdentityType: "USER" || "GROUP",
- *     SessionPolicyArn: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastModifiedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetStudioSessionMappingOutput
+ * //   SessionMapping: { // SessionMappingDetail
+ * //     StudioId: "STRING_VALUE",
+ * //     IdentityId: "STRING_VALUE",
+ * //     IdentityName: "STRING_VALUE",
+ * //     IdentityType: "USER" || "GROUP",
+ * //     SessionPolicyArn: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

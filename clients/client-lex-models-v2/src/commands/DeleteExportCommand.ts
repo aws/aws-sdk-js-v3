@@ -45,11 +45,10 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * };
  * const command = new DeleteExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteExportResponse
- *   exportId: "STRING_VALUE",
- *   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
- * };
+ * // { // DeleteExportResponse
+ * //   exportId: "STRING_VALUE",
+ * //   exportStatus: "InProgress" || "Completed" || "Failed" || "Deleting",
+ * // };
  *
  * ```
  *

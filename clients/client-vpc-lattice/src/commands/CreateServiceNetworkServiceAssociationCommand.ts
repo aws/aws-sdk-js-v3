@@ -65,18 +65,17 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * };
  * const command = new CreateServiceNetworkServiceAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceNetworkServiceAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   createdBy: "STRING_VALUE",
- *   customDomainName: "STRING_VALUE",
- *   dnsEntry: { // DnsEntry
- *     domainName: "STRING_VALUE",
- *     hostedZoneId: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateServiceNetworkServiceAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
+ * //   customDomainName: "STRING_VALUE",
+ * //   dnsEntry: { // DnsEntry
+ * //     domainName: "STRING_VALUE",
+ * //     hostedZoneId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,20 +49,19 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelsResponse
- *   NextToken: "STRING_VALUE",
- *   ModelSummaries: [ // ModelSummaries
- *     { // ModelSummary
- *       ModelName: "STRING_VALUE",
- *       ModelArn: "STRING_VALUE",
- *       DatasetName: "STRING_VALUE",
- *       DatasetArn: "STRING_VALUE",
- *       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
- *       CreatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListModelsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ModelSummaries: [ // ModelSummaries
+ * //     { // ModelSummary
+ * //       ModelName: "STRING_VALUE",
+ * //       ModelArn: "STRING_VALUE",
+ * //       DatasetName: "STRING_VALUE",
+ * //       DatasetArn: "STRING_VALUE",
+ * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -111,13 +111,12 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateConnectionResponse
- *   ConnectionArn: "STRING_VALUE",
- *   ConnectionState: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModifiedTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateConnectionResponse
+ * //   ConnectionArn: "STRING_VALUE",
+ * //   ConnectionState: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

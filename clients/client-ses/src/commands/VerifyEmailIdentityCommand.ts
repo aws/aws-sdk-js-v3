@@ -47,8 +47,7 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * };
  * const command = new VerifyEmailIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,15 +49,14 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * };
  * const command = new GetThingRuntimeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetThingRuntimeConfigurationResponse
- *   RuntimeConfiguration: { // RuntimeConfiguration
- *     TelemetryConfiguration: { // TelemetryConfiguration
- *       ConfigurationSyncStatus: "InSync" || "OutOfSync",
- *       Telemetry: "On" || "Off", // required
- *     },
- *   },
- * };
+ * // { // GetThingRuntimeConfigurationResponse
+ * //   RuntimeConfiguration: { // RuntimeConfiguration
+ * //     TelemetryConfiguration: { // TelemetryConfiguration
+ * //       ConfigurationSyncStatus: "InSync" || "OutOfSync",
+ * //       Telemetry: "On" || "Off", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

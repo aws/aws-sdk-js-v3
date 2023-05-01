@@ -92,10 +92,9 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * };
  * const command = new CreatePlatformApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePlatformApplicationResponse
- *   PlatformApplicationArn: "STRING_VALUE",
- * };
+ * // { // CreatePlatformApplicationResponse
+ * //   PlatformApplicationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopMonitoringScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

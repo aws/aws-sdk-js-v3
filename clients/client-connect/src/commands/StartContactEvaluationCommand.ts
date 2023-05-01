@@ -54,11 +54,10 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  * };
  * const command = new StartContactEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartContactEvaluationResponse
- *   EvaluationId: "STRING_VALUE", // required
- *   EvaluationArn: "STRING_VALUE", // required
- * };
+ * // { // StartContactEvaluationResponse
+ * //   EvaluationId: "STRING_VALUE", // required
+ * //   EvaluationArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

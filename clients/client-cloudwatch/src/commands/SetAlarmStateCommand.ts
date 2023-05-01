@@ -62,8 +62,7 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetAlarmStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

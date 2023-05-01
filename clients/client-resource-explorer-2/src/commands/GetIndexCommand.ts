@@ -47,23 +47,22 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * const input = {};
  * const command = new GetIndexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIndexOutput
- *   Arn: "STRING_VALUE",
- *   Type: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   ReplicatingFrom: [ // RegionList
- *     "STRING_VALUE",
- *   ],
- *   ReplicatingTo: [
- *     "STRING_VALUE",
- *   ],
- *   CreatedAt: new Date("TIMESTAMP"),
- *   LastUpdatedAt: new Date("TIMESTAMP"),
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetIndexOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Type: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   ReplicatingFrom: [ // RegionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ReplicatingTo: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

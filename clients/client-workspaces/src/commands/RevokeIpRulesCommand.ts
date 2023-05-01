@@ -47,8 +47,7 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * };
  * const command = new RevokeIpRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,16 +46,15 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * };
  * const command = new ListBackupPlanTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBackupPlanTemplatesOutput
- *   NextToken: "STRING_VALUE",
- *   BackupPlanTemplatesList: [ // BackupPlanTemplatesList
- *     { // BackupPlanTemplatesListMember
- *       BackupPlanTemplateId: "STRING_VALUE",
- *       BackupPlanTemplateName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListBackupPlanTemplatesOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   BackupPlanTemplatesList: [ // BackupPlanTemplatesList
+ * //     { // BackupPlanTemplatesListMember
+ * //       BackupPlanTemplateId: "STRING_VALUE",
+ * //       BackupPlanTemplateName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

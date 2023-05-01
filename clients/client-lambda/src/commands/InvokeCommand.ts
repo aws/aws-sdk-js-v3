@@ -78,14 +78,13 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvocationResponse
- *   StatusCode: Number("int"),
- *   FunctionError: "STRING_VALUE",
- *   LogResult: "STRING_VALUE",
- *   Payload: "BLOB_VALUE",
- *   ExecutedVersion: "STRING_VALUE",
- * };
+ * // { // InvocationResponse
+ * //   StatusCode: Number("int"),
+ * //   FunctionError: "STRING_VALUE",
+ * //   LogResult: "STRING_VALUE",
+ * //   Payload: "BLOB_VALUE",
+ * //   ExecutedVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetAuthorizersCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

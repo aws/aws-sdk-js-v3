@@ -71,15 +71,14 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDBParameterGroupResult
- *   DBParameterGroup: { // DBParameterGroup
- *     DBParameterGroupName: "STRING_VALUE",
- *     DBParameterGroupFamily: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     DBParameterGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateDBParameterGroupResult
+ * //   DBParameterGroup: { // DBParameterGroup
+ * //     DBParameterGroupName: "STRING_VALUE",
+ * //     DBParameterGroupFamily: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     DBParameterGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

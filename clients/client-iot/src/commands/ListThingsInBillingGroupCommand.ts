@@ -47,13 +47,12 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
  * };
  * const command = new ListThingsInBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListThingsInBillingGroupResponse
- *   things: [ // ThingNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListThingsInBillingGroupResponse
+ * //   things: [ // ThingNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

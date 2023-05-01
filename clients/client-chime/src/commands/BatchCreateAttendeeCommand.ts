@@ -65,23 +65,22 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * };
  * const command = new BatchCreateAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateAttendeeResponse
- *   Attendees: [ // AttendeeList
- *     { // Attendee
- *       ExternalUserId: "STRING_VALUE",
- *       AttendeeId: "STRING_VALUE",
- *       JoinToken: "STRING_VALUE",
- *     },
- *   ],
- *   Errors: [ // BatchCreateAttendeeErrorList
- *     { // CreateAttendeeError
- *       ExternalUserId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateAttendeeResponse
+ * //   Attendees: [ // AttendeeList
+ * //     { // Attendee
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       AttendeeId: "STRING_VALUE",
+ * //       JoinToken: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Errors: [ // BatchCreateAttendeeErrorList
+ * //     { // CreateAttendeeError
+ * //       ExternalUserId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

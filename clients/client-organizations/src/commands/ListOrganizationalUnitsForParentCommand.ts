@@ -61,17 +61,16 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrganizationalUnitsForParentResponse
- *   OrganizationalUnits: [ // OrganizationalUnits
- *     { // OrganizationalUnit
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListOrganizationalUnitsForParentResponse
+ * //   OrganizationalUnits: [ // OrganizationalUnits
+ * //     { // OrganizationalUnit
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

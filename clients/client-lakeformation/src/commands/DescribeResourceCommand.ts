@@ -44,15 +44,14 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * };
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourceResponse
- *   ResourceInfo: { // ResourceInfo
- *     ResourceArn: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     LastModified: new Date("TIMESTAMP"),
- *     WithFederation: true || false,
- *   },
- * };
+ * // { // DescribeResourceResponse
+ * //   ResourceInfo: { // ResourceInfo
+ * //     ResourceArn: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     LastModified: new Date("TIMESTAMP"),
+ * //     WithFederation: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

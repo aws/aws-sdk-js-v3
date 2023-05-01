@@ -46,33 +46,32 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * };
  * const command = new DescribeBatchSegmentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBatchSegmentJobResponse
- *   batchSegmentJob: { // BatchSegmentJob
- *     jobName: "STRING_VALUE",
- *     batchSegmentJobArn: "STRING_VALUE",
- *     filterArn: "STRING_VALUE",
- *     failureReason: "STRING_VALUE",
- *     solutionVersionArn: "STRING_VALUE",
- *     numResults: Number("int"),
- *     jobInput: { // BatchSegmentJobInput
- *       s3DataSource: { // S3DataConfig
- *         path: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *     jobOutput: { // BatchSegmentJobOutput
- *       s3DataDestination: {
- *         path: "STRING_VALUE", // required
- *         kmsKeyArn: "STRING_VALUE",
- *       },
- *     },
- *     roleArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeBatchSegmentJobResponse
+ * //   batchSegmentJob: { // BatchSegmentJob
+ * //     jobName: "STRING_VALUE",
+ * //     batchSegmentJobArn: "STRING_VALUE",
+ * //     filterArn: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //     solutionVersionArn: "STRING_VALUE",
+ * //     numResults: Number("int"),
+ * //     jobInput: { // BatchSegmentJobInput
+ * //       s3DataSource: { // S3DataConfig
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     jobOutput: { // BatchSegmentJobOutput
+ * //       s3DataDestination: {
+ * //         path: "STRING_VALUE", // required
+ * //         kmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     roleArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

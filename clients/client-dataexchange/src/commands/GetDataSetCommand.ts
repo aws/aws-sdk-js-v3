@@ -44,24 +44,23 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * };
  * const command = new GetDataSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataSetResponse
- *   Arn: "STRING_VALUE",
- *   AssetType: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Origin: "STRING_VALUE",
- *   OriginDetails: { // OriginDetails
- *     ProductId: "STRING_VALUE", // required
- *   },
- *   SourceId: "STRING_VALUE",
- *   Tags: { // MapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- *   UpdatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // GetDataSetResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AssetType: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Origin: "STRING_VALUE",
+ * //   OriginDetails: { // OriginDetails
+ * //     ProductId: "STRING_VALUE", // required
+ * //   },
+ * //   SourceId: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

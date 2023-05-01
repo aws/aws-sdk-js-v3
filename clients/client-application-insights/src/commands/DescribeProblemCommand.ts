@@ -48,25 +48,24 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * };
  * const command = new DescribeProblemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProblemResponse
- *   Problem: { // Problem
- *     Id: "STRING_VALUE",
- *     Title: "STRING_VALUE",
- *     Insights: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     AffectedResource: "STRING_VALUE",
- *     StartTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     SeverityLevel: "STRING_VALUE",
- *     ResourceGroupName: "STRING_VALUE",
- *     Feedback: { // Feedback
- *       "<keys>": "STRING_VALUE",
- *     },
- *     RecurringCount: Number("long"),
- *     LastRecurrenceTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeProblemResponse
+ * //   Problem: { // Problem
+ * //     Id: "STRING_VALUE",
+ * //     Title: "STRING_VALUE",
+ * //     Insights: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AffectedResource: "STRING_VALUE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     SeverityLevel: "STRING_VALUE",
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     Feedback: { // Feedback
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     RecurringCount: Number("long"),
+ * //     LastRecurrenceTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

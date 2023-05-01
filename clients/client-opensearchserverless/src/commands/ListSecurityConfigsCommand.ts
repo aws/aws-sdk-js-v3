@@ -52,20 +52,19 @@ export interface ListSecurityConfigsCommandOutput extends ListSecurityConfigsRes
  * };
  * const command = new ListSecurityConfigsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityConfigsResponse
- *   securityConfigSummaries: [ // SecurityConfigSummaries
- *     { // SecurityConfigSummary
- *       id: "STRING_VALUE",
- *       type: "STRING_VALUE",
- *       configVersion: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdDate: Number("long"),
- *       lastModifiedDate: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityConfigsResponse
+ * //   securityConfigSummaries: [ // SecurityConfigSummaries
+ * //     { // SecurityConfigSummary
+ * //       id: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       configVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

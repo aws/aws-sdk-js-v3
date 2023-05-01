@@ -58,10 +58,9 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * };
  * const command = new SubmitAttachmentStateChangesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SubmitAttachmentStateChangesResponse
- *   acknowledgment: "STRING_VALUE",
- * };
+ * // { // SubmitAttachmentStateChangesResponse
+ * //   acknowledgment: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -70,8 +70,7 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * };
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

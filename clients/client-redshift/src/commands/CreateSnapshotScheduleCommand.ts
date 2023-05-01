@@ -56,30 +56,29 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * };
  * const command = new CreateSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SnapshotSchedule
- *   ScheduleDefinitions: [ // ScheduleDefinitionList
- *     "STRING_VALUE",
- *   ],
- *   ScheduleIdentifier: "STRING_VALUE",
- *   ScheduleDescription: "STRING_VALUE",
- *   Tags: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   NextInvocations: [ // ScheduledSnapshotTimeList
- *     new Date("TIMESTAMP"),
- *   ],
- *   AssociatedClusterCount: Number("int"),
- *   AssociatedClusters: [ // AssociatedClusterList
- *     { // ClusterAssociatedToSchedule
- *       ClusterIdentifier: "STRING_VALUE",
- *       ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
- *     },
- *   ],
- * };
+ * // { // SnapshotSchedule
+ * //   ScheduleDefinitions: [ // ScheduleDefinitionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ScheduleIdentifier: "STRING_VALUE",
+ * //   ScheduleDescription: "STRING_VALUE",
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextInvocations: [ // ScheduledSnapshotTimeList
+ * //     new Date("TIMESTAMP"),
+ * //   ],
+ * //   AssociatedClusterCount: Number("int"),
+ * //   AssociatedClusters: [ // AssociatedClusterList
+ * //     { // ClusterAssociatedToSchedule
+ * //       ClusterIdentifier: "STRING_VALUE",
+ * //       ScheduleAssociationState: "MODIFYING" || "ACTIVE" || "FAILED",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

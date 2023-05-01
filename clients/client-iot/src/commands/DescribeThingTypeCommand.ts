@@ -45,23 +45,22 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * };
  * const command = new DescribeThingTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeThingTypeResponse
- *   thingTypeName: "STRING_VALUE",
- *   thingTypeId: "STRING_VALUE",
- *   thingTypeArn: "STRING_VALUE",
- *   thingTypeProperties: { // ThingTypeProperties
- *     thingTypeDescription: "STRING_VALUE",
- *     searchableAttributes: [ // SearchableAttributes
- *       "STRING_VALUE",
- *     ],
- *   },
- *   thingTypeMetadata: { // ThingTypeMetadata
- *     deprecated: true || false,
- *     deprecationDate: new Date("TIMESTAMP"),
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeThingTypeResponse
+ * //   thingTypeName: "STRING_VALUE",
+ * //   thingTypeId: "STRING_VALUE",
+ * //   thingTypeArn: "STRING_VALUE",
+ * //   thingTypeProperties: { // ThingTypeProperties
+ * //     thingTypeDescription: "STRING_VALUE",
+ * //     searchableAttributes: [ // SearchableAttributes
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   thingTypeMetadata: { // ThingTypeMetadata
+ * //     deprecated: true || false,
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

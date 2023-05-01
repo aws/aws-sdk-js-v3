@@ -56,15 +56,14 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * };
  * const command = new PollForThirdPartyJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PollForThirdPartyJobsOutput
- *   jobs: [ // ThirdPartyJobList
- *     { // ThirdPartyJob
- *       clientId: "STRING_VALUE",
- *       jobId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PollForThirdPartyJobsOutput
+ * //   jobs: [ // ThirdPartyJobList
+ * //     { // ThirdPartyJob
+ * //       clientId: "STRING_VALUE",
+ * //       jobId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

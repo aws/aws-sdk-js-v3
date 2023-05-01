@@ -46,13 +46,12 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * };
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevelopmentSchemaArnsResponse
- *   SchemaArns: [ // Arns
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDevelopmentSchemaArnsResponse
+ * //   SchemaArns: [ // Arns
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

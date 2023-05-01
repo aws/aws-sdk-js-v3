@@ -76,35 +76,34 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * };
  * const command = new GetBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketIntelligentTieringConfigurationOutput
- *   IntelligentTieringConfiguration: { // IntelligentTieringConfiguration
- *     Id: "STRING_VALUE", // required
- *     Filter: { // IntelligentTieringFilter
- *       Prefix: "STRING_VALUE",
- *       Tag: { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *       And: { // IntelligentTieringAndOperator
- *         Prefix: "STRING_VALUE",
- *         Tags: [ // TagSet
- *           {
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     },
- *     Status: "Enabled" || "Disabled", // required
- *     Tierings: [ // TieringList // required
- *       { // Tiering
- *         Days: Number("int"), // required
- *         AccessTier: "ARCHIVE_ACCESS" || "DEEP_ARCHIVE_ACCESS", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // GetBucketIntelligentTieringConfigurationOutput
+ * //   IntelligentTieringConfiguration: { // IntelligentTieringConfiguration
+ * //     Id: "STRING_VALUE", // required
+ * //     Filter: { // IntelligentTieringFilter
+ * //       Prefix: "STRING_VALUE",
+ * //       Tag: { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //       And: { // IntelligentTieringAndOperator
+ * //         Prefix: "STRING_VALUE",
+ * //         Tags: [ // TagSet
+ * //           {
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     Status: "Enabled" || "Disabled", // required
+ * //     Tierings: [ // TieringList // required
+ * //       { // Tiering
+ * //         Days: Number("int"), // required
+ * //         AccessTier: "ARCHIVE_ACCESS" || "DEEP_ARCHIVE_ACCESS", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

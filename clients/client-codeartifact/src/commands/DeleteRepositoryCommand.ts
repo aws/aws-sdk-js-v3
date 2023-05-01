@@ -48,30 +48,29 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRepositoryResult
- *   repository: { // RepositoryDescription
- *     name: "STRING_VALUE",
- *     administratorAccount: "STRING_VALUE",
- *     domainName: "STRING_VALUE",
- *     domainOwner: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     upstreams: [ // UpstreamRepositoryInfoList
- *       { // UpstreamRepositoryInfo
- *         repositoryName: "STRING_VALUE",
- *       },
- *     ],
- *     externalConnections: [ // RepositoryExternalConnectionInfoList
- *       { // RepositoryExternalConnectionInfo
- *         externalConnectionName: "STRING_VALUE",
- *         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *         status: "Available",
- *       },
- *     ],
- *     createdTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteRepositoryResult
+ * //   repository: { // RepositoryDescription
+ * //     name: "STRING_VALUE",
+ * //     administratorAccount: "STRING_VALUE",
+ * //     domainName: "STRING_VALUE",
+ * //     domainOwner: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     upstreams: [ // UpstreamRepositoryInfoList
+ * //       { // UpstreamRepositoryInfo
+ * //         repositoryName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     externalConnections: [ // RepositoryExternalConnectionInfoList
+ * //       { // RepositoryExternalConnectionInfo
+ * //         externalConnectionName: "STRING_VALUE",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //         status: "Available",
+ * //       },
+ * //     ],
+ * //     createdTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

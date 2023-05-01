@@ -48,18 +48,17 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * };
  * const command = new DescribeByoipCidrsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeByoipCidrsResult
- *   ByoipCidrs: [ // ByoipCidrSet
- *     { // ByoipCidr
- *       Cidr: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       StatusMessage: "STRING_VALUE",
- *       State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeByoipCidrsResult
+ * //   ByoipCidrs: [ // ByoipCidrSet
+ * //     { // ByoipCidr
+ * //       Cidr: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

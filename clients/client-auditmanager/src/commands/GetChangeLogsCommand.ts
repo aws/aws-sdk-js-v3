@@ -48,19 +48,18 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * };
  * const command = new GetChangeLogsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetChangeLogsResponse
- *   changeLogs: [ // ChangeLogs
- *     { // ChangeLog
- *       objectType: "ASSESSMENT" || "CONTROL_SET" || "CONTROL" || "DELEGATION" || "ASSESSMENT_REPORT",
- *       objectName: "STRING_VALUE",
- *       action: "CREATE" || "UPDATE_METADATA" || "ACTIVE" || "INACTIVE" || "DELETE" || "UNDER_REVIEW" || "REVIEWED" || "IMPORT_EVIDENCE",
- *       createdAt: new Date("TIMESTAMP"),
- *       createdBy: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetChangeLogsResponse
+ * //   changeLogs: [ // ChangeLogs
+ * //     { // ChangeLog
+ * //       objectType: "ASSESSMENT" || "CONTROL_SET" || "CONTROL" || "DELEGATION" || "ASSESSMENT_REPORT",
+ * //       objectName: "STRING_VALUE",
+ * //       action: "CREATE" || "UPDATE_METADATA" || "ACTIVE" || "INACTIVE" || "DELETE" || "UNDER_REVIEW" || "REVIEWED" || "IMPORT_EVIDENCE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       createdBy: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

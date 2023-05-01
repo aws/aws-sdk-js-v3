@@ -44,11 +44,10 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * };
  * const command = new DeleteFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFlowResponse
- *   FlowArn: "STRING_VALUE",
- *   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
- * };
+ * // { // DeleteFlowResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
+ * // };
  *
  * ```
  *

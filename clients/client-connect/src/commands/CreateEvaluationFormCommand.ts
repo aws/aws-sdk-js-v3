@@ -176,11 +176,10 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  * };
  * const command = new CreateEvaluationFormCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEvaluationFormResponse
- *   EvaluationFormId: "STRING_VALUE", // required
- *   EvaluationFormArn: "STRING_VALUE", // required
- * };
+ * // { // CreateEvaluationFormResponse
+ * //   EvaluationFormId: "STRING_VALUE", // required
+ * //   EvaluationFormArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

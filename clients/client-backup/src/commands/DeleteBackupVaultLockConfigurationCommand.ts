@@ -52,8 +52,7 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * };
  * const command = new DeleteBackupVaultLockConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

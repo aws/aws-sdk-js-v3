@@ -44,8 +44,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteLoggingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

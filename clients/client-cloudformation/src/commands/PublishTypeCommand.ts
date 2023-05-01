@@ -50,10 +50,9 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * };
  * const command = new PublishTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishTypeOutput
- *   PublicTypeArn: "STRING_VALUE",
- * };
+ * // { // PublishTypeOutput
+ * //   PublicTypeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

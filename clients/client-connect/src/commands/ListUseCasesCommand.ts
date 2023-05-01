@@ -47,17 +47,16 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * };
  * const command = new ListUseCasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUseCasesResponse
- *   UseCaseSummaryList: [ // UseCaseSummaryList
- *     { // UseCase
- *       UseCaseId: "STRING_VALUE",
- *       UseCaseArn: "STRING_VALUE",
- *       UseCaseType: "RULES_EVALUATION" || "CONNECT_CAMPAIGNS",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUseCasesResponse
+ * //   UseCaseSummaryList: [ // UseCaseSummaryList
+ * //     { // UseCase
+ * //       UseCaseId: "STRING_VALUE",
+ * //       UseCaseArn: "STRING_VALUE",
+ * //       UseCaseType: "RULES_EVALUATION" || "CONNECT_CAMPAIGNS",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

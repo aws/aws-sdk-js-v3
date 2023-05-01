@@ -44,8 +44,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDiscovererCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

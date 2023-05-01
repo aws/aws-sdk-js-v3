@@ -63,32 +63,31 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * };
  * const command = new DescribeTransitGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayAttachmentsResult
- *   TransitGatewayAttachments: [ // TransitGatewayAttachmentList
- *     { // TransitGatewayAttachment
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       TransitGatewayOwnerId: "STRING_VALUE",
- *       ResourceOwnerId: "STRING_VALUE",
- *       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *       ResourceId: "STRING_VALUE",
- *       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
- *       Association: { // TransitGatewayAttachmentAssociation
- *         TransitGatewayRouteTableId: "STRING_VALUE",
- *         State: "associating" || "associated" || "disassociating" || "disassociated",
- *       },
- *       CreationTime: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayAttachmentsResult
+ * //   TransitGatewayAttachments: [ // TransitGatewayAttachmentList
+ * //     { // TransitGatewayAttachment
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       TransitGatewayOwnerId: "STRING_VALUE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //       ResourceId: "STRING_VALUE",
+ * //       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ * //       Association: { // TransitGatewayAttachmentAssociation
+ * //         TransitGatewayRouteTableId: "STRING_VALUE",
+ * //         State: "associating" || "associated" || "disassociating" || "disassociated",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

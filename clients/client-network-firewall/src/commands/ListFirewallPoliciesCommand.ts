@@ -47,16 +47,15 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * };
  * const command = new ListFirewallPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFirewallPoliciesResponse
- *   NextToken: "STRING_VALUE",
- *   FirewallPolicies: [ // FirewallPolicies
- *     { // FirewallPolicyMetadata
- *       Name: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFirewallPoliciesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   FirewallPolicies: [ // FirewallPolicies
+ * //     { // FirewallPolicyMetadata
+ * //       Name: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

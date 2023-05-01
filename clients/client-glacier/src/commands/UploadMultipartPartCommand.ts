@@ -112,10 +112,9 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UploadMultipartPartOutput
- *   checksum: "STRING_VALUE",
- * };
+ * // { // UploadMultipartPartOutput
+ * //   checksum: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -69,10 +69,9 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * };
  * const command = new CreateExportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateExportTaskResponse
- *   taskId: "STRING_VALUE",
- * };
+ * // { // CreateExportTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

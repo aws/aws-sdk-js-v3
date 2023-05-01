@@ -54,8 +54,7 @@ export interface DisassociateTrackerConsumerCommandOutput
  * };
  * const command = new DisassociateTrackerConsumerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetSendingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

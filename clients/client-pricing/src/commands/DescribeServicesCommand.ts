@@ -53,19 +53,18 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeServicesResponse
- *   Services: [ // ServiceList
- *     { // Service
- *       ServiceCode: "STRING_VALUE", // required
- *       AttributeNames: [ // AttributeNameList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   FormatVersion: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeServicesResponse
+ * //   Services: [ // ServiceList
+ * //     { // Service
+ * //       ServiceCode: "STRING_VALUE", // required
+ * //       AttributeNames: [ // AttributeNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   FormatVersion: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

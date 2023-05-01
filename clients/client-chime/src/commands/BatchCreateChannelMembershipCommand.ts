@@ -58,30 +58,29 @@ export interface BatchCreateChannelMembershipCommandOutput
  * };
  * const command = new BatchCreateChannelMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateChannelMembershipResponse
- *   BatchChannelMemberships: { // BatchChannelMemberships
- *     InvitedBy: { // Identity
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *     Type: "DEFAULT" || "HIDDEN",
- *     Members: [ // Members
- *       {
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *     ChannelArn: "STRING_VALUE",
- *   },
- *   Errors: [ // BatchCreateChannelMembershipErrors
- *     { // BatchCreateChannelMembershipError
- *       MemberArn: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateChannelMembershipResponse
+ * //   BatchChannelMemberships: { // BatchChannelMemberships
+ * //     InvitedBy: { // Identity
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //     Type: "DEFAULT" || "HIDDEN",
+ * //     Members: [ // Members
+ * //       {
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ChannelArn: "STRING_VALUE",
+ * //   },
+ * //   Errors: [ // BatchCreateChannelMembershipErrors
+ * //     { // BatchCreateChannelMembershipError
+ * //       MemberArn: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

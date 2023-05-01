@@ -61,40 +61,39 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * };
  * const command = new DescribeRecommenderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRecommenderResponse
- *   recommender: { // Recommender
- *     recommenderArn: "STRING_VALUE",
- *     datasetGroupArn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     recipeArn: "STRING_VALUE",
- *     recommenderConfig: { // RecommenderConfig
- *       itemExplorationConfig: { // HyperParameters
- *         "<keys>": "STRING_VALUE",
- *       },
- *       minRecommendationRequestsPerSecond: Number("int"),
- *     },
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     status: "STRING_VALUE",
- *     failureReason: "STRING_VALUE",
- *     latestRecommenderUpdate: { // RecommenderUpdateSummary
- *       recommenderConfig: {
- *         itemExplorationConfig: {
- *           "<keys>": "STRING_VALUE",
- *         },
- *         minRecommendationRequestsPerSecond: Number("int"),
- *       },
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       failureReason: "STRING_VALUE",
- *     },
- *     modelMetrics: { // Metrics
- *       "<keys>": Number("double"),
- *     },
- *   },
- * };
+ * // { // DescribeRecommenderResponse
+ * //   recommender: { // Recommender
+ * //     recommenderArn: "STRING_VALUE",
+ * //     datasetGroupArn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     recipeArn: "STRING_VALUE",
+ * //     recommenderConfig: { // RecommenderConfig
+ * //       itemExplorationConfig: { // HyperParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       minRecommendationRequestsPerSecond: Number("int"),
+ * //     },
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     status: "STRING_VALUE",
+ * //     failureReason: "STRING_VALUE",
+ * //     latestRecommenderUpdate: { // RecommenderUpdateSummary
+ * //       recommenderConfig: {
+ * //         itemExplorationConfig: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         minRecommendationRequestsPerSecond: Number("int"),
+ * //       },
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       failureReason: "STRING_VALUE",
+ * //     },
+ * //     modelMetrics: { // Metrics
+ * //       "<keys>": Number("double"),
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

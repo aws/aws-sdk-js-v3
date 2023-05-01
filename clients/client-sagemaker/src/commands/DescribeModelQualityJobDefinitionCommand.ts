@@ -52,107 +52,106 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
  * };
  * const command = new DescribeModelQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeModelQualityJobDefinitionResponse
- *   JobDefinitionArn: "STRING_VALUE", // required
- *   JobDefinitionName: "STRING_VALUE", // required
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   ModelQualityBaselineConfig: { // ModelQualityBaselineConfig
- *     BaseliningJobName: "STRING_VALUE",
- *     ConstraintsResource: { // MonitoringConstraintsResource
- *       S3Uri: "STRING_VALUE",
- *     },
- *   },
- *   ModelQualityAppSpecification: { // ModelQualityAppSpecification
- *     ImageUri: "STRING_VALUE", // required
- *     ContainerEntrypoint: [ // ContainerEntrypoint
- *       "STRING_VALUE",
- *     ],
- *     ContainerArguments: [ // MonitoringContainerArguments
- *       "STRING_VALUE",
- *     ],
- *     RecordPreprocessorSourceUri: "STRING_VALUE",
- *     PostAnalyticsProcessorSourceUri: "STRING_VALUE",
- *     ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
- *     Environment: { // MonitoringEnvironmentMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   ModelQualityJobInput: { // ModelQualityJobInput
- *     EndpointInput: { // EndpointInput
- *       EndpointName: "STRING_VALUE", // required
- *       LocalPath: "STRING_VALUE", // required
- *       S3InputMode: "Pipe" || "File",
- *       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
- *       FeaturesAttribute: "STRING_VALUE",
- *       InferenceAttribute: "STRING_VALUE",
- *       ProbabilityAttribute: "STRING_VALUE",
- *       ProbabilityThresholdAttribute: Number("double"),
- *       StartTimeOffset: "STRING_VALUE",
- *       EndTimeOffset: "STRING_VALUE",
- *     },
- *     BatchTransformInput: { // BatchTransformInput
- *       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
- *       DatasetFormat: { // MonitoringDatasetFormat
- *         Csv: { // MonitoringCsvDatasetFormat
- *           Header: true || false,
- *         },
- *         Json: { // MonitoringJsonDatasetFormat
- *           Line: true || false,
- *         },
- *         Parquet: {},
- *       },
- *       LocalPath: "STRING_VALUE", // required
- *       S3InputMode: "Pipe" || "File",
- *       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
- *       FeaturesAttribute: "STRING_VALUE",
- *       InferenceAttribute: "STRING_VALUE",
- *       ProbabilityAttribute: "STRING_VALUE",
- *       ProbabilityThresholdAttribute: Number("double"),
- *       StartTimeOffset: "STRING_VALUE",
- *       EndTimeOffset: "STRING_VALUE",
- *     },
- *     GroundTruthS3Input: { // MonitoringGroundTruthS3Input
- *       S3Uri: "STRING_VALUE",
- *     },
- *   },
- *   ModelQualityJobOutputConfig: { // MonitoringOutputConfig
- *     MonitoringOutputs: [ // MonitoringOutputs // required
- *       { // MonitoringOutput
- *         S3Output: { // MonitoringS3Output
- *           S3Uri: "STRING_VALUE", // required
- *           LocalPath: "STRING_VALUE", // required
- *           S3UploadMode: "Continuous" || "EndOfJob",
- *         },
- *       },
- *     ],
- *     KmsKeyId: "STRING_VALUE",
- *   },
- *   JobResources: { // MonitoringResources
- *     ClusterConfig: { // MonitoringClusterConfig
- *       InstanceCount: Number("int"), // required
- *       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
- *       VolumeSizeInGB: Number("int"), // required
- *       VolumeKmsKeyId: "STRING_VALUE",
- *     },
- *   },
- *   NetworkConfig: { // MonitoringNetworkConfig
- *     EnableInterContainerTrafficEncryption: true || false,
- *     EnableNetworkIsolation: true || false,
- *     VpcConfig: { // VpcConfig
- *       SecurityGroupIds: [ // VpcSecurityGroupIds // required
- *         "STRING_VALUE",
- *       ],
- *       Subnets: [ // Subnets // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- *   RoleArn: "STRING_VALUE", // required
- *   StoppingCondition: { // MonitoringStoppingCondition
- *     MaxRuntimeInSeconds: Number("int"), // required
- *   },
- * };
+ * // { // DescribeModelQualityJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * //   JobDefinitionName: "STRING_VALUE", // required
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   ModelQualityBaselineConfig: { // ModelQualityBaselineConfig
+ * //     BaseliningJobName: "STRING_VALUE",
+ * //     ConstraintsResource: { // MonitoringConstraintsResource
+ * //       S3Uri: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ModelQualityAppSpecification: { // ModelQualityAppSpecification
+ * //     ImageUri: "STRING_VALUE", // required
+ * //     ContainerEntrypoint: [ // ContainerEntrypoint
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ContainerArguments: [ // MonitoringContainerArguments
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     RecordPreprocessorSourceUri: "STRING_VALUE",
+ * //     PostAnalyticsProcessorSourceUri: "STRING_VALUE",
+ * //     ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ * //     Environment: { // MonitoringEnvironmentMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ModelQualityJobInput: { // ModelQualityJobInput
+ * //     EndpointInput: { // EndpointInput
+ * //       EndpointName: "STRING_VALUE", // required
+ * //       LocalPath: "STRING_VALUE", // required
+ * //       S3InputMode: "Pipe" || "File",
+ * //       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ * //       FeaturesAttribute: "STRING_VALUE",
+ * //       InferenceAttribute: "STRING_VALUE",
+ * //       ProbabilityAttribute: "STRING_VALUE",
+ * //       ProbabilityThresholdAttribute: Number("double"),
+ * //       StartTimeOffset: "STRING_VALUE",
+ * //       EndTimeOffset: "STRING_VALUE",
+ * //     },
+ * //     BatchTransformInput: { // BatchTransformInput
+ * //       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
+ * //       DatasetFormat: { // MonitoringDatasetFormat
+ * //         Csv: { // MonitoringCsvDatasetFormat
+ * //           Header: true || false,
+ * //         },
+ * //         Json: { // MonitoringJsonDatasetFormat
+ * //           Line: true || false,
+ * //         },
+ * //         Parquet: {},
+ * //       },
+ * //       LocalPath: "STRING_VALUE", // required
+ * //       S3InputMode: "Pipe" || "File",
+ * //       S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ * //       FeaturesAttribute: "STRING_VALUE",
+ * //       InferenceAttribute: "STRING_VALUE",
+ * //       ProbabilityAttribute: "STRING_VALUE",
+ * //       ProbabilityThresholdAttribute: Number("double"),
+ * //       StartTimeOffset: "STRING_VALUE",
+ * //       EndTimeOffset: "STRING_VALUE",
+ * //     },
+ * //     GroundTruthS3Input: { // MonitoringGroundTruthS3Input
+ * //       S3Uri: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ModelQualityJobOutputConfig: { // MonitoringOutputConfig
+ * //     MonitoringOutputs: [ // MonitoringOutputs // required
+ * //       { // MonitoringOutput
+ * //         S3Output: { // MonitoringS3Output
+ * //           S3Uri: "STRING_VALUE", // required
+ * //           LocalPath: "STRING_VALUE", // required
+ * //           S3UploadMode: "Continuous" || "EndOfJob",
+ * //         },
+ * //       },
+ * //     ],
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   JobResources: { // MonitoringResources
+ * //     ClusterConfig: { // MonitoringClusterConfig
+ * //       InstanceCount: Number("int"), // required
+ * //       InstanceType: "ml.t3.medium" || "ml.t3.large" || "ml.t3.xlarge" || "ml.t3.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.8xlarge" || "ml.r5.12xlarge" || "ml.r5.16xlarge" || "ml.r5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
+ * //       VolumeSizeInGB: Number("int"), // required
+ * //       VolumeKmsKeyId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   NetworkConfig: { // MonitoringNetworkConfig
+ * //     EnableInterContainerTrafficEncryption: true || false,
+ * //     EnableNetworkIsolation: true || false,
+ * //     VpcConfig: { // VpcConfig
+ * //       SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * //   RoleArn: "STRING_VALUE", // required
+ * //   StoppingCondition: { // MonitoringStoppingCondition
+ * //     MaxRuntimeInSeconds: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

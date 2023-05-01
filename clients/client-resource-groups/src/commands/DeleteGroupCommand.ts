@@ -57,14 +57,13 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteGroupOutput
- *   Group: { // Group
- *     GroupArn: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteGroupOutput
+ * //   Group: { // Group
+ * //     GroupArn: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

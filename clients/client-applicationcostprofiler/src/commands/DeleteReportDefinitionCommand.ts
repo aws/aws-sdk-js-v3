@@ -49,10 +49,9 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * };
  * const command = new DeleteReportDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteReportDefinitionResult
- *   reportId: "STRING_VALUE",
- * };
+ * // { // DeleteReportDefinitionResult
+ * //   reportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEndpointResponse
- *   DesiredModelArn: "STRING_VALUE",
- * };
+ * // { // UpdateEndpointResponse
+ * //   DesiredModelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

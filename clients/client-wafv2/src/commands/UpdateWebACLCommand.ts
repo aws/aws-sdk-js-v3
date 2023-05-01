@@ -823,10 +823,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWebACLResponse
- *   NextLockToken: "STRING_VALUE",
- * };
+ * // { // UpdateWebACLResponse
+ * //   NextLockToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

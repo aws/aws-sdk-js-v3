@@ -49,11 +49,10 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * };
  * const command = new GetHostnameSuggestionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHostnameSuggestionResult
- *   LayerId: "STRING_VALUE",
- *   Hostname: "STRING_VALUE",
- * };
+ * // { // GetHostnameSuggestionResult
+ * //   LayerId: "STRING_VALUE",
+ * //   Hostname: "STRING_VALUE",
+ * // };
  *
  * ```
  *

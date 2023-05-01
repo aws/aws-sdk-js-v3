@@ -47,16 +47,15 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBillingGroupsResponse
- *   billingGroups: [ // BillingGroupNameAndArnList
- *     { // GroupNameAndArn
- *       groupName: "STRING_VALUE",
- *       groupArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListBillingGroupsResponse
+ * //   billingGroups: [ // BillingGroupNameAndArnList
+ * //     { // GroupNameAndArn
+ * //       groupName: "STRING_VALUE",
+ * //       groupArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

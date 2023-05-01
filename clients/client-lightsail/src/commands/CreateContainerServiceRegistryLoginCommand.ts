@@ -69,15 +69,14 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * const input = {};
  * const command = new CreateContainerServiceRegistryLoginCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContainerServiceRegistryLoginResult
- *   registryLogin: { // ContainerServiceRegistryLogin
- *     username: "STRING_VALUE",
- *     password: "STRING_VALUE",
- *     expiresAt: new Date("TIMESTAMP"),
- *     registry: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateContainerServiceRegistryLoginResult
+ * //   registryLogin: { // ContainerServiceRegistryLogin
+ * //     username: "STRING_VALUE",
+ * //     password: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     registry: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

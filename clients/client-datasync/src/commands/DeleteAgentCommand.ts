@@ -46,8 +46,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * };
  * const command = new DeleteAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

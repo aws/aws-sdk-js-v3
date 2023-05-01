@@ -55,24 +55,23 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * };
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTargetHealthOutput
- *   TargetHealthDescriptions: [ // TargetHealthDescriptions
- *     { // TargetHealthDescription
- *       Target: { // TargetDescription
- *         Id: "STRING_VALUE", // required
- *         Port: Number("int"),
- *         AvailabilityZone: "STRING_VALUE",
- *       },
- *       HealthCheckPort: "STRING_VALUE",
- *       TargetHealth: { // TargetHealth
- *         State: "initial" || "healthy" || "unhealthy" || "unused" || "draining" || "unavailable",
- *         Reason: "Elb.RegistrationInProgress" || "Elb.InitialHealthChecking" || "Target.ResponseCodeMismatch" || "Target.Timeout" || "Target.FailedHealthChecks" || "Target.NotRegistered" || "Target.NotInUse" || "Target.DeregistrationInProgress" || "Target.InvalidState" || "Target.IpUnusable" || "Target.HealthCheckDisabled" || "Elb.InternalError",
- *         Description: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeTargetHealthOutput
+ * //   TargetHealthDescriptions: [ // TargetHealthDescriptions
+ * //     { // TargetHealthDescription
+ * //       Target: { // TargetDescription
+ * //         Id: "STRING_VALUE", // required
+ * //         Port: Number("int"),
+ * //         AvailabilityZone: "STRING_VALUE",
+ * //       },
+ * //       HealthCheckPort: "STRING_VALUE",
+ * //       TargetHealth: { // TargetHealth
+ * //         State: "initial" || "healthy" || "unhealthy" || "unused" || "draining" || "unavailable",
+ * //         Reason: "Elb.RegistrationInProgress" || "Elb.InitialHealthChecking" || "Target.ResponseCodeMismatch" || "Target.Timeout" || "Target.FailedHealthChecks" || "Target.NotRegistered" || "Target.NotInUse" || "Target.DeregistrationInProgress" || "Target.InvalidState" || "Target.IpUnusable" || "Target.HealthCheckDisabled" || "Elb.InternalError",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

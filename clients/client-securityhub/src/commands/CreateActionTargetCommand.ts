@@ -48,10 +48,9 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * };
  * const command = new CreateActionTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateActionTargetResponse
- *   ActionTargetArn: "STRING_VALUE", // required
- * };
+ * // { // CreateActionTargetResponse
+ * //   ActionTargetArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

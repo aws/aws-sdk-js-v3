@@ -47,47 +47,46 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * };
  * const command = new GetDomainStatisticsReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDomainStatisticsReportResponse
- *   OverallVolume: { // OverallVolume
- *     VolumeStatistics: { // VolumeStatistics
- *       InboxRawCount: Number("long"),
- *       SpamRawCount: Number("long"),
- *       ProjectedInbox: Number("long"),
- *       ProjectedSpam: Number("long"),
- *     },
- *     ReadRatePercent: Number("double"),
- *     DomainIspPlacements: [ // DomainIspPlacements
- *       { // DomainIspPlacement
- *         IspName: "STRING_VALUE",
- *         InboxRawCount: Number("long"),
- *         SpamRawCount: Number("long"),
- *         InboxPercentage: Number("double"),
- *         SpamPercentage: Number("double"),
- *       },
- *     ],
- *   },
- *   DailyVolumes: [ // DailyVolumes // required
- *     { // DailyVolume
- *       StartDate: new Date("TIMESTAMP"),
- *       VolumeStatistics: {
- *         InboxRawCount: Number("long"),
- *         SpamRawCount: Number("long"),
- *         ProjectedInbox: Number("long"),
- *         ProjectedSpam: Number("long"),
- *       },
- *       DomainIspPlacements: [
- *         {
- *           IspName: "STRING_VALUE",
- *           InboxRawCount: Number("long"),
- *           SpamRawCount: Number("long"),
- *           InboxPercentage: Number("double"),
- *           SpamPercentage: Number("double"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetDomainStatisticsReportResponse
+ * //   OverallVolume: { // OverallVolume
+ * //     VolumeStatistics: { // VolumeStatistics
+ * //       InboxRawCount: Number("long"),
+ * //       SpamRawCount: Number("long"),
+ * //       ProjectedInbox: Number("long"),
+ * //       ProjectedSpam: Number("long"),
+ * //     },
+ * //     ReadRatePercent: Number("double"),
+ * //     DomainIspPlacements: [ // DomainIspPlacements
+ * //       { // DomainIspPlacement
+ * //         IspName: "STRING_VALUE",
+ * //         InboxRawCount: Number("long"),
+ * //         SpamRawCount: Number("long"),
+ * //         InboxPercentage: Number("double"),
+ * //         SpamPercentage: Number("double"),
+ * //       },
+ * //     ],
+ * //   },
+ * //   DailyVolumes: [ // DailyVolumes // required
+ * //     { // DailyVolume
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       VolumeStatistics: {
+ * //         InboxRawCount: Number("long"),
+ * //         SpamRawCount: Number("long"),
+ * //         ProjectedInbox: Number("long"),
+ * //         ProjectedSpam: Number("long"),
+ * //       },
+ * //       DomainIspPlacements: [
+ * //         {
+ * //           IspName: "STRING_VALUE",
+ * //           InboxRawCount: Number("long"),
+ * //           SpamRawCount: Number("long"),
+ * //           InboxPercentage: Number("double"),
+ * //           SpamPercentage: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

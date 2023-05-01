@@ -47,8 +47,7 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * };
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

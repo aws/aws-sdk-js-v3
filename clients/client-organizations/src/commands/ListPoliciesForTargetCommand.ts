@@ -59,20 +59,19 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * };
  * const command = new ListPoliciesForTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPoliciesForTargetResponse
- *   Policies: [ // Policies
- *     { // PolicySummary
- *       Id: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
- *       AwsManaged: true || false,
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPoliciesForTargetResponse
+ * //   Policies: [ // Policies
+ * //     { // PolicySummary
+ * //       Id: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       AwsManaged: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

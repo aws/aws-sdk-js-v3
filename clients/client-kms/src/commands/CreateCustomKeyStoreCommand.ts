@@ -147,10 +147,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * };
  * const command = new CreateCustomKeyStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCustomKeyStoreResponse
- *   CustomKeyStoreId: "STRING_VALUE",
- * };
+ * // { // CreateCustomKeyStoreResponse
+ * //   CustomKeyStoreId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -291,7 +290,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * ```javascript
  * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.
  * const input = {
- *   "CloudHsmClusterId": "cluster-1a23b4cdefg",
+ *   "CloudHsmClusterId": "cluster-234abcdefABC",
  *   "CustomKeyStoreName": "ExampleKeyStore",
  *   "KeyStorePassword": "kmsPswd",
  *   "TrustAnchorCertificate": "<certificate-goes-here>"

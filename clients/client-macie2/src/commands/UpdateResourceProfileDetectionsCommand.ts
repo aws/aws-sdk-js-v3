@@ -55,8 +55,7 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  * };
  * const command = new UpdateResourceProfileDetectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

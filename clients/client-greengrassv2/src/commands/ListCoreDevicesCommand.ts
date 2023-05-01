@@ -74,17 +74,16 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * };
  * const command = new ListCoreDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCoreDevicesResponse
- *   coreDevices: [ // CoreDevicesList
- *     { // CoreDevice
- *       coreDeviceThingName: "STRING_VALUE",
- *       status: "HEALTHY" || "UNHEALTHY",
- *       lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListCoreDevicesResponse
+ * //   coreDevices: [ // CoreDevicesList
+ * //     { // CoreDevice
+ * //       coreDeviceThingName: "STRING_VALUE",
+ * //       status: "HEALTHY" || "UNHEALTHY",
+ * //       lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -79,10 +79,9 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * };
  * const command = new CreateDataSourceFromRDSCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDataSourceFromRDSOutput
- *   DataSourceId: "STRING_VALUE",
- * };
+ * // { // CreateDataSourceFromRDSOutput
+ * //   DataSourceId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

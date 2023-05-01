@@ -59,50 +59,49 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DBEngineVersionMessage
- *   Marker: "STRING_VALUE",
- *   DBEngineVersions: [ // DBEngineVersionList
- *     { // DBEngineVersion
- *       Engine: "STRING_VALUE",
- *       EngineVersion: "STRING_VALUE",
- *       DBParameterGroupFamily: "STRING_VALUE",
- *       DBEngineDescription: "STRING_VALUE",
- *       DBEngineVersionDescription: "STRING_VALUE",
- *       DefaultCharacterSet: { // CharacterSet
- *         CharacterSetName: "STRING_VALUE",
- *         CharacterSetDescription: "STRING_VALUE",
- *       },
- *       SupportedCharacterSets: [ // SupportedCharacterSetsList
- *         {
- *           CharacterSetName: "STRING_VALUE",
- *           CharacterSetDescription: "STRING_VALUE",
- *         },
- *       ],
- *       ValidUpgradeTarget: [ // ValidUpgradeTargetList
- *         { // UpgradeTarget
- *           Engine: "STRING_VALUE",
- *           EngineVersion: "STRING_VALUE",
- *           Description: "STRING_VALUE",
- *           AutoUpgrade: true || false,
- *           IsMajorVersionUpgrade: true || false,
- *           SupportsGlobalDatabases: true || false,
- *         },
- *       ],
- *       SupportedTimezones: [ // SupportedTimezonesList
- *         { // Timezone
- *           TimezoneName: "STRING_VALUE",
- *         },
- *       ],
- *       ExportableLogTypes: [ // LogTypeList
- *         "STRING_VALUE",
- *       ],
- *       SupportsLogExportsToCloudwatchLogs: true || false,
- *       SupportsReadReplica: true || false,
- *       SupportsGlobalDatabases: true || false,
- *     },
- *   ],
- * };
+ * // { // DBEngineVersionMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBEngineVersions: [ // DBEngineVersionList
+ * //     { // DBEngineVersion
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       DBParameterGroupFamily: "STRING_VALUE",
+ * //       DBEngineDescription: "STRING_VALUE",
+ * //       DBEngineVersionDescription: "STRING_VALUE",
+ * //       DefaultCharacterSet: { // CharacterSet
+ * //         CharacterSetName: "STRING_VALUE",
+ * //         CharacterSetDescription: "STRING_VALUE",
+ * //       },
+ * //       SupportedCharacterSets: [ // SupportedCharacterSetsList
+ * //         {
+ * //           CharacterSetName: "STRING_VALUE",
+ * //           CharacterSetDescription: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ValidUpgradeTarget: [ // ValidUpgradeTargetList
+ * //         { // UpgradeTarget
+ * //           Engine: "STRING_VALUE",
+ * //           EngineVersion: "STRING_VALUE",
+ * //           Description: "STRING_VALUE",
+ * //           AutoUpgrade: true || false,
+ * //           IsMajorVersionUpgrade: true || false,
+ * //           SupportsGlobalDatabases: true || false,
+ * //         },
+ * //       ],
+ * //       SupportedTimezones: [ // SupportedTimezonesList
+ * //         { // Timezone
+ * //           TimezoneName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ExportableLogTypes: [ // LogTypeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsLogExportsToCloudwatchLogs: true || false,
+ * //       SupportsReadReplica: true || false,
+ * //       SupportsGlobalDatabases: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

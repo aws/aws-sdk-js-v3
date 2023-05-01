@@ -87,10 +87,9 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  * };
  * const command = new CreateSpaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSpaceResponse
- *   SpaceArn: "STRING_VALUE",
- * };
+ * // { // CreateSpaceResponse
+ * //   SpaceArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,25 +44,24 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * };
  * const command = new DescribeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationResponse
- *   Arn: "STRING_VALUE",
- *   AuthenticationStrategy: "STRING_VALUE",
- *   Created: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   EngineType: "STRING_VALUE",
- *   EngineVersion: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   LatestRevision: { // ConfigurationRevision
- *     Created: new Date("TIMESTAMP"), // required
- *     Description: "STRING_VALUE",
- *     Revision: Number("int"), // required
- *   },
- *   Name: "STRING_VALUE",
- *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AuthenticationStrategy: "STRING_VALUE",
+ * //   Created: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   EngineType: "STRING_VALUE",
+ * //   EngineVersion: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LatestRevision: { // ConfigurationRevision
+ * //     Created: new Date("TIMESTAMP"), // required
+ * //     Description: "STRING_VALUE",
+ * //     Revision: Number("int"), // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

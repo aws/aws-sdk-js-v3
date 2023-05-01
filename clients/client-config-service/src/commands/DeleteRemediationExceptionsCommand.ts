@@ -56,20 +56,19 @@ export interface DeleteRemediationExceptionsCommandOutput
  * };
  * const command = new DeleteRemediationExceptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRemediationExceptionsResponse
- *   FailedBatches: [ // FailedDeleteRemediationExceptionsBatches
- *     { // FailedDeleteRemediationExceptionsBatch
- *       FailureMessage: "STRING_VALUE",
- *       FailedItems: [ // RemediationExceptionResourceKeys
- *         { // RemediationExceptionResourceKey
- *           ResourceType: "STRING_VALUE",
- *           ResourceId: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DeleteRemediationExceptionsResponse
+ * //   FailedBatches: [ // FailedDeleteRemediationExceptionsBatches
+ * //     { // FailedDeleteRemediationExceptionsBatch
+ * //       FailureMessage: "STRING_VALUE",
+ * //       FailedItems: [ // RemediationExceptionResourceKeys
+ * //         { // RemediationExceptionResourceKey
+ * //           ResourceType: "STRING_VALUE",
+ * //           ResourceId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

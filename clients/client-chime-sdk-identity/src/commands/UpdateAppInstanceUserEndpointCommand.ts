@@ -57,11 +57,10 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  * };
  * const command = new UpdateAppInstanceUserEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppInstanceUserEndpointResponse
- *   AppInstanceUserArn: "STRING_VALUE",
- *   EndpointId: "STRING_VALUE",
- * };
+ * // { // UpdateAppInstanceUserEndpointResponse
+ * //   AppInstanceUserArn: "STRING_VALUE",
+ * //   EndpointId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

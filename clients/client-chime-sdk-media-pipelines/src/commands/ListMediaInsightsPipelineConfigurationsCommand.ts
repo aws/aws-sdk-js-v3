@@ -59,17 +59,16 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  * };
  * const command = new ListMediaInsightsPipelineConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMediaInsightsPipelineConfigurationsResponse
- *   MediaInsightsPipelineConfigurations: [ // MediaInsightsPipelineConfigurationSummaryList
- *     { // MediaInsightsPipelineConfigurationSummary
- *       MediaInsightsPipelineConfigurationName: "STRING_VALUE",
- *       MediaInsightsPipelineConfigurationId: "STRING_VALUE",
- *       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMediaInsightsPipelineConfigurationsResponse
+ * //   MediaInsightsPipelineConfigurations: [ // MediaInsightsPipelineConfigurationSummaryList
+ * //     { // MediaInsightsPipelineConfigurationSummary
+ * //       MediaInsightsPipelineConfigurationName: "STRING_VALUE",
+ * //       MediaInsightsPipelineConfigurationId: "STRING_VALUE",
+ * //       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

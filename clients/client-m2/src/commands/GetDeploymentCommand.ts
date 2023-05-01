@@ -45,16 +45,15 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeploymentResponse
- *   deploymentId: "STRING_VALUE", // required
- *   applicationId: "STRING_VALUE", // required
- *   environmentId: "STRING_VALUE", // required
- *   applicationVersion: Number("int"), // required
- *   status: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- *   statusReason: "STRING_VALUE",
- * };
+ * // { // GetDeploymentResponse
+ * //   deploymentId: "STRING_VALUE", // required
+ * //   applicationId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE", // required
+ * //   applicationVersion: Number("int"), // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   statusReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *

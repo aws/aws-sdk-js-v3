@@ -49,11 +49,10 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProjectResponse
- *   LastModifiedDate: new Date("TIMESTAMP"),
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateProjectResponse
+ * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

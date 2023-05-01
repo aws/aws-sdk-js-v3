@@ -52,8 +52,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * };
  * const command = new DisassociateOpsItemRelatedItemCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,20 +44,19 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * };
  * const command = new DescribeLocationSmbCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationSmbResponse
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   AgentArns: [ // AgentArnList
- *     "STRING_VALUE",
- *   ],
- *   User: "STRING_VALUE",
- *   Domain: "STRING_VALUE",
- *   MountOptions: { // SmbMountOptions
- *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
- *   },
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLocationSmbResponse
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   AgentArns: [ // AgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   User: "STRING_VALUE",
+ * //   Domain: "STRING_VALUE",
+ * //   MountOptions: { // SmbMountOptions
+ * //     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -53,10 +53,9 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
  * };
  * const command = new UpdateSourceControlFromJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSourceControlFromJobResponse
- *   JobName: "STRING_VALUE",
- * };
+ * // { // UpdateSourceControlFromJobResponse
+ * //   JobName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

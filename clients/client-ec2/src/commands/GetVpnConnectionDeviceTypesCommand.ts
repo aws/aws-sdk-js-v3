@@ -49,18 +49,17 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * };
  * const command = new GetVpnConnectionDeviceTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVpnConnectionDeviceTypesResult
- *   VpnConnectionDeviceTypes: [ // VpnConnectionDeviceTypeList
- *     { // VpnConnectionDeviceType
- *       VpnConnectionDeviceTypeId: "STRING_VALUE",
- *       Vendor: "STRING_VALUE",
- *       Platform: "STRING_VALUE",
- *       Software: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetVpnConnectionDeviceTypesResult
+ * //   VpnConnectionDeviceTypes: [ // VpnConnectionDeviceTypeList
+ * //     { // VpnConnectionDeviceType
+ * //       VpnConnectionDeviceTypeId: "STRING_VALUE",
+ * //       Vendor: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       Software: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

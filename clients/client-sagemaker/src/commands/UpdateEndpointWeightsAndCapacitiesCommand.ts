@@ -60,10 +60,9 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * };
  * const command = new UpdateEndpointWeightsAndCapacitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEndpointWeightsAndCapacitiesOutput
- *   EndpointArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateEndpointWeightsAndCapacitiesOutput
+ * //   EndpointArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

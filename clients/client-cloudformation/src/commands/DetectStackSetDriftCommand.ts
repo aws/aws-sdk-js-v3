@@ -100,10 +100,9 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * };
  * const command = new DetectStackSetDriftCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectStackSetDriftOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // DetectStackSetDriftOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -54,8 +54,7 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateRegionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

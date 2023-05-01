@@ -67,8 +67,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

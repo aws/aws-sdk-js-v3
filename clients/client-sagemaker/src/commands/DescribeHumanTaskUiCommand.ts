@@ -44,17 +44,16 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * };
  * const command = new DescribeHumanTaskUiCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHumanTaskUiResponse
- *   HumanTaskUiArn: "STRING_VALUE", // required
- *   HumanTaskUiName: "STRING_VALUE", // required
- *   HumanTaskUiStatus: "Active" || "Deleting",
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   UiTemplate: { // UiTemplateInfo
- *     Url: "STRING_VALUE",
- *     ContentSha256: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeHumanTaskUiResponse
+ * //   HumanTaskUiArn: "STRING_VALUE", // required
+ * //   HumanTaskUiName: "STRING_VALUE", // required
+ * //   HumanTaskUiStatus: "Active" || "Deleting",
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   UiTemplate: { // UiTemplateInfo
+ * //     Url: "STRING_VALUE",
+ * //     ContentSha256: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

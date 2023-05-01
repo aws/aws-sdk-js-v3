@@ -55,17 +55,16 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * };
  * const command = new PutAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutAttributesResponse
- *   attributes: [ // Attributes
- *     { // Attribute
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE",
- *       targetType: "container-instance",
- *       targetId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutAttributesResponse
+ * //   attributes: [ // Attributes
+ * //     { // Attribute
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //       targetType: "container-instance",
+ * //       targetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

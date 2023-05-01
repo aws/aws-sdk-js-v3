@@ -56,10 +56,9 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * };
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelKeyDeletionResponse
- *   KeyId: "STRING_VALUE",
- * };
+ * // { // CancelKeyDeletionResponse
+ * //   KeyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

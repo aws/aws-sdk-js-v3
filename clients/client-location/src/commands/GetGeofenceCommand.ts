@@ -45,28 +45,27 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * };
  * const command = new GetGeofenceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetGeofenceResponse
- *   GeofenceId: "STRING_VALUE", // required
- *   Geometry: { // GeofenceGeometry
- *     Polygon: [ // LinearRings
- *       [ // LinearRing
- *         [ // Position
- *           Number("double"),
- *         ],
- *       ],
- *     ],
- *     Circle: { // Circle
- *       Center: [ // required
- *         Number("double"),
- *       ],
- *       Radius: Number("double"), // required
- *     },
- *   },
- *   Status: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetGeofenceResponse
+ * //   GeofenceId: "STRING_VALUE", // required
+ * //   Geometry: { // GeofenceGeometry
+ * //     Polygon: [ // LinearRings
+ * //       [ // LinearRing
+ * //         [ // Position
+ * //           Number("double"),
+ * //         ],
+ * //       ],
+ * //     ],
+ * //     Circle: { // Circle
+ * //       Center: [ // required
+ * //         Number("double"),
+ * //       ],
+ * //       Radius: Number("double"), // required
+ * //     },
+ * //   },
+ * //   Status: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

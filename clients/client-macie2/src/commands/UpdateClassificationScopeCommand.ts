@@ -52,8 +52,7 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * };
  * const command = new UpdateClassificationScopeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

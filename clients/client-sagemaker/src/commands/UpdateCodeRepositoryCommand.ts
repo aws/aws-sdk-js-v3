@@ -47,10 +47,9 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * };
  * const command = new UpdateCodeRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCodeRepositoryOutput
- *   CodeRepositoryArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateCodeRepositoryOutput
+ * //   CodeRepositoryArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

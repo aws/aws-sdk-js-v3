@@ -55,20 +55,19 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * };
  * const command = new ListSigningCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSigningCertificatesResponse
- *   Certificates: [ // certificateListType // required
- *     { // SigningCertificate
- *       UserName: "STRING_VALUE", // required
- *       CertificateId: "STRING_VALUE", // required
- *       CertificateBody: "STRING_VALUE", // required
- *       Status: "Active" || "Inactive", // required
- *       UploadDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListSigningCertificatesResponse
+ * //   Certificates: [ // certificateListType // required
+ * //     { // SigningCertificate
+ * //       UserName: "STRING_VALUE", // required
+ * //       CertificateId: "STRING_VALUE", // required
+ * //       CertificateBody: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //       UploadDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

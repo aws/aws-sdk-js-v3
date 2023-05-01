@@ -60,10 +60,9 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
  * };
  * const command = new AcceptDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AcceptDomainTransferFromAnotherAwsAccountResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // AcceptDomainTransferFromAnotherAwsAccountResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,11 +49,10 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  * };
  * const command = new GetFunctionCodeSigningConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFunctionCodeSigningConfigResponse
- *   CodeSigningConfigArn: "STRING_VALUE", // required
- *   FunctionName: "STRING_VALUE", // required
- * };
+ * // { // GetFunctionCodeSigningConfigResponse
+ * //   CodeSigningConfigArn: "STRING_VALUE", // required
+ * //   FunctionName: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVocabularyFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -63,16 +63,15 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * };
  * const command = new DescribeIdFormatCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIdFormatResult
- *   Statuses: [ // IdFormatList
- *     { // IdFormat
- *       Deadline: new Date("TIMESTAMP"),
- *       Resource: "STRING_VALUE",
- *       UseLongIds: true || false,
- *     },
- *   ],
- * };
+ * // { // DescribeIdFormatResult
+ * //   Statuses: [ // IdFormatList
+ * //     { // IdFormat
+ * //       Deadline: new Date("TIMESTAMP"),
+ * //       Resource: "STRING_VALUE",
+ * //       UseLongIds: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

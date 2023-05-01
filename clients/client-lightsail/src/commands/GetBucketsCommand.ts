@@ -50,61 +50,60 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * };
  * const command = new GetBucketsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketsResult
- *   buckets: [ // BucketList
- *     { // Bucket
- *       resourceType: "STRING_VALUE",
- *       accessRules: { // AccessRules
- *         getObject: "public" || "private",
- *         allowPublicOverrides: true || false,
- *       },
- *       arn: "STRING_VALUE",
- *       bundleId: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       url: "STRING_VALUE",
- *       location: { // ResourceLocation
- *         availabilityZone: "STRING_VALUE",
- *         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
- *       },
- *       name: "STRING_VALUE",
- *       supportCode: "STRING_VALUE",
- *       tags: [ // TagList
- *         { // Tag
- *           key: "STRING_VALUE",
- *           value: "STRING_VALUE",
- *         },
- *       ],
- *       objectVersioning: "STRING_VALUE",
- *       ableToUpdateBundle: true || false,
- *       readonlyAccessAccounts: [ // PartnerIdList
- *         "STRING_VALUE",
- *       ],
- *       resourcesReceivingAccess: [ // AccessReceiverList
- *         { // ResourceReceivingAccess
- *           name: "STRING_VALUE",
- *           resourceType: "STRING_VALUE",
- *         },
- *       ],
- *       state: { // BucketState
- *         code: "STRING_VALUE",
- *         message: "STRING_VALUE",
- *       },
- *       accessLogConfig: { // BucketAccessLogConfig
- *         enabled: true || false, // required
- *         destination: "STRING_VALUE",
- *         prefix: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextPageToken: "STRING_VALUE",
- *   accountLevelBpaSync: { // AccountLevelBpaSync
- *     status: "InSync" || "Failed" || "NeverSynced" || "Defaulted",
- *     lastSyncedAt: new Date("TIMESTAMP"),
- *     message: "DEFAULTED_FOR_SLR_MISSING" || "SYNC_ON_HOLD" || "DEFAULTED_FOR_SLR_MISSING_ON_HOLD" || "Unknown",
- *     bpaImpactsLightsail: true || false,
- *   },
- * };
+ * // { // GetBucketsResult
+ * //   buckets: [ // BucketList
+ * //     { // Bucket
+ * //       resourceType: "STRING_VALUE",
+ * //       accessRules: { // AccessRules
+ * //         getObject: "public" || "private",
+ * //         allowPublicOverrides: true || false,
+ * //       },
+ * //       arn: "STRING_VALUE",
+ * //       bundleId: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       url: "STRING_VALUE",
+ * //       location: { // ResourceLocation
+ * //         availabilityZone: "STRING_VALUE",
+ * //         regionName: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "eu-central-1" || "ca-central-1" || "ap-south-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "ap-northeast-2" || "eu-north-1",
+ * //       },
+ * //       name: "STRING_VALUE",
+ * //       supportCode: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       objectVersioning: "STRING_VALUE",
+ * //       ableToUpdateBundle: true || false,
+ * //       readonlyAccessAccounts: [ // PartnerIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       resourcesReceivingAccess: [ // AccessReceiverList
+ * //         { // ResourceReceivingAccess
+ * //           name: "STRING_VALUE",
+ * //           resourceType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       state: { // BucketState
+ * //         code: "STRING_VALUE",
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //       accessLogConfig: { // BucketAccessLogConfig
+ * //         enabled: true || false, // required
+ * //         destination: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * //   accountLevelBpaSync: { // AccountLevelBpaSync
+ * //     status: "InSync" || "Failed" || "NeverSynced" || "Defaulted",
+ * //     lastSyncedAt: new Date("TIMESTAMP"),
+ * //     message: "DEFAULTED_FOR_SLR_MISSING" || "SYNC_ON_HOLD" || "DEFAULTED_FOR_SLR_MISSING_ON_HOLD" || "Unknown",
+ * //     bpaImpactsLightsail: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

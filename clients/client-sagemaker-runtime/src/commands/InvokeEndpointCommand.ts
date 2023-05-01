@@ -77,13 +77,12 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InvokeEndpointOutput
- *   Body: "BLOB_VALUE", // required
- *   ContentType: "STRING_VALUE",
- *   InvokedProductionVariant: "STRING_VALUE",
- *   CustomAttributes: "STRING_VALUE",
- * };
+ * // { // InvokeEndpointOutput
+ * //   Body: "BLOB_VALUE", // required
+ * //   ContentType: "STRING_VALUE",
+ * //   InvokedProductionVariant: "STRING_VALUE",
+ * //   CustomAttributes: "STRING_VALUE",
+ * // };
  *
  * ```
  *

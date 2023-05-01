@@ -47,8 +47,7 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * };
  * const command = new DeleteImageVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

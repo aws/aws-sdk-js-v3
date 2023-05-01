@@ -46,13 +46,12 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * const input = {};
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountLimitsAnswer
- *   MaxNumberOfAutoScalingGroups: Number("int"),
- *   MaxNumberOfLaunchConfigurations: Number("int"),
- *   NumberOfAutoScalingGroups: Number("int"),
- *   NumberOfLaunchConfigurations: Number("int"),
- * };
+ * // { // DescribeAccountLimitsAnswer
+ * //   MaxNumberOfAutoScalingGroups: Number("int"),
+ * //   MaxNumberOfLaunchConfigurations: Number("int"),
+ * //   NumberOfAutoScalingGroups: Number("int"),
+ * //   NumberOfLaunchConfigurations: Number("int"),
+ * // };
  *
  * ```
  *

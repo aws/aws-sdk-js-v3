@@ -51,63 +51,62 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * };
  * const command = new DescribeClientBrandingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClientBrandingResult
- *   DeviceTypeWindows: { // DefaultClientBrandingAttributes
- *     LogoUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: { // LoginMessage
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   DeviceTypeOsx: {
- *     LogoUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   DeviceTypeAndroid: {
- *     LogoUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   DeviceTypeIos: { // IosClientBrandingAttributes
- *     LogoUrl: "STRING_VALUE",
- *     Logo2xUrl: "STRING_VALUE",
- *     Logo3xUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   DeviceTypeLinux: {
- *     LogoUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- *   DeviceTypeWeb: {
- *     LogoUrl: "STRING_VALUE",
- *     SupportEmail: "STRING_VALUE",
- *     SupportLink: "STRING_VALUE",
- *     ForgotPasswordLink: "STRING_VALUE",
- *     LoginMessage: "<LoginMessage>",
- *   },
- * };
+ * // { // DescribeClientBrandingResult
+ * //   DeviceTypeWindows: { // DefaultClientBrandingAttributes
+ * //     LogoUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: { // LoginMessage
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DeviceTypeOsx: {
+ * //     LogoUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DeviceTypeAndroid: {
+ * //     LogoUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DeviceTypeIos: { // IosClientBrandingAttributes
+ * //     LogoUrl: "STRING_VALUE",
+ * //     Logo2xUrl: "STRING_VALUE",
+ * //     Logo3xUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DeviceTypeLinux: {
+ * //     LogoUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   DeviceTypeWeb: {
+ * //     LogoUrl: "STRING_VALUE",
+ * //     SupportEmail: "STRING_VALUE",
+ * //     SupportLink: "STRING_VALUE",
+ * //     ForgotPasswordLink: "STRING_VALUE",
+ * //     LoginMessage: "<LoginMessage>",
+ * //   },
+ * // };
  *
  * ```
  *

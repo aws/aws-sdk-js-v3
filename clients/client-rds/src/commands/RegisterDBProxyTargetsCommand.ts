@@ -51,25 +51,24 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * };
  * const command = new RegisterDBProxyTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterDBProxyTargetsResponse
- *   DBProxyTargets: [ // TargetList
- *     { // DBProxyTarget
- *       TargetArn: "STRING_VALUE",
- *       Endpoint: "STRING_VALUE",
- *       TrackedClusterId: "STRING_VALUE",
- *       RdsResourceId: "STRING_VALUE",
- *       Port: Number("int"),
- *       Type: "RDS_INSTANCE" || "RDS_SERVERLESS_ENDPOINT" || "TRACKED_CLUSTER",
- *       Role: "READ_WRITE" || "READ_ONLY" || "UNKNOWN",
- *       TargetHealth: { // TargetHealth
- *         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE",
- *         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE",
- *         Description: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // RegisterDBProxyTargetsResponse
+ * //   DBProxyTargets: [ // TargetList
+ * //     { // DBProxyTarget
+ * //       TargetArn: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       TrackedClusterId: "STRING_VALUE",
+ * //       RdsResourceId: "STRING_VALUE",
+ * //       Port: Number("int"),
+ * //       Type: "RDS_INSTANCE" || "RDS_SERVERLESS_ENDPOINT" || "TRACKED_CLUSTER",
+ * //       Role: "READ_WRITE" || "READ_ONLY" || "UNKNOWN",
+ * //       TargetHealth: { // TargetHealth
+ * //         State: "REGISTERING" || "AVAILABLE" || "UNAVAILABLE",
+ * //         Reason: "UNREACHABLE" || "CONNECTION_FAILED" || "AUTH_FAILURE" || "PENDING_PROXY_CAPACITY" || "INVALID_REPLICATION_STATE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

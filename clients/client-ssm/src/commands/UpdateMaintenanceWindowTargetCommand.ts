@@ -92,22 +92,21 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * };
  * const command = new UpdateMaintenanceWindowTargetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMaintenanceWindowTargetResult
- *   WindowId: "STRING_VALUE",
- *   WindowTargetId: "STRING_VALUE",
- *   Targets: [ // Targets
- *     { // Target
- *       Key: "STRING_VALUE",
- *       Values: [ // TargetValues
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   OwnerInformation: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- * };
+ * // { // UpdateMaintenanceWindowTargetResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTargetId: "STRING_VALUE",
+ * //   Targets: [ // Targets
+ * //     { // Target
+ * //       Key: "STRING_VALUE",
+ * //       Values: [ // TargetValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   OwnerInformation: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * // };
  *
  * ```
  *

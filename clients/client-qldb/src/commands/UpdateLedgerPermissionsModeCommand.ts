@@ -56,12 +56,11 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLedgerPermissionsModeResponse
- *   Name: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   PermissionsMode: "ALLOW_ALL" || "STANDARD",
- * };
+ * // { // UpdateLedgerPermissionsModeResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   PermissionsMode: "ALLOW_ALL" || "STANDARD",
+ * // };
  *
  * ```
  *

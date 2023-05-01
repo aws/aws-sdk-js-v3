@@ -52,8 +52,7 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
  * };
  * const command = new UpdateDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -49,23 +49,22 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * };
  * const command = new GetHostCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetHostOutput
- *   Name: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   ProviderType: "STRING_VALUE",
- *   ProviderEndpoint: "STRING_VALUE",
- *   VpcConfiguration: { // VpcConfiguration
- *     VpcId: "STRING_VALUE", // required
- *     SubnetIds: [ // SubnetIds // required
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroupIds: [ // SecurityGroupIds // required
- *       "STRING_VALUE",
- *     ],
- *     TlsCertificate: "STRING_VALUE",
- *   },
- * };
+ * // { // GetHostOutput
+ * //   Name: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   ProviderType: "STRING_VALUE",
+ * //   ProviderEndpoint: "STRING_VALUE",
+ * //   VpcConfiguration: { // VpcConfiguration
+ * //     VpcId: "STRING_VALUE", // required
+ * //     SubnetIds: [ // SubnetIds // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroupIds: [ // SecurityGroupIds // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     TlsCertificate: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

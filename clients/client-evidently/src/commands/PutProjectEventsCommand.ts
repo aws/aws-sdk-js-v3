@@ -52,17 +52,16 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * };
  * const command = new PutProjectEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutProjectEventsResponse
- *   failedEventCount: Number("int"),
- *   eventResults: [ // PutProjectEventsResultEntryList
- *     { // PutProjectEventsResultEntry
- *       eventId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutProjectEventsResponse
+ * //   failedEventCount: Number("int"),
+ * //   eventResults: [ // PutProjectEventsResultEntryList
+ * //     { // PutProjectEventsResultEntry
+ * //       eventId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

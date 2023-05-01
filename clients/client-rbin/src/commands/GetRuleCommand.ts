@@ -44,31 +44,30 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRuleResponse
- *   Identifier: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
- *   RetentionPeriod: { // RetentionPeriod
- *     RetentionPeriodValue: Number("int"), // required
- *     RetentionPeriodUnit: "DAYS", // required
- *   },
- *   ResourceTags: [ // ResourceTags
- *     { // ResourceTag
- *       ResourceTagKey: "STRING_VALUE", // required
- *       ResourceTagValue: "STRING_VALUE",
- *     },
- *   ],
- *   Status: "pending" || "available",
- *   LockConfiguration: { // LockConfiguration
- *     UnlockDelay: { // UnlockDelay
- *       UnlockDelayValue: Number("int"), // required
- *       UnlockDelayUnit: "DAYS", // required
- *     },
- *   },
- *   LockState: "locked" || "pending_unlock" || "unlocked",
- *   LockEndTime: new Date("TIMESTAMP"),
- * };
+ * // { // GetRuleResponse
+ * //   Identifier: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ResourceType: "EBS_SNAPSHOT" || "EC2_IMAGE",
+ * //   RetentionPeriod: { // RetentionPeriod
+ * //     RetentionPeriodValue: Number("int"), // required
+ * //     RetentionPeriodUnit: "DAYS", // required
+ * //   },
+ * //   ResourceTags: [ // ResourceTags
+ * //     { // ResourceTag
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Status: "pending" || "available",
+ * //   LockConfiguration: { // LockConfiguration
+ * //     UnlockDelay: { // UnlockDelay
+ * //       UnlockDelayValue: Number("int"), // required
+ * //       UnlockDelayUnit: "DAYS", // required
+ * //     },
+ * //   },
+ * //   LockState: "locked" || "pending_unlock" || "unlocked",
+ * //   LockEndTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

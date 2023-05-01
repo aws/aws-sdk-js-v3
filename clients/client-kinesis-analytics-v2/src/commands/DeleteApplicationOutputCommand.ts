@@ -52,11 +52,10 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * };
  * const command = new DeleteApplicationOutputCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteApplicationOutputResponse
- *   ApplicationARN: "STRING_VALUE",
- *   ApplicationVersionId: Number("long"),
- * };
+ * // { // DeleteApplicationOutputResponse
+ * //   ApplicationARN: "STRING_VALUE",
+ * //   ApplicationVersionId: Number("long"),
+ * // };
  *
  * ```
  *

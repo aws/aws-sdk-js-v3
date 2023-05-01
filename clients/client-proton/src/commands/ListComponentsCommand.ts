@@ -51,25 +51,24 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsOutput
- *   nextToken: "STRING_VALUE",
- *   components: [ // ComponentSummaryList // required
- *     { // ComponentSummary
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       environmentName: "STRING_VALUE", // required
- *       serviceName: "STRING_VALUE",
- *       serviceInstanceName: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *       lastDeploymentAttemptedAt: new Date("TIMESTAMP"),
- *       lastDeploymentSucceededAt: new Date("TIMESTAMP"),
- *       deploymentStatus: "STRING_VALUE", // required
- *       deploymentStatusMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListComponentsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   components: [ // ComponentSummaryList // required
+ * //     { // ComponentSummary
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       environmentName: "STRING_VALUE", // required
+ * //       serviceName: "STRING_VALUE",
+ * //       serviceInstanceName: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       lastDeploymentAttemptedAt: new Date("TIMESTAMP"),
+ * //       lastDeploymentSucceededAt: new Date("TIMESTAMP"),
+ * //       deploymentStatus: "STRING_VALUE", // required
+ * //       deploymentStatusMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

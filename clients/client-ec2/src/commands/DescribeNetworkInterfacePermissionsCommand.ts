@@ -64,23 +64,22 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
  * };
  * const command = new DescribeNetworkInterfacePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNetworkInterfacePermissionsResult
- *   NetworkInterfacePermissions: [ // NetworkInterfacePermissionList
- *     { // NetworkInterfacePermission
- *       NetworkInterfacePermissionId: "STRING_VALUE",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       AwsAccountId: "STRING_VALUE",
- *       AwsService: "STRING_VALUE",
- *       Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE",
- *       PermissionState: { // NetworkInterfacePermissionState
- *         State: "pending" || "granted" || "revoking" || "revoked",
- *         StatusMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNetworkInterfacePermissionsResult
+ * //   NetworkInterfacePermissions: [ // NetworkInterfacePermissionList
+ * //     { // NetworkInterfacePermission
+ * //       NetworkInterfacePermissionId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       AwsAccountId: "STRING_VALUE",
+ * //       AwsService: "STRING_VALUE",
+ * //       Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE",
+ * //       PermissionState: { // NetworkInterfacePermissionState
+ * //         State: "pending" || "granted" || "revoking" || "revoked",
+ * //         StatusMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

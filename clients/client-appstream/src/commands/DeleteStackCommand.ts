@@ -44,8 +44,7 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

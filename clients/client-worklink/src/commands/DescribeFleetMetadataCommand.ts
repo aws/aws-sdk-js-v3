@@ -47,19 +47,18 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * };
  * const command = new DescribeFleetMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetMetadataResponse
- *   CreatedTime: new Date("TIMESTAMP"),
- *   LastUpdatedTime: new Date("TIMESTAMP"),
- *   FleetName: "STRING_VALUE",
- *   DisplayName: "STRING_VALUE",
- *   OptimizeForEndUserLocation: true || false,
- *   CompanyCode: "STRING_VALUE",
- *   FleetStatus: "STRING_VALUE",
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFleetMetadataResponse
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   FleetName: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   OptimizeForEndUserLocation: true || false,
+ * //   CompanyCode: "STRING_VALUE",
+ * //   FleetStatus: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

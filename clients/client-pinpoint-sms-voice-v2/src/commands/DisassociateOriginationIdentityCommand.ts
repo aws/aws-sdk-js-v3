@@ -58,14 +58,13 @@ export interface DisassociateOriginationIdentityCommandOutput
  * };
  * const command = new DisassociateOriginationIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateOriginationIdentityResult
- *   PoolArn: "STRING_VALUE",
- *   PoolId: "STRING_VALUE",
- *   OriginationIdentityArn: "STRING_VALUE",
- *   OriginationIdentity: "STRING_VALUE",
- *   IsoCountryCode: "STRING_VALUE",
- * };
+ * // { // DisassociateOriginationIdentityResult
+ * //   PoolArn: "STRING_VALUE",
+ * //   PoolId: "STRING_VALUE",
+ * //   OriginationIdentityArn: "STRING_VALUE",
+ * //   OriginationIdentity: "STRING_VALUE",
+ * //   IsoCountryCode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

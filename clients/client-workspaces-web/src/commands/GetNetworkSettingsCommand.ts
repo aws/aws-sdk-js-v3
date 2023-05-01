@@ -44,22 +44,21 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * };
  * const command = new GetNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkSettingsResponse
- *   networkSettings: { // NetworkSettings
- *     networkSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     vpcId: "STRING_VALUE",
- *     subnetIds: [ // SubnetIdList
- *       "STRING_VALUE",
- *     ],
- *     securityGroupIds: [ // SecurityGroupIdList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetNetworkSettingsResponse
+ * //   networkSettings: { // NetworkSettings
+ * //     networkSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     vpcId: "STRING_VALUE",
+ * //     subnetIds: [ // SubnetIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     securityGroupIds: [ // SecurityGroupIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

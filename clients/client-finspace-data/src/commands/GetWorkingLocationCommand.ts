@@ -45,12 +45,11 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * };
  * const command = new GetWorkingLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkingLocationResponse
- *   s3Uri: "STRING_VALUE",
- *   s3Path: "STRING_VALUE",
- *   s3Bucket: "STRING_VALUE",
- * };
+ * // { // GetWorkingLocationResponse
+ * //   s3Uri: "STRING_VALUE",
+ * //   s3Path: "STRING_VALUE",
+ * //   s3Bucket: "STRING_VALUE",
+ * // };
  *
  * ```
  *

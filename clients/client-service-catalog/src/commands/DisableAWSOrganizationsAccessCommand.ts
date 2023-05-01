@@ -59,8 +59,7 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * const input = {};
  * const command = new DisableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

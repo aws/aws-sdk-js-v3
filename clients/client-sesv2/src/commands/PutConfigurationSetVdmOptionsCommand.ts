@@ -58,8 +58,7 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetVdmOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

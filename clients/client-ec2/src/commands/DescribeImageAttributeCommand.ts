@@ -46,61 +46,60 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * };
  * const command = new DescribeImageAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImageAttribute
- *   BlockDeviceMappings: [ // BlockDeviceMappingList
- *     { // BlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       VirtualName: "STRING_VALUE",
- *       Ebs: { // EbsBlockDevice
- *         DeleteOnTermination: true || false,
- *         Iops: Number("int"),
- *         SnapshotId: "STRING_VALUE",
- *         VolumeSize: Number("int"),
- *         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
- *         KmsKeyId: "STRING_VALUE",
- *         Throughput: Number("int"),
- *         OutpostArn: "STRING_VALUE",
- *         Encrypted: true || false,
- *       },
- *       NoDevice: "STRING_VALUE",
- *     },
- *   ],
- *   ImageId: "STRING_VALUE",
- *   LaunchPermissions: [ // LaunchPermissionList
- *     { // LaunchPermission
- *       Group: "all",
- *       UserId: "STRING_VALUE",
- *       OrganizationArn: "STRING_VALUE",
- *       OrganizationalUnitArn: "STRING_VALUE",
- *     },
- *   ],
- *   ProductCodes: [ // ProductCodeList
- *     { // ProductCode
- *       ProductCodeId: "STRING_VALUE",
- *       ProductCodeType: "devpay" || "marketplace",
- *     },
- *   ],
- *   Description: { // AttributeValue
- *     Value: "STRING_VALUE",
- *   },
- *   KernelId: {
- *     Value: "STRING_VALUE",
- *   },
- *   RamdiskId: {
- *     Value: "STRING_VALUE",
- *   },
- *   SriovNetSupport: {
- *     Value: "STRING_VALUE",
- *   },
- *   BootMode: {
- *     Value: "STRING_VALUE",
- *   },
- *   TpmSupport: "<AttributeValue>",
- *   UefiData: "<AttributeValue>",
- *   LastLaunchedTime: "<AttributeValue>",
- *   ImdsSupport: "<AttributeValue>",
- * };
+ * // { // ImageAttribute
+ * //   BlockDeviceMappings: [ // BlockDeviceMappingList
+ * //     { // BlockDeviceMapping
+ * //       DeviceName: "STRING_VALUE",
+ * //       VirtualName: "STRING_VALUE",
+ * //       Ebs: { // EbsBlockDevice
+ * //         DeleteOnTermination: true || false,
+ * //         Iops: Number("int"),
+ * //         SnapshotId: "STRING_VALUE",
+ * //         VolumeSize: Number("int"),
+ * //         VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //         Throughput: Number("int"),
+ * //         OutpostArn: "STRING_VALUE",
+ * //         Encrypted: true || false,
+ * //       },
+ * //       NoDevice: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ImageId: "STRING_VALUE",
+ * //   LaunchPermissions: [ // LaunchPermissionList
+ * //     { // LaunchPermission
+ * //       Group: "all",
+ * //       UserId: "STRING_VALUE",
+ * //       OrganizationArn: "STRING_VALUE",
+ * //       OrganizationalUnitArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   Description: { // AttributeValue
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   KernelId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   RamdiskId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   SriovNetSupport: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   BootMode: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   TpmSupport: "<AttributeValue>",
+ * //   UefiData: "<AttributeValue>",
+ * //   LastLaunchedTime: "<AttributeValue>",
+ * //   ImdsSupport: "<AttributeValue>",
+ * // };
  *
  * ```
  *

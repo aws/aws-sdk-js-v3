@@ -50,11 +50,10 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * };
  * const command = new AddAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddAssociationResponse
- *   SourceArn: "STRING_VALUE",
- *   DestinationArn: "STRING_VALUE",
- * };
+ * // { // AddAssociationResponse
+ * //   SourceArn: "STRING_VALUE",
+ * //   DestinationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

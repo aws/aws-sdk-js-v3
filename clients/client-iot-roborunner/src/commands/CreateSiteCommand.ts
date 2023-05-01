@@ -47,13 +47,12 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSiteResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   createdAt: new Date("TIMESTAMP"), // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateSiteResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   createdAt: new Date("TIMESTAMP"), // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

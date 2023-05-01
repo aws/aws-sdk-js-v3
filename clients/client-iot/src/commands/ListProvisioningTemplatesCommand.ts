@@ -46,21 +46,20 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * };
  * const command = new ListProvisioningTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisioningTemplatesResponse
- *   templates: [ // ProvisioningTemplateListing
- *     { // ProvisioningTemplateSummary
- *       templateArn: "STRING_VALUE",
- *       templateName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       creationDate: new Date("TIMESTAMP"),
- *       lastModifiedDate: new Date("TIMESTAMP"),
- *       enabled: true || false,
- *       type: "FLEET_PROVISIONING" || "JITP",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProvisioningTemplatesResponse
+ * //   templates: [ // ProvisioningTemplateListing
+ * //     { // ProvisioningTemplateSummary
+ * //       templateArn: "STRING_VALUE",
+ * //       templateName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       lastModifiedDate: new Date("TIMESTAMP"),
+ * //       enabled: true || false,
+ * //       type: "FLEET_PROVISIONING" || "JITP",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

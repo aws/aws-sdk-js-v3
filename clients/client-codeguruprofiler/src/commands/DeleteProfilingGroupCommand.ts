@@ -44,8 +44,7 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * };
  * const command = new DeleteProfilingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

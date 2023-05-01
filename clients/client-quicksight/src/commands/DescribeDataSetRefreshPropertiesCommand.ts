@@ -50,22 +50,21 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * };
  * const command = new DescribeDataSetRefreshPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDataSetRefreshPropertiesResponse
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- *   DataSetRefreshProperties: { // DataSetRefreshProperties
- *     RefreshConfiguration: { // RefreshConfiguration
- *       IncrementalRefresh: { // IncrementalRefresh
- *         LookbackWindow: { // LookbackWindow
- *           ColumnName: "STRING_VALUE", // required
- *           Size: Number("long"), // required
- *           SizeUnit: "HOUR" || "DAY" || "WEEK", // required
- *         },
- *       },
- *     },
- *   },
- * };
+ * // { // DescribeDataSetRefreshPropertiesResponse
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   DataSetRefreshProperties: { // DataSetRefreshProperties
+ * //     RefreshConfiguration: { // RefreshConfiguration
+ * //       IncrementalRefresh: { // IncrementalRefresh
+ * //         LookbackWindow: { // LookbackWindow
+ * //           ColumnName: "STRING_VALUE", // required
+ * //           Size: Number("long"), // required
+ * //           SizeUnit: "HOUR" || "DAY" || "WEEK", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

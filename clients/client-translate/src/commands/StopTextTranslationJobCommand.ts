@@ -50,11 +50,10 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * };
  * const command = new StopTextTranslationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopTextTranslationJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopTextTranslationJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

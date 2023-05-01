@@ -47,10 +47,9 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * };
  * const command = new StartSchemaCreationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSchemaCreationResponse
- *   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
- * };
+ * // { // StartSchemaCreationResponse
+ * //   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
+ * // };
  *
  * ```
  *

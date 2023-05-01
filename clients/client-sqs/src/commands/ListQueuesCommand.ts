@@ -59,13 +59,12 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * };
  * const command = new ListQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListQueuesResult
- *   NextToken: "STRING_VALUE",
- *   QueueUrls: [ // QueueUrlList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListQueuesResult
+ * //   NextToken: "STRING_VALUE",
+ * //   QueueUrls: [ // QueueUrlList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -69,82 +69,81 @@ export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, _
  * };
  * const command = new GetMLTransformsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMLTransformsResponse
- *   Transforms: [ // TransformList // required
- *     { // MLTransform
- *       TransformId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "NOT_READY" || "READY" || "DELETING",
- *       CreatedOn: new Date("TIMESTAMP"),
- *       LastModifiedOn: new Date("TIMESTAMP"),
- *       InputRecordTables: [ // GlueTables
- *         { // GlueTable
- *           DatabaseName: "STRING_VALUE", // required
- *           TableName: "STRING_VALUE", // required
- *           CatalogId: "STRING_VALUE",
- *           ConnectionName: "STRING_VALUE",
- *           AdditionalOptions: { // GlueTableAdditionalOptions
- *             "<keys>": "STRING_VALUE",
- *           },
- *         },
- *       ],
- *       Parameters: { // TransformParameters
- *         TransformType: "FIND_MATCHES", // required
- *         FindMatchesParameters: { // FindMatchesParameters
- *           PrimaryKeyColumnName: "STRING_VALUE",
- *           PrecisionRecallTradeoff: Number("double"),
- *           AccuracyCostTradeoff: Number("double"),
- *           EnforceProvidedLabels: true || false,
- *         },
- *       },
- *       EvaluationMetrics: { // EvaluationMetrics
- *         TransformType: "FIND_MATCHES", // required
- *         FindMatchesMetrics: { // FindMatchesMetrics
- *           AreaUnderPRCurve: Number("double"),
- *           Precision: Number("double"),
- *           Recall: Number("double"),
- *           F1: Number("double"),
- *           ConfusionMatrix: { // ConfusionMatrix
- *             NumTruePositives: Number("long"),
- *             NumFalsePositives: Number("long"),
- *             NumTrueNegatives: Number("long"),
- *             NumFalseNegatives: Number("long"),
- *           },
- *           ColumnImportances: [ // ColumnImportanceList
- *             { // ColumnImportance
- *               ColumnName: "STRING_VALUE",
- *               Importance: Number("double"),
- *             },
- *           ],
- *         },
- *       },
- *       LabelCount: Number("int"),
- *       Schema: [ // TransformSchema
- *         { // SchemaColumn
- *           Name: "STRING_VALUE",
- *           DataType: "STRING_VALUE",
- *         },
- *       ],
- *       Role: "STRING_VALUE",
- *       GlueVersion: "STRING_VALUE",
- *       MaxCapacity: Number("double"),
- *       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
- *       NumberOfWorkers: Number("int"),
- *       Timeout: Number("int"),
- *       MaxRetries: Number("int"),
- *       TransformEncryption: { // TransformEncryption
- *         MlUserDataEncryption: { // MLUserDataEncryption
- *           MlUserDataEncryptionMode: "DISABLED" || "SSE-KMS", // required
- *           KmsKeyId: "STRING_VALUE",
- *         },
- *         TaskRunSecurityConfigurationName: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetMLTransformsResponse
+ * //   Transforms: [ // TransformList // required
+ * //     { // MLTransform
+ * //       TransformId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "NOT_READY" || "READY" || "DELETING",
+ * //       CreatedOn: new Date("TIMESTAMP"),
+ * //       LastModifiedOn: new Date("TIMESTAMP"),
+ * //       InputRecordTables: [ // GlueTables
+ * //         { // GlueTable
+ * //           DatabaseName: "STRING_VALUE", // required
+ * //           TableName: "STRING_VALUE", // required
+ * //           CatalogId: "STRING_VALUE",
+ * //           ConnectionName: "STRING_VALUE",
+ * //           AdditionalOptions: { // GlueTableAdditionalOptions
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       Parameters: { // TransformParameters
+ * //         TransformType: "FIND_MATCHES", // required
+ * //         FindMatchesParameters: { // FindMatchesParameters
+ * //           PrimaryKeyColumnName: "STRING_VALUE",
+ * //           PrecisionRecallTradeoff: Number("double"),
+ * //           AccuracyCostTradeoff: Number("double"),
+ * //           EnforceProvidedLabels: true || false,
+ * //         },
+ * //       },
+ * //       EvaluationMetrics: { // EvaluationMetrics
+ * //         TransformType: "FIND_MATCHES", // required
+ * //         FindMatchesMetrics: { // FindMatchesMetrics
+ * //           AreaUnderPRCurve: Number("double"),
+ * //           Precision: Number("double"),
+ * //           Recall: Number("double"),
+ * //           F1: Number("double"),
+ * //           ConfusionMatrix: { // ConfusionMatrix
+ * //             NumTruePositives: Number("long"),
+ * //             NumFalsePositives: Number("long"),
+ * //             NumTrueNegatives: Number("long"),
+ * //             NumFalseNegatives: Number("long"),
+ * //           },
+ * //           ColumnImportances: [ // ColumnImportanceList
+ * //             { // ColumnImportance
+ * //               ColumnName: "STRING_VALUE",
+ * //               Importance: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       LabelCount: Number("int"),
+ * //       Schema: [ // TransformSchema
+ * //         { // SchemaColumn
+ * //           Name: "STRING_VALUE",
+ * //           DataType: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Role: "STRING_VALUE",
+ * //       GlueVersion: "STRING_VALUE",
+ * //       MaxCapacity: Number("double"),
+ * //       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ * //       NumberOfWorkers: Number("int"),
+ * //       Timeout: Number("int"),
+ * //       MaxRetries: Number("int"),
+ * //       TransformEncryption: { // TransformEncryption
+ * //         MlUserDataEncryption: { // MLUserDataEncryption
+ * //           MlUserDataEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ * //           KmsKeyId: "STRING_VALUE",
+ * //         },
+ * //         TaskRunSecurityConfigurationName: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

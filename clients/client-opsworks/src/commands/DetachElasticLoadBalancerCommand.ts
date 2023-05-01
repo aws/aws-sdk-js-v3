@@ -50,8 +50,7 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * };
  * const command = new DetachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

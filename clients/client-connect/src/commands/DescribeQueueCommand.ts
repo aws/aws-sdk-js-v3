@@ -46,26 +46,25 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * };
  * const command = new DescribeQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeQueueResponse
- *   Queue: { // Queue
- *     Name: "STRING_VALUE",
- *     QueueArn: "STRING_VALUE",
- *     QueueId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     OutboundCallerConfig: { // OutboundCallerConfig
- *       OutboundCallerIdName: "STRING_VALUE",
- *       OutboundCallerIdNumberId: "STRING_VALUE",
- *       OutboundFlowId: "STRING_VALUE",
- *     },
- *     HoursOfOperationId: "STRING_VALUE",
- *     MaxContacts: Number("int"),
- *     Status: "ENABLED" || "DISABLED",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeQueueResponse
+ * //   Queue: { // Queue
+ * //     Name: "STRING_VALUE",
+ * //     QueueArn: "STRING_VALUE",
+ * //     QueueId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     OutboundCallerConfig: { // OutboundCallerConfig
+ * //       OutboundCallerIdName: "STRING_VALUE",
+ * //       OutboundCallerIdNumberId: "STRING_VALUE",
+ * //       OutboundFlowId: "STRING_VALUE",
+ * //     },
+ * //     HoursOfOperationId: "STRING_VALUE",
+ * //     MaxContacts: Number("int"),
+ * //     Status: "ENABLED" || "DISABLED",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

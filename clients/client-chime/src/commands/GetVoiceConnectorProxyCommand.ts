@@ -48,17 +48,16 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * };
  * const command = new GetVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetVoiceConnectorProxyResponse
- *   Proxy: { // Proxy
- *     DefaultSessionExpiryMinutes: Number("int"),
- *     Disabled: true || false,
- *     FallBackPhoneNumber: "STRING_VALUE",
- *     PhoneNumberCountries: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetVoiceConnectorProxyResponse
+ * //   Proxy: { // Proxy
+ * //     DefaultSessionExpiryMinutes: Number("int"),
+ * //     Disabled: true || false,
+ * //     FallBackPhoneNumber: "STRING_VALUE",
+ * //     PhoneNumberCountries: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  * };
  * const command = new DeleteExplainabilityExportCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

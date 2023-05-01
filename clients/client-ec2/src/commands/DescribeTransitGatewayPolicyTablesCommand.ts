@@ -65,24 +65,23 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
  * };
  * const command = new DescribeTransitGatewayPolicyTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayPolicyTablesResult
- *   TransitGatewayPolicyTables: [ // TransitGatewayPolicyTableList
- *     { // TransitGatewayPolicyTable
- *       TransitGatewayPolicyTableId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       State: "pending" || "available" || "deleting" || "deleted",
- *       CreationTime: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayPolicyTablesResult
+ * //   TransitGatewayPolicyTables: [ // TransitGatewayPolicyTableList
+ * //     { // TransitGatewayPolicyTable
+ * //       TransitGatewayPolicyTableId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -79,8 +79,7 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * };
  * const command = new UpdateOpsItemCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

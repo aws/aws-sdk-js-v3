@@ -66,11 +66,10 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * };
  * const command = new CreateActivityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateActivityOutput
- *   activityArn: "STRING_VALUE", // required
- *   creationDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateActivityOutput
+ * //   activityArn: "STRING_VALUE", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

@@ -70,8 +70,7 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * };
  * const command = new DeleteJobTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

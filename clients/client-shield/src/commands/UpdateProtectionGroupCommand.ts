@@ -50,8 +50,7 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * };
  * const command = new UpdateProtectionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

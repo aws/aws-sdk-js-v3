@@ -45,8 +45,7 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * };
  * const command = new StopAutomationExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

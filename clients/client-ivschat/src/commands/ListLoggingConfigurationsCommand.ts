@@ -46,34 +46,33 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * };
  * const command = new ListLoggingConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLoggingConfigurationsResponse
- *   loggingConfigurations: [ // LoggingConfigurationList // required
- *     { // LoggingConfigurationSummary
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       createTime: new Date("TIMESTAMP"),
- *       updateTime: new Date("TIMESTAMP"),
- *       name: "STRING_VALUE",
- *       destinationConfiguration: { // DestinationConfiguration Union: only one key present
- *         s3: { // S3DestinationConfiguration
- *           bucketName: "STRING_VALUE", // required
- *         },
- *         cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
- *           logGroupName: "STRING_VALUE", // required
- *         },
- *         firehose: { // FirehoseDestinationConfiguration
- *           deliveryStreamName: "STRING_VALUE", // required
- *         },
- *       },
- *       state: "STRING_VALUE",
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListLoggingConfigurationsResponse
+ * //   loggingConfigurations: [ // LoggingConfigurationList // required
+ * //     { // LoggingConfigurationSummary
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       createTime: new Date("TIMESTAMP"),
+ * //       updateTime: new Date("TIMESTAMP"),
+ * //       name: "STRING_VALUE",
+ * //       destinationConfiguration: { // DestinationConfiguration Union: only one key present
+ * //         s3: { // S3DestinationConfiguration
+ * //           bucketName: "STRING_VALUE", // required
+ * //         },
+ * //         cloudWatchLogs: { // CloudWatchLogsDestinationConfiguration
+ * //           logGroupName: "STRING_VALUE", // required
+ * //         },
+ * //         firehose: { // FirehoseDestinationConfiguration
+ * //           deliveryStreamName: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       state: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

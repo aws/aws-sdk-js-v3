@@ -74,12 +74,11 @@ export interface GetMultiRegionAccessPointPolicyStatusCommandOutput
  * };
  * const command = new GetMultiRegionAccessPointPolicyStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMultiRegionAccessPointPolicyStatusResult
- *   Established: { // PolicyStatus
- *     IsPublic: true || false,
- *   },
- * };
+ * // { // GetMultiRegionAccessPointPolicyStatusResult
+ * //   Established: { // PolicyStatus
+ * //     IsPublic: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

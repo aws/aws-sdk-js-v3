@@ -48,8 +48,7 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateQueueNameCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

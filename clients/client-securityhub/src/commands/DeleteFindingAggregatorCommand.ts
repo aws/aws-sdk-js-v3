@@ -46,8 +46,7 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * };
  * const command = new DeleteFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

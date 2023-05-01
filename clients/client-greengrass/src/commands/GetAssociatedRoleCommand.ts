@@ -44,11 +44,10 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * };
  * const command = new GetAssociatedRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssociatedRoleResponse
- *   AssociatedAt: "STRING_VALUE",
- *   RoleArn: "STRING_VALUE",
- * };
+ * // { // GetAssociatedRoleResponse
+ * //   AssociatedAt: "STRING_VALUE",
+ * //   RoleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

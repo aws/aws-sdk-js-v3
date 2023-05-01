@@ -133,10 +133,9 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * };
  * const command = new CreateTransformJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTransformJobResponse
- *   TransformJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateTransformJobResponse
+ * //   TransformJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

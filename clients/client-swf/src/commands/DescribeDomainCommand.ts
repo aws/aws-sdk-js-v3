@@ -68,18 +68,17 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DomainDetail
- *   domainInfo: { // DomainInfo
- *     name: "STRING_VALUE", // required
- *     status: "REGISTERED" || "DEPRECATED", // required
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *   },
- *   configuration: { // DomainConfiguration
- *     workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DomainDetail
+ * //   domainInfo: { // DomainInfo
+ * //     name: "STRING_VALUE", // required
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //   },
+ * //   configuration: { // DomainConfiguration
+ * //     workflowExecutionRetentionPeriodInDays: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

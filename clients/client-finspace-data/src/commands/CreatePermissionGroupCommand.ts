@@ -53,10 +53,9 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * };
  * const command = new CreatePermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePermissionGroupResponse
- *   permissionGroupId: "STRING_VALUE",
- * };
+ * // { // CreatePermissionGroupResponse
+ * //   permissionGroupId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

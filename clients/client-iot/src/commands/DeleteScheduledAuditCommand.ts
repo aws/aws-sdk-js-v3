@@ -45,8 +45,7 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * };
  * const command = new DeleteScheduledAuditCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

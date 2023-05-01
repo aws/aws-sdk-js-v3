@@ -54,10 +54,9 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * };
  * const command = new TransferCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TransferCertificateResponse
- *   transferredCertificateArn: "STRING_VALUE",
- * };
+ * // { // TransferCertificateResponse
+ * //   transferredCertificateArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

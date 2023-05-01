@@ -48,14 +48,13 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAccountSettingsOutput
- *   AccountSettings: { // AccountSettings
- *     GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
- *     GroupLifecycleEventsStatus: "ACTIVE" || "INACTIVE" || "IN_PROGRESS" || "ERROR",
- *     GroupLifecycleEventsStatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateAccountSettingsOutput
+ * //   AccountSettings: { // AccountSettings
+ * //     GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ * //     GroupLifecycleEventsStatus: "ACTIVE" || "INACTIVE" || "IN_PROGRESS" || "ERROR",
+ * //     GroupLifecycleEventsStatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

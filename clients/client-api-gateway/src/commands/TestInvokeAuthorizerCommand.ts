@@ -61,22 +61,21 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestInvokeAuthorizerResponse
- *   clientStatus: Number("int"),
- *   log: "STRING_VALUE",
- *   latency: Number("long"),
- *   principalId: "STRING_VALUE",
- *   policy: "STRING_VALUE",
- *   authorization: { // MapOfStringToList
- *     "<keys>": [ // ListOfString
- *       "STRING_VALUE",
- *     ],
- *   },
- *   claims: { // MapOfStringToString
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // TestInvokeAuthorizerResponse
+ * //   clientStatus: Number("int"),
+ * //   log: "STRING_VALUE",
+ * //   latency: Number("long"),
+ * //   principalId: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
+ * //   authorization: { // MapOfStringToList
+ * //     "<keys>": [ // ListOfString
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   claims: { // MapOfStringToString
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -60,21 +60,20 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * };
  * const command = new UpdateAppVersionAppComponentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAppVersionAppComponentResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appComponent: { // AppComponent
- *     name: "STRING_VALUE", // required
- *     type: "STRING_VALUE", // required
- *     id: "STRING_VALUE",
- *     additionalInfo: { // AdditionalInfoMap
- *       "<keys>": [ // AdditionalInfoValueList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // UpdateAppVersionAppComponentResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appComponent: { // AppComponent
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     id: "STRING_VALUE",
+ * //     additionalInfo: { // AdditionalInfoMap
+ * //       "<keys>": [ // AdditionalInfoValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

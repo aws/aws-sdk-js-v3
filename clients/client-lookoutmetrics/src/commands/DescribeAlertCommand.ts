@@ -46,44 +46,43 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * };
  * const command = new DescribeAlertCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAlertResponse
- *   Alert: { // Alert
- *     Action: { // Action
- *       SNSConfiguration: { // SNSConfiguration
- *         RoleArn: "STRING_VALUE", // required
- *         SnsTopicArn: "STRING_VALUE", // required
- *         SnsFormat: "STRING_VALUE",
- *       },
- *       LambdaConfiguration: { // LambdaConfiguration
- *         RoleArn: "STRING_VALUE", // required
- *         LambdaArn: "STRING_VALUE", // required
- *       },
- *     },
- *     AlertDescription: "STRING_VALUE",
- *     AlertArn: "STRING_VALUE",
- *     AnomalyDetectorArn: "STRING_VALUE",
- *     AlertName: "STRING_VALUE",
- *     AlertSensitivityThreshold: Number("int"),
- *     AlertType: "STRING_VALUE",
- *     AlertStatus: "STRING_VALUE",
- *     LastModificationTime: new Date("TIMESTAMP"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     AlertFilters: { // AlertFilters
- *       MetricList: [ // MetricNameList
- *         "STRING_VALUE",
- *       ],
- *       DimensionFilterList: [ // DimensionFilterList
- *         { // DimensionFilter
- *           DimensionName: "STRING_VALUE",
- *           DimensionValueList: [ // DimensionValueList
- *             "STRING_VALUE",
- *           ],
- *         },
- *       ],
- *     },
- *   },
- * };
+ * // { // DescribeAlertResponse
+ * //   Alert: { // Alert
+ * //     Action: { // Action
+ * //       SNSConfiguration: { // SNSConfiguration
+ * //         RoleArn: "STRING_VALUE", // required
+ * //         SnsTopicArn: "STRING_VALUE", // required
+ * //         SnsFormat: "STRING_VALUE",
+ * //       },
+ * //       LambdaConfiguration: { // LambdaConfiguration
+ * //         RoleArn: "STRING_VALUE", // required
+ * //         LambdaArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     AlertDescription: "STRING_VALUE",
+ * //     AlertArn: "STRING_VALUE",
+ * //     AnomalyDetectorArn: "STRING_VALUE",
+ * //     AlertName: "STRING_VALUE",
+ * //     AlertSensitivityThreshold: Number("int"),
+ * //     AlertType: "STRING_VALUE",
+ * //     AlertStatus: "STRING_VALUE",
+ * //     LastModificationTime: new Date("TIMESTAMP"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     AlertFilters: { // AlertFilters
+ * //       MetricList: [ // MetricNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DimensionFilterList: [ // DimensionFilterList
+ * //         { // DimensionFilter
+ * //           DimensionName: "STRING_VALUE",
+ * //           DimensionValueList: [ // DimensionValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

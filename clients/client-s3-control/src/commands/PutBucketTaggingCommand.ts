@@ -137,8 +137,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutBucketTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

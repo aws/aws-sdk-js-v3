@@ -46,8 +46,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

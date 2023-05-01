@@ -48,20 +48,19 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * };
  * const command = new UpdateSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSubnetGroupResponse
- *   SubnetGroup: { // SubnetGroup
- *     SubnetGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     Subnets: [ // SubnetList
- *       { // Subnet
- *         SubnetIdentifier: "STRING_VALUE",
- *         SubnetAvailabilityZone: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateSubnetGroupResponse
+ * //   SubnetGroup: { // SubnetGroup
+ * //     SubnetGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     Subnets: [ // SubnetList
+ * //       { // Subnet
+ * //         SubnetIdentifier: "STRING_VALUE",
+ * //         SubnetAvailabilityZone: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

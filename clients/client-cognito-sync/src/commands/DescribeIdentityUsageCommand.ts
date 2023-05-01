@@ -94,16 +94,15 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  * };
  * const command = new DescribeIdentityUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIdentityUsageResponse
- *   IdentityUsage: { // IdentityUsage
- *     IdentityId: "STRING_VALUE",
- *     IdentityPoolId: "STRING_VALUE",
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     DatasetCount: Number("int"),
- *     DataStorage: Number("long"),
- *   },
- * };
+ * // { // DescribeIdentityUsageResponse
+ * //   IdentityUsage: { // IdentityUsage
+ * //     IdentityId: "STRING_VALUE",
+ * //     IdentityPoolId: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     DatasetCount: Number("int"),
+ * //     DataStorage: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

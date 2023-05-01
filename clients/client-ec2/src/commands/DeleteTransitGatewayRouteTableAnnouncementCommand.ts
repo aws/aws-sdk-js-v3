@@ -54,27 +54,26 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
  * };
  * const command = new DeleteTransitGatewayRouteTableAnnouncementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTransitGatewayRouteTableAnnouncementResult
- *   TransitGatewayRouteTableAnnouncement: { // TransitGatewayRouteTableAnnouncement
- *     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
- *     TransitGatewayId: "STRING_VALUE",
- *     CoreNetworkId: "STRING_VALUE",
- *     PeerTransitGatewayId: "STRING_VALUE",
- *     PeerCoreNetworkId: "STRING_VALUE",
- *     PeeringAttachmentId: "STRING_VALUE",
- *     AnnouncementDirection: "outgoing" || "incoming",
- *     TransitGatewayRouteTableId: "STRING_VALUE",
- *     State: "available" || "pending" || "failing" || "failed" || "deleting" || "deleted",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTransitGatewayRouteTableAnnouncementResult
+ * //   TransitGatewayRouteTableAnnouncement: { // TransitGatewayRouteTableAnnouncement
+ * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     PeerTransitGatewayId: "STRING_VALUE",
+ * //     PeerCoreNetworkId: "STRING_VALUE",
+ * //     PeeringAttachmentId: "STRING_VALUE",
+ * //     AnnouncementDirection: "outgoing" || "incoming",
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     State: "available" || "pending" || "failing" || "failed" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

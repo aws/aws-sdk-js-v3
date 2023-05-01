@@ -45,24 +45,23 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * };
  * const command = new DescribeReportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeReportJobOutput
- *   ReportJob: { // ReportJob
- *     ReportJobId: "STRING_VALUE",
- *     ReportPlanArn: "STRING_VALUE",
- *     ReportTemplate: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     CompletionTime: new Date("TIMESTAMP"),
- *     Status: "STRING_VALUE",
- *     StatusMessage: "STRING_VALUE",
- *     ReportDestination: { // ReportDestination
- *       S3BucketName: "STRING_VALUE",
- *       S3Keys: [ // stringList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // DescribeReportJobOutput
+ * //   ReportJob: { // ReportJob
+ * //     ReportJobId: "STRING_VALUE",
+ * //     ReportPlanArn: "STRING_VALUE",
+ * //     ReportTemplate: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     CompletionTime: new Date("TIMESTAMP"),
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ReportDestination: { // ReportDestination
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3Keys: [ // stringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

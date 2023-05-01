@@ -46,10 +46,9 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterInstanceResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // DeregisterInstanceResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

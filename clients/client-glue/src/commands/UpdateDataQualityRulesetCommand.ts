@@ -46,12 +46,11 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * };
  * const command = new UpdateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDataQualityRulesetResponse
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Ruleset: "STRING_VALUE",
- * };
+ * // { // UpdateDataQualityRulesetResponse
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Ruleset: "STRING_VALUE",
+ * // };
  *
  * ```
  *

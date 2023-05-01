@@ -76,13 +76,12 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * };
  * const command = new CreateModelVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelVersionResult
- *   modelId: "STRING_VALUE",
- *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
- *   modelVersionNumber: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // CreateModelVersionResult
+ * //   modelId: "STRING_VALUE",
+ * //   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ * //   modelVersionNumber: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

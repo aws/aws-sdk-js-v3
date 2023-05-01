@@ -44,43 +44,42 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  * };
  * const command = new DeleteCoreNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCoreNetworkResponse
- *   CoreNetwork: { // CoreNetwork
- *     GlobalNetworkId: "STRING_VALUE",
- *     CoreNetworkId: "STRING_VALUE",
- *     CoreNetworkArn: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "CREATING" || "UPDATING" || "AVAILABLE" || "DELETING",
- *     Segments: [ // CoreNetworkSegmentList
- *       { // CoreNetworkSegment
- *         Name: "STRING_VALUE",
- *         EdgeLocations: [ // ExternalRegionCodeList
- *           "STRING_VALUE",
- *         ],
- *         SharedSegments: [ // ConstrainedStringList
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *     Edges: [ // CoreNetworkEdgeList
- *       { // CoreNetworkEdge
- *         EdgeLocation: "STRING_VALUE",
- *         Asn: Number("long"),
- *         InsideCidrBlocks: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *     ],
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteCoreNetworkResponse
+ * //   CoreNetwork: { // CoreNetwork
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     CoreNetworkId: "STRING_VALUE",
+ * //     CoreNetworkArn: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "CREATING" || "UPDATING" || "AVAILABLE" || "DELETING",
+ * //     Segments: [ // CoreNetworkSegmentList
+ * //       { // CoreNetworkSegment
+ * //         Name: "STRING_VALUE",
+ * //         EdgeLocations: [ // ExternalRegionCodeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SharedSegments: [ // ConstrainedStringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Edges: [ // CoreNetworkEdgeList
+ * //       { // CoreNetworkEdge
+ * //         EdgeLocation: "STRING_VALUE",
+ * //         Asn: Number("long"),
+ * //         InsideCidrBlocks: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

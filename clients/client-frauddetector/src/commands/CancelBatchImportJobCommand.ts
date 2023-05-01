@@ -44,8 +44,7 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * };
  * const command = new CancelBatchImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

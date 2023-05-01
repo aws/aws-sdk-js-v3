@@ -68,24 +68,23 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * };
  * const command = new QueryLineageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // QueryLineageResponse
- *   Vertices: [ // Vertices
- *     { // Vertex
- *       Arn: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       LineageType: "TrialComponent" || "Artifact" || "Context" || "Action",
- *     },
- *   ],
- *   Edges: [ // Edges
- *     { // Edge
- *       SourceArn: "STRING_VALUE",
- *       DestinationArn: "STRING_VALUE",
- *       AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // QueryLineageResponse
+ * //   Vertices: [ // Vertices
+ * //     { // Vertex
+ * //       Arn: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       LineageType: "TrialComponent" || "Artifact" || "Context" || "Action",
+ * //     },
+ * //   ],
+ * //   Edges: [ // Edges
+ * //     { // Edge
+ * //       SourceArn: "STRING_VALUE",
+ * //       DestinationArn: "STRING_VALUE",
+ * //       AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

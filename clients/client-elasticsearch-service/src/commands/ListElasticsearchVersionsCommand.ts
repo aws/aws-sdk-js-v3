@@ -49,13 +49,12 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  * };
  * const command = new ListElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListElasticsearchVersionsResponse
- *   ElasticsearchVersions: [ // ElasticsearchVersionList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListElasticsearchVersionsResponse
+ * //   ElasticsearchVersions: [ // ElasticsearchVersionList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

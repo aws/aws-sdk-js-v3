@@ -63,8 +63,7 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * };
  * const command = new DisassociateCreatedArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

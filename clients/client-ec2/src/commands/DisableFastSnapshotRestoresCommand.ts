@@ -50,38 +50,37 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * };
  * const command = new DisableFastSnapshotRestoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableFastSnapshotRestoresResult
- *   Successful: [ // DisableFastSnapshotRestoreSuccessSet
- *     { // DisableFastSnapshotRestoreSuccessItem
- *       SnapshotId: "STRING_VALUE",
- *       AvailabilityZone: "STRING_VALUE",
- *       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
- *       StateTransitionReason: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       OwnerAlias: "STRING_VALUE",
- *       EnablingTime: new Date("TIMESTAMP"),
- *       OptimizingTime: new Date("TIMESTAMP"),
- *       EnabledTime: new Date("TIMESTAMP"),
- *       DisablingTime: new Date("TIMESTAMP"),
- *       DisabledTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   Unsuccessful: [ // DisableFastSnapshotRestoreErrorSet
- *     { // DisableFastSnapshotRestoreErrorItem
- *       SnapshotId: "STRING_VALUE",
- *       FastSnapshotRestoreStateErrors: [ // DisableFastSnapshotRestoreStateErrorSet
- *         { // DisableFastSnapshotRestoreStateErrorItem
- *           AvailabilityZone: "STRING_VALUE",
- *           Error: { // DisableFastSnapshotRestoreStateError
- *             Code: "STRING_VALUE",
- *             Message: "STRING_VALUE",
- *           },
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DisableFastSnapshotRestoresResult
+ * //   Successful: [ // DisableFastSnapshotRestoreSuccessSet
+ * //     { // DisableFastSnapshotRestoreSuccessItem
+ * //       SnapshotId: "STRING_VALUE",
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       State: "enabling" || "optimizing" || "enabled" || "disabling" || "disabled",
+ * //       StateTransitionReason: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       OwnerAlias: "STRING_VALUE",
+ * //       EnablingTime: new Date("TIMESTAMP"),
+ * //       OptimizingTime: new Date("TIMESTAMP"),
+ * //       EnabledTime: new Date("TIMESTAMP"),
+ * //       DisablingTime: new Date("TIMESTAMP"),
+ * //       DisabledTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   Unsuccessful: [ // DisableFastSnapshotRestoreErrorSet
+ * //     { // DisableFastSnapshotRestoreErrorItem
+ * //       SnapshotId: "STRING_VALUE",
+ * //       FastSnapshotRestoreStateErrors: [ // DisableFastSnapshotRestoreStateErrorSet
+ * //         { // DisableFastSnapshotRestoreStateErrorItem
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           Error: { // DisableFastSnapshotRestoreStateError
+ * //             Code: "STRING_VALUE",
+ * //             Message: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

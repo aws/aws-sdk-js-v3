@@ -45,8 +45,7 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * };
  * const command = new DeleteEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

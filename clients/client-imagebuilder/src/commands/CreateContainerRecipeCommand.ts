@@ -96,12 +96,11 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * };
  * const command = new CreateContainerRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateContainerRecipeResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   containerRecipeArn: "STRING_VALUE",
- * };
+ * // { // CreateContainerRecipeResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   containerRecipeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

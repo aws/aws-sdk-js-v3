@@ -48,8 +48,7 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

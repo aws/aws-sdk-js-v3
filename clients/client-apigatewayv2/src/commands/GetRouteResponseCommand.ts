@@ -46,20 +46,19 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * };
  * const command = new GetRouteResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRouteResponseResponse
- *   ModelSelectionExpression: "STRING_VALUE",
- *   ResponseModels: { // RouteModels
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ResponseParameters: { // RouteParameters
- *     "<keys>": { // ParameterConstraints
- *       Required: true || false,
- *     },
- *   },
- *   RouteResponseId: "STRING_VALUE",
- *   RouteResponseKey: "STRING_VALUE",
- * };
+ * // { // GetRouteResponseResponse
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   ResponseModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteResponseId: "STRING_VALUE",
+ * //   RouteResponseKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

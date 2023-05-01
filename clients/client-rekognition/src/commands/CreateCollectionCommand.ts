@@ -61,12 +61,11 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCollectionResponse
- *   StatusCode: Number("int"),
- *   CollectionArn: "STRING_VALUE",
- *   FaceModelVersion: "STRING_VALUE",
- * };
+ * // { // CreateCollectionResponse
+ * //   StatusCode: Number("int"),
+ * //   CollectionArn: "STRING_VALUE",
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

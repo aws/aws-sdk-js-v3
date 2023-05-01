@@ -92,10 +92,9 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * };
  * const command = new CreateMLTransformCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMLTransformResponse
- *   TransformId: "STRING_VALUE",
- * };
+ * // { // CreateMLTransformResponse
+ * //   TransformId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

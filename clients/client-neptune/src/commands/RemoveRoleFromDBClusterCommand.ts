@@ -46,8 +46,7 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

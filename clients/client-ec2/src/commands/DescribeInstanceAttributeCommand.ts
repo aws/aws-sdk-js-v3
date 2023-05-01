@@ -53,68 +53,67 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // InstanceAttribute
- *   Groups: [ // GroupIdentifierList
- *     { // GroupIdentifier
- *       GroupName: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *     },
- *   ],
- *   BlockDeviceMappings: [ // InstanceBlockDeviceMappingList
- *     { // InstanceBlockDeviceMapping
- *       DeviceName: "STRING_VALUE",
- *       Ebs: { // EbsInstanceBlockDevice
- *         AttachTime: new Date("TIMESTAMP"),
- *         DeleteOnTermination: true || false,
- *         Status: "attaching" || "attached" || "detaching" || "detached",
- *         VolumeId: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   DisableApiTermination: { // AttributeBooleanValue
- *     Value: true || false,
- *   },
- *   EnaSupport: {
- *     Value: true || false,
- *   },
- *   EnclaveOptions: { // EnclaveOptions
- *     Enabled: true || false,
- *   },
- *   EbsOptimized: {
- *     Value: true || false,
- *   },
- *   InstanceId: "STRING_VALUE",
- *   InstanceInitiatedShutdownBehavior: { // AttributeValue
- *     Value: "STRING_VALUE",
- *   },
- *   InstanceType: {
- *     Value: "STRING_VALUE",
- *   },
- *   KernelId: {
- *     Value: "STRING_VALUE",
- *   },
- *   ProductCodes: [ // ProductCodeList
- *     { // ProductCode
- *       ProductCodeId: "STRING_VALUE",
- *       ProductCodeType: "devpay" || "marketplace",
- *     },
- *   ],
- *   RamdiskId: {
- *     Value: "STRING_VALUE",
- *   },
- *   RootDeviceName: {
- *     Value: "STRING_VALUE",
- *   },
- *   SourceDestCheck: {
- *     Value: true || false,
- *   },
- *   SriovNetSupport: "<AttributeValue>",
- *   UserData: "<AttributeValue>",
- *   DisableApiStop: {
- *     Value: true || false,
- *   },
- * };
+ * // { // InstanceAttribute
+ * //   Groups: [ // GroupIdentifierList
+ * //     { // GroupIdentifier
+ * //       GroupName: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   BlockDeviceMappings: [ // InstanceBlockDeviceMappingList
+ * //     { // InstanceBlockDeviceMapping
+ * //       DeviceName: "STRING_VALUE",
+ * //       Ebs: { // EbsInstanceBlockDevice
+ * //         AttachTime: new Date("TIMESTAMP"),
+ * //         DeleteOnTermination: true || false,
+ * //         Status: "attaching" || "attached" || "detaching" || "detached",
+ * //         VolumeId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   DisableApiTermination: { // AttributeBooleanValue
+ * //     Value: true || false,
+ * //   },
+ * //   EnaSupport: {
+ * //     Value: true || false,
+ * //   },
+ * //   EnclaveOptions: { // EnclaveOptions
+ * //     Enabled: true || false,
+ * //   },
+ * //   EbsOptimized: {
+ * //     Value: true || false,
+ * //   },
+ * //   InstanceId: "STRING_VALUE",
+ * //   InstanceInitiatedShutdownBehavior: { // AttributeValue
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   InstanceType: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   KernelId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   ProductCodes: [ // ProductCodeList
+ * //     { // ProductCode
+ * //       ProductCodeId: "STRING_VALUE",
+ * //       ProductCodeType: "devpay" || "marketplace",
+ * //     },
+ * //   ],
+ * //   RamdiskId: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   RootDeviceName: {
+ * //     Value: "STRING_VALUE",
+ * //   },
+ * //   SourceDestCheck: {
+ * //     Value: true || false,
+ * //   },
+ * //   SriovNetSupport: "<AttributeValue>",
+ * //   UserData: "<AttributeValue>",
+ * //   DisableApiStop: {
+ * //     Value: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

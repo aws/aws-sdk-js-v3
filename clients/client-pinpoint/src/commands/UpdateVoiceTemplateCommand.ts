@@ -56,13 +56,12 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  * };
  * const command = new UpdateVoiceTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVoiceTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateVoiceTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

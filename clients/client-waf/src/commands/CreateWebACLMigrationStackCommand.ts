@@ -53,10 +53,9 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * };
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWebACLMigrationStackResponse
- *   S3ObjectUrl: "STRING_VALUE", // required
- * };
+ * // { // CreateWebACLMigrationStackResponse
+ * //   S3ObjectUrl: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

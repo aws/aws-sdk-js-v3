@@ -66,25 +66,24 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePendingMaintenanceActionsResponse
- *   PendingMaintenanceActions: [ // PendingMaintenanceActions
- *     { // ResourcePendingMaintenanceActions
- *       ResourceIdentifier: "STRING_VALUE",
- *       PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
- *         { // PendingMaintenanceAction
- *           Action: "STRING_VALUE",
- *           AutoAppliedAfterDate: new Date("TIMESTAMP"),
- *           ForcedApplyDate: new Date("TIMESTAMP"),
- *           OptInStatus: "STRING_VALUE",
- *           CurrentApplyDate: new Date("TIMESTAMP"),
- *           Description: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribePendingMaintenanceActionsResponse
+ * //   PendingMaintenanceActions: [ // PendingMaintenanceActions
+ * //     { // ResourcePendingMaintenanceActions
+ * //       ResourceIdentifier: "STRING_VALUE",
+ * //       PendingMaintenanceActionDetails: [ // PendingMaintenanceActionDetails
+ * //         { // PendingMaintenanceAction
+ * //           Action: "STRING_VALUE",
+ * //           AutoAppliedAfterDate: new Date("TIMESTAMP"),
+ * //           ForcedApplyDate: new Date("TIMESTAMP"),
+ * //           OptInStatus: "STRING_VALUE",
+ * //           CurrentApplyDate: new Date("TIMESTAMP"),
+ * //           Description: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

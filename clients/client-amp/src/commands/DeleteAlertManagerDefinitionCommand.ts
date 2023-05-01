@@ -48,8 +48,7 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

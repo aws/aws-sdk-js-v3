@@ -53,24 +53,23 @@ export interface ListWorldGenerationJobsCommandOutput extends ListWorldGeneratio
  * };
  * const command = new ListWorldGenerationJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorldGenerationJobsResponse
- *   worldGenerationJobSummaries: [ // WorldGenerationJobSummaries // required
- *     { // WorldGenerationJobSummary
- *       arn: "STRING_VALUE",
- *       template: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       status: "STRING_VALUE",
- *       worldCount: { // WorldCount
- *         floorplanCount: Number("int"),
- *         interiorCountPerFloorplan: Number("int"),
- *       },
- *       succeededWorldCount: Number("int"),
- *       failedWorldCount: Number("int"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListWorldGenerationJobsResponse
+ * //   worldGenerationJobSummaries: [ // WorldGenerationJobSummaries // required
+ * //     { // WorldGenerationJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       template: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       worldCount: { // WorldCount
+ * //         floorplanCount: Number("int"),
+ * //         interiorCountPerFloorplan: Number("int"),
+ * //       },
+ * //       succeededWorldCount: Number("int"),
+ * //       failedWorldCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

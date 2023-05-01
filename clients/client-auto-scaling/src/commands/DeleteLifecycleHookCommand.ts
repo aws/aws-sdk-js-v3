@@ -48,8 +48,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * };
  * const command = new DeleteLifecycleHookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,8 +56,7 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateOrUpdateTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

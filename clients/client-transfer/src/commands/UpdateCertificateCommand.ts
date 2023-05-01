@@ -47,10 +47,9 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * };
  * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCertificateResponse
- *   CertificateId: "STRING_VALUE", // required
- * };
+ * // { // UpdateCertificateResponse
+ * //   CertificateId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

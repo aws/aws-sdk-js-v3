@@ -45,14 +45,13 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
  * };
  * const command = new RemoveFlowVpcInterfaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveFlowVpcInterfaceResponse
- *   FlowArn: "STRING_VALUE",
- *   NonDeletedNetworkInterfaceIds: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   VpcInterfaceName: "STRING_VALUE",
- * };
+ * // { // RemoveFlowVpcInterfaceResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   NonDeletedNetworkInterfaceIds: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   VpcInterfaceName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

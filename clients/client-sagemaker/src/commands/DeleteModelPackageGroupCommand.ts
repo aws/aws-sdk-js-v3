@@ -44,8 +44,7 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteModelPackageGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

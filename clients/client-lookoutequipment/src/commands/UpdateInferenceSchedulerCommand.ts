@@ -65,8 +65,7 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  * };
  * const command = new UpdateInferenceSchedulerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

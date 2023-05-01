@@ -63,15 +63,14 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelResponse
- *   channelName: "STRING_VALUE",
- *   channelArn: "STRING_VALUE",
- *   retentionPeriod: { // RetentionPeriod
- *     unlimited: true || false,
- *     numberOfDays: Number("int"),
- *   },
- * };
+ * // { // CreateChannelResponse
+ * //   channelName: "STRING_VALUE",
+ * //   channelArn: "STRING_VALUE",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     unlimited: true || false,
+ * //     numberOfDays: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

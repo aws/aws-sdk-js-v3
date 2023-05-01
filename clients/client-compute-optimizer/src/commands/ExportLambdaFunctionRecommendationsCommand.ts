@@ -76,15 +76,14 @@ export interface ExportLambdaFunctionRecommendationsCommandOutput
  * };
  * const command = new ExportLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportLambdaFunctionRecommendationsResponse
- *   jobId: "STRING_VALUE",
- *   s3Destination: { // S3Destination
- *     bucket: "STRING_VALUE",
- *     key: "STRING_VALUE",
- *     metadataKey: "STRING_VALUE",
- *   },
- * };
+ * // { // ExportLambdaFunctionRecommendationsResponse
+ * //   jobId: "STRING_VALUE",
+ * //   s3Destination: { // S3Destination
+ * //     bucket: "STRING_VALUE",
+ * //     key: "STRING_VALUE",
+ * //     metadataKey: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

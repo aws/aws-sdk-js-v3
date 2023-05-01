@@ -47,8 +47,7 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * };
  * const command = new CancelLegalHoldCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

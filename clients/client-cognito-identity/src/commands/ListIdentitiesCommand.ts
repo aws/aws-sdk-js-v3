@@ -49,21 +49,20 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * };
  * const command = new ListIdentitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListIdentitiesResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   Identities: [ // IdentitiesList
- *     { // IdentityDescription
- *       IdentityId: "STRING_VALUE",
- *       Logins: [ // LoginsList
- *         "STRING_VALUE",
- *       ],
- *       CreationDate: new Date("TIMESTAMP"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListIdentitiesResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   Identities: [ // IdentitiesList
+ * //     { // IdentityDescription
+ * //       IdentityId: "STRING_VALUE",
+ * //       Logins: [ // LoginsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

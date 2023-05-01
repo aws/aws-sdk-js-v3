@@ -55,12 +55,11 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  * };
  * const command = new DescribeWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWebsiteCertificateAuthorityResponse
- *   Certificate: "STRING_VALUE",
- *   CreatedTime: new Date("TIMESTAMP"),
- *   DisplayName: "STRING_VALUE",
- * };
+ * // { // DescribeWebsiteCertificateAuthorityResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * //   DisplayName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

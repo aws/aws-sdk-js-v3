@@ -111,8 +111,7 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * };
  * const command = new DeregisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

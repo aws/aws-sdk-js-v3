@@ -44,8 +44,7 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResumeResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -52,10 +52,9 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * };
  * const command = new DisableGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableGatewayOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // DisableGatewayOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

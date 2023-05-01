@@ -60,13 +60,12 @@ export interface UpdateRefreshScheduleCommandOutput extends UpdateRefreshSchedul
  * };
  * const command = new UpdateRefreshScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRefreshScheduleResponse
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- *   ScheduleId: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- * };
+ * // { // UpdateRefreshScheduleResponse
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   ScheduleId: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

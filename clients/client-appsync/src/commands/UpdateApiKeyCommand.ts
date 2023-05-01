@@ -47,15 +47,14 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * };
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateApiKeyResponse
- *   apiKey: { // ApiKey
- *     id: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     expires: Number("long"),
- *     deletes: Number("long"),
- *   },
- * };
+ * // { // UpdateApiKeyResponse
+ * //   apiKey: { // ApiKey
+ * //     id: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     expires: Number("long"),
+ * //     deletes: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

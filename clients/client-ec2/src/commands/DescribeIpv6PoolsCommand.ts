@@ -57,27 +57,26 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * };
  * const command = new DescribeIpv6PoolsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeIpv6PoolsResult
- *   Ipv6Pools: [ // Ipv6PoolSet
- *     { // Ipv6Pool
- *       PoolId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       PoolCidrBlocks: [ // PoolCidrBlocksSet
- *         { // PoolCidrBlock
- *           Cidr: "STRING_VALUE",
- *         },
- *       ],
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeIpv6PoolsResult
+ * //   Ipv6Pools: [ // Ipv6PoolSet
+ * //     { // Ipv6Pool
+ * //       PoolId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PoolCidrBlocks: [ // PoolCidrBlocksSet
+ * //         { // PoolCidrBlock
+ * //           Cidr: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

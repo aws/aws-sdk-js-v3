@@ -61,8 +61,7 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  * };
  * const command = new DisassociateQualificationFromWorkerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

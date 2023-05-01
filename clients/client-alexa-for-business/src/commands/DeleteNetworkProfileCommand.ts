@@ -44,8 +44,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * };
  * const command = new DeleteNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

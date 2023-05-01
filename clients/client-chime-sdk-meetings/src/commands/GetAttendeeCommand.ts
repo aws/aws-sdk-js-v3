@@ -49,19 +49,18 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * };
  * const command = new GetAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAttendeeResponse
- *   Attendee: { // Attendee
- *     ExternalUserId: "STRING_VALUE",
- *     AttendeeId: "STRING_VALUE",
- *     JoinToken: "STRING_VALUE",
- *     Capabilities: { // AttendeeCapabilities
- *       Audio: "SendReceive" || "Send" || "Receive" || "None", // required
- *       Video: "SendReceive" || "Send" || "Receive" || "None", // required
- *       Content: "SendReceive" || "Send" || "Receive" || "None", // required
- *     },
- *   },
- * };
+ * // { // GetAttendeeResponse
+ * //   Attendee: { // Attendee
+ * //     ExternalUserId: "STRING_VALUE",
+ * //     AttendeeId: "STRING_VALUE",
+ * //     JoinToken: "STRING_VALUE",
+ * //     Capabilities: { // AttendeeCapabilities
+ * //       Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //       Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

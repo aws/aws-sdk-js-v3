@@ -45,8 +45,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -62,50 +62,49 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * };
  * const command = new DescribeFpgaImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFpgaImagesResult
- *   FpgaImages: [ // FpgaImageList
- *     { // FpgaImage
- *       FpgaImageId: "STRING_VALUE",
- *       FpgaImageGlobalId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ShellVersion: "STRING_VALUE",
- *       PciId: { // PciId
- *         DeviceId: "STRING_VALUE",
- *         VendorId: "STRING_VALUE",
- *         SubsystemId: "STRING_VALUE",
- *         SubsystemVendorId: "STRING_VALUE",
- *       },
- *       State: { // FpgaImageState
- *         Code: "pending" || "failed" || "available" || "unavailable",
- *         Message: "STRING_VALUE",
- *       },
- *       CreateTime: new Date("TIMESTAMP"),
- *       UpdateTime: new Date("TIMESTAMP"),
- *       OwnerId: "STRING_VALUE",
- *       OwnerAlias: "STRING_VALUE",
- *       ProductCodes: [ // ProductCodeList
- *         { // ProductCode
- *           ProductCodeId: "STRING_VALUE",
- *           ProductCodeType: "devpay" || "marketplace",
- *         },
- *       ],
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       Public: true || false,
- *       DataRetentionSupport: true || false,
- *       InstanceTypes: [ // InstanceTypesList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFpgaImagesResult
+ * //   FpgaImages: [ // FpgaImageList
+ * //     { // FpgaImage
+ * //       FpgaImageId: "STRING_VALUE",
+ * //       FpgaImageGlobalId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ShellVersion: "STRING_VALUE",
+ * //       PciId: { // PciId
+ * //         DeviceId: "STRING_VALUE",
+ * //         VendorId: "STRING_VALUE",
+ * //         SubsystemId: "STRING_VALUE",
+ * //         SubsystemVendorId: "STRING_VALUE",
+ * //       },
+ * //       State: { // FpgaImageState
+ * //         Code: "pending" || "failed" || "available" || "unavailable",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       CreateTime: new Date("TIMESTAMP"),
+ * //       UpdateTime: new Date("TIMESTAMP"),
+ * //       OwnerId: "STRING_VALUE",
+ * //       OwnerAlias: "STRING_VALUE",
+ * //       ProductCodes: [ // ProductCodeList
+ * //         { // ProductCode
+ * //           ProductCodeId: "STRING_VALUE",
+ * //           ProductCodeType: "devpay" || "marketplace",
+ * //         },
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Public: true || false,
+ * //       DataRetentionSupport: true || false,
+ * //       InstanceTypes: [ // InstanceTypesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

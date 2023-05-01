@@ -45,11 +45,10 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * };
  * const command = new DeleteRecipeVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRecipeVersionResponse
- *   Name: "STRING_VALUE", // required
- *   RecipeVersion: "STRING_VALUE", // required
- * };
+ * // { // DeleteRecipeVersionResponse
+ * //   Name: "STRING_VALUE", // required
+ * //   RecipeVersion: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

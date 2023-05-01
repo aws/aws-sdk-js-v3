@@ -46,19 +46,18 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * };
  * const command = new ListImportFailuresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListImportFailuresResponse
- *   Failures: [ // ImportFailureList
- *     { // ImportFailureListItem
- *       Location: "STRING_VALUE",
- *       Status: "FAILED" || "RETRY" || "SUCCEEDED",
- *       ErrorType: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListImportFailuresResponse
+ * //   Failures: [ // ImportFailureList
+ * //     { // ImportFailureListItem
+ * //       Location: "STRING_VALUE",
+ * //       Status: "FAILED" || "RETRY" || "SUCCEEDED",
+ * //       ErrorType: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

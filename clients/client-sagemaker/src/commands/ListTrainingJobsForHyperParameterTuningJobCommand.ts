@@ -59,32 +59,31 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * };
  * const command = new ListTrainingJobsForHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrainingJobsForHyperParameterTuningJobResponse
- *   TrainingJobSummaries: [ // HyperParameterTrainingJobSummaries // required
- *     { // HyperParameterTrainingJobSummary
- *       TrainingJobDefinitionName: "STRING_VALUE",
- *       TrainingJobName: "STRING_VALUE", // required
- *       TrainingJobArn: "STRING_VALUE", // required
- *       TuningJobName: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       TrainingStartTime: new Date("TIMESTAMP"),
- *       TrainingEndTime: new Date("TIMESTAMP"),
- *       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
- *       TunedHyperParameters: { // HyperParameters // required
- *         "<keys>": "STRING_VALUE",
- *       },
- *       FailureReason: "STRING_VALUE",
- *       FinalHyperParameterTuningJobObjectiveMetric: { // FinalHyperParameterTuningJobObjectiveMetric
- *         Type: "Maximize" || "Minimize",
- *         MetricName: "STRING_VALUE", // required
- *         Value: Number("float"), // required
- *       },
- *       ObjectiveStatus: "Succeeded" || "Pending" || "Failed",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTrainingJobsForHyperParameterTuningJobResponse
+ * //   TrainingJobSummaries: [ // HyperParameterTrainingJobSummaries // required
+ * //     { // HyperParameterTrainingJobSummary
+ * //       TrainingJobDefinitionName: "STRING_VALUE",
+ * //       TrainingJobName: "STRING_VALUE", // required
+ * //       TrainingJobArn: "STRING_VALUE", // required
+ * //       TuningJobName: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       TrainingStartTime: new Date("TIMESTAMP"),
+ * //       TrainingEndTime: new Date("TIMESTAMP"),
+ * //       TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       TunedHyperParameters: { // HyperParameters // required
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       FailureReason: "STRING_VALUE",
+ * //       FinalHyperParameterTuningJobObjectiveMetric: { // FinalHyperParameterTuningJobObjectiveMetric
+ * //         Type: "Maximize" || "Minimize",
+ * //         MetricName: "STRING_VALUE", // required
+ * //         Value: Number("float"), // required
+ * //       },
+ * //       ObjectiveStatus: "Succeeded" || "Pending" || "Failed",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

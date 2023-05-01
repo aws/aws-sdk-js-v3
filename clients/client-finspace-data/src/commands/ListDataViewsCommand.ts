@@ -46,39 +46,38 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * };
  * const command = new ListDataViewsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDataViewsResponse
- *   nextToken: "STRING_VALUE",
- *   dataViews: [ // DataViewList
- *     { // DataViewSummary
- *       dataViewId: "STRING_VALUE",
- *       dataViewArn: "STRING_VALUE",
- *       datasetId: "STRING_VALUE",
- *       asOfTimestamp: Number("long"),
- *       partitionColumns: [ // PartitionColumnList
- *         "STRING_VALUE",
- *       ],
- *       sortColumns: [ // SortColumnList
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE",
- *       errorInfo: { // DataViewErrorInfo
- *         errorMessage: "STRING_VALUE",
- *         errorCategory: "STRING_VALUE",
- *       },
- *       destinationTypeProperties: { // DataViewDestinationTypeParams
- *         destinationType: "STRING_VALUE", // required
- *         s3DestinationExportFileFormat: "STRING_VALUE",
- *         s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *       autoUpdate: true || false,
- *       createTime: Number("long"),
- *       lastModifiedTime: Number("long"),
- *     },
- *   ],
- * };
+ * // { // ListDataViewsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   dataViews: [ // DataViewList
+ * //     { // DataViewSummary
+ * //       dataViewId: "STRING_VALUE",
+ * //       dataViewArn: "STRING_VALUE",
+ * //       datasetId: "STRING_VALUE",
+ * //       asOfTimestamp: Number("long"),
+ * //       partitionColumns: [ // PartitionColumnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       sortColumns: [ // SortColumnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       errorInfo: { // DataViewErrorInfo
+ * //         errorMessage: "STRING_VALUE",
+ * //         errorCategory: "STRING_VALUE",
+ * //       },
+ * //       destinationTypeProperties: { // DataViewDestinationTypeParams
+ * //         destinationType: "STRING_VALUE", // required
+ * //         s3DestinationExportFileFormat: "STRING_VALUE",
+ * //         s3DestinationExportFileFormatOptions: { // S3DestinationFormatOptions
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       autoUpdate: true || false,
+ * //       createTime: Number("long"),
+ * //       lastModifiedTime: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

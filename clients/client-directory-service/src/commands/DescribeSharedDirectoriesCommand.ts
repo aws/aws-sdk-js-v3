@@ -53,23 +53,22 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * };
  * const command = new DescribeSharedDirectoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSharedDirectoriesResult
- *   SharedDirectories: [ // SharedDirectories
- *     { // SharedDirectory
- *       OwnerAccountId: "STRING_VALUE",
- *       OwnerDirectoryId: "STRING_VALUE",
- *       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
- *       SharedAccountId: "STRING_VALUE",
- *       SharedDirectoryId: "STRING_VALUE",
- *       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
- *       ShareNotes: "STRING_VALUE",
- *       CreatedDateTime: new Date("TIMESTAMP"),
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSharedDirectoriesResult
+ * //   SharedDirectories: [ // SharedDirectories
+ * //     { // SharedDirectory
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       OwnerDirectoryId: "STRING_VALUE",
+ * //       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
+ * //       SharedAccountId: "STRING_VALUE",
+ * //       SharedDirectoryId: "STRING_VALUE",
+ * //       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
+ * //       ShareNotes: "STRING_VALUE",
+ * //       CreatedDateTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

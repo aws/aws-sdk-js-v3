@@ -57,8 +57,7 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

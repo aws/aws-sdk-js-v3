@@ -44,8 +44,7 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * };
  * const command = new DeleteProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

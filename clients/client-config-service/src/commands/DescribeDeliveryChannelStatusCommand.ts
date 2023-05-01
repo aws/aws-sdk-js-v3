@@ -58,36 +58,35 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * };
  * const command = new DescribeDeliveryChannelStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDeliveryChannelStatusResponse
- *   DeliveryChannelsStatus: [ // DeliveryChannelStatusList
- *     { // DeliveryChannelStatus
- *       name: "STRING_VALUE",
- *       configSnapshotDeliveryInfo: { // ConfigExportDeliveryInfo
- *         lastStatus: "Success" || "Failure" || "Not_Applicable",
- *         lastErrorCode: "STRING_VALUE",
- *         lastErrorMessage: "STRING_VALUE",
- *         lastAttemptTime: new Date("TIMESTAMP"),
- *         lastSuccessfulTime: new Date("TIMESTAMP"),
- *         nextDeliveryTime: new Date("TIMESTAMP"),
- *       },
- *       configHistoryDeliveryInfo: {
- *         lastStatus: "Success" || "Failure" || "Not_Applicable",
- *         lastErrorCode: "STRING_VALUE",
- *         lastErrorMessage: "STRING_VALUE",
- *         lastAttemptTime: new Date("TIMESTAMP"),
- *         lastSuccessfulTime: new Date("TIMESTAMP"),
- *         nextDeliveryTime: new Date("TIMESTAMP"),
- *       },
- *       configStreamDeliveryInfo: { // ConfigStreamDeliveryInfo
- *         lastStatus: "Success" || "Failure" || "Not_Applicable",
- *         lastErrorCode: "STRING_VALUE",
- *         lastErrorMessage: "STRING_VALUE",
- *         lastStatusChangeTime: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeDeliveryChannelStatusResponse
+ * //   DeliveryChannelsStatus: [ // DeliveryChannelStatusList
+ * //     { // DeliveryChannelStatus
+ * //       name: "STRING_VALUE",
+ * //       configSnapshotDeliveryInfo: { // ConfigExportDeliveryInfo
+ * //         lastStatus: "Success" || "Failure" || "Not_Applicable",
+ * //         lastErrorCode: "STRING_VALUE",
+ * //         lastErrorMessage: "STRING_VALUE",
+ * //         lastAttemptTime: new Date("TIMESTAMP"),
+ * //         lastSuccessfulTime: new Date("TIMESTAMP"),
+ * //         nextDeliveryTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       configHistoryDeliveryInfo: {
+ * //         lastStatus: "Success" || "Failure" || "Not_Applicable",
+ * //         lastErrorCode: "STRING_VALUE",
+ * //         lastErrorMessage: "STRING_VALUE",
+ * //         lastAttemptTime: new Date("TIMESTAMP"),
+ * //         lastSuccessfulTime: new Date("TIMESTAMP"),
+ * //         nextDeliveryTime: new Date("TIMESTAMP"),
+ * //       },
+ * //       configStreamDeliveryInfo: { // ConfigStreamDeliveryInfo
+ * //         lastStatus: "Success" || "Failure" || "Not_Applicable",
+ * //         lastErrorCode: "STRING_VALUE",
+ * //         lastErrorMessage: "STRING_VALUE",
+ * //         lastStatusChangeTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

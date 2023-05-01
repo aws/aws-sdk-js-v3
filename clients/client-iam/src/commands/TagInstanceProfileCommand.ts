@@ -85,8 +85,7 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

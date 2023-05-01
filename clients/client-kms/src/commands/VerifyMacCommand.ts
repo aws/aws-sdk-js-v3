@@ -70,12 +70,11 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * };
  * const command = new VerifyMacCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifyMacResponse
- *   KeyId: "STRING_VALUE",
- *   MacValid: true || false,
- *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
- * };
+ * // { // VerifyMacResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   MacValid: true || false,
+ * //   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
+ * // };
  *
  * ```
  *

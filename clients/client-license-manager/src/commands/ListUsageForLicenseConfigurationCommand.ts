@@ -61,20 +61,19 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * };
  * const command = new ListUsageForLicenseConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsageForLicenseConfigurationResponse
- *   LicenseConfigurationUsageList: [ // LicenseConfigurationUsageList
- *     { // LicenseConfigurationUsage
- *       ResourceArn: "STRING_VALUE",
- *       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
- *       ResourceStatus: "STRING_VALUE",
- *       ResourceOwnerId: "STRING_VALUE",
- *       AssociationTime: new Date("TIMESTAMP"),
- *       ConsumedLicenses: Number("long"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUsageForLicenseConfigurationResponse
+ * //   LicenseConfigurationUsageList: [ // LicenseConfigurationUsageList
+ * //     { // LicenseConfigurationUsage
+ * //       ResourceArn: "STRING_VALUE",
+ * //       ResourceType: "EC2_INSTANCE" || "EC2_HOST" || "EC2_AMI" || "RDS" || "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+ * //       ResourceStatus: "STRING_VALUE",
+ * //       ResourceOwnerId: "STRING_VALUE",
+ * //       AssociationTime: new Date("TIMESTAMP"),
+ * //       ConsumedLicenses: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

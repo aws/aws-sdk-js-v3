@@ -51,8 +51,7 @@ export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AdminDeleteUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

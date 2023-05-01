@@ -64,8 +64,7 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssignInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

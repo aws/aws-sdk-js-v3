@@ -53,8 +53,7 @@ export interface PutMobileDeviceAccessOverrideCommandOutput
  * };
  * const command = new PutMobileDeviceAccessOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

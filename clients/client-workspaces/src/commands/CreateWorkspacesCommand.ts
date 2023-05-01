@@ -76,80 +76,79 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * };
  * const command = new CreateWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkspacesResult
- *   FailedRequests: [ // FailedCreateWorkspaceRequests
- *     { // FailedCreateWorkspaceRequest
- *       WorkspaceRequest: { // WorkspaceRequest
- *         DirectoryId: "STRING_VALUE", // required
- *         UserName: "STRING_VALUE", // required
- *         BundleId: "STRING_VALUE", // required
- *         VolumeEncryptionKey: "STRING_VALUE",
- *         UserVolumeEncryptionEnabled: true || false,
- *         RootVolumeEncryptionEnabled: true || false,
- *         WorkspaceProperties: { // WorkspaceProperties
- *           RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
- *           RunningModeAutoStopTimeoutInMinutes: Number("int"),
- *           RootVolumeSizeGib: Number("int"),
- *           UserVolumeSizeGib: Number("int"),
- *           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
- *           Protocols: [ // ProtocolList
- *             "PCOIP" || "WSP",
- *           ],
- *         },
- *         Tags: [ // TagList
- *           { // Tag
- *             Key: "STRING_VALUE", // required
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- *   PendingRequests: [ // WorkspaceList
- *     { // Workspace
- *       WorkspaceId: "STRING_VALUE",
- *       DirectoryId: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       IpAddress: "STRING_VALUE",
- *       State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
- *       BundleId: "STRING_VALUE",
- *       SubnetId: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ComputerName: "STRING_VALUE",
- *       VolumeEncryptionKey: "STRING_VALUE",
- *       UserVolumeEncryptionEnabled: true || false,
- *       RootVolumeEncryptionEnabled: true || false,
- *       WorkspaceProperties: {
- *         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
- *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
- *         RootVolumeSizeGib: Number("int"),
- *         UserVolumeSizeGib: Number("int"),
- *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
- *         Protocols: [
- *           "PCOIP" || "WSP",
- *         ],
- *       },
- *       ModificationStates: [ // ModificationStateList
- *         { // ModificationState
- *           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE",
- *           State: "UPDATE_INITIATED" || "UPDATE_IN_PROGRESS",
- *         },
- *       ],
- *       RelatedWorkspaces: [ // RelatedWorkspaces
- *         { // RelatedWorkspaceProperties
- *           WorkspaceId: "STRING_VALUE",
- *           Region: "STRING_VALUE",
- *           State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
- *           Type: "PRIMARY" || "STANDBY",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // CreateWorkspacesResult
+ * //   FailedRequests: [ // FailedCreateWorkspaceRequests
+ * //     { // FailedCreateWorkspaceRequest
+ * //       WorkspaceRequest: { // WorkspaceRequest
+ * //         DirectoryId: "STRING_VALUE", // required
+ * //         UserName: "STRING_VALUE", // required
+ * //         BundleId: "STRING_VALUE", // required
+ * //         VolumeEncryptionKey: "STRING_VALUE",
+ * //         UserVolumeEncryptionEnabled: true || false,
+ * //         RootVolumeEncryptionEnabled: true || false,
+ * //         WorkspaceProperties: { // WorkspaceProperties
+ * //           RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
+ * //           RunningModeAutoStopTimeoutInMinutes: Number("int"),
+ * //           RootVolumeSizeGib: Number("int"),
+ * //           UserVolumeSizeGib: Number("int"),
+ * //           ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //           Protocols: [ // ProtocolList
+ * //             "PCOIP" || "WSP",
+ * //           ],
+ * //         },
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   PendingRequests: [ // WorkspaceList
+ * //     { // Workspace
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       DirectoryId: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       IpAddress: "STRING_VALUE",
+ * //       State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
+ * //       BundleId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ComputerName: "STRING_VALUE",
+ * //       VolumeEncryptionKey: "STRING_VALUE",
+ * //       UserVolumeEncryptionEnabled: true || false,
+ * //       RootVolumeEncryptionEnabled: true || false,
+ * //       WorkspaceProperties: {
+ * //         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
+ * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),
+ * //         RootVolumeSizeGib: Number("int"),
+ * //         UserVolumeSizeGib: Number("int"),
+ * //         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         Protocols: [
+ * //           "PCOIP" || "WSP",
+ * //         ],
+ * //       },
+ * //       ModificationStates: [ // ModificationStateList
+ * //         { // ModificationState
+ * //           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE",
+ * //           State: "UPDATE_INITIATED" || "UPDATE_IN_PROGRESS",
+ * //         },
+ * //       ],
+ * //       RelatedWorkspaces: [ // RelatedWorkspaces
+ * //         { // RelatedWorkspaceProperties
+ * //           WorkspaceId: "STRING_VALUE",
+ * //           Region: "STRING_VALUE",
+ * //           State: "PENDING" || "AVAILABLE" || "IMPAIRED" || "UNHEALTHY" || "REBOOTING" || "STARTING" || "REBUILDING" || "RESTORING" || "MAINTENANCE" || "ADMIN_MAINTENANCE" || "TERMINATING" || "TERMINATED" || "SUSPENDED" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR",
+ * //           Type: "PRIMARY" || "STANDBY",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

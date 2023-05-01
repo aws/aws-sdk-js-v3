@@ -45,24 +45,23 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * };
  * const command = new DescribeStorageSystemCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeStorageSystemResponse
- *   StorageSystemArn: "STRING_VALUE",
- *   ServerConfiguration: { // DiscoveryServerConfiguration
- *     ServerHostname: "STRING_VALUE", // required
- *     ServerPort: Number("int"),
- *   },
- *   SystemType: "NetAppONTAP",
- *   AgentArns: [ // DiscoveryAgentArnList
- *     "STRING_VALUE",
- *   ],
- *   Name: "STRING_VALUE",
- *   ErrorMessage: "STRING_VALUE",
- *   ConnectivityStatus: "PASS" || "FAIL" || "UNKNOWN",
- *   CloudWatchLogGroupArn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   SecretsManagerArn: "STRING_VALUE",
- * };
+ * // { // DescribeStorageSystemResponse
+ * //   StorageSystemArn: "STRING_VALUE",
+ * //   ServerConfiguration: { // DiscoveryServerConfiguration
+ * //     ServerHostname: "STRING_VALUE", // required
+ * //     ServerPort: Number("int"),
+ * //   },
+ * //   SystemType: "NetAppONTAP",
+ * //   AgentArns: [ // DiscoveryAgentArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   ConnectivityStatus: "PASS" || "FAIL" || "UNKNOWN",
+ * //   CloudWatchLogGroupArn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   SecretsManagerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

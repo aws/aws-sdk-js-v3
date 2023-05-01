@@ -45,29 +45,28 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  * };
  * const command = new GetTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTopicRuleDestinationResponse
- *   topicRuleDestination: { // TopicRuleDestination
- *     arn: "STRING_VALUE",
- *     status: "ENABLED" || "IN_PROGRESS" || "DISABLED" || "ERROR" || "DELETING",
- *     createdAt: new Date("TIMESTAMP"),
- *     lastUpdatedAt: new Date("TIMESTAMP"),
- *     statusReason: "STRING_VALUE",
- *     httpUrlProperties: { // HttpUrlDestinationProperties
- *       confirmationUrl: "STRING_VALUE",
- *     },
- *     vpcProperties: { // VpcDestinationProperties
- *       subnetIds: [ // SubnetIdList
- *         "STRING_VALUE",
- *       ],
- *       securityGroups: [ // SecurityGroupList
- *         "STRING_VALUE",
- *       ],
- *       vpcId: "STRING_VALUE",
- *       roleArn: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetTopicRuleDestinationResponse
+ * //   topicRuleDestination: { // TopicRuleDestination
+ * //     arn: "STRING_VALUE",
+ * //     status: "ENABLED" || "IN_PROGRESS" || "DISABLED" || "ERROR" || "DELETING",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     statusReason: "STRING_VALUE",
+ * //     httpUrlProperties: { // HttpUrlDestinationProperties
+ * //       confirmationUrl: "STRING_VALUE",
+ * //     },
+ * //     vpcProperties: { // VpcDestinationProperties
+ * //       subnetIds: [ // SubnetIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       securityGroups: [ // SecurityGroupList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       vpcId: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

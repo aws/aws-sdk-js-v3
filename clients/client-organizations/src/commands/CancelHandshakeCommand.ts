@@ -53,36 +53,35 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * };
  * const command = new CancelHandshakeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelHandshakeResponse
- *   Handshake: { // Handshake
- *     Id: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Parties: [ // HandshakeParties
- *       { // HandshakeParty
- *         Id: "STRING_VALUE", // required
- *         Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
- *       },
- *     ],
- *     State: "REQUESTED" || "OPEN" || "CANCELED" || "ACCEPTED" || "DECLINED" || "EXPIRED",
- *     RequestedTimestamp: new Date("TIMESTAMP"),
- *     ExpirationTimestamp: new Date("TIMESTAMP"),
- *     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
- *     Resources: [ // HandshakeResources
- *       { // HandshakeResource
- *         Value: "STRING_VALUE",
- *         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
- *         Resources: [
- *           {
- *             Value: "STRING_VALUE",
- *             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
- *             Resources: "<HandshakeResources>",
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // CancelHandshakeResponse
+ * //   Handshake: { // Handshake
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Parties: [ // HandshakeParties
+ * //       { // HandshakeParty
+ * //         Id: "STRING_VALUE", // required
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
+ * //       },
+ * //     ],
+ * //     State: "REQUESTED" || "OPEN" || "CANCELED" || "ACCEPTED" || "DECLINED" || "EXPIRED",
+ * //     RequestedTimestamp: new Date("TIMESTAMP"),
+ * //     ExpirationTimestamp: new Date("TIMESTAMP"),
+ * //     Action: "INVITE" || "ENABLE_ALL_FEATURES" || "APPROVE_ALL_FEATURES" || "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+ * //     Resources: [ // HandshakeResources
+ * //       { // HandshakeResource
+ * //         Value: "STRING_VALUE",
+ * //         Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //         Resources: [
+ * //           {
+ * //             Value: "STRING_VALUE",
+ * //             Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATION_FEATURE_SET" || "EMAIL" || "MASTER_EMAIL" || "MASTER_NAME" || "NOTES" || "PARENT_HANDSHAKE",
+ * //             Resources: "<HandshakeResources>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

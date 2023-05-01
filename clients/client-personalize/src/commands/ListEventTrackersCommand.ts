@@ -49,19 +49,18 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * };
  * const command = new ListEventTrackersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEventTrackersResponse
- *   eventTrackers: [ // EventTrackers
- *     { // EventTrackerSummary
- *       name: "STRING_VALUE",
- *       eventTrackerArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEventTrackersResponse
+ * //   eventTrackers: [ // EventTrackers
+ * //     { // EventTrackerSummary
+ * //       name: "STRING_VALUE",
+ * //       eventTrackerArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

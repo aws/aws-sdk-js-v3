@@ -138,8 +138,7 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * };
  * const command = new PutStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

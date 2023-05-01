@@ -52,15 +52,14 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * };
  * const command = new ListRecoveryPointsByLegalHoldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecoveryPointsByLegalHoldOutput
- *   RecoveryPoints: [ // RecoveryPointsList
- *     { // RecoveryPointMember
- *       RecoveryPointArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListRecoveryPointsByLegalHoldOutput
+ * //   RecoveryPoints: [ // RecoveryPointsList
+ * //     { // RecoveryPointMember
+ * //       RecoveryPointArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

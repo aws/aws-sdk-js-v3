@@ -49,8 +49,7 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * };
  * const command = new UpdateRuleMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -127,8 +127,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

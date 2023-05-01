@@ -50,23 +50,22 @@ export interface ListFlywheelsCommandOutput extends ListFlywheelsResponse, __Met
  * };
  * const command = new ListFlywheelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFlywheelsResponse
- *   FlywheelSummaryList: [ // FlywheelSummaryList
- *     { // FlywheelSummary
- *       FlywheelArn: "STRING_VALUE",
- *       ActiveModelArn: "STRING_VALUE",
- *       DataLakeS3Uri: "STRING_VALUE",
- *       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
- *       ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       LatestFlywheelIteration: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFlywheelsResponse
+ * //   FlywheelSummaryList: [ // FlywheelSummaryList
+ * //     { // FlywheelSummary
+ * //       FlywheelArn: "STRING_VALUE",
+ * //       ActiveModelArn: "STRING_VALUE",
+ * //       DataLakeS3Uri: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED",
+ * //       ModelType: "DOCUMENT_CLASSIFIER" || "ENTITY_RECOGNIZER",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LatestFlywheelIteration: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

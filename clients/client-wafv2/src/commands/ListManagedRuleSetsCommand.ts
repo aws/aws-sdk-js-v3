@@ -50,20 +50,19 @@ export interface ListManagedRuleSetsCommandOutput extends ListManagedRuleSetsRes
  * };
  * const command = new ListManagedRuleSetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListManagedRuleSetsResponse
- *   NextMarker: "STRING_VALUE",
- *   ManagedRuleSets: [ // ManagedRuleSetSummaries
- *     { // ManagedRuleSetSummary
- *       Name: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       LockToken: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *       LabelNamespace: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListManagedRuleSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   ManagedRuleSets: [ // ManagedRuleSetSummaries
+ * //     { // ManagedRuleSetSummary
+ * //       Name: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       LockToken: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //       LabelNamespace: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

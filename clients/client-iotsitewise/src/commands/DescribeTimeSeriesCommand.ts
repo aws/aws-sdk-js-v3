@@ -65,18 +65,17 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * };
  * const command = new DescribeTimeSeriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTimeSeriesResponse
- *   assetId: "STRING_VALUE",
- *   propertyId: "STRING_VALUE",
- *   alias: "STRING_VALUE",
- *   timeSeriesId: "STRING_VALUE", // required
- *   dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
- *   dataTypeSpec: "STRING_VALUE",
- *   timeSeriesCreationDate: new Date("TIMESTAMP"), // required
- *   timeSeriesLastUpdateDate: new Date("TIMESTAMP"), // required
- *   timeSeriesArn: "STRING_VALUE", // required
- * };
+ * // { // DescribeTimeSeriesResponse
+ * //   assetId: "STRING_VALUE",
+ * //   propertyId: "STRING_VALUE",
+ * //   alias: "STRING_VALUE",
+ * //   timeSeriesId: "STRING_VALUE", // required
+ * //   dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //   dataTypeSpec: "STRING_VALUE",
+ * //   timeSeriesCreationDate: new Date("TIMESTAMP"), // required
+ * //   timeSeriesLastUpdateDate: new Date("TIMESTAMP"), // required
+ * //   timeSeriesArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

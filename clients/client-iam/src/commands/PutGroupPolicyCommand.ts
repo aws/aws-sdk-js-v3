@@ -60,8 +60,7 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

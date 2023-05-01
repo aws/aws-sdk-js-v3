@@ -46,31 +46,30 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * };
  * const command = new DescribeInventoryDeletionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInventoryDeletionsResult
- *   InventoryDeletions: [ // InventoryDeletionsList
- *     { // InventoryDeletionStatusItem
- *       DeletionId: "STRING_VALUE",
- *       TypeName: "STRING_VALUE",
- *       DeletionStartTime: new Date("TIMESTAMP"),
- *       LastStatus: "InProgress" || "Complete",
- *       LastStatusMessage: "STRING_VALUE",
- *       DeletionSummary: { // InventoryDeletionSummary
- *         TotalCount: Number("int"),
- *         RemainingCount: Number("int"),
- *         SummaryItems: [ // InventoryDeletionSummaryItems
- *           { // InventoryDeletionSummaryItem
- *             Version: "STRING_VALUE",
- *             Count: Number("int"),
- *             RemainingCount: Number("int"),
- *           },
- *         ],
- *       },
- *       LastStatusUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeInventoryDeletionsResult
+ * //   InventoryDeletions: [ // InventoryDeletionsList
+ * //     { // InventoryDeletionStatusItem
+ * //       DeletionId: "STRING_VALUE",
+ * //       TypeName: "STRING_VALUE",
+ * //       DeletionStartTime: new Date("TIMESTAMP"),
+ * //       LastStatus: "InProgress" || "Complete",
+ * //       LastStatusMessage: "STRING_VALUE",
+ * //       DeletionSummary: { // InventoryDeletionSummary
+ * //         TotalCount: Number("int"),
+ * //         RemainingCount: Number("int"),
+ * //         SummaryItems: [ // InventoryDeletionSummaryItems
+ * //           { // InventoryDeletionSummaryItem
+ * //             Version: "STRING_VALUE",
+ * //             Count: Number("int"),
+ * //             RemainingCount: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       LastStatusUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,20 +45,19 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * };
  * const command = new GetMailDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMailDomainResponse
- *   Records: [ // DnsRecords
- *     { // DnsRecord
- *       Type: "STRING_VALUE",
- *       Hostname: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   IsTestDomain: true || false,
- *   IsDefault: true || false,
- *   OwnershipVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
- *   DkimVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
- * };
+ * // { // GetMailDomainResponse
+ * //   Records: [ // DnsRecords
+ * //     { // DnsRecord
+ * //       Type: "STRING_VALUE",
+ * //       Hostname: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTestDomain: true || false,
+ * //   IsDefault: true || false,
+ * //   OwnershipVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
+ * //   DkimVerificationStatus: "PENDING" || "VERIFIED" || "FAILED",
+ * // };
  *
  * ```
  *

@@ -44,10 +44,9 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * };
  * const command = new DeleteSourceCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSourceCredentialsOutput
- *   arn: "STRING_VALUE",
- * };
+ * // { // DeleteSourceCredentialsOutput
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

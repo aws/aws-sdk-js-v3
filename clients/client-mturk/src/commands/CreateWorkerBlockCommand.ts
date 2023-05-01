@@ -45,8 +45,7 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * };
  * const command = new CreateWorkerBlockCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

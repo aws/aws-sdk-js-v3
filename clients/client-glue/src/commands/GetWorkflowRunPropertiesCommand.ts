@@ -45,12 +45,11 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * };
  * const command = new GetWorkflowRunPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkflowRunPropertiesResponse
- *   RunProperties: { // WorkflowRunProperties
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetWorkflowRunPropertiesResponse
+ * //   RunProperties: { // WorkflowRunProperties
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

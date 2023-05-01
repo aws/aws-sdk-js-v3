@@ -48,10 +48,9 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * };
  * const command = new DeleteInterconnectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteInterconnectResponse
- *   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
- * };
+ * // { // DeleteInterconnectResponse
+ * //   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * // };
  *
  * ```
  *

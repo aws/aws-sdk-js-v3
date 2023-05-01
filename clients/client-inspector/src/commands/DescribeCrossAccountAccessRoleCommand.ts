@@ -48,12 +48,11 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * const input = {};
  * const command = new DescribeCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCrossAccountAccessRoleResponse
- *   roleArn: "STRING_VALUE", // required
- *   valid: true || false, // required
- *   registeredAt: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeCrossAccountAccessRoleResponse
+ * //   roleArn: "STRING_VALUE", // required
+ * //   valid: true || false, // required
+ * //   registeredAt: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

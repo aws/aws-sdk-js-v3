@@ -52,30 +52,29 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * };
  * const command = new CreateProfilingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProfilingGroupResponse
- *   profilingGroup: { // ProfilingGroupDescription
- *     name: "STRING_VALUE",
- *     agentOrchestrationConfig: { // AgentOrchestrationConfig
- *       profilingEnabled: true || false, // required
- *     },
- *     arn: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     updatedAt: new Date("TIMESTAMP"),
- *     profilingStatus: { // ProfilingStatus
- *       latestAgentProfileReportedAt: new Date("TIMESTAMP"),
- *       latestAggregatedProfile: { // AggregatedProfileTime
- *         start: new Date("TIMESTAMP"),
- *         period: "STRING_VALUE",
- *       },
- *       latestAgentOrchestratedAt: new Date("TIMESTAMP"),
- *     },
- *     computePlatform: "STRING_VALUE",
- *     tags: { // TagsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateProfilingGroupResponse
+ * //   profilingGroup: { // ProfilingGroupDescription
+ * //     name: "STRING_VALUE",
+ * //     agentOrchestrationConfig: { // AgentOrchestrationConfig
+ * //       profilingEnabled: true || false, // required
+ * //     },
+ * //     arn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //     profilingStatus: { // ProfilingStatus
+ * //       latestAgentProfileReportedAt: new Date("TIMESTAMP"),
+ * //       latestAggregatedProfile: { // AggregatedProfileTime
+ * //         start: new Date("TIMESTAMP"),
+ * //         period: "STRING_VALUE",
+ * //       },
+ * //       latestAgentOrchestratedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     computePlatform: "STRING_VALUE",
+ * //     tags: { // TagsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

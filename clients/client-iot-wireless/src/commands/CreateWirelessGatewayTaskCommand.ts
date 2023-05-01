@@ -45,11 +45,10 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * };
  * const command = new CreateWirelessGatewayTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWirelessGatewayTaskResponse
- *   WirelessGatewayTaskDefinitionId: "STRING_VALUE",
- *   Status: "PENDING" || "IN_PROGRESS" || "FIRST_RETRY" || "SECOND_RETRY" || "COMPLETED" || "FAILED",
- * };
+ * // { // CreateWirelessGatewayTaskResponse
+ * //   WirelessGatewayTaskDefinitionId: "STRING_VALUE",
+ * //   Status: "PENDING" || "IN_PROGRESS" || "FIRST_RETRY" || "SECOND_RETRY" || "COMPLETED" || "FAILED",
+ * // };
  *
  * ```
  *

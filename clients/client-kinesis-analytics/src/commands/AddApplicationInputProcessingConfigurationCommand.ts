@@ -66,8 +66,7 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * };
  * const command = new AddApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

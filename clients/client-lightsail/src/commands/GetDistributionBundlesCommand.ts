@@ -45,18 +45,17 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * const input = {};
  * const command = new GetDistributionBundlesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDistributionBundlesResult
- *   bundles: [ // DistributionBundleList
- *     { // DistributionBundle
- *       bundleId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       price: Number("float"),
- *       transferPerMonthInGb: Number("int"),
- *       isActive: true || false,
- *     },
- *   ],
- * };
+ * // { // GetDistributionBundlesResult
+ * //   bundles: [ // DistributionBundleList
+ * //     { // DistributionBundle
+ * //       bundleId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       price: Number("float"),
+ * //       transferPerMonthInGb: Number("int"),
+ * //       isActive: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

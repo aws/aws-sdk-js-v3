@@ -48,8 +48,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  * };
  * const command = new DeleteVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

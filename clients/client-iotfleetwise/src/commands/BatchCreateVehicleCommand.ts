@@ -66,23 +66,22 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * };
  * const command = new BatchCreateVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchCreateVehicleResponse
- *   vehicles: [ // createVehicleResponses
- *     { // CreateVehicleResponseItem
- *       vehicleName: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       thingArn: "STRING_VALUE",
- *     },
- *   ],
- *   errors: [ // createVehicleErrors
- *     { // CreateVehicleError
- *       vehicleName: "STRING_VALUE",
- *       code: "STRING_VALUE",
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchCreateVehicleResponse
+ * //   vehicles: [ // createVehicleResponses
+ * //     { // CreateVehicleResponseItem
+ * //       vehicleName: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       thingArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   errors: [ // createVehicleErrors
+ * //     { // CreateVehicleError
+ * //       vehicleName: "STRING_VALUE",
+ * //       code: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

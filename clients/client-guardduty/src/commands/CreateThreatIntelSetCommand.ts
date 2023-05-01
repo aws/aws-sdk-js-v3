@@ -54,10 +54,9 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * };
  * const command = new CreateThreatIntelSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateThreatIntelSetResponse
- *   ThreatIntelSetId: "STRING_VALUE", // required
- * };
+ * // { // CreateThreatIntelSetResponse
+ * //   ThreatIntelSetId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

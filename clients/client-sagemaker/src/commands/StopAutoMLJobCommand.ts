@@ -44,8 +44,7 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopAutoMLJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

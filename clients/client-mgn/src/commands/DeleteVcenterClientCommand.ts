@@ -44,8 +44,7 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteVcenterClientCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

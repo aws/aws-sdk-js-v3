@@ -47,8 +47,7 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new SetCognitoEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

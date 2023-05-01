@@ -49,23 +49,22 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * const input = {};
  * const command = new DescribeAcceleratorTypesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAcceleratorTypesResponse
- *   acceleratorTypes: [ // AcceleratorTypeList
- *     { // AcceleratorType
- *       acceleratorTypeName: "STRING_VALUE",
- *       memoryInfo: { // MemoryInfo
- *         sizeInMiB: Number("int"),
- *       },
- *       throughputInfo: [ // ThroughputInfoList
- *         { // KeyValuePair
- *           key: "STRING_VALUE",
- *           value: Number("int"),
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // DescribeAcceleratorTypesResponse
+ * //   acceleratorTypes: [ // AcceleratorTypeList
+ * //     { // AcceleratorType
+ * //       acceleratorTypeName: "STRING_VALUE",
+ * //       memoryInfo: { // MemoryInfo
+ * //         sizeInMiB: Number("int"),
+ * //       },
+ * //       throughputInfo: [ // ThroughputInfoList
+ * //         { // KeyValuePair
+ * //           key: "STRING_VALUE",
+ * //           value: Number("int"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

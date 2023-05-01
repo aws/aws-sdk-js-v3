@@ -49,10 +49,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationResponse
- *   configurationId: "STRING_VALUE",
- * };
+ * // { // CreateApplicationResponse
+ * //   configurationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

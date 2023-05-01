@@ -62,15 +62,14 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEndpointsResponse
- *   Endpoints: [ // Endpoints // required
- *     { // Endpoint
- *       Address: "STRING_VALUE", // required
- *       CachePeriodInMinutes: Number("long"), // required
- *     },
- *   ],
- * };
+ * // { // DescribeEndpointsResponse
+ * //   Endpoints: [ // Endpoints // required
+ * //     { // Endpoint
+ * //       Address: "STRING_VALUE", // required
+ * //       CachePeriodInMinutes: Number("long"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

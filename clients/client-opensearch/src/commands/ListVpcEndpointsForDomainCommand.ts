@@ -46,18 +46,17 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * };
  * const command = new ListVpcEndpointsForDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVpcEndpointsForDomainResponse
- *   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
- *     { // VpcEndpointSummary
- *       VpcEndpointId: "STRING_VALUE",
- *       VpcEndpointOwner: "STRING_VALUE",
- *       DomainArn: "STRING_VALUE",
- *       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE", // required
- * };
+ * // { // ListVpcEndpointsForDomainResponse
+ * //   VpcEndpointSummaryList: [ // VpcEndpointSummaryList // required
+ * //     { // VpcEndpointSummary
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       VpcEndpointOwner: "STRING_VALUE",
+ * //       DomainArn: "STRING_VALUE",
+ * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

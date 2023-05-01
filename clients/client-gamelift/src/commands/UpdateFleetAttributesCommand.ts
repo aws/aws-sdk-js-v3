@@ -68,11 +68,10 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * };
  * const command = new UpdateFleetAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFleetAttributesOutput
- *   FleetId: "STRING_VALUE",
- *   FleetArn: "STRING_VALUE",
- * };
+ * // { // UpdateFleetAttributesOutput
+ * //   FleetId: "STRING_VALUE",
+ * //   FleetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

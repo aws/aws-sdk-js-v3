@@ -52,10 +52,9 @@ export interface CreateAnomalyDetectorCommandOutput extends CreateAnomalyDetecto
  * };
  * const command = new CreateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnomalyDetectorResponse
- *   AnomalyDetectorArn: "STRING_VALUE",
- * };
+ * // { // CreateAnomalyDetectorResponse
+ * //   AnomalyDetectorArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

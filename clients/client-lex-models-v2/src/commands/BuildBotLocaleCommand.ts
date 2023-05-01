@@ -48,14 +48,13 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * };
  * const command = new BuildBotLocaleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BuildBotLocaleResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
- *   lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
- * };
+ * // { // BuildBotLocaleResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
+ * //   lastBuildSubmittedDateTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -52,11 +52,10 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResourcePolicyResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // DeleteResourcePolicyResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

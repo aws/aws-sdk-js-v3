@@ -44,16 +44,15 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * };
  * const command = new DeleteRealtimeEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRealtimeEndpointOutput
- *   MLModelId: "STRING_VALUE",
- *   RealtimeEndpointInfo: { // RealtimeEndpointInfo
- *     PeakRequestsPerSecond: Number("int"),
- *     CreatedAt: new Date("TIMESTAMP"),
- *     EndpointUrl: "STRING_VALUE",
- *     EndpointStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteRealtimeEndpointOutput
+ * //   MLModelId: "STRING_VALUE",
+ * //   RealtimeEndpointInfo: { // RealtimeEndpointInfo
+ * //     PeakRequestsPerSecond: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     EndpointUrl: "STRING_VALUE",
+ * //     EndpointStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

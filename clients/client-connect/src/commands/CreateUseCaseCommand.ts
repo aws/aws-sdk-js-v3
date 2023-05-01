@@ -49,11 +49,10 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * };
  * const command = new CreateUseCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateUseCaseResponse
- *   UseCaseId: "STRING_VALUE",
- *   UseCaseArn: "STRING_VALUE",
- * };
+ * // { // CreateUseCaseResponse
+ * //   UseCaseId: "STRING_VALUE",
+ * //   UseCaseArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,11 +66,10 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * };
  * const command = new UpdatePortfolioShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePortfolioShareOutput
- *   PortfolioShareToken: "STRING_VALUE",
- *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERRORS" || "ERROR",
- * };
+ * // { // UpdatePortfolioShareOutput
+ * //   PortfolioShareToken: "STRING_VALUE",
+ * //   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERRORS" || "ERROR",
+ * // };
  *
  * ```
  *

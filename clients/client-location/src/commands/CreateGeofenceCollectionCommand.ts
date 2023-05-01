@@ -51,12 +51,11 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * };
  * const command = new CreateGeofenceCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGeofenceCollectionResponse
- *   CollectionName: "STRING_VALUE", // required
- *   CollectionArn: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateGeofenceCollectionResponse
+ * //   CollectionName: "STRING_VALUE", // required
+ * //   CollectionArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

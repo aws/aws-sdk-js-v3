@@ -84,61 +84,60 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * };
  * const command = new CreateProductCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateProductOutput
- *   ProductViewDetail: { // ProductViewDetail
- *     ProductViewSummary: { // ProductViewSummary
- *       Id: "STRING_VALUE",
- *       ProductId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       ShortDescription: "STRING_VALUE",
- *       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
- *       Distributor: "STRING_VALUE",
- *       HasDefaultPath: true || false,
- *       SupportEmail: "STRING_VALUE",
- *       SupportDescription: "STRING_VALUE",
- *       SupportUrl: "STRING_VALUE",
- *     },
- *     Status: "AVAILABLE" || "CREATING" || "FAILED",
- *     ProductARN: "STRING_VALUE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     SourceConnection: { // SourceConnectionDetail
- *       Type: "CODESTAR",
- *       ConnectionParameters: { // SourceConnectionParameters
- *         CodeStar: { // CodeStarParameters
- *           ConnectionArn: "STRING_VALUE", // required
- *           Repository: "STRING_VALUE", // required
- *           Branch: "STRING_VALUE", // required
- *           ArtifactPath: "STRING_VALUE", // required
- *         },
- *       },
- *       LastSync: { // LastSync
- *         LastSyncTime: new Date("TIMESTAMP"),
- *         LastSyncStatus: "SUCCEEDED" || "FAILED",
- *         LastSyncStatusMessage: "STRING_VALUE",
- *         LastSuccessfulSyncTime: new Date("TIMESTAMP"),
- *         LastSuccessfulSyncProvisioningArtifactId: "STRING_VALUE",
- *       },
- *     },
- *   },
- *   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
- *     Id: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
- *     CreatedTime: new Date("TIMESTAMP"),
- *     Active: true || false,
- *     Guidance: "DEFAULT" || "DEPRECATED",
- *     SourceRevision: "STRING_VALUE",
- *   },
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreateProductOutput
+ * //   ProductViewDetail: { // ProductViewDetail
+ * //     ProductViewSummary: { // ProductViewSummary
+ * //       Id: "STRING_VALUE",
+ * //       ProductId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       ShortDescription: "STRING_VALUE",
+ * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE",
+ * //       Distributor: "STRING_VALUE",
+ * //       HasDefaultPath: true || false,
+ * //       SupportEmail: "STRING_VALUE",
+ * //       SupportDescription: "STRING_VALUE",
+ * //       SupportUrl: "STRING_VALUE",
+ * //     },
+ * //     Status: "AVAILABLE" || "CREATING" || "FAILED",
+ * //     ProductARN: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     SourceConnection: { // SourceConnectionDetail
+ * //       Type: "CODESTAR",
+ * //       ConnectionParameters: { // SourceConnectionParameters
+ * //         CodeStar: { // CodeStarParameters
+ * //           ConnectionArn: "STRING_VALUE", // required
+ * //           Repository: "STRING_VALUE", // required
+ * //           Branch: "STRING_VALUE", // required
+ * //           ArtifactPath: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       LastSync: { // LastSync
+ * //         LastSyncTime: new Date("TIMESTAMP"),
+ * //         LastSyncStatus: "SUCCEEDED" || "FAILED",
+ * //         LastSyncStatusMessage: "STRING_VALUE",
+ * //         LastSuccessfulSyncTime: new Date("TIMESTAMP"),
+ * //         LastSuccessfulSyncProvisioningArtifactId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   ProvisioningArtifactDetail: { // ProvisioningArtifactDetail
+ * //     Id: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR" || "TERRAFORM_OPEN_SOURCE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     Active: true || false,
+ * //     Guidance: "DEFAULT" || "DEPRECATED",
+ * //     SourceRevision: "STRING_VALUE",
+ * //   },
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

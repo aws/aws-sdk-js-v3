@@ -46,20 +46,19 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupsResponse
- *   Groups: [ // Groups
- *     { // Group
- *       Id: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       State: "ENABLED" || "DISABLED" || "DELETED",
- *       EnabledDate: new Date("TIMESTAMP"),
- *       DisabledDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupsResponse
+ * //   Groups: [ // Groups
+ * //     { // Group
+ * //       Id: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "DELETED",
+ * //       EnabledDate: new Date("TIMESTAMP"),
+ * //       DisabledDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

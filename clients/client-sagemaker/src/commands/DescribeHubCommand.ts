@@ -47,23 +47,22 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHubResponse
- *   HubName: "STRING_VALUE", // required
- *   HubArn: "STRING_VALUE", // required
- *   HubDisplayName: "STRING_VALUE",
- *   HubDescription: "STRING_VALUE",
- *   HubSearchKeywords: [ // HubSearchKeywordList
- *     "STRING_VALUE",
- *   ],
- *   S3StorageConfig: { // HubS3StorageConfig
- *     S3OutputPath: "STRING_VALUE",
- *   },
- *   HubStatus: "InService" || "Creating" || "Updating" || "Deleting" || "CreateFailed" || "UpdateFailed" || "DeleteFailed", // required
- *   FailureReason: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"), // required
- *   LastModifiedTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeHubResponse
+ * //   HubName: "STRING_VALUE", // required
+ * //   HubArn: "STRING_VALUE", // required
+ * //   HubDisplayName: "STRING_VALUE",
+ * //   HubDescription: "STRING_VALUE",
+ * //   HubSearchKeywords: [ // HubSearchKeywordList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   S3StorageConfig: { // HubS3StorageConfig
+ * //     S3OutputPath: "STRING_VALUE",
+ * //   },
+ * //   HubStatus: "InService" || "Creating" || "Updating" || "Deleting" || "CreateFailed" || "UpdateFailed" || "DeleteFailed", // required
+ * //   FailureReason: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LastModifiedTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

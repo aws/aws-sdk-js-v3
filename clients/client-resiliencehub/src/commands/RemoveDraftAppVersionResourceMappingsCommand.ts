@@ -71,11 +71,10 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * };
  * const command = new RemoveDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveDraftAppVersionResourceMappingsResponse
- *   appArn: "STRING_VALUE",
- *   appVersion: "STRING_VALUE",
- * };
+ * // { // RemoveDraftAppVersionResourceMappingsResponse
+ * //   appArn: "STRING_VALUE",
+ * //   appVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

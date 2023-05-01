@@ -49,10 +49,9 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * };
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestEventPatternResponse
- *   Result: true || false,
- * };
+ * // { // TestEventPatternResponse
+ * //   Result: true || false,
+ * // };
  *
  * ```
  *

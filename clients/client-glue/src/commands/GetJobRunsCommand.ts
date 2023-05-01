@@ -46,47 +46,46 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * };
  * const command = new GetJobRunsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetJobRunsResponse
- *   JobRuns: [ // JobRunList
- *     { // JobRun
- *       Id: "STRING_VALUE",
- *       Attempt: Number("int"),
- *       PreviousRunId: "STRING_VALUE",
- *       TriggerName: "STRING_VALUE",
- *       JobName: "STRING_VALUE",
- *       StartedOn: new Date("TIMESTAMP"),
- *       LastModifiedOn: new Date("TIMESTAMP"),
- *       CompletedOn: new Date("TIMESTAMP"),
- *       JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
- *       Arguments: { // GenericMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       ErrorMessage: "STRING_VALUE",
- *       PredecessorRuns: [ // PredecessorList
- *         { // Predecessor
- *           JobName: "STRING_VALUE",
- *           RunId: "STRING_VALUE",
- *         },
- *       ],
- *       AllocatedCapacity: Number("int"),
- *       ExecutionTime: Number("int"),
- *       Timeout: Number("int"),
- *       MaxCapacity: Number("double"),
- *       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
- *       NumberOfWorkers: Number("int"),
- *       SecurityConfiguration: "STRING_VALUE",
- *       LogGroupName: "STRING_VALUE",
- *       NotificationProperty: { // NotificationProperty
- *         NotifyDelayAfter: Number("int"),
- *       },
- *       GlueVersion: "STRING_VALUE",
- *       DPUSeconds: Number("double"),
- *       ExecutionClass: "FLEX" || "STANDARD",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetJobRunsResponse
+ * //   JobRuns: [ // JobRunList
+ * //     { // JobRun
+ * //       Id: "STRING_VALUE",
+ * //       Attempt: Number("int"),
+ * //       PreviousRunId: "STRING_VALUE",
+ * //       TriggerName: "STRING_VALUE",
+ * //       JobName: "STRING_VALUE",
+ * //       StartedOn: new Date("TIMESTAMP"),
+ * //       LastModifiedOn: new Date("TIMESTAMP"),
+ * //       CompletedOn: new Date("TIMESTAMP"),
+ * //       JobRunState: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //       Arguments: { // GenericMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       PredecessorRuns: [ // PredecessorList
+ * //         { // Predecessor
+ * //           JobName: "STRING_VALUE",
+ * //           RunId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       AllocatedCapacity: Number("int"),
+ * //       ExecutionTime: Number("int"),
+ * //       Timeout: Number("int"),
+ * //       MaxCapacity: Number("double"),
+ * //       WorkerType: "Standard" || "G.1X" || "G.2X" || "G.025X",
+ * //       NumberOfWorkers: Number("int"),
+ * //       SecurityConfiguration: "STRING_VALUE",
+ * //       LogGroupName: "STRING_VALUE",
+ * //       NotificationProperty: { // NotificationProperty
+ * //         NotifyDelayAfter: Number("int"),
+ * //       },
+ * //       GlueVersion: "STRING_VALUE",
+ * //       DPUSeconds: Number("double"),
+ * //       ExecutionClass: "FLEX" || "STANDARD",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

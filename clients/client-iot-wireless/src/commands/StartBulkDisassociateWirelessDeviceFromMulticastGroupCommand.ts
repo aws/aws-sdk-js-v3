@@ -60,8 +60,7 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * };
  * const command = new StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -48,8 +48,7 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -56,21 +56,20 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartImportResponse
- *   name: "STRING_VALUE",
- *   resourceType: "STRING_VALUE",
- *   mergeStrategy: "STRING_VALUE",
- *   importId: "STRING_VALUE",
- *   importStatus: "STRING_VALUE",
- *   tags: [ // TagList
- *     { // Tag
- *       key: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *     },
- *   ],
- *   createdDate: new Date("TIMESTAMP"),
- * };
+ * // { // StartImportResponse
+ * //   name: "STRING_VALUE",
+ * //   resourceType: "STRING_VALUE",
+ * //   mergeStrategy: "STRING_VALUE",
+ * //   importId: "STRING_VALUE",
+ * //   importStatus: "STRING_VALUE",
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   createdDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

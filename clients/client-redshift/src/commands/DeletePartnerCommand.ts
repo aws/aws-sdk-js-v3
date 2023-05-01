@@ -47,11 +47,10 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * };
  * const command = new DeletePartnerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PartnerIntegrationOutputMessage
- *   DatabaseName: "STRING_VALUE",
- *   PartnerName: "STRING_VALUE",
- * };
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

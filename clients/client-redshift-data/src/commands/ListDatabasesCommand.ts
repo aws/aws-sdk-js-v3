@@ -86,13 +86,12 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * };
  * const command = new ListDatabasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatabasesResponse
- *   Databases: [ // DatabaseList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatabasesResponse
+ * //   Databases: [ // DatabaseList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

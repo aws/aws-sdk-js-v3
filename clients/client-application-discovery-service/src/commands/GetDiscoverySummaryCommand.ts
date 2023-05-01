@@ -48,49 +48,48 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * const input = {};
  * const command = new GetDiscoverySummaryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDiscoverySummaryResponse
- *   servers: Number("long"),
- *   applications: Number("long"),
- *   serversMappedToApplications: Number("long"),
- *   serversMappedtoTags: Number("long"),
- *   agentSummary: { // CustomerAgentInfo
- *     activeAgents: Number("int"), // required
- *     healthyAgents: Number("int"), // required
- *     blackListedAgents: Number("int"), // required
- *     shutdownAgents: Number("int"), // required
- *     unhealthyAgents: Number("int"), // required
- *     totalAgents: Number("int"), // required
- *     unknownAgents: Number("int"), // required
- *   },
- *   connectorSummary: { // CustomerConnectorInfo
- *     activeConnectors: Number("int"), // required
- *     healthyConnectors: Number("int"), // required
- *     blackListedConnectors: Number("int"), // required
- *     shutdownConnectors: Number("int"), // required
- *     unhealthyConnectors: Number("int"), // required
- *     totalConnectors: Number("int"), // required
- *     unknownConnectors: Number("int"), // required
- *   },
- *   meCollectorSummary: { // CustomerMeCollectorInfo
- *     activeMeCollectors: Number("int"), // required
- *     healthyMeCollectors: Number("int"), // required
- *     denyListedMeCollectors: Number("int"), // required
- *     shutdownMeCollectors: Number("int"), // required
- *     unhealthyMeCollectors: Number("int"), // required
- *     totalMeCollectors: Number("int"), // required
- *     unknownMeCollectors: Number("int"), // required
- *   },
- *   agentlessCollectorSummary: { // CustomerAgentlessCollectorInfo
- *     activeAgentlessCollectors: Number("int"), // required
- *     healthyAgentlessCollectors: Number("int"), // required
- *     denyListedAgentlessCollectors: Number("int"), // required
- *     shutdownAgentlessCollectors: Number("int"), // required
- *     unhealthyAgentlessCollectors: Number("int"), // required
- *     totalAgentlessCollectors: Number("int"), // required
- *     unknownAgentlessCollectors: Number("int"), // required
- *   },
- * };
+ * // { // GetDiscoverySummaryResponse
+ * //   servers: Number("long"),
+ * //   applications: Number("long"),
+ * //   serversMappedToApplications: Number("long"),
+ * //   serversMappedtoTags: Number("long"),
+ * //   agentSummary: { // CustomerAgentInfo
+ * //     activeAgents: Number("int"), // required
+ * //     healthyAgents: Number("int"), // required
+ * //     blackListedAgents: Number("int"), // required
+ * //     shutdownAgents: Number("int"), // required
+ * //     unhealthyAgents: Number("int"), // required
+ * //     totalAgents: Number("int"), // required
+ * //     unknownAgents: Number("int"), // required
+ * //   },
+ * //   connectorSummary: { // CustomerConnectorInfo
+ * //     activeConnectors: Number("int"), // required
+ * //     healthyConnectors: Number("int"), // required
+ * //     blackListedConnectors: Number("int"), // required
+ * //     shutdownConnectors: Number("int"), // required
+ * //     unhealthyConnectors: Number("int"), // required
+ * //     totalConnectors: Number("int"), // required
+ * //     unknownConnectors: Number("int"), // required
+ * //   },
+ * //   meCollectorSummary: { // CustomerMeCollectorInfo
+ * //     activeMeCollectors: Number("int"), // required
+ * //     healthyMeCollectors: Number("int"), // required
+ * //     denyListedMeCollectors: Number("int"), // required
+ * //     shutdownMeCollectors: Number("int"), // required
+ * //     unhealthyMeCollectors: Number("int"), // required
+ * //     totalMeCollectors: Number("int"), // required
+ * //     unknownMeCollectors: Number("int"), // required
+ * //   },
+ * //   agentlessCollectorSummary: { // CustomerAgentlessCollectorInfo
+ * //     activeAgentlessCollectors: Number("int"), // required
+ * //     healthyAgentlessCollectors: Number("int"), // required
+ * //     denyListedAgentlessCollectors: Number("int"), // required
+ * //     shutdownAgentlessCollectors: Number("int"), // required
+ * //     unhealthyAgentlessCollectors: Number("int"), // required
+ * //     totalAgentlessCollectors: Number("int"), // required
+ * //     unknownAgentlessCollectors: Number("int"), // required
+ * //   },
+ * // };
  *
  * ```
  *

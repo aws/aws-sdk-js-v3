@@ -80,10 +80,9 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * };
  * const command = new DecodeAuthorizationMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DecodeAuthorizationMessageResponse
- *   DecodedMessage: "STRING_VALUE",
- * };
+ * // { // DecodeAuthorizationMessageResponse
+ * //   DecodedMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

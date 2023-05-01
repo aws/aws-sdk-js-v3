@@ -44,11 +44,10 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PublishAppVersionResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE",
- * };
+ * // { // PublishAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

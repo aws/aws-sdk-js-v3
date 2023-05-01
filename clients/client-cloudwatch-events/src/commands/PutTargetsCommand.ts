@@ -332,17 +332,16 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * };
  * const command = new PutTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutTargetsResponse
- *   FailedEntryCount: Number("int"),
- *   FailedEntries: [ // PutTargetsResultEntryList
- *     { // PutTargetsResultEntry
- *       TargetId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // PutTargetsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   FailedEntries: [ // PutTargetsResultEntryList
+ * //     { // PutTargetsResultEntry
+ * //       TargetId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

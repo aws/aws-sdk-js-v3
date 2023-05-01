@@ -67,25 +67,24 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * };
  * const command = new UpdateApplicationResourceLifecycleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApplicationResourceLifecycleDescriptionMessage
- *   ApplicationName: "STRING_VALUE",
- *   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
- *     ServiceRole: "STRING_VALUE",
- *     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
- *       MaxCountRule: { // MaxCountRule
- *         Enabled: true || false, // required
- *         MaxCount: Number("int"),
- *         DeleteSourceFromS3: true || false,
- *       },
- *       MaxAgeRule: { // MaxAgeRule
- *         Enabled: true || false, // required
- *         MaxAgeInDays: Number("int"),
- *         DeleteSourceFromS3: true || false,
- *       },
- *     },
- *   },
- * };
+ * // { // ApplicationResourceLifecycleDescriptionMessage
+ * //   ApplicationName: "STRING_VALUE",
+ * //   ResourceLifecycleConfig: { // ApplicationResourceLifecycleConfig
+ * //     ServiceRole: "STRING_VALUE",
+ * //     VersionLifecycleConfig: { // ApplicationVersionLifecycleConfig
+ * //       MaxCountRule: { // MaxCountRule
+ * //         Enabled: true || false, // required
+ * //         MaxCount: Number("int"),
+ * //         DeleteSourceFromS3: true || false,
+ * //       },
+ * //       MaxAgeRule: { // MaxAgeRule
+ * //         Enabled: true || false, // required
+ * //         MaxAgeInDays: Number("int"),
+ * //         DeleteSourceFromS3: true || false,
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

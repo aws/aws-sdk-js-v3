@@ -56,8 +56,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * };
  * const command = new DeregisterTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

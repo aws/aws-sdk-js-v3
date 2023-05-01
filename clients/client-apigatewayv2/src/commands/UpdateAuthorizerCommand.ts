@@ -62,27 +62,26 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAuthorizerResponse
- *   AuthorizerCredentialsArn: "STRING_VALUE",
- *   AuthorizerId: "STRING_VALUE",
- *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
- *   AuthorizerResultTtlInSeconds: Number("int"),
- *   AuthorizerType: "STRING_VALUE",
- *   AuthorizerUri: "STRING_VALUE",
- *   EnableSimpleResponses: true || false,
- *   IdentitySource: [ // IdentitySourceList
- *     "STRING_VALUE",
- *   ],
- *   IdentityValidationExpression: "STRING_VALUE",
- *   JwtConfiguration: { // JWTConfiguration
- *     Audience: [ // __listOf__string
- *       "STRING_VALUE",
- *     ],
- *     Issuer: "STRING_VALUE",
- *   },
- *   Name: "STRING_VALUE",
- * };
+ * // { // UpdateAuthorizerResponse
+ * //   AuthorizerCredentialsArn: "STRING_VALUE",
+ * //   AuthorizerId: "STRING_VALUE",
+ * //   AuthorizerPayloadFormatVersion: "STRING_VALUE",
+ * //   AuthorizerResultTtlInSeconds: Number("int"),
+ * //   AuthorizerType: "STRING_VALUE",
+ * //   AuthorizerUri: "STRING_VALUE",
+ * //   EnableSimpleResponses: true || false,
+ * //   IdentitySource: [ // IdentitySourceList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   IdentityValidationExpression: "STRING_VALUE",
+ * //   JwtConfiguration: { // JWTConfiguration
+ * //     Audience: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Issuer: "STRING_VALUE",
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

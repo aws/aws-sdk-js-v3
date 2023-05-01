@@ -55,28 +55,27 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUsersResult
- *   Users: [ // UserList
- *     { // User
- *       UserId: "STRING_VALUE",
- *       UserName: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Engine: "STRING_VALUE",
- *       MinimumEngineVersion: "STRING_VALUE",
- *       AccessString: "STRING_VALUE",
- *       UserGroupIds: [ // UserGroupIdList
- *         "STRING_VALUE",
- *       ],
- *       Authentication: { // Authentication
- *         Type: "password" || "no-password" || "iam",
- *         PasswordCount: Number("int"),
- *       },
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- *   Marker: "STRING_VALUE",
- * };
+ * // { // DescribeUsersResult
+ * //   Users: [ // UserList
+ * //     { // User
+ * //       UserId: "STRING_VALUE",
+ * //       UserName: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Engine: "STRING_VALUE",
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       AccessString: "STRING_VALUE",
+ * //       UserGroupIds: [ // UserGroupIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Authentication: { // Authentication
+ * //         Type: "password" || "no-password" || "iam",
+ * //         PasswordCount: Number("int"),
+ * //       },
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

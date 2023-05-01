@@ -45,8 +45,7 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * };
  * const command = new UpdateCoreDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

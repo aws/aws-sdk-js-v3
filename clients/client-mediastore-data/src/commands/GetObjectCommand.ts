@@ -48,17 +48,16 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetObjectResponse
- *   Body: "STREAMING_BLOB_VALUE",
- *   CacheControl: "STRING_VALUE",
- *   ContentRange: "STRING_VALUE",
- *   ContentLength: Number("long"),
- *   ContentType: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- *   LastModified: new Date("TIMESTAMP"),
- *   StatusCode: Number("int"), // required
- * };
+ * // { // GetObjectResponse
+ * //   Body: "STREAMING_BLOB_VALUE",
+ * //   CacheControl: "STRING_VALUE",
+ * //   ContentRange: "STRING_VALUE",
+ * //   ContentLength: Number("long"),
+ * //   ContentType: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   StatusCode: Number("int"), // required
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

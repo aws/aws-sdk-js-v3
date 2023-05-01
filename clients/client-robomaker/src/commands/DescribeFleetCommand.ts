@@ -49,31 +49,30 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  * };
  * const command = new DescribeFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFleetResponse
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   robots: [ // Robots
- *     { // Robot
- *       arn: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       fleetArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       greenGrassGroupId: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       architecture: "STRING_VALUE",
- *       lastDeploymentJob: "STRING_VALUE",
- *       lastDeploymentTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   createdAt: new Date("TIMESTAMP"),
- *   lastDeploymentStatus: "STRING_VALUE",
- *   lastDeploymentJob: "STRING_VALUE",
- *   lastDeploymentTime: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFleetResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   robots: [ // Robots
+ * //     { // Robot
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       fleetArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       greenGrassGroupId: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       architecture: "STRING_VALUE",
+ * //       lastDeploymentJob: "STRING_VALUE",
+ * //       lastDeploymentTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastDeploymentStatus: "STRING_VALUE",
+ * //   lastDeploymentJob: "STRING_VALUE",
+ * //   lastDeploymentTime: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

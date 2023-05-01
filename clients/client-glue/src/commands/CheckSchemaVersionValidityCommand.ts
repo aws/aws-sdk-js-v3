@@ -45,11 +45,10 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * };
  * const command = new CheckSchemaVersionValidityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CheckSchemaVersionValidityResponse
- *   Valid: true || false,
- *   Error: "STRING_VALUE",
- * };
+ * // { // CheckSchemaVersionValidityResponse
+ * //   Valid: true || false,
+ * //   Error: "STRING_VALUE",
+ * // };
  *
  * ```
  *

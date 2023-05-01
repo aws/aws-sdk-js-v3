@@ -95,50 +95,49 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchResourcesResponse
- *   matchingResources: [ // __listOfMatchingResource
- *     { // MatchingResource
- *       matchingBucket: { // MatchingBucket
- *         accountId: "STRING_VALUE",
- *         bucketName: "STRING_VALUE",
- *         classifiableObjectCount: Number("long"),
- *         classifiableSizeInBytes: Number("long"),
- *         errorCode: "ACCESS_DENIED",
- *         errorMessage: "STRING_VALUE",
- *         jobDetails: { // JobDetails
- *           isDefinedInJob: "TRUE" || "FALSE" || "UNKNOWN",
- *           isMonitoredByJob: "TRUE" || "FALSE" || "UNKNOWN",
- *           lastJobId: "STRING_VALUE",
- *           lastJobRunTime: new Date("TIMESTAMP"),
- *         },
- *         lastAutomatedDiscoveryTime: new Date("TIMESTAMP"),
- *         objectCount: Number("long"),
- *         objectCountByEncryptionType: { // ObjectCountByEncryptionType
- *           customerManaged: Number("long"),
- *           kmsManaged: Number("long"),
- *           s3Managed: Number("long"),
- *           unencrypted: Number("long"),
- *           unknown: Number("long"),
- *         },
- *         sensitivityScore: Number("int"),
- *         sizeInBytes: Number("long"),
- *         sizeInBytesCompressed: Number("long"),
- *         unclassifiableObjectCount: { // ObjectLevelStatistics
- *           fileType: Number("long"),
- *           storageClass: Number("long"),
- *           total: Number("long"),
- *         },
- *         unclassifiableObjectSizeInBytes: {
- *           fileType: Number("long"),
- *           storageClass: Number("long"),
- *           total: Number("long"),
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // SearchResourcesResponse
+ * //   matchingResources: [ // __listOfMatchingResource
+ * //     { // MatchingResource
+ * //       matchingBucket: { // MatchingBucket
+ * //         accountId: "STRING_VALUE",
+ * //         bucketName: "STRING_VALUE",
+ * //         classifiableObjectCount: Number("long"),
+ * //         classifiableSizeInBytes: Number("long"),
+ * //         errorCode: "ACCESS_DENIED",
+ * //         errorMessage: "STRING_VALUE",
+ * //         jobDetails: { // JobDetails
+ * //           isDefinedInJob: "TRUE" || "FALSE" || "UNKNOWN",
+ * //           isMonitoredByJob: "TRUE" || "FALSE" || "UNKNOWN",
+ * //           lastJobId: "STRING_VALUE",
+ * //           lastJobRunTime: new Date("TIMESTAMP"),
+ * //         },
+ * //         lastAutomatedDiscoveryTime: new Date("TIMESTAMP"),
+ * //         objectCount: Number("long"),
+ * //         objectCountByEncryptionType: { // ObjectCountByEncryptionType
+ * //           customerManaged: Number("long"),
+ * //           kmsManaged: Number("long"),
+ * //           s3Managed: Number("long"),
+ * //           unencrypted: Number("long"),
+ * //           unknown: Number("long"),
+ * //         },
+ * //         sensitivityScore: Number("int"),
+ * //         sizeInBytes: Number("long"),
+ * //         sizeInBytesCompressed: Number("long"),
+ * //         unclassifiableObjectCount: { // ObjectLevelStatistics
+ * //           fileType: Number("long"),
+ * //           storageClass: Number("long"),
+ * //           total: Number("long"),
+ * //         },
+ * //         unclassifiableObjectSizeInBytes: {
+ * //           fileType: Number("long"),
+ * //           storageClass: Number("long"),
+ * //           total: Number("long"),
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

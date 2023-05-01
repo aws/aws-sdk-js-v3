@@ -184,23 +184,22 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CompleteMultipartUploadOutput
- *   Location: "STRING_VALUE",
- *   Bucket: "STRING_VALUE",
- *   Key: "STRING_VALUE",
- *   Expiration: "STRING_VALUE",
- *   ETag: "STRING_VALUE",
- *   ChecksumCRC32: "STRING_VALUE",
- *   ChecksumCRC32C: "STRING_VALUE",
- *   ChecksumSHA1: "STRING_VALUE",
- *   ChecksumSHA256: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms",
- *   VersionId: "STRING_VALUE",
- *   SSEKMSKeyId: "STRING_VALUE",
- *   BucketKeyEnabled: true || false,
- *   RequestCharged: "requester",
- * };
+ * // { // CompleteMultipartUploadOutput
+ * //   Location: "STRING_VALUE",
+ * //   Bucket: "STRING_VALUE",
+ * //   Key: "STRING_VALUE",
+ * //   Expiration: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   ChecksumCRC32: "STRING_VALUE",
+ * //   ChecksumCRC32C: "STRING_VALUE",
+ * //   ChecksumSHA1: "STRING_VALUE",
+ * //   ChecksumSHA256: "STRING_VALUE",
+ * //   ServerSideEncryption: "AES256" || "aws:kms",
+ * //   VersionId: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * // };
  *
  * ```
  *

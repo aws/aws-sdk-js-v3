@@ -74,8 +74,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * };
  * const command = new PutAccessControlRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

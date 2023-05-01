@@ -44,8 +44,7 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * };
  * const command = new StopAccessLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

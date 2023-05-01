@@ -46,30 +46,29 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * };
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLinkResponse
- *   Link: { // Link
- *     LinkId: "STRING_VALUE",
- *     LinkArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     SiteId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Bandwidth: { // Bandwidth
- *       UploadSpeed: Number("int"),
- *       DownloadSpeed: Number("int"),
- *     },
- *     Provider: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteLinkResponse
+ * //   Link: { // Link
+ * //     LinkId: "STRING_VALUE",
+ * //     LinkArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     SiteId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Bandwidth: { // Bandwidth
+ * //       UploadSpeed: Number("int"),
+ * //       DownloadSpeed: Number("int"),
+ * //     },
+ * //     Provider: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

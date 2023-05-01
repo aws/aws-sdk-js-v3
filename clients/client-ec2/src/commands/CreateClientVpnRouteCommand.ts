@@ -50,13 +50,12 @@ export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteR
  * };
  * const command = new CreateClientVpnRouteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClientVpnRouteResult
- *   Status: { // ClientVpnRouteStatus
- *     Code: "creating" || "active" || "failed" || "deleting",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateClientVpnRouteResult
+ * //   Status: { // ClientVpnRouteStatus
+ * //     Code: "creating" || "active" || "failed" || "deleting",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

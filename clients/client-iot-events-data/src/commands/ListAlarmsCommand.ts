@@ -47,20 +47,19 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * };
  * const command = new ListAlarmsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAlarmsResponse
- *   alarmSummaries: [ // AlarmSummaries
- *     { // AlarmSummary
- *       alarmModelName: "STRING_VALUE",
- *       alarmModelVersion: "STRING_VALUE",
- *       keyValue: "STRING_VALUE",
- *       stateName: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAlarmsResponse
+ * //   alarmSummaries: [ // AlarmSummaries
+ * //     { // AlarmSummary
+ * //       alarmModelName: "STRING_VALUE",
+ * //       alarmModelVersion: "STRING_VALUE",
+ * //       keyValue: "STRING_VALUE",
+ * //       stateName: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

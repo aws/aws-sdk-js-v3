@@ -49,20 +49,19 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  * };
  * const command = new ListInferenceEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInferenceEventsResponse
- *   NextToken: "STRING_VALUE",
- *   InferenceEventSummaries: [ // InferenceEventSummaries
- *     { // InferenceEventSummary
- *       InferenceSchedulerArn: "STRING_VALUE",
- *       InferenceSchedulerName: "STRING_VALUE",
- *       EventStartTime: new Date("TIMESTAMP"),
- *       EventEndTime: new Date("TIMESTAMP"),
- *       Diagnostics: "STRING_VALUE",
- *       EventDurationInSeconds: Number("long"),
- *     },
- *   ],
- * };
+ * // { // ListInferenceEventsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   InferenceEventSummaries: [ // InferenceEventSummaries
+ * //     { // InferenceEventSummary
+ * //       InferenceSchedulerArn: "STRING_VALUE",
+ * //       InferenceSchedulerName: "STRING_VALUE",
+ * //       EventStartTime: new Date("TIMESTAMP"),
+ * //       EventEndTime: new Date("TIMESTAMP"),
+ * //       Diagnostics: "STRING_VALUE",
+ * //       EventDurationInSeconds: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

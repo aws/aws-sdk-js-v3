@@ -44,8 +44,7 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  * };
  * const command = new DeleteFuotaTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

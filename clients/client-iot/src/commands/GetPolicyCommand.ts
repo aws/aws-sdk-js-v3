@@ -46,16 +46,15 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyResponse
- *   policyName: "STRING_VALUE",
- *   policyArn: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE",
- *   defaultVersionId: "STRING_VALUE",
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- *   generationId: "STRING_VALUE",
- * };
+ * // { // GetPolicyResponse
+ * //   policyName: "STRING_VALUE",
+ * //   policyArn: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   defaultVersionId: "STRING_VALUE",
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   generationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

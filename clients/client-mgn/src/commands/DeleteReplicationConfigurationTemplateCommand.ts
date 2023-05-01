@@ -53,8 +53,7 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  * };
  * const command = new DeleteReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

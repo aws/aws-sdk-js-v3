@@ -49,10 +49,9 @@ export interface CreateModelCardExportJobCommandOutput extends CreateModelCardEx
  * };
  * const command = new CreateModelCardExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelCardExportJobResponse
- *   ModelCardExportJobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelCardExportJobResponse
+ * //   ModelCardExportJobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

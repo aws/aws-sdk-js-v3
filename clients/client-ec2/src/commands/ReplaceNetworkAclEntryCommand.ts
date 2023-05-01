@@ -60,8 +60,7 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

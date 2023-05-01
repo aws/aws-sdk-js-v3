@@ -166,15 +166,14 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * };
  * const command = new UpdateDeploymentGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateDeploymentGroupOutput
- *   hooksNotCleanedUp: [ // AutoScalingGroupList
- *     { // AutoScalingGroup
- *       name: "STRING_VALUE",
- *       hook: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // UpdateDeploymentGroupOutput
+ * //   hooksNotCleanedUp: [ // AutoScalingGroupList
+ * //     { // AutoScalingGroup
+ * //       name: "STRING_VALUE",
+ * //       hook: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -103,8 +103,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

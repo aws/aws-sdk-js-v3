@@ -62,10 +62,9 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * };
  * const command = new PutStoredQueryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutStoredQueryResponse
- *   QueryArn: "STRING_VALUE",
- * };
+ * // { // PutStoredQueryResponse
+ * //   QueryArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

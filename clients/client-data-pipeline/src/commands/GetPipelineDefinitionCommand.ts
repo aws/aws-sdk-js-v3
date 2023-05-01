@@ -109,39 +109,38 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * };
  * const command = new GetPipelineDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPipelineDefinitionOutput
- *   pipelineObjects: [ // PipelineObjectList
- *     { // PipelineObject
- *       id: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       fields: [ // fieldList // required
- *         { // Field
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE",
- *           refValue: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   parameterObjects: [ // ParameterObjectList
- *     { // ParameterObject
- *       id: "STRING_VALUE", // required
- *       attributes: [ // ParameterAttributeList // required
- *         { // ParameterAttribute
- *           key: "STRING_VALUE", // required
- *           stringValue: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   parameterValues: [ // ParameterValueList
- *     { // ParameterValue
- *       id: "STRING_VALUE", // required
- *       stringValue: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // GetPipelineDefinitionOutput
+ * //   pipelineObjects: [ // PipelineObjectList
+ * //     { // PipelineObject
+ * //       id: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       fields: [ // fieldList // required
+ * //         { // Field
+ * //           key: "STRING_VALUE", // required
+ * //           stringValue: "STRING_VALUE",
+ * //           refValue: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   parameterObjects: [ // ParameterObjectList
+ * //     { // ParameterObject
+ * //       id: "STRING_VALUE", // required
+ * //       attributes: [ // ParameterAttributeList // required
+ * //         { // ParameterAttribute
+ * //           key: "STRING_VALUE", // required
+ * //           stringValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   parameterValues: [ // ParameterValueList
+ * //     { // ParameterValue
+ * //       id: "STRING_VALUE", // required
+ * //       stringValue: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

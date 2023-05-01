@@ -44,8 +44,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

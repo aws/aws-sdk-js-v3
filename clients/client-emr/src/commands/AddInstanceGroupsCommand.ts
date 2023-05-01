@@ -124,14 +124,13 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  * };
  * const command = new AddInstanceGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AddInstanceGroupsOutput
- *   JobFlowId: "STRING_VALUE",
- *   InstanceGroupIds: [ // InstanceGroupIdsList
- *     "STRING_VALUE",
- *   ],
- *   ClusterArn: "STRING_VALUE",
- * };
+ * // { // AddInstanceGroupsOutput
+ * //   JobFlowId: "STRING_VALUE",
+ * //   InstanceGroupIds: [ // InstanceGroupIdsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ClusterArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

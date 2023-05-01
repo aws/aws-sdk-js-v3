@@ -46,8 +46,7 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteBackupSelectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

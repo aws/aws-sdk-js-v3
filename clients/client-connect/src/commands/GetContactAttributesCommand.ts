@@ -45,12 +45,11 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * };
  * const command = new GetContactAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContactAttributesResponse
- *   Attributes: { // Attributes
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetContactAttributesResponse
+ * //   Attributes: { // Attributes
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

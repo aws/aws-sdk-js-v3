@@ -53,8 +53,7 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * };
  * const command = new DeleteColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

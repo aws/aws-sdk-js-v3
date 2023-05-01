@@ -47,16 +47,15 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * };
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPartnerEventSourcesResponse
- *   PartnerEventSources: [ // PartnerEventSourceList
- *     { // PartnerEventSource
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPartnerEventSourcesResponse
+ * //   PartnerEventSources: [ // PartnerEventSourceList
+ * //     { // PartnerEventSource
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

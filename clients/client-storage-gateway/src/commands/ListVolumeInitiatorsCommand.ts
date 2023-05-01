@@ -46,12 +46,11 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * };
  * const command = new ListVolumeInitiatorsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListVolumeInitiatorsOutput
- *   Initiators: [ // Initiators
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListVolumeInitiatorsOutput
+ * //   Initiators: [ // Initiators
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

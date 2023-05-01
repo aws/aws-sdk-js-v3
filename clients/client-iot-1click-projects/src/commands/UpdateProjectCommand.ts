@@ -65,8 +65,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

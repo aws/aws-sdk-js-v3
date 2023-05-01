@@ -94,37 +94,36 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * };
  * const command = new UpdateContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateContinuousDeploymentPolicyResult
- *   ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
- *       StagingDistributionDnsNames: { // StagingDistributionDnsNames
- *         Quantity: Number("int"), // required
- *         Items: [ // StagingDistributionDnsNameList
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Enabled: true || false, // required
- *       TrafficConfig: { // TrafficConfig
- *         SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
- *           Weight: Number("float"), // required
- *           SessionStickinessConfig: { // SessionStickinessConfig
- *             IdleTTL: Number("int"), // required
- *             MaximumTTL: Number("int"), // required
- *           },
- *         },
- *         SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
- *           Header: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *         Type: "SingleWeight" || "SingleHeader", // required
- *       },
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // UpdateContinuousDeploymentPolicyResult
+ * //   ContinuousDeploymentPolicy: { // ContinuousDeploymentPolicy
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     ContinuousDeploymentPolicyConfig: { // ContinuousDeploymentPolicyConfig
+ * //       StagingDistributionDnsNames: { // StagingDistributionDnsNames
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // StagingDistributionDnsNameList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Enabled: true || false, // required
+ * //       TrafficConfig: { // TrafficConfig
+ * //         SingleWeightConfig: { // ContinuousDeploymentSingleWeightConfig
+ * //           Weight: Number("float"), // required
+ * //           SessionStickinessConfig: { // SessionStickinessConfig
+ * //             IdleTTL: Number("int"), // required
+ * //             MaximumTTL: Number("int"), // required
+ * //           },
+ * //         },
+ * //         SingleHeaderConfig: { // ContinuousDeploymentSingleHeaderConfig
+ * //           Header: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         Type: "SingleWeight" || "SingleHeader", // required
+ * //       },
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

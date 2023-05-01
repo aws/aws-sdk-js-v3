@@ -120,8 +120,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * };
  * const command = new CreateBudgetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -46,22 +46,21 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * };
  * const command = new ListBotAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBotAliasesResponse
- *   botAliasSummaries: [ // BotAliasSummaryList
- *     { // BotAliasSummary
- *       botAliasId: "STRING_VALUE",
- *       botAliasName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       botVersion: "STRING_VALUE",
- *       botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
- *       creationDateTime: new Date("TIMESTAMP"),
- *       lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- *   botId: "STRING_VALUE",
- * };
+ * // { // ListBotAliasesResponse
+ * //   botAliasSummaries: [ // BotAliasSummaryList
+ * //     { // BotAliasSummary
+ * //       botAliasId: "STRING_VALUE",
+ * //       botAliasName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       botVersion: "STRING_VALUE",
+ * //       botAliasStatus: "Creating" || "Available" || "Deleting" || "Failed",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   botId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

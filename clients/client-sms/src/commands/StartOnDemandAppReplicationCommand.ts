@@ -47,8 +47,7 @@ export interface StartOnDemandAppReplicationCommandOutput
  * };
  * const command = new StartOnDemandAppReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

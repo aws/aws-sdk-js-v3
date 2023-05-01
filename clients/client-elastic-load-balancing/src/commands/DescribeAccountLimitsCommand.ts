@@ -51,16 +51,15 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountLimitsOutput
- *   Limits: [ // Limits
- *     { // Limit
- *       Name: "STRING_VALUE",
- *       Max: "STRING_VALUE",
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeAccountLimitsOutput
+ * //   Limits: [ // Limits
+ * //     { // Limit
+ * //       Name: "STRING_VALUE",
+ * //       Max: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -89,16 +89,15 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * };
  * const command = new UntagResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UntagResourcesOutput
- *   FailedResourcesMap: { // FailedResourcesMap
- *     "<keys>": { // FailureInfo
- *       StatusCode: Number("int"),
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // UntagResourcesOutput
+ * //   FailedResourcesMap: { // FailedResourcesMap
+ * //     "<keys>": { // FailureInfo
+ * //       StatusCode: Number("int"),
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

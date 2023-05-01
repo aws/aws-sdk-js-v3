@@ -48,22 +48,21 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  * };
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTaskOutput
- *   taskId: "STRING_VALUE",
- *   taskArn: "STRING_VALUE",
- *   targets: [ // TargetList
- *     "STRING_VALUE",
- *   ],
- *   state: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   completedAt: new Date("TIMESTAMP"),
- *   description: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeTaskOutput
+ * //   taskId: "STRING_VALUE",
+ * //   taskArn: "STRING_VALUE",
+ * //   targets: [ // TargetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   state: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   completedAt: new Date("TIMESTAMP"),
+ * //   description: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

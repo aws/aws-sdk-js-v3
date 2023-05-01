@@ -46,36 +46,35 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListExecutionsResponse
- *   NextToken: "STRING_VALUE",
- *   WorkflowId: "STRING_VALUE", // required
- *   Executions: [ // ListedExecutions // required
- *     { // ListedExecution
- *       ExecutionId: "STRING_VALUE",
- *       InitialFileLocation: { // FileLocation
- *         S3FileLocation: { // S3FileLocation
- *           Bucket: "STRING_VALUE",
- *           Key: "STRING_VALUE",
- *           VersionId: "STRING_VALUE",
- *           Etag: "STRING_VALUE",
- *         },
- *         EfsFileLocation: { // EfsFileLocation
- *           FileSystemId: "STRING_VALUE",
- *           Path: "STRING_VALUE",
- *         },
- *       },
- *       ServiceMetadata: { // ServiceMetadata
- *         UserDetails: { // UserDetails
- *           UserName: "STRING_VALUE", // required
- *           ServerId: "STRING_VALUE", // required
- *           SessionId: "STRING_VALUE",
- *         },
- *       },
- *       Status: "IN_PROGRESS" || "COMPLETED" || "EXCEPTION" || "HANDLING_EXCEPTION",
- *     },
- *   ],
- * };
+ * // { // ListExecutionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   WorkflowId: "STRING_VALUE", // required
+ * //   Executions: [ // ListedExecutions // required
+ * //     { // ListedExecution
+ * //       ExecutionId: "STRING_VALUE",
+ * //       InitialFileLocation: { // FileLocation
+ * //         S3FileLocation: { // S3FileLocation
+ * //           Bucket: "STRING_VALUE",
+ * //           Key: "STRING_VALUE",
+ * //           VersionId: "STRING_VALUE",
+ * //           Etag: "STRING_VALUE",
+ * //         },
+ * //         EfsFileLocation: { // EfsFileLocation
+ * //           FileSystemId: "STRING_VALUE",
+ * //           Path: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ServiceMetadata: { // ServiceMetadata
+ * //         UserDetails: { // UserDetails
+ * //           UserName: "STRING_VALUE", // required
+ * //           ServerId: "STRING_VALUE", // required
+ * //           SessionId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "IN_PROGRESS" || "COMPLETED" || "EXCEPTION" || "HANDLING_EXCEPTION",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

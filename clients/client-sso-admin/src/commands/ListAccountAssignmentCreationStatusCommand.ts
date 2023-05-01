@@ -58,17 +58,16 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * };
  * const command = new ListAccountAssignmentCreationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountAssignmentCreationStatusResponse
- *   AccountAssignmentsCreationStatus: [ // AccountAssignmentOperationStatusList
- *     { // AccountAssignmentOperationStatusMetadata
- *       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
- *       RequestId: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountAssignmentCreationStatusResponse
+ * //   AccountAssignmentsCreationStatus: [ // AccountAssignmentOperationStatusList
+ * //     { // AccountAssignmentOperationStatusMetadata
+ * //       Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //       RequestId: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,10 +47,9 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * };
  * const command = new PutModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutModelPackageGroupPolicyOutput
- *   ModelPackageGroupArn: "STRING_VALUE", // required
- * };
+ * // { // PutModelPackageGroupPolicyOutput
+ * //   ModelPackageGroupArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

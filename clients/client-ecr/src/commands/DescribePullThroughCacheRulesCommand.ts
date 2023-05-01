@@ -54,18 +54,17 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * };
  * const command = new DescribePullThroughCacheRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePullThroughCacheRulesResponse
- *   pullThroughCacheRules: [ // PullThroughCacheRuleList
- *     { // PullThroughCacheRule
- *       ecrRepositoryPrefix: "STRING_VALUE",
- *       upstreamRegistryUrl: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       registryId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribePullThroughCacheRulesResponse
+ * //   pullThroughCacheRules: [ // PullThroughCacheRuleList
+ * //     { // PullThroughCacheRule
+ * //       ecrRepositoryPrefix: "STRING_VALUE",
+ * //       upstreamRegistryUrl: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       registryId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

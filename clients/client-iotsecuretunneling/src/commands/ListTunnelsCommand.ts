@@ -52,20 +52,19 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * };
  * const command = new ListTunnelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTunnelsResponse
- *   tunnelSummaries: [ // TunnelSummaryList
- *     { // TunnelSummary
- *       tunnelId: "STRING_VALUE",
- *       tunnelArn: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTunnelsResponse
+ * //   tunnelSummaries: [ // TunnelSummaryList
+ * //     { // TunnelSummary
+ * //       tunnelId: "STRING_VALUE",
+ * //       tunnelArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

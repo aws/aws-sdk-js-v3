@@ -48,17 +48,16 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * };
  * const command = new DeleteNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteNetworkResponse
- *   network: { // Network
- *     networkArn: "STRING_VALUE", // required
- *     networkName: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     status: "STRING_VALUE", // required
- *     statusReason: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DeleteNetworkResponse
+ * //   network: { // Network
+ * //     networkArn: "STRING_VALUE", // required
+ * //     networkName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     status: "STRING_VALUE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

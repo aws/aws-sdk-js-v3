@@ -54,12 +54,11 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  * };
  * const command = new DeleteServiceNetworkServiceAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceNetworkServiceAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- * };
+ * // { // DeleteServiceNetworkServiceAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

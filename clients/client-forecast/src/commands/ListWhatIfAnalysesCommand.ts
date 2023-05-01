@@ -52,21 +52,20 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * };
  * const command = new ListWhatIfAnalysesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWhatIfAnalysesResponse
- *   WhatIfAnalyses: [ // WhatIfAnalyses
- *     { // WhatIfAnalysisSummary
- *       WhatIfAnalysisArn: "STRING_VALUE",
- *       WhatIfAnalysisName: "STRING_VALUE",
- *       ForecastArn: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWhatIfAnalysesResponse
+ * //   WhatIfAnalyses: [ // WhatIfAnalyses
+ * //     { // WhatIfAnalysisSummary
+ * //       WhatIfAnalysisArn: "STRING_VALUE",
+ * //       WhatIfAnalysisName: "STRING_VALUE",
+ * //       ForecastArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

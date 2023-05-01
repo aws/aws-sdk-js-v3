@@ -51,14 +51,13 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * };
  * const command = new CreateRunGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRunGroupResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateRunGroupResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

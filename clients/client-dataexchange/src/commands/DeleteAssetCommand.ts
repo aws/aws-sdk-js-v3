@@ -46,8 +46,7 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

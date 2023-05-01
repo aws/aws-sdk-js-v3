@@ -57,21 +57,20 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPlatformBranchesResult
- *   PlatformBranchSummaryList: [ // PlatformBranchSummaryList
- *     { // PlatformBranchSummary
- *       PlatformName: "STRING_VALUE",
- *       BranchName: "STRING_VALUE",
- *       LifecycleState: "STRING_VALUE",
- *       BranchOrder: Number("int"),
- *       SupportedTierList: [ // SupportedTierList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPlatformBranchesResult
+ * //   PlatformBranchSummaryList: [ // PlatformBranchSummaryList
+ * //     { // PlatformBranchSummary
+ * //       PlatformName: "STRING_VALUE",
+ * //       BranchName: "STRING_VALUE",
+ * //       LifecycleState: "STRING_VALUE",
+ * //       BranchOrder: Number("int"),
+ * //       SupportedTierList: [ // SupportedTierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

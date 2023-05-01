@@ -49,22 +49,21 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * };
  * const command = new ListTrafficPolicyVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrafficPolicyVersionsResponse
- *   TrafficPolicies: [ // TrafficPolicies // required
- *     { // TrafficPolicy
- *       Id: "STRING_VALUE", // required
- *       Version: Number("int"), // required
- *       Name: "STRING_VALUE", // required
- *       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
- *       Document: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *     },
- *   ],
- *   IsTruncated: true || false, // required
- *   TrafficPolicyVersionMarker: "STRING_VALUE", // required
- *   MaxItems: Number("int"), // required
- * };
+ * // { // ListTrafficPolicyVersionsResponse
+ * //   TrafficPolicies: [ // TrafficPolicies // required
+ * //     { // TrafficPolicy
+ * //       Id: "STRING_VALUE", // required
+ * //       Version: Number("int"), // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //       Document: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false, // required
+ * //   TrafficPolicyVersionMarker: "STRING_VALUE", // required
+ * //   MaxItems: Number("int"), // required
+ * // };
  *
  * ```
  *

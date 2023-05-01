@@ -72,17 +72,16 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * };
  * const command = new CreateRegexPatternSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRegexPatternSetResponse
- *   RegexPatternSet: { // RegexPatternSet
- *     RegexPatternSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     RegexPatternStrings: [ // RegexPatternStrings // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateRegexPatternSetResponse
+ * //   RegexPatternSet: { // RegexPatternSet
+ * //     RegexPatternSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     RegexPatternStrings: [ // RegexPatternStrings // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

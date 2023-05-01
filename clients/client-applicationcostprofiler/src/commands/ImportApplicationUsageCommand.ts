@@ -55,10 +55,9 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * };
  * const command = new ImportApplicationUsageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportApplicationUsageResult
- *   importId: "STRING_VALUE", // required
- * };
+ * // { // ImportApplicationUsageResult
+ * //   importId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

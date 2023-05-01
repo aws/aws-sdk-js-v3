@@ -45,8 +45,7 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteDistributionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

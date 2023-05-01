@@ -48,31 +48,30 @@ export interface GetApiKeysCommandOutput extends ApiKeys, __MetadataBearer {}
  * };
  * const command = new GetApiKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ApiKeys
- *   warnings: [ // ListOfString
- *     "STRING_VALUE",
- *   ],
- *   items: [ // ListOfApiKey
- *     { // ApiKey
- *       id: "STRING_VALUE",
- *       value: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       customerId: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       enabled: true || false,
- *       createdDate: new Date("TIMESTAMP"),
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       stageKeys: [
- *         "STRING_VALUE",
- *       ],
- *       tags: { // MapOfStringToString
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // ApiKeys
+ * //   warnings: [ // ListOfString
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   items: [ // ListOfApiKey
+ * //     { // ApiKey
+ * //       id: "STRING_VALUE",
+ * //       value: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       customerId: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       enabled: true || false,
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       stageKeys: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       tags: { // MapOfStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

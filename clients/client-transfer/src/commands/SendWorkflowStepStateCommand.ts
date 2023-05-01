@@ -51,8 +51,7 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * };
  * const command = new SendWorkflowStepStateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

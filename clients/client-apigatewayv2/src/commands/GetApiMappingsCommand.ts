@@ -46,18 +46,17 @@ export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __M
  * };
  * const command = new GetApiMappingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApiMappingsResponse
- *   Items: [ // __listOfApiMapping
- *     { // ApiMapping
- *       ApiId: "STRING_VALUE", // required
- *       ApiMappingId: "STRING_VALUE",
- *       ApiMappingKey: "STRING_VALUE",
- *       Stage: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetApiMappingsResponse
+ * //   Items: [ // __listOfApiMapping
+ * //     { // ApiMapping
+ * //       ApiId: "STRING_VALUE", // required
+ * //       ApiMappingId: "STRING_VALUE",
+ * //       ApiMappingKey: "STRING_VALUE",
+ * //       Stage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

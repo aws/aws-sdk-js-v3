@@ -46,31 +46,30 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * };
  * const command = new ListArchiveRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListArchiveRulesResponse
- *   archiveRules: [ // ArchiveRulesList // required
- *     { // ArchiveRuleSummary
- *       ruleName: "STRING_VALUE", // required
- *       filter: { // FilterCriteriaMap // required
- *         "<keys>": { // Criterion
- *           eq: [ // ValueList
- *             "STRING_VALUE",
- *           ],
- *           neq: [
- *             "STRING_VALUE",
- *           ],
- *           contains: [
- *             "STRING_VALUE",
- *           ],
- *           exists: true || false,
- *         },
- *       },
- *       createdAt: new Date("TIMESTAMP"), // required
- *       updatedAt: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListArchiveRulesResponse
+ * //   archiveRules: [ // ArchiveRulesList // required
+ * //     { // ArchiveRuleSummary
+ * //       ruleName: "STRING_VALUE", // required
+ * //       filter: { // FilterCriteriaMap // required
+ * //         "<keys>": { // Criterion
+ * //           eq: [ // ValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           neq: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           contains: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exists: true || false,
+ * //         },
+ * //       },
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,15 +49,14 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterClientResponse
- *   clientId: "STRING_VALUE",
- *   clientSecret: "STRING_VALUE",
- *   clientIdIssuedAt: Number("long"),
- *   clientSecretExpiresAt: Number("long"),
- *   authorizationEndpoint: "STRING_VALUE",
- *   tokenEndpoint: "STRING_VALUE",
- * };
+ * // { // RegisterClientResponse
+ * //   clientId: "STRING_VALUE",
+ * //   clientSecret: "STRING_VALUE",
+ * //   clientIdIssuedAt: Number("long"),
+ * //   clientSecretExpiresAt: Number("long"),
+ * //   authorizationEndpoint: "STRING_VALUE",
+ * //   tokenEndpoint: "STRING_VALUE",
+ * // };
  *
  * ```
  *

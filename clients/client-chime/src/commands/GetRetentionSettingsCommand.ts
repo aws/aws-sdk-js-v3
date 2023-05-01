@@ -48,18 +48,17 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * };
  * const command = new GetRetentionSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRetentionSettingsResponse
- *   RetentionSettings: { // RetentionSettings
- *     RoomRetentionSettings: { // RoomRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *     ConversationRetentionSettings: { // ConversationRetentionSettings
- *       RetentionDays: Number("int"),
- *     },
- *   },
- *   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
- * };
+ * // { // GetRetentionSettingsResponse
+ * //   RetentionSettings: { // RetentionSettings
+ * //     RoomRetentionSettings: { // RoomRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //     ConversationRetentionSettings: { // ConversationRetentionSettings
+ * //       RetentionDays: Number("int"),
+ * //     },
+ * //   },
+ * //   InitiateDeletionTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

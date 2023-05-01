@@ -56,10 +56,9 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  * };
  * const command = new RejectDomainTransferFromAnotherAwsAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RejectDomainTransferFromAnotherAwsAccountResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // RejectDomainTransferFromAnotherAwsAccountResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

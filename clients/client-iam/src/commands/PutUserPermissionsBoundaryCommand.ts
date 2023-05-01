@@ -55,8 +55,7 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * };
  * const command = new PutUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

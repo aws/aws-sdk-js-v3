@@ -47,11 +47,10 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteChapCredentialsOutput
- *   TargetARN: "STRING_VALUE",
- *   InitiatorName: "STRING_VALUE",
- * };
+ * // { // DeleteChapCredentialsOutput
+ * //   TargetARN: "STRING_VALUE",
+ * //   InitiatorName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

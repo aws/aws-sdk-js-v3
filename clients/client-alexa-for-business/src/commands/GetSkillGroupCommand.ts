@@ -44,14 +44,13 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * };
  * const command = new GetSkillGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSkillGroupResponse
- *   SkillGroup: { // SkillGroup
- *     SkillGroupArn: "STRING_VALUE",
- *     SkillGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // GetSkillGroupResponse
+ * //   SkillGroup: { // SkillGroup
+ * //     SkillGroupArn: "STRING_VALUE",
+ * //     SkillGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

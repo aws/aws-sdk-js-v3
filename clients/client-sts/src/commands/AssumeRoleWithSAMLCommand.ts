@@ -181,26 +181,25 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * };
  * const command = new AssumeRoleWithSAMLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssumeRoleWithSAMLResponse
- *   Credentials: { // Credentials
- *     AccessKeyId: "STRING_VALUE", // required
- *     SecretAccessKey: "STRING_VALUE", // required
- *     SessionToken: "STRING_VALUE", // required
- *     Expiration: new Date("TIMESTAMP"), // required
- *   },
- *   AssumedRoleUser: { // AssumedRoleUser
- *     AssumedRoleId: "STRING_VALUE", // required
- *     Arn: "STRING_VALUE", // required
- *   },
- *   PackedPolicySize: Number("int"),
- *   Subject: "STRING_VALUE",
- *   SubjectType: "STRING_VALUE",
- *   Issuer: "STRING_VALUE",
- *   Audience: "STRING_VALUE",
- *   NameQualifier: "STRING_VALUE",
- *   SourceIdentity: "STRING_VALUE",
- * };
+ * // { // AssumeRoleWithSAMLResponse
+ * //   Credentials: { // Credentials
+ * //     AccessKeyId: "STRING_VALUE", // required
+ * //     SecretAccessKey: "STRING_VALUE", // required
+ * //     SessionToken: "STRING_VALUE", // required
+ * //     Expiration: new Date("TIMESTAMP"), // required
+ * //   },
+ * //   AssumedRoleUser: { // AssumedRoleUser
+ * //     AssumedRoleId: "STRING_VALUE", // required
+ * //     Arn: "STRING_VALUE", // required
+ * //   },
+ * //   PackedPolicySize: Number("int"),
+ * //   Subject: "STRING_VALUE",
+ * //   SubjectType: "STRING_VALUE",
+ * //   Issuer: "STRING_VALUE",
+ * //   Audience: "STRING_VALUE",
+ * //   NameQualifier: "STRING_VALUE",
+ * //   SourceIdentity: "STRING_VALUE",
+ * // };
  *
  * ```
  *

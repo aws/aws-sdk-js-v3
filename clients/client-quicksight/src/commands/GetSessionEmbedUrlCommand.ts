@@ -76,12 +76,11 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * };
  * const command = new GetSessionEmbedUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSessionEmbedUrlResponse
- *   EmbedUrl: "STRING_VALUE",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // GetSessionEmbedUrlResponse
+ * //   EmbedUrl: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

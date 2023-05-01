@@ -69,30 +69,29 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * };
  * const command = new CreateAnnotationStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAnnotationStoreResponse
- *   id: "STRING_VALUE", // required
- *   reference: { // ReferenceItem Union: only one key present
- *     referenceArn: "STRING_VALUE",
- *   },
- *   storeFormat: "STRING_VALUE",
- *   storeOptions: { // StoreOptions Union: only one key present
- *     tsvStoreOptions: { // TsvStoreOptions
- *       annotationType: "STRING_VALUE",
- *       formatToHeader: { // FormatToHeader
- *         "<keys>": "STRING_VALUE",
- *       },
- *       schema: [ // Schema
- *         { // SchemaItem
- *           "<keys>": "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   },
- *   status: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateAnnotationStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   reference: { // ReferenceItem Union: only one key present
+ * //     referenceArn: "STRING_VALUE",
+ * //   },
+ * //   storeFormat: "STRING_VALUE",
+ * //   storeOptions: { // StoreOptions Union: only one key present
+ * //     tsvStoreOptions: { // TsvStoreOptions
+ * //       annotationType: "STRING_VALUE",
+ * //       formatToHeader: { // FormatToHeader
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       schema: [ // Schema
+ * //         { // SchemaItem
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   status: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

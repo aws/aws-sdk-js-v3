@@ -46,8 +46,7 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteUseCaseCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

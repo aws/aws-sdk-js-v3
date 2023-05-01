@@ -45,8 +45,7 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteHostKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

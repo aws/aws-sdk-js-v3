@@ -51,8 +51,7 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * };
  * const command = new PutOutcomeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

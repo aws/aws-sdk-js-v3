@@ -180,10 +180,9 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * };
  * const command = new CreateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLifecyclePolicyResponse
- *   PolicyId: "STRING_VALUE",
- * };
+ * // { // CreateLifecyclePolicyResponse
+ * //   PolicyId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

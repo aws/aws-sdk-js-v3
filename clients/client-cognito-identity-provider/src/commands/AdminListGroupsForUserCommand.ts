@@ -57,21 +57,20 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * };
  * const command = new AdminListGroupsForUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AdminListGroupsForUserResponse
- *   Groups: [ // GroupListType
- *     { // GroupType
- *       GroupName: "STRING_VALUE",
- *       UserPoolId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       RoleArn: "STRING_VALUE",
- *       Precedence: Number("int"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       CreationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // AdminListGroupsForUserResponse
+ * //   Groups: [ // GroupListType
+ * //     { // GroupType
+ * //       GroupName: "STRING_VALUE",
+ * //       UserPoolId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
+ * //       Precedence: Number("int"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -56,11 +56,10 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * };
  * const command = new DeleteFileCacheCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFileCacheResponse
- *   FileCacheId: "STRING_VALUE",
- *   Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
- * };
+ * // { // DeleteFileCacheResponse
+ * //   FileCacheId: "STRING_VALUE",
+ * //   Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED",
+ * // };
  *
  * ```
  *

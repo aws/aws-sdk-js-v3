@@ -56,26 +56,25 @@ export interface CreateWorkflowStepGroupCommandOutput extends CreateWorkflowStep
  * };
  * const command = new CreateWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkflowStepGroupResponse
- *   workflowId: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   tools: [ // ToolsList
- *     { // Tool
- *       name: "STRING_VALUE",
- *       url: "STRING_VALUE",
- *     },
- *   ],
- *   next: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   previous: [
- *     "STRING_VALUE",
- *   ],
- *   creationTime: new Date("TIMESTAMP"),
- * };
+ * // { // CreateWorkflowStepGroupResponse
+ * //   workflowId: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   tools: [ // ToolsList
+ * //     { // Tool
+ * //       name: "STRING_VALUE",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   next: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   previous: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

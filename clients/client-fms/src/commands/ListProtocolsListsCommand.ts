@@ -46,20 +46,19 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * };
  * const command = new ListProtocolsListsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProtocolsListsResponse
- *   ProtocolsLists: [ // ProtocolsListsData
- *     { // ProtocolsListDataSummary
- *       ListArn: "STRING_VALUE",
- *       ListId: "STRING_VALUE",
- *       ListName: "STRING_VALUE",
- *       ProtocolsList: [ // ProtocolsList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProtocolsListsResponse
+ * //   ProtocolsLists: [ // ProtocolsListsData
+ * //     { // ProtocolsListDataSummary
+ * //       ListArn: "STRING_VALUE",
+ * //       ListId: "STRING_VALUE",
+ * //       ListName: "STRING_VALUE",
+ * //       ProtocolsList: [ // ProtocolsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

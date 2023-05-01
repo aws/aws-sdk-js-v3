@@ -48,15 +48,14 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * };
  * const command = new DescribeUserProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeUserProfileResult
- *   userArn: "STRING_VALUE", // required
- *   displayName: "STRING_VALUE",
- *   emailAddress: "STRING_VALUE",
- *   sshPublicKey: "STRING_VALUE",
- *   createdTimestamp: new Date("TIMESTAMP"), // required
- *   lastModifiedTimestamp: new Date("TIMESTAMP"), // required
- * };
+ * // { // DescribeUserProfileResult
+ * //   userArn: "STRING_VALUE", // required
+ * //   displayName: "STRING_VALUE",
+ * //   emailAddress: "STRING_VALUE",
+ * //   sshPublicKey: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"), // required
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

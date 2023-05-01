@@ -63,8 +63,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

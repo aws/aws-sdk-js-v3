@@ -54,8 +54,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

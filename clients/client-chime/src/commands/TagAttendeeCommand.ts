@@ -51,8 +51,7 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TagAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

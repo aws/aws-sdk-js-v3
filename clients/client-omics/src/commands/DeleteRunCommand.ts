@@ -44,8 +44,7 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

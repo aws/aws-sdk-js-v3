@@ -78,10 +78,9 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * };
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterTypeOutput
- *   RegistrationToken: "STRING_VALUE",
- * };
+ * // { // RegisterTypeOutput
+ * //   RegistrationToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

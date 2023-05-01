@@ -53,12 +53,11 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * };
  * const command = new CreateWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkspaceApiKeyResponse
- *   keyName: "STRING_VALUE", // required
- *   key: "STRING_VALUE", // required
- *   workspaceId: "STRING_VALUE", // required
- * };
+ * // { // CreateWorkspaceApiKeyResponse
+ * //   keyName: "STRING_VALUE", // required
+ * //   key: "STRING_VALUE", // required
+ * //   workspaceId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -50,21 +50,20 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAssociatedResourceResponse
- *   resource: { // Resource
- *     name: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     associationTime: new Date("TIMESTAMP"),
- *     integrations: { // ResourceIntegrations
- *       resourceGroup: { // ResourceGroup
- *         state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
- *         arn: "STRING_VALUE",
- *         errorMessage: "STRING_VALUE",
- *       },
- *     },
- *   },
- * };
+ * // { // GetAssociatedResourceResponse
+ * //   resource: { // Resource
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     associationTime: new Date("TIMESTAMP"),
+ * //     integrations: { // ResourceIntegrations
+ * //       resourceGroup: { // ResourceGroup
+ * //         state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //         arn: "STRING_VALUE",
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

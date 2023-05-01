@@ -52,32 +52,31 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * };
  * const command = new DescribeLocationFsxOntapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocationFsxOntapResponse
- *   CreationTime: new Date("TIMESTAMP"),
- *   LocationArn: "STRING_VALUE",
- *   LocationUri: "STRING_VALUE",
- *   Protocol: { // FsxProtocol
- *     NFS: { // FsxProtocolNfs
- *       MountOptions: { // NfsMountOptions
- *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
- *       },
- *     },
- *     SMB: { // FsxProtocolSmb
- *       Domain: "STRING_VALUE",
- *       MountOptions: { // SmbMountOptions
- *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
- *       },
- *       Password: "STRING_VALUE", // required
- *       User: "STRING_VALUE", // required
- *     },
- *   },
- *   SecurityGroupArns: [ // Ec2SecurityGroupArnList
- *     "STRING_VALUE",
- *   ],
- *   StorageVirtualMachineArn: "STRING_VALUE",
- *   FsxFilesystemArn: "STRING_VALUE",
- * };
+ * // { // DescribeLocationFsxOntapResponse
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LocationArn: "STRING_VALUE",
+ * //   LocationUri: "STRING_VALUE",
+ * //   Protocol: { // FsxProtocol
+ * //     NFS: { // FsxProtocolNfs
+ * //       MountOptions: { // NfsMountOptions
+ * //         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ * //       },
+ * //     },
+ * //     SMB: { // FsxProtocolSmb
+ * //       Domain: "STRING_VALUE",
+ * //       MountOptions: { // SmbMountOptions
+ * //         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ * //       },
+ * //       Password: "STRING_VALUE", // required
+ * //       User: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   SecurityGroupArns: [ // Ec2SecurityGroupArnList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   StorageVirtualMachineArn: "STRING_VALUE",
+ * //   FsxFilesystemArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

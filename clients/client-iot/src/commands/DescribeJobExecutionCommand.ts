@@ -47,26 +47,25 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJobExecutionResponse
- *   execution: { // JobExecution
- *     jobId: "STRING_VALUE",
- *     status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
- *     forceCanceled: true || false,
- *     statusDetails: { // JobExecutionStatusDetails
- *       detailsMap: { // DetailsMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *     thingArn: "STRING_VALUE",
- *     queuedAt: new Date("TIMESTAMP"),
- *     startedAt: new Date("TIMESTAMP"),
- *     lastUpdatedAt: new Date("TIMESTAMP"),
- *     executionNumber: Number("long"),
- *     versionNumber: Number("long"),
- *     approximateSecondsBeforeTimedOut: Number("long"),
- *   },
- * };
+ * // { // DescribeJobExecutionResponse
+ * //   execution: { // JobExecution
+ * //     jobId: "STRING_VALUE",
+ * //     status: "QUEUED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "REJECTED" || "REMOVED" || "CANCELED",
+ * //     forceCanceled: true || false,
+ * //     statusDetails: { // JobExecutionStatusDetails
+ * //       detailsMap: { // DetailsMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     thingArn: "STRING_VALUE",
+ * //     queuedAt: new Date("TIMESTAMP"),
+ * //     startedAt: new Date("TIMESTAMP"),
+ * //     lastUpdatedAt: new Date("TIMESTAMP"),
+ * //     executionNumber: Number("long"),
+ * //     versionNumber: Number("long"),
+ * //     approximateSecondsBeforeTimedOut: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

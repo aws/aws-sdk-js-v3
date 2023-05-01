@@ -54,10 +54,9 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  * };
  * const command = new EnableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EnableVpcClassicLinkResult
- *   Return: true || false,
- * };
+ * // { // EnableVpcClassicLinkResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

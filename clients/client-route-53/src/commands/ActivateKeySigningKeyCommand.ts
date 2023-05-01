@@ -47,15 +47,14 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * };
  * const command = new ActivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ActivateKeySigningKeyResponse
- *   ChangeInfo: { // ChangeInfo
- *     Id: "STRING_VALUE", // required
- *     Status: "PENDING" || "INSYNC", // required
- *     SubmittedAt: new Date("TIMESTAMP"), // required
- *     Comment: "STRING_VALUE",
- *   },
- * };
+ * // { // ActivateKeySigningKeyResponse
+ * //   ChangeInfo: { // ChangeInfo
+ * //     Id: "STRING_VALUE", // required
+ * //     Status: "PENDING" || "INSYNC", // required
+ * //     SubmittedAt: new Date("TIMESTAMP"), // required
+ * //     Comment: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

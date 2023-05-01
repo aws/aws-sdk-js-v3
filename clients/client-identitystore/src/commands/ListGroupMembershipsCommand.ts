@@ -47,20 +47,19 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * };
  * const command = new ListGroupMembershipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupMembershipsResponse
- *   GroupMemberships: [ // GroupMemberships // required
- *     { // GroupMembership
- *       IdentityStoreId: "STRING_VALUE", // required
- *       MembershipId: "STRING_VALUE",
- *       GroupId: "STRING_VALUE",
- *       MemberId: { // MemberId Union: only one key present
- *         UserId: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGroupMembershipsResponse
+ * //   GroupMemberships: [ // GroupMemberships // required
+ * //     { // GroupMembership
+ * //       IdentityStoreId: "STRING_VALUE", // required
+ * //       MembershipId: "STRING_VALUE",
+ * //       GroupId: "STRING_VALUE",
+ * //       MemberId: { // MemberId Union: only one key present
+ * //         UserId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

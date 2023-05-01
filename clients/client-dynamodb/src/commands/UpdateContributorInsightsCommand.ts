@@ -52,12 +52,11 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * };
  * const command = new UpdateContributorInsightsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateContributorInsightsOutput
- *   TableName: "STRING_VALUE",
- *   IndexName: "STRING_VALUE",
- *   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
- * };
+ * // { // UpdateContributorInsightsOutput
+ * //   TableName: "STRING_VALUE",
+ * //   IndexName: "STRING_VALUE",
+ * //   ContributorInsightsStatus: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * // };
  *
  * ```
  *

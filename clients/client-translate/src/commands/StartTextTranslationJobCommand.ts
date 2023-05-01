@@ -79,11 +79,10 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * };
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTextTranslationJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartTextTranslationJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

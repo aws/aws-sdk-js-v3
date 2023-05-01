@@ -65,10 +65,9 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * };
  * const command = new ModifyHsmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyHsmResponse
- *   HsmArn: "STRING_VALUE",
- * };
+ * // { // ModifyHsmResponse
+ * //   HsmArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,28 +66,27 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  * };
  * const command = new GetAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointResult
- *   Name: "STRING_VALUE",
- *   Bucket: "STRING_VALUE",
- *   NetworkOrigin: "Internet" || "VPC",
- *   VpcConfiguration: { // VpcConfiguration
- *     VpcId: "STRING_VALUE", // required
- *   },
- *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
- *     BlockPublicAcls: true || false,
- *     IgnorePublicAcls: true || false,
- *     BlockPublicPolicy: true || false,
- *     RestrictPublicBuckets: true || false,
- *   },
- *   CreationDate: new Date("TIMESTAMP"),
- *   Alias: "STRING_VALUE",
- *   AccessPointArn: "STRING_VALUE",
- *   Endpoints: { // Endpoints
- *     "<keys>": "STRING_VALUE",
- *   },
- *   BucketAccountId: "STRING_VALUE",
- * };
+ * // { // GetAccessPointResult
+ * //   Name: "STRING_VALUE",
+ * //   Bucket: "STRING_VALUE",
+ * //   NetworkOrigin: "Internet" || "VPC",
+ * //   VpcConfiguration: { // VpcConfiguration
+ * //     VpcId: "STRING_VALUE", // required
+ * //   },
+ * //   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ * //     BlockPublicAcls: true || false,
+ * //     IgnorePublicAcls: true || false,
+ * //     BlockPublicPolicy: true || false,
+ * //     RestrictPublicBuckets: true || false,
+ * //   },
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   Alias: "STRING_VALUE",
+ * //   AccessPointArn: "STRING_VALUE",
+ * //   Endpoints: { // Endpoints
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   BucketAccountId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

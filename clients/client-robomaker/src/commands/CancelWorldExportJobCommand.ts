@@ -44,8 +44,7 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  * };
  * const command = new CancelWorldExportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

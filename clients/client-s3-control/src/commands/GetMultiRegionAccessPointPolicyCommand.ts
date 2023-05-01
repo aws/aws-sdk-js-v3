@@ -69,17 +69,16 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  * };
  * const command = new GetMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMultiRegionAccessPointPolicyResult
- *   Policy: { // MultiRegionAccessPointPolicyDocument
- *     Established: { // EstablishedMultiRegionAccessPointPolicy
- *       Policy: "STRING_VALUE",
- *     },
- *     Proposed: { // ProposedMultiRegionAccessPointPolicy
- *       Policy: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetMultiRegionAccessPointPolicyResult
+ * //   Policy: { // MultiRegionAccessPointPolicyDocument
+ * //     Established: { // EstablishedMultiRegionAccessPointPolicy
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //     Proposed: { // ProposedMultiRegionAccessPointPolicy
+ * //       Policy: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

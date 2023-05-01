@@ -64,20 +64,19 @@ export interface SelectAggregateResourceConfigCommandOutput
  * };
  * const command = new SelectAggregateResourceConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SelectAggregateResourceConfigResponse
- *   Results: [ // Results
- *     "STRING_VALUE",
- *   ],
- *   QueryInfo: { // QueryInfo
- *     SelectFields: [ // FieldInfoList
- *       { // FieldInfo
- *         Name: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // SelectAggregateResourceConfigResponse
+ * //   Results: [ // Results
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   QueryInfo: { // QueryInfo
+ * //     SelectFields: [ // FieldInfoList
+ * //       { // FieldInfo
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,21 +50,20 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * };
  * const command = new DeleteCarrierGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCarrierGatewayResult
- *   CarrierGateway: { // CarrierGateway
- *     CarrierGatewayId: "STRING_VALUE",
- *     VpcId: "STRING_VALUE",
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     OwnerId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteCarrierGatewayResult
+ * //   CarrierGateway: { // CarrierGateway
+ * //     CarrierGatewayId: "STRING_VALUE",
+ * //     VpcId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

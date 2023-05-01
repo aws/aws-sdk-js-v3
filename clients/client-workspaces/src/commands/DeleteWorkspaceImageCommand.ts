@@ -46,8 +46,7 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * };
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

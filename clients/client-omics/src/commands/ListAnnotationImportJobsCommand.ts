@@ -52,22 +52,21 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * };
  * const command = new ListAnnotationImportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnnotationImportJobsResponse
- *   annotationImportJobs: [ // AnnotationImportJobItems
- *     { // AnnotationImportJobItem
- *       id: "STRING_VALUE", // required
- *       destinationName: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       updateTime: new Date("TIMESTAMP"), // required
- *       completionTime: new Date("TIMESTAMP"),
- *       runLeftNormalization: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAnnotationImportJobsResponse
+ * //   annotationImportJobs: [ // AnnotationImportJobItems
+ * //     { // AnnotationImportJobItem
+ * //       id: "STRING_VALUE", // required
+ * //       destinationName: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       completionTime: new Date("TIMESTAMP"),
+ * //       runLeftNormalization: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

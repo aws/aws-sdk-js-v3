@@ -56,8 +56,7 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AttachInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

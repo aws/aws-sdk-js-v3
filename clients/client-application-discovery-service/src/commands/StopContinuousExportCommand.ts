@@ -48,11 +48,10 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * };
  * const command = new StopContinuousExportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopContinuousExportResponse
- *   startTime: new Date("TIMESTAMP"),
- *   stopTime: new Date("TIMESTAMP"),
- * };
+ * // { // StopContinuousExportResponse
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   stopTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

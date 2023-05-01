@@ -49,20 +49,19 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * };
  * const command = new DescribeDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDomainResult
- *   domain: { // DomainDescription
- *     name: "STRING_VALUE",
- *     owner: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     status: "Active" || "Deleted",
- *     createdTime: new Date("TIMESTAMP"),
- *     encryptionKey: "STRING_VALUE",
- *     repositoryCount: Number("int"),
- *     assetSizeBytes: Number("long"),
- *     s3BucketArn: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeDomainResult
+ * //   domain: { // DomainDescription
+ * //     name: "STRING_VALUE",
+ * //     owner: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     status: "Active" || "Deleted",
+ * //     createdTime: new Date("TIMESTAMP"),
+ * //     encryptionKey: "STRING_VALUE",
+ * //     repositoryCount: Number("int"),
+ * //     assetSizeBytes: Number("long"),
+ * //     s3BucketArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

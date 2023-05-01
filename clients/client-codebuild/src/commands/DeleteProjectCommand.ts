@@ -45,8 +45,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

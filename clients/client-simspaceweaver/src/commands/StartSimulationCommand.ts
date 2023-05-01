@@ -68,12 +68,11 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSimulationOutput
- *   Arn: "STRING_VALUE",
- *   ExecutionId: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartSimulationOutput
+ * //   Arn: "STRING_VALUE",
+ * //   ExecutionId: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

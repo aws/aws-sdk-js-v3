@@ -57,18 +57,17 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTargetsForPolicyResponse
- *   Targets: [ // PolicyTargets
- *     { // PolicyTargetSummary
- *       TargetId: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTargetsForPolicyResponse
+ * //   Targets: [ // PolicyTargets
+ * //     { // PolicyTargetSummary
+ * //       TargetId: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Type: "ACCOUNT" || "ORGANIZATIONAL_UNIT" || "ROOT",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -87,10 +87,9 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  * };
  * const command = new CreateWhatIfAnalysisCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWhatIfAnalysisResponse
- *   WhatIfAnalysisArn: "STRING_VALUE",
- * };
+ * // { // CreateWhatIfAnalysisResponse
+ * //   WhatIfAnalysisArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * };
  * const command = new DeleteImagePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

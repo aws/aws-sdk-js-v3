@@ -47,8 +47,7 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * };
  * const command = new DeleteDataCellsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
  * };
  * const command = new UpdateMemberSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

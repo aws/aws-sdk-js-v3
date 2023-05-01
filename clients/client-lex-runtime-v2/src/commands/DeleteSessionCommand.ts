@@ -60,13 +60,12 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * };
  * const command = new DeleteSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSessionResponse
- *   botId: "STRING_VALUE",
- *   botAliasId: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   sessionId: "STRING_VALUE",
- * };
+ * // { // DeleteSessionResponse
+ * //   botId: "STRING_VALUE",
+ * //   botAliasId: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

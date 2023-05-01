@@ -66,34 +66,33 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * };
  * const command = new DescribeTransitGatewayVpcAttachmentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTransitGatewayVpcAttachmentsResult
- *   TransitGatewayVpcAttachments: [ // TransitGatewayVpcAttachmentList
- *     { // TransitGatewayVpcAttachment
- *       TransitGatewayAttachmentId: "STRING_VALUE",
- *       TransitGatewayId: "STRING_VALUE",
- *       VpcId: "STRING_VALUE",
- *       VpcOwnerId: "STRING_VALUE",
- *       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
- *       SubnetIds: [ // ValueStringList
- *         "STRING_VALUE",
- *       ],
- *       CreationTime: new Date("TIMESTAMP"),
- *       Options: { // TransitGatewayVpcAttachmentOptions
- *         DnsSupport: "enable" || "disable",
- *         Ipv6Support: "enable" || "disable",
- *         ApplianceModeSupport: "enable" || "disable",
- *       },
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTransitGatewayVpcAttachmentsResult
+ * //   TransitGatewayVpcAttachments: [ // TransitGatewayVpcAttachmentList
+ * //     { // TransitGatewayVpcAttachment
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       VpcId: "STRING_VALUE",
+ * //       VpcOwnerId: "STRING_VALUE",
+ * //       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ * //       SubnetIds: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       Options: { // TransitGatewayVpcAttachmentOptions
+ * //         DnsSupport: "enable" || "disable",
+ * //         Ipv6Support: "enable" || "disable",
+ * //         ApplianceModeSupport: "enable" || "disable",
+ * //       },
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

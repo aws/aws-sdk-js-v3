@@ -50,23 +50,22 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * };
  * const command = new DescribeRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRuleGroupsNamespaceResponse
- *   ruleGroupsNamespace: { // RuleGroupsNamespaceDescription
- *     arn: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     status: { // RuleGroupsNamespaceStatus
- *       statusCode: "STRING_VALUE", // required
- *       statusReason: "STRING_VALUE",
- *     },
- *     data: "BLOB_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     modifiedAt: new Date("TIMESTAMP"), // required
- *     tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeRuleGroupsNamespaceResponse
+ * //   ruleGroupsNamespace: { // RuleGroupsNamespaceDescription
+ * //     arn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     status: { // RuleGroupsNamespaceStatus
+ * //       statusCode: "STRING_VALUE", // required
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     data: "BLOB_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     modifiedAt: new Date("TIMESTAMP"), // required
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

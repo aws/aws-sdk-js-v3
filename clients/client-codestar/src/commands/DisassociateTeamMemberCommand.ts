@@ -48,8 +48,7 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * };
  * const command = new DisassociateTeamMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

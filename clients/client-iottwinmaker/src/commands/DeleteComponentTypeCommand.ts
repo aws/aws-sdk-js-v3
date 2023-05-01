@@ -45,10 +45,9 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * };
  * const command = new DeleteComponentTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteComponentTypeResponse
- *   state: "STRING_VALUE", // required
- * };
+ * // { // DeleteComponentTypeResponse
+ * //   state: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -183,10 +183,9 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * };
  * const command = new GenerateOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateOrganizationsAccessReportResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // GenerateOrganizationsAccessReportResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,18 +52,17 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * };
  * const command = new DeleteSchemaVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteSchemaVersionsResponse
- *   SchemaVersionErrors: [ // SchemaVersionErrorList
- *     { // SchemaVersionErrorItem
- *       VersionNumber: Number("long"),
- *       ErrorDetails: { // ErrorDetails
- *         ErrorCode: "STRING_VALUE",
- *         ErrorMessage: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DeleteSchemaVersionsResponse
+ * //   SchemaVersionErrors: [ // SchemaVersionErrorList
+ * //     { // SchemaVersionErrorItem
+ * //       VersionNumber: Number("long"),
+ * //       ErrorDetails: { // ErrorDetails
+ * //         ErrorCode: "STRING_VALUE",
+ * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

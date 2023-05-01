@@ -58,10 +58,9 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * };
  * const command = new CreateEvaluationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateEvaluationOutput
- *   EvaluationId: "STRING_VALUE",
- * };
+ * // { // CreateEvaluationOutput
+ * //   EvaluationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

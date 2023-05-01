@@ -63,10 +63,9 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * };
  * const command = new CreateNetworkSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNetworkSettingsResponse
- *   networkSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // CreateNetworkSettingsResponse
+ * //   networkSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

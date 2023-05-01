@@ -47,8 +47,7 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteIdentityPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * };
  * const command = new DeleteDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

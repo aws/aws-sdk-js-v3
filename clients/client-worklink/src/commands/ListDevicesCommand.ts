@@ -48,16 +48,15 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDevicesResponse
- *   Devices: [ // DeviceSummaryList
- *     { // DeviceSummary
- *       DeviceId: "STRING_VALUE",
- *       DeviceStatus: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDevicesResponse
+ * //   Devices: [ // DeviceSummaryList
+ * //     { // DeviceSummary
+ * //       DeviceId: "STRING_VALUE",
+ * //       DeviceStatus: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,12 +44,11 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * };
  * const command = new GetAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAutoTerminationPolicyOutput
- *   AutoTerminationPolicy: { // AutoTerminationPolicy
- *     IdleTimeout: Number("long"),
- *   },
- * };
+ * // { // GetAutoTerminationPolicyOutput
+ * //   AutoTerminationPolicy: { // AutoTerminationPolicy
+ * //     IdleTimeout: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

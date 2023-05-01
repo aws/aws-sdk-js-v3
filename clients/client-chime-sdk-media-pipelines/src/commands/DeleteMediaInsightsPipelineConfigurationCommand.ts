@@ -52,8 +52,7 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  * };
  * const command = new DeleteMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

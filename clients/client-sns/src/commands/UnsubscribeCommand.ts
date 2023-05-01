@@ -55,8 +55,7 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

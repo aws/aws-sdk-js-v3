@@ -47,18 +47,17 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
  * };
  * const command = new ListLaunchProfileMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLaunchProfileMembersResponse
- *   members: [ // LaunchProfileMembershipList
- *     { // LaunchProfileMembership
- *       identityStoreId: "STRING_VALUE",
- *       persona: "USER",
- *       principalId: "STRING_VALUE",
- *       sid: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListLaunchProfileMembersResponse
+ * //   members: [ // LaunchProfileMembershipList
+ * //     { // LaunchProfileMembership
+ * //       identityStoreId: "STRING_VALUE",
+ * //       persona: "USER",
+ * //       principalId: "STRING_VALUE",
+ * //       sid: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

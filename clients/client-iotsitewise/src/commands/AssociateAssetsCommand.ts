@@ -49,8 +49,7 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

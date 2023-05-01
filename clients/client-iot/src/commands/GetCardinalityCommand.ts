@@ -48,10 +48,9 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * };
  * const command = new GetCardinalityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCardinalityResponse
- *   cardinality: Number("int"),
- * };
+ * // { // GetCardinalityResponse
+ * //   cardinality: Number("int"),
+ * // };
  *
  * ```
  *

@@ -57,19 +57,18 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ProvisionByoipCidrResponse
- *   ByoipCidr: { // ByoipCidr
- *     Cidr: "STRING_VALUE",
- *     State: "PENDING_PROVISIONING" || "READY" || "PENDING_ADVERTISING" || "ADVERTISING" || "PENDING_WITHDRAWING" || "PENDING_DEPROVISIONING" || "DEPROVISIONED" || "FAILED_PROVISION" || "FAILED_ADVERTISING" || "FAILED_WITHDRAW" || "FAILED_DEPROVISION",
- *     Events: [ // ByoipCidrEvents
- *       { // ByoipCidrEvent
- *         Message: "STRING_VALUE",
- *         Timestamp: new Date("TIMESTAMP"),
- *       },
- *     ],
- *   },
- * };
+ * // { // ProvisionByoipCidrResponse
+ * //   ByoipCidr: { // ByoipCidr
+ * //     Cidr: "STRING_VALUE",
+ * //     State: "PENDING_PROVISIONING" || "READY" || "PENDING_ADVERTISING" || "ADVERTISING" || "PENDING_WITHDRAWING" || "PENDING_DEPROVISIONING" || "DEPROVISIONED" || "FAILED_PROVISION" || "FAILED_ADVERTISING" || "FAILED_WITHDRAW" || "FAILED_DEPROVISION",
+ * //     Events: [ // ByoipCidrEvents
+ * //       { // ByoipCidrEvent
+ * //         Message: "STRING_VALUE",
+ * //         Timestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

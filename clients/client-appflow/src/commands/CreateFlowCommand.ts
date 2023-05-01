@@ -317,11 +317,10 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFlowResponse
- *   flowArn: "STRING_VALUE",
- *   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
- * };
+ * // { // CreateFlowResponse
+ * //   flowArn: "STRING_VALUE",
+ * //   flowStatus: "Active" || "Deprecated" || "Deleted" || "Draft" || "Errored" || "Suspended",
+ * // };
  *
  * ```
  *

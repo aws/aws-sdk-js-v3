@@ -47,13 +47,12 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * };
  * const command = new UpdateArchiveCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateArchiveResponse
- *   ArchiveArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   StateReason: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateArchiveResponse
+ * //   ArchiveArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   StateReason: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * };
  * const command = new DeleteLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

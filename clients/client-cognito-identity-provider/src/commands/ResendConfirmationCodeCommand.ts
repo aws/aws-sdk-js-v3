@@ -83,14 +83,13 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * };
  * const command = new ResendConfirmationCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResendConfirmationCodeResponse
- *   CodeDeliveryDetails: { // CodeDeliveryDetailsType
- *     Destination: "STRING_VALUE",
- *     DeliveryMedium: "SMS" || "EMAIL",
- *     AttributeName: "STRING_VALUE",
- *   },
- * };
+ * // { // ResendConfirmationCodeResponse
+ * //   CodeDeliveryDetails: { // CodeDeliveryDetailsType
+ * //     Destination: "STRING_VALUE",
+ * //     DeliveryMedium: "SMS" || "EMAIL",
+ * //     AttributeName: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

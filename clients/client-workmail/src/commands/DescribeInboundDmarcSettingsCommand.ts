@@ -49,10 +49,9 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  * };
  * const command = new DescribeInboundDmarcSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeInboundDmarcSettingsResponse
- *   Enforced: true || false,
- * };
+ * // { // DescribeInboundDmarcSettingsResponse
+ * //   Enforced: true || false,
+ * // };
  *
  * ```
  *

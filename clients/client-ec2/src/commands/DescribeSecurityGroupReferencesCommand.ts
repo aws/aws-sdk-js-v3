@@ -52,16 +52,15 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * };
  * const command = new DescribeSecurityGroupReferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSecurityGroupReferencesResult
- *   SecurityGroupReferenceSet: [ // SecurityGroupReferences
- *     { // SecurityGroupReference
- *       GroupId: "STRING_VALUE",
- *       ReferencingVpcId: "STRING_VALUE",
- *       VpcPeeringConnectionId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeSecurityGroupReferencesResult
+ * //   SecurityGroupReferenceSet: [ // SecurityGroupReferences
+ * //     { // SecurityGroupReference
+ * //       GroupId: "STRING_VALUE",
+ * //       ReferencingVpcId: "STRING_VALUE",
+ * //       VpcPeeringConnectionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

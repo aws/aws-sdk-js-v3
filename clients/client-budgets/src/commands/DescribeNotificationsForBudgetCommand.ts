@@ -52,19 +52,18 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * };
  * const command = new DescribeNotificationsForBudgetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotificationsForBudgetResponse
- *   Notifications: [ // Notifications
- *     { // Notification
- *       NotificationType: "STRING_VALUE", // required
- *       ComparisonOperator: "STRING_VALUE", // required
- *       Threshold: Number("double"), // required
- *       ThresholdType: "STRING_VALUE",
- *       NotificationState: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeNotificationsForBudgetResponse
+ * //   Notifications: [ // Notifications
+ * //     { // Notification
+ * //       NotificationType: "STRING_VALUE", // required
+ * //       ComparisonOperator: "STRING_VALUE", // required
+ * //       Threshold: Number("double"), // required
+ * //       ThresholdType: "STRING_VALUE",
+ * //       NotificationState: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

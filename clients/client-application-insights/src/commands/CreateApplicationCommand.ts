@@ -60,19 +60,18 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateApplicationResponse
- *   ApplicationInfo: { // ApplicationInfo
- *     ResourceGroupName: "STRING_VALUE",
- *     LifeCycle: "STRING_VALUE",
- *     OpsItemSNSTopicArn: "STRING_VALUE",
- *     OpsCenterEnabled: true || false,
- *     CWEMonitorEnabled: true || false,
- *     Remarks: "STRING_VALUE",
- *     AutoConfigEnabled: true || false,
- *     DiscoveryType: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateApplicationResponse
+ * //   ApplicationInfo: { // ApplicationInfo
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     LifeCycle: "STRING_VALUE",
+ * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     OpsCenterEnabled: true || false,
+ * //     CWEMonitorEnabled: true || false,
+ * //     Remarks: "STRING_VALUE",
+ * //     AutoConfigEnabled: true || false,
+ * //     DiscoveryType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

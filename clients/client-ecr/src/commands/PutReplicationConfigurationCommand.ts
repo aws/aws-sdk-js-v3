@@ -73,27 +73,26 @@ export interface PutReplicationConfigurationCommandOutput
  * };
  * const command = new PutReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutReplicationConfigurationResponse
- *   replicationConfiguration: { // ReplicationConfiguration
- *     rules: [ // ReplicationRuleList // required
- *       { // ReplicationRule
- *         destinations: [ // ReplicationDestinationList // required
- *           { // ReplicationDestination
- *             region: "STRING_VALUE", // required
- *             registryId: "STRING_VALUE", // required
- *           },
- *         ],
- *         repositoryFilters: [ // RepositoryFilterList
- *           { // RepositoryFilter
- *             filter: "STRING_VALUE", // required
- *             filterType: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
- *     ],
- *   },
- * };
+ * // { // PutReplicationConfigurationResponse
+ * //   replicationConfiguration: { // ReplicationConfiguration
+ * //     rules: [ // ReplicationRuleList // required
+ * //       { // ReplicationRule
+ * //         destinations: [ // ReplicationDestinationList // required
+ * //           { // ReplicationDestination
+ * //             region: "STRING_VALUE", // required
+ * //             registryId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         repositoryFilters: [ // RepositoryFilterList
+ * //           { // RepositoryFilter
+ * //             filter: "STRING_VALUE", // required
+ * //             filterType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface AssociateProductWithPortfolioCommandOutput
  * };
  * const command = new AssociateProductWithPortfolioCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

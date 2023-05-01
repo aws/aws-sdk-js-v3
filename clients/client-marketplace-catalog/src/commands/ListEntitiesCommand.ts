@@ -64,20 +64,19 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * };
  * const command = new ListEntitiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEntitiesResponse
- *   EntitySummaryList: [ // EntitySummaryList
- *     { // EntitySummary
- *       Name: "STRING_VALUE",
- *       EntityType: "STRING_VALUE",
- *       EntityId: "STRING_VALUE",
- *       EntityArn: "STRING_VALUE",
- *       LastModifiedDate: "STRING_VALUE",
- *       Visibility: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEntitiesResponse
+ * //   EntitySummaryList: [ // EntitySummaryList
+ * //     { // EntitySummary
+ * //       Name: "STRING_VALUE",
+ * //       EntityType: "STRING_VALUE",
+ * //       EntityId: "STRING_VALUE",
+ * //       EntityArn: "STRING_VALUE",
+ * //       LastModifiedDate: "STRING_VALUE",
+ * //       Visibility: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

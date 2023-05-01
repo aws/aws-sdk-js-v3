@@ -49,18 +49,17 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * };
  * const command = new CreateDiscovererCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDiscovererResponse
- *   Description: "STRING_VALUE",
- *   DiscovererArn: "STRING_VALUE",
- *   DiscovererId: "STRING_VALUE",
- *   SourceArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
- *   CrossAccount: true || false,
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateDiscovererResponse
+ * //   Description: "STRING_VALUE",
+ * //   DiscovererArn: "STRING_VALUE",
+ * //   DiscovererId: "STRING_VALUE",
+ * //   SourceArn: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   CrossAccount: true || false,
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

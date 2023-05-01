@@ -50,8 +50,7 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeletePhoneNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

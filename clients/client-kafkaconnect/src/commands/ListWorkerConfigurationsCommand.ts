@@ -45,23 +45,22 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * };
  * const command = new ListWorkerConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkerConfigurationsResponse
- *   nextToken: "STRING_VALUE",
- *   workerConfigurations: [ // __listOfWorkerConfigurationSummary
- *     { // WorkerConfigurationSummary
- *       creationTime: new Date("TIMESTAMP"),
- *       description: "STRING_VALUE",
- *       latestRevision: { // WorkerConfigurationRevisionSummary
- *         creationTime: new Date("TIMESTAMP"),
- *         description: "STRING_VALUE",
- *         revision: Number("long"),
- *       },
- *       name: "STRING_VALUE",
- *       workerConfigurationArn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWorkerConfigurationsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workerConfigurations: [ // __listOfWorkerConfigurationSummary
+ * //     { // WorkerConfigurationSummary
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       description: "STRING_VALUE",
+ * //       latestRevision: { // WorkerConfigurationRevisionSummary
+ * //         creationTime: new Date("TIMESTAMP"),
+ * //         description: "STRING_VALUE",
+ * //         revision: Number("long"),
+ * //       },
+ * //       name: "STRING_VALUE",
+ * //       workerConfigurationArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

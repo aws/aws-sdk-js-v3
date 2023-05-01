@@ -54,27 +54,26 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * };
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLaunchTemplateVersionsResult
- *   SuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseSuccessSet
- *     { // DeleteLaunchTemplateVersionsResponseSuccessItem
- *       LaunchTemplateId: "STRING_VALUE",
- *       LaunchTemplateName: "STRING_VALUE",
- *       VersionNumber: Number("long"),
- *     },
- *   ],
- *   UnsuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseErrorSet
- *     { // DeleteLaunchTemplateVersionsResponseErrorItem
- *       LaunchTemplateId: "STRING_VALUE",
- *       LaunchTemplateName: "STRING_VALUE",
- *       VersionNumber: Number("long"),
- *       ResponseError: { // ResponseError
- *         Code: "launchTemplateIdDoesNotExist" || "launchTemplateIdMalformed" || "launchTemplateNameDoesNotExist" || "launchTemplateNameMalformed" || "launchTemplateVersionDoesNotExist" || "unexpectedError",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // DeleteLaunchTemplateVersionsResult
+ * //   SuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseSuccessSet
+ * //     { // DeleteLaunchTemplateVersionsResponseSuccessItem
+ * //       LaunchTemplateId: "STRING_VALUE",
+ * //       LaunchTemplateName: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * //   UnsuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseErrorSet
+ * //     { // DeleteLaunchTemplateVersionsResponseErrorItem
+ * //       LaunchTemplateId: "STRING_VALUE",
+ * //       LaunchTemplateName: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //       ResponseError: { // ResponseError
+ * //         Code: "launchTemplateIdDoesNotExist" || "launchTemplateIdMalformed" || "launchTemplateNameDoesNotExist" || "launchTemplateNameMalformed" || "launchTemplateVersionDoesNotExist" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

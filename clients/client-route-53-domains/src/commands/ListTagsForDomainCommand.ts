@@ -47,15 +47,14 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * };
  * const command = new ListTagsForDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForDomainResponse
- *   TagList: [ // TagList
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListTagsForDomainResponse
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

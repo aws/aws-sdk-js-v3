@@ -51,14 +51,13 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * };
  * const command = new GetAttendeeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAttendeeResponse
- *   Attendee: { // Attendee
- *     ExternalUserId: "STRING_VALUE",
- *     AttendeeId: "STRING_VALUE",
- *     JoinToken: "STRING_VALUE",
- *   },
- * };
+ * // { // GetAttendeeResponse
+ * //   Attendee: { // Attendee
+ * //     ExternalUserId: "STRING_VALUE",
+ * //     AttendeeId: "STRING_VALUE",
+ * //     JoinToken: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

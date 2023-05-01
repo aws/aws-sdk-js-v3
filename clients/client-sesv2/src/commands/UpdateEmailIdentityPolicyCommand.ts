@@ -57,8 +57,7 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  * };
  * const command = new UpdateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

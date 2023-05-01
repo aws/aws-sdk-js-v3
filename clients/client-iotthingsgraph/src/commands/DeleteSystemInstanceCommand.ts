@@ -48,8 +48,7 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * };
  * const command = new DeleteSystemInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

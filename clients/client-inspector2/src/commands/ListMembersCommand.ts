@@ -47,18 +47,17 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMembersResponse
- *   members: [ // MemberList
- *     { // Member
- *       accountId: "STRING_VALUE",
- *       relationshipStatus: "STRING_VALUE",
- *       delegatedAdminAccountId: "STRING_VALUE",
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListMembersResponse
+ * //   members: [ // MemberList
+ * //     { // Member
+ * //       accountId: "STRING_VALUE",
+ * //       relationshipStatus: "STRING_VALUE",
+ * //       delegatedAdminAccountId: "STRING_VALUE",
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

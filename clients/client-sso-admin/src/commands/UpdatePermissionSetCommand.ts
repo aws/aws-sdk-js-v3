@@ -48,8 +48,7 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * };
  * const command = new UpdatePermissionSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -45,13 +45,12 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  * };
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFolderResponse
- *   Status: Number("int"),
- *   Arn: "STRING_VALUE",
- *   FolderId: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DeleteFolderResponse
+ * //   Status: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   FolderId: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

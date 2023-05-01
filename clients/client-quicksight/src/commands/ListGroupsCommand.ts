@@ -47,20 +47,19 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGroupsResponse
- *   GroupList: [ // GroupList
- *     { // Group
- *       Arn: "STRING_VALUE",
- *       GroupName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       PrincipalId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // ListGroupsResponse
+ * //   GroupList: [ // GroupList
+ * //     { // Group
+ * //       Arn: "STRING_VALUE",
+ * //       GroupName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       PrincipalId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

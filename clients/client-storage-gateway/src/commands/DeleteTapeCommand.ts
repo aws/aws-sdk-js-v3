@@ -47,10 +47,9 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  * };
  * const command = new DeleteTapeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTapeOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // DeleteTapeOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

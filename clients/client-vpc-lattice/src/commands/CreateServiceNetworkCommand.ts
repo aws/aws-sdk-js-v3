@@ -52,13 +52,12 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * };
  * const command = new CreateServiceNetworkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceNetworkResponse
- *   id: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- * };
+ * // { // CreateServiceNetworkResponse
+ * //   id: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

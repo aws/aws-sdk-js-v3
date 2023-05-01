@@ -58,16 +58,15 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * };
  * const command = new BatchUnsuspendUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUnsuspendUserResponse
- *   UserErrors: [ // UserErrorList
- *     { // UserError
- *       UserId: "STRING_VALUE",
- *       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchUnsuspendUserResponse
+ * //   UserErrors: [ // UserErrorList
+ * //     { // UserError
+ * //       UserId: "STRING_VALUE",
+ * //       ErrorCode: "BadRequest" || "Conflict" || "Forbidden" || "NotFound" || "PreconditionFailed" || "ResourceLimitExceeded" || "ServiceFailure" || "AccessDenied" || "ServiceUnavailable" || "Throttled" || "Throttling" || "Unauthorized" || "Unprocessable" || "VoiceConnectorGroupAssociationsExist" || "PhoneNumberAssociationsExist",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

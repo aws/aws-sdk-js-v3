@@ -60,8 +60,7 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * };
  * const command = new DeleteObjectsOnCancelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

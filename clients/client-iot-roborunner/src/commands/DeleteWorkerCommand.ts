@@ -44,8 +44,7 @@ export interface DeleteWorkerCommandOutput extends DeleteWorkerResponse, __Metad
  * };
  * const command = new DeleteWorkerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

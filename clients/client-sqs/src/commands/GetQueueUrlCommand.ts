@@ -50,10 +50,9 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * };
  * const command = new GetQueueUrlCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQueueUrlResult
- *   QueueUrl: "STRING_VALUE",
- * };
+ * // { // GetQueueUrlResult
+ * //   QueueUrl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

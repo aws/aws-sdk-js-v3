@@ -63,10 +63,9 @@ export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageT
  * };
  * const command = new CreateRestoreImageTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRestoreImageTaskResult
- *   ImageId: "STRING_VALUE",
- * };
+ * // { // CreateRestoreImageTaskResult
+ * //   ImageId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

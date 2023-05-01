@@ -44,17 +44,16 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * };
  * const command = new GetInsightsByAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInsightsByAssessmentResponse
- *   insights: { // InsightsByAssessment
- *     noncompliantEvidenceCount: Number("int"),
- *     compliantEvidenceCount: Number("int"),
- *     inconclusiveEvidenceCount: Number("int"),
- *     assessmentControlsCountByNoncompliantEvidence: Number("int"),
- *     totalAssessmentControlsCount: Number("int"),
- *     lastUpdated: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetInsightsByAssessmentResponse
+ * //   insights: { // InsightsByAssessment
+ * //     noncompliantEvidenceCount: Number("int"),
+ * //     compliantEvidenceCount: Number("int"),
+ * //     inconclusiveEvidenceCount: Number("int"),
+ * //     assessmentControlsCountByNoncompliantEvidence: Number("int"),
+ * //     totalAssessmentControlsCount: Number("int"),
+ * //     lastUpdated: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

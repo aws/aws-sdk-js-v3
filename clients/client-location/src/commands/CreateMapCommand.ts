@@ -59,12 +59,11 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * };
  * const command = new CreateMapCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMapResponse
- *   MapName: "STRING_VALUE", // required
- *   MapArn: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateMapResponse
+ * //   MapName: "STRING_VALUE", // required
+ * //   MapArn: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

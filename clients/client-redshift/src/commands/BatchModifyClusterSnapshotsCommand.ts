@@ -50,20 +50,19 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * };
  * const command = new BatchModifyClusterSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchModifyClusterSnapshotsOutputMessage
- *   Resources: [ // SnapshotIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   Errors: [ // BatchSnapshotOperationErrors
- *     { // SnapshotErrorMessage
- *       SnapshotIdentifier: "STRING_VALUE",
- *       SnapshotClusterIdentifier: "STRING_VALUE",
- *       FailureCode: "STRING_VALUE",
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchModifyClusterSnapshotsOutputMessage
+ * //   Resources: [ // SnapshotIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Errors: [ // BatchSnapshotOperationErrors
+ * //     { // SnapshotErrorMessage
+ * //       SnapshotIdentifier: "STRING_VALUE",
+ * //       SnapshotClusterIdentifier: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

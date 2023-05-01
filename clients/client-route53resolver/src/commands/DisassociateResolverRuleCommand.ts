@@ -49,17 +49,16 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * };
  * const command = new DisassociateResolverRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateResolverRuleResponse
- *   ResolverRuleAssociation: { // ResolverRuleAssociation
- *     Id: "STRING_VALUE",
- *     ResolverRuleId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     VPCId: "STRING_VALUE",
- *     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
- *     StatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // DisassociateResolverRuleResponse
+ * //   ResolverRuleAssociation: { // ResolverRuleAssociation
+ * //     Id: "STRING_VALUE",
+ * //     ResolverRuleId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

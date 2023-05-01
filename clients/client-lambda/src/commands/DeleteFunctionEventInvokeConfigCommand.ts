@@ -49,8 +49,7 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * };
  * const command = new DeleteFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

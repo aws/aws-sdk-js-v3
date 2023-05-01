@@ -57,28 +57,27 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSiteResponse
- *   Site: { // Site
- *     SiteId: "STRING_VALUE",
- *     SiteArn: "STRING_VALUE",
- *     GlobalNetworkId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Location: { // Location
- *       Address: "STRING_VALUE",
- *       Latitude: "STRING_VALUE",
- *       Longitude: "STRING_VALUE",
- *     },
- *     CreatedAt: new Date("TIMESTAMP"),
- *     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // UpdateSiteResponse
+ * //   Site: { // Site
+ * //     SiteId: "STRING_VALUE",
+ * //     SiteArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Location: { // Location
+ * //       Address: "STRING_VALUE",
+ * //       Latitude: "STRING_VALUE",
+ * //       Longitude: "STRING_VALUE",
+ * //     },
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "UPDATING",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -51,32 +51,31 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * };
  * const command = new DescribeCachediSCSIVolumesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCachediSCSIVolumesOutput
- *   CachediSCSIVolumes: [ // CachediSCSIVolumes
- *     { // CachediSCSIVolume
- *       VolumeARN: "STRING_VALUE",
- *       VolumeId: "STRING_VALUE",
- *       VolumeType: "STRING_VALUE",
- *       VolumeStatus: "STRING_VALUE",
- *       VolumeAttachmentStatus: "STRING_VALUE",
- *       VolumeSizeInBytes: Number("long"),
- *       VolumeProgress: Number("double"),
- *       SourceSnapshotId: "STRING_VALUE",
- *       VolumeiSCSIAttributes: { // VolumeiSCSIAttributes
- *         TargetARN: "STRING_VALUE",
- *         NetworkInterfaceId: "STRING_VALUE",
- *         NetworkInterfacePort: Number("int"),
- *         LunNumber: Number("int"),
- *         ChapEnabled: true || false,
- *       },
- *       CreatedDate: new Date("TIMESTAMP"),
- *       VolumeUsedInBytes: Number("long"),
- *       KMSKey: "STRING_VALUE",
- *       TargetName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeCachediSCSIVolumesOutput
+ * //   CachediSCSIVolumes: [ // CachediSCSIVolumes
+ * //     { // CachediSCSIVolume
+ * //       VolumeARN: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //       VolumeType: "STRING_VALUE",
+ * //       VolumeStatus: "STRING_VALUE",
+ * //       VolumeAttachmentStatus: "STRING_VALUE",
+ * //       VolumeSizeInBytes: Number("long"),
+ * //       VolumeProgress: Number("double"),
+ * //       SourceSnapshotId: "STRING_VALUE",
+ * //       VolumeiSCSIAttributes: { // VolumeiSCSIAttributes
+ * //         TargetARN: "STRING_VALUE",
+ * //         NetworkInterfaceId: "STRING_VALUE",
+ * //         NetworkInterfacePort: Number("int"),
+ * //         LunNumber: Number("int"),
+ * //         ChapEnabled: true || false,
+ * //       },
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       VolumeUsedInBytes: Number("long"),
+ * //       KMSKey: "STRING_VALUE",
+ * //       TargetName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

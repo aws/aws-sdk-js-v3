@@ -55,18 +55,17 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * };
  * const command = new OptOutSpeakerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // OptOutSpeakerResponse
- *   Speaker: { // Speaker
- *     DomainId: "STRING_VALUE",
- *     CustomerSpeakerId: "STRING_VALUE",
- *     GeneratedSpeakerId: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     UpdatedAt: new Date("TIMESTAMP"),
- *     LastAccessedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // OptOutSpeakerResponse
+ * //   Speaker: { // Speaker
+ * //     DomainId: "STRING_VALUE",
+ * //     CustomerSpeakerId: "STRING_VALUE",
+ * //     GeneratedSpeakerId: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     UpdatedAt: new Date("TIMESTAMP"),
+ * //     LastAccessedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -83,8 +83,7 @@ export interface PutAppReplicationConfigurationCommandOutput
  * };
  * const command = new PutAppReplicationConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

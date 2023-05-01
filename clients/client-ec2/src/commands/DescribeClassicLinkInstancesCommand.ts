@@ -64,28 +64,27 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * };
  * const command = new DescribeClassicLinkInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeClassicLinkInstancesResult
- *   Instances: [ // ClassicLinkInstanceList
- *     { // ClassicLinkInstance
- *       Groups: [ // GroupIdentifierList
- *         { // GroupIdentifier
- *           GroupName: "STRING_VALUE",
- *           GroupId: "STRING_VALUE",
- *         },
- *       ],
- *       InstanceId: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       VpcId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeClassicLinkInstancesResult
+ * //   Instances: [ // ClassicLinkInstanceList
+ * //     { // ClassicLinkInstance
+ * //       Groups: [ // GroupIdentifierList
+ * //         { // GroupIdentifier
+ * //           GroupName: "STRING_VALUE",
+ * //           GroupId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       InstanceId: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       VpcId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

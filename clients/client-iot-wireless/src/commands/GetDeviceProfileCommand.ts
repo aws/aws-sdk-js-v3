@@ -48,48 +48,47 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * };
  * const command = new GetDeviceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceProfileResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   LoRaWAN: { // LoRaWANDeviceProfile
- *     SupportsClassB: true || false,
- *     ClassBTimeout: Number("int"),
- *     PingSlotPeriod: Number("int"),
- *     PingSlotDr: Number("int"),
- *     PingSlotFreq: Number("int"),
- *     SupportsClassC: true || false,
- *     ClassCTimeout: Number("int"),
- *     MacVersion: "STRING_VALUE",
- *     RegParamsRevision: "STRING_VALUE",
- *     RxDelay1: Number("int"),
- *     RxDrOffset1: Number("int"),
- *     RxDataRate2: Number("int"),
- *     RxFreq2: Number("int"),
- *     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
- *       Number("int"),
- *     ],
- *     MaxEirp: Number("int"),
- *     MaxDutyCycle: Number("int"),
- *     RfRegion: "STRING_VALUE",
- *     SupportsJoin: true || false,
- *     Supports32BitFCnt: true || false,
- *   },
- *   Sidewalk: { // SidewalkGetDeviceProfile
- *     ApplicationServerPublicKey: "STRING_VALUE",
- *     QualificationStatus: true || false,
- *     DakCertificateMetadata: [ // DakCertificateMetadataList
- *       { // DakCertificateMetadata
- *         CertificateId: "STRING_VALUE", // required
- *         MaxAllowedSignature: Number("int"),
- *         FactorySupport: true || false,
- *         ApId: "STRING_VALUE",
- *         DeviceTypeId: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // GetDeviceProfileResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   LoRaWAN: { // LoRaWANDeviceProfile
+ * //     SupportsClassB: true || false,
+ * //     ClassBTimeout: Number("int"),
+ * //     PingSlotPeriod: Number("int"),
+ * //     PingSlotDr: Number("int"),
+ * //     PingSlotFreq: Number("int"),
+ * //     SupportsClassC: true || false,
+ * //     ClassCTimeout: Number("int"),
+ * //     MacVersion: "STRING_VALUE",
+ * //     RegParamsRevision: "STRING_VALUE",
+ * //     RxDelay1: Number("int"),
+ * //     RxDrOffset1: Number("int"),
+ * //     RxDataRate2: Number("int"),
+ * //     RxFreq2: Number("int"),
+ * //     FactoryPresetFreqsList: [ // FactoryPresetFreqsList
+ * //       Number("int"),
+ * //     ],
+ * //     MaxEirp: Number("int"),
+ * //     MaxDutyCycle: Number("int"),
+ * //     RfRegion: "STRING_VALUE",
+ * //     SupportsJoin: true || false,
+ * //     Supports32BitFCnt: true || false,
+ * //   },
+ * //   Sidewalk: { // SidewalkGetDeviceProfile
+ * //     ApplicationServerPublicKey: "STRING_VALUE",
+ * //     QualificationStatus: true || false,
+ * //     DakCertificateMetadata: [ // DakCertificateMetadataList
+ * //       { // DakCertificateMetadata
+ * //         CertificateId: "STRING_VALUE", // required
+ * //         MaxAllowedSignature: Number("int"),
+ * //         FactorySupport: true || false,
+ * //         ApId: "STRING_VALUE",
+ * //         DeviceTypeId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

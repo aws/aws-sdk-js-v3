@@ -47,21 +47,20 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * };
  * const command = new ListLinksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLinksOutput
- *   Items: [ // ListLinksItems // required
- *     { // ListLinksItem
- *       Arn: "STRING_VALUE",
- *       Id: "STRING_VALUE",
- *       Label: "STRING_VALUE",
- *       ResourceTypes: [ // ResourceTypesOutput
- *         "STRING_VALUE",
- *       ],
- *       SinkArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLinksOutput
+ * //   Items: [ // ListLinksItems // required
+ * //     { // ListLinksItem
+ * //       Arn: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Label: "STRING_VALUE",
+ * //       ResourceTypes: [ // ResourceTypesOutput
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SinkArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

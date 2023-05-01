@@ -46,20 +46,19 @@ export interface ListTrustStoreCertificatesCommandOutput extends ListTrustStoreC
  * };
  * const command = new ListTrustStoreCertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrustStoreCertificatesResponse
- *   certificateList: [ // CertificateSummaryList
- *     { // CertificateSummary
- *       thumbprint: "STRING_VALUE",
- *       subject: "STRING_VALUE",
- *       issuer: "STRING_VALUE",
- *       notValidBefore: new Date("TIMESTAMP"),
- *       notValidAfter: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   trustStoreArn: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTrustStoreCertificatesResponse
+ * //   certificateList: [ // CertificateSummaryList
+ * //     { // CertificateSummary
+ * //       thumbprint: "STRING_VALUE",
+ * //       subject: "STRING_VALUE",
+ * //       issuer: "STRING_VALUE",
+ * //       notValidBefore: new Date("TIMESTAMP"),
+ * //       notValidAfter: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   trustStoreArn: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

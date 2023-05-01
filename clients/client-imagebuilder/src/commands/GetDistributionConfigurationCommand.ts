@@ -49,92 +49,91 @@ export interface GetDistributionConfigurationCommandOutput
  * };
  * const command = new GetDistributionConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDistributionConfigurationResponse
- *   requestId: "STRING_VALUE",
- *   distributionConfiguration: { // DistributionConfiguration
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     distributions: [ // DistributionList
- *       { // Distribution
- *         region: "STRING_VALUE", // required
- *         amiDistributionConfiguration: { // AmiDistributionConfiguration
- *           name: "STRING_VALUE",
- *           description: "STRING_VALUE",
- *           targetAccountIds: [ // AccountList
- *             "STRING_VALUE",
- *           ],
- *           amiTags: { // TagMap
- *             "<keys>": "STRING_VALUE",
- *           },
- *           kmsKeyId: "STRING_VALUE",
- *           launchPermission: { // LaunchPermissionConfiguration
- *             userIds: [
- *               "STRING_VALUE",
- *             ],
- *             userGroups: [ // StringList
- *               "STRING_VALUE",
- *             ],
- *             organizationArns: [ // OrganizationArnList
- *               "STRING_VALUE",
- *             ],
- *             organizationalUnitArns: [ // OrganizationalUnitArnList
- *               "STRING_VALUE",
- *             ],
- *           },
- *         },
- *         containerDistributionConfiguration: { // ContainerDistributionConfiguration
- *           description: "STRING_VALUE",
- *           containerTags: [
- *             "STRING_VALUE",
- *           ],
- *           targetRepository: { // TargetContainerRepository
- *             service: "ECR", // required
- *             repositoryName: "STRING_VALUE", // required
- *           },
- *         },
- *         licenseConfigurationArns: [ // LicenseConfigurationArnList
- *           "STRING_VALUE",
- *         ],
- *         launchTemplateConfigurations: [ // LaunchTemplateConfigurationList
- *           { // LaunchTemplateConfiguration
- *             launchTemplateId: "STRING_VALUE", // required
- *             accountId: "STRING_VALUE",
- *             setDefaultVersion: true || false,
- *           },
- *         ],
- *         s3ExportConfiguration: { // S3ExportConfiguration
- *           roleName: "STRING_VALUE", // required
- *           diskImageFormat: "VMDK" || "RAW" || "VHD", // required
- *           s3Bucket: "STRING_VALUE", // required
- *           s3Prefix: "STRING_VALUE",
- *         },
- *         fastLaunchConfigurations: [ // FastLaunchConfigurationList
- *           { // FastLaunchConfiguration
- *             enabled: true || false, // required
- *             snapshotConfiguration: { // FastLaunchSnapshotConfiguration
- *               targetResourceCount: Number("int"),
- *             },
- *             maxParallelLaunches: Number("int"),
- *             launchTemplate: { // FastLaunchLaunchTemplateSpecification
- *               launchTemplateId: "STRING_VALUE",
- *               launchTemplateName: "STRING_VALUE",
- *               launchTemplateVersion: "STRING_VALUE",
- *             },
- *             accountId: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     timeoutMinutes: Number("int"), // required
- *     dateCreated: "STRING_VALUE",
- *     dateUpdated: "STRING_VALUE",
- *     tags: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetDistributionConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   distributionConfiguration: { // DistributionConfiguration
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     distributions: [ // DistributionList
+ * //       { // Distribution
+ * //         region: "STRING_VALUE", // required
+ * //         amiDistributionConfiguration: { // AmiDistributionConfiguration
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           targetAccountIds: [ // AccountList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           amiTags: { // TagMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           kmsKeyId: "STRING_VALUE",
+ * //           launchPermission: { // LaunchPermissionConfiguration
+ * //             userIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             userGroups: [ // StringList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             organizationArns: [ // OrganizationArnList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             organizationalUnitArns: [ // OrganizationalUnitArnList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         containerDistributionConfiguration: { // ContainerDistributionConfiguration
+ * //           description: "STRING_VALUE",
+ * //           containerTags: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           targetRepository: { // TargetContainerRepository
+ * //             service: "ECR", // required
+ * //             repositoryName: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         licenseConfigurationArns: [ // LicenseConfigurationArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         launchTemplateConfigurations: [ // LaunchTemplateConfigurationList
+ * //           { // LaunchTemplateConfiguration
+ * //             launchTemplateId: "STRING_VALUE", // required
+ * //             accountId: "STRING_VALUE",
+ * //             setDefaultVersion: true || false,
+ * //           },
+ * //         ],
+ * //         s3ExportConfiguration: { // S3ExportConfiguration
+ * //           roleName: "STRING_VALUE", // required
+ * //           diskImageFormat: "VMDK" || "RAW" || "VHD", // required
+ * //           s3Bucket: "STRING_VALUE", // required
+ * //           s3Prefix: "STRING_VALUE",
+ * //         },
+ * //         fastLaunchConfigurations: [ // FastLaunchConfigurationList
+ * //           { // FastLaunchConfiguration
+ * //             enabled: true || false, // required
+ * //             snapshotConfiguration: { // FastLaunchSnapshotConfiguration
+ * //               targetResourceCount: Number("int"),
+ * //             },
+ * //             maxParallelLaunches: Number("int"),
+ * //             launchTemplate: { // FastLaunchLaunchTemplateSpecification
+ * //               launchTemplateId: "STRING_VALUE",
+ * //               launchTemplateName: "STRING_VALUE",
+ * //               launchTemplateVersion: "STRING_VALUE",
+ * //             },
+ * //             accountId: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     timeoutMinutes: Number("int"), // required
+ * //     dateCreated: "STRING_VALUE",
+ * //     dateUpdated: "STRING_VALUE",
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

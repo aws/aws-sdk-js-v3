@@ -61,10 +61,9 @@ export interface CreateHubCommandOutput extends CreateHubResponse, __MetadataBea
  * };
  * const command = new CreateHubCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateHubResponse
- *   HubArn: "STRING_VALUE", // required
- * };
+ * // { // CreateHubResponse
+ * //   HubArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,15 +51,14 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * };
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSystemTemplateResponse
- *   summary: { // SystemTemplateSummary
- *     id: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     revisionNumber: Number("long"),
- *     createdAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateSystemTemplateResponse
+ * //   summary: { // SystemTemplateSummary
+ * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     revisionNumber: Number("long"),
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

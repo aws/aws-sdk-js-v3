@@ -45,18 +45,17 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSessionResponse
- *   session: { // SessionData
- *     sessionArn: "STRING_VALUE", // required
- *     sessionId: "STRING_VALUE", // required
- *     name: "STRING_VALUE", // required
- *     description: "STRING_VALUE",
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetSessionResponse
+ * //   session: { // SessionData
+ * //     sessionArn: "STRING_VALUE", // required
+ * //     sessionId: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

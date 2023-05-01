@@ -64,20 +64,19 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * };
  * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMaintenanceWindowExecutionsResult
- *   WindowExecutions: [ // MaintenanceWindowExecutionList
- *     { // MaintenanceWindowExecution
- *       WindowId: "STRING_VALUE",
- *       WindowExecutionId: "STRING_VALUE",
- *       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
- *       StatusDetails: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeMaintenanceWindowExecutionsResult
+ * //   WindowExecutions: [ // MaintenanceWindowExecutionList
+ * //     { // MaintenanceWindowExecution
+ * //       WindowId: "STRING_VALUE",
+ * //       WindowExecutionId: "STRING_VALUE",
+ * //       Status: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED" || "TIMED_OUT" || "CANCELLING" || "CANCELLED" || "SKIPPED_OVERLAPPING",
+ * //       StatusDetails: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

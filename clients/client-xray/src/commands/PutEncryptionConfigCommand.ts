@@ -45,14 +45,13 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * };
  * const command = new PutEncryptionConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEncryptionConfigResult
- *   EncryptionConfig: { // EncryptionConfig
- *     KeyId: "STRING_VALUE",
- *     Status: "UPDATING" || "ACTIVE",
- *     Type: "NONE" || "KMS",
- *   },
- * };
+ * // { // PutEncryptionConfigResult
+ * //   EncryptionConfig: { // EncryptionConfig
+ * //     KeyId: "STRING_VALUE",
+ * //     Status: "UPDATING" || "ACTIVE",
+ * //     Type: "NONE" || "KMS",
+ * //   },
+ * // };
  *
  * ```
  *

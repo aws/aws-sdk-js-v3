@@ -49,10 +49,9 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * };
  * const command = new DeleteBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBandwidthRateLimitOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // DeleteBandwidthRateLimitOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

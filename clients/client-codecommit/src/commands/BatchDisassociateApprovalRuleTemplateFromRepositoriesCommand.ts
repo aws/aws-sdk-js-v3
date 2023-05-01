@@ -56,19 +56,18 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * };
  * const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
- *   disassociatedRepositoryNames: [ // RepositoryNameList // required
- *     "STRING_VALUE",
- *   ],
- *   errors: [ // BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList // required
- *     { // BatchDisassociateApprovalRuleTemplateFromRepositoriesError
- *       repositoryName: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
+ * //   disassociatedRepositoryNames: [ // RepositoryNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   errors: [ // BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList // required
+ * //     { // BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+ * //       repositoryName: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

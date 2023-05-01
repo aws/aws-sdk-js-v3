@@ -45,23 +45,22 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * };
  * const command = new DescribeHostKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeHostKeyResponse
- *   HostKey: { // DescribedHostKey
- *     Arn: "STRING_VALUE", // required
- *     HostKeyId: "STRING_VALUE",
- *     HostKeyFingerprint: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     DateImported: new Date("TIMESTAMP"),
- *     Tags: [ // Tags
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // DescribeHostKeyResponse
+ * //   HostKey: { // DescribedHostKey
+ * //     Arn: "STRING_VALUE", // required
+ * //     HostKeyId: "STRING_VALUE",
+ * //     HostKeyFingerprint: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     DateImported: new Date("TIMESTAMP"),
+ * //     Tags: [ // Tags
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

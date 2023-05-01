@@ -65,14 +65,13 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * };
  * const command = new LookupDeveloperIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LookupDeveloperIdentityResponse
- *   IdentityId: "STRING_VALUE",
- *   DeveloperUserIdentifierList: [ // DeveloperUserIdentifierList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // LookupDeveloperIdentityResponse
+ * //   IdentityId: "STRING_VALUE",
+ * //   DeveloperUserIdentifierList: [ // DeveloperUserIdentifierList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

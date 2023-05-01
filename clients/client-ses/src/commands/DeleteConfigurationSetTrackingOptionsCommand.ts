@@ -62,8 +62,7 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * };
  * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -54,40 +54,39 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
  * };
  * const command = new DeleteTransitGatewayPeeringAttachmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTransitGatewayPeeringAttachmentResult
- *   TransitGatewayPeeringAttachment: { // TransitGatewayPeeringAttachment
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     AccepterTransitGatewayAttachmentId: "STRING_VALUE",
- *     RequesterTgwInfo: { // PeeringTgwInfo
- *       TransitGatewayId: "STRING_VALUE",
- *       CoreNetworkId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *     },
- *     AccepterTgwInfo: {
- *       TransitGatewayId: "STRING_VALUE",
- *       CoreNetworkId: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *     },
- *     Options: { // TransitGatewayPeeringAttachmentOptions
- *       DynamicRouting: "enable" || "disable",
- *     },
- *     Status: { // PeeringAttachmentStatus
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *     State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTransitGatewayPeeringAttachmentResult
+ * //   TransitGatewayPeeringAttachment: { // TransitGatewayPeeringAttachment
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     AccepterTransitGatewayAttachmentId: "STRING_VALUE",
+ * //     RequesterTgwInfo: { // PeeringTgwInfo
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     AccepterTgwInfo: {
+ * //       TransitGatewayId: "STRING_VALUE",
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //     },
+ * //     Options: { // TransitGatewayPeeringAttachmentOptions
+ * //       DynamicRouting: "enable" || "disable",
+ * //     },
+ * //     Status: { // PeeringAttachmentStatus
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

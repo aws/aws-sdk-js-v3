@@ -45,28 +45,27 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * };
  * const command = new DescribeFHIRImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFHIRImportJobResponse
- *   ImportJobProperties: { // ImportJobProperties
- *     JobId: "STRING_VALUE", // required
- *     JobName: "STRING_VALUE",
- *     JobStatus: "STRING_VALUE", // required
- *     SubmitTime: new Date("TIMESTAMP"), // required
- *     EndTime: new Date("TIMESTAMP"),
- *     DatastoreId: "STRING_VALUE", // required
- *     InputDataConfig: { // InputDataConfig Union: only one key present
- *       S3Uri: "STRING_VALUE",
- *     },
- *     JobOutputDataConfig: { // OutputDataConfig Union: only one key present
- *       S3Configuration: { // S3Configuration
- *         S3Uri: "STRING_VALUE", // required
- *         KmsKeyId: "STRING_VALUE", // required
- *       },
- *     },
- *     DataAccessRoleArn: "STRING_VALUE",
- *     Message: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFHIRImportJobResponse
+ * //   ImportJobProperties: { // ImportJobProperties
+ * //     JobId: "STRING_VALUE", // required
+ * //     JobName: "STRING_VALUE",
+ * //     JobStatus: "STRING_VALUE", // required
+ * //     SubmitTime: new Date("TIMESTAMP"), // required
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     DatastoreId: "STRING_VALUE", // required
+ * //     InputDataConfig: { // InputDataConfig Union: only one key present
+ * //       S3Uri: "STRING_VALUE",
+ * //     },
+ * //     JobOutputDataConfig: { // OutputDataConfig Union: only one key present
+ * //       S3Configuration: { // S3Configuration
+ * //         S3Uri: "STRING_VALUE", // required
+ * //         KmsKeyId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     DataAccessRoleArn: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

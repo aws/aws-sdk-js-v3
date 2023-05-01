@@ -57,10 +57,9 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * };
  * const command = new DisableAwsNetworkPerformanceMetricSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableAwsNetworkPerformanceMetricSubscriptionResult
- *   Output: true || false,
- * };
+ * // { // DisableAwsNetworkPerformanceMetricSubscriptionResult
+ * //   Output: true || false,
+ * // };
  *
  * ```
  *

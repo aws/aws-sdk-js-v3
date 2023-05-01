@@ -54,20 +54,19 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * };
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConnectionResponse
- *   ConnectionId: "STRING_VALUE",
- *   ConnectionDetails: { // ConnectionDetails
- *     ClientPublicKey: "STRING_VALUE",
- *     ServerPublicKey: "STRING_VALUE",
- *     ServerEndpoint: "STRING_VALUE",
- *     ClientTunnelAddress: "STRING_VALUE",
- *     ServerTunnelAddress: "STRING_VALUE",
- *     AllowedIps: [ // CIDRList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // GetConnectionResponse
+ * //   ConnectionId: "STRING_VALUE",
+ * //   ConnectionDetails: { // ConnectionDetails
+ * //     ClientPublicKey: "STRING_VALUE",
+ * //     ServerPublicKey: "STRING_VALUE",
+ * //     ServerEndpoint: "STRING_VALUE",
+ * //     ClientTunnelAddress: "STRING_VALUE",
+ * //     ServerTunnelAddress: "STRING_VALUE",
+ * //     AllowedIps: [ // CIDRList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

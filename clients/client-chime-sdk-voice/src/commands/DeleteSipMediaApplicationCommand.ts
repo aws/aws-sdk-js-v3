@@ -44,8 +44,7 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteSipMediaApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

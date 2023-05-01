@@ -64,18 +64,17 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * };
  * const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutVoiceConnectorEmergencyCallingConfigurationResponse
- *   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
- *     DNIS: [ // DNISEmergencyCallingConfigurationList
- *       { // DNISEmergencyCallingConfiguration
- *         EmergencyPhoneNumber: "STRING_VALUE", // required
- *         TestPhoneNumber: "STRING_VALUE",
- *         CallingCountry: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // PutVoiceConnectorEmergencyCallingConfigurationResponse
+ * //   EmergencyCallingConfiguration: { // EmergencyCallingConfiguration
+ * //     DNIS: [ // DNISEmergencyCallingConfigurationList
+ * //       { // DNISEmergencyCallingConfiguration
+ * //         EmergencyPhoneNumber: "STRING_VALUE", // required
+ * //         TestPhoneNumber: "STRING_VALUE",
+ * //         CallingCountry: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

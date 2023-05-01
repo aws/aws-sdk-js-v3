@@ -46,17 +46,16 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyVersionResponse
- *   policyArn: "STRING_VALUE",
- *   policyName: "STRING_VALUE",
- *   policyDocument: "STRING_VALUE",
- *   policyVersionId: "STRING_VALUE",
- *   isDefaultVersion: true || false,
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- *   generationId: "STRING_VALUE",
- * };
+ * // { // GetPolicyVersionResponse
+ * //   policyArn: "STRING_VALUE",
+ * //   policyName: "STRING_VALUE",
+ * //   policyDocument: "STRING_VALUE",
+ * //   policyVersionId: "STRING_VALUE",
+ * //   isDefaultVersion: true || false,
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   generationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

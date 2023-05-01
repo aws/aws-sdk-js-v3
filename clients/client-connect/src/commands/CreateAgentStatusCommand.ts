@@ -52,11 +52,10 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * };
  * const command = new CreateAgentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAgentStatusResponse
- *   AgentStatusARN: "STRING_VALUE",
- *   AgentStatusId: "STRING_VALUE",
- * };
+ * // { // CreateAgentStatusResponse
+ * //   AgentStatusARN: "STRING_VALUE",
+ * //   AgentStatusId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,11 +44,10 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * };
  * const command = new GetSchemaCreationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSchemaCreationStatusResponse
- *   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
- *   details: "STRING_VALUE",
- * };
+ * // { // GetSchemaCreationStatusResponse
+ * //   status: "PROCESSING" || "ACTIVE" || "DELETING" || "FAILED" || "SUCCESS" || "NOT_APPLICABLE",
+ * //   details: "STRING_VALUE",
+ * // };
  *
  * ```
  *

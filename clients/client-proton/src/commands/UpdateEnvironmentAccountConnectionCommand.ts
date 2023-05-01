@@ -54,22 +54,21 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  * };
  * const command = new UpdateEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnvironmentAccountConnectionOutput
- *   environmentAccountConnection: { // EnvironmentAccountConnection
- *     id: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     managementAccountId: "STRING_VALUE", // required
- *     environmentAccountId: "STRING_VALUE", // required
- *     roleArn: "STRING_VALUE", // required
- *     environmentName: "STRING_VALUE", // required
- *     requestedAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     status: "STRING_VALUE", // required
- *     componentRoleArn: "STRING_VALUE",
- *     codebuildRoleArn: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateEnvironmentAccountConnectionOutput
+ * //   environmentAccountConnection: { // EnvironmentAccountConnection
+ * //     id: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     managementAccountId: "STRING_VALUE", // required
+ * //     environmentAccountId: "STRING_VALUE", // required
+ * //     roleArn: "STRING_VALUE", // required
+ * //     environmentName: "STRING_VALUE", // required
+ * //     requestedAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     status: "STRING_VALUE", // required
+ * //     componentRoleArn: "STRING_VALUE",
+ * //     codebuildRoleArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

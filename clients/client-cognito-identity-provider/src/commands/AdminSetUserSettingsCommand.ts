@@ -63,8 +63,7 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * };
  * const command = new AdminSetUserSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

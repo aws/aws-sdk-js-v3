@@ -47,36 +47,35 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * };
  * const command = new GetRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRunResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   workflowId: "STRING_VALUE",
- *   workflowType: "STRING_VALUE",
- *   runId: "STRING_VALUE",
- *   roleArn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   runGroupId: "STRING_VALUE",
- *   priority: Number("int"),
- *   definition: "STRING_VALUE",
- *   digest: "STRING_VALUE",
- *   parameters: "DOCUMENT_VALUE",
- *   storageCapacity: Number("int"),
- *   outputUri: "STRING_VALUE",
- *   logLevel: "STRING_VALUE",
- *   resourceDigests: { // RunResourceDigests
- *     "<keys>": "STRING_VALUE",
- *   },
- *   startedBy: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"),
- *   startTime: new Date("TIMESTAMP"),
- *   stopTime: new Date("TIMESTAMP"),
- *   statusMessage: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetRunResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   workflowType: "STRING_VALUE",
+ * //   runId: "STRING_VALUE",
+ * //   roleArn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   runGroupId: "STRING_VALUE",
+ * //   priority: Number("int"),
+ * //   definition: "STRING_VALUE",
+ * //   digest: "STRING_VALUE",
+ * //   parameters: "DOCUMENT_VALUE",
+ * //   storageCapacity: Number("int"),
+ * //   outputUri: "STRING_VALUE",
+ * //   logLevel: "STRING_VALUE",
+ * //   resourceDigests: { // RunResourceDigests
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   startedBy: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"),
+ * //   startTime: new Date("TIMESTAMP"),
+ * //   stopTime: new Date("TIMESTAMP"),
+ * //   statusMessage: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

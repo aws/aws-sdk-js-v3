@@ -45,10 +45,9 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * };
  * const command = new ExportSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExportSnapshotResult
- *   S3Url: "STRING_VALUE",
- * };
+ * // { // ExportSnapshotResult
+ * //   S3Url: "STRING_VALUE",
+ * // };
  *
  * ```
  *

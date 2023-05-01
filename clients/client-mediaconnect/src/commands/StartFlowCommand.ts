@@ -44,11 +44,10 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartFlowResponse
- *   FlowArn: "STRING_VALUE",
- *   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
- * };
+ * // { // StartFlowResponse
+ * //   FlowArn: "STRING_VALUE",
+ * //   Status: "STANDBY" || "ACTIVE" || "UPDATING" || "DELETING" || "STARTING" || "STOPPING" || "ERROR",
+ * // };
  *
  * ```
  *

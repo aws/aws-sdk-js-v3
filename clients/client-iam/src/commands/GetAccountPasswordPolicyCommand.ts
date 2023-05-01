@@ -45,21 +45,20 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * const input = {};
  * const command = new GetAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountPasswordPolicyResponse
- *   PasswordPolicy: { // PasswordPolicy
- *     MinimumPasswordLength: Number("int"),
- *     RequireSymbols: true || false,
- *     RequireNumbers: true || false,
- *     RequireUppercaseCharacters: true || false,
- *     RequireLowercaseCharacters: true || false,
- *     AllowUsersToChangePassword: true || false,
- *     ExpirePasswords: true || false,
- *     MaxPasswordAge: Number("int"),
- *     PasswordReusePrevention: Number("int"),
- *     HardExpiry: true || false,
- *   },
- * };
+ * // { // GetAccountPasswordPolicyResponse
+ * //   PasswordPolicy: { // PasswordPolicy
+ * //     MinimumPasswordLength: Number("int"),
+ * //     RequireSymbols: true || false,
+ * //     RequireNumbers: true || false,
+ * //     RequireUppercaseCharacters: true || false,
+ * //     RequireLowercaseCharacters: true || false,
+ * //     AllowUsersToChangePassword: true || false,
+ * //     ExpirePasswords: true || false,
+ * //     MaxPasswordAge: Number("int"),
+ * //     PasswordReusePrevention: Number("int"),
+ * //     HardExpiry: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

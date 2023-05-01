@@ -45,8 +45,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

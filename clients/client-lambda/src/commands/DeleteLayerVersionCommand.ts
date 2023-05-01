@@ -47,8 +47,7 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteLayerVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

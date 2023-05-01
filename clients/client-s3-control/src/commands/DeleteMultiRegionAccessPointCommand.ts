@@ -86,10 +86,9 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * };
  * const command = new DeleteMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMultiRegionAccessPointResult
- *   RequestTokenARN: "STRING_VALUE",
- * };
+ * // { // DeleteMultiRegionAccessPointResult
+ * //   RequestTokenARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

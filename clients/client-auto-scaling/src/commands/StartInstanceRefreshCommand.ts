@@ -179,10 +179,9 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartInstanceRefreshAnswer
- *   InstanceRefreshId: "STRING_VALUE",
- * };
+ * // { // StartInstanceRefreshAnswer
+ * //   InstanceRefreshId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

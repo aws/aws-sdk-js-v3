@@ -242,10 +242,9 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  * };
  * const command = new CreateAlgorithmCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAlgorithmOutput
- *   AlgorithmArn: "STRING_VALUE", // required
- * };
+ * // { // CreateAlgorithmOutput
+ * //   AlgorithmArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -75,10 +75,9 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * };
  * const command = new StartOutboundVoiceContactCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartOutboundVoiceContactResponse
- *   ContactId: "STRING_VALUE",
- * };
+ * // { // StartOutboundVoiceContactResponse
+ * //   ContactId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

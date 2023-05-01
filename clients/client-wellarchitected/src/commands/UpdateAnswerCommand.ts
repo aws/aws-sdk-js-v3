@@ -59,62 +59,61 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
  * };
  * const command = new UpdateAnswerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAnswerOutput
- *   WorkloadId: "STRING_VALUE",
- *   LensAlias: "STRING_VALUE",
- *   LensArn: "STRING_VALUE",
- *   Answer: { // Answer
- *     QuestionId: "STRING_VALUE",
- *     PillarId: "STRING_VALUE",
- *     QuestionTitle: "STRING_VALUE",
- *     QuestionDescription: "STRING_VALUE",
- *     ImprovementPlanUrl: "STRING_VALUE",
- *     HelpfulResourceUrl: "STRING_VALUE",
- *     HelpfulResourceDisplayText: "STRING_VALUE",
- *     Choices: [ // Choices
- *       { // Choice
- *         ChoiceId: "STRING_VALUE",
- *         Title: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         HelpfulResource: { // ChoiceContent
- *           DisplayText: "STRING_VALUE",
- *           Url: "STRING_VALUE",
- *         },
- *         ImprovementPlan: {
- *           DisplayText: "STRING_VALUE",
- *           Url: "STRING_VALUE",
- *         },
- *         AdditionalResources: [ // AdditionalResourcesList
- *           { // AdditionalResources
- *             Type: "HELPFUL_RESOURCE" || "IMPROVEMENT_PLAN",
- *             Content: [ // Urls
- *               {
- *                 DisplayText: "STRING_VALUE",
- *                 Url: "STRING_VALUE",
- *               },
- *             ],
- *           },
- *         ],
- *       },
- *     ],
- *     SelectedChoices: [ // SelectedChoices
- *       "STRING_VALUE",
- *     ],
- *     ChoiceAnswers: [ // ChoiceAnswers
- *       { // ChoiceAnswer
- *         ChoiceId: "STRING_VALUE",
- *         Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED",
- *         Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
- *         Notes: "STRING_VALUE",
- *       },
- *     ],
- *     IsApplicable: true || false,
- *     Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
- *     Notes: "STRING_VALUE",
- *     Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
- *   },
- * };
+ * // { // UpdateAnswerOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   LensAlias: "STRING_VALUE",
+ * //   LensArn: "STRING_VALUE",
+ * //   Answer: { // Answer
+ * //     QuestionId: "STRING_VALUE",
+ * //     PillarId: "STRING_VALUE",
+ * //     QuestionTitle: "STRING_VALUE",
+ * //     QuestionDescription: "STRING_VALUE",
+ * //     ImprovementPlanUrl: "STRING_VALUE",
+ * //     HelpfulResourceUrl: "STRING_VALUE",
+ * //     HelpfulResourceDisplayText: "STRING_VALUE",
+ * //     Choices: [ // Choices
+ * //       { // Choice
+ * //         ChoiceId: "STRING_VALUE",
+ * //         Title: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         HelpfulResource: { // ChoiceContent
+ * //           DisplayText: "STRING_VALUE",
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //         ImprovementPlan: {
+ * //           DisplayText: "STRING_VALUE",
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //         AdditionalResources: [ // AdditionalResourcesList
+ * //           { // AdditionalResources
+ * //             Type: "HELPFUL_RESOURCE" || "IMPROVEMENT_PLAN",
+ * //             Content: [ // Urls
+ * //               {
+ * //                 DisplayText: "STRING_VALUE",
+ * //                 Url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     SelectedChoices: [ // SelectedChoices
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ChoiceAnswers: [ // ChoiceAnswers
+ * //       { // ChoiceAnswer
+ * //         ChoiceId: "STRING_VALUE",
+ * //         Status: "SELECTED" || "NOT_APPLICABLE" || "UNSELECTED",
+ * //         Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //         Notes: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     IsApplicable: true || false,
+ * //     Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
+ * //     Notes: "STRING_VALUE",
+ * //     Reason: "OUT_OF_SCOPE" || "BUSINESS_PRIORITIES" || "ARCHITECTURE_CONSTRAINTS" || "OTHER" || "NONE",
+ * //   },
+ * // };
  *
  * ```
  *

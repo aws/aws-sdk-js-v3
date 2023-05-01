@@ -52,10 +52,9 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  * };
  * const command = new DisableEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableEbsEncryptionByDefaultResult
- *   EbsEncryptionByDefault: true || false,
- * };
+ * // { // DisableEbsEncryptionByDefaultResult
+ * //   EbsEncryptionByDefault: true || false,
+ * // };
  *
  * ```
  *

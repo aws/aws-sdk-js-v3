@@ -59,12 +59,11 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetConfigResponse
- *   ConfigType: "STRING_VALUE",
- *   ConfigFile: "STRING_VALUE",
- *   ConfigCred: "STRING_VALUE",
- * };
+ * // { // GetConfigResponse
+ * //   ConfigType: "STRING_VALUE",
+ * //   ConfigFile: "STRING_VALUE",
+ * //   ConfigCred: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,45 +47,44 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * };
  * const command = new ListRecipeVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecipeVersionsResponse
- *   NextToken: "STRING_VALUE",
- *   Recipes: [ // RecipeList // required
- *     { // Recipe
- *       CreatedBy: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       LastModifiedBy: "STRING_VALUE",
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       ProjectName: "STRING_VALUE",
- *       PublishedBy: "STRING_VALUE",
- *       PublishedDate: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       Name: "STRING_VALUE", // required
- *       ResourceArn: "STRING_VALUE",
- *       Steps: [ // RecipeStepList
- *         { // RecipeStep
- *           Action: { // RecipeAction
- *             Operation: "STRING_VALUE", // required
- *             Parameters: { // ParameterMap
- *               "<keys>": "STRING_VALUE",
- *             },
- *           },
- *           ConditionExpressions: [ // ConditionExpressionList
- *             { // ConditionExpression
- *               Condition: "STRING_VALUE", // required
- *               Value: "STRING_VALUE",
- *               TargetColumn: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       ],
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       RecipeVersion: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListRecipeVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Recipes: [ // RecipeList // required
+ * //     { // Recipe
+ * //       CreatedBy: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       ProjectName: "STRING_VALUE",
+ * //       PublishedBy: "STRING_VALUE",
+ * //       PublishedDate: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       Name: "STRING_VALUE", // required
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Steps: [ // RecipeStepList
+ * //         { // RecipeStep
+ * //           Action: { // RecipeAction
+ * //             Operation: "STRING_VALUE", // required
+ * //             Parameters: { // ParameterMap
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           ConditionExpressions: [ // ConditionExpressionList
+ * //             { // ConditionExpression
+ * //               Condition: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE",
+ * //               TargetColumn: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       RecipeVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

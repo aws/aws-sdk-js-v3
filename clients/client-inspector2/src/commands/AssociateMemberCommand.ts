@@ -44,10 +44,9 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * };
  * const command = new AssociateMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateMemberResponse
- *   accountId: "STRING_VALUE", // required
- * };
+ * // { // AssociateMemberResponse
+ * //   accountId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

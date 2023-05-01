@@ -70,10 +70,9 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * };
  * const command = new TestTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TestTypeOutput
- *   TypeVersionArn: "STRING_VALUE",
- * };
+ * // { // TestTypeOutput
+ * //   TypeVersionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

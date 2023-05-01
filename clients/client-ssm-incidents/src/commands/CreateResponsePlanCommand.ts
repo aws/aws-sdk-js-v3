@@ -105,10 +105,9 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * };
  * const command = new CreateResponsePlanCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateResponsePlanOutput
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // CreateResponsePlanOutput
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

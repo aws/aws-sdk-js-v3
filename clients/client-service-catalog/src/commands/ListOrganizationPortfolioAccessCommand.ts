@@ -56,16 +56,15 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * };
  * const command = new ListOrganizationPortfolioAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrganizationPortfolioAccessOutput
- *   OrganizationNodes: [ // OrganizationNodes
- *     { // OrganizationNode
- *       Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   NextPageToken: "STRING_VALUE",
- * };
+ * // { // ListOrganizationPortfolioAccessOutput
+ * //   OrganizationNodes: [ // OrganizationNodes
+ * //     { // OrganizationNode
+ * //       Type: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextPageToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

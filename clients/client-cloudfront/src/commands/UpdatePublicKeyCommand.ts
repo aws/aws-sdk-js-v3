@@ -52,20 +52,19 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * };
  * const command = new UpdatePublicKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdatePublicKeyResult
- *   PublicKey: { // PublicKey
- *     Id: "STRING_VALUE", // required
- *     CreatedTime: new Date("TIMESTAMP"), // required
- *     PublicKeyConfig: { // PublicKeyConfig
- *       CallerReference: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       EncodedKey: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // UpdatePublicKeyResult
+ * //   PublicKey: { // PublicKey
+ * //     Id: "STRING_VALUE", // required
+ * //     CreatedTime: new Date("TIMESTAMP"), // required
+ * //     PublicKeyConfig: { // PublicKeyConfig
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       EncodedKey: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

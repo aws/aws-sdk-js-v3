@@ -79,10 +79,9 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * };
  * const command = new UpdateStateMachineCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateStateMachineOutput
- *   updateDate: new Date("TIMESTAMP"), // required
- * };
+ * // { // UpdateStateMachineOutput
+ * //   updateDate: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

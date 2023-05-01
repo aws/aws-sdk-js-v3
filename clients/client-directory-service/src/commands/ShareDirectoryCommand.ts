@@ -66,10 +66,9 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * };
  * const command = new ShareDirectoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ShareDirectoryResult
- *   SharedDirectoryId: "STRING_VALUE",
- * };
+ * // { // ShareDirectoryResult
+ * //   SharedDirectoryId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

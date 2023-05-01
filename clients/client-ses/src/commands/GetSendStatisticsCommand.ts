@@ -45,18 +45,17 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * const input = {};
  * const command = new GetSendStatisticsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSendStatisticsResponse
- *   SendDataPoints: [ // SendDataPointList
- *     { // SendDataPoint
- *       Timestamp: new Date("TIMESTAMP"),
- *       DeliveryAttempts: Number("long"),
- *       Bounces: Number("long"),
- *       Complaints: Number("long"),
- *       Rejects: Number("long"),
- *     },
- *   ],
- * };
+ * // { // GetSendStatisticsResponse
+ * //   SendDataPoints: [ // SendDataPointList
+ * //     { // SendDataPoint
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //       DeliveryAttempts: Number("long"),
+ * //       Bounces: Number("long"),
+ * //       Complaints: Number("long"),
+ * //       Rejects: Number("long"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

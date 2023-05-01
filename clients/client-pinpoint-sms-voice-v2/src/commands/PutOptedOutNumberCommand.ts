@@ -51,14 +51,13 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  * };
  * const command = new PutOptedOutNumberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutOptedOutNumberResult
- *   OptOutListArn: "STRING_VALUE",
- *   OptOutListName: "STRING_VALUE",
- *   OptedOutNumber: "STRING_VALUE",
- *   OptedOutTimestamp: new Date("TIMESTAMP"),
- *   EndUserOptedOut: true || false,
- * };
+ * // { // PutOptedOutNumberResult
+ * //   OptOutListArn: "STRING_VALUE",
+ * //   OptOutListName: "STRING_VALUE",
+ * //   OptedOutNumber: "STRING_VALUE",
+ * //   OptedOutTimestamp: new Date("TIMESTAMP"),
+ * //   EndUserOptedOut: true || false,
+ * // };
  *
  * ```
  *

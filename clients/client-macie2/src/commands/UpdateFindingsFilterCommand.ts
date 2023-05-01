@@ -68,11 +68,10 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  * };
  * const command = new UpdateFindingsFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFindingsFilterResponse
- *   arn: "STRING_VALUE",
- *   id: "STRING_VALUE",
- * };
+ * // { // UpdateFindingsFilterResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

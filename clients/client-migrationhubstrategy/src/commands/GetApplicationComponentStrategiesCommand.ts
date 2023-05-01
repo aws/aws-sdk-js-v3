@@ -57,24 +57,23 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * };
  * const command = new GetApplicationComponentStrategiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetApplicationComponentStrategiesResponse
- *   applicationComponentStrategies: [ // ApplicationComponentStrategies
- *     { // ApplicationComponentStrategy
- *       recommendation: { // RecommendationSet
- *         transformationTool: { // TransformationTool
- *           name: "STRING_VALUE",
- *           description: "STRING_VALUE",
- *           tranformationToolInstallationLink: "STRING_VALUE",
- *         },
- *         targetDestination: "STRING_VALUE",
- *         strategy: "STRING_VALUE",
- *       },
- *       status: "STRING_VALUE",
- *       isPreferred: true || false,
- *     },
- *   ],
- * };
+ * // { // GetApplicationComponentStrategiesResponse
+ * //   applicationComponentStrategies: [ // ApplicationComponentStrategies
+ * //     { // ApplicationComponentStrategy
+ * //       recommendation: { // RecommendationSet
+ * //         transformationTool: { // TransformationTool
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           tranformationToolInstallationLink: "STRING_VALUE",
+ * //         },
+ * //         targetDestination: "STRING_VALUE",
+ * //         strategy: "STRING_VALUE",
+ * //       },
+ * //       status: "STRING_VALUE",
+ * //       isPreferred: true || false,
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

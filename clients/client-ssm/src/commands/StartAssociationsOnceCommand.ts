@@ -47,8 +47,7 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * };
  * const command = new StartAssociationsOnceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

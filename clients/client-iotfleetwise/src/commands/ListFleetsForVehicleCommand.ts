@@ -49,13 +49,12 @@ export interface ListFleetsForVehicleCommandOutput extends ListFleetsForVehicleR
  * };
  * const command = new ListFleetsForVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFleetsForVehicleResponse
- *   fleets: [ // fleets
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFleetsForVehicleResponse
+ * //   fleets: [ // fleets
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

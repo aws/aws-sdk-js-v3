@@ -45,13 +45,12 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  * };
  * const command = new ListAssociatedStacksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedStacksResult
- *   Names: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedStacksResult
+ * //   Names: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

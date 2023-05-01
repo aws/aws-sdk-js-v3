@@ -46,23 +46,22 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * };
  * const command = new ListInvalidationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInvalidationsResult
- *   InvalidationList: { // InvalidationList
- *     Marker: "STRING_VALUE", // required
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     IsTruncated: true || false, // required
- *     Quantity: Number("int"), // required
- *     Items: [ // InvalidationSummaryList
- *       { // InvalidationSummary
- *         Id: "STRING_VALUE", // required
- *         CreateTime: new Date("TIMESTAMP"), // required
- *         Status: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // ListInvalidationsResult
+ * //   InvalidationList: { // InvalidationList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // InvalidationSummaryList
+ * //       { // InvalidationSummary
+ * //         Id: "STRING_VALUE", // required
+ * //         CreateTime: new Date("TIMESTAMP"), // required
+ * //         Status: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

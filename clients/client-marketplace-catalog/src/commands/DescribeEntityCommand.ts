@@ -49,14 +49,13 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * };
  * const command = new DescribeEntityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEntityResponse
- *   EntityType: "STRING_VALUE",
- *   EntityIdentifier: "STRING_VALUE",
- *   EntityArn: "STRING_VALUE",
- *   LastModifiedDate: "STRING_VALUE",
- *   Details: "STRING_VALUE",
- * };
+ * // { // DescribeEntityResponse
+ * //   EntityType: "STRING_VALUE",
+ * //   EntityIdentifier: "STRING_VALUE",
+ * //   EntityArn: "STRING_VALUE",
+ * //   LastModifiedDate: "STRING_VALUE",
+ * //   Details: "STRING_VALUE",
+ * // };
  *
  * ```
  *

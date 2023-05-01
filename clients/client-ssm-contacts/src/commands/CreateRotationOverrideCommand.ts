@@ -50,10 +50,9 @@ export interface CreateRotationOverrideCommandOutput extends CreateRotationOverr
  * };
  * const command = new CreateRotationOverrideCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRotationOverrideResult
- *   RotationOverrideId: "STRING_VALUE", // required
- * };
+ * // { // CreateRotationOverrideResult
+ * //   RotationOverrideId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

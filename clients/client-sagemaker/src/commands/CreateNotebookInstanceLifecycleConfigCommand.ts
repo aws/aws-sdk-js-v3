@@ -75,10 +75,9 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * };
  * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNotebookInstanceLifecycleConfigOutput
- *   NotebookInstanceLifecycleConfigArn: "STRING_VALUE",
- * };
+ * // { // CreateNotebookInstanceLifecycleConfigOutput
+ * //   NotebookInstanceLifecycleConfigArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

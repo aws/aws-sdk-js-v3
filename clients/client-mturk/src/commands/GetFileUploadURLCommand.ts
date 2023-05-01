@@ -62,10 +62,9 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * };
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFileUploadURLResponse
- *   FileUploadURL: "STRING_VALUE",
- * };
+ * // { // GetFileUploadURLResponse
+ * //   FileUploadURL: "STRING_VALUE",
+ * // };
  *
  * ```
  *

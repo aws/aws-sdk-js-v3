@@ -48,17 +48,16 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * };
  * const command = new ListAnalyzedResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAnalyzedResourcesResponse
- *   analyzedResources: [ // AnalyzedResourcesList // required
- *     { // AnalyzedResourceSummary
- *       resourceArn: "STRING_VALUE", // required
- *       resourceOwnerAccount: "STRING_VALUE", // required
- *       resourceType: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAnalyzedResourcesResponse
+ * //   analyzedResources: [ // AnalyzedResourcesList // required
+ * //     { // AnalyzedResourceSummary
+ * //       resourceArn: "STRING_VALUE", // required
+ * //       resourceOwnerAccount: "STRING_VALUE", // required
+ * //       resourceType: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

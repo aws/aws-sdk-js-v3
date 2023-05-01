@@ -48,41 +48,40 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * };
  * const command = new DescribeCacheParametersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CacheParameterGroupDetails
- *   Marker: "STRING_VALUE",
- *   Parameters: [ // ParametersList
- *     { // Parameter
- *       ParameterName: "STRING_VALUE",
- *       ParameterValue: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       ChangeType: "immediate" || "requires-reboot",
- *     },
- *   ],
- *   CacheNodeTypeSpecificParameters: [ // CacheNodeTypeSpecificParametersList
- *     { // CacheNodeTypeSpecificParameter
- *       ParameterName: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       DataType: "STRING_VALUE",
- *       AllowedValues: "STRING_VALUE",
- *       IsModifiable: true || false,
- *       MinimumEngineVersion: "STRING_VALUE",
- *       CacheNodeTypeSpecificValues: [ // CacheNodeTypeSpecificValueList
- *         { // CacheNodeTypeSpecificValue
- *           CacheNodeType: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       ChangeType: "immediate" || "requires-reboot",
- *     },
- *   ],
- * };
+ * // { // CacheParameterGroupDetails
+ * //   Marker: "STRING_VALUE",
+ * //   Parameters: [ // ParametersList
+ * //     { // Parameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       ParameterValue: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: true || false,
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       ChangeType: "immediate" || "requires-reboot",
+ * //     },
+ * //   ],
+ * //   CacheNodeTypeSpecificParameters: [ // CacheNodeTypeSpecificParametersList
+ * //     { // CacheNodeTypeSpecificParameter
+ * //       ParameterName: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       DataType: "STRING_VALUE",
+ * //       AllowedValues: "STRING_VALUE",
+ * //       IsModifiable: true || false,
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       CacheNodeTypeSpecificValues: [ // CacheNodeTypeSpecificValueList
+ * //         { // CacheNodeTypeSpecificValue
+ * //           CacheNodeType: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ChangeType: "immediate" || "requires-reboot",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

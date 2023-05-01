@@ -49,18 +49,17 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  * };
  * const command = new DescribePlacementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePlacementResponse
- *   placement: { // PlacementDescription
- *     projectName: "STRING_VALUE", // required
- *     placementName: "STRING_VALUE", // required
- *     attributes: { // PlacementAttributeMap // required
- *       "<keys>": "STRING_VALUE",
- *     },
- *     createdDate: new Date("TIMESTAMP"), // required
- *     updatedDate: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // DescribePlacementResponse
+ * //   placement: { // PlacementDescription
+ * //     projectName: "STRING_VALUE", // required
+ * //     placementName: "STRING_VALUE", // required
+ * //     attributes: { // PlacementAttributeMap // required
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     createdDate: new Date("TIMESTAMP"), // required
+ * //     updatedDate: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

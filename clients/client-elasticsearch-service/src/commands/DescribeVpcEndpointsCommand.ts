@@ -50,37 +50,36 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVpcEndpointsResponse
- *   VpcEndpoints: [ // VpcEndpoints // required
- *     { // VpcEndpoint
- *       VpcEndpointId: "STRING_VALUE",
- *       VpcEndpointOwner: "STRING_VALUE",
- *       DomainArn: "STRING_VALUE",
- *       VpcOptions: { // VPCDerivedInfo
- *         VPCId: "STRING_VALUE",
- *         SubnetIds: [ // StringList
- *           "STRING_VALUE",
- *         ],
- *         AvailabilityZones: [
- *           "STRING_VALUE",
- *         ],
- *         SecurityGroupIds: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
- *       Endpoint: "STRING_VALUE",
- *     },
- *   ],
- *   VpcEndpointErrors: [ // VpcEndpointErrorList // required
- *     { // VpcEndpointError
- *       VpcEndpointId: "STRING_VALUE",
- *       ErrorCode: "ENDPOINT_NOT_FOUND" || "SERVER_ERROR",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeVpcEndpointsResponse
+ * //   VpcEndpoints: [ // VpcEndpoints // required
+ * //     { // VpcEndpoint
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       VpcEndpointOwner: "STRING_VALUE",
+ * //       DomainArn: "STRING_VALUE",
+ * //       VpcOptions: { // VPCDerivedInfo
+ * //         VPCId: "STRING_VALUE",
+ * //         SubnetIds: [ // StringList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AvailabilityZones: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SecurityGroupIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED",
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   VpcEndpointErrors: [ // VpcEndpointErrorList // required
+ * //     { // VpcEndpointError
+ * //       VpcEndpointId: "STRING_VALUE",
+ * //       ErrorCode: "ENDPOINT_NOT_FOUND" || "SERVER_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

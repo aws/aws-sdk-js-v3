@@ -46,8 +46,7 @@ export interface RedactRoomMessageCommandOutput extends RedactRoomMessageRespons
  * };
  * const command = new RedactRoomMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

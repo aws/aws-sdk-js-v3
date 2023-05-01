@@ -49,10 +49,9 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * };
  * const command = new AssignTapePoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssignTapePoolOutput
- *   TapeARN: "STRING_VALUE",
- * };
+ * // { // AssignTapePoolOutput
+ * //   TapeARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,17 +50,16 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * };
  * const command = new ListFieldOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFieldOptionsResponse
- *   options: [ // FieldOptionsList // required
- *     { // FieldOption
- *       name: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *       active: true || false, // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFieldOptionsResponse
+ * //   options: [ // FieldOptionsList // required
+ * //     { // FieldOption
+ * //       name: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE", // required
+ * //       active: true || false, // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,59 +44,58 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  * };
  * const command = new GetDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDeviceResult
- *   device: { // Device
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     manufacturer: "STRING_VALUE",
- *     model: "STRING_VALUE",
- *     modelId: "STRING_VALUE",
- *     formFactor: "PHONE" || "TABLET",
- *     platform: "ANDROID" || "IOS",
- *     os: "STRING_VALUE",
- *     cpu: { // CPU
- *       frequency: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
- *       clock: Number("double"),
- *     },
- *     resolution: { // Resolution
- *       width: Number("int"),
- *       height: Number("int"),
- *     },
- *     heapSize: Number("long"),
- *     memory: Number("long"),
- *     image: "STRING_VALUE",
- *     carrier: "STRING_VALUE",
- *     radio: "STRING_VALUE",
- *     remoteAccessEnabled: true || false,
- *     remoteDebugEnabled: true || false,
- *     fleetType: "STRING_VALUE",
- *     fleetName: "STRING_VALUE",
- *     instances: [ // DeviceInstances
- *       { // DeviceInstance
- *         arn: "STRING_VALUE",
- *         deviceArn: "STRING_VALUE",
- *         labels: [ // InstanceLabels
- *           "STRING_VALUE",
- *         ],
- *         status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
- *         udid: "STRING_VALUE",
- *         instanceProfile: { // InstanceProfile
- *           arn: "STRING_VALUE",
- *           packageCleanup: true || false,
- *           excludeAppPackagesFromCleanup: [ // PackageIds
- *             "STRING_VALUE",
- *           ],
- *           rebootAfterUse: true || false,
- *           name: "STRING_VALUE",
- *           description: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
- *   },
- * };
+ * // { // GetDeviceResult
+ * //   device: { // Device
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     manufacturer: "STRING_VALUE",
+ * //     model: "STRING_VALUE",
+ * //     modelId: "STRING_VALUE",
+ * //     formFactor: "PHONE" || "TABLET",
+ * //     platform: "ANDROID" || "IOS",
+ * //     os: "STRING_VALUE",
+ * //     cpu: { // CPU
+ * //       frequency: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //       clock: Number("double"),
+ * //     },
+ * //     resolution: { // Resolution
+ * //       width: Number("int"),
+ * //       height: Number("int"),
+ * //     },
+ * //     heapSize: Number("long"),
+ * //     memory: Number("long"),
+ * //     image: "STRING_VALUE",
+ * //     carrier: "STRING_VALUE",
+ * //     radio: "STRING_VALUE",
+ * //     remoteAccessEnabled: true || false,
+ * //     remoteDebugEnabled: true || false,
+ * //     fleetType: "STRING_VALUE",
+ * //     fleetName: "STRING_VALUE",
+ * //     instances: [ // DeviceInstances
+ * //       { // DeviceInstance
+ * //         arn: "STRING_VALUE",
+ * //         deviceArn: "STRING_VALUE",
+ * //         labels: [ // InstanceLabels
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: "IN_USE" || "PREPARING" || "AVAILABLE" || "NOT_AVAILABLE",
+ * //         udid: "STRING_VALUE",
+ * //         instanceProfile: { // InstanceProfile
+ * //           arn: "STRING_VALUE",
+ * //           packageCleanup: true || false,
+ * //           excludeAppPackagesFromCleanup: [ // PackageIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           rebootAfterUse: true || false,
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     availability: "TEMPORARY_NOT_AVAILABLE" || "BUSY" || "AVAILABLE" || "HIGHLY_AVAILABLE",
+ * //   },
+ * // };
  *
  * ```
  *

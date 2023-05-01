@@ -49,19 +49,18 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Extensions
- *   Items: [ // ExtensionSummaries
- *     { // ExtensionSummary
- *       Id: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       VersionNumber: Number("int"),
- *       Arn: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // Extensions
+ * //   Items: [ // ExtensionSummaries
+ * //     { // ExtensionSummary
+ * //       Id: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       VersionNumber: Number("int"),
+ * //       Arn: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

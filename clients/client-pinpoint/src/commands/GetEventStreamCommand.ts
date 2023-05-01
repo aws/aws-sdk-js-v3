@@ -44,17 +44,16 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
  * };
  * const command = new GetEventStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEventStreamResponse
- *   EventStream: { // EventStream
- *     ApplicationId: "STRING_VALUE", // required
- *     DestinationStreamArn: "STRING_VALUE", // required
- *     ExternalId: "STRING_VALUE",
- *     LastModifiedDate: "STRING_VALUE",
- *     LastUpdatedBy: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetEventStreamResponse
+ * //   EventStream: { // EventStream
+ * //     ApplicationId: "STRING_VALUE", // required
+ * //     DestinationStreamArn: "STRING_VALUE", // required
+ * //     ExternalId: "STRING_VALUE",
+ * //     LastModifiedDate: "STRING_VALUE",
+ * //     LastUpdatedBy: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

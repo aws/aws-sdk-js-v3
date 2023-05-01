@@ -62,15 +62,14 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeVaultOutput
- *   VaultARN: "STRING_VALUE",
- *   VaultName: "STRING_VALUE",
- *   CreationDate: "STRING_VALUE",
- *   LastInventoryDate: "STRING_VALUE",
- *   NumberOfArchives: Number("long"),
- *   SizeInBytes: Number("long"),
- * };
+ * // { // DescribeVaultOutput
+ * //   VaultARN: "STRING_VALUE",
+ * //   VaultName: "STRING_VALUE",
+ * //   CreationDate: "STRING_VALUE",
+ * //   LastInventoryDate: "STRING_VALUE",
+ * //   NumberOfArchives: Number("long"),
+ * //   SizeInBytes: Number("long"),
+ * // };
  *
  * ```
  *

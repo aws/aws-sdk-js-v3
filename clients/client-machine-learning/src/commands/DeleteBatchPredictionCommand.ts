@@ -49,10 +49,9 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * };
  * const command = new DeleteBatchPredictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteBatchPredictionOutput
- *   BatchPredictionId: "STRING_VALUE",
- * };
+ * // { // DeleteBatchPredictionOutput
+ * //   BatchPredictionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

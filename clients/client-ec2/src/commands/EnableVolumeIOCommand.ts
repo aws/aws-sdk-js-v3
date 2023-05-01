@@ -46,8 +46,7 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * };
  * const command = new EnableVolumeIOCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

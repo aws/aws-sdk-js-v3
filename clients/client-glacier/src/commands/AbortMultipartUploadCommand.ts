@@ -63,8 +63,7 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

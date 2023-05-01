@@ -52,17 +52,16 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  * };
  * const command = new ListProvisioningTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProvisioningTemplateVersionsResponse
- *   versions: [ // ProvisioningTemplateVersionListing
- *     { // ProvisioningTemplateVersionSummary
- *       versionId: Number("int"),
- *       creationDate: new Date("TIMESTAMP"),
- *       isDefaultVersion: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProvisioningTemplateVersionsResponse
+ * //   versions: [ // ProvisioningTemplateVersionListing
+ * //     { // ProvisioningTemplateVersionSummary
+ * //       versionId: Number("int"),
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //       isDefaultVersion: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -58,10 +58,9 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * };
  * const command = new StartModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartModelResponse
- *   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
- * };
+ * // { // StartModelResponse
+ * //   Status: "STARTING_HOSTING" || "HOSTED" || "HOSTING_FAILED" || "STOPPING_HOSTING" || "SYSTEM_UPDATING",
+ * // };
  *
  * ```
  *

@@ -83,8 +83,7 @@ export interface AdminDisableProviderForUserCommandOutput
  * };
  * const command = new AdminDisableProviderForUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

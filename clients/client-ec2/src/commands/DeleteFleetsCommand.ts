@@ -73,25 +73,24 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * };
  * const command = new DeleteFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFleetsResult
- *   SuccessfulFleetDeletions: [ // DeleteFleetSuccessSet
- *     { // DeleteFleetSuccessItem
- *       CurrentFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
- *       PreviousFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
- *       FleetId: "STRING_VALUE",
- *     },
- *   ],
- *   UnsuccessfulFleetDeletions: [ // DeleteFleetErrorSet
- *     { // DeleteFleetErrorItem
- *       Error: { // DeleteFleetError
- *         Code: "fleetIdDoesNotExist" || "fleetIdMalformed" || "fleetNotInDeletableState" || "unexpectedError",
- *         Message: "STRING_VALUE",
- *       },
- *       FleetId: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeleteFleetsResult
+ * //   SuccessfulFleetDeletions: [ // DeleteFleetSuccessSet
+ * //     { // DeleteFleetSuccessItem
+ * //       CurrentFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       PreviousFleetState: "submitted" || "active" || "deleted" || "failed" || "deleted_running" || "deleted_terminating" || "modifying",
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UnsuccessfulFleetDeletions: [ // DeleteFleetErrorSet
+ * //     { // DeleteFleetErrorItem
+ * //       Error: { // DeleteFleetError
+ * //         Code: "fleetIdDoesNotExist" || "fleetIdMalformed" || "fleetNotInDeletableState" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       FleetId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * };
  * const command = new DeleteCodeSigningConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

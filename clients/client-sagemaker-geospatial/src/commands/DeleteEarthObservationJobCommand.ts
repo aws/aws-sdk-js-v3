@@ -48,8 +48,7 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * };
  * const command = new DeleteEarthObservationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

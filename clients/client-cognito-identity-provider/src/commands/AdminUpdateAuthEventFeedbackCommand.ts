@@ -63,8 +63,7 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * };
  * const command = new AdminUpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

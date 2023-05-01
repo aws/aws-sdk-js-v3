@@ -47,12 +47,11 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * };
  * const command = new TagProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TagProjectResult
- *   tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // TagProjectResult
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

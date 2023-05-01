@@ -115,12 +115,11 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDeploymentResponse
- *   deploymentId: "STRING_VALUE",
- *   iotJobId: "STRING_VALUE",
- *   iotJobArn: "STRING_VALUE",
- * };
+ * // { // CreateDeploymentResponse
+ * //   deploymentId: "STRING_VALUE",
+ * //   iotJobId: "STRING_VALUE",
+ * //   iotJobArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

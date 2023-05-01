@@ -75,8 +75,7 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * };
  * const command = new UpdateApplicationComponentConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

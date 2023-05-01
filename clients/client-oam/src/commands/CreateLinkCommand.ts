@@ -60,20 +60,19 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * };
  * const command = new CreateLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateLinkOutput
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Label: "STRING_VALUE",
- *   LabelTemplate: "STRING_VALUE",
- *   ResourceTypes: [ // ResourceTypesOutput
- *     "STRING_VALUE",
- *   ],
- *   SinkArn: "STRING_VALUE",
- *   Tags: { // TagMapOutput
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // CreateLinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Label: "STRING_VALUE",
+ * //   LabelTemplate: "STRING_VALUE",
+ * //   ResourceTypes: [ // ResourceTypesOutput
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SinkArn: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

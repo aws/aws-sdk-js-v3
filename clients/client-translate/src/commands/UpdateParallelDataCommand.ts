@@ -51,13 +51,12 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * };
  * const command = new UpdateParallelDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateParallelDataResponse
- *   Name: "STRING_VALUE",
- *   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- *   LatestUpdateAttemptStatus: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
- *   LatestUpdateAttemptAt: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateParallelDataResponse
+ * //   Name: "STRING_VALUE",
+ * //   Status: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //   LatestUpdateAttemptStatus: "CREATING" || "UPDATING" || "ACTIVE" || "DELETING" || "FAILED",
+ * //   LatestUpdateAttemptAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

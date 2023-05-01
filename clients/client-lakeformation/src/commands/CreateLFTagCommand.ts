@@ -48,8 +48,7 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * };
  * const command = new CreateLFTagCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

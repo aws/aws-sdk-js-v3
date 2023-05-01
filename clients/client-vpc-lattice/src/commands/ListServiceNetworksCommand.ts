@@ -46,21 +46,20 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * };
  * const command = new ListServiceNetworksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceNetworksResponse
- *   items: [ // ServiceNetworkList // required
- *     { // ServiceNetworkSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       lastUpdatedAt: new Date("TIMESTAMP"),
- *       numberOfAssociatedVPCs: Number("long"),
- *       numberOfAssociatedServices: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListServiceNetworksResponse
+ * //   items: [ // ServiceNetworkList // required
+ * //     { // ServiceNetworkSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       numberOfAssociatedVPCs: Number("long"),
+ * //       numberOfAssociatedServices: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

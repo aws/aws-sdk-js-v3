@@ -67,12 +67,11 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * };
  * const command = new RotateSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RotateSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- * };
+ * // { // RotateSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

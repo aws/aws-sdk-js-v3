@@ -46,17 +46,16 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGroupResponse
- *   Group: { // Group
- *     Arn: "STRING_VALUE",
- *     GroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     PrincipalId: "STRING_VALUE",
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeGroupResponse
+ * //   Group: { // Group
+ * //     Arn: "STRING_VALUE",
+ * //     GroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     PrincipalId: "STRING_VALUE",
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

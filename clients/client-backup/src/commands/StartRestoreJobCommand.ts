@@ -54,10 +54,9 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * };
  * const command = new StartRestoreJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartRestoreJobOutput
- *   RestoreJobId: "STRING_VALUE",
- * };
+ * // { // StartRestoreJobOutput
+ * //   RestoreJobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

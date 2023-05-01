@@ -49,11 +49,10 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * };
  * const command = new ClaimDevicesByClaimCodeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ClaimDevicesByClaimCodeResponse
- *   ClaimCode: "STRING_VALUE",
- *   Total: Number("int"),
- * };
+ * // { // ClaimDevicesByClaimCodeResponse
+ * //   ClaimCode: "STRING_VALUE",
+ * //   Total: Number("int"),
+ * // };
  *
  * ```
  *

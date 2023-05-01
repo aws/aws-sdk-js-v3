@@ -89,13 +89,12 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * };
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateCloudFormationChangeSetResponse
- *   ApplicationId: "STRING_VALUE",
- *   ChangeSetId: "STRING_VALUE",
- *   SemanticVersion: "STRING_VALUE",
- *   StackId: "STRING_VALUE",
- * };
+ * // { // CreateCloudFormationChangeSetResponse
+ * //   ApplicationId: "STRING_VALUE",
+ * //   ChangeSetId: "STRING_VALUE",
+ * //   SemanticVersion: "STRING_VALUE",
+ * //   StackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

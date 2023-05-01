@@ -46,8 +46,7 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * };
  * const command = new StartCrawlerScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

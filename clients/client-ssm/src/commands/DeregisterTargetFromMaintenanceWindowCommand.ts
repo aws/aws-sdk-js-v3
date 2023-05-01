@@ -55,11 +55,10 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * };
  * const command = new DeregisterTargetFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterTargetFromMaintenanceWindowResult
- *   WindowId: "STRING_VALUE",
- *   WindowTargetId: "STRING_VALUE",
- * };
+ * // { // DeregisterTargetFromMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTargetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,24 +52,23 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  * };
  * const command = new UpdateLiveSourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateLiveSourceResponse
- *   Arn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   HttpPackageConfigurations: [ // HttpPackageConfigurations
- *     { // HttpPackageConfiguration
- *       Path: "STRING_VALUE", // required
- *       SourceGroup: "STRING_VALUE", // required
- *       Type: "DASH" || "HLS", // required
- *     },
- *   ],
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   LiveSourceName: "STRING_VALUE",
- *   SourceLocationName: "STRING_VALUE",
- *   Tags: { // __mapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateLiveSourceResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   HttpPackageConfigurations: [ // HttpPackageConfigurations
+ * //     { // HttpPackageConfiguration
+ * //       Path: "STRING_VALUE", // required
+ * //       SourceGroup: "STRING_VALUE", // required
+ * //       Type: "DASH" || "HLS", // required
+ * //     },
+ * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LiveSourceName: "STRING_VALUE",
+ * //   SourceLocationName: "STRING_VALUE",
+ * //   Tags: { // __mapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

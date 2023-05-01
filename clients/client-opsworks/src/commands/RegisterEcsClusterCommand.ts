@@ -55,10 +55,9 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * };
  * const command = new RegisterEcsClusterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterEcsClusterResult
- *   EcsClusterArn: "STRING_VALUE",
- * };
+ * // { // RegisterEcsClusterResult
+ * //   EcsClusterArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * };
  * const command = new DeleteReportGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

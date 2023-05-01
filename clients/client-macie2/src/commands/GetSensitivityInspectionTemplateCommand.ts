@@ -49,28 +49,27 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * };
  * const command = new GetSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSensitivityInspectionTemplateResponse
- *   description: "STRING_VALUE",
- *   excludes: { // SensitivityInspectionTemplateExcludes
- *     managedDataIdentifierIds: [ // __listOf__string
- *       "STRING_VALUE",
- *     ],
- *   },
- *   includes: { // SensitivityInspectionTemplateIncludes
- *     allowListIds: [
- *       "STRING_VALUE",
- *     ],
- *     customDataIdentifierIds: [
- *       "STRING_VALUE",
- *     ],
- *     managedDataIdentifierIds: [
- *       "STRING_VALUE",
- *     ],
- *   },
- *   name: "STRING_VALUE",
- *   sensitivityInspectionTemplateId: "STRING_VALUE",
- * };
+ * // { // GetSensitivityInspectionTemplateResponse
+ * //   description: "STRING_VALUE",
+ * //   excludes: { // SensitivityInspectionTemplateExcludes
+ * //     managedDataIdentifierIds: [ // __listOf__string
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   includes: { // SensitivityInspectionTemplateIncludes
+ * //     allowListIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     customDataIdentifierIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     managedDataIdentifierIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   name: "STRING_VALUE",
+ * //   sensitivityInspectionTemplateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -47,22 +47,21 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * };
  * const command = new GetSystemTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSystemTemplateResponse
- *   description: { // SystemTemplateDescription
- *     summary: { // SystemTemplateSummary
- *       id: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       revisionNumber: Number("long"),
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *     definition: { // DefinitionDocument
- *       language: "STRING_VALUE", // required
- *       text: "STRING_VALUE", // required
- *     },
- *     validatedNamespaceVersion: Number("long"),
- *   },
- * };
+ * // { // GetSystemTemplateResponse
+ * //   description: { // SystemTemplateDescription
+ * //     summary: { // SystemTemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       revisionNumber: Number("long"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //     definition: { // DefinitionDocument
+ * //       language: "STRING_VALUE", // required
+ * //       text: "STRING_VALUE", // required
+ * //     },
+ * //     validatedNamespaceVersion: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

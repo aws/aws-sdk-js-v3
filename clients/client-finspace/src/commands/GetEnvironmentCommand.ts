@@ -44,32 +44,31 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEnvironmentResponse
- *   environment: { // Environment
- *     name: "STRING_VALUE",
- *     environmentId: "STRING_VALUE",
- *     awsAccountId: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     environmentUrl: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     environmentArn: "STRING_VALUE",
- *     sageMakerStudioDomainUrl: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     dedicatedServiceAccountId: "STRING_VALUE",
- *     federationMode: "STRING_VALUE",
- *     federationParameters: { // FederationParameters
- *       samlMetadataDocument: "STRING_VALUE",
- *       samlMetadataURL: "STRING_VALUE",
- *       applicationCallBackURL: "STRING_VALUE",
- *       federationURN: "STRING_VALUE",
- *       federationProviderName: "STRING_VALUE",
- *       attributeMap: { // AttributeMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   },
- * };
+ * // { // GetEnvironmentResponse
+ * //   environment: { // Environment
+ * //     name: "STRING_VALUE",
+ * //     environmentId: "STRING_VALUE",
+ * //     awsAccountId: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     environmentUrl: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     environmentArn: "STRING_VALUE",
+ * //     sageMakerStudioDomainUrl: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     dedicatedServiceAccountId: "STRING_VALUE",
+ * //     federationMode: "STRING_VALUE",
+ * //     federationParameters: { // FederationParameters
+ * //       samlMetadataDocument: "STRING_VALUE",
+ * //       samlMetadataURL: "STRING_VALUE",
+ * //       applicationCallBackURL: "STRING_VALUE",
+ * //       federationURN: "STRING_VALUE",
+ * //       federationProviderName: "STRING_VALUE",
+ * //       attributeMap: { // AttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

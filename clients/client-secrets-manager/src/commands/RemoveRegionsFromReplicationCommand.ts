@@ -59,19 +59,18 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * };
  * const command = new RemoveRegionsFromReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveRegionsFromReplicationResponse
- *   ARN: "STRING_VALUE",
- *   ReplicationStatus: [ // ReplicationStatusListType
- *     { // ReplicationStatusType
- *       Region: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Status: "InSync" || "Failed" || "InProgress",
- *       StatusMessage: "STRING_VALUE",
- *       LastAccessedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // RemoveRegionsFromReplicationResponse
+ * //   ARN: "STRING_VALUE",
+ * //   ReplicationStatus: [ // ReplicationStatusListType
+ * //     { // ReplicationStatusType
+ * //       Region: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

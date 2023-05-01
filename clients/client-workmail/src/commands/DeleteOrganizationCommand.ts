@@ -46,11 +46,10 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteOrganizationResponse
- *   OrganizationId: "STRING_VALUE",
- *   State: "STRING_VALUE",
- * };
+ * // { // DeleteOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

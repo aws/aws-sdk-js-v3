@@ -47,10 +47,9 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * };
  * const command = new GetModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetModelPackageGroupPolicyOutput
- *   ResourcePolicy: "STRING_VALUE", // required
- * };
+ * // { // GetModelPackageGroupPolicyOutput
+ * //   ResourcePolicy: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

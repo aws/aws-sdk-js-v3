@@ -44,8 +44,7 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  * };
  * const command = new CancelAnnotationImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

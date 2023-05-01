@@ -96,63 +96,62 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * };
  * const command = new UpdateTaskTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTaskTemplateResponse
- *   InstanceId: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ContactFlowId: "STRING_VALUE",
- *   Constraints: { // TaskTemplateConstraints
- *     RequiredFields: [ // RequiredTaskTemplateFields
- *       { // RequiredFieldInfo
- *         Id: { // TaskTemplateFieldIdentifier
- *           Name: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
- *       { // ReadOnlyFieldInfo
- *         Id: {
- *           Name: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     InvisibleFields: [ // InvisibleTaskTemplateFields
- *       { // InvisibleFieldInfo
- *         Id: {
- *           Name: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *   },
- *   Defaults: { // TaskTemplateDefaults
- *     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
- *       { // TaskTemplateDefaultFieldValue
- *         Id: {
- *           Name: "STRING_VALUE",
- *         },
- *         DefaultValue: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   Fields: [ // TaskTemplateFields
- *     { // TaskTemplateField
- *       Id: {
- *         Name: "STRING_VALUE",
- *       },
- *       Description: "STRING_VALUE",
- *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
- *       SingleSelectOptions: [ // SingleSelectOptions
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   Status: "ACTIVE" || "INACTIVE",
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   CreatedTime: new Date("TIMESTAMP"),
- * };
+ * // { // UpdateTaskTemplateResponse
+ * //   InstanceId: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   ContactFlowId: "STRING_VALUE",
+ * //   Constraints: { // TaskTemplateConstraints
+ * //     RequiredFields: [ // RequiredTaskTemplateFields
+ * //       { // RequiredFieldInfo
+ * //         Id: { // TaskTemplateFieldIdentifier
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     ReadOnlyFields: [ // ReadOnlyTaskTemplateFields
+ * //       { // ReadOnlyFieldInfo
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     InvisibleFields: [ // InvisibleTaskTemplateFields
+ * //       { // InvisibleFieldInfo
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * //   Defaults: { // TaskTemplateDefaults
+ * //     DefaultFieldValues: [ // TaskTemplateDefaultFieldValueList
+ * //       { // TaskTemplateDefaultFieldValue
+ * //         Id: {
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //         DefaultValue: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Fields: [ // TaskTemplateFields
+ * //     { // TaskTemplateField
+ * //       Id: {
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //       Description: "STRING_VALUE",
+ * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ * //       SingleSelectOptions: [ // SingleSelectOptions
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   Status: "ACTIVE" || "INACTIVE",
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   CreatedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

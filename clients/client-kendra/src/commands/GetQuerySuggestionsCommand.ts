@@ -49,26 +49,25 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * };
  * const command = new GetQuerySuggestionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetQuerySuggestionsResponse
- *   QuerySuggestionsId: "STRING_VALUE",
- *   Suggestions: [ // SuggestionList
- *     { // Suggestion
- *       Id: "STRING_VALUE",
- *       Value: { // SuggestionValue
- *         Text: { // SuggestionTextWithHighlights
- *           Text: "STRING_VALUE",
- *           Highlights: [ // SuggestionHighlightList
- *             { // SuggestionHighlight
- *               BeginOffset: Number("int"),
- *               EndOffset: Number("int"),
- *             },
- *           ],
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // GetQuerySuggestionsResponse
+ * //   QuerySuggestionsId: "STRING_VALUE",
+ * //   Suggestions: [ // SuggestionList
+ * //     { // Suggestion
+ * //       Id: "STRING_VALUE",
+ * //       Value: { // SuggestionValue
+ * //         Text: { // SuggestionTextWithHighlights
+ * //           Text: "STRING_VALUE",
+ * //           Highlights: [ // SuggestionHighlightList
+ * //             { // SuggestionHighlight
+ * //               BeginOffset: Number("int"),
+ * //               EndOffset: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

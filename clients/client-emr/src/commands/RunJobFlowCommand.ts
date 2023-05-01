@@ -328,11 +328,10 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * };
  * const command = new RunJobFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RunJobFlowOutput
- *   JobFlowId: "STRING_VALUE",
- *   ClusterArn: "STRING_VALUE",
- * };
+ * // { // RunJobFlowOutput
+ * //   JobFlowId: "STRING_VALUE",
+ * //   ClusterArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

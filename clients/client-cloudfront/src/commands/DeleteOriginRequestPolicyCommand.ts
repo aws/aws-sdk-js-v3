@@ -51,8 +51,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * };
  * const command = new DeleteOriginRequestPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

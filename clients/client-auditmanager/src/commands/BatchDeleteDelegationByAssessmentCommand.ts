@@ -55,16 +55,15 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * };
  * const command = new BatchDeleteDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteDelegationByAssessmentResponse
- *   errors: [ // BatchDeleteDelegationByAssessmentErrors
- *     { // BatchDeleteDelegationByAssessmentError
- *       delegationId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteDelegationByAssessmentResponse
+ * //   errors: [ // BatchDeleteDelegationByAssessmentErrors
+ * //     { // BatchDeleteDelegationByAssessmentError
+ * //       delegationId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

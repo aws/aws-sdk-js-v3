@@ -52,8 +52,7 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * };
  * const command = new CreateEmailTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -50,15 +50,14 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * };
  * const command = new GetAttributeValuesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAttributeValuesResponse
- *   AttributeValues: [ // AttributeValueList
- *     { // AttributeValue
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAttributeValuesResponse
+ * //   AttributeValues: [ // AttributeValueList
+ * //     { // AttributeValue
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

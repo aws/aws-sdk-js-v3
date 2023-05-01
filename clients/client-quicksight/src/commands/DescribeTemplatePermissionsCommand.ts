@@ -50,21 +50,20 @@ export interface DescribeTemplatePermissionsCommandOutput
  * };
  * const command = new DescribeTemplatePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTemplatePermissionsResponse
- *   TemplateId: "STRING_VALUE",
- *   TemplateArn: "STRING_VALUE",
- *   Permissions: [ // ResourcePermissionList
- *     { // ResourcePermission
- *       Principal: "STRING_VALUE", // required
- *       Actions: [ // ActionList // required
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeTemplatePermissionsResponse
+ * //   TemplateId: "STRING_VALUE",
+ * //   TemplateArn: "STRING_VALUE",
+ * //   Permissions: [ // ResourcePermissionList
+ * //     { // ResourcePermission
+ * //       Principal: "STRING_VALUE", // required
+ * //       Actions: [ // ActionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

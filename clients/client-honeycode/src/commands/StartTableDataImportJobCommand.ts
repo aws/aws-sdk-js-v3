@@ -75,11 +75,10 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * };
  * const command = new StartTableDataImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTableDataImportJobResult
- *   jobId: "STRING_VALUE", // required
- *   jobStatus: "STRING_VALUE", // required
- * };
+ * // { // StartTableDataImportJobResult
+ * //   jobId: "STRING_VALUE", // required
+ * //   jobStatus: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

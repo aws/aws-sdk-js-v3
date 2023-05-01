@@ -45,15 +45,14 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * };
  * const command = new DescribeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeGroupResponse
- *   GroupId: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Email: "STRING_VALUE",
- *   State: "ENABLED" || "DISABLED" || "DELETED",
- *   EnabledDate: new Date("TIMESTAMP"),
- *   DisabledDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeGroupResponse
+ * //   GroupId: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Email: "STRING_VALUE",
+ * //   State: "ENABLED" || "DISABLED" || "DELETED",
+ * //   EnabledDate: new Date("TIMESTAMP"),
+ * //   DisabledDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -233,26 +233,25 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * };
  * const command = new PutPipelineDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutPipelineDefinitionOutput
- *   validationErrors: [ // ValidationErrors
- *     { // ValidationError
- *       id: "STRING_VALUE",
- *       errors: [ // validationMessages
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   validationWarnings: [ // ValidationWarnings
- *     { // ValidationWarning
- *       id: "STRING_VALUE",
- *       warnings: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   errored: true || false, // required
- * };
+ * // { // PutPipelineDefinitionOutput
+ * //   validationErrors: [ // ValidationErrors
+ * //     { // ValidationError
+ * //       id: "STRING_VALUE",
+ * //       errors: [ // validationMessages
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   validationWarnings: [ // ValidationWarnings
+ * //     { // ValidationWarning
+ * //       id: "STRING_VALUE",
+ * //       warnings: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   errored: true || false, // required
+ * // };
  *
  * ```
  *

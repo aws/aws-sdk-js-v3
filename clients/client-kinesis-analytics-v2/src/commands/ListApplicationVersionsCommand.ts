@@ -56,16 +56,15 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * };
  * const command = new ListApplicationVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationVersionsResponse
- *   ApplicationVersionSummaries: [ // ApplicationVersionSummaries
- *     { // ApplicationVersionSummary
- *       ApplicationVersionId: Number("long"), // required
- *       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationVersionsResponse
+ * //   ApplicationVersionSummaries: [ // ApplicationVersionSummaries
+ * //     { // ApplicationVersionSummary
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

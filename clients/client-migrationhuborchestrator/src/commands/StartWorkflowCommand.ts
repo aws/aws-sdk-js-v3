@@ -48,14 +48,13 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  * };
  * const command = new StartWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMigrationWorkflowResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   statusMessage: "STRING_VALUE",
- *   lastStartTime: new Date("TIMESTAMP"),
- * };
+ * // { // StartMigrationWorkflowResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   lastStartTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

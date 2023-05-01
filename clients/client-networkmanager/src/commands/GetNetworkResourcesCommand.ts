@@ -53,32 +53,31 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * };
  * const command = new GetNetworkResourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkResourcesResponse
- *   NetworkResources: [ // NetworkResourceList
- *     { // NetworkResource
- *       RegisteredGatewayArn: "STRING_VALUE",
- *       CoreNetworkId: "STRING_VALUE",
- *       AwsRegion: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       Definition: "STRING_VALUE",
- *       DefinitionTimestamp: new Date("TIMESTAMP"),
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       Metadata: { // NetworkResourceMetadataMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetNetworkResourcesResponse
+ * //   NetworkResources: [ // NetworkResourceList
+ * //     { // NetworkResource
+ * //       RegisteredGatewayArn: "STRING_VALUE",
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       AwsRegion: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Definition: "STRING_VALUE",
+ * //       DefinitionTimestamp: new Date("TIMESTAMP"),
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Metadata: { // NetworkResourceMetadataMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

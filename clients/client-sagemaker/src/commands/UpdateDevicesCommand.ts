@@ -51,8 +51,7 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateDevicesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

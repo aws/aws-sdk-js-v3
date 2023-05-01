@@ -97,21 +97,20 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSecretResponse
- *   ARN: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionId: "STRING_VALUE",
- *   ReplicationStatus: [ // ReplicationStatusListType
- *     { // ReplicationStatusType
- *       Region: "STRING_VALUE",
- *       KmsKeyId: "STRING_VALUE",
- *       Status: "InSync" || "Failed" || "InProgress",
- *       StatusMessage: "STRING_VALUE",
- *       LastAccessedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // CreateSecretResponse
+ * //   ARN: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionId: "STRING_VALUE",
+ * //   ReplicationStatus: [ // ReplicationStatusListType
+ * //     { // ReplicationStatusType
+ * //       Region: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //       Status: "InSync" || "Failed" || "InProgress",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       LastAccessedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

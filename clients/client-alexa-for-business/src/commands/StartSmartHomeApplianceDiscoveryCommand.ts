@@ -50,8 +50,7 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * };
  * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

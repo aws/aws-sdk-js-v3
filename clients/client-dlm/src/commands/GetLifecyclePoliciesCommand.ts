@@ -57,20 +57,19 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * };
  * const command = new GetLifecyclePoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLifecyclePoliciesResponse
- *   Policies: [ // LifecyclePolicySummaryList
- *     { // LifecyclePolicySummary
- *       PolicyId: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       State: "ENABLED" || "DISABLED" || "ERROR",
- *       Tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
- *     },
- *   ],
- * };
+ * // { // GetLifecyclePoliciesResponse
+ * //   Policies: [ // LifecyclePolicySummaryList
+ * //     { // LifecyclePolicySummary
+ * //       PolicyId: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "ERROR",
+ * //       Tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

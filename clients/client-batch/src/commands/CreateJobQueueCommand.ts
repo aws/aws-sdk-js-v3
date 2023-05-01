@@ -61,11 +61,10 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobQueueResponse
- *   jobQueueName: "STRING_VALUE", // required
- *   jobQueueArn: "STRING_VALUE", // required
- * };
+ * // { // CreateJobQueueResponse
+ * //   jobQueueName: "STRING_VALUE", // required
+ * //   jobQueueArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -51,22 +51,21 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * };
  * const command = new UpdateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVoiceConnectorGroupResponse
- *   VoiceConnectorGroup: { // VoiceConnectorGroup
- *     VoiceConnectorGroupId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     VoiceConnectorItems: [ // VoiceConnectorItemList
- *       { // VoiceConnectorItem
- *         VoiceConnectorId: "STRING_VALUE", // required
- *         Priority: Number("int"), // required
- *       },
- *     ],
- *     CreatedTimestamp: new Date("TIMESTAMP"),
- *     UpdatedTimestamp: new Date("TIMESTAMP"),
- *     VoiceConnectorGroupArn: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateVoiceConnectorGroupResponse
+ * //   VoiceConnectorGroup: { // VoiceConnectorGroup
+ * //     VoiceConnectorGroupId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VoiceConnectorItems: [ // VoiceConnectorItemList
+ * //       { // VoiceConnectorItem
+ * //         VoiceConnectorId: "STRING_VALUE", // required
+ * //         Priority: Number("int"), // required
+ * //       },
+ * //     ],
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     VoiceConnectorGroupArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

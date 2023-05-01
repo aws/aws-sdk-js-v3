@@ -54,18 +54,17 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGroupResponse
- *   Group: { // GroupType
- *     GroupName: "STRING_VALUE",
- *     UserPoolId: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     RoleArn: "STRING_VALUE",
- *     Precedence: Number("int"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     CreationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateGroupResponse
+ * //   Group: { // GroupType
+ * //     GroupName: "STRING_VALUE",
+ * //     UserPoolId: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     RoleArn: "STRING_VALUE",
+ * //     Precedence: Number("int"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

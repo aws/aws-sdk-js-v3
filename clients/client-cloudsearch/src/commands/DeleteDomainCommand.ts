@@ -45,31 +45,30 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteDomainResponse
- *   DomainStatus: { // DomainStatus
- *     DomainId: "STRING_VALUE", // required
- *     DomainName: "STRING_VALUE", // required
- *     ARN: "STRING_VALUE",
- *     Created: true || false,
- *     Deleted: true || false,
- *     DocService: { // ServiceEndpoint
- *       Endpoint: "STRING_VALUE",
- *     },
- *     SearchService: {
- *       Endpoint: "STRING_VALUE",
- *     },
- *     RequiresIndexDocuments: true || false, // required
- *     Processing: true || false,
- *     SearchInstanceType: "STRING_VALUE",
- *     SearchPartitionCount: Number("int"),
- *     SearchInstanceCount: Number("int"),
- *     Limits: { // Limits
- *       MaximumReplicationCount: Number("int"), // required
- *       MaximumPartitionCount: Number("int"), // required
- *     },
- *   },
- * };
+ * // { // DeleteDomainResponse
+ * //   DomainStatus: { // DomainStatus
+ * //     DomainId: "STRING_VALUE", // required
+ * //     DomainName: "STRING_VALUE", // required
+ * //     ARN: "STRING_VALUE",
+ * //     Created: true || false,
+ * //     Deleted: true || false,
+ * //     DocService: { // ServiceEndpoint
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     SearchService: {
+ * //       Endpoint: "STRING_VALUE",
+ * //     },
+ * //     RequiresIndexDocuments: true || false, // required
+ * //     Processing: true || false,
+ * //     SearchInstanceType: "STRING_VALUE",
+ * //     SearchPartitionCount: Number("int"),
+ * //     SearchInstanceCount: Number("int"),
+ * //     Limits: { // Limits
+ * //       MaximumReplicationCount: Number("int"), // required
+ * //       MaximumPartitionCount: Number("int"), // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

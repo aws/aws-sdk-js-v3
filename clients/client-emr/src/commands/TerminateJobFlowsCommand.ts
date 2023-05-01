@@ -53,8 +53,7 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * };
  * const command = new TerminateJobFlowsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

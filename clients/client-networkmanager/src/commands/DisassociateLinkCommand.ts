@@ -47,15 +47,14 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * };
  * const command = new DisassociateLinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateLinkResponse
- *   LinkAssociation: { // LinkAssociation
- *     GlobalNetworkId: "STRING_VALUE",
- *     DeviceId: "STRING_VALUE",
- *     LinkId: "STRING_VALUE",
- *     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
- *   },
- * };
+ * // { // DisassociateLinkResponse
+ * //   LinkAssociation: { // LinkAssociation
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     LinkAssociationState: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
  *
  * ```
  *

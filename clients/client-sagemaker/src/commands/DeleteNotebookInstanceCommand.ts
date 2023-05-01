@@ -50,8 +50,7 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteNotebookInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

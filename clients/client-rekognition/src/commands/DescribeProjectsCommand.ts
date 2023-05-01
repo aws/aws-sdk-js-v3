@@ -49,27 +49,26 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * };
  * const command = new DescribeProjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeProjectsResponse
- *   ProjectDescriptions: [ // ProjectDescriptions
- *     { // ProjectDescription
- *       ProjectArn: "STRING_VALUE",
- *       CreationTimestamp: new Date("TIMESTAMP"),
- *       Status: "CREATING" || "CREATED" || "DELETING",
- *       Datasets: [ // DatasetMetadataList
- *         { // DatasetMetadata
- *           CreationTimestamp: new Date("TIMESTAMP"),
- *           DatasetType: "TRAIN" || "TEST",
- *           DatasetArn: "STRING_VALUE",
- *           Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
- *           StatusMessage: "STRING_VALUE",
- *           StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeProjectsResponse
+ * //   ProjectDescriptions: [ // ProjectDescriptions
+ * //     { // ProjectDescription
+ * //       ProjectArn: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "CREATED" || "DELETING",
+ * //       Datasets: [ // DatasetMetadataList
+ * //         { // DatasetMetadata
+ * //           CreationTimestamp: new Date("TIMESTAMP"),
+ * //           DatasetType: "TRAIN" || "TEST",
+ * //           DatasetArn: "STRING_VALUE",
+ * //           Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ * //           StatusMessage: "STRING_VALUE",
+ * //           StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

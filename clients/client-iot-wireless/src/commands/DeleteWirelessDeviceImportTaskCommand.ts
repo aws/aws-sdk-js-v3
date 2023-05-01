@@ -49,8 +49,7 @@ export interface DeleteWirelessDeviceImportTaskCommandOutput
  * };
  * const command = new DeleteWirelessDeviceImportTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

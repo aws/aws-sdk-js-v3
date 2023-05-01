@@ -56,17 +56,16 @@ export interface ListAvailableResourceMetricsCommandOutput
  * };
  * const command = new ListAvailableResourceMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableResourceMetricsResponse
- *   Metrics: [ // ResponseResourceMetricList
- *     { // ResponseResourceMetric
- *       Metric: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Unit: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListAvailableResourceMetricsResponse
+ * //   Metrics: [ // ResponseResourceMetricList
+ * //     { // ResponseResourceMetric
+ * //       Metric: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Unit: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

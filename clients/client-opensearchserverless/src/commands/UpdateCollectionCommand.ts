@@ -50,19 +50,18 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * };
  * const command = new UpdateCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateCollectionResponse
- *   updateCollectionDetail: { // UpdateCollectionDetail
- *     id: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     type: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     createdDate: Number("long"),
- *     lastModifiedDate: Number("long"),
- *   },
- * };
+ * // { // UpdateCollectionResponse
+ * //   updateCollectionDetail: { // UpdateCollectionDetail
+ * //     id: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     createdDate: Number("long"),
+ * //     lastModifiedDate: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

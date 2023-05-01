@@ -48,16 +48,15 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * };
  * const command = new UpdateVPCEConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateVPCEConfigurationResult
- *   vpceConfiguration: { // VPCEConfiguration
- *     arn: "STRING_VALUE",
- *     vpceConfigurationName: "STRING_VALUE",
- *     vpceServiceName: "STRING_VALUE",
- *     serviceDnsName: "STRING_VALUE",
- *     vpceConfigurationDescription: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateVPCEConfigurationResult
+ * //   vpceConfiguration: { // VPCEConfiguration
+ * //     arn: "STRING_VALUE",
+ * //     vpceConfigurationName: "STRING_VALUE",
+ * //     vpceServiceName: "STRING_VALUE",
+ * //     serviceDnsName: "STRING_VALUE",
+ * //     vpceConfigurationDescription: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

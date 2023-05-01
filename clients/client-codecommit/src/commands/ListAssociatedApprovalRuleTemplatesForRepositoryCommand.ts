@@ -55,13 +55,12 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * };
  * const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssociatedApprovalRuleTemplatesForRepositoryOutput
- *   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssociatedApprovalRuleTemplatesForRepositoryOutput
+ * //   approvalRuleTemplateNames: [ // ApprovalRuleTemplateNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

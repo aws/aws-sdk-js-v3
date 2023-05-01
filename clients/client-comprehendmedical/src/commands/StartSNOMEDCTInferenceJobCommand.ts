@@ -62,10 +62,9 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * };
  * const command = new StartSNOMEDCTInferenceJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSNOMEDCTInferenceJobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartSNOMEDCTInferenceJobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

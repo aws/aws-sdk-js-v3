@@ -57,30 +57,29 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * };
  * const command = new GetLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetLifecyclePolicyPreviewResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   lifecyclePolicyText: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- *   previewResults: [ // LifecyclePolicyPreviewResultList
- *     { // LifecyclePolicyPreviewResult
- *       imageTags: [ // ImageTagList
- *         "STRING_VALUE",
- *       ],
- *       imageDigest: "STRING_VALUE",
- *       imagePushedAt: new Date("TIMESTAMP"),
- *       action: { // LifecyclePolicyRuleAction
- *         type: "STRING_VALUE",
- *       },
- *       appliedRulePriority: Number("int"),
- *     },
- *   ],
- *   summary: { // LifecyclePolicyPreviewSummary
- *     expiringImageTotalCount: Number("int"),
- *   },
- * };
+ * // { // GetLifecyclePolicyPreviewResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * //   previewResults: [ // LifecyclePolicyPreviewResultList
+ * //     { // LifecyclePolicyPreviewResult
+ * //       imageTags: [ // ImageTagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       imageDigest: "STRING_VALUE",
+ * //       imagePushedAt: new Date("TIMESTAMP"),
+ * //       action: { // LifecyclePolicyRuleAction
+ * //         type: "STRING_VALUE",
+ * //       },
+ * //       appliedRulePriority: Number("int"),
+ * //     },
+ * //   ],
+ * //   summary: { // LifecyclePolicyPreviewSummary
+ * //     expiringImageTotalCount: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

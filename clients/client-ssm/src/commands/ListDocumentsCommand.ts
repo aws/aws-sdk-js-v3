@@ -60,43 +60,42 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * };
  * const command = new ListDocumentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDocumentsResult
- *   DocumentIdentifiers: [ // DocumentIdentifierList
- *     { // DocumentIdentifier
- *       Name: "STRING_VALUE",
- *       CreatedDate: new Date("TIMESTAMP"),
- *       DisplayName: "STRING_VALUE",
- *       Owner: "STRING_VALUE",
- *       VersionName: "STRING_VALUE",
- *       PlatformTypes: [ // PlatformTypeList
- *         "Windows" || "Linux" || "MacOS",
- *       ],
- *       DocumentVersion: "STRING_VALUE",
- *       DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
- *       SchemaVersion: "STRING_VALUE",
- *       DocumentFormat: "YAML" || "JSON" || "TEXT",
- *       TargetType: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *       Requires: [ // DocumentRequiresList
- *         { // DocumentRequires
- *           Name: "STRING_VALUE", // required
- *           Version: "STRING_VALUE",
- *           RequireType: "STRING_VALUE",
- *           VersionName: "STRING_VALUE",
- *         },
- *       ],
- *       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
- *       Author: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDocumentsResult
+ * //   DocumentIdentifiers: [ // DocumentIdentifierList
+ * //     { // DocumentIdentifier
+ * //       Name: "STRING_VALUE",
+ * //       CreatedDate: new Date("TIMESTAMP"),
+ * //       DisplayName: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       VersionName: "STRING_VALUE",
+ * //       PlatformTypes: [ // PlatformTypeList
+ * //         "Windows" || "Linux" || "MacOS",
+ * //       ],
+ * //       DocumentVersion: "STRING_VALUE",
+ * //       DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //       SchemaVersion: "STRING_VALUE",
+ * //       DocumentFormat: "YAML" || "JSON" || "TEXT",
+ * //       TargetType: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Requires: [ // DocumentRequiresList
+ * //         { // DocumentRequires
+ * //           Name: "STRING_VALUE", // required
+ * //           Version: "STRING_VALUE",
+ * //           RequireType: "STRING_VALUE",
+ * //           VersionName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ReviewStatus: "APPROVED" || "NOT_REVIEWED" || "PENDING" || "REJECTED",
+ * //       Author: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

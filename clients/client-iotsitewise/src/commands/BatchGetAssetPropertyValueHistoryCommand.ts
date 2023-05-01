@@ -68,47 +68,46 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * };
  * const command = new BatchGetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetAssetPropertyValueHistoryResponse
- *   errorEntries: [ // BatchGetAssetPropertyValueHistoryErrorEntries // required
- *     { // BatchGetAssetPropertyValueHistoryErrorEntry
- *       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *       errorMessage: "STRING_VALUE", // required
- *       entryId: "STRING_VALUE", // required
- *     },
- *   ],
- *   successEntries: [ // BatchGetAssetPropertyValueHistorySuccessEntries // required
- *     { // BatchGetAssetPropertyValueHistorySuccessEntry
- *       entryId: "STRING_VALUE", // required
- *       assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
- *         { // AssetPropertyValue
- *           value: { // Variant
- *             stringValue: "STRING_VALUE",
- *             integerValue: Number("int"),
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *           timestamp: { // TimeInNanos
- *             timeInSeconds: Number("long"), // required
- *             offsetInNanos: Number("int"),
- *           },
- *           quality: "GOOD" || "BAD" || "UNCERTAIN",
- *         },
- *       ],
- *     },
- *   ],
- *   skippedEntries: [ // BatchGetAssetPropertyValueHistorySkippedEntries // required
- *     { // BatchGetAssetPropertyValueHistorySkippedEntry
- *       entryId: "STRING_VALUE", // required
- *       completionStatus: "SUCCESS" || "ERROR", // required
- *       errorInfo: { // BatchGetAssetPropertyValueHistoryErrorInfo
- *         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
- *         errorTimestamp: new Date("TIMESTAMP"), // required
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // BatchGetAssetPropertyValueHistoryResponse
+ * //   errorEntries: [ // BatchGetAssetPropertyValueHistoryErrorEntries // required
+ * //     { // BatchGetAssetPropertyValueHistoryErrorEntry
+ * //       errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //       entryId: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   successEntries: [ // BatchGetAssetPropertyValueHistorySuccessEntries // required
+ * //     { // BatchGetAssetPropertyValueHistorySuccessEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       assetPropertyValueHistory: [ // AssetPropertyValueHistory // required
+ * //         { // AssetPropertyValue
+ * //           value: { // Variant
+ * //             stringValue: "STRING_VALUE",
+ * //             integerValue: Number("int"),
+ * //             doubleValue: Number("double"),
+ * //             booleanValue: true || false,
+ * //           },
+ * //           timestamp: { // TimeInNanos
+ * //             timeInSeconds: Number("long"), // required
+ * //             offsetInNanos: Number("int"),
+ * //           },
+ * //           quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   skippedEntries: [ // BatchGetAssetPropertyValueHistorySkippedEntries // required
+ * //     { // BatchGetAssetPropertyValueHistorySkippedEntry
+ * //       entryId: "STRING_VALUE", // required
+ * //       completionStatus: "SUCCESS" || "ERROR", // required
+ * //       errorInfo: { // BatchGetAssetPropertyValueHistoryErrorInfo
+ * //         errorCode: "ResourceNotFoundException" || "InvalidRequestException" || "AccessDeniedException", // required
+ * //         errorTimestamp: new Date("TIMESTAMP"), // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -66,17 +66,16 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * };
  * const command = new ListConformancePackComplianceScoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConformancePackComplianceScoresResponse
- *   NextToken: "STRING_VALUE",
- *   ConformancePackComplianceScores: [ // ConformancePackComplianceScores // required
- *     { // ConformancePackComplianceScore
- *       Score: "STRING_VALUE",
- *       ConformancePackName: "STRING_VALUE",
- *       LastUpdatedTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListConformancePackComplianceScoresResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ConformancePackComplianceScores: [ // ConformancePackComplianceScores // required
+ * //     { // ConformancePackComplianceScore
+ * //       Score: "STRING_VALUE",
+ * //       ConformancePackName: "STRING_VALUE",
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

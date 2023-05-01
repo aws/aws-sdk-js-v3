@@ -62,20 +62,19 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * };
  * const command = new DescribeRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRecipeResponse
- *   recipe: { // Recipe
- *     name: "STRING_VALUE",
- *     recipeArn: "STRING_VALUE",
- *     algorithmArn: "STRING_VALUE",
- *     featureTransformationArn: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     creationDateTime: new Date("TIMESTAMP"),
- *     recipeType: "STRING_VALUE",
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // DescribeRecipeResponse
+ * //   recipe: { // Recipe
+ * //     name: "STRING_VALUE",
+ * //     recipeArn: "STRING_VALUE",
+ * //     algorithmArn: "STRING_VALUE",
+ * //     featureTransformationArn: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     recipeType: "STRING_VALUE",
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

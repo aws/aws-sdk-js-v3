@@ -63,31 +63,30 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * };
  * const command = new DescribeLocalGatewayRouteTablesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocalGatewayRouteTablesResult
- *   LocalGatewayRouteTables: [ // LocalGatewayRouteTableSet
- *     { // LocalGatewayRouteTable
- *       LocalGatewayRouteTableId: "STRING_VALUE",
- *       LocalGatewayRouteTableArn: "STRING_VALUE",
- *       LocalGatewayId: "STRING_VALUE",
- *       OutpostArn: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *       Mode: "direct-vpc-routing" || "coip",
- *       StateReason: { // StateReason
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLocalGatewayRouteTablesResult
+ * //   LocalGatewayRouteTables: [ // LocalGatewayRouteTableSet
+ * //     { // LocalGatewayRouteTable
+ * //       LocalGatewayRouteTableId: "STRING_VALUE",
+ * //       LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Mode: "direct-vpc-routing" || "coip",
+ * //       StateReason: { // StateReason
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

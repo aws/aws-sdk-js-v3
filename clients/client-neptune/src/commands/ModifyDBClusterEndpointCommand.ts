@@ -51,23 +51,22 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyDBClusterEndpointOutput
- *   DBClusterEndpointIdentifier: "STRING_VALUE",
- *   DBClusterIdentifier: "STRING_VALUE",
- *   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
- *   Endpoint: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   EndpointType: "STRING_VALUE",
- *   CustomEndpointType: "STRING_VALUE",
- *   StaticMembers: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   ExcludedMembers: [
- *     "STRING_VALUE",
- *   ],
- *   DBClusterEndpointArn: "STRING_VALUE",
- * };
+ * // { // ModifyDBClusterEndpointOutput
+ * //   DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //   DBClusterIdentifier: "STRING_VALUE",
+ * //   DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //   Endpoint: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   EndpointType: "STRING_VALUE",
+ * //   CustomEndpointType: "STRING_VALUE",
+ * //   StaticMembers: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ExcludedMembers: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   DBClusterEndpointArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

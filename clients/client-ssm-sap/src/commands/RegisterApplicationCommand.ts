@@ -71,22 +71,21 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterApplicationOutput
- *   Application: { // Application
- *     Id: "STRING_VALUE",
- *     Type: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     AppRegistryArn: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     Components: [ // ComponentIdList
- *       "STRING_VALUE",
- *     ],
- *     LastUpdated: new Date("TIMESTAMP"),
- *     StatusMessage: "STRING_VALUE",
- *   },
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // RegisterApplicationOutput
+ * //   Application: { // Application
+ * //     Id: "STRING_VALUE",
+ * //     Type: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     AppRegistryArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     Components: [ // ComponentIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,16 +57,15 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutMessageResponse
- *   BatchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
- *     { // BatchPutMessageErrorEntry
- *       messageId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchPutMessageResponse
+ * //   BatchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
+ * //     { // BatchPutMessageErrorEntry
+ * //       messageId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

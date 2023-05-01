@@ -56,31 +56,30 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateChannelResponse
- *   channel: { // Channel
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     latencyMode: "STRING_VALUE",
- *     type: "BASIC" || "STANDARD",
- *     recordingConfigurationArn: "STRING_VALUE",
- *     ingestEndpoint: "STRING_VALUE",
- *     playbackUrl: "STRING_VALUE",
- *     authorized: true || false,
- *     tags: { // Tags
- *       "<keys>": "STRING_VALUE",
- *     },
- *     insecureIngest: true || false,
- *   },
- *   streamKey: { // StreamKey
- *     arn: "STRING_VALUE",
- *     value: "STRING_VALUE",
- *     channelArn: "STRING_VALUE",
- *     tags: {
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateChannelResponse
+ * //   channel: { // Channel
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     latencyMode: "STRING_VALUE",
+ * //     type: "BASIC" || "STANDARD",
+ * //     recordingConfigurationArn: "STRING_VALUE",
+ * //     ingestEndpoint: "STRING_VALUE",
+ * //     playbackUrl: "STRING_VALUE",
+ * //     authorized: true || false,
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     insecureIngest: true || false,
+ * //   },
+ * //   streamKey: { // StreamKey
+ * //     arn: "STRING_VALUE",
+ * //     value: "STRING_VALUE",
+ * //     channelArn: "STRING_VALUE",
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

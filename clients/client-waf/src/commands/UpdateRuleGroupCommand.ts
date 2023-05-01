@@ -98,10 +98,9 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRuleGroupResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // UpdateRuleGroupResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

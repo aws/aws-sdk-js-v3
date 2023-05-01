@@ -51,31 +51,30 @@ export interface ListWorkflowStepsCommandOutput extends ListWorkflowStepsRespons
  * };
  * const command = new ListWorkflowStepsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWorkflowStepsResponse
- *   nextToken: "STRING_VALUE",
- *   workflowStepsSummary: [ // WorkflowStepsSummaryList // required
- *     { // WorkflowStepSummary
- *       stepId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       stepActionType: "STRING_VALUE",
- *       owner: "STRING_VALUE",
- *       previous: [ // StringList
- *         "STRING_VALUE",
- *       ],
- *       next: [
- *         "STRING_VALUE",
- *       ],
- *       status: "STRING_VALUE",
- *       statusMessage: "STRING_VALUE",
- *       noOfSrvCompleted: Number("int"),
- *       noOfSrvFailed: Number("int"),
- *       totalNoOfSrv: Number("int"),
- *       description: "STRING_VALUE",
- *       scriptLocation: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListWorkflowStepsResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   workflowStepsSummary: [ // WorkflowStepsSummaryList // required
+ * //     { // WorkflowStepSummary
+ * //       stepId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       stepActionType: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       previous: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       next: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "STRING_VALUE",
+ * //       statusMessage: "STRING_VALUE",
+ * //       noOfSrvCompleted: Number("int"),
+ * //       noOfSrvFailed: Number("int"),
+ * //       totalNoOfSrv: Number("int"),
+ * //       description: "STRING_VALUE",
+ * //       scriptLocation: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

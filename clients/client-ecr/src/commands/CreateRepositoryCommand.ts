@@ -60,24 +60,23 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRepositoryResponse
- *   repository: { // Repository
- *     repositoryArn: "STRING_VALUE",
- *     registryId: "STRING_VALUE",
- *     repositoryName: "STRING_VALUE",
- *     repositoryUri: "STRING_VALUE",
- *     createdAt: new Date("TIMESTAMP"),
- *     imageTagMutability: "STRING_VALUE",
- *     imageScanningConfiguration: { // ImageScanningConfiguration
- *       scanOnPush: true || false,
- *     },
- *     encryptionConfiguration: { // EncryptionConfiguration
- *       encryptionType: "STRING_VALUE", // required
- *       kmsKey: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // CreateRepositoryResponse
+ * //   repository: { // Repository
+ * //     repositoryArn: "STRING_VALUE",
+ * //     registryId: "STRING_VALUE",
+ * //     repositoryName: "STRING_VALUE",
+ * //     repositoryUri: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     imageTagMutability: "STRING_VALUE",
+ * //     imageScanningConfiguration: { // ImageScanningConfiguration
+ * //       scanOnPush: true || false,
+ * //     },
+ * //     encryptionConfiguration: { // EncryptionConfiguration
+ * //       encryptionType: "STRING_VALUE", // required
+ * //       kmsKey: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

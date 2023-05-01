@@ -53,8 +53,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * };
  * const command = new DeleteOrganizationConformancePackCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

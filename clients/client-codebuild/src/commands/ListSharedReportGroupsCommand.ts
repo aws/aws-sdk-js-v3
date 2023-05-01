@@ -48,13 +48,12 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * };
  * const command = new ListSharedReportGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSharedReportGroupsOutput
- *   nextToken: "STRING_VALUE",
- *   reportGroups: [ // ReportGroupArns
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListSharedReportGroupsOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reportGroups: [ // ReportGroupArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

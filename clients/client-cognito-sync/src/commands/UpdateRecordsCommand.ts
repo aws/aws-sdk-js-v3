@@ -60,19 +60,18 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * };
  * const command = new UpdateRecordsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRecordsResponse
- *   Records: [ // RecordList
- *     { // Record
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       SyncCount: Number("long"),
- *       LastModifiedDate: new Date("TIMESTAMP"),
- *       LastModifiedBy: "STRING_VALUE",
- *       DeviceLastModifiedDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // UpdateRecordsResponse
+ * //   Records: [ // RecordList
+ * //     { // Record
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       SyncCount: Number("long"),
+ * //       LastModifiedDate: new Date("TIMESTAMP"),
+ * //       LastModifiedBy: "STRING_VALUE",
+ * //       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

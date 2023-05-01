@@ -58,17 +58,16 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * };
  * const command = new PutDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutDestinationResponse
- *   destination: { // Destination
- *     destinationName: "STRING_VALUE",
- *     targetArn: "STRING_VALUE",
- *     roleArn: "STRING_VALUE",
- *     accessPolicy: "STRING_VALUE",
- *     arn: "STRING_VALUE",
- *     creationTime: Number("long"),
- *   },
- * };
+ * // { // PutDestinationResponse
+ * //   destination: { // Destination
+ * //     destinationName: "STRING_VALUE",
+ * //     targetArn: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     accessPolicy: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     creationTime: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

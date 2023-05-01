@@ -86,8 +86,7 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * };
  * const command = new RespondActivityTaskCanceledCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

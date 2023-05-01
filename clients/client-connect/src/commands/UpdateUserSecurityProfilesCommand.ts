@@ -48,8 +48,7 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateUserSecurityProfilesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

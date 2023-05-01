@@ -51,8 +51,7 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * };
  * const command = new UpdateLFTagCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

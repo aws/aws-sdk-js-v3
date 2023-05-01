@@ -53,13 +53,12 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTaskDefinitionFamiliesResponse
- *   families: [ // StringList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTaskDefinitionFamiliesResponse
+ * //   families: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

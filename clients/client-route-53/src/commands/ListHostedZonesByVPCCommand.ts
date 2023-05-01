@@ -86,21 +86,20 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * };
  * const command = new ListHostedZonesByVPCCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHostedZonesByVPCResponse
- *   HostedZoneSummaries: [ // HostedZoneSummaries // required
- *     { // HostedZoneSummary
- *       HostedZoneId: "STRING_VALUE", // required
- *       Name: "STRING_VALUE", // required
- *       Owner: { // HostedZoneOwner
- *         OwningAccount: "STRING_VALUE",
- *         OwningService: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   MaxItems: Number("int"), // required
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListHostedZonesByVPCResponse
+ * //   HostedZoneSummaries: [ // HostedZoneSummaries // required
+ * //     { // HostedZoneSummary
+ * //       HostedZoneId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Owner: { // HostedZoneOwner
+ * //         OwningAccount: "STRING_VALUE",
+ * //         OwningService: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   MaxItems: Number("int"), // required
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

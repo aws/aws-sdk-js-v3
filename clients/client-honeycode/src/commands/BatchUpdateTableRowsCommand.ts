@@ -72,16 +72,15 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * };
  * const command = new BatchUpdateTableRowsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchUpdateTableRowsResult
- *   workbookCursor: Number("long"), // required
- *   failedBatchItems: [ // FailedBatchItems
- *     { // FailedBatchItem
- *       id: "STRING_VALUE", // required
- *       errorMessage: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // BatchUpdateTableRowsResult
+ * //   workbookCursor: Number("long"), // required
+ * //   failedBatchItems: [ // FailedBatchItems
+ * //     { // FailedBatchItem
+ * //       id: "STRING_VALUE", // required
+ * //       errorMessage: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

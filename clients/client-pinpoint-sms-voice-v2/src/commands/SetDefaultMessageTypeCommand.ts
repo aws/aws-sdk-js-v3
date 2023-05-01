@@ -54,12 +54,11 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * };
  * const command = new SetDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SetDefaultMessageTypeResult
- *   ConfigurationSetArn: "STRING_VALUE",
- *   ConfigurationSetName: "STRING_VALUE",
- *   MessageType: "STRING_VALUE",
- * };
+ * // { // SetDefaultMessageTypeResult
+ * //   ConfigurationSetArn: "STRING_VALUE",
+ * //   ConfigurationSetName: "STRING_VALUE",
+ * //   MessageType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

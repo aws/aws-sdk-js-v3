@@ -45,21 +45,20 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * };
  * const command = new GetResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverQueryLogConfigResponse
- *   ResolverQueryLogConfig: { // ResolverQueryLogConfig
- *     Id: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     Status: "CREATING" || "CREATED" || "DELETING" || "FAILED",
- *     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
- *     AssociationCount: Number("int"),
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     DestinationArn: "STRING_VALUE",
- *     CreatorRequestId: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // GetResolverQueryLogConfigResponse
+ * //   ResolverQueryLogConfig: { // ResolverQueryLogConfig
+ * //     Id: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Status: "CREATING" || "CREATED" || "DELETING" || "FAILED",
+ * //     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
+ * //     AssociationCount: Number("int"),
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     DestinationArn: "STRING_VALUE",
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

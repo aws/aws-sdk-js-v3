@@ -44,11 +44,10 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * };
  * const command = new DeleteCustomPluginCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCustomPluginResponse
- *   customPluginArn: "STRING_VALUE",
- *   customPluginState: "STRING_VALUE",
- * };
+ * // { // DeleteCustomPluginResponse
+ * //   customPluginArn: "STRING_VALUE",
+ * //   customPluginState: "STRING_VALUE",
+ * // };
  *
  * ```
  *

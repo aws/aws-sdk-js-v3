@@ -46,8 +46,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * };
  * const command = new DeleteConditionalForwarderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

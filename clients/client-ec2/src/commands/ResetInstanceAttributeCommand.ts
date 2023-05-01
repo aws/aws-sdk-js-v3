@@ -54,8 +54,7 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * };
  * const command = new ResetInstanceAttributeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

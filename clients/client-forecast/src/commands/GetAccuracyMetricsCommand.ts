@@ -60,44 +60,43 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  * };
  * const command = new GetAccuracyMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccuracyMetricsResponse
- *   PredictorEvaluationResults: [ // PredictorEvaluationResults
- *     { // EvaluationResult
- *       AlgorithmArn: "STRING_VALUE",
- *       TestWindows: [ // TestWindows
- *         { // WindowSummary
- *           TestWindowStart: new Date("TIMESTAMP"),
- *           TestWindowEnd: new Date("TIMESTAMP"),
- *           ItemCount: Number("int"),
- *           EvaluationType: "SUMMARY" || "COMPUTED",
- *           Metrics: { // Metrics
- *             RMSE: Number("double"),
- *             WeightedQuantileLosses: [ // WeightedQuantileLosses
- *               { // WeightedQuantileLoss
- *                 Quantile: Number("double"),
- *                 LossValue: Number("double"),
- *               },
- *             ],
- *             ErrorMetrics: [ // ErrorMetrics
- *               { // ErrorMetric
- *                 ForecastType: "STRING_VALUE",
- *                 WAPE: Number("double"),
- *                 RMSE: Number("double"),
- *                 MASE: Number("double"),
- *                 MAPE: Number("double"),
- *               },
- *             ],
- *             AverageWeightedQuantileLoss: Number("double"),
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   IsAutoPredictor: true || false,
- *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
- *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
- * };
+ * // { // GetAccuracyMetricsResponse
+ * //   PredictorEvaluationResults: [ // PredictorEvaluationResults
+ * //     { // EvaluationResult
+ * //       AlgorithmArn: "STRING_VALUE",
+ * //       TestWindows: [ // TestWindows
+ * //         { // WindowSummary
+ * //           TestWindowStart: new Date("TIMESTAMP"),
+ * //           TestWindowEnd: new Date("TIMESTAMP"),
+ * //           ItemCount: Number("int"),
+ * //           EvaluationType: "SUMMARY" || "COMPUTED",
+ * //           Metrics: { // Metrics
+ * //             RMSE: Number("double"),
+ * //             WeightedQuantileLosses: [ // WeightedQuantileLosses
+ * //               { // WeightedQuantileLoss
+ * //                 Quantile: Number("double"),
+ * //                 LossValue: Number("double"),
+ * //               },
+ * //             ],
+ * //             ErrorMetrics: [ // ErrorMetrics
+ * //               { // ErrorMetric
+ * //                 ForecastType: "STRING_VALUE",
+ * //                 WAPE: Number("double"),
+ * //                 RMSE: Number("double"),
+ * //                 MASE: Number("double"),
+ * //                 MAPE: Number("double"),
+ * //               },
+ * //             ],
+ * //             AverageWeightedQuantileLoss: Number("double"),
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsAutoPredictor: true || false,
+ * //   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ * //   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * // };
  *
  * ```
  *

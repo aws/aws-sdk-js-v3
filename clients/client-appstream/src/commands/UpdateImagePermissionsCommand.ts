@@ -49,8 +49,7 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * };
  * const command = new UpdateImagePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

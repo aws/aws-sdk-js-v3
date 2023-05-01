@@ -52,8 +52,7 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

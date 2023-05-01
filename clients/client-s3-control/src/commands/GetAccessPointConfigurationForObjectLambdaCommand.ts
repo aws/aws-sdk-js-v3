@@ -64,29 +64,28 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
  * };
  * const command = new GetAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointConfigurationForObjectLambdaResult
- *   Configuration: { // ObjectLambdaConfiguration
- *     SupportingAccessPoint: "STRING_VALUE", // required
- *     CloudWatchMetricsEnabled: true || false,
- *     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
- *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
- *     ],
- *     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
- *       { // ObjectLambdaTransformationConfiguration
- *         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
- *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
- *         ],
- *         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
- *           AwsLambda: { // AwsLambdaTransformation
- *             FunctionArn: "STRING_VALUE", // required
- *             FunctionPayload: "STRING_VALUE",
- *           },
- *         },
- *       },
- *     ],
- *   },
- * };
+ * // { // GetAccessPointConfigurationForObjectLambdaResult
+ * //   Configuration: { // ObjectLambdaConfiguration
+ * //     SupportingAccessPoint: "STRING_VALUE", // required
+ * //     CloudWatchMetricsEnabled: true || false,
+ * //     AllowedFeatures: [ // ObjectLambdaAllowedFeaturesList
+ * //       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ * //     ],
+ * //     TransformationConfigurations: [ // ObjectLambdaTransformationConfigurationsList // required
+ * //       { // ObjectLambdaTransformationConfiguration
+ * //         Actions: [ // ObjectLambdaTransformationConfigurationActionsList // required
+ * //           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ * //         ],
+ * //         ContentTransformation: { // ObjectLambdaContentTransformation Union: only one key present
+ * //           AwsLambda: { // AwsLambdaTransformation
+ * //             FunctionArn: "STRING_VALUE", // required
+ * //             FunctionPayload: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

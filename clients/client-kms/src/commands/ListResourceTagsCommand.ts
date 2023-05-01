@@ -79,17 +79,16 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResourceTagsResponse
- *   Tags: [ // TagList
- *     { // Tag
- *       TagKey: "STRING_VALUE", // required
- *       TagValue: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- *   Truncated: true || false,
- * };
+ * // { // ListResourceTagsResponse
+ * //   Tags: [ // TagList
+ * //     { // Tag
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValue: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * //   Truncated: true || false,
+ * // };
  *
  * ```
  *

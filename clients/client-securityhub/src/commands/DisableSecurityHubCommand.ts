@@ -50,8 +50,7 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * const input = {};
  * const command = new DisableSecurityHubCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

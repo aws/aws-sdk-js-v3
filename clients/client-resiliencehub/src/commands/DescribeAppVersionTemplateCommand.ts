@@ -45,12 +45,11 @@ export interface DescribeAppVersionTemplateCommandOutput extends DescribeAppVers
  * };
  * const command = new DescribeAppVersionTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppVersionTemplateResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   appTemplateBody: "STRING_VALUE", // required
- * };
+ * // { // DescribeAppVersionTemplateResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   appTemplateBody: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

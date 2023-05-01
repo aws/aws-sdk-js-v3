@@ -50,26 +50,25 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMembersResponse
- *   Members: [ // MemberList
- *     { // Member
- *       AccountId: "STRING_VALUE",
- *       Email: "STRING_VALUE",
- *       MasterId: "STRING_VALUE",
- *       AdministratorId: "STRING_VALUE",
- *       MemberStatus: "STRING_VALUE",
- *       InvitedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   UnprocessedAccounts: [ // ResultList
- *     { // Result
- *       AccountId: "STRING_VALUE",
- *       ProcessingResult: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetMembersResponse
+ * //   Members: [ // MemberList
+ * //     { // Member
+ * //       AccountId: "STRING_VALUE",
+ * //       Email: "STRING_VALUE",
+ * //       MasterId: "STRING_VALUE",
+ * //       AdministratorId: "STRING_VALUE",
+ * //       MemberStatus: "STRING_VALUE",
+ * //       InvitedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   UnprocessedAccounts: [ // ResultList
+ * //     { // Result
+ * //       AccountId: "STRING_VALUE",
+ * //       ProcessingResult: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

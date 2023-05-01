@@ -46,18 +46,17 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUsersResponse
- *   BrokerId: "STRING_VALUE",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   Users: [ // __listOfUserSummary
- *     { // UserSummary
- *       PendingChange: "STRING_VALUE",
- *       Username: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // ListUsersResponse
+ * //   BrokerId: "STRING_VALUE",
+ * //   MaxResults: Number("int"),
+ * //   NextToken: "STRING_VALUE",
+ * //   Users: [ // __listOfUserSummary
+ * //     { // UserSummary
+ * //       PendingChange: "STRING_VALUE",
+ * //       Username: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

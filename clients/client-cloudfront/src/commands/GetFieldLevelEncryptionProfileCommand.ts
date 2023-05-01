@@ -49,34 +49,33 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  * };
  * const command = new GetFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetFieldLevelEncryptionProfileResult
- *   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
- *     Id: "STRING_VALUE", // required
- *     LastModifiedTime: new Date("TIMESTAMP"), // required
- *     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
- *       Name: "STRING_VALUE", // required
- *       CallerReference: "STRING_VALUE", // required
- *       Comment: "STRING_VALUE",
- *       EncryptionEntities: { // EncryptionEntities
- *         Quantity: Number("int"), // required
- *         Items: [ // EncryptionEntityList
- *           { // EncryptionEntity
- *             PublicKeyId: "STRING_VALUE", // required
- *             ProviderId: "STRING_VALUE", // required
- *             FieldPatterns: { // FieldPatterns
- *               Quantity: Number("int"), // required
- *               Items: [ // FieldPatternList
- *                 "STRING_VALUE",
- *               ],
- *             },
- *           },
- *         ],
- *       },
- *     },
- *   },
- *   ETag: "STRING_VALUE",
- * };
+ * // { // GetFieldLevelEncryptionProfileResult
+ * //   FieldLevelEncryptionProfile: { // FieldLevelEncryptionProfile
+ * //     Id: "STRING_VALUE", // required
+ * //     LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //     FieldLevelEncryptionProfileConfig: { // FieldLevelEncryptionProfileConfig
+ * //       Name: "STRING_VALUE", // required
+ * //       CallerReference: "STRING_VALUE", // required
+ * //       Comment: "STRING_VALUE",
+ * //       EncryptionEntities: { // EncryptionEntities
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // EncryptionEntityList
+ * //           { // EncryptionEntity
+ * //             PublicKeyId: "STRING_VALUE", // required
+ * //             ProviderId: "STRING_VALUE", // required
+ * //             FieldPatterns: { // FieldPatterns
+ * //               Quantity: Number("int"), // required
+ * //               Items: [ // FieldPatternList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
  *
  * ```
  *

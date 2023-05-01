@@ -48,20 +48,19 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFleetsResponse
- *   fleetSummaries: [ // fleetSummaries
- *     { // FleetSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       signalCatalogArn: "STRING_VALUE", // required
- *       creationTime: new Date("TIMESTAMP"), // required
- *       lastModificationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFleetsResponse
+ * //   fleetSummaries: [ // fleetSummaries
+ * //     { // FleetSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       signalCatalogArn: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       lastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

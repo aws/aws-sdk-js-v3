@@ -46,8 +46,7 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * };
  * const command = new RevokeVpcEndpointAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

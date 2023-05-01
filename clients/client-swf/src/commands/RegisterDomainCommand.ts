@@ -75,8 +75,7 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RegisterDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

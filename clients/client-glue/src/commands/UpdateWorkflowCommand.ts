@@ -49,10 +49,9 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkflowResponse
- *   Name: "STRING_VALUE",
- * };
+ * // { // UpdateWorkflowResponse
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,18 +50,17 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * };
  * const command = new DescribeEventTopicsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEventTopicsResult
- *   EventTopics: [ // EventTopics
- *     { // EventTopic
- *       DirectoryId: "STRING_VALUE",
- *       TopicName: "STRING_VALUE",
- *       TopicArn: "STRING_VALUE",
- *       CreatedDateTime: new Date("TIMESTAMP"),
- *       Status: "Registered" || "Topic not found" || "Failed" || "Deleted",
- *     },
- *   ],
- * };
+ * // { // DescribeEventTopicsResult
+ * //   EventTopics: [ // EventTopics
+ * //     { // EventTopic
+ * //       DirectoryId: "STRING_VALUE",
+ * //       TopicName: "STRING_VALUE",
+ * //       TopicArn: "STRING_VALUE",
+ * //       CreatedDateTime: new Date("TIMESTAMP"),
+ * //       Status: "Registered" || "Topic not found" || "Failed" || "Deleted",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

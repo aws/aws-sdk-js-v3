@@ -105,17 +105,16 @@ export interface CreateReusableDelegationSetCommandOutput
  * };
  * const command = new CreateReusableDelegationSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateReusableDelegationSetResponse
- *   DelegationSet: { // DelegationSet
- *     Id: "STRING_VALUE",
- *     CallerReference: "STRING_VALUE",
- *     NameServers: [ // DelegationSetNameServers // required
- *       "STRING_VALUE",
- *     ],
- *   },
- *   Location: "STRING_VALUE", // required
- * };
+ * // { // CreateReusableDelegationSetResponse
+ * //   DelegationSet: { // DelegationSet
+ * //     Id: "STRING_VALUE",
+ * //     CallerReference: "STRING_VALUE",
+ * //     NameServers: [ // DelegationSetNameServers // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   Location: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

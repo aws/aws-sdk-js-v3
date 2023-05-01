@@ -87,8 +87,7 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * };
  * const command = new RequestCancelWorkflowExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

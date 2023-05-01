@@ -46,15 +46,14 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateServiceResponse
- *   id: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   customDomainName: "STRING_VALUE",
- *   certificateArn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
- * };
+ * // { // UpdateServiceResponse
+ * //   id: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   customDomainName: "STRING_VALUE",
+ * //   certificateArn: "STRING_VALUE",
+ * //   authType: "STRING_VALUE",
+ * // };
  *
  * ```
  *

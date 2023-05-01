@@ -44,15 +44,14 @@ export interface GetTrustStoreCommandOutput extends GetTrustStoreResponse, __Met
  * };
  * const command = new GetTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTrustStoreResponse
- *   trustStore: { // TrustStore
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     trustStoreArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetTrustStoreResponse
+ * //   trustStore: { // TrustStore
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     trustStoreArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

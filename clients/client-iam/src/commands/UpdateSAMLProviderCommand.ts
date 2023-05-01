@@ -48,10 +48,9 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * };
  * const command = new UpdateSAMLProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSAMLProviderResponse
- *   SAMLProviderArn: "STRING_VALUE",
- * };
+ * // { // UpdateSAMLProviderResponse
+ * //   SAMLProviderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

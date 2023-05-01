@@ -44,8 +44,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

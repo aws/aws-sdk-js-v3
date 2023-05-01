@@ -47,16 +47,15 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * };
  * const command = new BatchDeleteScheduledActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteScheduledActionAnswer
- *   FailedScheduledActions: [ // FailedScheduledUpdateGroupActionRequests
- *     { // FailedScheduledUpdateGroupActionRequest
- *       ScheduledActionName: "STRING_VALUE", // required
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteScheduledActionAnswer
+ * //   FailedScheduledActions: [ // FailedScheduledUpdateGroupActionRequests
+ * //     { // FailedScheduledUpdateGroupActionRequest
+ * //       ScheduledActionName: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * };
  * const command = new DeleteSceneCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

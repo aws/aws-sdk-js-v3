@@ -45,8 +45,7 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  * };
  * const command = new DeleteResponsePlanCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

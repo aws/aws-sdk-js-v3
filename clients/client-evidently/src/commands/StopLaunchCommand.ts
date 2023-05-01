@@ -51,10 +51,9 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * };
  * const command = new StopLaunchCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopLaunchResponse
- *   endedTime: new Date("TIMESTAMP"),
- * };
+ * // { // StopLaunchResponse
+ * //   endedTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

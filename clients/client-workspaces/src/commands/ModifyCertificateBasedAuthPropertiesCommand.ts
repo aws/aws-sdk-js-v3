@@ -60,8 +60,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * };
  * const command = new ModifyCertificateBasedAuthPropertiesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

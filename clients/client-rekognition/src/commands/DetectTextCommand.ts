@@ -96,33 +96,32 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * };
  * const command = new DetectTextCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectTextResponse
- *   TextDetections: [ // TextDetectionList
- *     { // TextDetection
- *       DetectedText: "STRING_VALUE",
- *       Type: "LINE" || "WORD",
- *       Id: Number("int"),
- *       ParentId: Number("int"),
- *       Confidence: Number("float"),
- *       Geometry: { // Geometry
- *         BoundingBox: { // BoundingBox
- *           Width: Number("float"),
- *           Height: Number("float"),
- *           Left: Number("float"),
- *           Top: Number("float"),
- *         },
- *         Polygon: [ // Polygon
- *           { // Point
- *             X: Number("float"),
- *             Y: Number("float"),
- *           },
- *         ],
- *       },
- *     },
- *   ],
- *   TextModelVersion: "STRING_VALUE",
- * };
+ * // { // DetectTextResponse
+ * //   TextDetections: [ // TextDetectionList
+ * //     { // TextDetection
+ * //       DetectedText: "STRING_VALUE",
+ * //       Type: "LINE" || "WORD",
+ * //       Id: Number("int"),
+ * //       ParentId: Number("int"),
+ * //       Confidence: Number("float"),
+ * //       Geometry: { // Geometry
+ * //         BoundingBox: { // BoundingBox
+ * //           Width: Number("float"),
+ * //           Height: Number("float"),
+ * //           Left: Number("float"),
+ * //           Top: Number("float"),
+ * //         },
+ * //         Polygon: [ // Polygon
+ * //           { // Point
+ * //             X: Number("float"),
+ * //             Y: Number("float"),
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   ],
+ * //   TextModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

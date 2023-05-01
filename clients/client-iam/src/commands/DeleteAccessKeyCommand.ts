@@ -49,8 +49,7 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteAccessKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

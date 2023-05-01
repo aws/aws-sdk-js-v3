@@ -50,18 +50,17 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMigrationWorkflowTemplatesResponse
- *   nextToken: "STRING_VALUE",
- *   templateSummary: [ // TemplateSummaryList // required
- *     { // TemplateSummary
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListMigrationWorkflowTemplatesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   templateSummary: [ // TemplateSummaryList // required
+ * //     { // TemplateSummary
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

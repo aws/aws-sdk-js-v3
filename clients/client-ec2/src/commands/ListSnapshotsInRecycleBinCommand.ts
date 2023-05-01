@@ -49,19 +49,18 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * };
  * const command = new ListSnapshotsInRecycleBinCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSnapshotsInRecycleBinResult
- *   Snapshots: [ // SnapshotRecycleBinInfoList
- *     { // SnapshotRecycleBinInfo
- *       SnapshotId: "STRING_VALUE",
- *       RecycleBinEnterTime: new Date("TIMESTAMP"),
- *       RecycleBinExitTime: new Date("TIMESTAMP"),
- *       Description: "STRING_VALUE",
- *       VolumeId: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSnapshotsInRecycleBinResult
+ * //   Snapshots: [ // SnapshotRecycleBinInfoList
+ * //     { // SnapshotRecycleBinInfo
+ * //       SnapshotId: "STRING_VALUE",
+ * //       RecycleBinEnterTime: new Date("TIMESTAMP"),
+ * //       RecycleBinExitTime: new Date("TIMESTAMP"),
+ * //       Description: "STRING_VALUE",
+ * //       VolumeId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,19 +61,18 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
  * };
  * const command = new ListChannelsAssociatedWithChannelFlowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelsAssociatedWithChannelFlowResponse
- *   Channels: [ // ChannelAssociatedWithFlowSummaryList
- *     { // ChannelAssociatedWithFlowSummary
- *       Name: "STRING_VALUE",
- *       ChannelArn: "STRING_VALUE",
- *       Mode: "UNRESTRICTED" || "RESTRICTED",
- *       Privacy: "PUBLIC" || "PRIVATE",
- *       Metadata: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelsAssociatedWithChannelFlowResponse
+ * //   Channels: [ // ChannelAssociatedWithFlowSummaryList
+ * //     { // ChannelAssociatedWithFlowSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

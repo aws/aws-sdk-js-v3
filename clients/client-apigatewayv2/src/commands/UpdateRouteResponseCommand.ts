@@ -56,20 +56,19 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
  * };
  * const command = new UpdateRouteResponseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateRouteResponseResponse
- *   ModelSelectionExpression: "STRING_VALUE",
- *   ResponseModels: { // RouteModels
- *     "<keys>": "STRING_VALUE",
- *   },
- *   ResponseParameters: { // RouteParameters
- *     "<keys>": { // ParameterConstraints
- *       Required: true || false,
- *     },
- *   },
- *   RouteResponseId: "STRING_VALUE",
- *   RouteResponseKey: "STRING_VALUE",
- * };
+ * // { // UpdateRouteResponseResponse
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   ResponseModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteResponseId: "STRING_VALUE",
+ * //   RouteResponseKey: "STRING_VALUE",
+ * // };
  *
  * ```
  *

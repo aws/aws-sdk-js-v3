@@ -52,19 +52,18 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * };
  * const command = new ListDistributionsByKeyGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDistributionsByKeyGroupResult
- *   DistributionIdList: { // DistributionIdList
- *     Marker: "STRING_VALUE", // required
- *     NextMarker: "STRING_VALUE",
- *     MaxItems: Number("int"), // required
- *     IsTruncated: true || false, // required
- *     Quantity: Number("int"), // required
- *     Items: [ // DistributionIdListSummary
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // ListDistributionsByKeyGroupResult
+ * //   DistributionIdList: { // DistributionIdList
+ * //     Marker: "STRING_VALUE", // required
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     IsTruncated: true || false, // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // DistributionIdListSummary
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

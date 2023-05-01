@@ -50,13 +50,12 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * };
  * const command = new RetryWorkflowStepCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RetryWorkflowStepResponse
- *   stepGroupId: "STRING_VALUE",
- *   workflowId: "STRING_VALUE",
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // RetryWorkflowStepResponse
+ * //   stepGroupId: "STRING_VALUE",
+ * //   workflowId: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

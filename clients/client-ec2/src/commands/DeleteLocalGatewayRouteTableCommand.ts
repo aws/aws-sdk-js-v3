@@ -49,28 +49,27 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
  * };
  * const command = new DeleteLocalGatewayRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteLocalGatewayRouteTableResult
- *   LocalGatewayRouteTable: { // LocalGatewayRouteTable
- *     LocalGatewayRouteTableId: "STRING_VALUE",
- *     LocalGatewayRouteTableArn: "STRING_VALUE",
- *     LocalGatewayId: "STRING_VALUE",
- *     OutpostArn: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     State: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     Mode: "direct-vpc-routing" || "coip",
- *     StateReason: { // StateReason
- *       Code: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeleteLocalGatewayRouteTableResult
+ * //   LocalGatewayRouteTable: { // LocalGatewayRouteTable
+ * //     LocalGatewayRouteTableId: "STRING_VALUE",
+ * //     LocalGatewayRouteTableArn: "STRING_VALUE",
+ * //     LocalGatewayId: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     State: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Mode: "direct-vpc-routing" || "coip",
+ * //     StateReason: { // StateReason
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

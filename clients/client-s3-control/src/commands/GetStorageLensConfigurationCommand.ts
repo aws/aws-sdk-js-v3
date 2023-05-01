@@ -53,89 +53,88 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * };
  * const command = new GetStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetStorageLensConfigurationResult
- *   StorageLensConfiguration: { // StorageLensConfiguration
- *     Id: "STRING_VALUE", // required
- *     AccountLevel: { // AccountLevel
- *       ActivityMetrics: { // ActivityMetrics
- *         IsEnabled: true || false,
- *       },
- *       BucketLevel: { // BucketLevel
- *         ActivityMetrics: {
- *           IsEnabled: true || false,
- *         },
- *         PrefixLevel: { // PrefixLevel
- *           StorageMetrics: { // PrefixLevelStorageMetrics
- *             IsEnabled: true || false,
- *             SelectionCriteria: { // SelectionCriteria
- *               Delimiter: "STRING_VALUE",
- *               MaxDepth: Number("int"),
- *               MinStorageBytesPercentage: Number("double"),
- *             },
- *           },
- *         },
- *         AdvancedCostOptimizationMetrics: { // AdvancedCostOptimizationMetrics
- *           IsEnabled: true || false,
- *         },
- *         AdvancedDataProtectionMetrics: { // AdvancedDataProtectionMetrics
- *           IsEnabled: true || false,
- *         },
- *         DetailedStatusCodesMetrics: { // DetailedStatusCodesMetrics
- *           IsEnabled: true || false,
- *         },
- *       },
- *       AdvancedCostOptimizationMetrics: {
- *         IsEnabled: true || false,
- *       },
- *       AdvancedDataProtectionMetrics: {
- *         IsEnabled: true || false,
- *       },
- *       DetailedStatusCodesMetrics: {
- *         IsEnabled: true || false,
- *       },
- *     },
- *     Include: { // Include
- *       Buckets: [ // Buckets
- *         "STRING_VALUE",
- *       ],
- *       Regions: [ // Regions
- *         "STRING_VALUE",
- *       ],
- *     },
- *     Exclude: { // Exclude
- *       Buckets: [
- *         "STRING_VALUE",
- *       ],
- *       Regions: [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     DataExport: { // StorageLensDataExport
- *       S3BucketDestination: { // S3BucketDestination
- *         Format: "CSV" || "Parquet", // required
- *         OutputSchemaVersion: "V_1", // required
- *         AccountId: "STRING_VALUE",
- *         Arn: "STRING_VALUE", // required
- *         Prefix: "STRING_VALUE",
- *         Encryption: { // StorageLensDataExportEncryption
- *           SSES3: {},
- *           SSEKMS: { // SSEKMS
- *             KeyId: "STRING_VALUE", // required
- *           },
- *         },
- *       },
- *       CloudWatchMetrics: { // CloudWatchMetrics
- *         IsEnabled: true || false, // required
- *       },
- *     },
- *     IsEnabled: true || false, // required
- *     AwsOrg: { // StorageLensAwsOrg
- *       Arn: "STRING_VALUE", // required
- *     },
- *     StorageLensArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetStorageLensConfigurationResult
+ * //   StorageLensConfiguration: { // StorageLensConfiguration
+ * //     Id: "STRING_VALUE", // required
+ * //     AccountLevel: { // AccountLevel
+ * //       ActivityMetrics: { // ActivityMetrics
+ * //         IsEnabled: true || false,
+ * //       },
+ * //       BucketLevel: { // BucketLevel
+ * //         ActivityMetrics: {
+ * //           IsEnabled: true || false,
+ * //         },
+ * //         PrefixLevel: { // PrefixLevel
+ * //           StorageMetrics: { // PrefixLevelStorageMetrics
+ * //             IsEnabled: true || false,
+ * //             SelectionCriteria: { // SelectionCriteria
+ * //               Delimiter: "STRING_VALUE",
+ * //               MaxDepth: Number("int"),
+ * //               MinStorageBytesPercentage: Number("double"),
+ * //             },
+ * //           },
+ * //         },
+ * //         AdvancedCostOptimizationMetrics: { // AdvancedCostOptimizationMetrics
+ * //           IsEnabled: true || false,
+ * //         },
+ * //         AdvancedDataProtectionMetrics: { // AdvancedDataProtectionMetrics
+ * //           IsEnabled: true || false,
+ * //         },
+ * //         DetailedStatusCodesMetrics: { // DetailedStatusCodesMetrics
+ * //           IsEnabled: true || false,
+ * //         },
+ * //       },
+ * //       AdvancedCostOptimizationMetrics: {
+ * //         IsEnabled: true || false,
+ * //       },
+ * //       AdvancedDataProtectionMetrics: {
+ * //         IsEnabled: true || false,
+ * //       },
+ * //       DetailedStatusCodesMetrics: {
+ * //         IsEnabled: true || false,
+ * //       },
+ * //     },
+ * //     Include: { // Include
+ * //       Buckets: [ // Buckets
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Regions: [ // Regions
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     Exclude: { // Exclude
+ * //       Buckets: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Regions: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     DataExport: { // StorageLensDataExport
+ * //       S3BucketDestination: { // S3BucketDestination
+ * //         Format: "CSV" || "Parquet", // required
+ * //         OutputSchemaVersion: "V_1", // required
+ * //         AccountId: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
+ * //         Prefix: "STRING_VALUE",
+ * //         Encryption: { // StorageLensDataExportEncryption
+ * //           SSES3: {},
+ * //           SSEKMS: { // SSEKMS
+ * //             KeyId: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //       CloudWatchMetrics: { // CloudWatchMetrics
+ * //         IsEnabled: true || false, // required
+ * //       },
+ * //     },
+ * //     IsEnabled: true || false, // required
+ * //     AwsOrg: { // StorageLensAwsOrg
+ * //       Arn: "STRING_VALUE", // required
+ * //     },
+ * //     StorageLensArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

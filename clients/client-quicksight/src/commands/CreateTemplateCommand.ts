@@ -4321,15 +4321,14 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTemplateResponse
- *   Arn: "STRING_VALUE",
- *   VersionArn: "STRING_VALUE",
- *   TemplateId: "STRING_VALUE",
- *   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // CreateTemplateResponse
+ * //   Arn: "STRING_VALUE",
+ * //   VersionArn: "STRING_VALUE",
+ * //   TemplateId: "STRING_VALUE",
+ * //   CreationStatus: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

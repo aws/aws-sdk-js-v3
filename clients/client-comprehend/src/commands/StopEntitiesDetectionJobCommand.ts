@@ -53,11 +53,10 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * };
  * const command = new StopEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopEntitiesDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopEntitiesDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

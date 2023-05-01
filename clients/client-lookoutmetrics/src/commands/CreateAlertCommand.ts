@@ -74,10 +74,9 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * };
  * const command = new CreateAlertCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAlertResponse
- *   AlertArn: "STRING_VALUE",
- * };
+ * // { // CreateAlertResponse
+ * //   AlertArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

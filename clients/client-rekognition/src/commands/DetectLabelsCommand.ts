@@ -186,88 +186,87 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * };
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectLabelsResponse
- *   Labels: [ // Labels
- *     { // Label
- *       Name: "STRING_VALUE",
- *       Confidence: Number("float"),
- *       Instances: [ // Instances
- *         { // Instance
- *           BoundingBox: { // BoundingBox
- *             Width: Number("float"),
- *             Height: Number("float"),
- *             Left: Number("float"),
- *             Top: Number("float"),
- *           },
- *           Confidence: Number("float"),
- *           DominantColors: [ // DominantColors
- *             { // DominantColor
- *               Red: Number("int"),
- *               Blue: Number("int"),
- *               Green: Number("int"),
- *               HexCode: "STRING_VALUE",
- *               CSSColor: "STRING_VALUE",
- *               SimplifiedColor: "STRING_VALUE",
- *               PixelPercent: Number("float"),
- *             },
- *           ],
- *         },
- *       ],
- *       Parents: [ // Parents
- *         { // Parent
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *       Aliases: [ // LabelAliases
- *         { // LabelAlias
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *       Categories: [ // LabelCategories
- *         { // LabelCategory
- *           Name: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
- *   LabelModelVersion: "STRING_VALUE",
- *   ImageProperties: { // DetectLabelsImageProperties
- *     Quality: { // DetectLabelsImageQuality
- *       Brightness: Number("float"),
- *       Sharpness: Number("float"),
- *       Contrast: Number("float"),
- *     },
- *     DominantColors: [
- *       {
- *         Red: Number("int"),
- *         Blue: Number("int"),
- *         Green: Number("int"),
- *         HexCode: "STRING_VALUE",
- *         CSSColor: "STRING_VALUE",
- *         SimplifiedColor: "STRING_VALUE",
- *         PixelPercent: Number("float"),
- *       },
- *     ],
- *     Foreground: { // DetectLabelsImageForeground
- *       Quality: {
- *         Brightness: Number("float"),
- *         Sharpness: Number("float"),
- *         Contrast: Number("float"),
- *       },
- *       DominantColors: "<DominantColors>",
- *     },
- *     Background: { // DetectLabelsImageBackground
- *       Quality: {
- *         Brightness: Number("float"),
- *         Sharpness: Number("float"),
- *         Contrast: Number("float"),
- *       },
- *       DominantColors: "<DominantColors>",
- *     },
- *   },
- * };
+ * // { // DetectLabelsResponse
+ * //   Labels: [ // Labels
+ * //     { // Label
+ * //       Name: "STRING_VALUE",
+ * //       Confidence: Number("float"),
+ * //       Instances: [ // Instances
+ * //         { // Instance
+ * //           BoundingBox: { // BoundingBox
+ * //             Width: Number("float"),
+ * //             Height: Number("float"),
+ * //             Left: Number("float"),
+ * //             Top: Number("float"),
+ * //           },
+ * //           Confidence: Number("float"),
+ * //           DominantColors: [ // DominantColors
+ * //             { // DominantColor
+ * //               Red: Number("int"),
+ * //               Blue: Number("int"),
+ * //               Green: Number("int"),
+ * //               HexCode: "STRING_VALUE",
+ * //               CSSColor: "STRING_VALUE",
+ * //               SimplifiedColor: "STRING_VALUE",
+ * //               PixelPercent: Number("float"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       Parents: [ // Parents
+ * //         { // Parent
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Aliases: [ // LabelAliases
+ * //         { // LabelAlias
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       Categories: [ // LabelCategories
+ * //         { // LabelCategory
+ * //           Name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   OrientationCorrection: "ROTATE_0" || "ROTATE_90" || "ROTATE_180" || "ROTATE_270",
+ * //   LabelModelVersion: "STRING_VALUE",
+ * //   ImageProperties: { // DetectLabelsImageProperties
+ * //     Quality: { // DetectLabelsImageQuality
+ * //       Brightness: Number("float"),
+ * //       Sharpness: Number("float"),
+ * //       Contrast: Number("float"),
+ * //     },
+ * //     DominantColors: [
+ * //       {
+ * //         Red: Number("int"),
+ * //         Blue: Number("int"),
+ * //         Green: Number("int"),
+ * //         HexCode: "STRING_VALUE",
+ * //         CSSColor: "STRING_VALUE",
+ * //         SimplifiedColor: "STRING_VALUE",
+ * //         PixelPercent: Number("float"),
+ * //       },
+ * //     ],
+ * //     Foreground: { // DetectLabelsImageForeground
+ * //       Quality: {
+ * //         Brightness: Number("float"),
+ * //         Sharpness: Number("float"),
+ * //         Contrast: Number("float"),
+ * //       },
+ * //       DominantColors: "<DominantColors>",
+ * //     },
+ * //     Background: { // DetectLabelsImageBackground
+ * //       Quality: {
+ * //         Brightness: Number("float"),
+ * //         Sharpness: Number("float"),
+ * //         Contrast: Number("float"),
+ * //       },
+ * //       DominantColors: "<DominantColors>",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

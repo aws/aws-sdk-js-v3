@@ -50,8 +50,7 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -137,8 +137,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

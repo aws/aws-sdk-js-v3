@@ -58,17 +58,16 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * };
  * const command = new RemoveTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RemoveTargetsResponse
- *   FailedEntryCount: Number("int"),
- *   FailedEntries: [ // RemoveTargetsResultEntryList
- *     { // RemoveTargetsResultEntry
- *       TargetId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // RemoveTargetsResponse
+ * //   FailedEntryCount: Number("int"),
+ * //   FailedEntries: [ // RemoveTargetsResultEntryList
+ * //     { // RemoveTargetsResultEntry
+ * //       TargetId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

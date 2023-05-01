@@ -48,10 +48,9 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * };
  * const command = new UnclaimDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UnclaimDeviceResponse
- *   State: "STRING_VALUE",
- * };
+ * // { // UnclaimDeviceResponse
+ * //   State: "STRING_VALUE",
+ * // };
  *
  * ```
  *

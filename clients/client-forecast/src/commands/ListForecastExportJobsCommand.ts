@@ -55,27 +55,26 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * };
  * const command = new ListForecastExportJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListForecastExportJobsResponse
- *   ForecastExportJobs: [ // ForecastExportJobs
- *     { // ForecastExportJobSummary
- *       ForecastExportJobArn: "STRING_VALUE",
- *       ForecastExportJobName: "STRING_VALUE",
- *       Destination: { // DataDestination
- *         S3Config: { // S3Config
- *           Path: "STRING_VALUE", // required
- *           RoleArn: "STRING_VALUE", // required
- *           KMSKeyArn: "STRING_VALUE",
- *         },
- *       },
- *       Status: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModificationTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListForecastExportJobsResponse
+ * //   ForecastExportJobs: [ // ForecastExportJobs
+ * //     { // ForecastExportJobSummary
+ * //       ForecastExportJobArn: "STRING_VALUE",
+ * //       ForecastExportJobName: "STRING_VALUE",
+ * //       Destination: { // DataDestination
+ * //         S3Config: { // S3Config
+ * //           Path: "STRING_VALUE", // required
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           KMSKeyArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModificationTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

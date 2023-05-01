@@ -50,18 +50,17 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * };
  * const command = new GetBuiltinIntentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBuiltinIntentResponse
- *   signature: "STRING_VALUE",
- *   supportedLocales: [ // LocaleList
- *     "STRING_VALUE",
- *   ],
- *   slots: [ // BuiltinIntentSlotList
- *     { // BuiltinIntentSlot
- *       name: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetBuiltinIntentResponse
+ * //   signature: "STRING_VALUE",
+ * //   supportedLocales: [ // LocaleList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   slots: [ // BuiltinIntentSlotList
+ * //     { // BuiltinIntentSlot
+ * //       name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

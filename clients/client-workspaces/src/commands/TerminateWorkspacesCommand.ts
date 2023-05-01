@@ -72,16 +72,15 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * };
  * const command = new TerminateWorkspacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateWorkspacesResult
- *   FailedRequests: [ // FailedTerminateWorkspaceRequests
- *     { // FailedWorkspaceChangeRequest
- *       WorkspaceId: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // TerminateWorkspacesResult
+ * //   FailedRequests: [ // FailedTerminateWorkspaceRequests
+ * //     { // FailedWorkspaceChangeRequest
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -45,8 +45,7 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  * };
  * const command = new DeleteThreatIntelSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -44,15 +44,14 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * };
  * const command = new GetMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMemberResponse
- *   member: { // Member
- *     accountId: "STRING_VALUE",
- *     relationshipStatus: "STRING_VALUE",
- *     delegatedAdminAccountId: "STRING_VALUE",
- *     updatedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // GetMemberResponse
+ * //   member: { // Member
+ * //     accountId: "STRING_VALUE",
+ * //     relationshipStatus: "STRING_VALUE",
+ * //     delegatedAdminAccountId: "STRING_VALUE",
+ * //     updatedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

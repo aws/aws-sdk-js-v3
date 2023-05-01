@@ -45,11 +45,10 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * };
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMailboxDetailsResponse
- *   MailboxQuota: Number("int"),
- *   MailboxSize: Number("double"),
- * };
+ * // { // GetMailboxDetailsResponse
+ * //   MailboxQuota: Number("int"),
+ * //   MailboxSize: Number("double"),
+ * // };
  *
  * ```
  *

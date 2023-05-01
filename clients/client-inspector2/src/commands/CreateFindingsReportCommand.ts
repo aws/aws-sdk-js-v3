@@ -168,10 +168,9 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * };
  * const command = new CreateFindingsReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFindingsReportResponse
- *   reportId: "STRING_VALUE",
- * };
+ * // { // CreateFindingsReportResponse
+ * //   reportId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -93,8 +93,7 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * };
  * const command = new PutLifecycleHookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

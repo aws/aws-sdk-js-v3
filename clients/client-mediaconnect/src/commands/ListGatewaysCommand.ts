@@ -45,17 +45,16 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewaysResponse
- *   Gateways: [ // __listOfListedGateway
- *     { // ListedGateway
- *       GatewayArn: "STRING_VALUE", // required
- *       GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED", // required
- *       Name: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGatewaysResponse
+ * //   Gateways: [ // __listOfListedGateway
+ * //     { // ListedGateway
+ * //       GatewayArn: "STRING_VALUE", // required
+ * //       GatewayState: "CREATING" || "ACTIVE" || "UPDATING" || "ERROR" || "DELETING" || "DELETED", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

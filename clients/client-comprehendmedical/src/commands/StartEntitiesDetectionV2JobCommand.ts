@@ -63,10 +63,9 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * };
  * const command = new StartEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartEntitiesDetectionV2JobResponse
- *   JobId: "STRING_VALUE",
- * };
+ * // { // StartEntitiesDetectionV2JobResponse
+ * //   JobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

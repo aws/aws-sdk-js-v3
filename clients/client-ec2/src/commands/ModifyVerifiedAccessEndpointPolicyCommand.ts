@@ -56,11 +56,10 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * };
  * const command = new ModifyVerifiedAccessEndpointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyVerifiedAccessEndpointPolicyResult
- *   PolicyEnabled: true || false,
- *   PolicyDocument: "STRING_VALUE",
- * };
+ * // { // ModifyVerifiedAccessEndpointPolicyResult
+ * //   PolicyEnabled: true || false,
+ * //   PolicyDocument: "STRING_VALUE",
+ * // };
  *
  * ```
  *

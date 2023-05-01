@@ -55,11 +55,10 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * };
  * const command = new GetCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCertificateAuthorityCertificateResponse
- *   Certificate: "STRING_VALUE",
- *   CertificateChain: "STRING_VALUE",
- * };
+ * // { // GetCertificateAuthorityCertificateResponse
+ * //   Certificate: "STRING_VALUE",
+ * //   CertificateChain: "STRING_VALUE",
+ * // };
  *
  * ```
  *

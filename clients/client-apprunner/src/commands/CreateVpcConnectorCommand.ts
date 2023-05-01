@@ -57,23 +57,22 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * };
  * const command = new CreateVpcConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateVpcConnectorResponse
- *   VpcConnector: { // VpcConnector
- *     VpcConnectorName: "STRING_VALUE",
- *     VpcConnectorArn: "STRING_VALUE",
- *     VpcConnectorRevision: Number("int"),
- *     Subnets: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     SecurityGroups: [
- *       "STRING_VALUE",
- *     ],
- *     Status: "ACTIVE" || "INACTIVE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     DeletedAt: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateVpcConnectorResponse
+ * //   VpcConnector: { // VpcConnector
+ * //     VpcConnectorName: "STRING_VALUE",
+ * //     VpcConnectorArn: "STRING_VALUE",
+ * //     VpcConnectorRevision: Number("int"),
+ * //     Subnets: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     SecurityGroups: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

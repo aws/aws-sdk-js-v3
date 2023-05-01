@@ -44,8 +44,7 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * };
  * const command = new DeleteDeviceDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

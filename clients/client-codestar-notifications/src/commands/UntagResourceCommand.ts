@@ -52,8 +52,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

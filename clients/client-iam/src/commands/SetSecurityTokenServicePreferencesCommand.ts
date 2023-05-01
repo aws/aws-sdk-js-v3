@@ -65,8 +65,7 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * };
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

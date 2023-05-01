@@ -56,8 +56,7 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * };
  * const command = new AdminDisableUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

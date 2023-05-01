@@ -67,41 +67,40 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * };
  * const command = new GetEventPredictionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetEventPredictionResult
- *   modelScores: [ // ListOfModelScores
- *     { // ModelScores
- *       modelVersion: { // ModelVersion
- *         modelId: "STRING_VALUE", // required
- *         modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
- *         modelVersionNumber: "STRING_VALUE", // required
- *         arn: "STRING_VALUE",
- *       },
- *       scores: { // ModelPredictionMap
- *         "<keys>": Number("float"),
- *       },
- *     },
- *   ],
- *   ruleResults: [ // ListOfRuleResults
- *     { // RuleResult
- *       ruleId: "STRING_VALUE",
- *       outcomes: [ // ListOfStrings
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   externalModelOutputs: [ // ListOfExternalModelOutputs
- *     { // ExternalModelOutputs
- *       externalModel: { // ExternalModelSummary
- *         modelEndpoint: "STRING_VALUE",
- *         modelSource: "SAGEMAKER",
- *       },
- *       outputs: { // ExternalModelPredictionMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetEventPredictionResult
+ * //   modelScores: [ // ListOfModelScores
+ * //     { // ModelScores
+ * //       modelVersion: { // ModelVersion
+ * //         modelId: "STRING_VALUE", // required
+ * //         modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ * //         modelVersionNumber: "STRING_VALUE", // required
+ * //         arn: "STRING_VALUE",
+ * //       },
+ * //       scores: { // ModelPredictionMap
+ * //         "<keys>": Number("float"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   ruleResults: [ // ListOfRuleResults
+ * //     { // RuleResult
+ * //       ruleId: "STRING_VALUE",
+ * //       outcomes: [ // ListOfStrings
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   externalModelOutputs: [ // ListOfExternalModelOutputs
+ * //     { // ExternalModelOutputs
+ * //       externalModel: { // ExternalModelSummary
+ * //         modelEndpoint: "STRING_VALUE",
+ * //         modelSource: "SAGEMAKER",
+ * //       },
+ * //       outputs: { // ExternalModelPredictionMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

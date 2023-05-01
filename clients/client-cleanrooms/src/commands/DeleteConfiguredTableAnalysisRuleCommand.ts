@@ -50,8 +50,7 @@ export interface DeleteConfiguredTableAnalysisRuleCommandOutput
  * };
  * const command = new DeleteConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

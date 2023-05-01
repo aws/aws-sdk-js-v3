@@ -50,19 +50,18 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * };
  * const command = new EvaluatePullRequestApprovalRulesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // EvaluatePullRequestApprovalRulesOutput
- *   evaluation: { // Evaluation
- *     approved: true || false,
- *     overridden: true || false,
- *     approvalRulesSatisfied: [ // ApprovalRulesSatisfiedList
- *       "STRING_VALUE",
- *     ],
- *     approvalRulesNotSatisfied: [ // ApprovalRulesNotSatisfiedList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // EvaluatePullRequestApprovalRulesOutput
+ * //   evaluation: { // Evaluation
+ * //     approved: true || false,
+ * //     overridden: true || false,
+ * //     approvalRulesSatisfied: [ // ApprovalRulesSatisfiedList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     approvalRulesNotSatisfied: [ // ApprovalRulesNotSatisfiedList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

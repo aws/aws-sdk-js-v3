@@ -87,12 +87,11 @@ export interface StartTargetedSentimentDetectionJobCommandOutput
  * };
  * const command = new StartTargetedSentimentDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartTargetedSentimentDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobArn: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StartTargetedSentimentDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobArn: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

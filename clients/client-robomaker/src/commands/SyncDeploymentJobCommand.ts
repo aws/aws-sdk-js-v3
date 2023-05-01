@@ -50,40 +50,39 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * };
  * const command = new SyncDeploymentJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SyncDeploymentJobResponse
- *   arn: "STRING_VALUE",
- *   fleet: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   deploymentConfig: { // DeploymentConfig
- *     concurrentDeploymentPercentage: Number("int"),
- *     failureThresholdPercentage: Number("int"),
- *     robotDeploymentTimeoutInSeconds: Number("long"),
- *     downloadConditionFile: { // S3Object
- *       bucket: "STRING_VALUE", // required
- *       key: "STRING_VALUE", // required
- *       etag: "STRING_VALUE",
- *     },
- *   },
- *   deploymentApplicationConfigs: [ // DeploymentApplicationConfigs
- *     { // DeploymentApplicationConfig
- *       application: "STRING_VALUE", // required
- *       applicationVersion: "STRING_VALUE", // required
- *       launchConfig: { // DeploymentLaunchConfig
- *         packageName: "STRING_VALUE", // required
- *         preLaunchFile: "STRING_VALUE",
- *         launchFile: "STRING_VALUE", // required
- *         postLaunchFile: "STRING_VALUE",
- *         environmentVariables: { // EnvironmentVariableMap
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   failureReason: "STRING_VALUE",
- *   failureCode: "STRING_VALUE",
- *   createdAt: new Date("TIMESTAMP"),
- * };
+ * // { // SyncDeploymentJobResponse
+ * //   arn: "STRING_VALUE",
+ * //   fleet: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   deploymentConfig: { // DeploymentConfig
+ * //     concurrentDeploymentPercentage: Number("int"),
+ * //     failureThresholdPercentage: Number("int"),
+ * //     robotDeploymentTimeoutInSeconds: Number("long"),
+ * //     downloadConditionFile: { // S3Object
+ * //       bucket: "STRING_VALUE", // required
+ * //       key: "STRING_VALUE", // required
+ * //       etag: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   deploymentApplicationConfigs: [ // DeploymentApplicationConfigs
+ * //     { // DeploymentApplicationConfig
+ * //       application: "STRING_VALUE", // required
+ * //       applicationVersion: "STRING_VALUE", // required
+ * //       launchConfig: { // DeploymentLaunchConfig
+ * //         packageName: "STRING_VALUE", // required
+ * //         preLaunchFile: "STRING_VALUE",
+ * //         launchFile: "STRING_VALUE", // required
+ * //         postLaunchFile: "STRING_VALUE",
+ * //         environmentVariables: { // EnvironmentVariableMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   failureReason: "STRING_VALUE",
+ * //   failureCode: "STRING_VALUE",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

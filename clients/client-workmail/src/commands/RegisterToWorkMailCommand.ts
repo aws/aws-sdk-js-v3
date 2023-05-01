@@ -52,8 +52,7 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  * };
  * const command = new RegisterToWorkMailCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

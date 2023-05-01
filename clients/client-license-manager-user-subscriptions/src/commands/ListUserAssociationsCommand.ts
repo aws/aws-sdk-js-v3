@@ -62,26 +62,25 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * };
  * const command = new ListUserAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListUserAssociationsResponse
- *   InstanceUserSummaries: [ // InstanceUserSummaryList
- *     { // InstanceUserSummary
- *       Username: "STRING_VALUE", // required
- *       InstanceId: "STRING_VALUE", // required
- *       IdentityProvider: { // IdentityProvider Union: only one key present
- *         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
- *           DirectoryId: "STRING_VALUE",
- *         },
- *       },
- *       Status: "STRING_VALUE", // required
- *       StatusMessage: "STRING_VALUE",
- *       Domain: "STRING_VALUE",
- *       AssociationDate: "STRING_VALUE",
- *       DisassociationDate: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListUserAssociationsResponse
+ * //   InstanceUserSummaries: [ // InstanceUserSummaryList
+ * //     { // InstanceUserSummary
+ * //       Username: "STRING_VALUE", // required
+ * //       InstanceId: "STRING_VALUE", // required
+ * //       IdentityProvider: { // IdentityProvider Union: only one key present
+ * //         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
+ * //           DirectoryId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Status: "STRING_VALUE", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       AssociationDate: "STRING_VALUE",
+ * //       DisassociationDate: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

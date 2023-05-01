@@ -142,10 +142,9 @@ export interface CreateModelBiasJobDefinitionCommandOutput
  * };
  * const command = new CreateModelBiasJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelBiasJobDefinitionResponse
- *   JobDefinitionArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelBiasJobDefinitionResponse
+ * //   JobDefinitionArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

@@ -181,10 +181,9 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * };
  * const command = new CreateSolutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSolutionResponse
- *   solutionArn: "STRING_VALUE",
- * };
+ * // { // CreateSolutionResponse
+ * //   solutionArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

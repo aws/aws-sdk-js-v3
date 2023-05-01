@@ -55,24 +55,23 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * };
  * const command = new ListGeoLocationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGeoLocationsResponse
- *   GeoLocationDetailsList: [ // GeoLocationDetailsList // required
- *     { // GeoLocationDetails
- *       ContinentCode: "STRING_VALUE",
- *       ContinentName: "STRING_VALUE",
- *       CountryCode: "STRING_VALUE",
- *       CountryName: "STRING_VALUE",
- *       SubdivisionCode: "STRING_VALUE",
- *       SubdivisionName: "STRING_VALUE",
- *     },
- *   ],
- *   IsTruncated: true || false, // required
- *   NextContinentCode: "STRING_VALUE",
- *   NextCountryCode: "STRING_VALUE",
- *   NextSubdivisionCode: "STRING_VALUE",
- *   MaxItems: Number("int"), // required
- * };
+ * // { // ListGeoLocationsResponse
+ * //   GeoLocationDetailsList: [ // GeoLocationDetailsList // required
+ * //     { // GeoLocationDetails
+ * //       ContinentCode: "STRING_VALUE",
+ * //       ContinentName: "STRING_VALUE",
+ * //       CountryCode: "STRING_VALUE",
+ * //       CountryName: "STRING_VALUE",
+ * //       SubdivisionCode: "STRING_VALUE",
+ * //       SubdivisionName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false, // required
+ * //   NextContinentCode: "STRING_VALUE",
+ * //   NextCountryCode: "STRING_VALUE",
+ * //   NextSubdivisionCode: "STRING_VALUE",
+ * //   MaxItems: Number("int"), // required
+ * // };
  *
  * ```
  *

@@ -47,14 +47,13 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * const input = {};
  * const command = new ListOpenIDConnectProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOpenIDConnectProvidersResponse
- *   OpenIDConnectProviderList: [ // OpenIDConnectProviderListType
- *     { // OpenIDConnectProviderListEntry
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListOpenIDConnectProvidersResponse
+ * //   OpenIDConnectProviderList: [ // OpenIDConnectProviderListType
+ * //     { // OpenIDConnectProviderListEntry
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

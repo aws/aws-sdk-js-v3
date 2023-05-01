@@ -47,8 +47,7 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  * };
  * const command = new DeleteModelQualityJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

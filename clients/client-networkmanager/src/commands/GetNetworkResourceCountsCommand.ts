@@ -47,16 +47,15 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * };
  * const command = new GetNetworkResourceCountsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkResourceCountsResponse
- *   NetworkResourceCounts: [ // NetworkResourceCountList
- *     { // NetworkResourceCount
- *       ResourceType: "STRING_VALUE",
- *       Count: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetNetworkResourceCountsResponse
+ * //   NetworkResourceCounts: [ // NetworkResourceCountList
+ * //     { // NetworkResourceCount
+ * //       ResourceType: "STRING_VALUE",
+ * //       Count: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -49,8 +49,7 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  * };
  * const command = new PutRumMetricsDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

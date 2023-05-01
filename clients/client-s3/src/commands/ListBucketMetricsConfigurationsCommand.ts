@@ -87,35 +87,34 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * };
  * const command = new ListBucketMetricsConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListBucketMetricsConfigurationsOutput
- *   IsTruncated: true || false,
- *   ContinuationToken: "STRING_VALUE",
- *   NextContinuationToken: "STRING_VALUE",
- *   MetricsConfigurationList: [ // MetricsConfigurationList
- *     { // MetricsConfiguration
- *       Id: "STRING_VALUE", // required
- *       Filter: { // MetricsFilter Union: only one key present
- *         Prefix: "STRING_VALUE",
- *         Tag: { // Tag
- *           Key: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *         AccessPointArn: "STRING_VALUE",
- *         And: { // MetricsAndOperator
- *           Prefix: "STRING_VALUE",
- *           Tags: [ // TagSet
- *             {
- *               Key: "STRING_VALUE", // required
- *               Value: "STRING_VALUE", // required
- *             },
- *           ],
- *           AccessPointArn: "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // ListBucketMetricsConfigurationsOutput
+ * //   IsTruncated: true || false,
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   NextContinuationToken: "STRING_VALUE",
+ * //   MetricsConfigurationList: [ // MetricsConfigurationList
+ * //     { // MetricsConfiguration
+ * //       Id: "STRING_VALUE", // required
+ * //       Filter: { // MetricsFilter Union: only one key present
+ * //         Prefix: "STRING_VALUE",
+ * //         Tag: { // Tag
+ * //           Key: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //         AccessPointArn: "STRING_VALUE",
+ * //         And: { // MetricsAndOperator
+ * //           Prefix: "STRING_VALUE",
+ * //           Tags: [ // TagSet
+ * //             {
+ * //               Key: "STRING_VALUE", // required
+ * //               Value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           AccessPointArn: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

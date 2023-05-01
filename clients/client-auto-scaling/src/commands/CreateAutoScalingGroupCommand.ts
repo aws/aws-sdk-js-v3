@@ -213,8 +213,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

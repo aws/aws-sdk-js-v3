@@ -60,8 +60,7 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateArchiveRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

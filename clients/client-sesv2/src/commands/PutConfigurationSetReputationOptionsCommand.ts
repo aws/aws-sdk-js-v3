@@ -54,8 +54,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetReputationOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

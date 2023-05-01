@@ -56,8 +56,7 @@ export interface PutConfigurationSetSuppressionOptionsCommandOutput
  * };
  * const command = new PutConfigurationSetSuppressionOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

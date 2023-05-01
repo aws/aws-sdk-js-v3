@@ -45,21 +45,20 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDomainsResponse
- *   Domains: [ // DomainList
- *     { // DomainDetails
- *       DomainArn: "STRING_VALUE",
- *       DomainId: "STRING_VALUE",
- *       DomainName: "STRING_VALUE",
- *       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
- *       CreationTime: new Date("TIMESTAMP"),
- *       LastModifiedTime: new Date("TIMESTAMP"),
- *       Url: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDomainsResponse
+ * //   Domains: [ // DomainList
+ * //     { // DomainDetails
+ * //       DomainArn: "STRING_VALUE",
+ * //       DomainId: "STRING_VALUE",
+ * //       DomainName: "STRING_VALUE",
+ * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       Url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -52,15 +52,14 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  * };
  * const command = new StopMonitoringMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopMonitoringMembersResponse
- *   UnprocessedAccounts: [ // UnprocessedAccounts // required
- *     { // UnprocessedAccount
- *       AccountId: "STRING_VALUE", // required
- *       Result: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // StopMonitoringMembersResponse
+ * //   UnprocessedAccounts: [ // UnprocessedAccounts // required
+ * //     { // UnprocessedAccount
+ * //       AccountId: "STRING_VALUE", // required
+ * //       Result: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -47,19 +47,18 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * };
  * const command = new DescribeLabelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLabelResponse
- *   LabelGroupName: "STRING_VALUE",
- *   LabelGroupArn: "STRING_VALUE",
- *   LabelId: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   EndTime: new Date("TIMESTAMP"),
- *   Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL",
- *   FaultCode: "STRING_VALUE",
- *   Notes: "STRING_VALUE",
- *   Equipment: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeLabelResponse
+ * //   LabelGroupName: "STRING_VALUE",
+ * //   LabelGroupArn: "STRING_VALUE",
+ * //   LabelId: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   EndTime: new Date("TIMESTAMP"),
+ * //   Rating: "ANOMALY" || "NO_ANOMALY" || "NEUTRAL",
+ * //   FaultCode: "STRING_VALUE",
+ * //   Notes: "STRING_VALUE",
+ * //   Equipment: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

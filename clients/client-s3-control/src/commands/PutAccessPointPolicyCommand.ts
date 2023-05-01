@@ -64,8 +64,7 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutAccessPointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

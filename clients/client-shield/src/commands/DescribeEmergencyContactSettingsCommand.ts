@@ -47,16 +47,15 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * const input = {};
  * const command = new DescribeEmergencyContactSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeEmergencyContactSettingsResponse
- *   EmergencyContactList: [ // EmergencyContactList
- *     { // EmergencyContact
- *       EmailAddress: "STRING_VALUE", // required
- *       PhoneNumber: "STRING_VALUE",
- *       ContactNotes: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeEmergencyContactSettingsResponse
+ * //   EmergencyContactList: [ // EmergencyContactList
+ * //     { // EmergencyContact
+ * //       EmailAddress: "STRING_VALUE", // required
+ * //       PhoneNumber: "STRING_VALUE",
+ * //       ContactNotes: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

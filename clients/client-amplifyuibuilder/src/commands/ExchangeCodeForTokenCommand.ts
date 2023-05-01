@@ -54,12 +54,11 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * };
  * const command = new ExchangeCodeForTokenCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExchangeCodeForTokenResponse
- *   accessToken: "STRING_VALUE", // required
- *   expiresIn: Number("int"), // required
- *   refreshToken: "STRING_VALUE", // required
- * };
+ * // { // ExchangeCodeForTokenResponse
+ * //   accessToken: "STRING_VALUE", // required
+ * //   expiresIn: Number("int"), // required
+ * //   refreshToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

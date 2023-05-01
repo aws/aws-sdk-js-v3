@@ -46,11 +46,10 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelJobRunResponse
- *   id: "STRING_VALUE",
- *   virtualClusterId: "STRING_VALUE",
- * };
+ * // { // CancelJobRunResponse
+ * //   id: "STRING_VALUE",
+ * //   virtualClusterId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

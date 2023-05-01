@@ -44,11 +44,10 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * };
  * const command = new DeleteConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteConfigurationResponse
- *   Arn: "STRING_VALUE",
- *   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * };
+ * // { // DeleteConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * // };
  *
  * ```
  *

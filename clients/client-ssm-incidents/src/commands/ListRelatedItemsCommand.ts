@@ -46,29 +46,28 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * };
  * const command = new ListRelatedItemsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRelatedItemsOutput
- *   relatedItems: [ // RelatedItemList // required
- *     { // RelatedItem
- *       identifier: { // ItemIdentifier
- *         value: { // ItemValue Union: only one key present
- *           arn: "STRING_VALUE",
- *           url: "STRING_VALUE",
- *           metricDefinition: "STRING_VALUE",
- *           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
- *             id: "STRING_VALUE", // required
- *             autoResolve: true || false,
- *             secretId: "STRING_VALUE",
- *           },
- *         },
- *         type: "STRING_VALUE", // required
- *       },
- *       title: "STRING_VALUE",
- *       generatedId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListRelatedItemsOutput
+ * //   relatedItems: [ // RelatedItemList // required
+ * //     { // RelatedItem
+ * //       identifier: { // ItemIdentifier
+ * //         value: { // ItemValue Union: only one key present
+ * //           arn: "STRING_VALUE",
+ * //           url: "STRING_VALUE",
+ * //           metricDefinition: "STRING_VALUE",
+ * //           pagerDutyIncidentDetail: { // PagerDutyIncidentDetail
+ * //             id: "STRING_VALUE", // required
+ * //             autoResolve: true || false,
+ * //             secretId: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         type: "STRING_VALUE", // required
+ * //       },
+ * //       title: "STRING_VALUE",
+ * //       generatedId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

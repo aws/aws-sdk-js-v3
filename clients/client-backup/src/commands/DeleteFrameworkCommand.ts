@@ -44,8 +44,7 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFrameworkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

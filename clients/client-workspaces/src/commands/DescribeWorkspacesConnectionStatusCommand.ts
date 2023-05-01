@@ -55,18 +55,17 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * };
  * const command = new DescribeWorkspacesConnectionStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeWorkspacesConnectionStatusResult
- *   WorkspacesConnectionStatus: [ // WorkspaceConnectionStatusList
- *     { // WorkspaceConnectionStatus
- *       WorkspaceId: "STRING_VALUE",
- *       ConnectionState: "CONNECTED" || "DISCONNECTED" || "UNKNOWN",
- *       ConnectionStateCheckTimestamp: new Date("TIMESTAMP"),
- *       LastKnownUserConnectionTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeWorkspacesConnectionStatusResult
+ * //   WorkspacesConnectionStatus: [ // WorkspaceConnectionStatusList
+ * //     { // WorkspaceConnectionStatus
+ * //       WorkspaceId: "STRING_VALUE",
+ * //       ConnectionState: "CONNECTED" || "DISCONNECTED" || "UNKNOWN",
+ * //       ConnectionStateCheckTimestamp: new Date("TIMESTAMP"),
+ * //       LastKnownUserConnectionTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

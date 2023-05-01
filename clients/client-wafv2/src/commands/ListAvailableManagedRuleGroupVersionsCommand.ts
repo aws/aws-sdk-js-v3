@@ -57,17 +57,16 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * };
  * const command = new ListAvailableManagedRuleGroupVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAvailableManagedRuleGroupVersionsResponse
- *   NextMarker: "STRING_VALUE",
- *   Versions: [ // ManagedRuleGroupVersions
- *     { // ManagedRuleGroupVersion
- *       Name: "STRING_VALUE",
- *       LastUpdateTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   CurrentDefaultVersion: "STRING_VALUE",
- * };
+ * // { // ListAvailableManagedRuleGroupVersionsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Versions: [ // ManagedRuleGroupVersions
+ * //     { // ManagedRuleGroupVersion
+ * //       Name: "STRING_VALUE",
+ * //       LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   CurrentDefaultVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

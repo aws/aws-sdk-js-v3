@@ -45,17 +45,16 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * };
  * const command = new GetResolverRuleAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetResolverRuleAssociationResponse
- *   ResolverRuleAssociation: { // ResolverRuleAssociation
- *     Id: "STRING_VALUE",
- *     ResolverRuleId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     VPCId: "STRING_VALUE",
- *     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
- *     StatusMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // GetResolverRuleAssociationResponse
+ * //   ResolverRuleAssociation: { // ResolverRuleAssociation
+ * //     Id: "STRING_VALUE",
+ * //     ResolverRuleId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

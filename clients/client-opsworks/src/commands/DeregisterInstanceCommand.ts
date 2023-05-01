@@ -51,8 +51,7 @@ export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

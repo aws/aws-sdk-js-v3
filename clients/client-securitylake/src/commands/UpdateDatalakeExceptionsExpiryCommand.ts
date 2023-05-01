@@ -51,8 +51,7 @@ export interface UpdateDatalakeExceptionsExpiryCommandOutput
  * };
  * const command = new UpdateDatalakeExceptionsExpiryCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

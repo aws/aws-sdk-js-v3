@@ -58,24 +58,23 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * };
  * const command = new ListMonitoringExecutionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMonitoringExecutionsResponse
- *   MonitoringExecutionSummaries: [ // MonitoringExecutionSummaryList // required
- *     { // MonitoringExecutionSummary
- *       MonitoringScheduleName: "STRING_VALUE", // required
- *       ScheduledTime: new Date("TIMESTAMP"), // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       MonitoringExecutionStatus: "Pending" || "Completed" || "CompletedWithViolations" || "InProgress" || "Failed" || "Stopping" || "Stopped", // required
- *       ProcessingJobArn: "STRING_VALUE",
- *       EndpointName: "STRING_VALUE",
- *       FailureReason: "STRING_VALUE",
- *       MonitoringJobDefinitionName: "STRING_VALUE",
- *       MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListMonitoringExecutionsResponse
+ * //   MonitoringExecutionSummaries: [ // MonitoringExecutionSummaryList // required
+ * //     { // MonitoringExecutionSummary
+ * //       MonitoringScheduleName: "STRING_VALUE", // required
+ * //       ScheduledTime: new Date("TIMESTAMP"), // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       MonitoringExecutionStatus: "Pending" || "Completed" || "CompletedWithViolations" || "InProgress" || "Failed" || "Stopping" || "Stopped", // required
+ * //       ProcessingJobArn: "STRING_VALUE",
+ * //       EndpointName: "STRING_VALUE",
+ * //       FailureReason: "STRING_VALUE",
+ * //       MonitoringJobDefinitionName: "STRING_VALUE",
+ * //       MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

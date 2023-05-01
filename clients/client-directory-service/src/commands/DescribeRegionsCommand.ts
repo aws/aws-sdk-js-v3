@@ -47,28 +47,27 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRegionsResult
- *   RegionsDescription: [ // RegionsDescription
- *     { // RegionDescription
- *       DirectoryId: "STRING_VALUE",
- *       RegionName: "STRING_VALUE",
- *       RegionType: "Primary" || "Additional",
- *       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
- *       VpcSettings: { // DirectoryVpcSettings
- *         VpcId: "STRING_VALUE", // required
- *         SubnetIds: [ // SubnetIds // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       DesiredNumberOfDomainControllers: Number("int"),
- *       LaunchTime: new Date("TIMESTAMP"),
- *       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),
- *       LastUpdatedDateTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeRegionsResult
+ * //   RegionsDescription: [ // RegionsDescription
+ * //     { // RegionDescription
+ * //       DirectoryId: "STRING_VALUE",
+ * //       RegionName: "STRING_VALUE",
+ * //       RegionType: "Primary" || "Additional",
+ * //       Status: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       VpcSettings: { // DirectoryVpcSettings
+ * //         VpcId: "STRING_VALUE", // required
+ * //         SubnetIds: [ // SubnetIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       DesiredNumberOfDomainControllers: Number("int"),
+ * //       LaunchTime: new Date("TIMESTAMP"),
+ * //       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

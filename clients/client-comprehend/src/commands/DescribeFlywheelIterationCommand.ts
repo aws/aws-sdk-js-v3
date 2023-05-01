@@ -47,32 +47,31 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * };
  * const command = new DescribeFlywheelIterationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFlywheelIterationResponse
- *   FlywheelIterationProperties: { // FlywheelIterationProperties
- *     FlywheelArn: "STRING_VALUE",
- *     FlywheelIterationId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     EndTime: new Date("TIMESTAMP"),
- *     Status: "TRAINING" || "EVALUATING" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- *     Message: "STRING_VALUE",
- *     EvaluatedModelArn: "STRING_VALUE",
- *     EvaluatedModelMetrics: { // FlywheelModelEvaluationMetrics
- *       AverageF1Score: Number("double"),
- *       AveragePrecision: Number("double"),
- *       AverageRecall: Number("double"),
- *       AverageAccuracy: Number("double"),
- *     },
- *     TrainedModelArn: "STRING_VALUE",
- *     TrainedModelMetrics: {
- *       AverageF1Score: Number("double"),
- *       AveragePrecision: Number("double"),
- *       AverageRecall: Number("double"),
- *       AverageAccuracy: Number("double"),
- *     },
- *     EvaluationManifestS3Prefix: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFlywheelIterationResponse
+ * //   FlywheelIterationProperties: { // FlywheelIterationProperties
+ * //     FlywheelArn: "STRING_VALUE",
+ * //     FlywheelIterationId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     Status: "TRAINING" || "EVALUATING" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //     Message: "STRING_VALUE",
+ * //     EvaluatedModelArn: "STRING_VALUE",
+ * //     EvaluatedModelMetrics: { // FlywheelModelEvaluationMetrics
+ * //       AverageF1Score: Number("double"),
+ * //       AveragePrecision: Number("double"),
+ * //       AverageRecall: Number("double"),
+ * //       AverageAccuracy: Number("double"),
+ * //     },
+ * //     TrainedModelArn: "STRING_VALUE",
+ * //     TrainedModelMetrics: {
+ * //       AverageF1Score: Number("double"),
+ * //       AveragePrecision: Number("double"),
+ * //       AverageRecall: Number("double"),
+ * //       AverageAccuracy: Number("double"),
+ * //     },
+ * //     EvaluationManifestS3Prefix: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

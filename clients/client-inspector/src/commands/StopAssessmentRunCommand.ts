@@ -46,8 +46,7 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopAssessmentRunCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

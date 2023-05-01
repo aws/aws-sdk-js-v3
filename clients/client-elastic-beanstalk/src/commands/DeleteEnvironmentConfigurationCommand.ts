@@ -53,8 +53,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * };
  * const command = new DeleteEnvironmentConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

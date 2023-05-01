@@ -47,8 +47,7 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * };
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

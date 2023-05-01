@@ -156,10 +156,9 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  * };
  * const command = new CreateMonitoringScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMonitoringScheduleResponse
- *   MonitoringScheduleArn: "STRING_VALUE", // required
- * };
+ * // { // CreateMonitoringScheduleResponse
+ * //   MonitoringScheduleArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

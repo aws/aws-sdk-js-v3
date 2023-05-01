@@ -51,26 +51,25 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFacesResponse
- *   Faces: [ // FaceList
- *     { // Face
- *       FaceId: "STRING_VALUE",
- *       BoundingBox: { // BoundingBox
- *         Width: Number("float"),
- *         Height: Number("float"),
- *         Left: Number("float"),
- *         Top: Number("float"),
- *       },
- *       ImageId: "STRING_VALUE",
- *       ExternalImageId: "STRING_VALUE",
- *       Confidence: Number("float"),
- *       IndexFacesModelVersion: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   FaceModelVersion: "STRING_VALUE",
- * };
+ * // { // ListFacesResponse
+ * //   Faces: [ // FaceList
+ * //     { // Face
+ * //       FaceId: "STRING_VALUE",
+ * //       BoundingBox: { // BoundingBox
+ * //         Width: Number("float"),
+ * //         Height: Number("float"),
+ * //         Left: Number("float"),
+ * //         Top: Number("float"),
+ * //       },
+ * //       ImageId: "STRING_VALUE",
+ * //       ExternalImageId: "STRING_VALUE",
+ * //       Confidence: Number("float"),
+ * //       IndexFacesModelVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   FaceModelVersion: "STRING_VALUE",
+ * // };
  *
  * ```
  *

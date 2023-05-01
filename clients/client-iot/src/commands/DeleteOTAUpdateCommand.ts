@@ -47,8 +47,7 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * };
  * const command = new DeleteOTAUpdateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

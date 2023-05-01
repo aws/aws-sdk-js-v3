@@ -53,20 +53,19 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * };
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityPoliciesResponse
- *   securityPolicySummaries: [ // SecurityPolicySummaries
- *     { // SecurityPolicySummary
- *       type: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       policyVersion: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       createdDate: Number("long"),
- *       lastModifiedDate: Number("long"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityPoliciesResponse
+ * //   securityPolicySummaries: [ // SecurityPolicySummaries
+ * //     { // SecurityPolicySummary
+ * //       type: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       policyVersion: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       createdDate: Number("long"),
+ * //       lastModifiedDate: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -60,8 +60,7 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * };
  * const command = new CompleteAttachmentUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

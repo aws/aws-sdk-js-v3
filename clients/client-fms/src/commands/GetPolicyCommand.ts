@@ -44,55 +44,54 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyResponse
- *   Policy: { // Policy
- *     PolicyId: "STRING_VALUE",
- *     PolicyName: "STRING_VALUE", // required
- *     PolicyUpdateToken: "STRING_VALUE",
- *     SecurityServicePolicyData: { // SecurityServicePolicyData
- *       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
- *       ManagedServiceData: "STRING_VALUE",
- *       PolicyOption: { // PolicyOption
- *         NetworkFirewallPolicy: { // NetworkFirewallPolicy
- *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
- *         },
- *         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
- *           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
- *         },
- *       },
- *     },
- *     ResourceType: "STRING_VALUE", // required
- *     ResourceTypeList: [ // ResourceTypeList
- *       "STRING_VALUE",
- *     ],
- *     ResourceTags: [ // ResourceTags
- *       { // ResourceTag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *     ExcludeResourceTags: true || false, // required
- *     RemediationEnabled: true || false, // required
- *     DeleteUnusedFMManagedResources: true || false,
- *     IncludeMap: { // CustomerPolicyScopeMap
- *       "<keys>": [ // CustomerPolicyScopeIdList
- *         "STRING_VALUE",
- *       ],
- *     },
- *     ExcludeMap: {
- *       "<keys>": [
- *         "STRING_VALUE",
- *       ],
- *     },
- *     ResourceSetIds: [ // ResourceSetIds
- *       "STRING_VALUE",
- *     ],
- *     PolicyDescription: "STRING_VALUE",
- *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
- *   },
- *   PolicyArn: "STRING_VALUE",
- * };
+ * // { // GetPolicyResponse
+ * //   Policy: { // Policy
+ * //     PolicyId: "STRING_VALUE",
+ * //     PolicyName: "STRING_VALUE", // required
+ * //     PolicyUpdateToken: "STRING_VALUE",
+ * //     SecurityServicePolicyData: { // SecurityServicePolicyData
+ * //       Type: "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL", // required
+ * //       ManagedServiceData: "STRING_VALUE",
+ * //       PolicyOption: { // PolicyOption
+ * //         NetworkFirewallPolicy: { // NetworkFirewallPolicy
+ * //           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ * //         },
+ * //         ThirdPartyFirewallPolicy: { // ThirdPartyFirewallPolicy
+ * //           FirewallDeploymentModel: "CENTRALIZED" || "DISTRIBUTED",
+ * //         },
+ * //       },
+ * //     },
+ * //     ResourceType: "STRING_VALUE", // required
+ * //     ResourceTypeList: [ // ResourceTypeList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ResourceTags: [ // ResourceTags
+ * //       { // ResourceTag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     ExcludeResourceTags: true || false, // required
+ * //     RemediationEnabled: true || false, // required
+ * //     DeleteUnusedFMManagedResources: true || false,
+ * //     IncludeMap: { // CustomerPolicyScopeMap
+ * //       "<keys>": [ // CustomerPolicyScopeIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     ExcludeMap: {
+ * //       "<keys>": [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     ResourceSetIds: [ // ResourceSetIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PolicyDescription: "STRING_VALUE",
+ * //     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
+ * //   },
+ * //   PolicyArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

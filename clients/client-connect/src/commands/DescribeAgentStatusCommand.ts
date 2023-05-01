@@ -46,21 +46,20 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * };
  * const command = new DescribeAgentStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAgentStatusResponse
- *   AgentStatus: { // AgentStatus
- *     AgentStatusARN: "STRING_VALUE",
- *     AgentStatusId: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
- *     DisplayOrder: Number("int"),
- *     State: "ENABLED" || "DISABLED",
- *     Tags: { // TagMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DescribeAgentStatusResponse
+ * //   AgentStatus: { // AgentStatus
+ * //     AgentStatusARN: "STRING_VALUE",
+ * //     AgentStatusId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Type: "ROUTABLE" || "CUSTOM" || "OFFLINE",
+ * //     DisplayOrder: Number("int"),
+ * //     State: "ENABLED" || "DISABLED",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

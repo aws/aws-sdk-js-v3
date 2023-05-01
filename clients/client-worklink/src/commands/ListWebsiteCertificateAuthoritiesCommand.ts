@@ -57,17 +57,16 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * };
  * const command = new ListWebsiteCertificateAuthoritiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWebsiteCertificateAuthoritiesResponse
- *   WebsiteCertificateAuthorities: [ // WebsiteCaSummaryList
- *     { // WebsiteCaSummary
- *       WebsiteCaId: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       DisplayName: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWebsiteCertificateAuthoritiesResponse
+ * //   WebsiteCertificateAuthorities: [ // WebsiteCaSummaryList
+ * //     { // WebsiteCaSummary
+ * //       WebsiteCaId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       DisplayName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

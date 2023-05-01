@@ -47,13 +47,12 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * };
  * const command = new PutCodeBindingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutCodeBindingResponse
- *   CreationDate: new Date("TIMESTAMP"),
- *   LastModified: new Date("TIMESTAMP"),
- *   SchemaVersion: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- * };
+ * // { // PutCodeBindingResponse
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * //   LastModified: new Date("TIMESTAMP"),
+ * //   SchemaVersion: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

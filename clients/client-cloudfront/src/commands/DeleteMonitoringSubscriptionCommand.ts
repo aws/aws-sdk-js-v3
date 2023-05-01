@@ -50,8 +50,7 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * };
  * const command = new DeleteMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

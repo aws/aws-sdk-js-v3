@@ -55,20 +55,19 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * };
  * const command = new DescribeBuildCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeBuildOutput
- *   Build: { // Build
- *     BuildId: "STRING_VALUE",
- *     BuildArn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     Version: "STRING_VALUE",
- *     Status: "INITIALIZED" || "READY" || "FAILED",
- *     SizeOnDisk: Number("long"),
- *     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
- *     CreationTime: new Date("TIMESTAMP"),
- *     ServerSdkVersion: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeBuildOutput
+ * //   Build: { // Build
+ * //     BuildId: "STRING_VALUE",
+ * //     BuildArn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Version: "STRING_VALUE",
+ * //     Status: "INITIALIZED" || "READY" || "FAILED",
+ * //     SizeOnDisk: Number("long"),
+ * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     ServerSdkVersion: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

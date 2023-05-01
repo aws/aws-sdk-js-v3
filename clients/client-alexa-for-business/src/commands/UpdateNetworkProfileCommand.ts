@@ -56,8 +56,7 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

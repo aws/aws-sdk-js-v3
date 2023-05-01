@@ -47,16 +47,15 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * const input = {};
  * const command = new ListSAMLProvidersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSAMLProvidersResponse
- *   SAMLProviderList: [ // SAMLProviderListType
- *     { // SAMLProviderListEntry
- *       Arn: "STRING_VALUE",
- *       ValidUntil: new Date("TIMESTAMP"),
- *       CreateDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListSAMLProvidersResponse
+ * //   SAMLProviderList: [ // SAMLProviderListType
+ * //     { // SAMLProviderListEntry
+ * //       Arn: "STRING_VALUE",
+ * //       ValidUntil: new Date("TIMESTAMP"),
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

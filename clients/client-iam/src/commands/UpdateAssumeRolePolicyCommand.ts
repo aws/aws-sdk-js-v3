@@ -48,8 +48,7 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateAssumeRolePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

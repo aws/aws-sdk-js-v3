@@ -55,36 +55,35 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOrdersResponse
- *   orders: [ // OrderList
- *     { // Order
- *       orderArn: "STRING_VALUE",
- *       shippingAddress: { // Address
- *         city: "STRING_VALUE", // required
- *         company: "STRING_VALUE",
- *         country: "STRING_VALUE", // required
- *         name: "STRING_VALUE", // required
- *         phoneNumber: "STRING_VALUE",
- *         postalCode: "STRING_VALUE", // required
- *         stateOrProvince: "STRING_VALUE", // required
- *         street1: "STRING_VALUE", // required
- *         street2: "STRING_VALUE",
- *         street3: "STRING_VALUE",
- *       },
- *       networkArn: "STRING_VALUE",
- *       networkSiteArn: "STRING_VALUE",
- *       trackingInformation: [ // TrackingInformationList
- *         { // TrackingInformation
- *           trackingNumber: "STRING_VALUE",
- *         },
- *       ],
- *       acknowledgmentStatus: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOrdersResponse
+ * //   orders: [ // OrderList
+ * //     { // Order
+ * //       orderArn: "STRING_VALUE",
+ * //       shippingAddress: { // Address
+ * //         city: "STRING_VALUE", // required
+ * //         company: "STRING_VALUE",
+ * //         country: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE", // required
+ * //         phoneNumber: "STRING_VALUE",
+ * //         postalCode: "STRING_VALUE", // required
+ * //         stateOrProvince: "STRING_VALUE", // required
+ * //         street1: "STRING_VALUE", // required
+ * //         street2: "STRING_VALUE",
+ * //         street3: "STRING_VALUE",
+ * //       },
+ * //       networkArn: "STRING_VALUE",
+ * //       networkSiteArn: "STRING_VALUE",
+ * //       trackingInformation: [ // TrackingInformationList
+ * //         { // TrackingInformation
+ * //           trackingNumber: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       acknowledgmentStatus: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

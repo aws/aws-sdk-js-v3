@@ -50,14 +50,13 @@ export interface DescribeConfigurationRevisionCommandOutput
  * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationRevisionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   Revision: Number("long"),
- *   ServerProperties: "BLOB_VALUE",
- * };
+ * // { // DescribeConfigurationRevisionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   Revision: Number("long"),
+ * //   ServerProperties: "BLOB_VALUE",
+ * // };
  *
  * ```
  *

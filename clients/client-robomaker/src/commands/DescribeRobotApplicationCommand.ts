@@ -45,33 +45,32 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * };
  * const command = new DescribeRobotApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRobotApplicationResponse
- *   arn: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   version: "STRING_VALUE",
- *   sources: [ // Sources
- *     { // Source
- *       s3Bucket: "STRING_VALUE",
- *       s3Key: "STRING_VALUE",
- *       etag: "STRING_VALUE",
- *       architecture: "STRING_VALUE",
- *     },
- *   ],
- *   robotSoftwareSuite: { // RobotSoftwareSuite
- *     name: "STRING_VALUE",
- *     version: "STRING_VALUE",
- *   },
- *   revisionId: "STRING_VALUE",
- *   lastUpdatedAt: new Date("TIMESTAMP"),
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   environment: { // Environment
- *     uri: "STRING_VALUE",
- *   },
- *   imageDigest: "STRING_VALUE",
- * };
+ * // { // DescribeRobotApplicationResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   sources: [ // Sources
+ * //     { // Source
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Key: "STRING_VALUE",
+ * //       etag: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   robotSoftwareSuite: { // RobotSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   revisionId: "STRING_VALUE",
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   environment: { // Environment
+ * //     uri: "STRING_VALUE",
+ * //   },
+ * //   imageDigest: "STRING_VALUE",
+ * // };
  *
  * ```
  *

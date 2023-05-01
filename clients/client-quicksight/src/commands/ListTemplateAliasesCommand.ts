@@ -47,19 +47,18 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * };
  * const command = new ListTemplateAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplateAliasesResponse
- *   TemplateAliasList: [ // TemplateAliasList
- *     { // TemplateAlias
- *       AliasName: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       TemplateVersionNumber: Number("long"),
- *     },
- *   ],
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTemplateAliasesResponse
+ * //   TemplateAliasList: [ // TemplateAliasList
+ * //     { // TemplateAlias
+ * //       AliasName: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       TemplateVersionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

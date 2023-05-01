@@ -49,10 +49,9 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * };
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteMessageResponse
- *   id: "STRING_VALUE",
- * };
+ * // { // DeleteMessageResponse
+ * //   id: "STRING_VALUE",
+ * // };
  *
  * ```
  *

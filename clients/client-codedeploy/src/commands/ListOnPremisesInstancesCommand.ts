@@ -55,13 +55,12 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * };
  * const command = new ListOnPremisesInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListOnPremisesInstancesOutput
- *   instanceNames: [ // InstanceNameList
- *     "STRING_VALUE",
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListOnPremisesInstancesOutput
+ * //   instanceNames: [ // InstanceNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

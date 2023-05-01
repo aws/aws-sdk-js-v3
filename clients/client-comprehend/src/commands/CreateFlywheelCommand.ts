@@ -94,11 +94,10 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * };
  * const command = new CreateFlywheelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFlywheelResponse
- *   FlywheelArn: "STRING_VALUE",
- *   ActiveModelArn: "STRING_VALUE",
- * };
+ * // { // CreateFlywheelResponse
+ * //   FlywheelArn: "STRING_VALUE",
+ * //   ActiveModelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

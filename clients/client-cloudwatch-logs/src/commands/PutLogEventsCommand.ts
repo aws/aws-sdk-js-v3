@@ -97,15 +97,14 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutLogEventsResponse
- *   nextSequenceToken: "STRING_VALUE",
- *   rejectedLogEventsInfo: { // RejectedLogEventsInfo
- *     tooNewLogEventStartIndex: Number("int"),
- *     tooOldLogEventEndIndex: Number("int"),
- *     expiredLogEventEndIndex: Number("int"),
- *   },
- * };
+ * // { // PutLogEventsResponse
+ * //   nextSequenceToken: "STRING_VALUE",
+ * //   rejectedLogEventsInfo: { // RejectedLogEventsInfo
+ * //     tooNewLogEventStartIndex: Number("int"),
+ * //     tooOldLogEventEndIndex: Number("int"),
+ * //     expiredLogEventEndIndex: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

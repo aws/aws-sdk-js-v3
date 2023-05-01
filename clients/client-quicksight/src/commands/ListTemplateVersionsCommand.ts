@@ -47,21 +47,20 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * };
  * const command = new ListTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTemplateVersionsResponse
- *   TemplateVersionSummaryList: [ // TemplateVersionSummaryList
- *     { // TemplateVersionSummary
- *       Arn: "STRING_VALUE",
- *       VersionNumber: Number("long"),
- *       CreatedTime: new Date("TIMESTAMP"),
- *       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   Status: Number("int"),
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // ListTemplateVersionsResponse
+ * //   TemplateVersionSummaryList: [ // TemplateVersionSummaryList
+ * //     { // TemplateVersionSummary
+ * //       Arn: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

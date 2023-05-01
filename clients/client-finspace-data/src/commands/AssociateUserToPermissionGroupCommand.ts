@@ -51,10 +51,9 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * };
  * const command = new AssociateUserToPermissionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateUserToPermissionGroupResponse
- *   statusCode: Number("int"),
- * };
+ * // { // AssociateUserToPermissionGroupResponse
+ * //   statusCode: Number("int"),
+ * // };
  *
  * ```
  *

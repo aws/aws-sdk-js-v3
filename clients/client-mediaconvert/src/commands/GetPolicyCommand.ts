@@ -42,14 +42,13 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * const input = {};
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPolicyResponse
- *   Policy: { // Policy
- *     HttpInputs: "ALLOWED" || "DISALLOWED",
- *     HttpsInputs: "ALLOWED" || "DISALLOWED",
- *     S3Inputs: "ALLOWED" || "DISALLOWED",
- *   },
- * };
+ * // { // GetPolicyResponse
+ * //   Policy: { // Policy
+ * //     HttpInputs: "ALLOWED" || "DISALLOWED",
+ * //     HttpsInputs: "ALLOWED" || "DISALLOWED",
+ * //     S3Inputs: "ALLOWED" || "DISALLOWED",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -54,17 +54,16 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * };
  * const command = new ListProfileObjectsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfileObjectsResponse
- *   Items: [ // ProfileObjectList
- *     { // ListProfileObjectsItem
- *       ObjectTypeName: "STRING_VALUE",
- *       ProfileObjectUniqueKey: "STRING_VALUE",
- *       Object: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListProfileObjectsResponse
+ * //   Items: [ // ProfileObjectList
+ * //     { // ListProfileObjectsItem
+ * //       ObjectTypeName: "STRING_VALUE",
+ * //       ProfileObjectUniqueKey: "STRING_VALUE",
+ * //       Object: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

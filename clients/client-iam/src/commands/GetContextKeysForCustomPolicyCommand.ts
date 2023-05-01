@@ -58,12 +58,11 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * };
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetContextKeysForPolicyResponse
- *   ContextKeyNames: [ // ContextKeyNamesResultListType
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetContextKeysForPolicyResponse
+ * //   ContextKeyNames: [ // ContextKeyNamesResultListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

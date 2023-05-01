@@ -48,11 +48,10 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * };
  * const command = new DeleteVehicleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteVehicleResponse
- *   vehicleName: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- * };
+ * // { // DeleteVehicleResponse
+ * //   vehicleName: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

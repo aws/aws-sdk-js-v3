@@ -47,8 +47,7 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  * };
  * const command = new AssociateIpGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -53,10 +53,9 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * };
  * const command = new DeletePortfolioShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePortfolioShareOutput
- *   PortfolioShareToken: "STRING_VALUE",
- * };
+ * // { // DeletePortfolioShareOutput
+ * //   PortfolioShareToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

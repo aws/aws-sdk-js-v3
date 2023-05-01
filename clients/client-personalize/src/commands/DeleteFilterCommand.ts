@@ -44,8 +44,7 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteFilterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

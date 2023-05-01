@@ -50,8 +50,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -51,8 +51,7 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DetachVpnGatewayCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

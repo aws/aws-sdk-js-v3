@@ -122,10 +122,9 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * };
  * const command = new UpdateProfileJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateProfileJobResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // UpdateProfileJobResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

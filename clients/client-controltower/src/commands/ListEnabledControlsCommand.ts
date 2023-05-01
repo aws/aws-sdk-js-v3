@@ -47,15 +47,14 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * };
  * const command = new ListEnabledControlsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnabledControlsOutput
- *   enabledControls: [ // EnabledControls // required
- *     { // EnabledControlSummary
- *       controlIdentifier: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEnabledControlsOutput
+ * //   enabledControls: [ // EnabledControls // required
+ * //     { // EnabledControlSummary
+ * //       controlIdentifier: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

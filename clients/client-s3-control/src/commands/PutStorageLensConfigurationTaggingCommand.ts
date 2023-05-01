@@ -68,8 +68,7 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  * };
  * const command = new PutStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

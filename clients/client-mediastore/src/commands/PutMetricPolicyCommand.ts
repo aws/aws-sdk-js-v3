@@ -53,8 +53,7 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * };
  * const command = new PutMetricPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

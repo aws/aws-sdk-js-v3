@@ -49,16 +49,15 @@ export interface GetUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new GetUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetUserAccessLoggingSettingsResponse
- *   userAccessLoggingSettings: { // UserAccessLoggingSettings
- *     userAccessLoggingSettingsArn: "STRING_VALUE", // required
- *     associatedPortalArns: [ // ArnList
- *       "STRING_VALUE",
- *     ],
- *     kinesisStreamArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetUserAccessLoggingSettingsResponse
+ * //   userAccessLoggingSettings: { // UserAccessLoggingSettings
+ * //     userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * //     associatedPortalArns: [ // ArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     kinesisStreamArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

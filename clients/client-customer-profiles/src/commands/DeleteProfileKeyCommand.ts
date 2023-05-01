@@ -49,10 +49,9 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  * };
  * const command = new DeleteProfileKeyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProfileKeyResponse
- *   Message: "STRING_VALUE",
- * };
+ * // { // DeleteProfileKeyResponse
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

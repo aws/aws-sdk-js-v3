@@ -47,19 +47,18 @@ export interface ListEulasCommandOutput extends ListEulasResponse, __MetadataBea
  * };
  * const command = new ListEulasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEulasResponse
- *   eulas: [ // EulaList
- *     { // Eula
- *       content: "STRING_VALUE",
- *       createdAt: new Date("TIMESTAMP"),
- *       eulaId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       updatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEulasResponse
+ * //   eulas: [ // EulaList
+ * //     { // Eula
+ * //       content: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       eulaId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       updatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

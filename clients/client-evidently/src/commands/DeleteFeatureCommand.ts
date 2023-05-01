@@ -45,8 +45,7 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * };
  * const command = new DeleteFeatureCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

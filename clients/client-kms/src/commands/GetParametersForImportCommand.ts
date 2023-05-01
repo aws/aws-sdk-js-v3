@@ -83,13 +83,12 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * };
  * const command = new GetParametersForImportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetParametersForImportResponse
- *   KeyId: "STRING_VALUE",
- *   ImportToken: "BLOB_VALUE",
- *   PublicKey: "BLOB_VALUE",
- *   ParametersValidTo: new Date("TIMESTAMP"),
- * };
+ * // { // GetParametersForImportResponse
+ * //   KeyId: "STRING_VALUE",
+ * //   ImportToken: "BLOB_VALUE",
+ * //   PublicKey: "BLOB_VALUE",
+ * //   ParametersValidTo: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

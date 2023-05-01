@@ -50,25 +50,24 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentsResponse
- *   ApplicationComponentList: [ // ApplicationComponentList
- *     { // ApplicationComponent
- *       ComponentName: "STRING_VALUE",
- *       ComponentRemarks: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       OsType: "STRING_VALUE",
- *       Tier: "STRING_VALUE",
- *       Monitor: true || false,
- *       DetectedWorkload: { // DetectedWorkload
- *         "<keys>": { // WorkloadMetaData
- *           "<keys>": "STRING_VALUE",
- *         },
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentsResponse
+ * //   ApplicationComponentList: [ // ApplicationComponentList
+ * //     { // ApplicationComponent
+ * //       ComponentName: "STRING_VALUE",
+ * //       ComponentRemarks: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       OsType: "STRING_VALUE",
+ * //       Tier: "STRING_VALUE",
+ * //       Monitor: true || false,
+ * //       DetectedWorkload: { // DetectedWorkload
+ * //         "<keys>": { // WorkloadMetaData
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

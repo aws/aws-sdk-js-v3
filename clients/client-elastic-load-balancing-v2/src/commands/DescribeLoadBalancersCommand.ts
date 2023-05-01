@@ -55,46 +55,45 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancersOutput
- *   LoadBalancers: [ // LoadBalancers
- *     { // LoadBalancer
- *       LoadBalancerArn: "STRING_VALUE",
- *       DNSName: "STRING_VALUE",
- *       CanonicalHostedZoneId: "STRING_VALUE",
- *       CreatedTime: new Date("TIMESTAMP"),
- *       LoadBalancerName: "STRING_VALUE",
- *       Scheme: "internet-facing" || "internal",
- *       VpcId: "STRING_VALUE",
- *       State: { // LoadBalancerState
- *         Code: "active" || "provisioning" || "active_impaired" || "failed",
- *         Reason: "STRING_VALUE",
- *       },
- *       Type: "application" || "network" || "gateway",
- *       AvailabilityZones: [ // AvailabilityZones
- *         { // AvailabilityZone
- *           ZoneName: "STRING_VALUE",
- *           SubnetId: "STRING_VALUE",
- *           OutpostId: "STRING_VALUE",
- *           LoadBalancerAddresses: [ // LoadBalancerAddresses
- *             { // LoadBalancerAddress
- *               IpAddress: "STRING_VALUE",
- *               AllocationId: "STRING_VALUE",
- *               PrivateIPv4Address: "STRING_VALUE",
- *               IPv6Address: "STRING_VALUE",
- *             },
- *           ],
- *         },
- *       ],
- *       SecurityGroups: [ // SecurityGroups
- *         "STRING_VALUE",
- *       ],
- *       IpAddressType: "ipv4" || "dualstack",
- *       CustomerOwnedIpv4Pool: "STRING_VALUE",
- *     },
- *   ],
- *   NextMarker: "STRING_VALUE",
- * };
+ * // { // DescribeLoadBalancersOutput
+ * //   LoadBalancers: [ // LoadBalancers
+ * //     { // LoadBalancer
+ * //       LoadBalancerArn: "STRING_VALUE",
+ * //       DNSName: "STRING_VALUE",
+ * //       CanonicalHostedZoneId: "STRING_VALUE",
+ * //       CreatedTime: new Date("TIMESTAMP"),
+ * //       LoadBalancerName: "STRING_VALUE",
+ * //       Scheme: "internet-facing" || "internal",
+ * //       VpcId: "STRING_VALUE",
+ * //       State: { // LoadBalancerState
+ * //         Code: "active" || "provisioning" || "active_impaired" || "failed",
+ * //         Reason: "STRING_VALUE",
+ * //       },
+ * //       Type: "application" || "network" || "gateway",
+ * //       AvailabilityZones: [ // AvailabilityZones
+ * //         { // AvailabilityZone
+ * //           ZoneName: "STRING_VALUE",
+ * //           SubnetId: "STRING_VALUE",
+ * //           OutpostId: "STRING_VALUE",
+ * //           LoadBalancerAddresses: [ // LoadBalancerAddresses
+ * //             { // LoadBalancerAddress
+ * //               IpAddress: "STRING_VALUE",
+ * //               AllocationId: "STRING_VALUE",
+ * //               PrivateIPv4Address: "STRING_VALUE",
+ * //               IPv6Address: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //       SecurityGroups: [ // SecurityGroups
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IpAddressType: "ipv4" || "dualstack",
+ * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

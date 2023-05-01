@@ -72,20 +72,19 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * };
  * const command = new ListEventPredictionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEventPredictionsResult
- *   eventPredictionSummaries: [ // ListOfEventPredictionSummaries
- *     { // EventPredictionSummary
- *       eventId: "STRING_VALUE",
- *       eventTypeName: "STRING_VALUE",
- *       eventTimestamp: "STRING_VALUE",
- *       predictionTimestamp: "STRING_VALUE",
- *       detectorId: "STRING_VALUE",
- *       detectorVersionId: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListEventPredictionsResult
+ * //   eventPredictionSummaries: [ // ListOfEventPredictionSummaries
+ * //     { // EventPredictionSummary
+ * //       eventId: "STRING_VALUE",
+ * //       eventTypeName: "STRING_VALUE",
+ * //       eventTimestamp: "STRING_VALUE",
+ * //       predictionTimestamp: "STRING_VALUE",
+ * //       detectorId: "STRING_VALUE",
+ * //       detectorVersionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

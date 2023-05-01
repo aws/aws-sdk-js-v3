@@ -46,18 +46,17 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * };
  * const command = new DescribeParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeParameterGroupsResponse
- *   NextToken: "STRING_VALUE",
- *   ParameterGroups: [ // ParameterGroupList
- *     { // ParameterGroup
- *       Name: "STRING_VALUE",
- *       Family: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeParameterGroupsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ParameterGroups: [ // ParameterGroupList
+ * //     { // ParameterGroup
+ * //       Name: "STRING_VALUE",
+ * //       Family: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

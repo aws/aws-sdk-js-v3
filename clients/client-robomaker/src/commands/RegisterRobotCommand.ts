@@ -50,11 +50,10 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * };
  * const command = new RegisterRobotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterRobotResponse
- *   fleet: "STRING_VALUE",
- *   robot: "STRING_VALUE",
- * };
+ * // { // RegisterRobotResponse
+ * //   fleet: "STRING_VALUE",
+ * //   robot: "STRING_VALUE",
+ * // };
  *
  * ```
  *

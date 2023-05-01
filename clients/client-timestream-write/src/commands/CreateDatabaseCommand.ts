@@ -55,17 +55,16 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * };
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatabaseResponse
- *   Database: { // Database
- *     Arn: "STRING_VALUE",
- *     DatabaseName: "STRING_VALUE",
- *     TableCount: Number("long"),
- *     KmsKeyId: "STRING_VALUE",
- *     CreationTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateDatabaseResponse
+ * //   Database: { // Database
+ * //     Arn: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
+ * //     TableCount: Number("long"),
+ * //     KmsKeyId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

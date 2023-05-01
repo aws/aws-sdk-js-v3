@@ -43,13 +43,12 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  * const input = {};
  * const command = new GetDelegatedAdminAccountCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDelegatedAdminAccountResponse
- *   delegatedAdmin: { // DelegatedAdmin
- *     accountId: "STRING_VALUE",
- *     relationshipStatus: "STRING_VALUE",
- *   },
- * };
+ * // { // GetDelegatedAdminAccountResponse
+ * //   delegatedAdmin: { // DelegatedAdmin
+ * //     accountId: "STRING_VALUE",
+ * //     relationshipStatus: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

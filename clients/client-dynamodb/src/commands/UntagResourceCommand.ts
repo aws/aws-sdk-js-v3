@@ -50,8 +50,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

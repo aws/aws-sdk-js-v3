@@ -90,40 +90,39 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectsV2Output
- *   IsTruncated: true || false,
- *   Contents: [ // ObjectList
- *     { // Object
- *       Key: "STRING_VALUE",
- *       LastModified: new Date("TIMESTAMP"),
- *       ETag: "STRING_VALUE",
- *       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- *         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
- *       ],
- *       Size: Number("long"),
- *       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
- *       Owner: { // Owner
- *         DisplayName: "STRING_VALUE",
- *         ID: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Name: "STRING_VALUE",
- *   Prefix: "STRING_VALUE",
- *   Delimiter: "STRING_VALUE",
- *   MaxKeys: Number("int"),
- *   CommonPrefixes: [ // CommonPrefixList
- *     { // CommonPrefix
- *       Prefix: "STRING_VALUE",
- *     },
- *   ],
- *   EncodingType: "url",
- *   KeyCount: Number("int"),
- *   ContinuationToken: "STRING_VALUE",
- *   NextContinuationToken: "STRING_VALUE",
- *   StartAfter: "STRING_VALUE",
- * };
+ * // { // ListObjectsV2Output
+ * //   IsTruncated: true || false,
+ * //   Contents: [ // ObjectList
+ * //     { // Object
+ * //       Key: "STRING_VALUE",
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       ETag: "STRING_VALUE",
+ * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //       ],
+ * //       Size: Number("long"),
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //       Owner: { // Owner
+ * //         DisplayName: "STRING_VALUE",
+ * //         ID: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Name: "STRING_VALUE",
+ * //   Prefix: "STRING_VALUE",
+ * //   Delimiter: "STRING_VALUE",
+ * //   MaxKeys: Number("int"),
+ * //   CommonPrefixes: [ // CommonPrefixList
+ * //     { // CommonPrefix
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   EncodingType: "url",
+ * //   KeyCount: Number("int"),
+ * //   ContinuationToken: "STRING_VALUE",
+ * //   NextContinuationToken: "STRING_VALUE",
+ * //   StartAfter: "STRING_VALUE",
+ * // };
  *
  * ```
  *

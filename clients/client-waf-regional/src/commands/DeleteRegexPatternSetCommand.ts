@@ -54,10 +54,9 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * };
  * const command = new DeleteRegexPatternSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteRegexPatternSetResponse
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // DeleteRegexPatternSetResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -50,21 +50,20 @@ export interface ListWatchlistsCommandOutput extends ListWatchlistsResponse, __M
  * };
  * const command = new ListWatchlistsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListWatchlistsResponse
- *   WatchlistSummaries: [ // WatchlistSummaries
- *     { // WatchlistSummary
- *       DomainId: "STRING_VALUE",
- *       WatchlistId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       DefaultWatchlist: true || false,
- *       CreatedAt: new Date("TIMESTAMP"),
- *       UpdatedAt: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListWatchlistsResponse
+ * //   WatchlistSummaries: [ // WatchlistSummaries
+ * //     { // WatchlistSummary
+ * //       DomainId: "STRING_VALUE",
+ * //       WatchlistId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       DefaultWatchlist: true || false,
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

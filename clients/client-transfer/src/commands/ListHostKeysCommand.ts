@@ -47,21 +47,20 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * };
  * const command = new ListHostKeysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListHostKeysResponse
- *   NextToken: "STRING_VALUE",
- *   ServerId: "STRING_VALUE", // required
- *   HostKeys: [ // ListedHostKeys // required
- *     { // ListedHostKey
- *       Arn: "STRING_VALUE", // required
- *       HostKeyId: "STRING_VALUE",
- *       Fingerprint: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *       DateImported: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // ListHostKeysResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   ServerId: "STRING_VALUE", // required
+ * //   HostKeys: [ // ListedHostKeys // required
+ * //     { // ListedHostKey
+ * //       Arn: "STRING_VALUE", // required
+ * //       HostKeyId: "STRING_VALUE",
+ * //       Fingerprint: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       DateImported: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

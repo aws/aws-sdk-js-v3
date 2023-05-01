@@ -46,14 +46,13 @@ export interface UpdateWorkerFleetCommandOutput extends UpdateWorkerFleetRespons
  * };
  * const command = new UpdateWorkerFleetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateWorkerFleetResponse
- *   arn: "STRING_VALUE", // required
- *   id: "STRING_VALUE", // required
- *   name: "STRING_VALUE", // required
- *   updatedAt: new Date("TIMESTAMP"), // required
- *   additionalFixedProperties: "STRING_VALUE",
- * };
+ * // { // UpdateWorkerFleetResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   updatedAt: new Date("TIMESTAMP"), // required
+ * //   additionalFixedProperties: "STRING_VALUE",
+ * // };
  *
  * ```
  *

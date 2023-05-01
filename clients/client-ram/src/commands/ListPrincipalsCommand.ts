@@ -55,19 +55,18 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * };
  * const command = new ListPrincipalsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPrincipalsResponse
- *   principals: [ // PrincipalList
- *     { // Principal
- *       id: "STRING_VALUE",
- *       resourceShareArn: "STRING_VALUE",
- *       creationTime: new Date("TIMESTAMP"),
- *       lastUpdatedTime: new Date("TIMESTAMP"),
- *       external: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPrincipalsResponse
+ * //   principals: [ // PrincipalList
+ * //     { // Principal
+ * //       id: "STRING_VALUE",
+ * //       resourceShareArn: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedTime: new Date("TIMESTAMP"),
+ * //       external: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

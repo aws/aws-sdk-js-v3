@@ -48,8 +48,7 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  * };
  * const command = new UpdateSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

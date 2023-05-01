@@ -50,10 +50,9 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * };
  * const command = new VerifyDomainIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VerifyDomainIdentityResponse
- *   VerificationToken: "STRING_VALUE", // required
- * };
+ * // { // VerifyDomainIdentityResponse
+ * //   VerificationToken: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

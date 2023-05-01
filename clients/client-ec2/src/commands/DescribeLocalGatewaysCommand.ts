@@ -58,24 +58,23 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * };
  * const command = new DescribeLocalGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLocalGatewaysResult
- *   LocalGateways: [ // LocalGatewaySet
- *     { // LocalGateway
- *       LocalGatewayId: "STRING_VALUE",
- *       OutpostArn: "STRING_VALUE",
- *       OwnerId: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       Tags: [ // TagList
- *         { // Tag
- *           Key: "STRING_VALUE",
- *           Value: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLocalGatewaysResult
+ * //   LocalGateways: [ // LocalGatewaySet
+ * //     { // LocalGateway
+ * //       LocalGatewayId: "STRING_VALUE",
+ * //       OutpostArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

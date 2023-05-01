@@ -53,11 +53,10 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * };
  * const command = new AssociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateUserAccessLoggingSettingsResponse
- *   portalArn: "STRING_VALUE", // required
- *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
- * };
+ * // { // AssociateUserAccessLoggingSettingsResponse
+ * //   portalArn: "STRING_VALUE", // required
+ * //   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

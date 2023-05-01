@@ -45,8 +45,7 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * };
  * const command = new DeleteCrawlerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

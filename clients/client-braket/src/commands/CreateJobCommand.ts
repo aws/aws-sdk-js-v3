@@ -92,10 +92,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateJobResponse
- *   jobArn: "STRING_VALUE", // required
- * };
+ * // { // CreateJobResponse
+ * //   jobArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

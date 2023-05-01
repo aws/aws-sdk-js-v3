@@ -44,13 +44,12 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * };
  * const command = new DeleteFHIRDatastoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteFHIRDatastoreResponse
- *   DatastoreId: "STRING_VALUE", // required
- *   DatastoreArn: "STRING_VALUE", // required
- *   DatastoreStatus: "STRING_VALUE", // required
- *   DatastoreEndpoint: "STRING_VALUE", // required
- * };
+ * // { // DeleteFHIRDatastoreResponse
+ * //   DatastoreId: "STRING_VALUE", // required
+ * //   DatastoreArn: "STRING_VALUE", // required
+ * //   DatastoreStatus: "STRING_VALUE", // required
+ * //   DatastoreEndpoint: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

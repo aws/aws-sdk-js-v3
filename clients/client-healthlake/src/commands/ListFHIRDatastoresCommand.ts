@@ -52,30 +52,29 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * };
  * const command = new ListFHIRDatastoresCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFHIRDatastoresResponse
- *   DatastorePropertiesList: [ // DatastorePropertiesList // required
- *     { // DatastoreProperties
- *       DatastoreId: "STRING_VALUE", // required
- *       DatastoreArn: "STRING_VALUE", // required
- *       DatastoreName: "STRING_VALUE",
- *       DatastoreStatus: "STRING_VALUE", // required
- *       CreatedAt: new Date("TIMESTAMP"),
- *       DatastoreTypeVersion: "STRING_VALUE", // required
- *       DatastoreEndpoint: "STRING_VALUE", // required
- *       SseConfiguration: { // SseConfiguration
- *         KmsEncryptionConfig: { // KmsEncryptionConfig
- *           CmkType: "STRING_VALUE", // required
- *           KmsKeyId: "STRING_VALUE",
- *         },
- *       },
- *       PreloadDataConfig: { // PreloadDataConfig
- *         PreloadDataType: "STRING_VALUE", // required
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFHIRDatastoresResponse
+ * //   DatastorePropertiesList: [ // DatastorePropertiesList // required
+ * //     { // DatastoreProperties
+ * //       DatastoreId: "STRING_VALUE", // required
+ * //       DatastoreArn: "STRING_VALUE", // required
+ * //       DatastoreName: "STRING_VALUE",
+ * //       DatastoreStatus: "STRING_VALUE", // required
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       DatastoreTypeVersion: "STRING_VALUE", // required
+ * //       DatastoreEndpoint: "STRING_VALUE", // required
+ * //       SseConfiguration: { // SseConfiguration
+ * //         KmsEncryptionConfig: { // KmsEncryptionConfig
+ * //           CmkType: "STRING_VALUE", // required
+ * //           KmsKeyId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       PreloadDataConfig: { // PreloadDataConfig
+ * //         PreloadDataType: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

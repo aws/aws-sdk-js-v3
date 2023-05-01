@@ -78,20 +78,19 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIPSetResponse
- *   IPSet: { // IPSet
- *     IPSetId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     IPSetDescriptors: [ // IPSetDescriptors // required
- *       { // IPSetDescriptor
- *         Type: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateIPSetResponse
+ * //   IPSet: { // IPSet
+ * //     IPSetId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     IPSetDescriptors: [ // IPSetDescriptors // required
+ * //       { // IPSetDescriptor
+ * //         Type: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

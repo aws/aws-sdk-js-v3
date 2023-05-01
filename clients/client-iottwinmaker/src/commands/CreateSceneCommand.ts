@@ -56,11 +56,10 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * };
  * const command = new CreateSceneCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateSceneResponse
- *   arn: "STRING_VALUE", // required
- *   creationDateTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // CreateSceneResponse
+ * //   arn: "STRING_VALUE", // required
+ * //   creationDateTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

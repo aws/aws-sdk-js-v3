@@ -49,13 +49,12 @@ export interface ExecuteBudgetActionCommandOutput extends ExecuteBudgetActionRes
  * };
  * const command = new ExecuteBudgetActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ExecuteBudgetActionResponse
- *   AccountId: "STRING_VALUE", // required
- *   BudgetName: "STRING_VALUE", // required
- *   ActionId: "STRING_VALUE", // required
- *   ExecutionType: "STRING_VALUE", // required
- * };
+ * // { // ExecuteBudgetActionResponse
+ * //   AccountId: "STRING_VALUE", // required
+ * //   BudgetName: "STRING_VALUE", // required
+ * //   ActionId: "STRING_VALUE", // required
+ * //   ExecutionType: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

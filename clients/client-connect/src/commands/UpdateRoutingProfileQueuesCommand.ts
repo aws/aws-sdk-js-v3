@@ -55,8 +55,7 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * };
  * const command = new UpdateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

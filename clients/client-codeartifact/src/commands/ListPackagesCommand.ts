@@ -57,23 +57,22 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * };
  * const command = new ListPackagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPackagesResult
- *   packages: [ // PackageSummaryList
- *     { // PackageSummary
- *       format: "npm" || "pypi" || "maven" || "nuget" || "generic",
- *       namespace: "STRING_VALUE",
- *       package: "STRING_VALUE",
- *       originConfiguration: { // PackageOriginConfiguration
- *         restrictions: { // PackageOriginRestrictions
- *           publish: "ALLOW" || "BLOCK", // required
- *           upstream: "ALLOW" || "BLOCK", // required
- *         },
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListPackagesResult
+ * //   packages: [ // PackageSummaryList
+ * //     { // PackageSummary
+ * //       format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //       namespace: "STRING_VALUE",
+ * //       package: "STRING_VALUE",
+ * //       originConfiguration: { // PackageOriginConfiguration
+ * //         restrictions: { // PackageOriginRestrictions
+ * //           publish: "ALLOW" || "BLOCK", // required
+ * //           upstream: "ALLOW" || "BLOCK", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

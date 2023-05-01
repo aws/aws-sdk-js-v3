@@ -52,8 +52,7 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * };
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

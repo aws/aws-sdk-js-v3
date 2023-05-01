@@ -73,10 +73,9 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * };
  * const command = new DeleteStackInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteStackInstancesOutput
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // DeleteStackInstancesOutput
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

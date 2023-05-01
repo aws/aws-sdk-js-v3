@@ -58,19 +58,18 @@ export interface CreateStreamingSessionStreamCommandOutput
  * };
  * const command = new CreateStreamingSessionStreamCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateStreamingSessionStreamResponse
- *   stream: { // StreamingSessionStream
- *     createdAt: new Date("TIMESTAMP"),
- *     createdBy: "STRING_VALUE",
- *     expiresAt: new Date("TIMESTAMP"),
- *     ownedBy: "STRING_VALUE",
- *     state: "READY" || "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED",
- *     statusCode: "STREAM_CREATE_IN_PROGRESS" || "STREAM_READY" || "STREAM_DELETE_IN_PROGRESS" || "STREAM_DELETED" || "INTERNAL_ERROR" || "NETWORK_CONNECTION_ERROR",
- *     streamId: "STRING_VALUE",
- *     url: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateStreamingSessionStreamResponse
+ * //   stream: { // StreamingSessionStream
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "STRING_VALUE",
+ * //     expiresAt: new Date("TIMESTAMP"),
+ * //     ownedBy: "STRING_VALUE",
+ * //     state: "READY" || "CREATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     statusCode: "STREAM_CREATE_IN_PROGRESS" || "STREAM_READY" || "STREAM_DELETE_IN_PROGRESS" || "STREAM_DELETED" || "INTERNAL_ERROR" || "NETWORK_CONNECTION_ERROR",
+ * //     streamId: "STRING_VALUE",
+ * //     url: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

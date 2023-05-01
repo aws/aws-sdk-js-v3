@@ -66,10 +66,9 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * };
  * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterTargetWithMaintenanceWindowResult
- *   WindowTargetId: "STRING_VALUE",
- * };
+ * // { // RegisterTargetWithMaintenanceWindowResult
+ * //   WindowTargetId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

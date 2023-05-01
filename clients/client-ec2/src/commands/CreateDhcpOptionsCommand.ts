@@ -114,29 +114,28 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * };
  * const command = new CreateDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDhcpOptionsResult
- *   DhcpOptions: { // DhcpOptions
- *     DhcpConfigurations: [ // DhcpConfigurationList
- *       { // DhcpConfiguration
- *         Key: "STRING_VALUE",
- *         Values: [ // DhcpConfigurationValueList
- *           { // AttributeValue
- *             Value: "STRING_VALUE",
- *           },
- *         ],
- *       },
- *     ],
- *     DhcpOptionsId: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateDhcpOptionsResult
+ * //   DhcpOptions: { // DhcpOptions
+ * //     DhcpConfigurations: [ // DhcpConfigurationList
+ * //       { // DhcpConfiguration
+ * //         Key: "STRING_VALUE",
+ * //         Values: [ // DhcpConfigurationValueList
+ * //           { // AttributeValue
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     DhcpOptionsId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

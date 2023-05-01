@@ -70,8 +70,7 @@ export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppress
  * };
  * const command = new CreateAuditSuppressionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

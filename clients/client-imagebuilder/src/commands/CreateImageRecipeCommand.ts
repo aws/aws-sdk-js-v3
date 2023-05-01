@@ -89,12 +89,11 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * };
  * const command = new CreateImageRecipeCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateImageRecipeResponse
- *   requestId: "STRING_VALUE",
- *   clientToken: "STRING_VALUE",
- *   imageRecipeArn: "STRING_VALUE",
- * };
+ * // { // CreateImageRecipeResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   imageRecipeArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

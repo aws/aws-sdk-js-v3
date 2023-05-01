@@ -45,15 +45,14 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  * };
  * const command = new ListSchedulingPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchedulingPoliciesResponse
- *   schedulingPolicies: [ // SchedulingPolicyListingDetailList
- *     { // SchedulingPolicyListingDetail
- *       arn: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListSchedulingPoliciesResponse
+ * //   schedulingPolicies: [ // SchedulingPolicyListingDetailList
+ * //     { // SchedulingPolicyListingDetail
+ * //       arn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

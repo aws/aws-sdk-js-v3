@@ -45,13 +45,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTagsForResourceOutput
- *   NextToken: "STRING_VALUE",
- *   Tags: { // ResourceTags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // ListTagsForResourceOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   Tags: { // ResourceTags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,23 +55,22 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateNetworkProfileResult
- *   networkProfile: { // NetworkProfile
- *     arn: "STRING_VALUE",
- *     name: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     type: "CURATED" || "PRIVATE",
- *     uplinkBandwidthBits: Number("long"),
- *     downlinkBandwidthBits: Number("long"),
- *     uplinkDelayMs: Number("long"),
- *     downlinkDelayMs: Number("long"),
- *     uplinkJitterMs: Number("long"),
- *     downlinkJitterMs: Number("long"),
- *     uplinkLossPercent: Number("int"),
- *     downlinkLossPercent: Number("int"),
- *   },
- * };
+ * // { // UpdateNetworkProfileResult
+ * //   networkProfile: { // NetworkProfile
+ * //     arn: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     type: "CURATED" || "PRIVATE",
+ * //     uplinkBandwidthBits: Number("long"),
+ * //     downlinkBandwidthBits: Number("long"),
+ * //     uplinkDelayMs: Number("long"),
+ * //     downlinkDelayMs: Number("long"),
+ * //     uplinkJitterMs: Number("long"),
+ * //     downlinkJitterMs: Number("long"),
+ * //     uplinkLossPercent: Number("int"),
+ * //     downlinkLossPercent: Number("int"),
+ * //   },
+ * // };
  *
  * ```
  *

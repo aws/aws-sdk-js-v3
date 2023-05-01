@@ -55,8 +55,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

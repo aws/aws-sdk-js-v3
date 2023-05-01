@@ -51,16 +51,15 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * };
  * const command = new RefreshSchemasCommand(input);
  * const response = await client.send(command);
- * /**
- * { // RefreshSchemasResponse
- *   RefreshSchemasStatus: { // RefreshSchemasStatus
- *     EndpointArn: "STRING_VALUE",
- *     ReplicationInstanceArn: "STRING_VALUE",
- *     Status: "successful" || "failed" || "refreshing",
- *     LastRefreshDate: new Date("TIMESTAMP"),
- *     LastFailureMessage: "STRING_VALUE",
- *   },
- * };
+ * // { // RefreshSchemasResponse
+ * //   RefreshSchemasStatus: { // RefreshSchemasStatus
+ * //     EndpointArn: "STRING_VALUE",
+ * //     ReplicationInstanceArn: "STRING_VALUE",
+ * //     Status: "successful" || "failed" || "refreshing",
+ * //     LastRefreshDate: new Date("TIMESTAMP"),
+ * //     LastFailureMessage: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

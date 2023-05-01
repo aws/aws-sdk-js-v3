@@ -59,25 +59,24 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * };
  * const command = new GetBucketLoggingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketLoggingOutput
- *   LoggingEnabled: { // LoggingEnabled
- *     TargetBucket: "STRING_VALUE", // required
- *     TargetGrants: [ // TargetGrants
- *       { // TargetGrant
- *         Grantee: { // Grantee
- *           DisplayName: "STRING_VALUE",
- *           EmailAddress: "STRING_VALUE",
- *           ID: "STRING_VALUE",
- *           URI: "STRING_VALUE",
- *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
- *         },
- *         Permission: "FULL_CONTROL" || "READ" || "WRITE",
- *       },
- *     ],
- *     TargetPrefix: "STRING_VALUE", // required
- *   },
- * };
+ * // { // GetBucketLoggingOutput
+ * //   LoggingEnabled: { // LoggingEnabled
+ * //     TargetBucket: "STRING_VALUE", // required
+ * //     TargetGrants: [ // TargetGrants
+ * //       { // TargetGrant
+ * //         Grantee: { // Grantee
+ * //           DisplayName: "STRING_VALUE",
+ * //           EmailAddress: "STRING_VALUE",
+ * //           ID: "STRING_VALUE",
+ * //           URI: "STRING_VALUE",
+ * //           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ * //         },
+ * //         Permission: "FULL_CONTROL" || "READ" || "WRITE",
+ * //       },
+ * //     ],
+ * //     TargetPrefix: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

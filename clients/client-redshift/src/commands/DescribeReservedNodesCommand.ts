@@ -46,32 +46,31 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * };
  * const command = new DescribeReservedNodesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReservedNodesMessage
- *   Marker: "STRING_VALUE",
- *   ReservedNodes: [ // ReservedNodeList
- *     { // ReservedNode
- *       ReservedNodeId: "STRING_VALUE",
- *       ReservedNodeOfferingId: "STRING_VALUE",
- *       NodeType: "STRING_VALUE",
- *       StartTime: new Date("TIMESTAMP"),
- *       Duration: Number("int"),
- *       FixedPrice: Number("double"),
- *       UsagePrice: Number("double"),
- *       CurrencyCode: "STRING_VALUE",
- *       NodeCount: Number("int"),
- *       State: "STRING_VALUE",
- *       OfferingType: "STRING_VALUE",
- *       RecurringCharges: [ // RecurringChargeList
- *         { // RecurringCharge
- *           RecurringChargeAmount: Number("double"),
- *           RecurringChargeFrequency: "STRING_VALUE",
- *         },
- *       ],
- *       ReservedNodeOfferingType: "Regular" || "Upgradable",
- *     },
- *   ],
- * };
+ * // { // ReservedNodesMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ReservedNodes: [ // ReservedNodeList
+ * //     { // ReservedNode
+ * //       ReservedNodeId: "STRING_VALUE",
+ * //       ReservedNodeOfferingId: "STRING_VALUE",
+ * //       NodeType: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       Duration: Number("int"),
+ * //       FixedPrice: Number("double"),
+ * //       UsagePrice: Number("double"),
+ * //       CurrencyCode: "STRING_VALUE",
+ * //       NodeCount: Number("int"),
+ * //       State: "STRING_VALUE",
+ * //       OfferingType: "STRING_VALUE",
+ * //       RecurringCharges: [ // RecurringChargeList
+ * //         { // RecurringCharge
+ * //           RecurringChargeAmount: Number("double"),
+ * //           RecurringChargeFrequency: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       ReservedNodeOfferingType: "Regular" || "Upgradable",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -66,22 +66,21 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * };
  * const command = new DescribePrincipalIdFormatCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePrincipalIdFormatResult
- *   Principals: [ // PrincipalIdFormatList
- *     { // PrincipalIdFormat
- *       Arn: "STRING_VALUE",
- *       Statuses: [ // IdFormatList
- *         { // IdFormat
- *           Deadline: new Date("TIMESTAMP"),
- *           Resource: "STRING_VALUE",
- *           UseLongIds: true || false,
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribePrincipalIdFormatResult
+ * //   Principals: [ // PrincipalIdFormatList
+ * //     { // PrincipalIdFormat
+ * //       Arn: "STRING_VALUE",
+ * //       Statuses: [ // IdFormatList
+ * //         { // IdFormat
+ * //           Deadline: new Date("TIMESTAMP"),
+ * //           Resource: "STRING_VALUE",
+ * //           UseLongIds: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

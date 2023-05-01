@@ -75,20 +75,19 @@ export interface PutChannelMembershipPreferencesCommandOutput
  * };
  * const command = new PutChannelMembershipPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutChannelMembershipPreferencesResponse
- *   ChannelArn: "STRING_VALUE",
- *   Member: { // Identity
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *   },
- *   Preferences: { // ChannelMembershipPreferences
- *     PushNotifications: { // PushNotificationPreferences
- *       AllowNotifications: "ALL" || "NONE" || "FILTERED", // required
- *       FilterRule: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // PutChannelMembershipPreferencesResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   Member: { // Identity
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //   },
+ * //   Preferences: { // ChannelMembershipPreferences
+ * //     PushNotifications: { // PushNotificationPreferences
+ * //       AllowNotifications: "ALL" || "NONE" || "FILTERED", // required
+ * //       FilterRule: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

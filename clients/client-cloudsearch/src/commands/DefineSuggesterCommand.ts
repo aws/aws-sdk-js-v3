@@ -52,26 +52,25 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * };
  * const command = new DefineSuggesterCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DefineSuggesterResponse
- *   Suggester: { // SuggesterStatus
- *     Options: { // Suggester
- *       SuggesterName: "STRING_VALUE", // required
- *       DocumentSuggesterOptions: { // DocumentSuggesterOptions
- *         SourceField: "STRING_VALUE", // required
- *         FuzzyMatching: "STRING_VALUE",
- *         SortExpression: "STRING_VALUE",
- *       },
- *     },
- *     Status: { // OptionStatus
- *       CreationDate: new Date("TIMESTAMP"), // required
- *       UpdateDate: new Date("TIMESTAMP"), // required
- *       UpdateVersion: Number("int"),
- *       State: "STRING_VALUE", // required
- *       PendingDeletion: true || false,
- *     },
- *   },
- * };
+ * // { // DefineSuggesterResponse
+ * //   Suggester: { // SuggesterStatus
+ * //     Options: { // Suggester
+ * //       SuggesterName: "STRING_VALUE", // required
+ * //       DocumentSuggesterOptions: { // DocumentSuggesterOptions
+ * //         SourceField: "STRING_VALUE", // required
+ * //         FuzzyMatching: "STRING_VALUE",
+ * //         SortExpression: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Status: { // OptionStatus
+ * //       CreationDate: new Date("TIMESTAMP"), // required
+ * //       UpdateDate: new Date("TIMESTAMP"), // required
+ * //       UpdateVersion: Number("int"),
+ * //       State: "STRING_VALUE", // required
+ * //       PendingDeletion: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

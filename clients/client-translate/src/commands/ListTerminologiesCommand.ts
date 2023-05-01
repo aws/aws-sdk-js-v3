@@ -45,33 +45,32 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * };
  * const command = new ListTerminologiesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTerminologiesResponse
- *   TerminologyPropertiesList: [ // TerminologyPropertiesList
- *     { // TerminologyProperties
- *       Name: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Arn: "STRING_VALUE",
- *       SourceLanguageCode: "STRING_VALUE",
- *       TargetLanguageCodes: [ // LanguageCodeStringList
- *         "STRING_VALUE",
- *       ],
- *       EncryptionKey: { // EncryptionKey
- *         Type: "KMS", // required
- *         Id: "STRING_VALUE", // required
- *       },
- *       SizeBytes: Number("int"),
- *       TermCount: Number("int"),
- *       CreatedAt: new Date("TIMESTAMP"),
- *       LastUpdatedAt: new Date("TIMESTAMP"),
- *       Directionality: "UNI" || "MULTI",
- *       Message: "STRING_VALUE",
- *       SkippedTermCount: Number("int"),
- *       Format: "CSV" || "TMX" || "TSV",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTerminologiesResponse
+ * //   TerminologyPropertiesList: [ // TerminologyPropertiesList
+ * //     { // TerminologyProperties
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Arn: "STRING_VALUE",
+ * //       SourceLanguageCode: "STRING_VALUE",
+ * //       TargetLanguageCodes: [ // LanguageCodeStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EncryptionKey: { // EncryptionKey
+ * //         Type: "KMS", // required
+ * //         Id: "STRING_VALUE", // required
+ * //       },
+ * //       SizeBytes: Number("int"),
+ * //       TermCount: Number("int"),
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastUpdatedAt: new Date("TIMESTAMP"),
+ * //       Directionality: "UNI" || "MULTI",
+ * //       Message: "STRING_VALUE",
+ * //       SkippedTermCount: Number("int"),
+ * //       Format: "CSV" || "TMX" || "TSV",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

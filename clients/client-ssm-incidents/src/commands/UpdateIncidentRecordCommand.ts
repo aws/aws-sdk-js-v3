@@ -62,8 +62,7 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * };
  * const command = new UpdateIncidentRecordCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

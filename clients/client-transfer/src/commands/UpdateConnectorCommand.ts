@@ -59,10 +59,9 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * };
  * const command = new UpdateConnectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateConnectorResponse
- *   ConnectorId: "STRING_VALUE", // required
- * };
+ * // { // UpdateConnectorResponse
+ * //   ConnectorId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

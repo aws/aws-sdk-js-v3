@@ -45,8 +45,7 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * };
  * const command = new DeleteTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

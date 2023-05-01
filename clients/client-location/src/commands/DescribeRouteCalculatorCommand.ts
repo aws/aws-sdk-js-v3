@@ -44,19 +44,18 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * };
  * const command = new DescribeRouteCalculatorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeRouteCalculatorResponse
- *   CalculatorName: "STRING_VALUE", // required
- *   CalculatorArn: "STRING_VALUE", // required
- *   PricingPlan: "STRING_VALUE",
- *   Description: "STRING_VALUE", // required
- *   CreateTime: new Date("TIMESTAMP"), // required
- *   UpdateTime: new Date("TIMESTAMP"), // required
- *   DataSource: "STRING_VALUE", // required
- *   Tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeRouteCalculatorResponse
+ * //   CalculatorName: "STRING_VALUE", // required
+ * //   CalculatorArn: "STRING_VALUE", // required
+ * //   PricingPlan: "STRING_VALUE",
+ * //   Description: "STRING_VALUE", // required
+ * //   CreateTime: new Date("TIMESTAMP"), // required
+ * //   UpdateTime: new Date("TIMESTAMP"), // required
+ * //   DataSource: "STRING_VALUE", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

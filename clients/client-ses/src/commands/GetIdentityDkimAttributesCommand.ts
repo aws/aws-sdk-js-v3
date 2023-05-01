@@ -68,18 +68,17 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * };
  * const command = new GetIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityDkimAttributesResponse
- *   DkimAttributes: { // DkimAttributes // required
- *     "<keys>": { // IdentityDkimAttributes
- *       DkimEnabled: true || false, // required
- *       DkimVerificationStatus: "STRING_VALUE", // required
- *       DkimTokens: [ // VerificationTokenList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- * };
+ * // { // GetIdentityDkimAttributesResponse
+ * //   DkimAttributes: { // DkimAttributes // required
+ * //     "<keys>": { // IdentityDkimAttributes
+ * //       DkimEnabled: true || false, // required
+ * //       DkimVerificationStatus: "STRING_VALUE", // required
+ * //       DkimTokens: [ // VerificationTokenList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

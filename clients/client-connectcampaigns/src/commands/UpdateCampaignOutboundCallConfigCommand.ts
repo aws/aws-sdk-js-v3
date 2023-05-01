@@ -52,8 +52,7 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * };
  * const command = new UpdateCampaignOutboundCallConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

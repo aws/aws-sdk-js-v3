@@ -50,18 +50,17 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * };
  * const command = new ListCACertificatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCACertificatesResponse
- *   certificates: [ // CACertificates
- *     { // CACertificate
- *       certificateArn: "STRING_VALUE",
- *       certificateId: "STRING_VALUE",
- *       status: "ACTIVE" || "INACTIVE",
- *       creationDate: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListCACertificatesResponse
+ * //   certificates: [ // CACertificates
+ * //     { // CACertificate
+ * //       certificateArn: "STRING_VALUE",
+ * //       certificateId: "STRING_VALUE",
+ * //       status: "ACTIVE" || "INACTIVE",
+ * //       creationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

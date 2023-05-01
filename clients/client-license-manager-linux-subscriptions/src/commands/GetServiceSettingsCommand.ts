@@ -46,23 +46,22 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * const input = {};
  * const command = new GetServiceSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetServiceSettingsResponse
- *   LinuxSubscriptionsDiscovery: "STRING_VALUE",
- *   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
- *     SourceRegions: [ // StringList // required
- *       "STRING_VALUE",
- *     ],
- *     OrganizationIntegration: "STRING_VALUE", // required
- *   },
- *   Status: "STRING_VALUE",
- *   StatusMessage: { // StringMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   HomeRegions: [
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // GetServiceSettingsResponse
+ * //   LinuxSubscriptionsDiscovery: "STRING_VALUE",
+ * //   LinuxSubscriptionsDiscoverySettings: { // LinuxSubscriptionsDiscoverySettings
+ * //     SourceRegions: [ // StringList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     OrganizationIntegration: "STRING_VALUE", // required
+ * //   },
+ * //   Status: "STRING_VALUE",
+ * //   StatusMessage: { // StringMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   HomeRegions: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -50,8 +50,7 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * };
  * const command = new DismissUserContactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

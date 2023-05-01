@@ -64,24 +64,23 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * };
  * const command = new StartSnapshotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartSnapshotResponse
- *   Description: "STRING_VALUE",
- *   SnapshotId: "STRING_VALUE",
- *   OwnerId: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   StartTime: new Date("TIMESTAMP"),
- *   VolumeSize: Number("long"),
- *   BlockSize: Number("int"),
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- *   ParentSnapshotId: "STRING_VALUE",
- *   KmsKeyArn: "STRING_VALUE",
- * };
+ * // { // StartSnapshotResponse
+ * //   Description: "STRING_VALUE",
+ * //   SnapshotId: "STRING_VALUE",
+ * //   OwnerId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   StartTime: new Date("TIMESTAMP"),
+ * //   VolumeSize: Number("long"),
+ * //   BlockSize: Number("int"),
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ParentSnapshotId: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

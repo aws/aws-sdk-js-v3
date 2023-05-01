@@ -49,17 +49,16 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAccountSettingsResponse
- *   settings: [ // Settings
- *     { // Setting
- *       name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
- *       value: "STRING_VALUE",
- *       principalArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAccountSettingsResponse
+ * //   settings: [ // Settings
+ * //     { // Setting
+ * //       name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //       value: "STRING_VALUE",
+ * //       principalArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

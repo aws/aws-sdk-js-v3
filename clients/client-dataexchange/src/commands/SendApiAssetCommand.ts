@@ -55,13 +55,12 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * };
  * const command = new SendApiAssetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SendApiAssetResponse
- *   Body: "STRING_VALUE",
- *   ResponseHeaders: { // MapOf__string
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // SendApiAssetResponse
+ * //   Body: "STRING_VALUE",
+ * //   ResponseHeaders: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

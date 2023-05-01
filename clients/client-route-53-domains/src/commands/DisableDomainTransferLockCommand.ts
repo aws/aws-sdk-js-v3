@@ -49,10 +49,9 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * };
  * const command = new DisableDomainTransferLockCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableDomainTransferLockResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // DisableDomainTransferLockResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -62,8 +62,7 @@ export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
  * };
  * const command = new UpdateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

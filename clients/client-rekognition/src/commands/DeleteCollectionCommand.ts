@@ -48,10 +48,9 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteCollectionResponse
- *   StatusCode: Number("int"),
- * };
+ * // { // DeleteCollectionResponse
+ * //   StatusCode: Number("int"),
+ * // };
  *
  * ```
  *

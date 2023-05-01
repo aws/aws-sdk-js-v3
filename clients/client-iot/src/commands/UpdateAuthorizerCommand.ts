@@ -52,11 +52,10 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateAuthorizerResponse
- *   authorizerName: "STRING_VALUE",
- *   authorizerArn: "STRING_VALUE",
- * };
+ * // { // UpdateAuthorizerResponse
+ * //   authorizerName: "STRING_VALUE",
+ * //   authorizerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

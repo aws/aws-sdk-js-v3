@@ -50,19 +50,18 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSchemaVersionsResponse
- *   Schemas: [ // SchemaVersionList
- *     { // SchemaVersionListItem
- *       SchemaArn: "STRING_VALUE",
- *       SchemaVersionId: "STRING_VALUE",
- *       VersionNumber: Number("long"),
- *       Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
- *       CreatedTime: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSchemaVersionsResponse
+ * //   Schemas: [ // SchemaVersionList
+ * //     { // SchemaVersionListItem
+ * //       SchemaArn: "STRING_VALUE",
+ * //       SchemaVersionId: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //       Status: "AVAILABLE" || "PENDING" || "FAILURE" || "DELETING",
+ * //       CreatedTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

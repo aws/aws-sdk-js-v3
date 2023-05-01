@@ -45,16 +45,15 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * };
  * const command = new DeletePortalCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeletePortalResponse
- *   portalStatus: { // PortalStatus
- *     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
- *     error: { // MonitorErrorDetails
- *       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
- *       message: "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // DeletePortalResponse
+ * //   portalStatus: { // PortalStatus
+ * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     error: { // MonitorErrorDetails
+ * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

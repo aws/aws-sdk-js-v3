@@ -49,8 +49,7 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * };
  * const command = new CreateLabelsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

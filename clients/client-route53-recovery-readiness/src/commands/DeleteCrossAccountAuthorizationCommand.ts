@@ -53,8 +53,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * };
  * const command = new DeleteCrossAccountAuthorizationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

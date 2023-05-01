@@ -67,8 +67,7 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * };
  * const command = new PutConfigurationRecorderCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

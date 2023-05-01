@@ -44,8 +44,7 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * };
  * const command = new DeleteSourceLocationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

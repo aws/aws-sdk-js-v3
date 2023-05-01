@@ -53,11 +53,10 @@ export interface RegisterCertificateWithoutCACommandOutput
  * };
  * const command = new RegisterCertificateWithoutCACommand(input);
  * const response = await client.send(command);
- * /**
- * { // RegisterCertificateWithoutCAResponse
- *   certificateArn: "STRING_VALUE",
- *   certificateId: "STRING_VALUE",
- * };
+ * // { // RegisterCertificateWithoutCAResponse
+ * //   certificateArn: "STRING_VALUE",
+ * //   certificateId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

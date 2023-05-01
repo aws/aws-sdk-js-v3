@@ -68,20 +68,19 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * };
  * const command = new PutVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutVoiceConnectorTerminationResponse
- *   Termination: { // Termination
- *     CpsLimit: Number("int"),
- *     DefaultPhoneNumber: "STRING_VALUE",
- *     CallingRegions: [ // CallingRegionList
- *       "STRING_VALUE",
- *     ],
- *     CidrAllowedList: [ // StringList
- *       "STRING_VALUE",
- *     ],
- *     Disabled: true || false,
- *   },
- * };
+ * // { // PutVoiceConnectorTerminationResponse
+ * //   Termination: { // Termination
+ * //     CpsLimit: Number("int"),
+ * //     DefaultPhoneNumber: "STRING_VALUE",
+ * //     CallingRegions: [ // CallingRegionList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CidrAllowedList: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Disabled: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

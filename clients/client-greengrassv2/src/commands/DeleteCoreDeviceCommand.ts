@@ -47,8 +47,7 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteCoreDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

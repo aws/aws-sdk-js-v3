@@ -46,8 +46,7 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * };
  * const command = new DeprecateSystemTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

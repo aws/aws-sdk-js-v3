@@ -44,16 +44,15 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  * };
  * const command = new DeleteServiceSyncConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteServiceSyncConfigOutput
- *   serviceSyncConfig: { // ServiceSyncConfig
- *     serviceName: "STRING_VALUE", // required
- *     repositoryProvider: "STRING_VALUE", // required
- *     repositoryName: "STRING_VALUE", // required
- *     branch: "STRING_VALUE", // required
- *     filePath: "STRING_VALUE", // required
- *   },
- * };
+ * // { // DeleteServiceSyncConfigOutput
+ * //   serviceSyncConfig: { // ServiceSyncConfig
+ * //     serviceName: "STRING_VALUE", // required
+ * //     repositoryProvider: "STRING_VALUE", // required
+ * //     repositoryName: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     filePath: "STRING_VALUE", // required
+ * //   },
+ * // };
  *
  * ```
  *

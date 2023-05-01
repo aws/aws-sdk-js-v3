@@ -67,8 +67,7 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * };
  * const command = new PutDeliveryChannelCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

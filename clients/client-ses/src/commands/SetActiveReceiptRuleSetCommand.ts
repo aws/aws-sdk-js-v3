@@ -50,8 +50,7 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

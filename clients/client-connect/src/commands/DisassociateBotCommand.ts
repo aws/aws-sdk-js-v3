@@ -53,8 +53,7 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DisassociateBotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

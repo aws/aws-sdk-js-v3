@@ -45,22 +45,21 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * };
  * const command = new DescribeFolderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFolderResponse
- *   Status: Number("int"),
- *   Folder: { // Folder
- *     FolderId: "STRING_VALUE",
- *     Arn: "STRING_VALUE",
- *     Name: "STRING_VALUE",
- *     FolderType: "SHARED",
- *     FolderPath: [ // Path
- *       "STRING_VALUE",
- *     ],
- *     CreatedTime: new Date("TIMESTAMP"),
- *     LastUpdatedTime: new Date("TIMESTAMP"),
- *   },
- *   RequestId: "STRING_VALUE",
- * };
+ * // { // DescribeFolderResponse
+ * //   Status: Number("int"),
+ * //   Folder: { // Folder
+ * //     FolderId: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     FolderType: "SHARED",
+ * //     FolderPath: [ // Path
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

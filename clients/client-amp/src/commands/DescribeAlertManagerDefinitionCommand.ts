@@ -49,18 +49,17 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * };
  * const command = new DescribeAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAlertManagerDefinitionResponse
- *   alertManagerDefinition: { // AlertManagerDefinitionDescription
- *     status: { // AlertManagerDefinitionStatus
- *       statusCode: "STRING_VALUE", // required
- *       statusReason: "STRING_VALUE",
- *     },
- *     data: "BLOB_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     modifiedAt: new Date("TIMESTAMP"), // required
- *   },
- * };
+ * // { // DescribeAlertManagerDefinitionResponse
+ * //   alertManagerDefinition: { // AlertManagerDefinitionDescription
+ * //     status: { // AlertManagerDefinitionStatus
+ * //       statusCode: "STRING_VALUE", // required
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     data: "BLOB_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     modifiedAt: new Date("TIMESTAMP"), // required
+ * //   },
+ * // };
  *
  * ```
  *

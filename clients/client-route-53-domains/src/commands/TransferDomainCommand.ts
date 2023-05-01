@@ -158,10 +158,9 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * };
  * const command = new TransferDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TransferDomainResponse
- *   OperationId: "STRING_VALUE",
- * };
+ * // { // TransferDomainResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

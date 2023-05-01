@@ -94,46 +94,45 @@ export interface PutRemediationConfigurationsCommandOutput
  * };
  * const command = new PutRemediationConfigurationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutRemediationConfigurationsResponse
- *   FailedBatches: [ // FailedRemediationBatches
- *     { // FailedRemediationBatch
- *       FailureMessage: "STRING_VALUE",
- *       FailedItems: [ // RemediationConfigurations
- *         { // RemediationConfiguration
- *           ConfigRuleName: "STRING_VALUE", // required
- *           TargetType: "SSM_DOCUMENT", // required
- *           TargetId: "STRING_VALUE", // required
- *           TargetVersion: "STRING_VALUE",
- *           Parameters: { // RemediationParameters
- *             "<keys>": { // RemediationParameterValue
- *               ResourceValue: { // ResourceValue
- *                 Value: "RESOURCE_ID", // required
- *               },
- *               StaticValue: { // StaticValue
- *                 Values: [ // StaticParameterValues // required
- *                   "STRING_VALUE",
- *                 ],
- *               },
- *             },
- *           },
- *           ResourceType: "STRING_VALUE",
- *           Automatic: true || false,
- *           ExecutionControls: { // ExecutionControls
- *             SsmControls: { // SsmControls
- *               ConcurrentExecutionRatePercentage: Number("int"),
- *               ErrorPercentage: Number("int"),
- *             },
- *           },
- *           MaximumAutomaticAttempts: Number("int"),
- *           RetryAttemptSeconds: Number("long"),
- *           Arn: "STRING_VALUE",
- *           CreatedByService: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // PutRemediationConfigurationsResponse
+ * //   FailedBatches: [ // FailedRemediationBatches
+ * //     { // FailedRemediationBatch
+ * //       FailureMessage: "STRING_VALUE",
+ * //       FailedItems: [ // RemediationConfigurations
+ * //         { // RemediationConfiguration
+ * //           ConfigRuleName: "STRING_VALUE", // required
+ * //           TargetType: "SSM_DOCUMENT", // required
+ * //           TargetId: "STRING_VALUE", // required
+ * //           TargetVersion: "STRING_VALUE",
+ * //           Parameters: { // RemediationParameters
+ * //             "<keys>": { // RemediationParameterValue
+ * //               ResourceValue: { // ResourceValue
+ * //                 Value: "RESOURCE_ID", // required
+ * //               },
+ * //               StaticValue: { // StaticValue
+ * //                 Values: [ // StaticParameterValues // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //           ResourceType: "STRING_VALUE",
+ * //           Automatic: true || false,
+ * //           ExecutionControls: { // ExecutionControls
+ * //             SsmControls: { // SsmControls
+ * //               ConcurrentExecutionRatePercentage: Number("int"),
+ * //               ErrorPercentage: Number("int"),
+ * //             },
+ * //           },
+ * //           MaximumAutomaticAttempts: Number("int"),
+ * //           RetryAttemptSeconds: Number("long"),
+ * //           Arn: "STRING_VALUE",
+ * //           CreatedByService: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

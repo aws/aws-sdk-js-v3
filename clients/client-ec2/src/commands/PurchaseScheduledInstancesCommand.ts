@@ -59,36 +59,35 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * };
  * const command = new PurchaseScheduledInstancesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PurchaseScheduledInstancesResult
- *   ScheduledInstanceSet: [ // PurchasedScheduledInstanceSet
- *     { // ScheduledInstance
- *       AvailabilityZone: "STRING_VALUE",
- *       CreateDate: new Date("TIMESTAMP"),
- *       HourlyPrice: "STRING_VALUE",
- *       InstanceCount: Number("int"),
- *       InstanceType: "STRING_VALUE",
- *       NetworkPlatform: "STRING_VALUE",
- *       NextSlotStartTime: new Date("TIMESTAMP"),
- *       Platform: "STRING_VALUE",
- *       PreviousSlotEndTime: new Date("TIMESTAMP"),
- *       Recurrence: { // ScheduledInstanceRecurrence
- *         Frequency: "STRING_VALUE",
- *         Interval: Number("int"),
- *         OccurrenceDaySet: [ // OccurrenceDaySet
- *           Number("int"),
- *         ],
- *         OccurrenceRelativeToEnd: true || false,
- *         OccurrenceUnit: "STRING_VALUE",
- *       },
- *       ScheduledInstanceId: "STRING_VALUE",
- *       SlotDurationInHours: Number("int"),
- *       TermEndDate: new Date("TIMESTAMP"),
- *       TermStartDate: new Date("TIMESTAMP"),
- *       TotalScheduledInstanceHours: Number("int"),
- *     },
- *   ],
- * };
+ * // { // PurchaseScheduledInstancesResult
+ * //   ScheduledInstanceSet: [ // PurchasedScheduledInstanceSet
+ * //     { // ScheduledInstance
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       CreateDate: new Date("TIMESTAMP"),
+ * //       HourlyPrice: "STRING_VALUE",
+ * //       InstanceCount: Number("int"),
+ * //       InstanceType: "STRING_VALUE",
+ * //       NetworkPlatform: "STRING_VALUE",
+ * //       NextSlotStartTime: new Date("TIMESTAMP"),
+ * //       Platform: "STRING_VALUE",
+ * //       PreviousSlotEndTime: new Date("TIMESTAMP"),
+ * //       Recurrence: { // ScheduledInstanceRecurrence
+ * //         Frequency: "STRING_VALUE",
+ * //         Interval: Number("int"),
+ * //         OccurrenceDaySet: [ // OccurrenceDaySet
+ * //           Number("int"),
+ * //         ],
+ * //         OccurrenceRelativeToEnd: true || false,
+ * //         OccurrenceUnit: "STRING_VALUE",
+ * //       },
+ * //       ScheduledInstanceId: "STRING_VALUE",
+ * //       SlotDurationInHours: Number("int"),
+ * //       TermEndDate: new Date("TIMESTAMP"),
+ * //       TermStartDate: new Date("TIMESTAMP"),
+ * //       TotalScheduledInstanceHours: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

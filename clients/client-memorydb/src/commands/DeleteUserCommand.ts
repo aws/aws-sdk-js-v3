@@ -44,23 +44,22 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * };
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteUserResponse
- *   User: { // User
- *     Name: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *     AccessString: "STRING_VALUE",
- *     ACLNames: [ // ACLNameList
- *       "STRING_VALUE",
- *     ],
- *     MinimumEngineVersion: "STRING_VALUE",
- *     Authentication: { // Authentication
- *       Type: "password" || "no-password",
- *       PasswordCount: Number("int"),
- *     },
- *     ARN: "STRING_VALUE",
- *   },
- * };
+ * // { // DeleteUserResponse
+ * //   User: { // User
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     AccessString: "STRING_VALUE",
+ * //     ACLNames: [ // ACLNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MinimumEngineVersion: "STRING_VALUE",
+ * //     Authentication: { // Authentication
+ * //       Type: "password" || "no-password",
+ * //       PasswordCount: Number("int"),
+ * //     },
+ * //     ARN: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

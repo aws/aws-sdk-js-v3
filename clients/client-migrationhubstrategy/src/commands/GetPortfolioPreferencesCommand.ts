@@ -46,57 +46,56 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * const input = {};
  * const command = new GetPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetPortfolioPreferencesResponse
- *   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
- *     businessGoals: { // BusinessGoals
- *       speedOfMigration: Number("int"),
- *       reduceOperationalOverheadWithManagedServices: Number("int"),
- *       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
- *       licenseCostReduction: Number("int"),
- *     },
- *   },
- *   applicationPreferences: { // ApplicationPreferences
- *     managementPreference: { // ManagementPreference Union: only one key present
- *       awsManagedResources: { // AwsManagedResources
- *         targetDestination: [ // AwsManagedTargetDestinations // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       selfManageResources: { // SelfManageResources
- *         targetDestination: [ // SelfManageTargetDestinations // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       noPreference: { // NoManagementPreference
- *         targetDestination: [ // NoPreferenceTargetDestinations // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   },
- *   databasePreferences: { // DatabasePreferences
- *     databaseManagementPreference: "STRING_VALUE",
- *     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
- *       heterogeneous: { // Heterogeneous
- *         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *       homogeneous: { // Homogeneous
- *         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
- *           "STRING_VALUE",
- *         ],
- *       },
- *       noPreference: { // NoDatabaseMigrationPreference
- *         targetDatabaseEngine: [ // TargetDatabaseEngines // required
- *           "STRING_VALUE",
- *         ],
- *       },
- *     },
- *   },
- *   applicationMode: "STRING_VALUE",
- * };
+ * // { // GetPortfolioPreferencesResponse
+ * //   prioritizeBusinessGoals: { // PrioritizeBusinessGoals
+ * //     businessGoals: { // BusinessGoals
+ * //       speedOfMigration: Number("int"),
+ * //       reduceOperationalOverheadWithManagedServices: Number("int"),
+ * //       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
+ * //       licenseCostReduction: Number("int"),
+ * //     },
+ * //   },
+ * //   applicationPreferences: { // ApplicationPreferences
+ * //     managementPreference: { // ManagementPreference Union: only one key present
+ * //       awsManagedResources: { // AwsManagedResources
+ * //         targetDestination: [ // AwsManagedTargetDestinations // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       selfManageResources: { // SelfManageResources
+ * //         targetDestination: [ // SelfManageTargetDestinations // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       noPreference: { // NoManagementPreference
+ * //         targetDestination: [ // NoPreferenceTargetDestinations // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   databasePreferences: { // DatabasePreferences
+ * //     databaseManagementPreference: "STRING_VALUE",
+ * //     databaseMigrationPreference: { // DatabaseMigrationPreference Union: only one key present
+ * //       heterogeneous: { // Heterogeneous
+ * //         targetDatabaseEngine: [ // HeterogeneousTargetDatabaseEngines // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       homogeneous: { // Homogeneous
+ * //         targetDatabaseEngine: [ // HomogeneousTargetDatabaseEngines
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       noPreference: { // NoDatabaseMigrationPreference
+ * //         targetDatabaseEngine: [ // TargetDatabaseEngines // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   applicationMode: "STRING_VALUE",
+ * // };
  *
  * ```
  *

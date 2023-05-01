@@ -47,13 +47,12 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * };
  * const command = new ListApprovedOriginsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApprovedOriginsResponse
- *   Origins: [ // OriginsList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApprovedOriginsResponse
+ * //   Origins: [ // OriginsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

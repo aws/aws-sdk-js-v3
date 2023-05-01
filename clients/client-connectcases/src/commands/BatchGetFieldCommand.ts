@@ -49,29 +49,28 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * };
  * const command = new BatchGetFieldCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchGetFieldResponse
- *   fields: [ // BatchGetFieldList // required
- *     { // GetFieldResponse
- *       fieldId: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       fieldArn: "STRING_VALUE", // required
- *       description: "STRING_VALUE",
- *       type: "STRING_VALUE", // required
- *       namespace: "STRING_VALUE", // required
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   errors: [ // BatchGetFieldErrorList // required
- *     { // FieldError
- *       id: "STRING_VALUE", // required
- *       errorCode: "STRING_VALUE", // required
- *       message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchGetFieldResponse
+ * //   fields: [ // BatchGetFieldList // required
+ * //     { // GetFieldResponse
+ * //       fieldId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       fieldArn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       type: "STRING_VALUE", // required
+ * //       namespace: "STRING_VALUE", // required
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   errors: [ // BatchGetFieldErrorList // required
+ * //     { // FieldError
+ * //       id: "STRING_VALUE", // required
+ * //       errorCode: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

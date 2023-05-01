@@ -71,8 +71,7 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * };
  * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

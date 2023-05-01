@@ -45,17 +45,16 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListClustersOutput
- *   clusters: [ // ClusterList
- *     { // ClusterInList
- *       clusterName: "STRING_VALUE", // required
- *       clusterArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListClustersOutput
+ * //   clusters: [ // ClusterList
+ * //     { // ClusterInList
+ * //       clusterName: "STRING_VALUE", // required
+ * //       clusterArn: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

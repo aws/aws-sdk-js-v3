@@ -113,13 +113,12 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * };
  * const command = new UpdateInAppTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateInAppTemplateResponse
- *   MessageBody: { // MessageBody
- *     Message: "STRING_VALUE",
- *     RequestID: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateInAppTemplateResponse
+ * //   MessageBody: { // MessageBody
+ * //     Message: "STRING_VALUE",
+ * //     RequestID: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

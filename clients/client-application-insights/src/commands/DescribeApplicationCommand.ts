@@ -48,19 +48,18 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * };
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationResponse
- *   ApplicationInfo: { // ApplicationInfo
- *     ResourceGroupName: "STRING_VALUE",
- *     LifeCycle: "STRING_VALUE",
- *     OpsItemSNSTopicArn: "STRING_VALUE",
- *     OpsCenterEnabled: true || false,
- *     CWEMonitorEnabled: true || false,
- *     Remarks: "STRING_VALUE",
- *     AutoConfigEnabled: true || false,
- *     DiscoveryType: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeApplicationResponse
+ * //   ApplicationInfo: { // ApplicationInfo
+ * //     ResourceGroupName: "STRING_VALUE",
+ * //     LifeCycle: "STRING_VALUE",
+ * //     OpsItemSNSTopicArn: "STRING_VALUE",
+ * //     OpsCenterEnabled: true || false,
+ * //     CWEMonitorEnabled: true || false,
+ * //     Remarks: "STRING_VALUE",
+ * //     AutoConfigEnabled: true || false,
+ * //     DiscoveryType: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

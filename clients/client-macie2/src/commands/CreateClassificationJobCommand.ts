@@ -171,11 +171,10 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * };
  * const command = new CreateClassificationJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateClassificationJobResponse
- *   jobArn: "STRING_VALUE",
- *   jobId: "STRING_VALUE",
- * };
+ * // { // CreateClassificationJobResponse
+ * //   jobArn: "STRING_VALUE",
+ * //   jobId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

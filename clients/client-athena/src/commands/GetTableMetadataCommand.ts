@@ -46,32 +46,31 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  * };
  * const command = new GetTableMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetTableMetadataOutput
- *   TableMetadata: { // TableMetadata
- *     Name: "STRING_VALUE", // required
- *     CreateTime: new Date("TIMESTAMP"),
- *     LastAccessTime: new Date("TIMESTAMP"),
- *     TableType: "STRING_VALUE",
- *     Columns: [ // ColumnList
- *       { // Column
- *         Name: "STRING_VALUE", // required
- *         Type: "STRING_VALUE",
- *         Comment: "STRING_VALUE",
- *       },
- *     ],
- *     PartitionKeys: [
- *       {
- *         Name: "STRING_VALUE", // required
- *         Type: "STRING_VALUE",
- *         Comment: "STRING_VALUE",
- *       },
- *     ],
- *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetTableMetadataOutput
+ * //   TableMetadata: { // TableMetadata
+ * //     Name: "STRING_VALUE", // required
+ * //     CreateTime: new Date("TIMESTAMP"),
+ * //     LastAccessTime: new Date("TIMESTAMP"),
+ * //     TableType: "STRING_VALUE",
+ * //     Columns: [ // ColumnList
+ * //       { // Column
+ * //         Name: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE",
+ * //         Comment: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     PartitionKeys: [
+ * //       {
+ * //         Name: "STRING_VALUE", // required
+ * //         Type: "STRING_VALUE",
+ * //         Comment: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

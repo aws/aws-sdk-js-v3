@@ -47,10 +47,9 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * };
  * const command = new ReverseReplicationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ReverseReplicationResponse
- *   reversedDirectionSourceServerArn: "STRING_VALUE",
- * };
+ * // { // ReverseReplicationResponse
+ * //   reversedDirectionSourceServerArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -57,12 +57,11 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * };
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateSchemaResponse
- *   SchemaArn: "STRING_VALUE",
- *   SchemaName: "STRING_VALUE",
- *   RegistryName: "STRING_VALUE",
- * };
+ * // { // UpdateSchemaResponse
+ * //   SchemaArn: "STRING_VALUE",
+ * //   SchemaName: "STRING_VALUE",
+ * //   RegistryName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

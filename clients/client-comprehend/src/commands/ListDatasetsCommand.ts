@@ -53,24 +53,23 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * };
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDatasetsResponse
- *   DatasetPropertiesList: [ // DatasetPropertiesList
- *     { // DatasetProperties
- *       DatasetArn: "STRING_VALUE",
- *       DatasetName: "STRING_VALUE",
- *       DatasetType: "TRAIN" || "TEST",
- *       DatasetS3Uri: "STRING_VALUE",
- *       Description: "STRING_VALUE",
- *       Status: "CREATING" || "COMPLETED" || "FAILED",
- *       Message: "STRING_VALUE",
- *       NumberOfDocuments: Number("long"),
- *       CreationTime: new Date("TIMESTAMP"),
- *       EndTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDatasetsResponse
+ * //   DatasetPropertiesList: [ // DatasetPropertiesList
+ * //     { // DatasetProperties
+ * //       DatasetArn: "STRING_VALUE",
+ * //       DatasetName: "STRING_VALUE",
+ * //       DatasetType: "TRAIN" || "TEST",
+ * //       DatasetS3Uri: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       Status: "CREATING" || "COMPLETED" || "FAILED",
+ * //       Message: "STRING_VALUE",
+ * //       NumberOfDocuments: Number("long"),
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

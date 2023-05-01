@@ -57,16 +57,15 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * };
  * const command = new GetIdentityMailFromDomainAttributesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetIdentityMailFromDomainAttributesResponse
- *   MailFromDomainAttributes: { // MailFromDomainAttributes // required
- *     "<keys>": { // IdentityMailFromDomainAttributes
- *       MailFromDomain: "STRING_VALUE", // required
- *       MailFromDomainStatus: "STRING_VALUE", // required
- *       BehaviorOnMXFailure: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // GetIdentityMailFromDomainAttributesResponse
+ * //   MailFromDomainAttributes: { // MailFromDomainAttributes // required
+ * //     "<keys>": { // IdentityMailFromDomainAttributes
+ * //       MailFromDomain: "STRING_VALUE", // required
+ * //       MailFromDomainStatus: "STRING_VALUE", // required
+ * //       BehaviorOnMXFailure: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

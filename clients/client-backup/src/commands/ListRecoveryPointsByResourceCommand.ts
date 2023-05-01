@@ -56,24 +56,23 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * };
  * const command = new ListRecoveryPointsByResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListRecoveryPointsByResourceOutput
- *   NextToken: "STRING_VALUE",
- *   RecoveryPoints: [ // RecoveryPointByResourceList
- *     { // RecoveryPointByResource
- *       RecoveryPointArn: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
- *       StatusMessage: "STRING_VALUE",
- *       EncryptionKeyArn: "STRING_VALUE",
- *       BackupSizeBytes: Number("long"),
- *       BackupVaultName: "STRING_VALUE",
- *       IsParent: true || false,
- *       ParentRecoveryPointArn: "STRING_VALUE",
- *       ResourceName: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListRecoveryPointsByResourceOutput
+ * //   NextToken: "STRING_VALUE",
+ * //   RecoveryPoints: [ // RecoveryPointByResourceList
+ * //     { // RecoveryPointByResource
+ * //       RecoveryPointArn: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       EncryptionKeyArn: "STRING_VALUE",
+ * //       BackupSizeBytes: Number("long"),
+ * //       BackupVaultName: "STRING_VALUE",
+ * //       IsParent: true || false,
+ * //       ParentRecoveryPointArn: "STRING_VALUE",
+ * //       ResourceName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

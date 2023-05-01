@@ -45,11 +45,10 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * };
  * const command = new GetSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSubscriptionResponse
- *   subscriptionType: "STRING_VALUE",
- *   awsAccountName: "STRING_VALUE",
- * };
+ * // { // GetSubscriptionResponse
+ * //   subscriptionType: "STRING_VALUE",
+ * //   awsAccountName: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,10 +46,9 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * };
  * const command = new DeleteResourcePermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteResourcePermissionOutput
- *   Policy: "STRING_VALUE",
- * };
+ * // { // DeleteResourcePermissionOutput
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

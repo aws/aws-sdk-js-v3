@@ -67,25 +67,24 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * };
  * const command = new ListMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListMetricsOutput
- *   Metrics: [ // Metrics
- *     { // Metric
- *       Namespace: "STRING_VALUE",
- *       MetricName: "STRING_VALUE",
- *       Dimensions: [ // Dimensions
- *         { // Dimension
- *           Name: "STRING_VALUE", // required
- *           Value: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- *   OwningAccounts: [ // OwningAccounts
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // ListMetricsOutput
+ * //   Metrics: [ // Metrics
+ * //     { // Metric
+ * //       Namespace: "STRING_VALUE",
+ * //       MetricName: "STRING_VALUE",
+ * //       Dimensions: [ // Dimensions
+ * //         { // Dimension
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   OwningAccounts: [ // OwningAccounts
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

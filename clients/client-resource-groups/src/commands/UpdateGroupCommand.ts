@@ -58,14 +58,13 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateGroupOutput
- *   Group: { // Group
- *     GroupArn: "STRING_VALUE", // required
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateGroupOutput
+ * //   Group: { // Group
+ * //     GroupArn: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

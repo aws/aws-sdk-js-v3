@@ -50,23 +50,22 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeregisterTargetsResponse
- *   successful: [ // TargetList
- *     { // Target
- *       id: "STRING_VALUE", // required
- *       port: Number("int"),
- *     },
- *   ],
- *   unsuccessful: [ // TargetFailureList
- *     { // TargetFailure
- *       id: "STRING_VALUE",
- *       port: Number("int"),
- *       failureCode: "STRING_VALUE",
- *       failureMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DeregisterTargetsResponse
+ * //   successful: [ // TargetList
+ * //     { // Target
+ * //       id: "STRING_VALUE", // required
+ * //       port: Number("int"),
+ * //     },
+ * //   ],
+ * //   unsuccessful: [ // TargetFailureList
+ * //     { // TargetFailure
+ * //       id: "STRING_VALUE",
+ * //       port: Number("int"),
+ * //       failureCode: "STRING_VALUE",
+ * //       failureMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -56,18 +56,17 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * };
  * const command = new PutEvaluationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutEvaluationsResponse
- *   FailedEvaluations: [ // Evaluations
- *     { // Evaluation
- *       ComplianceResourceType: "STRING_VALUE", // required
- *       ComplianceResourceId: "STRING_VALUE", // required
- *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
- *       Annotation: "STRING_VALUE",
- *       OrderingTimestamp: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- * };
+ * // { // PutEvaluationsResponse
+ * //   FailedEvaluations: [ // Evaluations
+ * //     { // Evaluation
+ * //       ComplianceResourceType: "STRING_VALUE", // required
+ * //       ComplianceResourceId: "STRING_VALUE", // required
+ * //       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
+ * //       Annotation: "STRING_VALUE",
+ * //       OrderingTimestamp: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

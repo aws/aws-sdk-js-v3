@@ -53,13 +53,12 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * };
  * const command = new ListSecurityProfilePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSecurityProfilePermissionsResponse
- *   Permissions: [ // PermissionsList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSecurityProfilePermissionsResponse
+ * //   Permissions: [ // PermissionsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

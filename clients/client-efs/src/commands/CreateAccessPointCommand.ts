@@ -79,37 +79,36 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AccessPointDescription
- *   ClientToken: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Tags: [ // Tags
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- *   AccessPointId: "STRING_VALUE",
- *   AccessPointArn: "STRING_VALUE",
- *   FileSystemId: "STRING_VALUE",
- *   PosixUser: { // PosixUser
- *     Uid: Number("long"), // required
- *     Gid: Number("long"), // required
- *     SecondaryGids: [ // SecondaryGids
- *       Number("long"),
- *     ],
- *   },
- *   RootDirectory: { // RootDirectory
- *     Path: "STRING_VALUE",
- *     CreationInfo: { // CreationInfo
- *       OwnerUid: Number("long"), // required
- *       OwnerGid: Number("long"), // required
- *       Permissions: "STRING_VALUE", // required
- *     },
- *   },
- *   OwnerId: "STRING_VALUE",
- *   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error",
- * };
+ * // { // AccessPointDescription
+ * //   ClientToken: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Tags: [ // Tags
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   AccessPointId: "STRING_VALUE",
+ * //   AccessPointArn: "STRING_VALUE",
+ * //   FileSystemId: "STRING_VALUE",
+ * //   PosixUser: { // PosixUser
+ * //     Uid: Number("long"), // required
+ * //     Gid: Number("long"), // required
+ * //     SecondaryGids: [ // SecondaryGids
+ * //       Number("long"),
+ * //     ],
+ * //   },
+ * //   RootDirectory: { // RootDirectory
+ * //     Path: "STRING_VALUE",
+ * //     CreationInfo: { // CreationInfo
+ * //       OwnerUid: Number("long"), // required
+ * //       OwnerGid: Number("long"), // required
+ * //       Permissions: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   OwnerId: "STRING_VALUE",
+ * //   LifeCycleState: "creating" || "available" || "updating" || "deleting" || "deleted" || "error",
+ * // };
  *
  * ```
  *

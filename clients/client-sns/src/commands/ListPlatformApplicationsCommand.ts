@@ -53,18 +53,17 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * };
  * const command = new ListPlatformApplicationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPlatformApplicationsResponse
- *   PlatformApplications: [ // ListOfPlatformApplications
- *     { // PlatformApplication
- *       PlatformApplicationArn: "STRING_VALUE",
- *       Attributes: { // MapStringToString
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListPlatformApplicationsResponse
+ * //   PlatformApplications: [ // ListOfPlatformApplications
+ * //     { // PlatformApplication
+ * //       PlatformApplicationArn: "STRING_VALUE",
+ * //       Attributes: { // MapStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

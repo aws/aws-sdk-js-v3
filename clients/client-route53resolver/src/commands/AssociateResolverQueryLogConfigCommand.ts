@@ -58,18 +58,17 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * };
  * const command = new AssociateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateResolverQueryLogConfigResponse
- *   ResolverQueryLogConfigAssociation: { // ResolverQueryLogConfigAssociation
- *     Id: "STRING_VALUE",
- *     ResolverQueryLogConfigId: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     Status: "CREATING" || "ACTIVE" || "ACTION_NEEDED" || "DELETING" || "FAILED",
- *     Error: "NONE" || "DESTINATION_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
- *     ErrorMessage: "STRING_VALUE",
- *     CreationTime: "STRING_VALUE",
- *   },
- * };
+ * // { // AssociateResolverQueryLogConfigResponse
+ * //   ResolverQueryLogConfigAssociation: { // ResolverQueryLogConfigAssociation
+ * //     Id: "STRING_VALUE",
+ * //     ResolverQueryLogConfigId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     Status: "CREATING" || "ACTIVE" || "ACTION_NEEDED" || "DELETING" || "FAILED",
+ * //     Error: "NONE" || "DESTINATION_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
+ * //     ErrorMessage: "STRING_VALUE",
+ * //     CreationTime: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

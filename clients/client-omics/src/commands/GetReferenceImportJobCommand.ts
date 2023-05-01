@@ -45,28 +45,27 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * };
  * const command = new GetReferenceImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReferenceImportJobResponse
- *   id: "STRING_VALUE", // required
- *   referenceStoreId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   status: "STRING_VALUE", // required
- *   statusMessage: "STRING_VALUE",
- *   creationTime: new Date("TIMESTAMP"), // required
- *   completionTime: new Date("TIMESTAMP"),
- *   sources: [ // ImportReferenceSourceList // required
- *     { // ImportReferenceSourceItem
- *       sourceFile: "STRING_VALUE",
- *       status: "STRING_VALUE", // required
- *       statusMessage: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // GetReferenceImportJobResponse
+ * //   id: "STRING_VALUE", // required
+ * //   referenceStoreId: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   statusMessage: "STRING_VALUE",
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   completionTime: new Date("TIMESTAMP"),
+ * //   sources: [ // ImportReferenceSourceList // required
+ * //     { // ImportReferenceSourceItem
+ * //       sourceFile: "STRING_VALUE",
+ * //       status: "STRING_VALUE", // required
+ * //       statusMessage: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

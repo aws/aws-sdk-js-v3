@@ -49,8 +49,7 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * };
  * const command = new DeleteIntegrationAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

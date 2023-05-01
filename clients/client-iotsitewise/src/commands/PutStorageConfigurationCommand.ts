@@ -55,28 +55,27 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutStorageConfigurationResponse
- *   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
- *   multiLayerStorage: { // MultiLayerStorage
- *     customerManagedS3Storage: { // CustomerManagedS3Storage
- *       s3ResourceArn: "STRING_VALUE", // required
- *       roleArn: "STRING_VALUE", // required
- *     },
- *   },
- *   disassociatedDataStorage: "ENABLED" || "DISABLED",
- *   retentionPeriod: { // RetentionPeriod
- *     numberOfDays: Number("int"),
- *     unlimited: true || false,
- *   },
- *   configurationStatus: { // ConfigurationStatus
- *     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
- *     error: { // ConfigurationErrorDetails
- *       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *       message: "STRING_VALUE", // required
- *     },
- *   },
- * };
+ * // { // PutStorageConfigurationResponse
+ * //   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
+ * //   multiLayerStorage: { // MultiLayerStorage
+ * //     customerManagedS3Storage: { // CustomerManagedS3Storage
+ * //       s3ResourceArn: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   disassociatedDataStorage: "ENABLED" || "DISABLED",
+ * //   retentionPeriod: { // RetentionPeriod
+ * //     numberOfDays: Number("int"),
+ * //     unlimited: true || false,
+ * //   },
+ * //   configurationStatus: { // ConfigurationStatus
+ * //     state: "ACTIVE" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED", // required
+ * //     error: { // ConfigurationErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

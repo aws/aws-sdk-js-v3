@@ -47,16 +47,15 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * };
  * const command = new UpdateEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnvironmentMembershipResult
- *   membership: { // EnvironmentMember
- *     permissions: "owner" || "read-write" || "read-only", // required
- *     userId: "STRING_VALUE", // required
- *     userArn: "STRING_VALUE", // required
- *     environmentId: "STRING_VALUE", // required
- *     lastAccess: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // UpdateEnvironmentMembershipResult
+ * //   membership: { // EnvironmentMember
+ * //     permissions: "owner" || "read-write" || "read-only", // required
+ * //     userId: "STRING_VALUE", // required
+ * //     userArn: "STRING_VALUE", // required
+ * //     environmentId: "STRING_VALUE", // required
+ * //     lastAccess: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

@@ -55,23 +55,22 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * };
  * const command = new DescribeNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNotebookInstanceLifecycleConfigOutput
- *   NotebookInstanceLifecycleConfigArn: "STRING_VALUE",
- *   NotebookInstanceLifecycleConfigName: "STRING_VALUE",
- *   OnCreate: [ // NotebookInstanceLifecycleConfigList
- *     { // NotebookInstanceLifecycleHook
- *       Content: "STRING_VALUE",
- *     },
- *   ],
- *   OnStart: [
- *     {
- *       Content: "STRING_VALUE",
- *     },
- *   ],
- *   LastModifiedTime: new Date("TIMESTAMP"),
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeNotebookInstanceLifecycleConfigOutput
+ * //   NotebookInstanceLifecycleConfigArn: "STRING_VALUE",
+ * //   NotebookInstanceLifecycleConfigName: "STRING_VALUE",
+ * //   OnCreate: [ // NotebookInstanceLifecycleConfigList
+ * //     { // NotebookInstanceLifecycleHook
+ * //       Content: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   OnStart: [
+ * //     {
+ * //       Content: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

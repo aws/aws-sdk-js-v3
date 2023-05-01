@@ -56,17 +56,16 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * };
  * const command = new ListSubChannelsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSubChannelsResponse
- *   ChannelArn: "STRING_VALUE",
- *   SubChannels: [ // SubChannelSummaryList
- *     { // SubChannelSummary
- *       SubChannelId: "STRING_VALUE",
- *       MembershipCount: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSubChannelsResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   SubChannels: [ // SubChannelSummaryList
+ * //     { // SubChannelSummary
+ * //       SubChannelId: "STRING_VALUE",
+ * //       MembershipCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -53,27 +53,26 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * };
  * const command = new ListSpeakerEnrollmentJobsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListSpeakerEnrollmentJobsResponse
- *   JobSummaries: [ // SpeakerEnrollmentJobSummaries
- *     { // SpeakerEnrollmentJobSummary
- *       JobName: "STRING_VALUE",
- *       JobId: "STRING_VALUE",
- *       JobStatus: "STRING_VALUE",
- *       DomainId: "STRING_VALUE",
- *       CreatedAt: new Date("TIMESTAMP"),
- *       EndedAt: new Date("TIMESTAMP"),
- *       FailureDetails: { // FailureDetails
- *         StatusCode: Number("int"),
- *         Message: "STRING_VALUE",
- *       },
- *       JobProgress: { // JobProgress
- *         PercentComplete: Number("int"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListSpeakerEnrollmentJobsResponse
+ * //   JobSummaries: [ // SpeakerEnrollmentJobSummaries
+ * //     { // SpeakerEnrollmentJobSummary
+ * //       JobName: "STRING_VALUE",
+ * //       JobId: "STRING_VALUE",
+ * //       JobStatus: "STRING_VALUE",
+ * //       DomainId: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       EndedAt: new Date("TIMESTAMP"),
+ * //       FailureDetails: { // FailureDetails
+ * //         StatusCode: Number("int"),
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       JobProgress: { // JobProgress
+ * //         PercentComplete: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

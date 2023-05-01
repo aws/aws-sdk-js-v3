@@ -44,34 +44,33 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * };
  * const command = new StopMultiplexCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopMultiplexResponse
- *   Arn: "STRING_VALUE",
- *   AvailabilityZones: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   Destinations: [ // __listOfMultiplexOutputDestination
- *     { // MultiplexOutputDestination
- *       MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
- *         EntitlementArn: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   Id: "STRING_VALUE",
- *   MultiplexSettings: { // MultiplexSettings
- *     MaximumVideoBufferDelayMilliseconds: Number("int"),
- *     TransportStreamBitrate: Number("int"), // required
- *     TransportStreamId: Number("int"), // required
- *     TransportStreamReservedBitrate: Number("int"),
- *   },
- *   Name: "STRING_VALUE",
- *   PipelinesRunningCount: Number("int"),
- *   ProgramCount: Number("int"),
- *   State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
- *   Tags: { // Tags
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // StopMultiplexResponse
+ * //   Arn: "STRING_VALUE",
+ * //   AvailabilityZones: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Destinations: [ // __listOfMultiplexOutputDestination
+ * //     { // MultiplexOutputDestination
+ * //       MediaConnectSettings: { // MultiplexMediaConnectOutputDestinationSettings
+ * //         EntitlementArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   Id: "STRING_VALUE",
+ * //   MultiplexSettings: { // MultiplexSettings
+ * //     MaximumVideoBufferDelayMilliseconds: Number("int"),
+ * //     TransportStreamBitrate: Number("int"), // required
+ * //     TransportStreamId: Number("int"), // required
+ * //     TransportStreamReservedBitrate: Number("int"),
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   PipelinesRunningCount: Number("int"),
+ * //   ProgramCount: Number("int"),
+ * //   State: "CREATING" || "CREATE_FAILED" || "IDLE" || "STARTING" || "RUNNING" || "RECOVERING" || "STOPPING" || "DELETING" || "DELETED",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

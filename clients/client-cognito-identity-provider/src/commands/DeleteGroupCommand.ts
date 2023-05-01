@@ -51,8 +51,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

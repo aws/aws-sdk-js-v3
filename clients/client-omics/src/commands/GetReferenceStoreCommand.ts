@@ -44,18 +44,17 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * };
  * const command = new GetReferenceStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetReferenceStoreResponse
- *   id: "STRING_VALUE", // required
- *   arn: "STRING_VALUE", // required
- *   name: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   sseConfig: { // SseConfig
- *     type: "STRING_VALUE", // required
- *     keyArn: "STRING_VALUE",
- *   },
- *   creationTime: new Date("TIMESTAMP"), // required
- * };
+ * // { // GetReferenceStoreResponse
+ * //   id: "STRING_VALUE", // required
+ * //   arn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   sseConfig: { // SseConfig
+ * //     type: "STRING_VALUE", // required
+ * //     keyArn: "STRING_VALUE",
+ * //   },
+ * //   creationTime: new Date("TIMESTAMP"), // required
+ * // };
  *
  * ```
  *

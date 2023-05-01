@@ -61,16 +61,15 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * };
  * const command = new BatchPutScheduledUpdateGroupActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutScheduledUpdateGroupActionAnswer
- *   FailedScheduledUpdateGroupActions: [ // FailedScheduledUpdateGroupActionRequests
- *     { // FailedScheduledUpdateGroupActionRequest
- *       ScheduledActionName: "STRING_VALUE", // required
- *       ErrorCode: "STRING_VALUE",
- *       ErrorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchPutScheduledUpdateGroupActionAnswer
+ * //   FailedScheduledUpdateGroupActions: [ // FailedScheduledUpdateGroupActionRequests
+ * //     { // FailedScheduledUpdateGroupActionRequest
+ * //       ScheduledActionName: "STRING_VALUE", // required
+ * //       ErrorCode: "STRING_VALUE",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

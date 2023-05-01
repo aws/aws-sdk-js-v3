@@ -53,10 +53,9 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * };
  * const command = new StartExportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartExportLabelsTaskRunResponse
- *   TaskRunId: "STRING_VALUE",
- * };
+ * // { // StartExportLabelsTaskRunResponse
+ * //   TaskRunId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,22 +44,21 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * };
  * const command = new DescribeConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeConfigurationResponse
- *   Arn: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   Description: "STRING_VALUE",
- *   KafkaVersions: [ // __listOf__string
- *     "STRING_VALUE",
- *   ],
- *   LatestRevision: { // ConfigurationRevision
- *     CreationTime: new Date("TIMESTAMP"), // required
- *     Description: "STRING_VALUE",
- *     Revision: Number("long"), // required
- *   },
- *   Name: "STRING_VALUE",
- *   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
- * };
+ * // { // DescribeConfigurationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   Description: "STRING_VALUE",
+ * //   KafkaVersions: [ // __listOf__string
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   LatestRevision: { // ConfigurationRevision
+ * //     CreationTime: new Date("TIMESTAMP"), // required
+ * //     Description: "STRING_VALUE",
+ * //     Revision: Number("long"), // required
+ * //   },
+ * //   Name: "STRING_VALUE",
+ * //   State: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * // };
  *
  * ```
  *

@@ -55,10 +55,9 @@ export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolR
  * };
  * const command = new CreatePublicIpv4PoolCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreatePublicIpv4PoolResult
- *   PoolId: "STRING_VALUE",
- * };
+ * // { // CreatePublicIpv4PoolResult
+ * //   PoolId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

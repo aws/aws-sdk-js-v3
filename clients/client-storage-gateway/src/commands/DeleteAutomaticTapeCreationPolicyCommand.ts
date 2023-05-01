@@ -51,10 +51,9 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  * };
  * const command = new DeleteAutomaticTapeCreationPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAutomaticTapeCreationPolicyOutput
- *   GatewayARN: "STRING_VALUE",
- * };
+ * // { // DeleteAutomaticTapeCreationPolicyOutput
+ * //   GatewayARN: "STRING_VALUE",
+ * // };
  *
  * ```
  *

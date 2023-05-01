@@ -45,19 +45,18 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListGatewaysOutput
- *   Gateways: [ // Gateways
- *     { // Gateway
- *       GatewayArn: "STRING_VALUE",
- *       GatewayDisplayName: "STRING_VALUE",
- *       GatewayType: "STRING_VALUE",
- *       HypervisorId: "STRING_VALUE",
- *       LastSeenTime: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListGatewaysOutput
+ * //   Gateways: [ // Gateways
+ * //     { // Gateway
+ * //       GatewayArn: "STRING_VALUE",
+ * //       GatewayDisplayName: "STRING_VALUE",
+ * //       GatewayType: "STRING_VALUE",
+ * //       HypervisorId: "STRING_VALUE",
+ * //       LastSeenTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

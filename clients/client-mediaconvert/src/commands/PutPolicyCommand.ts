@@ -48,14 +48,13 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * };
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PutPolicyResponse
- *   Policy: { // Policy
- *     HttpInputs: "ALLOWED" || "DISALLOWED",
- *     HttpsInputs: "ALLOWED" || "DISALLOWED",
- *     S3Inputs: "ALLOWED" || "DISALLOWED",
- *   },
- * };
+ * // { // PutPolicyResponse
+ * //   Policy: { // Policy
+ * //     HttpInputs: "ALLOWED" || "DISALLOWED",
+ * //     HttpsInputs: "ALLOWED" || "DISALLOWED",
+ * //     S3Inputs: "ALLOWED" || "DISALLOWED",
+ * //   },
+ * // };
  *
  * ```
  *

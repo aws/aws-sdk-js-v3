@@ -70,20 +70,19 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * };
  * const command = new GetBucketEncryptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBucketEncryptionOutput
- *   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
- *     Rules: [ // ServerSideEncryptionRules // required
- *       { // ServerSideEncryptionRule
- *         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
- *           SSEAlgorithm: "AES256" || "aws:kms", // required
- *           KMSMasterKeyID: "STRING_VALUE",
- *         },
- *         BucketKeyEnabled: true || false,
- *       },
- *     ],
- *   },
- * };
+ * // { // GetBucketEncryptionOutput
+ * //   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //     Rules: [ // ServerSideEncryptionRules // required
+ * //       { // ServerSideEncryptionRule
+ * //         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
+ * //           SSEAlgorithm: "AES256" || "aws:kms", // required
+ * //           KMSMasterKeyID: "STRING_VALUE",
+ * //         },
+ * //         BucketKeyEnabled: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

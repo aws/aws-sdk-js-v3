@@ -46,13 +46,12 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * };
  * const command = new ListFacetNamesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFacetNamesResponse
- *   FacetNames: [ // FacetNameList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFacetNamesResponse
+ * //   FacetNames: [ // FacetNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

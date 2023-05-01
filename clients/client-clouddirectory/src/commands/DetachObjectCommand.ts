@@ -49,10 +49,9 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * };
  * const command = new DetachObjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetachObjectResponse
- *   DetachedObjectIdentifier: "STRING_VALUE",
- * };
+ * // { // DetachObjectResponse
+ * //   DetachedObjectIdentifier: "STRING_VALUE",
+ * // };
  *
  * ```
  *

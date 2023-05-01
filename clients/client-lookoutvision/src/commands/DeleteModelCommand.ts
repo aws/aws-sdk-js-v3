@@ -53,10 +53,9 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * };
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteModelResponse
- *   ModelArn: "STRING_VALUE",
- * };
+ * // { // DeleteModelResponse
+ * //   ModelArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

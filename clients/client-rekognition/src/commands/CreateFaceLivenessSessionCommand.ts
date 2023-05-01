@@ -58,10 +58,9 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * };
  * const command = new CreateFaceLivenessSessionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateFaceLivenessSessionResponse
- *   SessionId: "STRING_VALUE", // required
- * };
+ * // { // CreateFaceLivenessSessionResponse
+ * //   SessionId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

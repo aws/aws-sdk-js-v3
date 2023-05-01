@@ -51,45 +51,44 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * };
  * const command = new ValidatePolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ValidatePolicyResponse
- *   findings: [ // ValidatePolicyFindingList // required
- *     { // ValidatePolicyFinding
- *       findingDetails: "STRING_VALUE", // required
- *       findingType: "STRING_VALUE", // required
- *       issueCode: "STRING_VALUE", // required
- *       learnMoreLink: "STRING_VALUE", // required
- *       locations: [ // LocationList // required
- *         { // Location
- *           path: [ // PathElementList // required
- *             { // PathElement Union: only one key present
- *               index: Number("int"),
- *               key: "STRING_VALUE",
- *               substring: { // Substring
- *                 start: Number("int"), // required
- *                 length: Number("int"), // required
- *               },
- *               value: "STRING_VALUE",
- *             },
- *           ],
- *           span: { // Span
- *             start: { // Position
- *               line: Number("int"), // required
- *               column: Number("int"), // required
- *               offset: Number("int"), // required
- *             },
- *             end: {
- *               line: Number("int"), // required
- *               column: Number("int"), // required
- *               offset: Number("int"), // required
- *             },
- *           },
- *         },
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ValidatePolicyResponse
+ * //   findings: [ // ValidatePolicyFindingList // required
+ * //     { // ValidatePolicyFinding
+ * //       findingDetails: "STRING_VALUE", // required
+ * //       findingType: "STRING_VALUE", // required
+ * //       issueCode: "STRING_VALUE", // required
+ * //       learnMoreLink: "STRING_VALUE", // required
+ * //       locations: [ // LocationList // required
+ * //         { // Location
+ * //           path: [ // PathElementList // required
+ * //             { // PathElement Union: only one key present
+ * //               index: Number("int"),
+ * //               key: "STRING_VALUE",
+ * //               substring: { // Substring
+ * //                 start: Number("int"), // required
+ * //                 length: Number("int"), // required
+ * //               },
+ * //               value: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           span: { // Span
+ * //             start: { // Position
+ * //               line: Number("int"), // required
+ * //               column: Number("int"), // required
+ * //               offset: Number("int"), // required
+ * //             },
+ * //             end: {
+ * //               line: Number("int"), // required
+ * //               column: Number("int"), // required
+ * //               offset: Number("int"), // required
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -61,10 +61,9 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGraphResponse
- *   GraphArn: "STRING_VALUE",
- * };
+ * // { // CreateGraphResponse
+ * //   GraphArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

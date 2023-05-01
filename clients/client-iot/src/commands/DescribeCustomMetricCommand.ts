@@ -47,15 +47,14 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * };
  * const command = new DescribeCustomMetricCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCustomMetricResponse
- *   metricName: "STRING_VALUE",
- *   metricArn: "STRING_VALUE",
- *   metricType: "string-list" || "ip-address-list" || "number-list" || "number",
- *   displayName: "STRING_VALUE",
- *   creationDate: new Date("TIMESTAMP"),
- *   lastModifiedDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeCustomMetricResponse
+ * //   metricName: "STRING_VALUE",
+ * //   metricArn: "STRING_VALUE",
+ * //   metricType: "string-list" || "ip-address-list" || "number-list" || "number",
+ * //   displayName: "STRING_VALUE",
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

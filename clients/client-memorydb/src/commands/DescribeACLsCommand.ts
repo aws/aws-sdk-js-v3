@@ -46,32 +46,31 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * };
  * const command = new DescribeACLsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeACLsResponse
- *   ACLs: [ // ACLList
- *     { // ACL
- *       Name: "STRING_VALUE",
- *       Status: "STRING_VALUE",
- *       UserNames: [ // UserNameList
- *         "STRING_VALUE",
- *       ],
- *       MinimumEngineVersion: "STRING_VALUE",
- *       PendingChanges: { // ACLPendingChanges
- *         UserNamesToRemove: [
- *           "STRING_VALUE",
- *         ],
- *         UserNamesToAdd: [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       Clusters: [ // ACLClusterNameList
- *         "STRING_VALUE",
- *       ],
- *       ARN: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeACLsResponse
+ * //   ACLs: [ // ACLList
+ * //     { // ACL
+ * //       Name: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       UserNames: [ // UserNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MinimumEngineVersion: "STRING_VALUE",
+ * //       PendingChanges: { // ACLPendingChanges
+ * //         UserNamesToRemove: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         UserNamesToAdd: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       Clusters: [ // ACLClusterNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

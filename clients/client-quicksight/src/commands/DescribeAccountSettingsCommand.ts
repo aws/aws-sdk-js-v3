@@ -45,19 +45,18 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * };
  * const command = new DescribeAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAccountSettingsResponse
- *   AccountSettings: { // AccountSettings
- *     AccountName: "STRING_VALUE",
- *     Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
- *     DefaultNamespace: "STRING_VALUE",
- *     NotificationEmail: "STRING_VALUE",
- *     PublicSharingEnabled: true || false,
- *     TerminationProtectionEnabled: true || false,
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // DescribeAccountSettingsResponse
+ * //   AccountSettings: { // AccountSettings
+ * //     AccountName: "STRING_VALUE",
+ * //     Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q",
+ * //     DefaultNamespace: "STRING_VALUE",
+ * //     NotificationEmail: "STRING_VALUE",
+ * //     PublicSharingEnabled: true || false,
+ * //     TerminationProtectionEnabled: true || false,
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

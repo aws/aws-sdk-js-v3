@@ -57,17 +57,16 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
  * };
  * const command = new DisableTransitGatewayRouteTablePropagationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisableTransitGatewayRouteTablePropagationResult
- *   Propagation: { // TransitGatewayPropagation
- *     TransitGatewayAttachmentId: "STRING_VALUE",
- *     ResourceId: "STRING_VALUE",
- *     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
- *     TransitGatewayRouteTableId: "STRING_VALUE",
- *     State: "enabling" || "enabled" || "disabling" || "disabled",
- *     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
- *   },
- * };
+ * // { // DisableTransitGatewayRouteTablePropagationResult
+ * //   Propagation: { // TransitGatewayPropagation
+ * //     TransitGatewayAttachmentId: "STRING_VALUE",
+ * //     ResourceId: "STRING_VALUE",
+ * //     ResourceType: "vpc" || "vpn" || "direct-connect-gateway" || "connect" || "peering" || "tgw-peering",
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //     TransitGatewayRouteTableAnnouncementId: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

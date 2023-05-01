@@ -45,20 +45,19 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * };
  * const command = new ListTrackersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrackersResponse
- *   Entries: [ // ListTrackersResponseEntryList // required
- *     { // ListTrackersResponseEntry
- *       TrackerName: "STRING_VALUE", // required
- *       Description: "STRING_VALUE", // required
- *       PricingPlan: "STRING_VALUE",
- *       PricingPlanDataSource: "STRING_VALUE",
- *       CreateTime: new Date("TIMESTAMP"), // required
- *       UpdateTime: new Date("TIMESTAMP"), // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTrackersResponse
+ * //   Entries: [ // ListTrackersResponseEntryList // required
+ * //     { // ListTrackersResponseEntry
+ * //       TrackerName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE", // required
+ * //       PricingPlan: "STRING_VALUE",
+ * //       PricingPlanDataSource: "STRING_VALUE",
+ * //       CreateTime: new Date("TIMESTAMP"), // required
+ * //       UpdateTime: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

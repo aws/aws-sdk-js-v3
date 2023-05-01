@@ -58,17 +58,16 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * };
  * const command = new ResetServiceSettingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ResetServiceSettingResult
- *   ServiceSetting: { // ServiceSetting
- *     SettingId: "STRING_VALUE",
- *     SettingValue: "STRING_VALUE",
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     LastModifiedUser: "STRING_VALUE",
- *     ARN: "STRING_VALUE",
- *     Status: "STRING_VALUE",
- *   },
- * };
+ * // { // ResetServiceSettingResult
+ * //   ServiceSetting: { // ServiceSetting
+ * //     SettingId: "STRING_VALUE",
+ * //     SettingValue: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     LastModifiedUser: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

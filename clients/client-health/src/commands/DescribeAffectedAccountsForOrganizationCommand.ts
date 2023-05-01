@@ -63,14 +63,13 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * };
  * const command = new DescribeAffectedAccountsForOrganizationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAffectedAccountsForOrganizationResponse
- *   affectedAccounts: [ // affectedAccountsList
- *     "STRING_VALUE",
- *   ],
- *   eventScopeCode: "STRING_VALUE",
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeAffectedAccountsForOrganizationResponse
+ * //   affectedAccounts: [ // affectedAccountsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   eventScopeCode: "STRING_VALUE",
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

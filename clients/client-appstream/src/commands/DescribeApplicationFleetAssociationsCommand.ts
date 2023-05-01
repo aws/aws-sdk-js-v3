@@ -55,16 +55,15 @@ export interface DescribeApplicationFleetAssociationsCommandOutput
  * };
  * const command = new DescribeApplicationFleetAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeApplicationFleetAssociationsResult
- *   ApplicationFleetAssociations: [ // ApplicationFleetAssociationList
- *     { // ApplicationFleetAssociation
- *       FleetName: "STRING_VALUE", // required
- *       ApplicationArn: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeApplicationFleetAssociationsResult
+ * //   ApplicationFleetAssociations: [ // ApplicationFleetAssociationList
+ * //     { // ApplicationFleetAssociation
+ * //       FleetName: "STRING_VALUE", // required
+ * //       ApplicationArn: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

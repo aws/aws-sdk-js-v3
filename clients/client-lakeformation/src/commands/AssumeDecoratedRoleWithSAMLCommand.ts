@@ -57,13 +57,12 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * };
  * const command = new AssumeDecoratedRoleWithSAMLCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssumeDecoratedRoleWithSAMLResponse
- *   AccessKeyId: "STRING_VALUE",
- *   SecretAccessKey: "STRING_VALUE",
- *   SessionToken: "STRING_VALUE",
- *   Expiration: new Date("TIMESTAMP"),
- * };
+ * // { // AssumeDecoratedRoleWithSAMLResponse
+ * //   AccessKeyId: "STRING_VALUE",
+ * //   SecretAccessKey: "STRING_VALUE",
+ * //   SessionToken: "STRING_VALUE",
+ * //   Expiration: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

@@ -47,8 +47,7 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteWatchlistCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

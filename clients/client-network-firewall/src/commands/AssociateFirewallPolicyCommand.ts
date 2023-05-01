@@ -51,13 +51,12 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * };
  * const command = new AssociateFirewallPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateFirewallPolicyResponse
- *   FirewallArn: "STRING_VALUE",
- *   FirewallName: "STRING_VALUE",
- *   FirewallPolicyArn: "STRING_VALUE",
- *   UpdateToken: "STRING_VALUE",
- * };
+ * // { // AssociateFirewallPolicyResponse
+ * //   FirewallArn: "STRING_VALUE",
+ * //   FirewallName: "STRING_VALUE",
+ * //   FirewallPolicyArn: "STRING_VALUE",
+ * //   UpdateToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

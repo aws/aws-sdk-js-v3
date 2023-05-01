@@ -48,16 +48,15 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * };
  * const command = new ListCompatibleImagesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListCompatibleImagesResult
- *   CompatibleImages: [ // CompatibleImageList
- *     { // CompatibleImage
- *       AmiId: "STRING_VALUE",
- *       Name: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListCompatibleImagesResult
+ * //   CompatibleImages: [ // CompatibleImageList
+ * //     { // CompatibleImage
+ * //       AmiId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

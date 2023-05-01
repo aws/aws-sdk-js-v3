@@ -52,19 +52,18 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // LaunchConfiguration
- *   sourceServerID: "STRING_VALUE",
- *   name: "STRING_VALUE",
- *   ec2LaunchTemplateID: "STRING_VALUE",
- *   launchDisposition: "STRING_VALUE",
- *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
- *   copyPrivateIp: true || false,
- *   copyTags: true || false,
- *   licensing: { // Licensing
- *     osByol: true || false,
- *   },
- * };
+ * // { // LaunchConfiguration
+ * //   sourceServerID: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   ec2LaunchTemplateID: "STRING_VALUE",
+ * //   launchDisposition: "STRING_VALUE",
+ * //   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ * //   copyPrivateIp: true || false,
+ * //   copyTags: true || false,
+ * //   licensing: { // Licensing
+ * //     osByol: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

@@ -66,10 +66,9 @@ export interface CreateBusinessReportScheduleCommandOutput
  * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBusinessReportScheduleResponse
- *   ScheduleArn: "STRING_VALUE",
- * };
+ * // { // CreateBusinessReportScheduleResponse
+ * //   ScheduleArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

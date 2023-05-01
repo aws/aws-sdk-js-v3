@@ -50,8 +50,7 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StopTrainingJobCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

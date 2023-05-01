@@ -55,14 +55,13 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  * };
  * const command = new DescribeLunaClientCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLunaClientResponse
- *   ClientArn: "STRING_VALUE",
- *   Certificate: "STRING_VALUE",
- *   CertificateFingerprint: "STRING_VALUE",
- *   LastModifiedTimestamp: "STRING_VALUE",
- *   Label: "STRING_VALUE",
- * };
+ * // { // DescribeLunaClientResponse
+ * //   ClientArn: "STRING_VALUE",
+ * //   Certificate: "STRING_VALUE",
+ * //   CertificateFingerprint: "STRING_VALUE",
+ * //   LastModifiedTimestamp: "STRING_VALUE",
+ * //   Label: "STRING_VALUE",
+ * // };
  *
  * ```
  *

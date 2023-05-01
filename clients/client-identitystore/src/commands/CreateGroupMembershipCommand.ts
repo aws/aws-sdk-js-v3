@@ -48,11 +48,10 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * };
  * const command = new CreateGroupMembershipCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateGroupMembershipResponse
- *   MembershipId: "STRING_VALUE", // required
- *   IdentityStoreId: "STRING_VALUE", // required
- * };
+ * // { // CreateGroupMembershipResponse
+ * //   MembershipId: "STRING_VALUE", // required
+ * //   IdentityStoreId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

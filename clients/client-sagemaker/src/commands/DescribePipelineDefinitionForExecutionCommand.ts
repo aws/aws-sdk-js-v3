@@ -53,11 +53,10 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
  * };
  * const command = new DescribePipelineDefinitionForExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePipelineDefinitionForExecutionResponse
- *   PipelineDefinition: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- * };
+ * // { // DescribePipelineDefinitionForExecutionResponse
+ * //   PipelineDefinition: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

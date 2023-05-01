@@ -47,13 +47,12 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * };
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccountSettingsResponse
- *   AccountSettings: { // AccountSettings
- *     DisableRemoteControl: true || false,
- *     EnableDialOut: true || false,
- *   },
- * };
+ * // { // GetAccountSettingsResponse
+ * //   AccountSettings: { // AccountSettings
+ * //     DisableRemoteControl: true || false,
+ * //     EnableDialOut: true || false,
+ * //   },
+ * // };
  *
  * ```
  *

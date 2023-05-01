@@ -103,22 +103,21 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateRuleResponse
- *   Rule: { // Rule
- *     RuleId: "STRING_VALUE", // required
- *     Name: "STRING_VALUE",
- *     MetricName: "STRING_VALUE",
- *     Predicates: [ // Predicates // required
- *       { // Predicate
- *         Negated: true || false, // required
- *         Type: "STRING_VALUE", // required
- *         DataId: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   ChangeToken: "STRING_VALUE",
- * };
+ * // { // CreateRuleResponse
+ * //   Rule: { // Rule
+ * //     RuleId: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE",
+ * //     MetricName: "STRING_VALUE",
+ * //     Predicates: [ // Predicates // required
+ * //       { // Predicate
+ * //         Negated: true || false, // required
+ * //         Type: "STRING_VALUE", // required
+ * //         DataId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

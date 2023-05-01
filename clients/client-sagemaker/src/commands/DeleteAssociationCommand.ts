@@ -45,11 +45,10 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * };
  * const command = new DeleteAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteAssociationResponse
- *   SourceArn: "STRING_VALUE",
- *   DestinationArn: "STRING_VALUE",
- * };
+ * // { // DeleteAssociationResponse
+ * //   SourceArn: "STRING_VALUE",
+ * //   DestinationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

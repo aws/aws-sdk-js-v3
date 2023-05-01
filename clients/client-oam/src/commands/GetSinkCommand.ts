@@ -45,15 +45,14 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * };
  * const command = new GetSinkCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSinkOutput
- *   Arn: "STRING_VALUE",
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Tags: { // TagMapOutput
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // GetSinkOutput
+ * //   Arn: "STRING_VALUE",
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Tags: { // TagMapOutput
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

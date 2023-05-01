@@ -68,10 +68,9 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * };
  * const command = new CreateTrialCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTrialResponse
- *   TrialArn: "STRING_VALUE",
- * };
+ * // { // CreateTrialResponse
+ * //   TrialArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -81,29 +81,28 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * };
  * const command = new DescribeMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeMonitorResponse
- *   MonitorName: "STRING_VALUE",
- *   MonitorArn: "STRING_VALUE",
- *   ResourceArn: "STRING_VALUE",
- *   Status: "STRING_VALUE",
- *   LastEvaluationTime: new Date("TIMESTAMP"),
- *   LastEvaluationState: "STRING_VALUE",
- *   Baseline: { // Baseline
- *     PredictorBaseline: { // PredictorBaseline
- *       BaselineMetrics: [ // BaselineMetrics
- *         { // BaselineMetric
- *           Name: "STRING_VALUE",
- *           Value: Number("double"),
- *         },
- *       ],
- *     },
- *   },
- *   Message: "STRING_VALUE",
- *   CreationTime: new Date("TIMESTAMP"),
- *   LastModificationTime: new Date("TIMESTAMP"),
- *   EstimatedEvaluationTimeRemainingInMinutes: Number("long"),
- * };
+ * // { // DescribeMonitorResponse
+ * //   MonitorName: "STRING_VALUE",
+ * //   MonitorArn: "STRING_VALUE",
+ * //   ResourceArn: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   LastEvaluationTime: new Date("TIMESTAMP"),
+ * //   LastEvaluationState: "STRING_VALUE",
+ * //   Baseline: { // Baseline
+ * //     PredictorBaseline: { // PredictorBaseline
+ * //       BaselineMetrics: [ // BaselineMetrics
+ * //         { // BaselineMetric
+ * //           Name: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   Message: "STRING_VALUE",
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   EstimatedEvaluationTimeRemainingInMinutes: Number("long"),
+ * // };
  *
  * ```
  *

@@ -53,8 +53,7 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * };
  * const command = new PostAgentProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

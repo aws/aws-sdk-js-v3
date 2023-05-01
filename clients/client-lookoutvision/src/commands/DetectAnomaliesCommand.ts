@@ -74,26 +74,25 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * };
  * const command = new DetectAnomaliesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DetectAnomaliesResponse
- *   DetectAnomalyResult: { // DetectAnomalyResult
- *     Source: { // ImageSource
- *       Type: "STRING_VALUE",
- *     },
- *     IsAnomalous: true || false,
- *     Confidence: Number("float"),
- *     Anomalies: [ // AnomalyList
- *       { // Anomaly
- *         Name: "STRING_VALUE",
- *         PixelAnomaly: { // PixelAnomaly
- *           TotalPercentageArea: Number("float"),
- *           Color: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     AnomalyMask: "BLOB_VALUE",
- *   },
- * };
+ * // { // DetectAnomaliesResponse
+ * //   DetectAnomalyResult: { // DetectAnomalyResult
+ * //     Source: { // ImageSource
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //     IsAnomalous: true || false,
+ * //     Confidence: Number("float"),
+ * //     Anomalies: [ // AnomalyList
+ * //       { // Anomaly
+ * //         Name: "STRING_VALUE",
+ * //         PixelAnomaly: { // PixelAnomaly
+ * //           TotalPercentageArea: Number("float"),
+ * //           Color: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //     AnomalyMask: "BLOB_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -49,10 +49,9 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  * };
  * const command = new ModifyAvailabilityZoneGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyAvailabilityZoneGroupResult
- *   Return: true || false,
- * };
+ * // { // ModifyAvailabilityZoneGroupResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

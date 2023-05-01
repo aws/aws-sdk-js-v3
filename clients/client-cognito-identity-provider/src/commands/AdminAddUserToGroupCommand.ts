@@ -52,8 +52,7 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AdminAddUserToGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

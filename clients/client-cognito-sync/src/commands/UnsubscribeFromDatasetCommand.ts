@@ -91,8 +91,7 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * };
  * const command = new UnsubscribeFromDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

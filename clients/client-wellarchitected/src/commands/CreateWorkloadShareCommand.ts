@@ -54,11 +54,10 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * };
  * const command = new CreateWorkloadShareCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateWorkloadShareOutput
- *   WorkloadId: "STRING_VALUE",
- *   ShareId: "STRING_VALUE",
- * };
+ * // { // CreateWorkloadShareOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   ShareId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

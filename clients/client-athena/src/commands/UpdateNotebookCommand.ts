@@ -48,8 +48,7 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * };
  * const command = new UpdateNotebookCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

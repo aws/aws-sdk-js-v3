@@ -68,8 +68,7 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  * };
  * const command = new UpdateAuditSuppressionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

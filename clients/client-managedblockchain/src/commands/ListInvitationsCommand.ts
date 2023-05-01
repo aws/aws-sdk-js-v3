@@ -50,29 +50,28 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * };
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListInvitationsOutput
- *   Invitations: [ // InvitationList
- *     { // Invitation
- *       InvitationId: "STRING_VALUE",
- *       CreationDate: new Date("TIMESTAMP"),
- *       ExpirationDate: new Date("TIMESTAMP"),
- *       Status: "PENDING" || "ACCEPTED" || "ACCEPTING" || "REJECTED" || "EXPIRED",
- *       NetworkSummary: { // NetworkSummary
- *         Id: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
- *         FrameworkVersion: "STRING_VALUE",
- *         Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
- *         CreationDate: new Date("TIMESTAMP"),
- *         Arn: "STRING_VALUE",
- *       },
- *       Arn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListInvitationsOutput
+ * //   Invitations: [ // InvitationList
+ * //     { // Invitation
+ * //       InvitationId: "STRING_VALUE",
+ * //       CreationDate: new Date("TIMESTAMP"),
+ * //       ExpirationDate: new Date("TIMESTAMP"),
+ * //       Status: "PENDING" || "ACCEPTED" || "ACCEPTING" || "REJECTED" || "EXPIRED",
+ * //       NetworkSummary: { // NetworkSummary
+ * //         Id: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Framework: "HYPERLEDGER_FABRIC" || "ETHEREUM",
+ * //         FrameworkVersion: "STRING_VALUE",
+ * //         Status: "CREATING" || "AVAILABLE" || "CREATE_FAILED" || "DELETING" || "DELETED",
+ * //         CreationDate: new Date("TIMESTAMP"),
+ * //         Arn: "STRING_VALUE",
+ * //       },
+ * //       Arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * };
  * const command = new StartThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartThingRegistrationTaskResponse
- *   taskId: "STRING_VALUE",
- * };
+ * // { // StartThingRegistrationTaskResponse
+ * //   taskId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

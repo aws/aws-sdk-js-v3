@@ -138,15 +138,14 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * };
  * const command = new GetInstanceTypesFromInstanceRequirementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceTypesFromInstanceRequirementsResult
- *   InstanceTypes: [ // InstanceTypeInfoFromInstanceRequirementsSet
- *     { // InstanceTypeInfoFromInstanceRequirements
- *       InstanceType: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetInstanceTypesFromInstanceRequirementsResult
+ * //   InstanceTypes: [ // InstanceTypeInfoFromInstanceRequirementsSet
+ * //     { // InstanceTypeInfoFromInstanceRequirements
+ * //       InstanceType: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

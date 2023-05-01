@@ -60,25 +60,24 @@ export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedRes
  * };
  * const command = new UpdateFeaturedResultsSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFeaturedResultsSetResponse
- *   FeaturedResultsSet: { // FeaturedResultsSet
- *     FeaturedResultsSetId: "STRING_VALUE",
- *     FeaturedResultsSetName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *     Status: "ACTIVE" || "INACTIVE",
- *     QueryTexts: [ // QueryTextList
- *       "STRING_VALUE",
- *     ],
- *     FeaturedDocuments: [ // FeaturedDocumentList
- *       { // FeaturedDocument
- *         Id: "STRING_VALUE",
- *       },
- *     ],
- *     LastUpdatedTimestamp: Number("long"),
- *     CreationTimestamp: Number("long"),
- *   },
- * };
+ * // { // UpdateFeaturedResultsSetResponse
+ * //   FeaturedResultsSet: { // FeaturedResultsSet
+ * //     FeaturedResultsSetId: "STRING_VALUE",
+ * //     FeaturedResultsSetName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     QueryTexts: [ // QueryTextList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     FeaturedDocuments: [ // FeaturedDocumentList
+ * //       { // FeaturedDocument
+ * //         Id: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     LastUpdatedTimestamp: Number("long"),
+ * //     CreationTimestamp: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

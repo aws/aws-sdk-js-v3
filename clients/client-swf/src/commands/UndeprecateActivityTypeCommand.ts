@@ -89,8 +89,7 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  * };
  * const command = new UndeprecateActivityTypeCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

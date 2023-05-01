@@ -65,11 +65,10 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * };
  * const command = new NotifyObjectCompleteCommand(input);
  * const response = await client.send(command);
- * /**
- * { // NotifyObjectCompleteOutput
- *   ObjectChecksum: "STRING_VALUE", // required
- *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
- * };
+ * // { // NotifyObjectCompleteOutput
+ * //   ObjectChecksum: "STRING_VALUE", // required
+ * //   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

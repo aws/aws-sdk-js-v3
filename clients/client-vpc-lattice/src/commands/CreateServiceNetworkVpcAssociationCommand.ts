@@ -70,16 +70,15 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  * };
  * const command = new CreateServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateServiceNetworkVpcAssociationResponse
- *   id: "STRING_VALUE",
- *   status: "STRING_VALUE",
- *   arn: "STRING_VALUE",
- *   createdBy: "STRING_VALUE",
- *   securityGroupIds: [ // SecurityGroupList
- *     "STRING_VALUE",
- *   ],
- * };
+ * // { // CreateServiceNetworkVpcAssociationResponse
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
+ * //   securityGroupIds: [ // SecurityGroupList
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
  *
  * ```
  *

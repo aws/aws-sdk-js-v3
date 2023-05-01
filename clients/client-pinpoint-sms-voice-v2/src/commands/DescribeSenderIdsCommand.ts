@@ -68,21 +68,20 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * };
  * const command = new DescribeSenderIdsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeSenderIdsResult
- *   SenderIds: [ // SenderIdInformationList
- *     { // SenderIdInformation
- *       SenderIdArn: "STRING_VALUE", // required
- *       SenderId: "STRING_VALUE", // required
- *       IsoCountryCode: "STRING_VALUE", // required
- *       MessageTypes: [ // MessageTypeList // required
- *         "STRING_VALUE",
- *       ],
- *       MonthlyLeasingPrice: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeSenderIdsResult
+ * //   SenderIds: [ // SenderIdInformationList
+ * //     { // SenderIdInformation
+ * //       SenderIdArn: "STRING_VALUE", // required
+ * //       SenderId: "STRING_VALUE", // required
+ * //       IsoCountryCode: "STRING_VALUE", // required
+ * //       MessageTypes: [ // MessageTypeList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MonthlyLeasingPrice: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

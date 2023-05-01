@@ -48,19 +48,18 @@ export interface ListFlowDefinitionsCommandOutput extends ListFlowDefinitionsRes
  * };
  * const command = new ListFlowDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFlowDefinitionsResponse
- *   FlowDefinitionSummaries: [ // FlowDefinitionSummaries // required
- *     { // FlowDefinitionSummary
- *       FlowDefinitionName: "STRING_VALUE", // required
- *       FlowDefinitionArn: "STRING_VALUE", // required
- *       FlowDefinitionStatus: "Initializing" || "Active" || "Failed" || "Deleting", // required
- *       CreationTime: new Date("TIMESTAMP"), // required
- *       FailureReason: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListFlowDefinitionsResponse
+ * //   FlowDefinitionSummaries: [ // FlowDefinitionSummaries // required
+ * //     { // FlowDefinitionSummary
+ * //       FlowDefinitionName: "STRING_VALUE", // required
+ * //       FlowDefinitionArn: "STRING_VALUE", // required
+ * //       FlowDefinitionStatus: "Initializing" || "Active" || "Failed" || "Deleting", // required
+ * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       FailureReason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

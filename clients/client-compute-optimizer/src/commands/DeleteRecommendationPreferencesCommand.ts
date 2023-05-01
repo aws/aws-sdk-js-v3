@@ -59,8 +59,7 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * };
  * const command = new DeleteRecommendationPreferencesCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

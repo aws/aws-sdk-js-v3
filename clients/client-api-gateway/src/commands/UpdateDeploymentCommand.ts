@@ -53,20 +53,19 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
  * };
  * const command = new UpdateDeploymentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Deployment
- *   id: "STRING_VALUE",
- *   description: "STRING_VALUE",
- *   createdDate: new Date("TIMESTAMP"),
- *   apiSummary: { // PathToMapOfMethodSnapshot
- *     "<keys>": { // MapOfMethodSnapshot
- *       "<keys>": { // MethodSnapshot
- *         authorizationType: "STRING_VALUE",
- *         apiKeyRequired: true || false,
- *       },
- *     },
- *   },
- * };
+ * // { // Deployment
+ * //   id: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   createdDate: new Date("TIMESTAMP"),
+ * //   apiSummary: { // PathToMapOfMethodSnapshot
+ * //     "<keys>": { // MapOfMethodSnapshot
+ * //       "<keys>": { // MethodSnapshot
+ * //         authorizationType: "STRING_VALUE",
+ * //         apiKeyRequired: true || false,
+ * //       },
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

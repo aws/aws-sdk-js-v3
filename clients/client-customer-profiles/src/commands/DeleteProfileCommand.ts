@@ -45,10 +45,9 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProfileResponse
- *   Message: "STRING_VALUE",
- * };
+ * // { // DeleteProfileResponse
+ * //   Message: "STRING_VALUE",
+ * // };
  *
  * ```
  *

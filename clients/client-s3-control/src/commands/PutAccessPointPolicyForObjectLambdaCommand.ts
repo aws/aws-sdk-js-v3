@@ -64,8 +64,7 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  * };
  * const command = new PutAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

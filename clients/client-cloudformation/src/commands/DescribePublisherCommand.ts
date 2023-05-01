@@ -61,13 +61,12 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * };
  * const command = new DescribePublisherCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePublisherOutput
- *   PublisherId: "STRING_VALUE",
- *   PublisherStatus: "VERIFIED" || "UNVERIFIED",
- *   IdentityProvider: "AWS_Marketplace" || "GitHub" || "Bitbucket",
- *   PublisherProfile: "STRING_VALUE",
- * };
+ * // { // DescribePublisherOutput
+ * //   PublisherId: "STRING_VALUE",
+ * //   PublisherStatus: "VERIFIED" || "UNVERIFIED",
+ * //   IdentityProvider: "AWS_Marketplace" || "GitHub" || "Bitbucket",
+ * //   PublisherProfile: "STRING_VALUE",
+ * // };
  *
  * ```
  *

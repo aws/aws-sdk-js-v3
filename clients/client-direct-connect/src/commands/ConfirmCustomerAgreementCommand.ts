@@ -46,10 +46,9 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * };
  * const command = new ConfirmCustomerAgreementCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ConfirmCustomerAgreementResponse
- *   status: "STRING_VALUE",
- * };
+ * // { // ConfirmCustomerAgreementResponse
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

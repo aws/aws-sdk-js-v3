@@ -55,29 +55,28 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQueueResponse
- *   Queue: { // Queue
- *     Arn: "STRING_VALUE",
- *     CreatedAt: new Date("TIMESTAMP"),
- *     Description: "STRING_VALUE",
- *     LastUpdated: new Date("TIMESTAMP"),
- *     Name: "STRING_VALUE", // required
- *     PricingPlan: "ON_DEMAND" || "RESERVED",
- *     ProgressingJobsCount: Number("int"),
- *     ReservationPlan: { // ReservationPlan
- *       Commitment: "ONE_YEAR",
- *       ExpiresAt: new Date("TIMESTAMP"),
- *       PurchasedAt: new Date("TIMESTAMP"),
- *       RenewalType: "AUTO_RENEW" || "EXPIRE",
- *       ReservedSlots: Number("int"),
- *       Status: "ACTIVE" || "EXPIRED",
- *     },
- *     Status: "ACTIVE" || "PAUSED",
- *     SubmittedJobsCount: Number("int"),
- *     Type: "SYSTEM" || "CUSTOM",
- *   },
- * };
+ * // { // CreateQueueResponse
+ * //   Queue: { // Queue
+ * //     Arn: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     Description: "STRING_VALUE",
+ * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     Name: "STRING_VALUE", // required
+ * //     PricingPlan: "ON_DEMAND" || "RESERVED",
+ * //     ProgressingJobsCount: Number("int"),
+ * //     ReservationPlan: { // ReservationPlan
+ * //       Commitment: "ONE_YEAR",
+ * //       ExpiresAt: new Date("TIMESTAMP"),
+ * //       PurchasedAt: new Date("TIMESTAMP"),
+ * //       RenewalType: "AUTO_RENEW" || "EXPIRE",
+ * //       ReservedSlots: Number("int"),
+ * //       Status: "ACTIVE" || "EXPIRED",
+ * //     },
+ * //     Status: "ACTIVE" || "PAUSED",
+ * //     SubmittedJobsCount: Number("int"),
+ * //     Type: "SYSTEM" || "CUSTOM",
+ * //   },
+ * // };
  *
  * ```
  *

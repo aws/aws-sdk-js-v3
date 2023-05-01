@@ -45,25 +45,24 @@ export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
  * };
  * const command = new GetVpcLinksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // VpcLinks
- *   items: [ // ListOfVpcLink
- *     { // VpcLink
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       targetArns: [ // ListOfString
- *         "STRING_VALUE",
- *       ],
- *       status: "AVAILABLE" || "PENDING" || "DELETING" || "FAILED",
- *       statusMessage: "STRING_VALUE",
- *       tags: { // MapOfStringToString
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   position: "STRING_VALUE",
- * };
+ * // { // VpcLinks
+ * //   items: [ // ListOfVpcLink
+ * //     { // VpcLink
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       targetArns: [ // ListOfString
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       status: "AVAILABLE" || "PENDING" || "DELETING" || "FAILED",
+ * //       statusMessage: "STRING_VALUE",
+ * //       tags: { // MapOfStringToString
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   position: "STRING_VALUE",
+ * // };
  *
  * ```
  *

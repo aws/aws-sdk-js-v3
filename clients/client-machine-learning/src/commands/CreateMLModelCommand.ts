@@ -71,10 +71,9 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * };
  * const command = new CreateMLModelCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMLModelOutput
- *   MLModelId: "STRING_VALUE",
- * };
+ * // { // CreateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

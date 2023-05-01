@@ -73,11 +73,10 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * };
  * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetOpenIdTokenForDeveloperIdentityResponse
- *   IdentityId: "STRING_VALUE",
- *   Token: "STRING_VALUE",
- * };
+ * // { // GetOpenIdTokenForDeveloperIdentityResponse
+ * //   IdentityId: "STRING_VALUE",
+ * //   Token: "STRING_VALUE",
+ * // };
  *
  * ```
  *

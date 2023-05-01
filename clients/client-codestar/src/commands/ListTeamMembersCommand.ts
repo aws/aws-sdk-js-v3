@@ -46,17 +46,16 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTeamMembersResult
- *   teamMembers: [ // TeamMemberResult // required
- *     { // TeamMember
- *       userArn: "STRING_VALUE", // required
- *       projectRole: "STRING_VALUE", // required
- *       remoteAccessAllowed: true || false,
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListTeamMembersResult
+ * //   teamMembers: [ // TeamMemberResult // required
+ * //     { // TeamMember
+ * //       userArn: "STRING_VALUE", // required
+ * //       projectRole: "STRING_VALUE", // required
+ * //       remoteAccessAllowed: true || false,
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

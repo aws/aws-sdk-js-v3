@@ -47,24 +47,23 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeJobExecutionResponse
- *   execution: { // JobExecution
- *     jobId: "STRING_VALUE",
- *     thingName: "STRING_VALUE",
- *     status: "STRING_VALUE",
- *     statusDetails: { // DetailsMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     queuedAt: Number("long"),
- *     startedAt: Number("long"),
- *     lastUpdatedAt: Number("long"),
- *     approximateSecondsBeforeTimedOut: Number("long"),
- *     versionNumber: Number("long"),
- *     executionNumber: Number("long"),
- *     jobDocument: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeJobExecutionResponse
+ * //   execution: { // JobExecution
+ * //     jobId: "STRING_VALUE",
+ * //     thingName: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     statusDetails: { // DetailsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     queuedAt: Number("long"),
+ * //     startedAt: Number("long"),
+ * //     lastUpdatedAt: Number("long"),
+ * //     approximateSecondsBeforeTimedOut: Number("long"),
+ * //     versionNumber: Number("long"),
+ * //     executionNumber: Number("long"),
+ * //     jobDocument: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,14 +44,13 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * };
  * const command = new GetBulkPublishDetailsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBulkPublishDetailsResponse
- *   IdentityPoolId: "STRING_VALUE",
- *   BulkPublishStartTime: new Date("TIMESTAMP"),
- *   BulkPublishCompleteTime: new Date("TIMESTAMP"),
- *   BulkPublishStatus: "STRING_VALUE",
- *   FailureMessage: "STRING_VALUE",
- * };
+ * // { // GetBulkPublishDetailsResponse
+ * //   IdentityPoolId: "STRING_VALUE",
+ * //   BulkPublishStartTime: new Date("TIMESTAMP"),
+ * //   BulkPublishCompleteTime: new Date("TIMESTAMP"),
+ * //   BulkPublishStatus: "STRING_VALUE",
+ * //   FailureMessage: "STRING_VALUE",
+ * // };
  *
  * ```
  *

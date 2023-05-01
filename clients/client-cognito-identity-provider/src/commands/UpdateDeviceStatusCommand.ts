@@ -55,8 +55,7 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  * };
  * const command = new UpdateDeviceStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

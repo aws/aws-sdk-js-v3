@@ -52,22 +52,21 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * };
  * const command = new AssociateNatGatewayAddressCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateNatGatewayAddressResult
- *   NatGatewayId: "STRING_VALUE",
- *   NatGatewayAddresses: [ // NatGatewayAddressList
- *     { // NatGatewayAddress
- *       AllocationId: "STRING_VALUE",
- *       NetworkInterfaceId: "STRING_VALUE",
- *       PrivateIp: "STRING_VALUE",
- *       PublicIp: "STRING_VALUE",
- *       AssociationId: "STRING_VALUE",
- *       IsPrimary: true || false,
- *       FailureMessage: "STRING_VALUE",
- *       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
- *     },
- *   ],
- * };
+ * // { // AssociateNatGatewayAddressResult
+ * //   NatGatewayId: "STRING_VALUE",
+ * //   NatGatewayAddresses: [ // NatGatewayAddressList
+ * //     { // NatGatewayAddress
+ * //       AllocationId: "STRING_VALUE",
+ * //       NetworkInterfaceId: "STRING_VALUE",
+ * //       PrivateIp: "STRING_VALUE",
+ * //       PublicIp: "STRING_VALUE",
+ * //       AssociationId: "STRING_VALUE",
+ * //       IsPrimary: true || false,
+ * //       FailureMessage: "STRING_VALUE",
+ * //       Status: "assigning" || "unassigning" || "associating" || "disassociating" || "succeeded" || "failed",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

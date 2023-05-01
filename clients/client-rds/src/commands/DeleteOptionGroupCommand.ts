@@ -44,8 +44,7 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteOptionGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

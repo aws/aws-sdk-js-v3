@@ -45,21 +45,20 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * };
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeResourceResponse
- *   ResourceId: "STRING_VALUE",
- *   Email: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   Type: "ROOM" || "EQUIPMENT",
- *   BookingOptions: { // BookingOptions
- *     AutoAcceptRequests: true || false,
- *     AutoDeclineRecurringRequests: true || false,
- *     AutoDeclineConflictingRequests: true || false,
- *   },
- *   State: "ENABLED" || "DISABLED" || "DELETED",
- *   EnabledDate: new Date("TIMESTAMP"),
- *   DisabledDate: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeResourceResponse
+ * //   ResourceId: "STRING_VALUE",
+ * //   Email: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   Type: "ROOM" || "EQUIPMENT",
+ * //   BookingOptions: { // BookingOptions
+ * //     AutoAcceptRequests: true || false,
+ * //     AutoDeclineRecurringRequests: true || false,
+ * //     AutoDeclineConflictingRequests: true || false,
+ * //   },
+ * //   State: "ENABLED" || "DISABLED" || "DELETED",
+ * //   EnabledDate: new Date("TIMESTAMP"),
+ * //   DisabledDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

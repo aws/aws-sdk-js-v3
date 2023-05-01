@@ -59,40 +59,39 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * };
  * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetsResponse
- *   assetSummaries: [ // AssetSummaries // required
- *     { // AssetSummary
- *       id: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       name: "STRING_VALUE", // required
- *       assetModelId: "STRING_VALUE", // required
- *       creationDate: new Date("TIMESTAMP"), // required
- *       lastUpdateDate: new Date("TIMESTAMP"), // required
- *       status: { // AssetStatus
- *         state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
- *         error: { // ErrorDetails
- *           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
- *           message: "STRING_VALUE", // required
- *           details: [ // DetailedErrors
- *             { // DetailedError
- *               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
- *               message: "STRING_VALUE", // required
- *             },
- *           ],
- *         },
- *       },
- *       hierarchies: [ // AssetHierarchies // required
- *         { // AssetHierarchy
- *           id: "STRING_VALUE",
- *           name: "STRING_VALUE", // required
- *         },
- *       ],
- *       description: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetsResponse
+ * //   assetSummaries: [ // AssetSummaries // required
+ * //     { // AssetSummary
+ * //       id: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       assetModelId: "STRING_VALUE", // required
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //       lastUpdateDate: new Date("TIMESTAMP"), // required
+ * //       status: { // AssetStatus
+ * //         state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //         error: { // ErrorDetails
+ * //           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //           message: "STRING_VALUE", // required
+ * //           details: [ // DetailedErrors
+ * //             { // DetailedError
+ * //               code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //               message: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       hierarchies: [ // AssetHierarchies // required
+ * //         { // AssetHierarchy
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

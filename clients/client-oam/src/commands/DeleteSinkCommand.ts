@@ -44,8 +44,7 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * };
  * const command = new DeleteSinkCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

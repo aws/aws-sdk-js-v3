@@ -60,10 +60,9 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * };
  * const command = new CreateModelCardCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateModelCardResponse
- *   ModelCardArn: "STRING_VALUE", // required
- * };
+ * // { // CreateModelCardResponse
+ * //   ModelCardArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

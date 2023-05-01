@@ -54,19 +54,18 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * };
  * const command = new ListModelMetadataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListModelMetadataResponse
- *   ModelMetadataSummaries: [ // ModelMetadataSummaries // required
- *     { // ModelMetadataSummary
- *       Domain: "STRING_VALUE", // required
- *       Framework: "STRING_VALUE", // required
- *       Task: "STRING_VALUE", // required
- *       Model: "STRING_VALUE", // required
- *       FrameworkVersion: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListModelMetadataResponse
+ * //   ModelMetadataSummaries: [ // ModelMetadataSummaries // required
+ * //     { // ModelMetadataSummary
+ * //       Domain: "STRING_VALUE", // required
+ * //       Framework: "STRING_VALUE", // required
+ * //       Task: "STRING_VALUE", // required
+ * //       Model: "STRING_VALUE", // required
+ * //       FrameworkVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

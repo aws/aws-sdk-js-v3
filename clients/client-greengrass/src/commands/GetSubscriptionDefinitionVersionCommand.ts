@@ -51,24 +51,23 @@ export interface GetSubscriptionDefinitionVersionCommandOutput
  * };
  * const command = new GetSubscriptionDefinitionVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSubscriptionDefinitionVersionResponse
- *   Arn: "STRING_VALUE",
- *   CreationTimestamp: "STRING_VALUE",
- *   Definition: { // SubscriptionDefinitionVersion
- *     Subscriptions: [ // __listOfSubscription
- *       { // Subscription
- *         Id: "STRING_VALUE", // required
- *         Source: "STRING_VALUE", // required
- *         Subject: "STRING_VALUE", // required
- *         Target: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- *   Id: "STRING_VALUE",
- *   NextToken: "STRING_VALUE",
- *   Version: "STRING_VALUE",
- * };
+ * // { // GetSubscriptionDefinitionVersionResponse
+ * //   Arn: "STRING_VALUE",
+ * //   CreationTimestamp: "STRING_VALUE",
+ * //   Definition: { // SubscriptionDefinitionVersion
+ * //     Subscriptions: [ // __listOfSubscription
+ * //       { // Subscription
+ * //         Id: "STRING_VALUE", // required
+ * //         Source: "STRING_VALUE", // required
+ * //         Subject: "STRING_VALUE", // required
+ * //         Target: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Version: "STRING_VALUE",
+ * // };
  *
  * ```
  *

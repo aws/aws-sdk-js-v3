@@ -50,16 +50,15 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * };
  * const command = new BatchDeleteDetectorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteDetectorResponse
- *   batchDeleteDetectorErrorEntries: [ // BatchDeleteDetectorErrorEntries
- *     { // BatchDeleteDetectorErrorEntry
- *       messageId: "STRING_VALUE",
- *       errorCode: "STRING_VALUE",
- *       errorMessage: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // BatchDeleteDetectorResponse
+ * //   batchDeleteDetectorErrorEntries: [ // BatchDeleteDetectorErrorEntries
+ * //     { // BatchDeleteDetectorErrorEntry
+ * //       messageId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

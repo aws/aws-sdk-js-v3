@@ -44,10 +44,9 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteProjectResponse
- *   Name: "STRING_VALUE", // required
- * };
+ * // { // DeleteProjectResponse
+ * //   Name: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

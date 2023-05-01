@@ -49,22 +49,21 @@ export interface ListServiceTemplatesCommandOutput extends ListServiceTemplatesO
  * };
  * const command = new ListServiceTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListServiceTemplatesOutput
- *   nextToken: "STRING_VALUE",
- *   templates: [ // ServiceTemplateSummaryList // required
- *     { // ServiceTemplateSummary
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *       displayName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       recommendedVersion: "STRING_VALUE",
- *       pipelineProvisioning: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListServiceTemplatesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templates: [ // ServiceTemplateSummaryList // required
+ * //     { // ServiceTemplateSummary
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       recommendedVersion: "STRING_VALUE",
+ * //       pipelineProvisioning: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -46,8 +46,7 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * };
  * const command = new DeleteRoomSkillParameterCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

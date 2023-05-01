@@ -53,8 +53,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * };
  * const command = new DeletePermissionPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

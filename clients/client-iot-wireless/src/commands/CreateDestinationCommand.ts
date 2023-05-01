@@ -55,11 +55,10 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * };
  * const command = new CreateDestinationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDestinationResponse
- *   Arn: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- * };
+ * // { // CreateDestinationResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * // };
  *
  * ```
  *

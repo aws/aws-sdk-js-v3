@@ -49,16 +49,15 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * };
  * const command = new DescribeFileSystemAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFileSystemAliasesResponse
- *   Aliases: [ // Aliases
- *     { // Alias
- *       Name: "STRING_VALUE",
- *       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeFileSystemAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     { // Alias
+ * //       Name: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,8 +44,7 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  * };
  * const command = new DeleteWirelessDeviceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

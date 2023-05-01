@@ -45,16 +45,15 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * };
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDatabaseOutput
- *   Database: { // Database
- *     Name: "STRING_VALUE", // required
- *     Description: "STRING_VALUE",
- *     Parameters: { // ParametersMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *   },
- * };
+ * // { // GetDatabaseOutput
+ * //   Database: { // Database
+ * //     Name: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     Parameters: { // ParametersMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

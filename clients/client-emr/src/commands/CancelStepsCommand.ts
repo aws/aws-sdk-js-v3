@@ -52,16 +52,15 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * };
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelStepsOutput
- *   CancelStepsInfoList: [ // CancelStepsInfoList
- *     { // CancelStepsInfo
- *       StepId: "STRING_VALUE",
- *       Status: "SUBMITTED" || "FAILED",
- *       Reason: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // CancelStepsOutput
+ * //   CancelStepsInfoList: [ // CancelStepsInfoList
+ * //     { // CancelStepsInfo
+ * //       StepId: "STRING_VALUE",
+ * //       Status: "SUBMITTED" || "FAILED",
+ * //       Reason: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

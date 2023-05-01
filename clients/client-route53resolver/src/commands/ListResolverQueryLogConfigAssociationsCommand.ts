@@ -64,23 +64,22 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * };
  * const command = new ListResolverQueryLogConfigAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListResolverQueryLogConfigAssociationsResponse
- *   NextToken: "STRING_VALUE",
- *   TotalCount: Number("int"),
- *   TotalFilteredCount: Number("int"),
- *   ResolverQueryLogConfigAssociations: [ // ResolverQueryLogConfigAssociationList
- *     { // ResolverQueryLogConfigAssociation
- *       Id: "STRING_VALUE",
- *       ResolverQueryLogConfigId: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       Status: "CREATING" || "ACTIVE" || "ACTION_NEEDED" || "DELETING" || "FAILED",
- *       Error: "NONE" || "DESTINATION_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
- *       ErrorMessage: "STRING_VALUE",
- *       CreationTime: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListResolverQueryLogConfigAssociationsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TotalCount: Number("int"),
+ * //   TotalFilteredCount: Number("int"),
+ * //   ResolverQueryLogConfigAssociations: [ // ResolverQueryLogConfigAssociationList
+ * //     { // ResolverQueryLogConfigAssociation
+ * //       Id: "STRING_VALUE",
+ * //       ResolverQueryLogConfigId: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       Status: "CREATING" || "ACTIVE" || "ACTION_NEEDED" || "DELETING" || "FAILED",
+ * //       Error: "NONE" || "DESTINATION_NOT_FOUND" || "ACCESS_DENIED" || "INTERNAL_SERVICE_ERROR",
+ * //       ErrorMessage: "STRING_VALUE",
+ * //       CreationTime: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

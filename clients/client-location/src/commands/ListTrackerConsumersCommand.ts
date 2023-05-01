@@ -46,13 +46,12 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * };
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListTrackerConsumersResponse
- *   ConsumerArns: [ // ArnList // required
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListTrackerConsumersResponse
+ * //   ConsumerArns: [ // ArnList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

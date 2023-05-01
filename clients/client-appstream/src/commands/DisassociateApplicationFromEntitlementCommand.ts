@@ -55,8 +55,7 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * };
  * const command = new DisassociateApplicationFromEntitlementCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

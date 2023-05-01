@@ -44,13 +44,12 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * };
  * const command = new GetInstanceStateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetInstanceStateResult
- *   state: { // InstanceState
- *     code: Number("int"),
- *     name: "STRING_VALUE",
- *   },
- * };
+ * // { // GetInstanceStateResult
+ * //   state: { // InstanceState
+ * //     code: Number("int"),
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

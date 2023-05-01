@@ -59,10 +59,9 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * };
  * const command = new GetAccessPointPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAccessPointPolicyResult
- *   Policy: "STRING_VALUE",
- * };
+ * // { // GetAccessPointPolicyResult
+ * //   Policy: "STRING_VALUE",
+ * // };
  *
  * ```
  *

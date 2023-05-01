@@ -55,11 +55,10 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * };
  * const command = new UpdateBrokerStorageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateBrokerStorageResponse
- *   ClusterArn: "STRING_VALUE",
- *   ClusterOperationArn: "STRING_VALUE",
- * };
+ * // { // UpdateBrokerStorageResponse
+ * //   ClusterArn: "STRING_VALUE",
+ * //   ClusterOperationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

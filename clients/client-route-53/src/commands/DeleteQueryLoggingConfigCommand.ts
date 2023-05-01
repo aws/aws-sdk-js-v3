@@ -48,8 +48,7 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * };
  * const command = new DeleteQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

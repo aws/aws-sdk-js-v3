@@ -75,29 +75,28 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * };
  * const command = new DescribeTrustedAdvisorCheckSummariesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrustedAdvisorCheckSummariesResponse
- *   summaries: [ // TrustedAdvisorCheckSummaryList // required
- *     { // TrustedAdvisorCheckSummary
- *       checkId: "STRING_VALUE", // required
- *       timestamp: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
- *       hasFlaggedResources: true || false,
- *       resourcesSummary: { // TrustedAdvisorResourcesSummary
- *         resourcesProcessed: Number("long"), // required
- *         resourcesFlagged: Number("long"), // required
- *         resourcesIgnored: Number("long"), // required
- *         resourcesSuppressed: Number("long"), // required
- *       },
- *       categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
- *         costOptimizing: { // TrustedAdvisorCostOptimizingSummary
- *           estimatedMonthlySavings: Number("double"), // required
- *           estimatedPercentMonthlySavings: Number("double"), // required
- *         },
- *       },
- *     },
- *   ],
- * };
+ * // { // DescribeTrustedAdvisorCheckSummariesResponse
+ * //   summaries: [ // TrustedAdvisorCheckSummaryList // required
+ * //     { // TrustedAdvisorCheckSummary
+ * //       checkId: "STRING_VALUE", // required
+ * //       timestamp: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       hasFlaggedResources: true || false,
+ * //       resourcesSummary: { // TrustedAdvisorResourcesSummary
+ * //         resourcesProcessed: Number("long"), // required
+ * //         resourcesFlagged: Number("long"), // required
+ * //         resourcesIgnored: Number("long"), // required
+ * //         resourcesSuppressed: Number("long"), // required
+ * //       },
+ * //       categorySpecificSummary: { // TrustedAdvisorCategorySpecificSummary
+ * //         costOptimizing: { // TrustedAdvisorCostOptimizingSummary
+ * //           estimatedMonthlySavings: Number("double"), // required
+ * //           estimatedPercentMonthlySavings: Number("double"), // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

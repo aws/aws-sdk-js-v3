@@ -47,17 +47,16 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * };
  * const command = new ListComponentVersionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListComponentVersionsResponse
- *   componentVersions: [ // ComponentVersionList
- *     { // ComponentVersionListItem
- *       componentName: "STRING_VALUE",
- *       componentVersion: "STRING_VALUE",
- *       arn: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListComponentVersionsResponse
+ * //   componentVersions: [ // ComponentVersionList
+ * //     { // ComponentVersionListItem
+ * //       componentName: "STRING_VALUE",
+ * //       componentVersion: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

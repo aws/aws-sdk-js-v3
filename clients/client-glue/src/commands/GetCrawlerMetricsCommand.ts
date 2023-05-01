@@ -48,22 +48,21 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * };
  * const command = new GetCrawlerMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetCrawlerMetricsResponse
- *   CrawlerMetricsList: [ // CrawlerMetricsList
- *     { // CrawlerMetrics
- *       CrawlerName: "STRING_VALUE",
- *       TimeLeftSeconds: Number("double"),
- *       StillEstimating: true || false,
- *       LastRuntimeSeconds: Number("double"),
- *       MedianRuntimeSeconds: Number("double"),
- *       TablesCreated: Number("int"),
- *       TablesUpdated: Number("int"),
- *       TablesDeleted: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetCrawlerMetricsResponse
+ * //   CrawlerMetricsList: [ // CrawlerMetricsList
+ * //     { // CrawlerMetrics
+ * //       CrawlerName: "STRING_VALUE",
+ * //       TimeLeftSeconds: Number("double"),
+ * //       StillEstimating: true || false,
+ * //       LastRuntimeSeconds: Number("double"),
+ * //       MedianRuntimeSeconds: Number("double"),
+ * //       TablesCreated: Number("int"),
+ * //       TablesUpdated: Number("int"),
+ * //       TablesDeleted: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

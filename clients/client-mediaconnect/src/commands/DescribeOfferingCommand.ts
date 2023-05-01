@@ -44,22 +44,21 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * };
  * const command = new DescribeOfferingCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeOfferingResponse
- *   Offering: { // Offering
- *     CurrencyCode: "STRING_VALUE", // required
- *     Duration: Number("int"), // required
- *     DurationUnits: "MONTHS", // required
- *     OfferingArn: "STRING_VALUE", // required
- *     OfferingDescription: "STRING_VALUE", // required
- *     PricePerUnit: "STRING_VALUE", // required
- *     PriceUnits: "HOURLY", // required
- *     ResourceSpecification: { // ResourceSpecification
- *       ReservedBitrate: Number("int"),
- *       ResourceType: "Mbps_Outbound_Bandwidth", // required
- *     },
- *   },
- * };
+ * // { // DescribeOfferingResponse
+ * //   Offering: { // Offering
+ * //     CurrencyCode: "STRING_VALUE", // required
+ * //     Duration: Number("int"), // required
+ * //     DurationUnits: "MONTHS", // required
+ * //     OfferingArn: "STRING_VALUE", // required
+ * //     OfferingDescription: "STRING_VALUE", // required
+ * //     PricePerUnit: "STRING_VALUE", // required
+ * //     PriceUnits: "HOURLY", // required
+ * //     ResourceSpecification: { // ResourceSpecification
+ * //       ReservedBitrate: Number("int"),
+ * //       ResourceType: "Mbps_Outbound_Bandwidth", // required
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

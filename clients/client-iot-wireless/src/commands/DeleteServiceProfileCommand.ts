@@ -44,8 +44,7 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * };
  * const command = new DeleteServiceProfileCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

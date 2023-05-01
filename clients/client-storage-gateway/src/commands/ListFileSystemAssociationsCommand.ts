@@ -48,19 +48,18 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  * };
  * const command = new ListFileSystemAssociationsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFileSystemAssociationsOutput
- *   Marker: "STRING_VALUE",
- *   NextMarker: "STRING_VALUE",
- *   FileSystemAssociationSummaryList: [ // FileSystemAssociationSummaryList
- *     { // FileSystemAssociationSummary
- *       FileSystemAssociationId: "STRING_VALUE",
- *       FileSystemAssociationARN: "STRING_VALUE",
- *       FileSystemAssociationStatus: "STRING_VALUE",
- *       GatewayARN: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListFileSystemAssociationsOutput
+ * //   Marker: "STRING_VALUE",
+ * //   NextMarker: "STRING_VALUE",
+ * //   FileSystemAssociationSummaryList: [ // FileSystemAssociationSummaryList
+ * //     { // FileSystemAssociationSummary
+ * //       FileSystemAssociationId: "STRING_VALUE",
+ * //       FileSystemAssociationARN: "STRING_VALUE",
+ * //       FileSystemAssociationStatus: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

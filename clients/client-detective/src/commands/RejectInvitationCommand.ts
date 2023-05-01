@@ -50,8 +50,7 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
  * };
  * const command = new RejectInvitationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

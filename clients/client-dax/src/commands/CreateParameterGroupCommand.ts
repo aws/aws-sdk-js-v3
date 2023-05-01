@@ -46,13 +46,12 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * };
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateParameterGroupResponse
- *   ParameterGroup: { // ParameterGroup
- *     ParameterGroupName: "STRING_VALUE",
- *     Description: "STRING_VALUE",
- *   },
- * };
+ * // { // CreateParameterGroupResponse
+ * //   ParameterGroup: { // ParameterGroup
+ * //     ParameterGroupName: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

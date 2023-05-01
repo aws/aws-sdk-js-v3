@@ -127,44 +127,43 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * };
  * const command = new StartMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartMedicalTranscriptionJobResponse
- *   MedicalTranscriptionJob: { // MedicalTranscriptionJob
- *     MedicalTranscriptionJobName: "STRING_VALUE",
- *     TranscriptionJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
- *     LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
- *     MediaSampleRateHertz: Number("int"),
- *     MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
- *     Media: { // Media
- *       MediaFileUri: "STRING_VALUE",
- *       RedactedMediaFileUri: "STRING_VALUE",
- *     },
- *     Transcript: { // MedicalTranscript
- *       TranscriptFileUri: "STRING_VALUE",
- *     },
- *     StartTime: new Date("TIMESTAMP"),
- *     CreationTime: new Date("TIMESTAMP"),
- *     CompletionTime: new Date("TIMESTAMP"),
- *     FailureReason: "STRING_VALUE",
- *     Settings: { // MedicalTranscriptionSetting
- *       ShowSpeakerLabels: true || false,
- *       MaxSpeakerLabels: Number("int"),
- *       ChannelIdentification: true || false,
- *       ShowAlternatives: true || false,
- *       MaxAlternatives: Number("int"),
- *       VocabularyName: "STRING_VALUE",
- *     },
- *     ContentIdentificationType: "PHI",
- *     Specialty: "PRIMARYCARE",
- *     Type: "CONVERSATION" || "DICTATION",
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE", // required
- *         Value: "STRING_VALUE", // required
- *       },
- *     ],
- *   },
- * };
+ * // { // StartMedicalTranscriptionJobResponse
+ * //   MedicalTranscriptionJob: { // MedicalTranscriptionJob
+ * //     MedicalTranscriptionJobName: "STRING_VALUE",
+ * //     TranscriptionJobStatus: "QUEUED" || "IN_PROGRESS" || "FAILED" || "COMPLETED",
+ * //     LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE",
+ * //     MediaSampleRateHertz: Number("int"),
+ * //     MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ * //     Media: { // Media
+ * //       MediaFileUri: "STRING_VALUE",
+ * //       RedactedMediaFileUri: "STRING_VALUE",
+ * //     },
+ * //     Transcript: { // MedicalTranscript
+ * //       TranscriptFileUri: "STRING_VALUE",
+ * //     },
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     CompletionTime: new Date("TIMESTAMP"),
+ * //     FailureReason: "STRING_VALUE",
+ * //     Settings: { // MedicalTranscriptionSetting
+ * //       ShowSpeakerLabels: true || false,
+ * //       MaxSpeakerLabels: Number("int"),
+ * //       ChannelIdentification: true || false,
+ * //       ShowAlternatives: true || false,
+ * //       MaxAlternatives: Number("int"),
+ * //       VocabularyName: "STRING_VALUE",
+ * //     },
+ * //     ContentIdentificationType: "PHI",
+ * //     Specialty: "PRIMARYCARE",
+ * //     Type: "CONVERSATION" || "DICTATION",
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

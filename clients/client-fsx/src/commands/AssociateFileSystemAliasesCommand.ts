@@ -58,15 +58,14 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * };
  * const command = new AssociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // AssociateFileSystemAliasesResponse
- *   Aliases: [ // Aliases
- *     { // Alias
- *       Name: "STRING_VALUE",
- *       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
- *     },
- *   ],
- * };
+ * // { // AssociateFileSystemAliasesResponse
+ * //   Aliases: [ // Aliases
+ * //     { // Alias
+ * //       Name: "STRING_VALUE",
+ * //       Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

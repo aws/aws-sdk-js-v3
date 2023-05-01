@@ -51,20 +51,19 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * };
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListConnectionsOutput
- *   Connections: [ // ConnectionList
- *     { // Connection
- *       ConnectionName: "STRING_VALUE",
- *       ConnectionArn: "STRING_VALUE",
- *       ProviderType: "STRING_VALUE",
- *       OwnerAccountId: "STRING_VALUE",
- *       ConnectionStatus: "STRING_VALUE",
- *       HostArn: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListConnectionsOutput
+ * //   Connections: [ // ConnectionList
+ * //     { // Connection
+ * //       ConnectionName: "STRING_VALUE",
+ * //       ConnectionArn: "STRING_VALUE",
+ * //       ProviderType: "STRING_VALUE",
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       ConnectionStatus: "STRING_VALUE",
+ * //       HostArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

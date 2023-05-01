@@ -59,12 +59,11 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * };
  * const command = new CreateBackupVaultCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateBackupVaultOutput
- *   BackupVaultName: "STRING_VALUE",
- *   BackupVaultArn: "STRING_VALUE",
- *   CreationDate: new Date("TIMESTAMP"),
- * };
+ * // { // CreateBackupVaultOutput
+ * //   BackupVaultName: "STRING_VALUE",
+ * //   BackupVaultArn: "STRING_VALUE",
+ * //   CreationDate: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

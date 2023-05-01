@@ -45,21 +45,20 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * };
  * const command = new ListFindingsFiltersCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListFindingsFiltersResponse
- *   findingsFilterListItems: [ // __listOfFindingsFilterListItem
- *     { // FindingsFilterListItem
- *       action: "ARCHIVE" || "NOOP",
- *       arn: "STRING_VALUE",
- *       id: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       tags: { // TagMap
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListFindingsFiltersResponse
+ * //   findingsFilterListItems: [ // __listOfFindingsFilterListItem
+ * //     { // FindingsFilterListItem
+ * //       action: "ARCHIVE" || "NOOP",
+ * //       arn: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

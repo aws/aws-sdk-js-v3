@@ -57,13 +57,12 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * };
  * const command = new TerminateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // TerminateSolNetworkInstanceOutput
- *   nsLcmOpOccId: "STRING_VALUE",
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // TerminateSolNetworkInstanceOutput
+ * //   nsLcmOpOccId: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

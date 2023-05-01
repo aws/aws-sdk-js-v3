@@ -54,15 +54,14 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * };
  * const command = new BatchPutMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchPutMetricsResponse
- *   Errors: [ // BatchPutMetricsErrorList
- *     { // BatchPutMetricsError
- *       Code: "METRIC_LIMIT_EXCEEDED" || "INTERNAL_ERROR" || "VALIDATION_ERROR" || "CONFLICT_ERROR",
- *       MetricIndex: Number("int"),
- *     },
- *   ],
- * };
+ * // { // BatchPutMetricsResponse
+ * //   Errors: [ // BatchPutMetricsErrorList
+ * //     { // BatchPutMetricsError
+ * //       Code: "METRIC_LIMIT_EXCEEDED" || "INTERNAL_ERROR" || "VALIDATION_ERROR" || "CONFLICT_ERROR",
+ * //       MetricIndex: Number("int"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

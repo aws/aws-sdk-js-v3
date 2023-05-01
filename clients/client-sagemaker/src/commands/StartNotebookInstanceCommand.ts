@@ -47,8 +47,7 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * };
  * const command = new StartNotebookInstanceCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

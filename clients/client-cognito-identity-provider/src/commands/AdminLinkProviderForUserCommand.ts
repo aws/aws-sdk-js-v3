@@ -77,8 +77,7 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  * };
  * const command = new AdminLinkProviderForUserCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

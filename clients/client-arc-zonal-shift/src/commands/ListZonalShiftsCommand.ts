@@ -46,21 +46,20 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListZonalShiftsResponse
- *   items: [ // ZonalShiftSummaries
- *     { // ZonalShiftSummary
- *       zonalShiftId: "STRING_VALUE", // required
- *       resourceIdentifier: "STRING_VALUE", // required
- *       awayFrom: "STRING_VALUE", // required
- *       expiryTime: new Date("TIMESTAMP"), // required
- *       startTime: new Date("TIMESTAMP"), // required
- *       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
- *       comment: "STRING_VALUE", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListZonalShiftsResponse
+ * //   items: [ // ZonalShiftSummaries
+ * //     { // ZonalShiftSummary
+ * //       zonalShiftId: "STRING_VALUE", // required
+ * //       resourceIdentifier: "STRING_VALUE", // required
+ * //       awayFrom: "STRING_VALUE", // required
+ * //       expiryTime: new Date("TIMESTAMP"), // required
+ * //       startTime: new Date("TIMESTAMP"), // required
+ * //       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
+ * //       comment: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -48,10 +48,9 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * };
  * const command = new CancelImageLaunchPermissionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CancelImageLaunchPermissionResult
- *   Return: true || false,
- * };
+ * // { // CancelImageLaunchPermissionResult
+ * //   Return: true || false,
+ * // };
  *
  * ```
  *

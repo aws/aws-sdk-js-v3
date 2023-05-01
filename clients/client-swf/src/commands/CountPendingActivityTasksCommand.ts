@@ -74,11 +74,10 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * };
  * const command = new CountPendingActivityTasksCommand(input);
  * const response = await client.send(command);
- * /**
- * { // PendingTaskCount
- *   count: Number("int"), // required
- *   truncated: true || false,
- * };
+ * // { // PendingTaskCount
+ * //   count: Number("int"), // required
+ * //   truncated: true || false,
+ * // };
  *
  * ```
  *

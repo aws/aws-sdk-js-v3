@@ -52,27 +52,26 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * };
  * const command = new GetNetworkTelemetryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetNetworkTelemetryResponse
- *   NetworkTelemetry: [ // NetworkTelemetryList
- *     { // NetworkTelemetry
- *       RegisteredGatewayArn: "STRING_VALUE",
- *       CoreNetworkId: "STRING_VALUE",
- *       AwsRegion: "STRING_VALUE",
- *       AccountId: "STRING_VALUE",
- *       ResourceType: "STRING_VALUE",
- *       ResourceId: "STRING_VALUE",
- *       ResourceArn: "STRING_VALUE",
- *       Address: "STRING_VALUE",
- *       Health: { // ConnectionHealth
- *         Type: "BGP" || "IPSEC",
- *         Status: "UP" || "DOWN",
- *         Timestamp: new Date("TIMESTAMP"),
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetNetworkTelemetryResponse
+ * //   NetworkTelemetry: [ // NetworkTelemetryList
+ * //     { // NetworkTelemetry
+ * //       RegisteredGatewayArn: "STRING_VALUE",
+ * //       CoreNetworkId: "STRING_VALUE",
+ * //       AwsRegion: "STRING_VALUE",
+ * //       AccountId: "STRING_VALUE",
+ * //       ResourceType: "STRING_VALUE",
+ * //       ResourceId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       Address: "STRING_VALUE",
+ * //       Health: { // ConnectionHealth
+ * //         Type: "BGP" || "IPSEC",
+ * //         Status: "UP" || "DOWN",
+ * //         Timestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

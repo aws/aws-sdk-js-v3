@@ -45,16 +45,15 @@ export interface DescribeAppVersionCommandOutput extends DescribeAppVersionRespo
  * };
  * const command = new DescribeAppVersionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeAppVersionResponse
- *   appArn: "STRING_VALUE", // required
- *   appVersion: "STRING_VALUE", // required
- *   additionalInfo: { // AdditionalInfoMap
- *     "<keys>": [ // AdditionalInfoValueList
- *       "STRING_VALUE",
- *     ],
- *   },
- * };
+ * // { // DescribeAppVersionResponse
+ * //   appArn: "STRING_VALUE", // required
+ * //   appVersion: "STRING_VALUE", // required
+ * //   additionalInfo: { // AdditionalInfoMap
+ * //     "<keys>": [ // AdditionalInfoValueList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

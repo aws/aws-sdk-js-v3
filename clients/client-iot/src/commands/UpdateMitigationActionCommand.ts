@@ -70,11 +70,10 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  * };
  * const command = new UpdateMitigationActionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateMitigationActionResponse
- *   actionArn: "STRING_VALUE",
- *   actionId: "STRING_VALUE",
- * };
+ * // { // UpdateMitigationActionResponse
+ * //   actionArn: "STRING_VALUE",
+ * //   actionId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

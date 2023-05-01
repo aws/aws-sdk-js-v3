@@ -65,19 +65,18 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * };
  * const command = new ListChannelMembershipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListChannelMembershipsResponse
- *   ChannelArn: "STRING_VALUE",
- *   ChannelMemberships: [ // ChannelMembershipSummaryList
- *     { // ChannelMembershipSummary
- *       Member: { // Identity
- *         Arn: "STRING_VALUE",
- *         Name: "STRING_VALUE",
- *       },
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListChannelMembershipsResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   ChannelMemberships: [ // ChannelMembershipSummaryList
+ * //     { // ChannelMembershipSummary
+ * //       Member: { // Identity
+ * //         Arn: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

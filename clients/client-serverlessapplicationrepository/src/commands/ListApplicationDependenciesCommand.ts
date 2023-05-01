@@ -56,16 +56,15 @@ export interface ListApplicationDependenciesCommandOutput
  * };
  * const command = new ListApplicationDependenciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationDependenciesResponse
- *   Dependencies: [ // __listOfApplicationDependencySummary
- *     { // ApplicationDependencySummary
- *       ApplicationId: "STRING_VALUE", // required
- *       SemanticVersion: "STRING_VALUE", // required
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationDependenciesResponse
+ * //   Dependencies: [ // __listOfApplicationDependencySummary
+ * //     { // ApplicationDependencySummary
+ * //       ApplicationId: "STRING_VALUE", // required
+ * //       SemanticVersion: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

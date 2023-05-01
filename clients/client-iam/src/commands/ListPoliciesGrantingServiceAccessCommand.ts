@@ -95,25 +95,24 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * };
  * const command = new ListPoliciesGrantingServiceAccessCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListPoliciesGrantingServiceAccessResponse
- *   PoliciesGrantingServiceAccess: [ // listPolicyGrantingServiceAccessResponseListType // required
- *     { // ListPoliciesGrantingServiceAccessEntry
- *       ServiceNamespace: "STRING_VALUE",
- *       Policies: [ // policyGrantingServiceAccessListType
- *         { // PolicyGrantingServiceAccess
- *           PolicyName: "STRING_VALUE", // required
- *           PolicyType: "INLINE" || "MANAGED", // required
- *           PolicyArn: "STRING_VALUE",
- *           EntityType: "USER" || "ROLE" || "GROUP",
- *           EntityName: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   IsTruncated: true || false,
- *   Marker: "STRING_VALUE",
- * };
+ * // { // ListPoliciesGrantingServiceAccessResponse
+ * //   PoliciesGrantingServiceAccess: [ // listPolicyGrantingServiceAccessResponseListType // required
+ * //     { // ListPoliciesGrantingServiceAccessEntry
+ * //       ServiceNamespace: "STRING_VALUE",
+ * //       Policies: [ // policyGrantingServiceAccessListType
+ * //         { // PolicyGrantingServiceAccess
+ * //           PolicyName: "STRING_VALUE", // required
+ * //           PolicyType: "INLINE" || "MANAGED", // required
+ * //           PolicyArn: "STRING_VALUE",
+ * //           EntityType: "USER" || "ROLE" || "GROUP",
+ * //           EntityName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

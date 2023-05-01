@@ -60,28 +60,27 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * };
  * const command = new GetAwsNetworkPerformanceDataCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetAwsNetworkPerformanceDataResult
- *   DataResponses: [ // DataResponses
- *     { // DataResponse
- *       Id: "STRING_VALUE",
- *       Source: "STRING_VALUE",
- *       Destination: "STRING_VALUE",
- *       Metric: "aggregate-latency",
- *       Statistic: "p50",
- *       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
- *       MetricPoints: [ // MetricPoints
- *         { // MetricPoint
- *           StartDate: new Date("TIMESTAMP"),
- *           EndDate: new Date("TIMESTAMP"),
- *           Value: Number("float"),
- *           Status: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // GetAwsNetworkPerformanceDataResult
+ * //   DataResponses: [ // DataResponses
+ * //     { // DataResponse
+ * //       Id: "STRING_VALUE",
+ * //       Source: "STRING_VALUE",
+ * //       Destination: "STRING_VALUE",
+ * //       Metric: "aggregate-latency",
+ * //       Statistic: "p50",
+ * //       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
+ * //       MetricPoints: [ // MetricPoints
+ * //         { // MetricPoint
+ * //           StartDate: new Date("TIMESTAMP"),
+ * //           EndDate: new Date("TIMESTAMP"),
+ * //           Value: Number("float"),
+ * //           Status: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

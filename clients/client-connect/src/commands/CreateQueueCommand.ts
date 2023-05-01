@@ -71,11 +71,10 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * };
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateQueueResponse
- *   QueueArn: "STRING_VALUE",
- *   QueueId: "STRING_VALUE",
- * };
+ * // { // CreateQueueResponse
+ * //   QueueArn: "STRING_VALUE",
+ * //   QueueId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

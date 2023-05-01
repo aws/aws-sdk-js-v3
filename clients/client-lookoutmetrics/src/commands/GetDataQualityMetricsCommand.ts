@@ -45,27 +45,26 @@ export interface GetDataQualityMetricsCommandOutput extends GetDataQualityMetric
  * };
  * const command = new GetDataQualityMetricsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetDataQualityMetricsResponse
- *   AnomalyDetectorDataQualityMetricList: [ // AnomalyDetectorDataQualityMetricList
- *     { // AnomalyDetectorDataQualityMetric
- *       StartTimestamp: new Date("TIMESTAMP"),
- *       MetricSetDataQualityMetricList: [ // MetricSetDataQualityMetricList
- *         { // MetricSetDataQualityMetric
- *           MetricSetArn: "STRING_VALUE",
- *           DataQualityMetricList: [ // DataQualityMetricList
- *             { // DataQualityMetric
- *               MetricType: "STRING_VALUE",
- *               MetricDescription: "STRING_VALUE",
- *               RelatedColumnName: "STRING_VALUE",
- *               MetricValue: Number("double"),
- *             },
- *           ],
- *         },
- *       ],
- *     },
- *   ],
- * };
+ * // { // GetDataQualityMetricsResponse
+ * //   AnomalyDetectorDataQualityMetricList: [ // AnomalyDetectorDataQualityMetricList
+ * //     { // AnomalyDetectorDataQualityMetric
+ * //       StartTimestamp: new Date("TIMESTAMP"),
+ * //       MetricSetDataQualityMetricList: [ // MetricSetDataQualityMetricList
+ * //         { // MetricSetDataQualityMetric
+ * //           MetricSetArn: "STRING_VALUE",
+ * //           DataQualityMetricList: [ // DataQualityMetricList
+ * //             { // DataQualityMetric
+ * //               MetricType: "STRING_VALUE",
+ * //               MetricDescription: "STRING_VALUE",
+ * //               RelatedColumnName: "STRING_VALUE",
+ * //               MetricValue: Number("double"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

@@ -115,8 +115,7 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  * };
  * const command = new UpdatePartitionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

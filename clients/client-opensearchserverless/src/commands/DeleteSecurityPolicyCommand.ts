@@ -50,8 +50,7 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * };
  * const command = new DeleteSecurityPolicyCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

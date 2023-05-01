@@ -49,13 +49,12 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * };
  * const command = new StartLifecyclePolicyPreviewCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartLifecyclePolicyPreviewResponse
- *   registryId: "STRING_VALUE",
- *   repositoryName: "STRING_VALUE",
- *   lifecyclePolicyText: "STRING_VALUE",
- *   status: "STRING_VALUE",
- * };
+ * // { // StartLifecyclePolicyPreviewResponse
+ * //   registryId: "STRING_VALUE",
+ * //   repositoryName: "STRING_VALUE",
+ * //   lifecyclePolicyText: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * // };
  *
  * ```
  *

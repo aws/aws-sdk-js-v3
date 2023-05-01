@@ -51,20 +51,19 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * };
  * const command = new UpdateEnvironmentTemplateCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateEnvironmentTemplateOutput
- *   environmentTemplate: { // EnvironmentTemplate
- *     name: "STRING_VALUE", // required
- *     arn: "STRING_VALUE", // required
- *     createdAt: new Date("TIMESTAMP"), // required
- *     lastModifiedAt: new Date("TIMESTAMP"), // required
- *     displayName: "STRING_VALUE",
- *     description: "STRING_VALUE",
- *     recommendedVersion: "STRING_VALUE",
- *     encryptionKey: "STRING_VALUE",
- *     provisioning: "STRING_VALUE",
- *   },
- * };
+ * // { // UpdateEnvironmentTemplateOutput
+ * //   environmentTemplate: { // EnvironmentTemplate
+ * //     name: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //     displayName: "STRING_VALUE",
+ * //     description: "STRING_VALUE",
+ * //     recommendedVersion: "STRING_VALUE",
+ * //     encryptionKey: "STRING_VALUE",
+ * //     provisioning: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

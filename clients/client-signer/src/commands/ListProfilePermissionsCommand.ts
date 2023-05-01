@@ -45,20 +45,19 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * };
  * const command = new ListProfilePermissionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListProfilePermissionsResponse
- *   revisionId: "STRING_VALUE",
- *   policySizeBytes: Number("int"),
- *   permissions: [ // Permissions
- *     { // Permission
- *       action: "STRING_VALUE",
- *       principal: "STRING_VALUE",
- *       statementId: "STRING_VALUE",
- *       profileVersion: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListProfilePermissionsResponse
+ * //   revisionId: "STRING_VALUE",
+ * //   policySizeBytes: Number("int"),
+ * //   permissions: [ // Permissions
+ * //     { // Permission
+ * //       action: "STRING_VALUE",
+ * //       principal: "STRING_VALUE",
+ * //       statementId: "STRING_VALUE",
+ * //       profileVersion: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

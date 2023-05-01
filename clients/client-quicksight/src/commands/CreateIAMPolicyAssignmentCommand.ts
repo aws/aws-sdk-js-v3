@@ -56,20 +56,19 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * };
  * const command = new CreateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateIAMPolicyAssignmentResponse
- *   AssignmentName: "STRING_VALUE",
- *   AssignmentId: "STRING_VALUE",
- *   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
- *   PolicyArn: "STRING_VALUE",
- *   Identities: { // IdentityMap
- *     "<keys>": [ // IdentityNameList
- *       "STRING_VALUE",
- *     ],
- *   },
- *   RequestId: "STRING_VALUE",
- *   Status: Number("int"),
- * };
+ * // { // CreateIAMPolicyAssignmentResponse
+ * //   AssignmentName: "STRING_VALUE",
+ * //   AssignmentId: "STRING_VALUE",
+ * //   AssignmentStatus: "ENABLED" || "DRAFT" || "DISABLED",
+ * //   PolicyArn: "STRING_VALUE",
+ * //   Identities: { // IdentityMap
+ * //     "<keys>": [ // IdentityNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   RequestId: "STRING_VALUE",
+ * //   Status: Number("int"),
+ * // };
  *
  * ```
  *

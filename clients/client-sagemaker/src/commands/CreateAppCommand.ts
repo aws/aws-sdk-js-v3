@@ -62,10 +62,9 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppResponse
- *   AppArn: "STRING_VALUE",
- * };
+ * // { // CreateAppResponse
+ * //   AppArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

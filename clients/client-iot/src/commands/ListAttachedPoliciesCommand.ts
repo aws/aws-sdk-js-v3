@@ -48,16 +48,15 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
  * };
  * const command = new ListAttachedPoliciesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAttachedPoliciesResponse
- *   policies: [ // Policies
- *     { // Policy
- *       policyName: "STRING_VALUE",
- *       policyArn: "STRING_VALUE",
- *     },
- *   ],
- *   nextMarker: "STRING_VALUE",
- * };
+ * // { // ListAttachedPoliciesResponse
+ * //   policies: [ // Policies
+ * //     { // Policy
+ * //       policyName: "STRING_VALUE",
+ * //       policyArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextMarker: "STRING_VALUE",
+ * // };
  *
  * ```
  *

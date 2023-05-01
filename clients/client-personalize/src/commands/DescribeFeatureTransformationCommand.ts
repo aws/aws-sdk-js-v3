@@ -49,19 +49,18 @@ export interface DescribeFeatureTransformationCommandOutput
  * };
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeFeatureTransformationResponse
- *   featureTransformation: { // FeatureTransformation
- *     name: "STRING_VALUE",
- *     featureTransformationArn: "STRING_VALUE",
- *     defaultParameters: { // FeaturizationParameters
- *       "<keys>": "STRING_VALUE",
- *     },
- *     creationDateTime: new Date("TIMESTAMP"),
- *     lastUpdatedDateTime: new Date("TIMESTAMP"),
- *     status: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeFeatureTransformationResponse
+ * //   featureTransformation: { // FeatureTransformation
+ * //     name: "STRING_VALUE",
+ * //     featureTransformationArn: "STRING_VALUE",
+ * //     defaultParameters: { // FeaturizationParameters
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     creationDateTime: new Date("TIMESTAMP"),
+ * //     lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     status: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

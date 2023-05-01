@@ -64,13 +64,12 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  * };
  * const command = new ModifyDefaultCreditSpecificationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ModifyDefaultCreditSpecificationResult
- *   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
- *     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
- *     CpuCredits: "STRING_VALUE",
- *   },
- * };
+ * // { // ModifyDefaultCreditSpecificationResult
+ * //   InstanceFamilyCreditSpecification: { // InstanceFamilyCreditSpecification
+ * //     InstanceFamily: "t2" || "t3" || "t3a" || "t4g",
+ * //     CpuCredits: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

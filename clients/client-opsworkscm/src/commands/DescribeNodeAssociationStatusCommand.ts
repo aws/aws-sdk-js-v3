@@ -60,16 +60,15 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * };
  * const command = new DescribeNodeAssociationStatusCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeNodeAssociationStatusResponse
- *   NodeAssociationStatus: "STRING_VALUE",
- *   EngineAttributes: [ // EngineAttributes
- *     { // EngineAttribute
- *       Name: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // DescribeNodeAssociationStatusResponse
+ * //   NodeAssociationStatus: "STRING_VALUE",
+ * //   EngineAttributes: [ // EngineAttributes
+ * //     { // EngineAttribute
+ * //       Name: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

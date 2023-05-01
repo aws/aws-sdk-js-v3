@@ -66,10 +66,9 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * };
  * const command = new CreateAppInstanceBotCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateAppInstanceBotResponse
- *   AppInstanceBotArn: "STRING_VALUE",
- * };
+ * // { // CreateAppInstanceBotResponse
+ * //   AppInstanceBotArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

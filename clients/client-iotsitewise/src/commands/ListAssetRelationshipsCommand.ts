@@ -49,19 +49,18 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * };
  * const command = new ListAssetRelationshipsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListAssetRelationshipsResponse
- *   assetRelationshipSummaries: [ // AssetRelationshipSummaries // required
- *     { // AssetRelationshipSummary
- *       hierarchyInfo: { // AssetHierarchyInfo
- *         parentAssetId: "STRING_VALUE",
- *         childAssetId: "STRING_VALUE",
- *       },
- *       relationshipType: "HIERARCHY", // required
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // ListAssetRelationshipsResponse
+ * //   assetRelationshipSummaries: [ // AssetRelationshipSummaries // required
+ * //     { // AssetRelationshipSummary
+ * //       hierarchyInfo: { // AssetHierarchyInfo
+ * //         parentAssetId: "STRING_VALUE",
+ * //         childAssetId: "STRING_VALUE",
+ * //       },
+ * //       relationshipType: "HIERARCHY", // required
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

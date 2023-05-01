@@ -44,16 +44,15 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  * };
  * const command = new DescribeTagOptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTagOptionOutput
- *   TagOptionDetail: { // TagOptionDetail
- *     Key: "STRING_VALUE",
- *     Value: "STRING_VALUE",
- *     Active: true || false,
- *     Id: "STRING_VALUE",
- *     Owner: "STRING_VALUE",
- *   },
- * };
+ * // { // DescribeTagOptionOutput
+ * //   TagOptionDetail: { // TagOptionDetail
+ * //     Key: "STRING_VALUE",
+ * //     Value: "STRING_VALUE",
+ * //     Active: true || false,
+ * //     Id: "STRING_VALUE",
+ * //     Owner: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

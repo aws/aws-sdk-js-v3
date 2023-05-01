@@ -49,11 +49,10 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * };
  * const command = new DisassociateAttributeGroupCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DisassociateAttributeGroupResponse
- *   applicationArn: "STRING_VALUE",
- *   attributeGroupArn: "STRING_VALUE",
- * };
+ * // { // DisassociateAttributeGroupResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   attributeGroupArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -70,10 +70,9 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  * };
  * const command = new StartAnnotationImportJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StartAnnotationImportResponse
- *   jobId: "STRING_VALUE", // required
- * };
+ * // { // StartAnnotationImportResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

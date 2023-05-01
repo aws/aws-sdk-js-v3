@@ -63,10 +63,9 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * };
  * const command = new GenerateDataSetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GenerateDataSetResult
- *   dataSetRequestId: "STRING_VALUE",
- * };
+ * // { // GenerateDataSetResult
+ * //   dataSetRequestId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

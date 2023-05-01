@@ -60,8 +60,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * };
  * const command = new UpdateLocationSmbCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

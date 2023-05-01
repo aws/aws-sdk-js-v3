@@ -50,8 +50,7 @@ export interface DisableImportFindingsForProductCommandOutput
  * };
  * const command = new DisableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -64,20 +64,19 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetBotsResponse
- *   bots: [ // BotMetadataList
- *     { // BotMetadata
- *       name: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       status: "STRING_VALUE",
- *       lastUpdatedDate: new Date("TIMESTAMP"),
- *       createdDate: new Date("TIMESTAMP"),
- *       version: "STRING_VALUE",
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // GetBotsResponse
+ * //   bots: [ // BotMetadataList
+ * //     { // BotMetadata
+ * //       name: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       lastUpdatedDate: new Date("TIMESTAMP"),
+ * //       createdDate: new Date("TIMESTAMP"),
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

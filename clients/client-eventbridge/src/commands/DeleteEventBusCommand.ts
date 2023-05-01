@@ -45,8 +45,7 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * };
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

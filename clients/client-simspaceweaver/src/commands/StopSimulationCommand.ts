@@ -48,8 +48,7 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * };
  * const command = new StopSimulationCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

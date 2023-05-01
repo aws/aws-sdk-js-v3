@@ -53,8 +53,7 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  * };
  * const command = new AssociateBotCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

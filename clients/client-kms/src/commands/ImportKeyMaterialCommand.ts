@@ -111,8 +111,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * };
  * const command = new ImportKeyMaterialCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -55,14 +55,13 @@ export interface CreateNotificationSubscriptionCommandOutput
  * };
  * const command = new CreateNotificationSubscriptionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNotificationSubscriptionResponse
- *   Subscription: { // Subscription
- *     SubscriptionId: "STRING_VALUE",
- *     EndPoint: "STRING_VALUE",
- *     Protocol: "HTTPS" || "SQS",
- *   },
- * };
+ * // { // CreateNotificationSubscriptionResponse
+ * //   Subscription: { // Subscription
+ * //     SubscriptionId: "STRING_VALUE",
+ * //     EndPoint: "STRING_VALUE",
+ * //     Protocol: "HTTPS" || "SQS",
+ * //   },
+ * // };
  *
  * ```
  *

@@ -52,18 +52,17 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  * };
  * const command = new BatchDeleteDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
- * /**
- * { // BatchDeleteDevicePositionHistoryResponse
- *   Errors: [ // BatchDeleteDevicePositionHistoryErrorList // required
- *     { // BatchDeleteDevicePositionHistoryError
- *       DeviceId: "STRING_VALUE", // required
- *       Error: { // BatchItemError
- *         Code: "STRING_VALUE",
- *         Message: "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // BatchDeleteDevicePositionHistoryResponse
+ * //   Errors: [ // BatchDeleteDevicePositionHistoryErrorList // required
+ * //     { // BatchDeleteDevicePositionHistoryError
+ * //       DeviceId: "STRING_VALUE", // required
+ * //       Error: { // BatchItemError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

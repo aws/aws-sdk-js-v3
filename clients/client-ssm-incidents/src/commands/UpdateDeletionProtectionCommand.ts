@@ -47,8 +47,7 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * };
  * const command = new UpdateDeletionProtectionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

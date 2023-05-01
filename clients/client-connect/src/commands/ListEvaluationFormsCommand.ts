@@ -46,25 +46,24 @@ export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsRes
  * };
  * const command = new ListEvaluationFormsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEvaluationFormsResponse
- *   EvaluationFormSummaryList: [ // EvaluationFormSummaryList // required
- *     { // EvaluationFormSummary
- *       EvaluationFormId: "STRING_VALUE", // required
- *       EvaluationFormArn: "STRING_VALUE", // required
- *       Title: "STRING_VALUE", // required
- *       CreatedTime: new Date("TIMESTAMP"), // required
- *       CreatedBy: "STRING_VALUE", // required
- *       LastModifiedTime: new Date("TIMESTAMP"), // required
- *       LastModifiedBy: "STRING_VALUE", // required
- *       LastActivatedTime: new Date("TIMESTAMP"),
- *       LastActivatedBy: "STRING_VALUE",
- *       LatestVersion: Number("int"), // required
- *       ActiveVersion: Number("int"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListEvaluationFormsResponse
+ * //   EvaluationFormSummaryList: [ // EvaluationFormSummaryList // required
+ * //     { // EvaluationFormSummary
+ * //       EvaluationFormId: "STRING_VALUE", // required
+ * //       EvaluationFormArn: "STRING_VALUE", // required
+ * //       Title: "STRING_VALUE", // required
+ * //       CreatedTime: new Date("TIMESTAMP"), // required
+ * //       CreatedBy: "STRING_VALUE", // required
+ * //       LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //       LastModifiedBy: "STRING_VALUE", // required
+ * //       LastActivatedTime: new Date("TIMESTAMP"),
+ * //       LastActivatedBy: "STRING_VALUE",
+ * //       LatestVersion: Number("int"), // required
+ * //       ActiveVersion: Number("int"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

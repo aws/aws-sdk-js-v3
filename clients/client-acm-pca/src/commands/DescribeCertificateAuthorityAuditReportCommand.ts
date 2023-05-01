@@ -57,13 +57,12 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * };
  * const command = new DescribeCertificateAuthorityAuditReportCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCertificateAuthorityAuditReportResponse
- *   AuditReportStatus: "CREATING" || "SUCCESS" || "FAILED",
- *   S3BucketName: "STRING_VALUE",
- *   S3Key: "STRING_VALUE",
- *   CreatedAt: new Date("TIMESTAMP"),
- * };
+ * // { // DescribeCertificateAuthorityAuditReportResponse
+ * //   AuditReportStatus: "CREATING" || "SUCCESS" || "FAILED",
+ * //   S3BucketName: "STRING_VALUE",
+ * //   S3Key: "STRING_VALUE",
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *

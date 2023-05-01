@@ -49,22 +49,21 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * };
  * const command = new ListEnvironmentTemplatesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListEnvironmentTemplatesOutput
- *   nextToken: "STRING_VALUE",
- *   templates: [ // EnvironmentTemplateSummaryList // required
- *     { // EnvironmentTemplateSummary
- *       name: "STRING_VALUE", // required
- *       arn: "STRING_VALUE", // required
- *       createdAt: new Date("TIMESTAMP"), // required
- *       lastModifiedAt: new Date("TIMESTAMP"), // required
- *       displayName: "STRING_VALUE",
- *       description: "STRING_VALUE",
- *       recommendedVersion: "STRING_VALUE",
- *       provisioning: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // ListEnvironmentTemplatesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   templates: [ // EnvironmentTemplateSummaryList // required
+ * //     { // EnvironmentTemplateSummary
+ * //       name: "STRING_VALUE", // required
+ * //       arn: "STRING_VALUE", // required
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       lastModifiedAt: new Date("TIMESTAMP"), // required
+ * //       displayName: "STRING_VALUE",
+ * //       description: "STRING_VALUE",
+ * //       recommendedVersion: "STRING_VALUE",
+ * //       provisioning: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

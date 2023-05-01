@@ -73,30 +73,29 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * };
  * const command = new CreateExtensionCommand(input);
  * const response = await client.send(command);
- * /**
- * { // Extension
- *   Id: "STRING_VALUE",
- *   Name: "STRING_VALUE",
- *   VersionNumber: Number("int"),
- *   Arn: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   Actions: { // ActionsMap
- *     "<keys>": [ // ActionList
- *       { // Action
- *         Name: "STRING_VALUE",
- *         Description: "STRING_VALUE",
- *         Uri: "STRING_VALUE",
- *         RoleArn: "STRING_VALUE",
- *       },
- *     ],
- *   },
- *   Parameters: { // ParameterMap
- *     "<keys>": { // Parameter
- *       Description: "STRING_VALUE",
- *       Required: true || false,
- *     },
- *   },
- * };
+ * // { // Extension
+ * //   Id: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   VersionNumber: Number("int"),
+ * //   Arn: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   Actions: { // ActionsMap
+ * //     "<keys>": [ // ActionList
+ * //       { // Action
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //         Uri: "STRING_VALUE",
+ * //         RoleArn: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * //   Parameters: { // ParameterMap
+ * //     "<keys>": { // Parameter
+ * //       Description: "STRING_VALUE",
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * // };
  *
  * ```
  *

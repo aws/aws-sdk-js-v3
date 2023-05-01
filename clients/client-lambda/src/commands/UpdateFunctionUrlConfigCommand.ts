@@ -63,31 +63,30 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * };
  * const command = new UpdateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateFunctionUrlConfigResponse
- *   FunctionUrl: "STRING_VALUE", // required
- *   FunctionArn: "STRING_VALUE", // required
- *   AuthType: "NONE" || "AWS_IAM", // required
- *   Cors: { // Cors
- *     AllowCredentials: true || false,
- *     AllowHeaders: [ // HeadersList
- *       "STRING_VALUE",
- *     ],
- *     AllowMethods: [ // AllowMethodsList
- *       "STRING_VALUE",
- *     ],
- *     AllowOrigins: [ // AllowOriginsList
- *       "STRING_VALUE",
- *     ],
- *     ExposeHeaders: [
- *       "STRING_VALUE",
- *     ],
- *     MaxAge: Number("int"),
- *   },
- *   CreationTime: "STRING_VALUE", // required
- *   LastModifiedTime: "STRING_VALUE", // required
- *   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
- * };
+ * // { // UpdateFunctionUrlConfigResponse
+ * //   FunctionUrl: "STRING_VALUE", // required
+ * //   FunctionArn: "STRING_VALUE", // required
+ * //   AuthType: "NONE" || "AWS_IAM", // required
+ * //   Cors: { // Cors
+ * //     AllowCredentials: true || false,
+ * //     AllowHeaders: [ // HeadersList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowMethods: [ // AllowMethodsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowOrigins: [ // AllowOriginsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ExposeHeaders: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     MaxAge: Number("int"),
+ * //   },
+ * //   CreationTime: "STRING_VALUE", // required
+ * //   LastModifiedTime: "STRING_VALUE", // required
+ * //   InvokeMode: "BUFFERED" || "RESPONSE_STREAM",
+ * // };
  *
  * ```
  *

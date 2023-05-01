@@ -49,30 +49,29 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * };
  * const command = new ListLensReviewImprovementsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLensReviewImprovementsOutput
- *   WorkloadId: "STRING_VALUE",
- *   MilestoneNumber: Number("int"),
- *   LensAlias: "STRING_VALUE",
- *   LensArn: "STRING_VALUE",
- *   ImprovementSummaries: [ // ImprovementSummaries
- *     { // ImprovementSummary
- *       QuestionId: "STRING_VALUE",
- *       PillarId: "STRING_VALUE",
- *       QuestionTitle: "STRING_VALUE",
- *       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
- *       ImprovementPlanUrl: "STRING_VALUE",
- *       ImprovementPlans: [ // ChoiceImprovementPlans
- *         { // ChoiceImprovementPlan
- *           ChoiceId: "STRING_VALUE",
- *           DisplayText: "STRING_VALUE",
- *           ImprovementPlanUrl: "STRING_VALUE",
- *         },
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLensReviewImprovementsOutput
+ * //   WorkloadId: "STRING_VALUE",
+ * //   MilestoneNumber: Number("int"),
+ * //   LensAlias: "STRING_VALUE",
+ * //   LensArn: "STRING_VALUE",
+ * //   ImprovementSummaries: [ // ImprovementSummaries
+ * //     { // ImprovementSummary
+ * //       QuestionId: "STRING_VALUE",
+ * //       PillarId: "STRING_VALUE",
+ * //       QuestionTitle: "STRING_VALUE",
+ * //       Risk: "UNANSWERED" || "HIGH" || "MEDIUM" || "NONE" || "NOT_APPLICABLE",
+ * //       ImprovementPlanUrl: "STRING_VALUE",
+ * //       ImprovementPlans: [ // ChoiceImprovementPlans
+ * //         { // ChoiceImprovementPlan
+ * //           ChoiceId: "STRING_VALUE",
+ * //           DisplayText: "STRING_VALUE",
+ * //           ImprovementPlanUrl: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

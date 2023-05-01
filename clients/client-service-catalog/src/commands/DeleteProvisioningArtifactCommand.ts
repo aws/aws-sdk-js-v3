@@ -49,8 +49,7 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * };
  * const command = new DeleteProvisioningArtifactCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

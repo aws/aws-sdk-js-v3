@@ -53,10 +53,9 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * };
  * const command = new ImportSourceCredentialsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ImportSourceCredentialsOutput
- *   arn: "STRING_VALUE",
- * };
+ * // { // ImportSourceCredentialsOutput
+ * //   arn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

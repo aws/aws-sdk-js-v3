@@ -99,16 +99,15 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateOpenIDConnectProviderResponse
- *   OpenIDConnectProviderArn: "STRING_VALUE",
- *   Tags: [ // tagListType
- *     { // Tag
- *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE", // required
- *     },
- *   ],
- * };
+ * // { // CreateOpenIDConnectProviderResponse
+ * //   OpenIDConnectProviderArn: "STRING_VALUE",
+ * //   Tags: [ // tagListType
+ * //     { // Tag
+ * //       Key: "STRING_VALUE", // required
+ * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

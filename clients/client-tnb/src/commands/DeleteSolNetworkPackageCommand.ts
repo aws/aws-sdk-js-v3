@@ -46,8 +46,7 @@ export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {
  * };
  * const command = new DeleteSolNetworkPackageCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

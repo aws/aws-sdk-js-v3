@@ -70,28 +70,27 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  * };
  * const command = new CreateTransitGatewayMulticastDomainCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateTransitGatewayMulticastDomainResult
- *   TransitGatewayMulticastDomain: { // TransitGatewayMulticastDomain
- *     TransitGatewayMulticastDomainId: "STRING_VALUE",
- *     TransitGatewayId: "STRING_VALUE",
- *     TransitGatewayMulticastDomainArn: "STRING_VALUE",
- *     OwnerId: "STRING_VALUE",
- *     Options: { // TransitGatewayMulticastDomainOptions
- *       Igmpv2Support: "enable" || "disable",
- *       StaticSourcesSupport: "enable" || "disable",
- *       AutoAcceptSharedAssociations: "enable" || "disable",
- *     },
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     CreationTime: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // CreateTransitGatewayMulticastDomainResult
+ * //   TransitGatewayMulticastDomain: { // TransitGatewayMulticastDomain
+ * //     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     TransitGatewayMulticastDomainArn: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     Options: { // TransitGatewayMulticastDomainOptions
+ * //       Igmpv2Support: "enable" || "disable",
+ * //       StaticSourcesSupport: "enable" || "disable",
+ * //       AutoAcceptSharedAssociations: "enable" || "disable",
+ * //     },
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

@@ -44,29 +44,28 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  * };
  * const command = new DescribePackageCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribePackageResponse
- *   PackageId: "STRING_VALUE", // required
- *   PackageName: "STRING_VALUE", // required
- *   Arn: "STRING_VALUE", // required
- *   StorageLocation: { // StorageLocation
- *     Bucket: "STRING_VALUE", // required
- *     RepoPrefixLocation: "STRING_VALUE", // required
- *     GeneratedPrefixLocation: "STRING_VALUE", // required
- *     BinaryPrefixLocation: "STRING_VALUE", // required
- *     ManifestPrefixLocation: "STRING_VALUE", // required
- *   },
- *   ReadAccessPrincipalArns: [ // PrincipalArnsList
- *     "STRING_VALUE",
- *   ],
- *   WriteAccessPrincipalArns: [
- *     "STRING_VALUE",
- *   ],
- *   CreatedTime: new Date("TIMESTAMP"), // required
- *   Tags: { // TagMap // required
- *     "<keys>": "STRING_VALUE",
- *   },
- * };
+ * // { // DescribePackageResponse
+ * //   PackageId: "STRING_VALUE", // required
+ * //   PackageName: "STRING_VALUE", // required
+ * //   Arn: "STRING_VALUE", // required
+ * //   StorageLocation: { // StorageLocation
+ * //     Bucket: "STRING_VALUE", // required
+ * //     RepoPrefixLocation: "STRING_VALUE", // required
+ * //     GeneratedPrefixLocation: "STRING_VALUE", // required
+ * //     BinaryPrefixLocation: "STRING_VALUE", // required
+ * //     ManifestPrefixLocation: "STRING_VALUE", // required
+ * //   },
+ * //   ReadAccessPrincipalArns: [ // PrincipalArnsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   WriteAccessPrincipalArns: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   CreatedTime: new Date("TIMESTAMP"), // required
+ * //   Tags: { // TagMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

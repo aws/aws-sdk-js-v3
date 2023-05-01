@@ -56,10 +56,9 @@ export interface GetWorkUnitResultsCommandOutput
  * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetWorkUnitResultsResponse
- *   ResultStream: "STREAMING_BLOB_VALUE",
- * };
+ * // { // GetWorkUnitResultsResponse
+ * //   ResultStream: "STREAMING_BLOB_VALUE",
+ * // };
  *
  * ```
  *

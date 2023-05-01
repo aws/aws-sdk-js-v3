@@ -44,8 +44,7 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * };
  * const command = new DeleteUploadCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

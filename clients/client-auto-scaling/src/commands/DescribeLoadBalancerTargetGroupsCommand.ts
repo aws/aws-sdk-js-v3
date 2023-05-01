@@ -83,16 +83,15 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * };
  * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeLoadBalancerTargetGroupsResponse
- *   LoadBalancerTargetGroups: [ // LoadBalancerTargetGroupStates
- *     { // LoadBalancerTargetGroupState
- *       LoadBalancerTargetGroupARN: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeLoadBalancerTargetGroupsResponse
+ * //   LoadBalancerTargetGroups: [ // LoadBalancerTargetGroupStates
+ * //     { // LoadBalancerTargetGroupState
+ * //       LoadBalancerTargetGroupARN: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

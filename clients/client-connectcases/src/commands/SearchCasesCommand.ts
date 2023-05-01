@@ -126,29 +126,28 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * };
  * const command = new SearchCasesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchCasesResponse
- *   nextToken: "STRING_VALUE",
- *   cases: [ // SearchCasesResponseItemList // required
- *     { // SearchCasesResponseItem
- *       caseId: "STRING_VALUE", // required
- *       templateId: "STRING_VALUE", // required
- *       fields: [ // FieldValueList // required
- *         { // FieldValue
- *           id: "STRING_VALUE", // required
- *           value: { // FieldValueUnion Union: only one key present
- *             stringValue: "STRING_VALUE",
- *             doubleValue: Number("double"),
- *             booleanValue: true || false,
- *           },
- *         },
- *       ],
- *       tags: { // Tags
- *         "<keys>": "STRING_VALUE",
- *       },
- *     },
- *   ],
- * };
+ * // { // SearchCasesResponse
+ * //   nextToken: "STRING_VALUE",
+ * //   cases: [ // SearchCasesResponseItemList // required
+ * //     { // SearchCasesResponseItem
+ * //       caseId: "STRING_VALUE", // required
+ * //       templateId: "STRING_VALUE", // required
+ * //       fields: [ // FieldValueList // required
+ * //         { // FieldValue
+ * //           id: "STRING_VALUE", // required
+ * //           value: { // FieldValueUnion Union: only one key present
+ * //             stringValue: "STRING_VALUE",
+ * //             doubleValue: Number("double"),
+ * //             booleanValue: true || false,
+ * //           },
+ * //         },
+ * //       ],
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

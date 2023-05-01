@@ -56,18 +56,17 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * };
  * const command = new ListObjectParentPathsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListObjectParentPathsResponse
- *   PathToObjectIdentifiersList: [ // PathToObjectIdentifiersList
- *     { // PathToObjectIdentifiers
- *       Path: "STRING_VALUE",
- *       ObjectIdentifiers: [ // ObjectIdentifierList
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListObjectParentPathsResponse
+ * //   PathToObjectIdentifiersList: [ // PathToObjectIdentifiersList
+ * //     { // PathToObjectIdentifiers
+ * //       Path: "STRING_VALUE",
+ * //       ObjectIdentifiers: [ // ObjectIdentifierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

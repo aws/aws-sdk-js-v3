@@ -70,26 +70,25 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateNamespaceResponse
- *   namespace: { // Namespace
- *     namespaceArn: "STRING_VALUE",
- *     namespaceId: "STRING_VALUE",
- *     namespaceName: "STRING_VALUE",
- *     adminUsername: "STRING_VALUE",
- *     dbName: "STRING_VALUE",
- *     kmsKeyId: "STRING_VALUE",
- *     defaultIamRoleArn: "STRING_VALUE",
- *     iamRoles: [ // IamRoleArnList
- *       "STRING_VALUE",
- *     ],
- *     logExports: [ // LogExportList
- *       "STRING_VALUE",
- *     ],
- *     status: "STRING_VALUE",
- *     creationDate: new Date("TIMESTAMP"),
- *   },
- * };
+ * // { // CreateNamespaceResponse
+ * //   namespace: { // Namespace
+ * //     namespaceArn: "STRING_VALUE",
+ * //     namespaceId: "STRING_VALUE",
+ * //     namespaceName: "STRING_VALUE",
+ * //     adminUsername: "STRING_VALUE",
+ * //     dbName: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     defaultIamRoleArn: "STRING_VALUE",
+ * //     iamRoles: [ // IamRoleArnList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     logExports: [ // LogExportList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     status: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //   },
+ * // };
  *
  * ```
  *

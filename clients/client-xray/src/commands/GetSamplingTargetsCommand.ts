@@ -54,26 +54,25 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * };
  * const command = new GetSamplingTargetsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetSamplingTargetsResult
- *   SamplingTargetDocuments: [ // SamplingTargetDocumentList
- *     { // SamplingTargetDocument
- *       RuleName: "STRING_VALUE",
- *       FixedRate: Number("double"),
- *       ReservoirQuota: Number("int"),
- *       ReservoirQuotaTTL: new Date("TIMESTAMP"),
- *       Interval: Number("int"),
- *     },
- *   ],
- *   LastRuleModification: new Date("TIMESTAMP"),
- *   UnprocessedStatistics: [ // UnprocessedStatisticsList
- *     { // UnprocessedStatistics
- *       RuleName: "STRING_VALUE",
- *       ErrorCode: "STRING_VALUE",
- *       Message: "STRING_VALUE",
- *     },
- *   ],
- * };
+ * // { // GetSamplingTargetsResult
+ * //   SamplingTargetDocuments: [ // SamplingTargetDocumentList
+ * //     { // SamplingTargetDocument
+ * //       RuleName: "STRING_VALUE",
+ * //       FixedRate: Number("double"),
+ * //       ReservoirQuota: Number("int"),
+ * //       ReservoirQuotaTTL: new Date("TIMESTAMP"),
+ * //       Interval: Number("int"),
+ * //     },
+ * //   ],
+ * //   LastRuleModification: new Date("TIMESTAMP"),
+ * //   UnprocessedStatistics: [ // UnprocessedStatisticsList
+ * //     { // UnprocessedStatistics
+ * //       RuleName: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

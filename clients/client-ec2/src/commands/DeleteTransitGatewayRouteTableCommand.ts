@@ -51,23 +51,22 @@ export interface DeleteTransitGatewayRouteTableCommandOutput
  * };
  * const command = new DeleteTransitGatewayRouteTableCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DeleteTransitGatewayRouteTableResult
- *   TransitGatewayRouteTable: { // TransitGatewayRouteTable
- *     TransitGatewayRouteTableId: "STRING_VALUE",
- *     TransitGatewayId: "STRING_VALUE",
- *     State: "pending" || "available" || "deleting" || "deleted",
- *     DefaultAssociationRouteTable: true || false,
- *     DefaultPropagationRouteTable: true || false,
- *     CreationTime: new Date("TIMESTAMP"),
- *     Tags: [ // TagList
- *       { // Tag
- *         Key: "STRING_VALUE",
- *         Value: "STRING_VALUE",
- *       },
- *     ],
- *   },
- * };
+ * // { // DeleteTransitGatewayRouteTableResult
+ * //   TransitGatewayRouteTable: { // TransitGatewayRouteTable
+ * //     TransitGatewayRouteTableId: "STRING_VALUE",
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     State: "pending" || "available" || "deleting" || "deleted",
+ * //     DefaultAssociationRouteTable: true || false,
+ * //     DefaultPropagationRouteTable: true || false,
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
  *
  * ```
  *

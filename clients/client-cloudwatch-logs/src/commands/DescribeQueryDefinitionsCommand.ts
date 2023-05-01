@@ -48,21 +48,20 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeQueryDefinitionsResponse
- *   queryDefinitions: [ // QueryDefinitionList
- *     { // QueryDefinition
- *       queryDefinitionId: "STRING_VALUE",
- *       name: "STRING_VALUE",
- *       queryString: "STRING_VALUE",
- *       lastModified: Number("long"),
- *       logGroupNames: [ // LogGroupNames
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   nextToken: "STRING_VALUE",
- * };
+ * // { // DescribeQueryDefinitionsResponse
+ * //   queryDefinitions: [ // QueryDefinitionList
+ * //     { // QueryDefinition
+ * //       queryDefinitionId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       queryString: "STRING_VALUE",
+ * //       lastModified: Number("long"),
+ * //       logGroupNames: [ // LogGroupNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

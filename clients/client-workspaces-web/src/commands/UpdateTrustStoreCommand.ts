@@ -51,10 +51,9 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * };
  * const command = new UpdateTrustStoreCommand(input);
  * const response = await client.send(command);
- * /**
- * { // UpdateTrustStoreResponse
- *   trustStoreArn: "STRING_VALUE", // required
- * };
+ * // { // UpdateTrustStoreResponse
+ * //   trustStoreArn: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

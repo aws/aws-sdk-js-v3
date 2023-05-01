@@ -64,11 +64,10 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDomainConfigurationResponse
- *   domainConfigurationName: "STRING_VALUE",
- *   domainConfigurationArn: "STRING_VALUE",
- * };
+ * // { // CreateDomainConfigurationResponse
+ * //   domainConfigurationName: "STRING_VALUE",
+ * //   domainConfigurationArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

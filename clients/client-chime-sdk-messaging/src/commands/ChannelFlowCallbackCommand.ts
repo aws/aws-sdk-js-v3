@@ -85,11 +85,10 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * };
  * const command = new ChannelFlowCallbackCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ChannelFlowCallbackResponse
- *   ChannelArn: "STRING_VALUE",
- *   CallbackId: "STRING_VALUE",
- * };
+ * // { // ChannelFlowCallbackResponse
+ * //   ChannelArn: "STRING_VALUE",
+ * //   CallbackId: "STRING_VALUE",
+ * // };
  *
  * ```
  *

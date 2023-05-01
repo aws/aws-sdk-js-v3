@@ -48,13 +48,12 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * };
  * const command = new ListLambdaFunctionsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListLambdaFunctionsResponse
- *   LambdaFunctions: [ // FunctionArnsList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListLambdaFunctionsResponse
+ * //   LambdaFunctions: [ // FunctionArnsList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

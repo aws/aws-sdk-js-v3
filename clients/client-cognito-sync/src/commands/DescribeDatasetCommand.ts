@@ -49,18 +49,17 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeDatasetResponse
- *   Dataset: { // Dataset
- *     IdentityId: "STRING_VALUE",
- *     DatasetName: "STRING_VALUE",
- *     CreationDate: new Date("TIMESTAMP"),
- *     LastModifiedDate: new Date("TIMESTAMP"),
- *     LastModifiedBy: "STRING_VALUE",
- *     DataStorage: Number("long"),
- *     NumRecords: Number("long"),
- *   },
- * };
+ * // { // DescribeDatasetResponse
+ * //   Dataset: { // Dataset
+ * //     IdentityId: "STRING_VALUE",
+ * //     DatasetName: "STRING_VALUE",
+ * //     CreationDate: new Date("TIMESTAMP"),
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     LastModifiedBy: "STRING_VALUE",
+ * //     DataStorage: Number("long"),
+ * //     NumRecords: Number("long"),
+ * //   },
+ * // };
  *
  * ```
  *

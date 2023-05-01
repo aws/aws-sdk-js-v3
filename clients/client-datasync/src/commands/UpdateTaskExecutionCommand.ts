@@ -68,8 +68,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * };
  * const command = new UpdateTaskExecutionCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

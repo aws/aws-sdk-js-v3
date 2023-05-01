@@ -44,8 +44,7 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * };
  * const command = new TerminateAppCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

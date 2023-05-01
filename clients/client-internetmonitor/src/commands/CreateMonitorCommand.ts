@@ -66,11 +66,10 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * };
  * const command = new CreateMonitorCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateMonitorOutput
- *   Arn: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
- * };
+ * // { // CreateMonitorOutput
+ * //   Arn: "STRING_VALUE", // required
+ * //   Status: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *

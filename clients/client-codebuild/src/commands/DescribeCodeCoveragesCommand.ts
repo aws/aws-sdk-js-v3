@@ -50,24 +50,23 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * };
  * const command = new DescribeCodeCoveragesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeCodeCoveragesOutput
- *   nextToken: "STRING_VALUE",
- *   codeCoverages: [ // CodeCoverages
- *     { // CodeCoverage
- *       id: "STRING_VALUE",
- *       reportARN: "STRING_VALUE",
- *       filePath: "STRING_VALUE",
- *       lineCoveragePercentage: Number("double"),
- *       linesCovered: Number("int"),
- *       linesMissed: Number("int"),
- *       branchCoveragePercentage: Number("double"),
- *       branchesCovered: Number("int"),
- *       branchesMissed: Number("int"),
- *       expired: new Date("TIMESTAMP"),
- *     },
- *   ],
- * };
+ * // { // DescribeCodeCoveragesOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   codeCoverages: [ // CodeCoverages
+ * //     { // CodeCoverage
+ * //       id: "STRING_VALUE",
+ * //       reportARN: "STRING_VALUE",
+ * //       filePath: "STRING_VALUE",
+ * //       lineCoveragePercentage: Number("double"),
+ * //       linesCovered: Number("int"),
+ * //       linesMissed: Number("int"),
+ * //       branchCoveragePercentage: Number("double"),
+ * //       branchesCovered: Number("int"),
+ * //       branchesMissed: Number("int"),
+ * //       expired: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *

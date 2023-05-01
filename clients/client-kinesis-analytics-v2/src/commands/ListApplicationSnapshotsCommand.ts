@@ -50,18 +50,17 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * };
  * const command = new ListApplicationSnapshotsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListApplicationSnapshotsResponse
- *   SnapshotSummaries: [ // SnapshotSummaries
- *     { // SnapshotDetails
- *       SnapshotName: "STRING_VALUE", // required
- *       SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
- *       ApplicationVersionId: Number("long"), // required
- *       SnapshotCreationTimestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListApplicationSnapshotsResponse
+ * //   SnapshotSummaries: [ // SnapshotSummaries
+ * //     { // SnapshotDetails
+ * //       SnapshotName: "STRING_VALUE", // required
+ * //       SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       SnapshotCreationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

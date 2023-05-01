@@ -64,20 +64,19 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * };
  * const command = new SearchAssociatedTranscriptsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // SearchAssociatedTranscriptsResponse
- *   botId: "STRING_VALUE",
- *   botVersion: "STRING_VALUE",
- *   localeId: "STRING_VALUE",
- *   botRecommendationId: "STRING_VALUE",
- *   nextIndex: Number("int"),
- *   associatedTranscripts: [ // AssociatedTranscriptList
- *     { // AssociatedTranscript
- *       transcript: "STRING_VALUE",
- *     },
- *   ],
- *   totalResults: Number("int"),
- * };
+ * // { // SearchAssociatedTranscriptsResponse
+ * //   botId: "STRING_VALUE",
+ * //   botVersion: "STRING_VALUE",
+ * //   localeId: "STRING_VALUE",
+ * //   botRecommendationId: "STRING_VALUE",
+ * //   nextIndex: Number("int"),
+ * //   associatedTranscripts: [ // AssociatedTranscriptList
+ * //     { // AssociatedTranscript
+ * //       transcript: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   totalResults: Number("int"),
+ * // };
  *
  * ```
  *

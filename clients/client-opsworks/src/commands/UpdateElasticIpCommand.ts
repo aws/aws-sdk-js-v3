@@ -50,8 +50,7 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  * };
  * const command = new UpdateElasticIpCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *

@@ -107,10 +107,9 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
- * /**
- * { // CreateDatasetResponse
- *   datasetArn: "STRING_VALUE",
- * };
+ * // { // CreateDatasetResponse
+ * //   datasetArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *

@@ -44,11 +44,10 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * };
  * const command = new StopEventsDetectionJobCommand(input);
  * const response = await client.send(command);
- * /**
- * { // StopEventsDetectionJobResponse
- *   JobId: "STRING_VALUE",
- *   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
- * };
+ * // { // StopEventsDetectionJobResponse
+ * //   JobId: "STRING_VALUE",
+ * //   JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * // };
  *
  * ```
  *

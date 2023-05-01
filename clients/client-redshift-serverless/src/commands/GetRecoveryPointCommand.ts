@@ -48,17 +48,16 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * };
  * const command = new GetRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetRecoveryPointResponse
- *   recoveryPoint: { // RecoveryPoint
- *     recoveryPointId: "STRING_VALUE",
- *     recoveryPointCreateTime: new Date("TIMESTAMP"),
- *     totalSizeInMegaBytes: Number("double"),
- *     namespaceName: "STRING_VALUE",
- *     workgroupName: "STRING_VALUE",
- *     namespaceArn: "STRING_VALUE",
- *   },
- * };
+ * // { // GetRecoveryPointResponse
+ * //   recoveryPoint: { // RecoveryPoint
+ * //     recoveryPointId: "STRING_VALUE",
+ * //     recoveryPointCreateTime: new Date("TIMESTAMP"),
+ * //     totalSizeInMegaBytes: Number("double"),
+ * //     namespaceName: "STRING_VALUE",
+ * //     workgroupName: "STRING_VALUE",
+ * //     namespaceArn: "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *

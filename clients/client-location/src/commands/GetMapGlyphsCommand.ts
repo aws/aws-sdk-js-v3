@@ -47,12 +47,11 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * };
  * const command = new GetMapGlyphsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // GetMapGlyphsResponse
- *   Blob: "BLOB_VALUE",
- *   ContentType: "STRING_VALUE",
- *   CacheControl: "STRING_VALUE",
- * };
+ * // { // GetMapGlyphsResponse
+ * //   Blob: "BLOB_VALUE",
+ * //   ContentType: "STRING_VALUE",
+ * //   CacheControl: "STRING_VALUE",
+ * // };
  *
  * ```
  *

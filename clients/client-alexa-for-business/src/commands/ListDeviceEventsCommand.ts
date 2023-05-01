@@ -48,17 +48,16 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * };
  * const command = new ListDeviceEventsCommand(input);
  * const response = await client.send(command);
- * /**
- * { // ListDeviceEventsResponse
- *   DeviceEvents: [ // DeviceEventList
- *     { // DeviceEvent
- *       Type: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *       Timestamp: new Date("TIMESTAMP"),
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // ListDeviceEventsResponse
+ * //   DeviceEvents: [ // DeviceEventList
+ * //     { // DeviceEvent
+ * //       Type: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

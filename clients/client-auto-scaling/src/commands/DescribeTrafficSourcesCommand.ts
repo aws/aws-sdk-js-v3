@@ -51,18 +51,17 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * };
  * const command = new DescribeTrafficSourcesCommand(input);
  * const response = await client.send(command);
- * /**
- * { // DescribeTrafficSourcesResponse
- *   TrafficSources: [ // TrafficSourceStates
- *     { // TrafficSourceState
- *       TrafficSource: "STRING_VALUE",
- *       State: "STRING_VALUE",
- *       Identifier: "STRING_VALUE",
- *       Type: "STRING_VALUE",
- *     },
- *   ],
- *   NextToken: "STRING_VALUE",
- * };
+ * // { // DescribeTrafficSourcesResponse
+ * //   TrafficSources: [ // TrafficSourceStates
+ * //     { // TrafficSourceState
+ * //       TrafficSource: "STRING_VALUE",
+ * //       State: "STRING_VALUE",
+ * //       Identifier: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *

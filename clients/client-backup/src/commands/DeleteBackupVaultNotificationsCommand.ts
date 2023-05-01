@@ -47,8 +47,7 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * };
  * const command = new DeleteBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
- * /**
- * {};
+ * // {};
  *
  * ```
  *
