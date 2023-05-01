@@ -24,7 +24,6 @@ describe("middleware-flexible-checksums", () => {
           "amz-sdk-invocation-id": /./,
           "amz-sdk-request": /./,
           "x-amz-date": /./,
-          "x-amz-security-token": /./,
           "x-amz-content-sha256": "88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936f031589",
           authorization: /./,
         },
@@ -63,7 +62,6 @@ describe("middleware-flexible-checksums", () => {
           "amz-sdk-invocation-id": /./,
           "amz-sdk-request": /./,
           "x-amz-date": /./,
-          "x-amz-security-token": /./,
           authorization: /./,
           // this is here even if algo is SHA1
           "x-amz-content-sha256": "88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936f031589",
